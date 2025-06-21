@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="gl_documents_TF_gl_documents_TF_CreateInsertPageDef" Package="gl_documents" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlDocumentsV" RangeSize="25" DataControl="AalmGlDataControl" id="GlDocumentsVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlDocumentsVIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

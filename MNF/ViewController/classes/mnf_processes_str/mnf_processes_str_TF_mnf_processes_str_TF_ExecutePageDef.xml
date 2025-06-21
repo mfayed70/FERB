@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="mnf_processes_str_TF_mnf_processes_str_TF_ExecutePageDef" Package="mnf_processes_str"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="MnfProcessesV" RangeSize="25" DataControl="AalmMnfDataControl" id="MnfProcessesVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="MnfProcessesVIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

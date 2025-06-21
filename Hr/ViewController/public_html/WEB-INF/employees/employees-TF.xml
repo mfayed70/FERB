@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="employees-TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>Execute</default-activity>
+    <managed-bean id="__6">
+      <managed-bean-name>HrBean</managed-bean-name>
+      <managed-bean-class>com.aalm.hr.view.beans.HrBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="employees">
+      <page>/WEB-INF/employees/employees.jsff</page>
+    </view>
+    <task-flow-call id="crud-employee-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/employees/crud-employee-TF.xml</document>
+        <id>crud-employee-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__3">
+        <name>pEmpId</name>
+        <value>#{pageFlowScope.pEmpId}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="empsContractsHolder">
+      <task-flow-reference>
+        <document>/WEB-INF/employyes_contracts/empsContractsHolder-TF.xml</document>
+        <id>empsContractsHolder-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__8">
+        <name>pEmpId</name>
+        <value>#{pageFlowScope.pEmpId}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>Execute</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>employees</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>employees</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>toCrud</from-outcome>
+        <to-activity-id>crud-employee-TF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>toContracts</from-outcome>
+        <to-activity-id>empsContractsHolder</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

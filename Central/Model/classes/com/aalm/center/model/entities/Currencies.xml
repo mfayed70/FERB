@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Currencies"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="CURRENCIES"
+  AliasName="Currencies"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="CurrCode"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="curr_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="CURRENCIES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.Currencies.CurrCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CurrSymbol"
+    Precision="20"
+    ColumnName="curr_symbol"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="CURRENCIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.Currencies.CurrSymbol_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CurrName"
+    Precision="45"
+    ColumnName="curr_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="CURRENCIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.Currencies.CurrName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="DefaultCurr"
+    Precision="2"
+    ColumnName="default_curr"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="CURRENCIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.Currencies.DefaultCurr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="CurrencyTransform"
+    Association="com.aalm.center.model.entities.fk_CURRENCY_TRANSFORM_CURRENCIES1"
+    AssociationEnd="com.aalm.center.model.entities.fk_CURRENCY_TRANSFORM_CURRENCIES1.CurrencyTransform"
+    AssociationOtherEnd="com.aalm.center.model.entities.fk_CURRENCY_TRANSFORM_CURRENCIES1.Currencies"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.center.model.AalmCenteralMBndl"/>
+  </ResourceBundle>
+</Entity>

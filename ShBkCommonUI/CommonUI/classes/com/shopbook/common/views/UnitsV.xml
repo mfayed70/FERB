@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UnitsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="Units"
+    Entity="com.shopbook.common.entities.Units"/>
+  <ViewAttribute
+    Name="UnitId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UnitId"
+    EntityUsage="Units"
+    AliasName="unit_id"/>
+  <ViewAttribute
+    Name="UnitName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UnitName"
+    EntityUsage="Units"
+    AliasName="unit_name"/>
+  <ViewAttribute
+    Name="RegisterDt"
+    PrecisionRule="true"
+    EntityAttrName="RegisterDt"
+    EntityUsage="Units"
+    AliasName="register_dt"/>
+  <ViewAttribute
+    Name="Active"
+    PrecisionRule="true"
+    EntityAttrName="Active"
+    EntityUsage="Units"
+    AliasName="active"/>
+</ViewObject>

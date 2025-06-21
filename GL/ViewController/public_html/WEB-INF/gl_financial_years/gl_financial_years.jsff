@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.gl.view.AalmGlBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.FinancialPeriods}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <af:table value="#{bindings.GlFinancialYearsV.collectionModel}" var="row"
+              rows="#{bindings.GlFinancialYearsV.rangeSize}"
+              emptyText="#{bindings.GlFinancialYearsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.GlFinancialYearsV.collectionModel.selectedRow}"
+              selectionListener="#{bindings.GlFinancialYearsV.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.GlFinancialYearsV.rangeSize}" id="t1">
+      <af:column headerText="#{bindings.GlFinancialYearsV.hints.FinYearCode.label}" id="c1" width="120">
+        <af:inputText value="#{row.bindings.FinYearCode.inputValue}"
+                      label="#{bindings.GlFinancialYearsV.hints.FinYearCode.label}"
+                      required="#{bindings.GlFinancialYearsV.hints.FinYearCode.mandatory}"
+                      columns="#{bindings.GlFinancialYearsV.hints.FinYearCode.displayWidth}"
+                      maximumLength="#{bindings.GlFinancialYearsV.hints.FinYearCode.precision}"
+                      shortDesc="#{bindings.GlFinancialYearsV.hints.FinYearCode.tooltip}" id="it1" disabled="true">
+          <f:validator binding="#{row.bindings.FinYearCode.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column headerText="#{bindings.GlFinancialYearsV.hints.PeriodNo.label}" id="c2" width="120">
+        <af:inputText value="#{row.bindings.PeriodNo.inputValue}"
+                      label="#{bindings.GlFinancialYearsV.hints.PeriodNo.label}"
+                      required="#{bindings.GlFinancialYearsV.hints.PeriodNo.mandatory}"
+                      columns="#{bindings.GlFinancialYearsV.hints.PeriodNo.displayWidth}"
+                      maximumLength="#{bindings.GlFinancialYearsV.hints.PeriodNo.precision}"
+                      shortDesc="#{bindings.GlFinancialYearsV.hints.PeriodNo.tooltip}" id="it2" disabled="true">
+          <f:validator binding="#{row.bindings.PeriodNo.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.GlFinancialYearsV.hints.PeriodNo.format}"/>
+        </af:inputText>
+      </af:column>
+      <af:column headerText="#{bindings.GlFinancialYearsV.hints.StartDt.label}" id="c3" width="170">
+        <af:inputDate value="#{row.bindings.StartDt.inputValue}"
+                      label="#{bindings.GlFinancialYearsV.hints.StartDt.label}"
+                      required="#{bindings.GlFinancialYearsV.hints.StartDt.mandatory}"
+                      columns="#{bindings.GlFinancialYearsV.hints.StartDt.displayWidth}"
+                      shortDesc="#{bindings.GlFinancialYearsV.hints.StartDt.tooltip}" id="id1"
+                      contentStyle="width:130px;" disabled="true">
+          <f:validator binding="#{row.bindings.StartDt.validator}"/>
+          <af:convertDateTime pattern="#{bindings.GlFinancialYearsV.hints.StartDt.format}"/>
+        </af:inputDate>
+      </af:column>
+      <af:column headerText="#{bindings.GlFinancialYearsV.hints.EndDt.label}" id="c4" width="170">
+        <af:inputDate value="#{row.bindings.EndDt.inputValue}" label="#{bindings.GlFinancialYearsV.hints.EndDt.label}"
+                      required="#{bindings.GlFinancialYearsV.hints.EndDt.mandatory}"
+                      columns="#{bindings.GlFinancialYearsV.hints.EndDt.displayWidth}"
+                      shortDesc="#{bindings.GlFinancialYearsV.hints.EndDt.tooltip}" id="id2"
+                      contentStyle="width:130px;" disabled="true">
+          <f:validator binding="#{row.bindings.EndDt.validator}"/>
+          <af:convertDateTime pattern="#{bindings.GlFinancialYearsV.hints.EndDt.format}"/>
+        </af:inputDate>
+      </af:column>
+      <af:column headerText="#{bindings.GlFinancialYearsV.hints.StatusFlag.label}" id="c5" align="center" width="130">
+        <af:selectBooleanCheckbox value="#{row.bindings.StatusFlag.inputValue}" label="#{row.bindings.StatusFlag.label}"
+                                  shortDesc="#{bindings.GlFinancialYearsV.hints.StatusFlag.tooltip}" id="sbc1"
+                                  disabled="true"/>
+      </af:column>
+    </af:table>
+    <f:facet name="info"/>
+  </af:panelHeader>
+</ui:composition>

@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="AalmMnfBndl" value="#{adfBundle['com.aalm.mnf.view.AalmMnfBndl']}"/>
+  <af:panelHeader text="#{AalmMnfBndl.MANUFACTURING_PROCESSES_BASIC_DATAS}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:button actionListener="#{bindings.Commit.execute}" text="#{AalmMnfBndl.Save}"
+                 id="b1" styleClass="but" icon="#{resource['images:SaveF.png']}"
+                 hoverIcon="#{resource['images:SaveO.png']}"/>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="#{AalmMnfBndl.cancel}"
+                 immediate="true" id="b2" styleClass="but" icon="#{resource['images:cancelF.png']}"
+                 hoverIcon="#{resource['images:cancelO.png']}">
+        <af:resetActionListener/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend"/>
+    <af:panelSplitter id="ps1" splitterPosition="400" inlineStyle="margin-top:20px;" orientation="vertical">
+      <f:facet name="first">
+        <af:panelSplitter id="ps2" splitterPosition="850" inlineStyle="margin-bottom:20px;" disabled="true">
+          <f:facet name="first">
+            <af:panelHeader text="#{AalmMnfBndl.MANUFACTURING_PROCESSES}" id="ph2">
+              <f:facet name="context"/>
+              <f:facet name="menuBar"/>
+              <af:table value="#{bindings.MnfProcessesV.collectionModel}" var="row"
+                        rows="#{bindings.MnfProcessesV.rangeSize}"
+                        emptyText="#{bindings.MnfProcessesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        rowBandingInterval="0" selectedRowKeys="#{bindings.MnfProcessesV.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.MnfProcessesV.collectionModel.makeCurrent}" rowSelection="single"
+                        fetchSize="#{bindings.MnfProcessesV.rangeSize}"
+                        filterModel="#{bindings.MnfProcessesVQuery.queryDescriptor}"
+                        queryListener="#{bindings.MnfProcessesVQuery.processQuery}" filterVisible="true" varStatus="vs"
+                        id="t1" partialTriggers="::b3" inlineStyle="margin-top:20px;">
+                <af:column sortProperty="#{bindings.MnfProcessesV.hints.MnfPrcsId.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.MnfProcessesV.hints.MnfPrcsId.label}" id="c1">
+                  <af:inputText value="#{row.bindings.MnfPrcsId.inputValue}"
+                                label="#{bindings.MnfProcessesV.hints.MnfPrcsId.label}"
+                                required="#{bindings.MnfProcessesV.hints.MnfPrcsId.mandatory}"
+                                columns="#{bindings.MnfProcessesV.hints.MnfPrcsId.displayWidth}"
+                                maximumLength="#{bindings.MnfProcessesV.hints.MnfPrcsId.precision}"
+                                shortDesc="#{bindings.MnfProcessesV.hints.MnfPrcsId.tooltip}" id="it1">
+                    <f:validator binding="#{row.bindings.MnfPrcsId.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.MnfProcessesV.hints.MnfPrcsName.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.MnfProcessesV.hints.MnfPrcsName.label}" id="c2"
+                           width="400">
+                  <af:inputText value="#{row.bindings.MnfPrcsName.inputValue}"
+                                label="#{bindings.MnfProcessesV.hints.MnfPrcsName.label}"
+                                required="#{bindings.MnfProcessesV.hints.MnfPrcsName.mandatory}"
+                                columns="#{bindings.MnfProcessesV.hints.MnfPrcsName.displayWidth}"
+                                maximumLength="#{bindings.MnfProcessesV.hints.MnfPrcsName.precision}"
+                                shortDesc="#{bindings.MnfProcessesV.hints.MnfPrcsName.tooltip}" id="it2">
+                    <f:validator binding="#{row.bindings.MnfPrcsName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.MnfProcessesV.hints.HasAction.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.MnfProcessesV.hints.HasAction.label}" id="c4"
+                           width="80">
+                  <af:selectOneChoice value="#{row.bindings.HasAction.inputValue}"
+                                      label="#{row.bindings.HasAction.label}"
+                                      required="#{bindings.MnfProcessesV.hints.HasAction.mandatory}"
+                                      shortDesc="#{bindings.MnfProcessesV.hints.HasAction.tooltip}" id="soc7">
+                    <f:selectItems value="#{row.bindings.HasAction.items}" id="si7"/>
+                    <f:validator binding="#{row.bindings.HasAction.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.MnfProcessesV.hints.Active.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.MnfProcessesV.hints.Active.label}" id="c5" width="75">
+                  <af:selectOneChoice value="#{row.bindings.Active.inputValue}" label="#{row.bindings.Active.label}"
+                                      required="#{bindings.MnfProcessesV.hints.Active.mandatory}"
+                                      shortDesc="#{bindings.MnfProcessesV.hints.Active.tooltip}" id="soc8">
+                    <f:selectItems value="#{row.bindings.Active.items}" id="si8"/>
+                    <f:validator binding="#{row.bindings.Active.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.MnfProcessesV.hints.IsComplex.label}" id="c3" width="120">
+                  <af:selectOneChoice value="#{row.bindings.IsComplex.inputValue}"
+                                      label="#{row.bindings.IsComplex.label}"
+                                      required="#{bindings.MnfProcessesV.hints.IsComplex.mandatory}"
+                                      shortDesc="#{bindings.MnfProcessesV.hints.IsComplex.tooltip}" id="soc9">
+                    <f:selectItems value="#{row.bindings.IsComplex.items}" id="si9"/>
+                    <f:validator binding="#{row.bindings.IsComplex.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+              </af:table>
+              <f:facet name="toolbar">
+                <af:button actionListener="#{bindings.CreateInsert.execute}" text="#{AalmMnfBndl.New}"
+                           disabled="#{!bindings.CreateInsert.enabled}" id="b3" styleClass="but"
+                           icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+              </f:facet>
+              <f:facet name="legend">
+                <af:spacer width="10" height="10" id="s2"/>
+              </f:facet>
+              <f:facet name="info">
+                <af:spacer width="10" height="10" id="s1"/>
+              </f:facet>
+            </af:panelHeader>
+          </f:facet>
+          <f:facet name="second">
+            <af:panelHeader text="#{AalmMnfBndl.OutputProducts}" id="ph3">
+              <f:facet name="context"/>
+              <f:facet name="menuBar"/>
+              <af:table value="#{bindings.MnfProcessOutputItemsV.collectionModel}" var="row"
+                        rows="#{bindings.MnfProcessOutputItemsV.rangeSize}"
+                        emptyText="#{bindings.MnfProcessOutputItemsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.MnfProcessOutputItemsV.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.MnfProcessOutputItemsV.collectionModel.makeCurrent}"
+                        rowSelection="single" fetchSize="#{bindings.MnfProcessOutputItemsV.rangeSize}"
+                        filterModel="#{bindings.MnfProcessOutputItemsVQuery.queryDescriptor}"
+                        queryListener="#{bindings.MnfProcessOutputItemsVQuery.processQuery}" filterVisible="true"
+                        varStatus="vs" id="t3" partialTriggers="::b4" inlineStyle="margin-top:20px;">
+                <af:column sortProperty="#{bindings.MnfProcessOutputItemsV.hints.Seq.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.MnfProcessOutputItemsV.hints.Seq.label}" id="c10"
+                           width="40">
+                  <af:inputText value="#{row.bindings.Seq.inputValue}"
+                                label="#{bindings.MnfProcessOutputItemsV.hints.Seq.label}"
+                                required="#{bindings.MnfProcessOutputItemsV.hints.Seq.mandatory}"
+                                columns="#{bindings.MnfProcessOutputItemsV.hints.Seq.displayWidth}"
+                                maximumLength="#{bindings.MnfProcessOutputItemsV.hints.Seq.precision}"
+                                shortDesc="#{bindings.MnfProcessOutputItemsV.hints.Seq.tooltip}" id="it5">
+                    <f:validator binding="#{row.bindings.Seq.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MnfProcessOutputItemsV.hints.Seq.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.MnfProcessOutputItemsV.hints.ItemCode.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.MnfProcessOutputItemsV.hints.ItemCode.label}"
+                           id="c11" width="400">
+                  <af:selectOneChoice value="#{row.bindings.ItemCode.inputValue}" label="#{row.bindings.ItemCode.label}"
+                                      required="#{bindings.MnfProcessOutputItemsV.hints.ItemCode.mandatory}"
+                                      shortDesc="#{bindings.MnfProcessOutputItemsV.hints.ItemCode.tooltip}" id="soc3">
+                    <f:selectItems value="#{row.bindings.ItemCode.items}" id="si3"/>
+                    <f:validator binding="#{row.bindings.ItemCode.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.MnfProcessOutputItemsV.hints.UnitId.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.MnfProcessOutputItemsV.hints.UnitId.label}" id="c12"
+                           width="200">
+                  <af:selectOneChoice value="#{row.bindings.UnitId.inputValue}" label="#{row.bindings.UnitId.label}"
+                                      required="#{bindings.MnfProcessOutputItemsV.hints.UnitId.mandatory}"
+                                      shortDesc="#{bindings.MnfProcessOutputItemsV.hints.UnitId.tooltip}" id="soc4">
+                    <f:selectItems value="#{row.bindings.UnitId.items}" id="si4"/>
+                    <f:validator binding="#{row.bindings.UnitId.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.MnfProcessOutputItemsV.hints.Qty.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.MnfProcessOutputItemsV.hints.Qty.label}" id="c13"
+                           width="70">
+                  <af:inputText value="#{row.bindings.Qty.inputValue}"
+                                label="#{bindings.MnfProcessOutputItemsV.hints.Qty.label}"
+                                required="#{bindings.MnfProcessOutputItemsV.hints.Qty.mandatory}"
+                                columns="#{bindings.MnfProcessOutputItemsV.hints.Qty.displayWidth}"
+                                maximumLength="#{bindings.MnfProcessOutputItemsV.hints.Qty.precision}"
+                                shortDesc="#{bindings.MnfProcessOutputItemsV.hints.Qty.tooltip}" id="it6">
+                    <f:validator binding="#{row.bindings.Qty.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MnfProcessOutputItemsV.hints.Qty.format}"/>
+                  </af:inputText>
+                </af:column>
+              </af:table>
+              <f:facet name="toolbar">
+                <af:button actionListener="#{bindings.CreateInsert1.execute}" text="#{AalmMnfBndl.New}"
+                           disabled="#{!bindings.CreateInsert1.enabled}" id="b4" styleClass="but"
+                           icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+              </f:facet>
+              <f:facet name="legend"/>
+              <f:facet name="info"/>
+            </af:panelHeader>
+          </f:facet>
+        </af:panelSplitter>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelSplitter id="ps3" splitterPosition="700">
+          <f:facet name="first">
+            <af:panelHeader text="#{AalmMnfBndl.NeededMaterials}" id="ph4">
+              <f:facet name="context"/>
+              <f:facet name="menuBar"/>
+              <f:facet name="toolbar">
+                <af:button actionListener="#{bindings.CreateInsert2.execute}" text="#{AalmMnfBndl.New}"
+                           disabled="#{!bindings.CreateInsert2.enabled}" id="b5" styleClass="but"
+                           hoverIcon="#{resource['images:NewO.png']}" icon="#{resource['images:NewF.png']}"/>
+              </f:facet>
+              <f:facet name="legend"/>
+              <f:facet name="info"/>
+              <af:table value="#{bindings.MnfProcessInputItemsV.collectionModel}" var="row"
+                        rows="#{bindings.MnfProcessInputItemsV.rangeSize}"
+                        emptyText="#{bindings.MnfProcessInputItemsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.MnfProcessInputItemsV.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.MnfProcessInputItemsV.collectionModel.makeCurrent}"
+                        rowSelection="single" fetchSize="#{bindings.MnfProcessInputItemsV.rangeSize}"
+                        filterModel="#{bindings.MnfProcessInputItemsVQuery.queryDescriptor}"
+                        queryListener="#{bindings.MnfProcessInputItemsVQuery.processQuery}" filterVisible="true"
+                        varStatus="vs" id="t4" partialTriggers="::b5" inlineStyle="margin-top:10px;">
+                <af:column sortProperty="#{bindings.MnfProcessInputItemsV.hints.Seq.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.MnfProcessInputItemsV.hints.Seq.label}" id="c14"
+                           width="40">
+                  <af:inputText value="#{row.bindings.Seq.inputValue}"
+                                label="#{bindings.MnfProcessInputItemsV.hints.Seq.label}"
+                                required="#{bindings.MnfProcessInputItemsV.hints.Seq.mandatory}"
+                                columns="#{bindings.MnfProcessInputItemsV.hints.Seq.displayWidth}"
+                                maximumLength="#{bindings.MnfProcessInputItemsV.hints.Seq.precision}"
+                                shortDesc="#{bindings.MnfProcessInputItemsV.hints.Seq.tooltip}" id="it7">
+                    <f:validator binding="#{row.bindings.Seq.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MnfProcessInputItemsV.hints.Seq.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.MnfProcessInputItemsV.hints.ItemCode.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.MnfProcessInputItemsV.hints.ItemCode.label}" id="c15"
+                           width="400">
+                  <af:selectOneChoice value="#{row.bindings.ItemCode.inputValue}" label="#{row.bindings.ItemCode.label}"
+                                      required="#{bindings.MnfProcessInputItemsV.hints.ItemCode.mandatory}"
+                                      shortDesc="#{bindings.MnfProcessInputItemsV.hints.ItemCode.tooltip}" id="soc5">
+                    <f:selectItems value="#{row.bindings.ItemCode.items}" id="si5"/>
+                    <f:validator binding="#{row.bindings.ItemCode.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.MnfProcessInputItemsV.hints.UnitId.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.MnfProcessInputItemsV.hints.UnitId.label}" id="c16"
+                           width="200">
+                  <af:selectOneChoice value="#{row.bindings.UnitId.inputValue}" label="#{row.bindings.UnitId.label}"
+                                      required="#{bindings.MnfProcessInputItemsV.hints.UnitId.mandatory}"
+                                      shortDesc="#{bindings.MnfProcessInputItemsV.hints.UnitId.tooltip}" id="soc6">
+                    <f:selectItems value="#{row.bindings.UnitId.items}" id="si6"/>
+                    <f:validator binding="#{row.bindings.UnitId.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.MnfProcessInputItemsV.hints.Qty.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.MnfProcessInputItemsV.hints.Qty.label}" id="c17"
+                           width="70">
+                  <af:inputText value="#{row.bindings.Qty.inputValue}"
+                                label="#{bindings.MnfProcessInputItemsV.hints.Qty.label}"
+                                required="#{bindings.MnfProcessInputItemsV.hints.Qty.mandatory}"
+                                columns="#{bindings.MnfProcessInputItemsV.hints.Qty.displayWidth}"
+                                maximumLength="#{bindings.MnfProcessInputItemsV.hints.Qty.precision}"
+                                shortDesc="#{bindings.MnfProcessInputItemsV.hints.Qty.tooltip}" id="it8">
+                    <f:validator binding="#{row.bindings.Qty.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MnfProcessInputItemsV.hints.Qty.format}"/>
+                  </af:inputText>
+                </af:column>
+              </af:table>
+            </af:panelHeader>
+          </f:facet>
+          <f:facet name="second">
+            <af:panelSplitter id="ps4" splitterPosition="400">
+              <f:facet name="first">
+                <af:panelHeader text="#{AalmMnfBndl.NeededHumanresources}" id="ph5">
+                  <f:facet name="context"/>
+                  <f:facet name="menuBar"/>
+                  <f:facet name="toolbar">
+                    <af:button actionListener="#{bindings.CreateInsert3.execute}" text="#{AalmMnfBndl.New}"
+                               disabled="#{!bindings.CreateInsert3.enabled}" id="b6" styleClass="but"
+                               icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+                  </f:facet>
+                  <f:facet name="legend"/>
+                  <af:table value="#{bindings.MnfProcessInputHrV.collectionModel}" var="row"
+                            rows="#{bindings.MnfProcessInputHrV.rangeSize}"
+                            emptyText="#{bindings.MnfProcessInputHrV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.MnfProcessInputHrV.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.MnfProcessInputHrV.collectionModel.makeCurrent}"
+                            rowSelection="single" fetchSize="#{bindings.MnfProcessInputHrV.rangeSize}"
+                            filterModel="#{bindings.MnfProcessInputHrVQuery.queryDescriptor}"
+                            queryListener="#{bindings.MnfProcessInputHrVQuery.processQuery}" filterVisible="true"
+                            varStatus="vs" id="t2" partialTriggers="::b6" inlineStyle="margin-top:10px;">
+                    <af:column sortProperty="#{bindings.MnfProcessInputHrV.hints.Seq.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.MnfProcessInputHrV.hints.Seq.label}" id="c6"
+                               width="40">
+                      <af:inputText value="#{row.bindings.Seq.inputValue}"
+                                    label="#{bindings.MnfProcessInputHrV.hints.Seq.label}"
+                                    required="#{bindings.MnfProcessInputHrV.hints.Seq.mandatory}"
+                                    columns="#{bindings.MnfProcessInputHrV.hints.Seq.displayWidth}"
+                                    maximumLength="#{bindings.MnfProcessInputHrV.hints.Seq.precision}"
+                                    shortDesc="#{bindings.MnfProcessInputHrV.hints.Seq.tooltip}" id="it3">
+                        <f:validator binding="#{row.bindings.Seq.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.MnfProcessInputHrV.hints.Seq.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.MnfProcessInputHrV.hints.JobId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.MnfProcessInputHrV.hints.JobId.label}" id="c7"
+                               width="300">
+                      <af:selectOneChoice value="#{row.bindings.JobId.inputValue}" label="#{row.bindings.JobId.label}"
+                                          required="#{bindings.MnfProcessInputHrV.hints.JobId.mandatory}"
+                                          shortDesc="#{bindings.MnfProcessInputHrV.hints.JobId.tooltip}" id="soc1">
+                        <f:selectItems value="#{row.bindings.JobId.items}" id="si1"/>
+                        <f:validator binding="#{row.bindings.JobId.validator}"/>
+                      </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.MnfProcessInputHrV.hints.TimeUnit.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.MnfProcessInputHrV.hints.TimeUnit.label}" id="c8"
+                               width="200">
+                      <af:selectOneChoice value="#{row.bindings.TimeUnit.inputValue}"
+                                          label="#{row.bindings.TimeUnit.label}"
+                                          required="#{bindings.MnfProcessInputHrV.hints.TimeUnit.mandatory}"
+                                          shortDesc="#{bindings.MnfProcessInputHrV.hints.TimeUnit.tooltip}" id="soc2">
+                        <f:selectItems value="#{row.bindings.TimeUnit.items}" id="si2"/>
+                        <f:validator binding="#{row.bindings.TimeUnit.validator}"/>
+                      </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.MnfProcessInputHrV.hints.Duration.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.MnfProcessInputHrV.hints.Duration.label}" id="c9">
+                      <af:inputText value="#{row.bindings.Duration.inputValue}"
+                                    label="#{bindings.MnfProcessInputHrV.hints.Duration.label}"
+                                    required="#{bindings.MnfProcessInputHrV.hints.Duration.mandatory}"
+                                    columns="#{bindings.MnfProcessInputHrV.hints.Duration.displayWidth}"
+                                    maximumLength="#{bindings.MnfProcessInputHrV.hints.Duration.precision}"
+                                    shortDesc="#{bindings.MnfProcessInputHrV.hints.Duration.tooltip}" id="it4">
+                        <f:validator binding="#{row.bindings.Duration.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.MnfProcessInputHrV.hints.Duration.format}"/>
+                      </af:inputText>
+                    </af:column>
+                  </af:table>
+                  <f:facet name="info"/>
+                </af:panelHeader>
+              </f:facet>
+              <f:facet name="second"/>
+            </af:panelSplitter>
+          </f:facet>
+        </af:panelSplitter>
+      </f:facet>
+    </af:panelSplitter>
+    <f:facet name="info"/>
+  </af:panelHeader>
+</ui:composition>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="verify-reset-pswrd-TF">
+    <default-activity>ExecuteWithParams</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>pOtp</name>
+      <value>#{pageFlowScope.pOtp}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__3">
+      <name>pStatus</name>
+      <value>#{pageFlowScope.pStatus}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__2">
+      <managed-bean-name>ErpAdminClass</managed-bean-name>
+      <managed-bean-class>com.aalm.master.view.beans.ErpSendEmailClass</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="reset-pswrd">
+      <page>/WEB-INF/reset-pswrd.jsf</page>
+    </view>
+    <router id="router1">
+      <case id="__12">
+        <expression>#{pageFlowScope.pStatus=='good'}</expression>
+        <outcome>good</outcome>
+      </case>
+      <default-outcome>bad</default-outcome>
+    </router>
+    <view id="login">
+      <page>/login.jsf</page>
+    </view>
+    <control-flow-rule id="__4">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>reset-pswrd</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>reset-pswrd</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>verify</from-outcome>
+        <to-activity-id>router1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>toLogin</from-outcome>
+        <to-activity-id>login</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>bad</from-outcome>
+        <to-activity-id>reset-pswrd</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>good</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core" locale="#{sessionScope.refreshLocale}">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.assets.view.AalmAssetsBndl']}"/>
+    <af:document title="#{viewcontrollerBundle.AssetsSpareParts}" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{viewcontrollerBundle.AssetsSpareParts}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar">
+                    <af:button text="#{viewcontrollerBundle.SAVE}" id="b2" action="toSave" styleClass="but"
+                               icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"
+                               actionListener="#{pageFlowScope.AssetsBean.saveAddSpareParts}"/>
+                </f:facet>
+                <f:facet name="toolbar">
+                    <af:button text="#{viewcontrollerBundle.CANCEL}" id="b1" styleClass="but" action="toCancel"
+                               icon="#{resource['images:cancelF.png']}" hoverIcon="#{resource['images:cancelO.png']}"/>
+                </f:facet>
+                <f:facet name="legend"/>
+                <af:table value="#{bindings.AssetsAllSparaPartsV.collectionModel}" var="row"
+                          rows="#{bindings.AssetsAllSparaPartsV.rangeSize}"
+                          emptyText="#{bindings.AssetsAllSparaPartsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.AssetsAllSparaPartsV.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.AssetsAllSparaPartsV.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.AssetsAllSparaPartsV.rangeSize}"
+                          filterModel="#{bindings.AssetsAllSparaPartsVQuery.queryDescriptor}"
+                          queryListener="#{bindings.AssetsAllSparaPartsVQuery.processQuery}" filterVisible="true"
+                          varStatus="vs" id="t1" scrollPolicy="loadMore">
+                    <af:column id="c5">
+                        <af:outputText value="#{row.index+1}" id="ot4"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AssetsAllSparaPartsV.hints.ItemCode.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AssetsAllSparaPartsV.hints.ItemCode.label}"
+                               id="c1" rendered="false">
+                        <af:outputText value="#{row.ItemCode}"
+                                       shortDesc="#{bindings.AssetsAllSparaPartsV.hints.ItemCode.tooltip}" id="ot1"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AssetsAllSparaPartsV.hints.ItemIndx.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AssetsAllSparaPartsV.hints.ItemIndx.label}"
+                               id="c2" width="200">
+                        <af:outputText value="#{row.ItemIndx}"
+                                       shortDesc="#{bindings.AssetsAllSparaPartsV.hints.ItemIndx.tooltip}" id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AssetsAllSparaPartsV.hints.ItemName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AssetsAllSparaPartsV.hints.ItemName.label}"
+                               id="c3" width="600">
+                        <af:outputText value="#{row.ItemName}"
+                                       shortDesc="#{bindings.AssetsAllSparaPartsV.hints.ItemName.tooltip}" id="ot3"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AssetsAllSparaPartsV.hints.Selected.name}" filterable="true"
+                               sortable="true" id="c4"
+                               align="center">
+                        <af:selectBooleanCheckbox value="#{row.bindings.Selected.inputValue}"
+                                                  label="#{row.bindings.Selected.label}"
+                                                  shortDesc="#{bindings.AssetsAllSparaPartsV.hints.Selected.tooltip}"
+                                                  id="sbc1" autoSubmit="true"/>
+                    </af:column>
+                </af:table>
+                <f:facet name="info"/>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemCategoryTypesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.center.model.views.ItemCategoryTypesV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="ItemTypesLOV1"
+    ViewObjectName="com.aalm.center.model.lovs.ItemTypesLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ItemTypeId"
+    ListVOName="ItemTypesLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ItemTypeId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ItemTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="TypeName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ItemCategoryTypes"
+    Entity="com.aalm.center.model.entities.ItemCategoryTypes"/>
+  <ViewAttribute
+    Name="CatId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CatId"
+    EntityUsage="ItemCategoryTypes"
+    AliasName="cat_id"/>
+  <ViewAttribute
+    Name="ItemTypeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ItemTypeId"
+    EntityUsage="ItemCategoryTypes"
+    AliasName="item_type_id"
+    LOVName="LOV_ItemTypeId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.center.model.AalmCenteralMBndl"/>
+  </ResourceBundle>
+</ViewObject>

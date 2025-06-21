@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="crud_gl_gen_acc_chartPageDef"
+                Package="gl_gen_acc_chart">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlGenAccChartCRUDV" RangeSize="25" DataControl="AalmGlDataControl"
+              id="GlGenAccChartCRUDVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="GlGenAccChartCRUDVIterator" id="AccCode">
+      <AttrNames>
+        <Item Value="AccCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlGenAccChartCRUDVIterator" id="AccNameA">
+      <AttrNames>
+        <Item Value="AccNameA"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlGenAccChartCRUDVIterator" id="AccNameE">
+      <AttrNames>
+        <Item Value="AccNameE"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="GlGenAccChartCRUDVIterator" StaticList="false" Uses="LOV_AccTypeId" id="AccTypeId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="GlGenAccChartCRUDVIterator" StaticList="false" Uses="LOV_PrntAccCode" id="PrntAccCode"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

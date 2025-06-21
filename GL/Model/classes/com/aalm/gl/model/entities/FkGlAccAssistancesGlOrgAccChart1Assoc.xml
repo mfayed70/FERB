@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkGlAccAssistancesGlOrgAccChart1Assoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="GlOrgAccChart"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.gl.model.entities.GlOrgAccChart"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="GlOrgAccChart"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccChart.AccCode"/>
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccChart.OrgCode"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="GlAccAssitances"
+    Cardinality="-1"
+    Owner="com.aalm.gl.model.entities.GlAccAssistances">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="GlAccAssitances"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlAccAssistances.AccCode"/>
+      <Item Value="com.aalm.gl.model.entities.GlAccAssistances.OrgCode"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

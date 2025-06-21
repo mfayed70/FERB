@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="selectItemviewPageDef"
+                Package="com.aalm.pm.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ItemsListRo" RangeSize="25" DataControl="AalmPmDataControl" id="ItemsListRoIterator"/>
+    <searchRegion Binds="ItemsListRoIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ItemsListRoQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ItemsListRoIterator" id="ItemsListRo">
+      <nodeDefinition DefName="com.aalm.pm.model.lov.ItemsListRoLOV" Name="ItemsListRo0">
+        <AttrNames>
+          <Item Value="Active"/>
+          <Item Value="CatId"/>
+          <Item Value="ItemCode"/>
+          <Item Value="ItemIndx"/>
+          <Item Value="ItemName"/>
+          <Item Value="OrgCode"/>
+          <Item Value="StrVar1"/>
+          <Item Value="StrVar10"/>
+          <Item Value="StrVar11"/>
+          <Item Value="StrVar12"/>
+          <Item Value="StrVar13"/>
+          <Item Value="StrVar14"/>
+          <Item Value="StrVar15"/>
+          <Item Value="StrVar16"/>
+          <Item Value="StrVar17"/>
+          <Item Value="StrVar18"/>
+          <Item Value="StrVar19"/>
+          <Item Value="StrVar2"/>
+          <Item Value="StrVar20"/>
+          <Item Value="StrVar3"/>
+          <Item Value="StrVar4"/>
+          <Item Value="StrVar5"/>
+          <Item Value="StrVar6"/>
+          <Item Value="StrVar7"/>
+          <Item Value="StrVar8"/>
+          <Item Value="StrVar9"/>
+          <Item Value="UnitId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ItemsListRoIterator" id="ItemCode">
+      <AttrNames>
+        <Item Value="ItemCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ItemsListRoIterator" id="ItemIndx">
+      <AttrNames>
+        <Item Value="ItemIndx"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ItemsListRoIterator" id="ItemName">
+      <AttrNames>
+        <Item Value="ItemName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

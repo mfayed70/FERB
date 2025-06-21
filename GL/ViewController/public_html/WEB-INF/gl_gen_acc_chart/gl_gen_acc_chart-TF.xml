@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="gl_gen_acc_chart-TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>gl_gen_acc_chart</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__7">
+      <name>currAccCode</name>
+      <value>#{pageFlowScope.currAccCode}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <managed-bean id="__6">
+      <managed-bean-name>GlBean</managed-bean-name>
+      <managed-bean-class>com.aalm.gl.view.beans.GlBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="gl_gen_acc_chart">
+      <page>/WEB-INF/gl_gen_acc_chart/gl_gen_acc_chart.jsff</page>
+    </view>
+    <task-flow-call id="crud-gl_gen_acc_chart-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/gl_gen_acc_chart/crud-gl_gen_acc_chart-TF.xml</document>
+        <id>crud-gl_gen_acc_chart-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__1">
+        <name>pPrntAccCode</name>
+        <value>#{pageFlowScope.pPrntAccCode}</value>
+      </input-parameter>
+      <input-parameter id="__2">
+        <name>pAccCode</name>
+        <value>#{pageFlowScope.pAccCode}</value>
+      </input-parameter>
+      <input-parameter id="__3">
+        <name>pAction</name>
+        <value>#{pageFlowScope.pAction}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__4">
+      <from-activity-id>gl_gen_acc_chart</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>toCrud</from-outcome>
+        <to-activity-id>crud-gl_gen_acc_chart-TF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

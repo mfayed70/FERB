@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="customers-CRUD-TF">
+    <default-activity>router1</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__9">
+      <name>pCustId</name>
+      <value>#{pageFlowScope.pCustId}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <router id="router1">
+      <case id="__10">
+        <expression>#{pageFlowScope.pCustId!=null}</expression>
+        <outcome>edit</outcome>
+      </case>
+      <default-outcome>new</default-outcome>
+    </router>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="customers-crud">
+      <page>/WEB-INF/SLS/customers/customers-crud.jsf</page>
+    </view>
+    <task-flow-return id="commit">
+      <outcome>
+        <name>commit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="rollback">
+      <outcome>
+        <name>rollback</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>customers-crud</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>customers-crud</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>new</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>customers-crud</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

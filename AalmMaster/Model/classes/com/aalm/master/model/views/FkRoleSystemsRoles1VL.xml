@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkRoleSystemsRoles1VL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.aalm.master.model.entities.FkRoleSystemsRoles1Assoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.master.model.views.FkRoleSystemsRoles1VL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="RoleMasterV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.master.model.views.RoleMasterV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="RoleMasterV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.views.RoleMasterV.RoleGroupId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="RolesV"
+    Cardinality="-1"
+    Owner="com.aalm.master.model.views.RolesV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="RolesV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.views.RolesV.RoleGroupId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.aalm.master.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

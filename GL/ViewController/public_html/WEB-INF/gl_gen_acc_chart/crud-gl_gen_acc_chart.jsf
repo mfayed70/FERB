@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core" locale="#{sessionScope.refreshLocale}">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.gl.view.AalmGlBndl']}"/>
+    <af:document id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{viewcontrollerBundle.ADD___EDIT_GL_ACCOUNT}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar">
+                    <af:button text="#{viewcontrollerBundle.SAVE}" id="b1" styleClass="but" action="toSave"
+                               useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="400" windowWidth="600"
+                               icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"/>
+                </f:facet>
+                <f:facet name="toolbar">
+                    <af:button text="#{viewcontrollerBundle.CANCEL}" id="b2" styleClass="but" immediate="true"
+                               action="toCancel" useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="400"
+                               windowWidth="600" icon="#{resource['images:cancelF.png']}"
+                               hoverIcon="#{resource['images:cancelO.png']}"/>
+                </f:facet>
+                <f:facet name="legend"/>
+                <af:panelFormLayout id="pfl1"
+                                    inlineStyle="padding:20px 0px 0px; border-color:Gray; border-style:solid; border-width:thin;">
+                    <af:inputText value="#{bindings.AccCode.inputValue}" label="#{bindings.AccCode.hints.label}"
+                                  required="#{bindings.AccCode.hints.mandatory}"
+                                  columns="#{bindings.AccCode.hints.displayWidth}"
+                                  maximumLength="#{bindings.AccCode.hints.precision}"
+                                  shortDesc="#{bindings.AccCode.hints.tooltip}" id="it1"
+                                  disabled="#{pageFlowScope.pAction=='E'}">
+                        <f:validator binding="#{bindings.AccCode.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.AccCode.format}" integerOnly="true"
+                                          maxIntegerDigits="9" type="number"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.AccNameA.inputValue}" label="#{bindings.AccNameA.hints.label}"
+                                  required="#{bindings.AccNameA.hints.mandatory}"
+                                  columns="#{bindings.AccNameA.hints.displayWidth}"
+                                  maximumLength="#{bindings.AccNameA.hints.precision}"
+                                  shortDesc="#{bindings.AccNameA.hints.tooltip}" id="it2" contentStyle="width:350px;">
+                        <f:validator binding="#{bindings.AccNameA.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.AccNameE.inputValue}" label="#{bindings.AccNameE.hints.label}"
+                                  required="#{bindings.AccNameE.hints.mandatory}"
+                                  columns="#{bindings.AccNameE.hints.displayWidth}"
+                                  maximumLength="#{bindings.AccNameE.hints.precision}"
+                                  shortDesc="#{bindings.AccNameE.hints.tooltip}" id="it3" contentStyle="width:350px;">
+                        <f:validator binding="#{bindings.AccNameE.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.AccTypeId.inputValue}" label="#{bindings.AccTypeId.label}"
+                                        required="#{bindings.AccTypeId.hints.mandatory}"
+                                        shortDesc="#{bindings.AccTypeId.hints.tooltip}" id="soc1">
+                        <f:selectItems value="#{bindings.AccTypeId.items}" id="si1"/>
+                        <f:validator binding="#{bindings.AccTypeId.validator}"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.PrntAccCode.inputValue}" label="#{bindings.PrntAccCode.label}"
+                                        required="#{bindings.PrntAccCode.hints.mandatory}"
+                                        shortDesc="#{bindings.PrntAccCode.hints.tooltip}" readOnly="true" id="soc2">
+                        <f:selectItems value="#{bindings.PrntAccCode.items}" id="si2"/>
+                        <f:validator binding="#{bindings.PrntAccCode.validator}"/>
+                    </af:selectOneChoice>
+                </af:panelFormLayout>
+                <f:facet name="info">
+                    <af:spacer width="10" height="20" id="s1"/>
+                </f:facet>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

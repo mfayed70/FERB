@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="crud_employeePageDef"
+                Package="employees">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesCRUDV" RangeSize="25" DataControl="AalmHrDataControl" id="EmployeesCRUDVIterator"/>
+    <iterator Binds="EmployeesV" RangeSize="25" DataControl="AalmHrDataControl" id="EmployeesVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EmployeesCRUDVIterator" id="EmpId">
+      <AttrNames>
+        <Item Value="EmpId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesCRUDVIterator" id="EmpName">
+      <AttrNames>
+        <Item Value="EmpName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="EmployeesCRUDVIterator" StaticList="false" Uses="LOV_MaritalStatus" id="MaritalStatus"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="EmployeesCRUDVIterator" StaticList="false" Uses="LOV_EmpCat" id="EmpCat" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="EmployeesCRUDVIterator" id="ContractNo">
+      <AttrNames>
+        <Item Value="ContractNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesCRUDVIterator" id="IdNo">
+      <AttrNames>
+        <Item Value="IdNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesCRUDVIterator" id="Salary">
+      <AttrNames>
+        <Item Value="Salary"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="EmployeesCRUDVIterator" StaticList="false" Uses="LOV_CurrCode" id="CurrCode"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="EmployeesVIterator" StaticList="false" Uses="LOV_JobId" id="JobId" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

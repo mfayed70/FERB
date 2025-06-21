@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">projects</property>
+      <property
+         name="page">/WEB-INF/projects/projects.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>projects&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">384.375</property>
+      <property
+         name="x">348.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="taskFlowId">projects-pricing_TF</property>
+      <property
+         name="activityId">projects-pricing_TF</property>
+      <property
+         name="documentReference">/WEB-INF/projects-pricing/projects-pricing_TF.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>projects-pricing_TF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">383.54688</property>
+      <property
+         name="x">674.8828</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">open_project</property>
+      <property
+         name="sdm:polyPoints">R50,389.0,384.39062,633.8828,383.5625,L50</property>
+   </ControlFlowCase>
+</SDM>

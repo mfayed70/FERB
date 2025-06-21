@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="gl_acc_assistancesPageDef"
+                Package="gl_acc_assistances">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlAccAssistancesV" RangeSize="25" DataControl="AalmGlDataControl" id="GlAccAssistancesVIterator"/>
+    <searchRegion Binds="GlAccAssistancesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="GlAccAssistancesVQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="GlAccAssistancesVIterator" id="GlAccAssistancesV">
+      <nodeDefinition DefName="com.aalm.gl.model.views.GlAccAssistancesV" Name="GlAccAssistancesV0">
+        <AttrNames>
+          <Item Value="AssCode"/>
+          <Item Value="AssName"/>
+          <Item Value="Active" Binds="Active"/>
+          <Item Value="AccCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="GlAccAssistancesVIterator" id="Active" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Active"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>

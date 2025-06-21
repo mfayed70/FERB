@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="items-TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>initiateCaptions</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <managed-bean id="__7">
+      <managed-bean-name>CentralBean</managed-bean-name>
+      <managed-bean-class>com.aalm.center.view.beans.CentralBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="items">
+      <page>/WEB-INF/items/items.jsff</page>
+    </view>
+    <task-flow-call id="ass-selected-items-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/items/ass-selected-items-TF.xml</document>
+        <id>ass-selected-items-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__5">
+        <name>pAssCode</name>
+        <value>#{pageFlowScope.pItemCode}</value>
+      </input-parameter>
+      <input-parameter id="__6">
+        <name>pItemCode</name>
+        <value>#{pageFlowScope.pItemCode}</value>
+      </input-parameter>
+      <input-parameter id="__8">
+        <name>pPrntAsmblies</name>
+        <value>#{pageFlowScope.pItemCode}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <method-call id="initiateCaptions">
+      <method>#{pageFlowScope.CentralBean.initiateCaptions}</method>
+      <outcome>
+        <fixed-outcome>success</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>Execute</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>items</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>items</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>selectAssComponents</from-outcome>
+        <to-activity-id>ass-selected-items-TF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>initiateCaptions</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>success</from-outcome>
+        <to-activity-id>Execute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

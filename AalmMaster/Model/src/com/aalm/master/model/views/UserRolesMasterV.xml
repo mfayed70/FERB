@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserRolesMasterV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="RoleMasterV1"
+    ViewObjectName="com.aalm.master.model.views.RoleMasterV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_RoleGroupId"
+    ListVOName="RoleMasterV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RoleGroupId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RoleGroupId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="EnRoleGroupName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="UserRolesMaster"
+    Entity="com.aalm.master.model.entities.UserRolesMaster"/>
+  <ViewAttribute
+    Name="UserId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="UserRolesMaster"
+    AliasName="user_id"/>
+  <ViewAttribute
+    Name="RoleGroupId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RoleGroupId"
+    EntityUsage="UserRolesMaster"
+    AliasName="role_group_id"
+    LOVName="LOV_RoleGroupId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.aalm.master.model.views.UserRolesMasterV.RoleGroupId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="UserRolesV"
+    ViewLink="com.aalm.master.model.views.FkUserRolesUserRolesMaster1VL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.aalm.master.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

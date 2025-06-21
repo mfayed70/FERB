@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkAssetTransDetAssetsBasicData1Link"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.aalm.assets.model.entities.FkAssetTransDetAssetsBasicData1Assoc">
+  <ViewLinkDefEnd
+    Name="AssetIdAssetTransDetV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.assets.model.views.AssetTransDetV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="AssetIdAssetTransDetV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.views.AssetTransDetV.TransDetId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="AssetTransDetV1"
+    Cardinality="-1"
+    Owner="com.aalm.assets.model.views.AssetTransDetV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="AssetTransDetV1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.views.AssetTransDetV.AssetId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

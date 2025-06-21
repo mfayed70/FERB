@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="gl_financial_yearsPageDef"
+                Package="gl_financial_years">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlFinancialYearsV" RangeSize="25" DataControl="AalmGlDataControl" id="GlFinancialYearsVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="GlFinancialYearsVIterator" id="GlFinancialYearsV">
+      <nodeDefinition DefName="com.aalm.gl.model.views.GlFinancialYearsV" Name="GlFinancialYearsV0">
+        <AttrNames>
+          <Item Value="FinYearCode"/>
+          <Item Value="PeriodNo"/>
+          <Item Value="StartDt"/>
+          <Item Value="EndDt"/>
+          <Item Value="StatusFlag" Binds="StatusFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="GlFinancialYearsVIterator" id="StatusFlag" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="StatusFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>

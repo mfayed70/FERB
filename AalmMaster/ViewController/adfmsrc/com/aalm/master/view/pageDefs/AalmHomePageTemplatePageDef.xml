@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="AalmHomePageTemplatePageDef"
+                Package="com.aalm.master.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="LanguageVIterator" Binds="LanguageV" DataControl="AalmMasterDataControl" RangeSize="25"/>
+    <iterator Binds="UserRolesV" RangeSize="10" DataControl="AalmMasterDataControl" id="UserRolesVIterator"/>
+    <iterator Binds="SystemParametersV" RangeSize="10" DataControl="AalmMasterDataControl"
+              id="SystemParametersVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="UserRolesVIterator" id="UserRolesV">
+      <nodeDefinition DefName="com.aalm.master.model.views.UserRolesV" Name="UserRolesV0">
+        <AttrNames>
+          <Item Value="SystemId"/>
+          <Item Value="ArSystemDesc"/>
+          <Item Value="ArSystemName"/>
+          <Item Value="EnSystemName"/>
+          <Item Value="EnSystemDesc"/>
+          <Item Value="RoleGroupId"/>
+          <Item Value="SystemId1"/>
+          <Item Value="UserId"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="UserPermissionsV"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="com.aalm.master.model.views.UserPermissionsV" Name="UserRolesV1">
+        <AttrNames>
+          <Item Value="FncnId"/>
+          <Item Value="ArFncnDesc"/>
+          <Item Value="ArFncnName"/>
+          <Item Value="EnFncnDesc"/>
+          <Item Value="EnFncnName"/>
+          <Item Value="FncnId1"/>
+          <Item Value="RoleGroupId"/>
+          <Item Value="SystemId"/>
+          <Item Value="SystemId1"/>
+          <Item Value="UserId"/>
+          <Item Value="TfLink"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Rollback" DataControl="AalmMasterDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <attributeValues IterBinding="SystemParametersVIterator" id="SmtpHost">
+      <AttrNames>
+        <Item Value="SmtpHost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SystemParametersVIterator" id="SmtpPort">
+      <AttrNames>
+        <Item Value="SmtpPort"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SystemParametersVIterator" id="AdminUsrname">
+      <AttrNames>
+        <Item Value="AdminUsrname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SystemParametersVIterator" id="AdminPswrd">
+      <AttrNames>
+        <Item Value="AdminPswrd"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

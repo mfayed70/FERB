@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AalmInventory"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.inventory.model.AalmInventory_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="StoresV"
+    ViewObjectName="com.aalm.inventory.model.views.StoresV"/>
+  <ViewUsage
+    Name="StoresCRUDV"
+    ViewObjectName="com.aalm.inventory.model.views.StoresV">
+    <ViewCriteriaUsage
+      Name="StoresVCriteria"
+      FullName="com.aalm.inventory.model.views.StoresV.StoresVCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="StoreItemCategoriesV"
+    ViewObjectName="com.aalm.inventory.model.views.StoreItemCategoriesV"/>
+  <ViewUsage
+    Name="StTransTypesV"
+    ViewObjectName="com.aalm.inventory.model.views.StTransTypesV"/>
+  <ViewUsage
+    Name="StTransTypesCRUDV"
+    ViewObjectName="com.aalm.inventory.model.views.StTransTypesV"/>
+  <ViewLinkUsage
+    Name="fk_STORE_ITEM_CATEGORIES_STORES1VL1"
+    ViewLinkObjectName="com.aalm.inventory.model.views.fk_STORE_ITEM_CATEGORIES_STORES1VL"
+    SrcViewUsageName="com.aalm.inventory.model.AalmInventory.StoresV"
+    DstViewUsageName="com.aalm.inventory.model.AalmInventory.StoreItemCategoriesV"
+    Reversed="false"/>
+</AppModule>

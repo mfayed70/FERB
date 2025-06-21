@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+  <skin>
+    <id>AalmMnfSkin.desktop</id>
+    <family>AalmMnfSkin</family>
+    <extends>skyros-v1.desktop</extends>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>skins/AalmMnfSkin/AalmMnfSkin.css</style-sheet-name>
+    <bundle-name>com.aalm.mnf.view.skinBundle</bundle-name>
+  </skin>
+</skins>

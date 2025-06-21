@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="StoreCategoriesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="StoreCategories"
+    Entity="com.aalm.center.model.entities.StoreCategories"/>
+  <ViewAttribute
+    Name="StCatId"
+    PrecisionRule="true"
+    EntityAttrName="StCatId"
+    EntityUsage="StoreCategories"
+    AliasName="st_cat_id"/>
+  <ViewAttribute
+    Name="StCatName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StCatName"
+    EntityUsage="StoreCategories"
+    AliasName="st_cat_name"/>
+  <ViewAttribute
+    Name="RegisterDt"
+    PrecisionRule="true"
+    EntityAttrName="RegisterDt"
+    EntityUsage="StoreCategories"
+    AliasName="register_dt"/>
+  <ViewAttribute
+    Name="Active"
+    PrecisionRule="true"
+    EntityAttrName="Active"
+    EntityUsage="StoreCategories"
+    AliasName="active"
+    DefaultValue="N"/>
+</ViewObject>

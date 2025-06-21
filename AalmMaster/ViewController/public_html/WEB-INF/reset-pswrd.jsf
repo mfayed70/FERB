@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.master.view.AalmMasterBndl']}"/>
+    <af:document title="reset-pswrd.jsf" id="d1">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/AalmLoginPageTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_mainFacet">
+                    <af:panelGroupLayout id="pgl2" layout="vertical" halign="center">
+                        <af:outputText value="status : #{pageFlowScope.pStatus}--#{bindings.VerifyResetPswrdUsersVIterator.estimatedRowCount}" id="ot9"
+                                       rendered="false"/>
+                        <af:panelGroupLayout id="pgl3" layout="horizontal" inlineStyle="padding:10px 0 0 0;">
+                            <af:outputText value="#{viewcontrollerBundle.CREATE_PASSWORD_FOR_YOUR_ACCOUNT}" id="ot1"
+                                           inlineStyle="font-size:30px;"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="pgl4" layout="vertical" inlineStyle="padding:5px 0 5px 0;">
+                            <af:outputText value="#{viewcontrollerBundle.PASSWORDS_ARE_MISMATCH__PLEASE_TRY_AGAIN_}" id="ot2"
+                                           inlineStyle="color:Red;"
+                                           visible="#{pageFlowScope.pStatus=='bad' &amp;&amp; bindings.VerifyResetPswrdUsersVIterator.estimatedRowCount>0}"
+                                           partialTriggers="b1"/>
+                            <af:outputText value="#{viewcontrollerBundle.PASSWORD_HAS_BEEN_SET_SUCCESSFULLY}" id="ot3"
+                                           inlineStyle="color:Gray;font-size:24px;"
+                                           visible="#{pageFlowScope.pStatus=='good' || bindings.VerifyResetPswrdUsersVIterator.estimatedRowCount==0}" partialTriggers="b1"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="pgl1" layout="horizontal"
+                                             inlineStyle="width:800px; background-color:white;padding:0 30px 0 30px;margin-bottom:-10px;">
+                            <af:panelGroupLayout id="pgl5" layout="vertical"
+                                                 inlineStyle="width:350px;padding:10px 10px 10px 10px;margin:20px 0 0 0;border-style:solid; border-width:thin; border-color:#e7e7e7;border-radius:30px 30px 30px 30px / 30px 30px 30px 30px ;">
+                                <af:panelFormLayout id="pfl1" labelAlignment="top"
+                                                    visible="#{pageFlowScope.pStatus=='bad' || bindings.Otp.inputValue!=null}">
+                                    <f:facet name="footer">
+                                        <af:panelGroupLayout id="pgl7" layout="horizontal" halign="end"
+                                                             inlineStyle="min-width:200px;padding:10px 0 10px 0;">
+                                            <af:button text="#{viewcontrollerBundle.SUBMIT}" id="b1" styleClass="but"
+                                                       action="verify" visible="#{pageFlowScope.pStatus!='good'}"
+                                                       actionListener="#{ErpAdminClass.varifyPswrd}"/>
+                                        </af:panelGroupLayout>
+                                    </f:facet>
+                                    <af:inputText label="#{viewcontrollerBundle.PASSWORD}" id="it1"
+                                                  contentStyle="min-width:320px;font-size:24px;"
+                                                  visible="#{pageFlowScope.pStatus!='good'}"
+                                                  binding="#{ErpAdminClass.pswrd}" inlineStyle="font-size:30px;"
+                                                  secret="true"/>
+                                    <af:inputText label="#{viewcontrollerBundle.RE_ENTER_PASSWORD}" id="it2"
+                                                  contentStyle="min-width:320px;font-size:24px;"
+                                                  visible="#{pageFlowScope.pStatus!='good'}"
+                                                  binding="#{ErpAdminClass.confPswrd}" inlineStyle="font-size:30px;"
+                                                  secret="true"/>
+                                </af:panelFormLayout>
+                                <af:outputText value="#{viewcontrollerBundle.PASSWORD_SHOULD_NOT_BE_LESS_THAN_6_CHARACTERS}" id="ot4"
+                                               inlineStyle="color:Red;"
+                                               visible="#{pageFlowScope.pStatus=='bad' or bindings.VerifyResetPswrdUsersVIterator.estimatedRowCount>0}"
+                                               partialTriggers="b1"/>
+                                <af:panelGroupLayout id="pgl8" layout="horizontal"
+                                                     inlineStyle="padding:10px 0 10px 0;"
+                                                     halign="center">
+                                    <af:outputText value="#{viewcontrollerBundle.NOW_YOU_CAN}" id="ot5"
+                                                   inlineStyle="color:Gray; font-size:24px;"/>
+                                    <af:link text="#{viewcontrollerBundle.LOGIN}" id="l1" action="toLogin"
+                                             inlineStyle="text-decoration:underline;font-size:24px;"/>
+                                    <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s1"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                            <af:panelGroupLayout id="pgl6" layout="vertical">
+                                <af:panelGroupLayout id="pgl9" layout="horizontal">
+                                    <af:outputText value="#{viewcontrollerBundle.WELCOME_TO}" id="ot6"/>
+                                    <af:outputText value="FERP" id="ot7" inlineStyle="font-size:100px;"/>
+                                    <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s3"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
+                                <af:outputText value="#{viewcontrollerBundle.FREE_OF_LICENSE___ERP_SYSTEM}" id="ot8"/>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

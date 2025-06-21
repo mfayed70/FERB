@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="crud_gl_gen_acc_chart_TF_crud_gl_gen_acc_chart_TF_ExecuteWithParamsPageDef"
+                Package="gl_gen_acc_chart" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlGenAccChartCRUDV" RangeSize="25" DataControl="AalmGlDataControl"
+              id="GlGenAccChartCRUDVIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlGenAccChartCRUDVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pAccCode" NDValue="#{pageFlowScope.pAccCode}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

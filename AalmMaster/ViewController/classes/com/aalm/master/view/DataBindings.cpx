@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.aalm.master.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/AalmHomePageTemplate.jsf" usageId="com_aalm_master_view_AalmHomePageTemplatePageDef"/>
+    <page path="/WEB-INF/AalmLoginPageTemplate.jsf" usageId="com_aalm_master_view_AalmLoginPageTemplatePageDef"/>
+    <page path="/login.jsf" usageId="com_aalm_master_view_loginPageDef"/>
+    <page path="/home.jsf" usageId="com_aalm_master_view_homePageDef"/>
+    <page path="/WEB-INF/login/login.jsff" usageId="com_aalm_master_view_loginPageDef1"/>
+    <page path="/function.jsf" usageId="com_aalm_master_view_functionPageDef"/>
+    <page path="/WEB-INF/ErpAdmin/stndrd-role-perms.jsff" usageId="com_aalm_master_view_stndrd_role_permsPageDef"/>
+    <page path="/WEB-INF/ErpAdmin/users.jsff" usageId="com_aalm_master_view_usersPageDef"/>
+    <page path="/WEB-INF/verify-reset-pswrd-TF.xml#verify-reset-pswrd-TF@ExecuteWithParams"
+          usageId="com_aalm_master_view_verify_reset_pswrd_TF_verify_reset_pswrd_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/reset-pswrd.jsf" usageId="com_aalm_master_view_reset_pswrdPageDef"/>
+    <page path="/WEB-INF/ErpAdmin/granted-syss-fns-CRUD-TF.xml#granted-syss-fns-CRUD-TF@ExecuteWithParamsSyss"
+          usageId="com_aalm_master_view_granted_syss_fns_CRUD_TF_granted_syss_fns_CRUD_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/ErpAdmin/granted-syss-fns-CRUD-TF.xml#granted-syss-fns-CRUD-TF@ExecuteWithParamsFncns"
+          usageId="com_aalm_master_view_granted_syss_fns_CRUD_TF_granted_syss_fns_CRUD_TF_ExecuteWithParams1PageDef"/>
+    <page path="/WEB-INF/ErpAdmin/granted-roles-fncns.jsf" usageId="com_aalm_master_view_granted_roles_fncnsPageDef"/>
+    <page path="/WEB-INF/ErpAdmin/stndrd-role-perms-TF.xml#stndrd-role-perms-TF@Execute"
+          usageId="com_aalm_master_view_stndrd_role_perms_TF_stndrd_role_perms_TF_ExecutePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_aalm_master_view_AalmHomePageTemplatePageDef"
+          path="com.aalm.master.view.pageDefs.AalmHomePageTemplatePageDef"/>
+    <page id="com_aalm_master_view_AalmLoginPageTemplatePageDef"
+          path="com.aalm.master.view.pageDefs.AalmLoginPageTemplatePageDef"/>
+    <page id="com_aalm_master_view_loginPageDef" path="com.aalm.master.view.pageDefs.loginPageDef"/>
+    <page id="com_aalm_master_view_homePageDef" path="com.aalm.master.view.pageDefs.homePageDef"/>
+    <page id="com_aalm_master_view_loginPageDef1" path="login.loginPageDef"/>
+    <page id="com_aalm_master_view_functionPageDef" path="com.aalm.master.view.pageDefs.functionPageDef"/>
+    <page id="com_aalm_master_view_stndrd_role_permsPageDef" path="ErpAdmin.stndrd_role_permsPageDef"/>
+    <page id="com_aalm_master_view_usersPageDef" path="ErpAdmin.usersPageDef"/>
+    <page id="com_aalm_master_view_verify_reset_pswrd_TF_verify_reset_pswrd_TF_ExecuteWithParamsPageDef"
+          path="com.aalm.master.view.pageDefs.verify_reset_pswrd_TF_verify_reset_pswrd_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_master_view_reset_pswrdPageDef" path="com.aalm.master.view.pageDefs.reset_pswrdPageDef"/>
+    <page id="com_aalm_master_view_granted_syss_fns_CRUD_TF_granted_syss_fns_CRUD_TF_ExecuteWithParamsPageDef"
+          path="ErpAdmin.granted_syss_fns_CRUD_TF_granted_syss_fns_CRUD_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_master_view_granted_syss_fns_CRUD_TF_granted_syss_fns_CRUD_TF_ExecuteWithParams1PageDef"
+          path="ErpAdmin.granted_syss_fns_CRUD_TF_granted_syss_fns_CRUD_TF_ExecuteWithParams1PageDef"/>
+    <page id="com_aalm_master_view_granted_roles_fncnsPageDef" path="ErpAdmin.granted_roles_fncnsPageDef"/>
+    <page id="com_aalm_master_view_stndrd_role_perms_TF_stndrd_role_perms_TF_ExecutePageDef"
+          path="ErpAdmin.stndrd_role_perms_TF_stndrd_role_perms_TF_ExecutePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AalmMasterDataControl" Package="com.aalm.master.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AalmMasterLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,24 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="eleconConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="eleconConn"
+             xmlns="">
+    <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
+    <RefAddresses>
+      <StringRefAddr addrType="subtype">
+        <Contents>MYSQL</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="hostname">
+        <Contents>localhost</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="user">
+        <Contents>elecon</Contents>
+      </StringRefAddr>
+      <SecureRefAddr addrType="password"/>
+      <StringRefAddr addrType="dataSourceName">
+        <Contents>Elecon</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="driver">
+        <Contents>com.mysql.jdbc.Driver</Contents>
+      </StringRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>

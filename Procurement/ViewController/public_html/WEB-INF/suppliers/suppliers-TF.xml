@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="suppliers-TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>Execute</default-activity>
+    <managed-bean id="__6">
+      <managed-bean-name>PrcrmntClass</managed-bean-name>
+      <managed-bean-class>com.aalm.prcrmnt.view.beans.PrcrmntClass</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="suppliers">
+      <page>/WEB-INF/suppliers/suppliers.jsff</page>
+    </view>
+    <task-flow-call id="new-supplier-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/suppliers/crud-supplier-TF.xml</document>
+        <id>new-supplier-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__3">
+        <name>pSuppId</name>
+        <value>#{pageFlowScope.pSuppId}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>Execute</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>suppliers</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>suppliers</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>toCrud</from-outcome>
+        <to-activity-id>new-supplier-TF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

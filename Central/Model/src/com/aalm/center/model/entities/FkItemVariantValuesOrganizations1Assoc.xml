@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkItemVariantValuesOrganizations1Assoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Organizations"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.center.model.entities.Organizations">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_finderName" Value="Organizations"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.Organizations.OrgCode"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="ItemVariableValues"
+    Cardinality="-1"
+    Owner="com.aalm.center.model.entities.ItemVariableValues">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.ItemVariableValues.OrgCode"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

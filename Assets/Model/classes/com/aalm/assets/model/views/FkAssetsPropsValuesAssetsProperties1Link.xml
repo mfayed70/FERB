@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkAssetsPropsValuesAssetsProperties1Link"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.aalm.assets.model.entities.FkAssetsPropsValuesAssetsProperties1Assoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.assets.model.views.FkAssetsPropsValuesAssetsProperties1Link_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="AssetsPropertiesV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.assets.model.views.AssetsPropertiesV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="AssetsPropertiesV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.views.AssetsPropertiesV.AssPropId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="AssetsPropsValuesV"
+    Cardinality="-1"
+    Owner="com.aalm.assets.model.views.AssetsPropsValuesV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="AssetsPropsValuesV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.views.AssetsPropsValuesV.AssPropId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.assets.model.AalmAssetsMBndl"/>
+  </ResourceBundle>
+</ViewLink>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.aalm.center.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/currencies/currencies-TF.xml#currencies-TF@Execute"
+          usageId="com_aalm_center_view_currencies_TF_currencies_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/currencies/currencies.jsff" usageId="com_aalm_center_view_currenciesPageDef"/>
+    <page path="/Test.jsf" usageId="com_aalm_center_view_TestPageDef"/>
+    <page path="/WEB-INF/itemCategories/itemCategories-TF.xml#itemCategories-TF@Execute"
+          usageId="com_aalm_center_view_itemCategories_TF_itemCategories_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/itemCategories/itemCategories.jsff" usageId="com_aalm_center_view_itemCategoriesPageDef"/>
+    <page path="/WEB-INF/storeCategories/storeCategories-TF.xml#storeCategories-TF@Execute"
+          usageId="com_aalm_center_view_storeCategories_TF_storeCategories_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/storeCategories/storeCategories.jsff" usageId="com_aalm_center_view_storeCategoriesPageDef"/>
+    <page path="/WEB-INF/units/units-transform-TF.xml#units-transform-TF@Execute"
+          usageId="com_aalm_center_view_units_transform_TF_units_transform_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/units/units-transform-TF.xml#units-transform-TF@Execute1"
+          usageId="com_aalm_center_view_units_transform_TF_units_transform_TF_Execute1PageDef"/>
+    <page path="/WEB-INF/units/units.jsff" usageId="com_aalm_center_view_unitsPageDef"/>
+    <page path="/WEB-INF/units/new-unit-transform-TF.xml#new-unit-transform-TF@CreateInsert"
+          usageId="com_aalm_center_view_new_unit_transform_TF_new_unit_transform_TF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/units/edit-new-unit-transform.jsf"
+          usageId="com_aalm_center_view_edit_new_unit_transformPageDef"/>
+    <page path="/WEB-INF/organizations/organizations-TF.xml#organizations-TF@Execute"
+          usageId="com_aalm_center_view_organizations_TF_organizations_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/organizations/organizations.jsff" usageId="com_aalm_center_view_organizationsPageDef"/>
+    <page path="/WEB-INF/items/items-TF.xml#items-TF@Execute"
+          usageId="com_aalm_center_view_items_TF_items_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/items/items.jsff" usageId="com_aalm_center_view_itemsPageDef"/>
+    <page path="/WEB-INF/items/ass-toBe-selected-itemsV.jsf"
+          usageId="com_aalm_center_view_ass_toBe_selected_itemsVPageDef"/>
+    <page path="/WEB-INF/itemVariablesStructure/itemsVariablesStructure.jsff"
+          usageId="com_aalm_center_view_itemsVariablesStructurePageDef"/>
+    <page path="/TestItems.jsf" usageId="com_aalm_center_view_TestItemsPageDef"/>
+    <page path="/WEB-INF/items/ass-selected-items-TF.xml#ass-selected-items-TF@ExecuteWithParams"
+          usageId="com_aalm_center_view_ass_selected_items_TF_ass_selected_items_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/itemVariablesStructure/items_variables_structure-TF.xml#items_variables_structure-TF@initiateCaptions"
+          usageId="com_aalm_center_view_items_variables_structure_TF_items_variables_structure_TF_initiateCaptionsPageDef"/>
+    <page path="/WEB-INF/items/items-TF.xml#items-TF@initiateCaptions"
+          usageId="com_aalm_center_view_items_TF_items_TF_initiateCaptionsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_aalm_center_view_currencies_TF_currencies_TF_ExecutePageDef"
+          path="currencies.currencies_TF_currencies_TF_ExecutePageDef"/>
+    <page id="com_aalm_center_view_currenciesPageDef" path="currencies.currenciesPageDef"/>
+    <page id="com_aalm_center_view_TestPageDef" path="com.aalm.center.view.pageDefs.TestPageDef"/>
+    <page id="com_aalm_center_view_itemCategories_TF_itemCategories_TF_ExecutePageDef"
+          path="itemCategories.itemCategories_TF_itemCategories_TF_ExecutePageDef"/>
+    <page id="com_aalm_center_view_itemCategoriesPageDef" path="itemCategories.itemCategoriesPageDef"/>
+    <page id="com_aalm_center_view_storeCategories_TF_storeCategories_TF_ExecutePageDef"
+          path="storeCategories.storeCategories_TF_storeCategories_TF_ExecutePageDef"/>
+    <page id="com_aalm_center_view_storeCategoriesPageDef" path="storeCategories.storeCategoriesPageDef"/>
+    <page id="com_aalm_center_view_units_transform_TF_units_transform_TF_ExecutePageDef"
+          path="units.units_transform_TF_units_transform_TF_ExecutePageDef"/>
+    <page id="com_aalm_center_view_units_transform_TF_units_transform_TF_Execute1PageDef"
+          path="units.units_transform_TF_units_transform_TF_Execute1PageDef"/>
+    <page id="com_aalm_center_view_unitsPageDef" path="units.unitsPageDef"/>
+    <page id="com_aalm_center_view_new_unit_transform_TF_new_unit_transform_TF_CreateInsertPageDef"
+          path="units.new_unit_transform_TF_new_unit_transform_TF_CreateInsertPageDef"/>
+    <page id="com_aalm_center_view_edit_new_unit_transformPageDef" path="units.edit_new_unit_transformPageDef"/>
+    <page id="com_aalm_center_view_organizations_TF_organizations_TF_ExecutePageDef"
+          path="organizations.organizations_TF_organizations_TF_ExecutePageDef"/>
+    <page id="com_aalm_center_view_organizationsPageDef" path="organizations.organizationsPageDef"/>
+    <page id="com_aalm_center_view_items_TF_items_TF_ExecutePageDef" path="items.items_TF_items_TF_ExecutePageDef"/>
+    <page id="com_aalm_center_view_itemsPageDef" path="items.itemsPageDef"/>
+    <page id="com_aalm_center_view_ass_toBe_selected_itemsVPageDef" path="items.ass_toBe_selected_itemsVPageDef"/>
+    <page id="com_aalm_center_view_itemsVariablesStructurePageDef"
+          path="itemVariablesStructure.itemsVariablesStructurePageDef"/>
+    <page id="com_aalm_center_view_TestItemsPageDef" path="com.aalm.center.view.pageDefs.TestItemsPageDef"/>
+    <page id="com_aalm_center_view_ass_selected_items_TF_ass_selected_items_TF_ExecuteWithParamsPageDef"
+          path="items.ass_selected_items_TF_ass_selected_items_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_center_view_items_variables_structure_TF_items_variables_structure_TF_initiateCaptionsPageDef"
+          path="itemVariablesStructure.items_variables_structure_TF_items_variables_structure_TF_initiateCaptionsPageDef"/>
+    <page id="com_aalm_center_view_items_TF_items_TF_initiateCaptionsPageDef"
+          path="items.items_TF_items_TF_initiateCaptionsPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AalmCentralDataControl" Package="com.aalm.center.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AalmCentralLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

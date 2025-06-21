@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.gl.view.AalmGlBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.GENERAL_LEDGER_ACCOUNT_TYPES}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:button actionListener="#{bindings.Commit.execute}" text="#{viewcontrollerBundle.SAVE}"
+                 id="b1" styleClass="but" icon="#{resource['images:SaveF.png']}"/>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}"
+                 immediate="true" id="b2" styleClass="but" icon="#{resource['images:cancelF.png']}"
+                 hoverIcon="#{resource['images:cancelO.png']}">
+        <af:resetActionListener/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend"/>
+    <af:table value="#{bindings.GlAccTypesV.collectionModel}" var="row" rows="#{bindings.GlAccTypesV.rangeSize}"
+              emptyText="#{bindings.GlAccTypesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.GlAccTypesV.collectionModel.selectedRow}"
+              selectionListener="#{bindings.GlAccTypesV.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.GlAccTypesV.rangeSize}" filterModel="#{bindings.GlAccTypesVQuery.queryDescriptor}"
+              queryListener="#{bindings.GlAccTypesVQuery.processQuery}" filterVisible="true" varStatus="vs" id="t1"
+              partialTriggers="::b3">
+      <af:column sortProperty="#{bindings.GlAccTypesV.hints.GlAccTypeId.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.GlAccTypesV.hints.GlAccTypeId.label}" id="c1">
+        <af:inputText value="#{row.bindings.GlAccTypeId.inputValue}"
+                      label="#{bindings.GlAccTypesV.hints.GlAccTypeId.label}"
+                      required="#{bindings.GlAccTypesV.hints.GlAccTypeId.mandatory}"
+                      columns="#{bindings.GlAccTypesV.hints.GlAccTypeId.displayWidth}"
+                      maximumLength="#{bindings.GlAccTypesV.hints.GlAccTypeId.precision}"
+                      shortDesc="#{bindings.GlAccTypesV.hints.GlAccTypeId.tooltip}" id="it1" readOnly="true">
+          <f:validator binding="#{row.bindings.GlAccTypeId.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.GlAccTypesV.hints.GlAccTypeId.format}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.GlAccTypesV.hints.GlAccTypeNameA.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.GlAccTypesV.hints.GlAccTypeNameA.label}" id="c2" width="400">
+        <af:inputText value="#{row.bindings.GlAccTypeNameA.inputValue}"
+                      label="#{bindings.GlAccTypesV.hints.GlAccTypeNameA.label}"
+                      required="#{bindings.GlAccTypesV.hints.GlAccTypeNameA.mandatory}"
+                      columns="#{bindings.GlAccTypesV.hints.GlAccTypeNameA.displayWidth}"
+                      maximumLength="#{bindings.GlAccTypesV.hints.GlAccTypeNameA.precision}"
+                      shortDesc="#{bindings.GlAccTypesV.hints.GlAccTypeNameA.tooltip}" id="it2">
+          <f:validator binding="#{row.bindings.GlAccTypeNameA.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.GlAccTypesV.hints.GlAccTypeNameE.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.GlAccTypesV.hints.GlAccTypeNameE.label}" id="c3" width="400">
+        <af:inputText value="#{row.bindings.GlAccTypeNameE.inputValue}"
+                      label="#{bindings.GlAccTypesV.hints.GlAccTypeNameE.label}"
+                      required="#{bindings.GlAccTypesV.hints.GlAccTypeNameE.mandatory}"
+                      columns="#{bindings.GlAccTypesV.hints.GlAccTypeNameE.displayWidth}"
+                      maximumLength="#{bindings.GlAccTypesV.hints.GlAccTypeNameE.precision}"
+                      shortDesc="#{bindings.GlAccTypesV.hints.GlAccTypeNameE.tooltip}" id="it3">
+          <f:validator binding="#{row.bindings.GlAccTypeNameE.validator}"/>
+        </af:inputText>
+      </af:column>
+    </af:table>
+    <f:facet name="info">
+      <af:button actionListener="#{bindings.CreateInsert.execute}" text="#{viewcontrollerBundle.NEW}" id="b3" styleClass="but"
+                 icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+    </f:facet>
+  </af:panelHeader>
+</ui:composition>

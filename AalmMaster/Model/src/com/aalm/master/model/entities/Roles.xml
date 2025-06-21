@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Roles"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ROLES"
+  AliasName="Roles"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="RoleGroupId"
+    IsNotNull="true"
+    ColumnName="role_group_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ROLES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SystemId"
+    IsNotNull="true"
+    Precision="3"
+    ColumnName="system_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ROLES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.master.model.entities.Roles.SystemId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="RoleMaster"
+    Association="com.aalm.master.model.entities.FkRoleSystemsRoles1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkRoleSystemsRoles1Assoc.RoleMaster"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkRoleSystemsRoles1Assoc.Roles"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Systems"
+    Association="com.aalm.master.model.entities.FkRoleSystemsSystems1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkRoleSystemsSystems1Assoc.Systems"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkRoleSystemsSystems1Assoc.Roles"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Permissions"
+    Association="com.aalm.master.model.entities.FkPermissionsRoles1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkPermissionsRoles1Assoc.Permissions"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkPermissionsRoles1Assoc.Roles"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.Roles.RoleGroupId"/>
+      <Item Value="com.aalm.master.model.entities.Roles.SystemId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkRoleSystemsRoles1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ROLE_SYSTEMS_ROLES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.Roles.RoleGroupId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkRoleSystemsSystems1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ROLE_SYSTEMS_SYSTEMS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.Roles.SystemId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.master.model.AalmMasterMBndl"/>
+  </ResourceBundle>
+</Entity>

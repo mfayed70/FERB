@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeesContracts"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="EMPLOYEES_CONTRACTS"
+  AliasName="EmployeesContracts"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="ContractId"
+    ColumnName="contract_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEES_CONTRACTS"
+    PrimaryKey="true"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ContractDesc"
+    Precision="200"
+    ColumnName="contract_desc"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FirstName"
+    Precision="100"
+    ColumnName="first_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MiddleName"
+    Precision="100"
+    ColumnName="middle_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastName"
+    Precision="100"
+    ColumnName="last_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Certificate"
+    Precision="2"
+    ColumnName="certificate"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CertificateDt"
+    ColumnName="certificate_dt"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="EMPLOYEES_CONTRACTS"/>
+  <Attribute
+    Name="ContractApplyDt"
+    ColumnName="contract_apply_dt"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="EMPLOYEES_CONTRACTS"/>
+  <Attribute
+    Name="Salary"
+    ColumnName="salary"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EmpId"
+    IsNotNull="true"
+    ColumnName="emp_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="JobId"
+    IsNotNull="true"
+    ColumnName="job_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IdType"
+    Precision="2"
+    ColumnName="id_type"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IdNo"
+    Precision="45"
+    ColumnName="id_no"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IdPhotoPath"
+    Precision="200"
+    ColumnName="id_photo_path"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CurrCode"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="curr_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BankAccNo"
+    Precision="45"
+    ColumnName="bank_acc_no"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BankBranchName"
+    Precision="100"
+    ColumnName="bank_branch_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CertificatePhotoPath"
+    Precision="100"
+    ColumnName="certificate_photo_path"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ContactNo"
+    Precision="45"
+    ColumnName="contact_no"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ContractEndDt"
+    ColumnName="contract_end_dt"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="EMPLOYEES_CONTRACTS"/>
+  <Attribute
+    Name="ContractPhotoPath"
+    Precision="100"
+    ColumnName="contract_photo_path"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EmergencyContactName"
+    Precision="45"
+    ColumnName="emergency_contact_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EmergencyContactNo"
+    Precision="45"
+    ColumnName="emergency_contact_no"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PersonalPhotoPath"
+    Precision="100"
+    ColumnName="personal_photo_path"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ResponsibleForNo"
+    ColumnName="responsible_for_no"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEES_CONTRACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Employees"
+    Association="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc"
+    AssociationEnd="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc.Employees"
+    AssociationOtherEnd="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc.EmployeesContracts2"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Jobs"
+    Association="com.aalm.hr.model.entities.FkEmployeesContractsJobs1Assoc"
+    AssociationEnd="com.aalm.hr.model.entities.FkEmployeesContractsJobs1Assoc.Jobs"
+    AssociationOtherEnd="com.aalm.hr.model.entities.FkEmployeesContractsJobs1Assoc.EmployeesContracts"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="EmployeesContractsContractIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Employees_Contracts_Contract_I"/>
+      <Attr Name="_checkCondition" Value='"contract_id" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeesContracts.ContractId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeesContracts.ContractId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkEmployeesContractsCurrencies1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_EMPLOYEES_CONTRACTS_CURRENCIES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeesContracts.CurrCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkEmployeesContractsEmployees1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_EMPLOYEES_CONTRACTS_EMPLOYEES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeesContracts.EmpId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkEmployeesContractsJobs1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_EMPLOYEES_CONTRACTS_JOBS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeesContracts.JobId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="reset_pswrdPageDef"
+                Package="com.aalm.master.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="com.aalm.master.view.pageDefs.AalmLoginPageTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator id="VerifyResetPswrdUsersVIterator" Binds="VerifyResetPswrdUsersV" DataControl="AalmMasterDataControl"
+              RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="VerifyResetPswrdUsersVIterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VerifyResetPswrdUsersVIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VerifyResetPswrdUsersVIterator" id="Pswrd">
+      <AttrNames>
+        <Item Value="Pswrd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VerifyResetPswrdUsersVIterator" id="Otp">
+      <AttrNames>
+        <Item Value="Otp"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AalmMasterDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

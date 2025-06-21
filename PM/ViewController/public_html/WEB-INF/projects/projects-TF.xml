@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="projects-TF">
+    <default-activity>projects</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="projects">
+      <page>/WEB-INF/projects/projects.jsff</page>
+    </view>
+    <task-flow-call id="projects-pricing_TF">
+      <task-flow-reference>
+        <document>/WEB-INF/projects-pricing/projects-pricing_TF.xml</document>
+        <id>projects-pricing_TF</id>
+      </task-flow-reference>
+      <input-parameter id="__3">
+        <name>pProjId</name>
+        <value>#{pageFlowScope.pProjId}</value>
+      </input-parameter>
+      <input-parameter id="__4">
+        <name>refreshRegion</name>
+        <value>#{sessionScope.refreshRegion}</value>
+      </input-parameter>
+      <input-parameter id="__5">
+        <name>refreshLocale</name>
+        <value>#{sessionScope.refreshLocale}</value>
+      </input-parameter>
+      <input-parameter id="__6">
+        <name>pVersionNo</name>
+        <value>#{pageFlowScope.pVersionNo}</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>projects</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>open_project</from-outcome>
+        <to-activity-id>projects-pricing_TF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

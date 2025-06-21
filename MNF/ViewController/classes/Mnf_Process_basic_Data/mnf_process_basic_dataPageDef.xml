@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="mnf_process_basic_dataPageDef"
+                Package="Mnf_Process_basic_Data">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MnfProcessesV" RangeSize="25" DataControl="AalmMnfDataControl" id="MnfProcessesVIterator"/>
+    <iterator Binds="MnfProcessOutputItemsV" RangeSize="25" DataControl="AalmMnfDataControl"
+              id="MnfProcessOutputItemsVIterator"/>
+    <iterator Binds="MnfProcessInputItemsV" RangeSize="25" DataControl="AalmMnfDataControl"
+              id="MnfProcessInputItemsVIterator"/>
+    <iterator Binds="MnfProcessInputHrV" RangeSize="25" DataControl="AalmMnfDataControl"
+              id="MnfProcessInputHrVIterator"/>
+    <searchRegion Binds="MnfProcessInputHrVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="MnfProcessInputHrVQuery"/>
+    <searchRegion Binds="MnfProcessOutputItemsVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="MnfProcessOutputItemsVQuery"/>
+    <searchRegion Binds="MnfProcessInputItemsVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="MnfProcessInputItemsVQuery"/>
+    <searchRegion Binds="MnfProcessesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="MnfProcessesVQuery"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmMnfDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmMnfDataControl"/>
+    <action IterBinding="MnfProcessesVIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="MnfProcessOutputItemsVIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="MnfProcessInputItemsVIterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="MnfProcessInputHrVIterator" id="CreateInsert3" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="MnfProcessInputHrVIterator" id="MnfProcessInputHrV">
+      <nodeDefinition DefName="com.aalm.mnf.model.views.MnfProcessInputHrV" Name="MnfProcessInputHrV0">
+        <AttrNames>
+          <Item Value="Seq"/>
+          <Item Value="JobId"/>
+          <Item Value="TimeUnit"/>
+          <Item Value="Duration"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="MnfProcessOutputItemsVIterator" id="MnfProcessOutputItemsV">
+      <nodeDefinition DefName="com.aalm.mnf.model.views.MnfProcessOutputItemsV" Name="MnfProcessOutputItemsV0">
+        <AttrNames>
+          <Item Value="Seq"/>
+          <Item Value="ItemCode"/>
+          <Item Value="UnitId"/>
+          <Item Value="Qty"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="MnfProcessInputItemsVIterator" id="MnfProcessInputItemsV">
+      <nodeDefinition DefName="com.aalm.mnf.model.views.MnfProcessInputItemsV" Name="MnfProcessInputItemsV0">
+        <AttrNames>
+          <Item Value="Seq"/>
+          <Item Value="ItemCode"/>
+          <Item Value="UnitId"/>
+          <Item Value="Qty"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="MnfProcessesVIterator" id="MnfProcessesV">
+      <nodeDefinition DefName="com.aalm.mnf.model.views.MnfProcessesV" Name="MnfProcessesV0">
+        <AttrNames>
+          <Item Value="MnfPrcsId"/>
+          <Item Value="MnfPrcsName"/>
+          <Item Value="OrgCode"/>
+          <Item Value="HasAction"/>
+          <Item Value="Active"/>
+          <Item Value="IsComplex"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="itemCategoriesPageDef"
+                Package="itemCategories">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ItemCategoriesV" RangeSize="25" DataControl="AalmCentralDataControl" id="ItemCategoriesVIterator"/>
+    <searchRegion Binds="ItemCategoriesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ItemCategoriesVQuery"/>
+    <iterator Binds="ItemCategoryTypesV" RangeSize="25" DataControl="AalmCentralDataControl"
+              id="ItemCategoryTypesVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ItemCategoriesVIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmCentralDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AalmCentralDataControl"/>
+    <tree IterBinding="ItemCategoriesVIterator" id="ItemCategoriesV">
+      <nodeDefinition DefName="com.aalm.center.model.views.ItemCategoriesV" Name="ItemCategoriesV0">
+        <AttrNames>
+          <Item Value="CatId"/>
+          <Item Value="CatName"/>
+          <Item Value="RegisterDt"/>
+          <Item Value="Active"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ItemCategoryTypesVIterator" id="ItemCategoryTypesV">
+      <nodeDefinition DefName="com.aalm.center.model.views.ItemCategoryTypesV" Name="ItemCategoryTypesV0">
+        <AttrNames>
+          <Item Value="ItemTypeId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ItemCategoryTypesVIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"
+            InstanceName="AalmCentralDataControl.ItemCategoryTypesV" DataControl="AalmCentralDataControl"/>
+    <action IterBinding="ItemCategoryTypesVIterator" id="CreateInsert1"
+            InstanceName="AalmCentralDataControl.ItemCategoryTypesV" DataControl="AalmCentralDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="home">
+    <page>/home.jsf</page>
+  </view>
+  <view id="login">
+    <page>/login.jsf</page>
+  </view>
+  <view id="function">
+    <page>/function.jsf</page>
+  </view>
+  <control-flow-rule id="__4">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__5">
+      <from-outcome>function</from-outcome>
+      <to-activity-id>function</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__6">
+      <from-outcome>toLogin</from-outcome>
+      <to-activity-id>login</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__1">
+    <managed-bean-name>Locale</managed-bean-name>
+    <managed-bean-class>com.aalm.master.view.beans.Locale</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>LoginBean</managed-bean-name>
+    <managed-bean-class>com.aalm.master.view.beans.LoginBean</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__3">
+    <managed-bean-name>AppsBean</managed-bean-name>
+    <managed-bean-class>com.aalm.master.view.beans.AppsBean</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

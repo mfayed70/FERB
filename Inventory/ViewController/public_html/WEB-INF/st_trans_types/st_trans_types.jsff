@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.inventory.view.AalmInventoryBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.INVENTORY_TRANSACTIONS_TYPES}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <af:listView value="#{bindings.StTransTypesV.collectionModel}" var="item"
+                 emptyText="#{bindings.StTransTypesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                 fetchSize="#{bindings.StTransTypesV.rangeSize}" id="lv1">
+      <af:listItem id="li1">
+        <af:panelGroupLayout layout="horizontal" id="pgl1">
+          <f:facet name="separator">
+            <af:spacer width="10" id="s1"/>
+          </f:facet>
+          <af:outputFormatted value="#{item.bindings.StTransTypeCode.inputValue}" id="of1">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.StTransTypesV.hints.StTransTypeCode.format}"/>
+          </af:outputFormatted>
+          <af:outputFormatted value="#{item.bindings.StTransNameA.inputValue}" id="of2"/>
+          <af:outputFormatted value="#{item.bindings.StTransNameE.inputValue}" id="of3"/>
+          <af:selectOneChoice value="#{item.bindings.StTransType.inputValue}" label="#{item.bindings.StTransType.label}"
+                              required="#{bindings.StTransTypesV.hints.StTransType.mandatory}"
+                              shortDesc="#{bindings.StTransTypesV.hints.StTransType.tooltip}" readOnly="true" id="soc1">
+            <f:selectItems value="#{item.bindings.StTransType.items}" id="si1"/>
+            <f:validator binding="#{item.bindings.StTransType.validator}"/>
+          </af:selectOneChoice>
+          <af:outputFormatted value="#{item.bindings.Active.inputValue}" id="of4"/>
+        </af:panelGroupLayout>
+      </af:listItem>
+    </af:listView>
+    <f:facet name="info"/>
+  </af:panelHeader>
+</ui:composition>

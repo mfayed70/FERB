@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.master.view.AalmMasterBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.SYSTEM_USERS}" id="ph1" inlineStyle="min-height:600px;">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:panelGroupLayout id="pgl2" layout="horizontal">
+        <af:button actionListener="#{bindings.Rollback.execute}" immediate="true" id="b2"
+                   styleClass="but" text="#{viewcontrollerBundle.CANCEL}" icon="#{resource['images:cancelF.png']}"
+                   hoverIcon="#{resource['images:cancelO.png']}">
+          <af:resetActionListener/>
+        </af:button>
+        <af:button actionListener="#{bindings.Commit.execute}" id="b1" styleClass="but"
+                   text="#{viewcontrollerBundle.SAVE}" icon="#{resource['images:SaveF.png']}"
+                   hoverIcon="#{resource['images:SaveO.png']}"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button text="#{viewcontrollerBundle.SEND_VERIFICATION_EMAIL}" id="b3" styleClass="but"
+                 actionListener="#{ErpAminClass.sendVerifyEmail}" icon="#{resource['images:CreateF.png']}"
+                 hoverIcon="#{resource['images:CreateO.png']}"/>
+    </f:facet>
+    <f:facet name="legend">
+      <af:spacer width="10" height="20" id="s2"/>
+    </f:facet>
+    <f:facet name="info"/>
+    <af:panelSplitter id="ps1" splitterPosition="700" disabled="true">
+      <f:facet name="first">
+        <af:panelHeader text="#{viewcontrollerBundle.BASIC_DATA}" id="pb1">
+          <f:facet name="toolbar">
+            <af:button text="#{viewcontrollerBundle.NEW}" id="b4" actionListener="#{bindings.CreateInsertUser.execute}"
+                       styleClass="but" icon="#{resource['images:NewF.png']}"
+                       hoverIcon="#{resource['images:NewO.png']}"/>
+          </f:facet>
+          <af:table value="#{bindings.SystemUsersV.collectionModel}" var="row" rows="#{bindings.SystemUsersV.rangeSize}"
+                    emptyText="#{bindings.SystemUsersV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.SystemUsersV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.SystemUsersV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.SystemUsersV.rangeSize}" id="t1"
+                    inlineStyle="background-color:white;border-color:white;" verticalGridVisible="false"
+                    partialTriggers="::b2 ::b1 ::b3 l1 ::b4">
+            <af:column headerText="#{bindings.SystemUsersV.hints.UserId.label}" id="c1" minimumWidth="5" width="90"
+                       align="right">
+              <af:panelGroupLayout id="pgl1" layout="horizontal">
+                <af:link id="l1" icon="#{resource['images:delete24.png']}"
+                         visible="#{row.bindings.UserId.inputValue!=1 &amp;&amp; row.bindings.UserId.inputValue!=0}" actionListener="#{bindings.DeleteUser.execute}"
+                         immediate="true"/>
+                <af:inputText value="#{row.bindings.UserId.inputValue}"
+                              label="#{bindings.SystemUsersV.hints.UserId.label}"
+                              required="#{bindings.SystemUsersV.hints.UserId.mandatory}"
+                              columns="#{bindings.SystemUsersV.hints.UserId.displayWidth}"
+                              maximumLength="#{bindings.SystemUsersV.hints.UserId.precision}"
+                              shortDesc="#{bindings.SystemUsersV.hints.UserId.tooltip}" id="it1"
+                              contentStyle="font-size:20px;width:50px;" inlineStyle="text-align:left;" disabled="true">
+                  <f:validator binding="#{row.bindings.UserId.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.SystemUsersV.hints.UserId.format}"/>
+                </af:inputText>
+                <f:facet name="separator">
+                  <af:spacer width="10" height="10" id="s1"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column headerText="#{bindings.SystemUsersV.hints.FirstName.label}" id="c2" width="120">
+              <af:inputText value="#{row.bindings.FirstName.inputValue}"
+                            label="#{bindings.SystemUsersV.hints.FirstName.label}"
+                            columns="#{bindings.SystemUsersV.hints.FirstName.displayWidth}"
+                            maximumLength="#{bindings.SystemUsersV.hints.FirstName.precision}"
+                            shortDesc="#{bindings.SystemUsersV.hints.FirstName.tooltip}" id="it2"
+                            contentStyle="font-size:20px;">
+                <f:validator binding="#{row.bindings.FirstName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.SystemUsersV.hints.LastName.label}" id="c3" width="120">
+              <af:inputText value="#{row.bindings.LastName.inputValue}"
+                            label="#{bindings.SystemUsersV.hints.LastName.label}"
+                            columns="#{bindings.SystemUsersV.hints.LastName.displayWidth}"
+                            maximumLength="#{bindings.SystemUsersV.hints.LastName.precision}"
+                            shortDesc="#{bindings.SystemUsersV.hints.LastName.tooltip}" id="it3"
+                            contentStyle="font-size:20px;">
+                <f:validator binding="#{row.bindings.LastName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.SystemUsersV.hints.Email.label}" id="c4" width="170">
+              <af:inputText value="#{row.bindings.Email.inputValue}" label="#{bindings.SystemUsersV.hints.Email.label}"
+                            columns="#{bindings.SystemUsersV.hints.Email.displayWidth}"
+                            maximumLength="#{bindings.SystemUsersV.hints.Email.precision}"
+                            shortDesc="#{bindings.SystemUsersV.hints.Email.tooltip}" id="it4"
+                            contentStyle="font-size:20px;"
+                            disabled="#{row.bindings.Pswrd.inputValue!=null}"
+                            required="#{bindings.SystemUsersV.hints.Email.mandatory}">
+                <f:validator binding="#{row.bindings.Email.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.SystemUsersV.hints.Mobile.label}" id="c5" width="70" rendered="false">
+              <af:inputText value="#{row.bindings.Mobile.inputValue}"
+                            label="#{bindings.SystemUsersV.hints.Mobile.label}"
+                            required="#{bindings.SystemUsersV.hints.Mobile.mandatory}"
+                            columns="#{bindings.SystemUsersV.hints.Mobile.displayWidth}"
+                            maximumLength="#{bindings.SystemUsersV.hints.Mobile.precision}"
+                            shortDesc="#{bindings.SystemUsersV.hints.Mobile.tooltip}" id="it5"
+                            contentStyle="font-size:20px;">
+                <f:validator binding="#{row.bindings.Mobile.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.SystemUsersV.hints.Address.label}" id="c6" width="200" rendered="false">
+              <af:inputText value="#{row.bindings.Address.inputValue}"
+                            label="#{bindings.SystemUsersV.hints.Address.label}"
+                            required="#{bindings.SystemUsersV.hints.Address.mandatory}"
+                            columns="#{bindings.SystemUsersV.hints.Address.displayWidth}"
+                            maximumLength="#{bindings.SystemUsersV.hints.Address.precision}"
+                            shortDesc="#{bindings.SystemUsersV.hints.Address.tooltip}" id="it6"
+                            contentStyle="font-size:20px;">
+                <f:validator binding="#{row.bindings.Address.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.SystemUsersV.hints.FrmDt.label}" id="c9" width="75">
+              <af:inputDate value="#{row.bindings.FrmDt.inputValue}"
+                            required="#{bindings.SystemUsersV.hints.FrmDt.mandatory}"
+                            columns="#{bindings.SystemUsersV.hints.FrmDt.displayWidth}"
+                            shortDesc="#{bindings.SystemUsersV.hints.FrmDt.tooltip}" id="id1"
+                            contentStyle="font-size:20px;width:60px;" readOnly="true">
+                <f:validator binding="#{row.bindings.FrmDt.validator}"/>
+                <af:convertDateTime pattern="#{bindings.SystemUsersV.hints.FrmDt.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column headerText="#{bindings.SystemUsersV.hints.ToDt.label}" id="c8" width="85">
+              <af:inputDate value="#{row.bindings.ToDt.inputValue}"
+                            required="#{bindings.SystemUsersV.hints.ToDt.mandatory}"
+                            columns="#{bindings.SystemUsersV.hints.ToDt.displayWidth}"
+                            shortDesc="#{bindings.SystemUsersV.hints.ToDt.tooltip}" id="id2"
+                            contentStyle="font-size:20px;width:60px;">
+                <f:validator binding="#{row.bindings.ToDt.validator}"/>
+                <af:convertDateTime pattern="#{bindings.SystemUsersV.hints.ToDt.format}"/>
+              </af:inputDate>
+            </af:column>
+          </af:table>
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+        </af:panelHeader>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelGroupLayout id="ps2" inlineStyle="padding-left:30px;" layout="horizontal">
+          <af:panelHeader text="#{viewcontrollerBundle.ROLES_GRANTED}" id="pb2" inlineStyle="width:400px;">
+            <f:facet name="toolbar">
+              <af:button text="#{viewcontrollerBundle.NEW}" id="b5"
+                         actionListener="#{ErpAminClass.CreateInsertUsrRolesMstr}" styleClass="but"
+                         icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+            </f:facet>
+            <af:table value="#{bindings.UserRolesMasterV.collectionModel}" var="row"
+                      rows="#{bindings.UserRolesMasterV.rangeSize}"
+                      emptyText="#{bindings.UserRolesMasterV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.UserRolesMasterV.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.UserRolesMasterV.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.UserRolesMasterV.rangeSize}" id="t2" partialTriggers="l2"
+                      inlineStyle="background-color:white;border-color:white;">
+              <af:column headerText="#{bindings.UserRolesMasterV.hints.RoleGroupId.label}" id="c10" width="300">
+                <af:panelGroupLayout id="pgl3" layout="horizontal">
+                  <af:link id="l2" icon="#{resource['images:delete24.png']}"
+                           actionListener="#{bindings.DeleteRole.execute}"
+                           visible="#{row.bindings.RoleGroupId.inputValue!=0 &amp;&amp; row.bindings.RoleGroupId.inputValue!=1}"/>
+                  <af:selectOneChoice value="#{row.bindings.RoleGroupId.inputValue}"
+                                      label="#{row.bindings.RoleGroupId.label}"
+                                      required="#{bindings.UserRolesMasterV.hints.RoleGroupId.mandatory}"
+                                      shortDesc="#{bindings.UserRolesMasterV.hints.RoleGroupId.tooltip}" id="soc2"
+                                      contentStyle="width:270px;">
+                    <f:selectItems value="#{row.bindings.RoleGroupId.items}" id="si2"/>
+                    <f:validator binding="#{row.bindings.RoleGroupId.validator}"/>
+                  </af:selectOneChoice>
+                </af:panelGroupLayout>
+              </af:column>
+            </af:table>
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+          </af:panelHeader>
+          <af:panelHeader text="#{viewcontrollerBundle.COMPANIES_USER_ACCESS}" id="pb3" visible="false">
+            <f:facet name="toolbar">
+              <af:button text="#{viewcontrollerBundle.NEW}" id="b6"
+                         actionListener="#{bindings.CreateInsertUsrCntrlOrgs.execute}" styleClass="but"/>
+            </f:facet>
+            <af:table value="#{bindings.SysUsrControlOrgsV.collectionModel}" var="row"
+                      rows="#{bindings.SysUsrControlOrgsV.rangeSize}"
+                      emptyText="#{bindings.SysUsrControlOrgsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.SysUsrControlOrgsV.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.SysUsrControlOrgsV.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.SysUsrControlOrgsV.rangeSize}" id="t3"
+                      partialTriggers="l3" inlineStyle="background-color:white;border-color:white;">
+              <af:column headerText="#{bindings.SysUsrControlOrgsV.hints.OrgCode.label}" id="c11" width="250">
+                <af:panelGroupLayout id="pgl4" layout="horizontal">
+                  <af:link id="l3" icon="#{resource['images:delete24.png']}"
+                           actionListener="#{bindings.DeleteSysUsrControlOrg.execute}"
+                           visible="#{row.bindings.OrgCode.inputValue!=0 &amp;&amp; row.bindings.OrgCode.inputValue!=1}"/>
+                  <af:selectOneChoice value="#{row.bindings.OrgCode.inputValue}" label="#{row.bindings.OrgCode.label}"
+                                      required="#{bindings.SysUsrControlOrgsV.hints.OrgCode.mandatory}"
+                                      shortDesc="#{bindings.SysUsrControlOrgsV.hints.OrgCode.tooltip}" id="soc3">
+                    <f:selectItems value="#{row.bindings.OrgCode.items}" id="si3"/>
+                    <f:validator binding="#{row.bindings.OrgCode.validator}"/>
+                  </af:selectOneChoice>
+                </af:panelGroupLayout>
+              </af:column>
+            </af:table>
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+          </af:panelHeader>
+        </af:panelGroupLayout>
+      </f:facet>
+    </af:panelSplitter>
+  </af:panelHeader>
+</ui:composition>

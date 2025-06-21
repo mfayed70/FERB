@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AalmHr"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.hr.model.AalmHr_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="JobsV"
+    ViewObjectName="com.aalm.hr.model.views.JobsV"/>
+  <ViewUsage
+    Name="EmployeesV"
+    ViewObjectName="com.aalm.hr.model.views.EmployeesV"/>
+  <ViewUsage
+    Name="EmployeesCRUDV"
+    ViewObjectName="com.aalm.hr.model.views.EmployeesCRUDV">
+    <ViewCriteriaUsage
+      Name="EmployeesCRUDVCriteria"
+      FullName="com.aalm.hr.model.views.EmployeesCRUDV.EmployeesCRUDVCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="EmployeeJobHistoryV"
+    ViewObjectName="com.aalm.hr.model.views.EmployeeJobHistoryV"/>
+  <ViewUsage
+    Name="EmployeesContractsV"
+    ViewObjectName="com.aalm.hr.model.views.EmployeesContractsV">
+    <ViewCriteriaUsage
+      Name="EmployeesContractsVCriteria"
+      FullName="com.aalm.hr.model.views.EmployeesContractsV.EmployeesContractsVCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="SystemParameters"
+    ViewObjectName="com.aalm.hr.model.views.SystemParameters"/>
+  <ViewLinkUsage
+    Name="fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL1"
+    ViewLinkObjectName="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL"
+    SrcViewUsageName="com.aalm.hr.model.AalmHr.EmployeesV"
+    DstViewUsageName="com.aalm.hr.model.AalmHr.EmployeeJobHistoryV"
+    Reversed="false"/>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.hr.model.AalmHrMBndl"/>
+  </ResourceBundle>
+</AppModule>

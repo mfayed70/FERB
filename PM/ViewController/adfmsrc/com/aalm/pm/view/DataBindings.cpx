@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.aalm.pm.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/clients/clients.jsff" usageId="com_aalm_pm_view_customersPageDef"/>
+    <page path="/WEB-INF/clients/clients-crud.jsf" usageId="com_aalm_pm_view_customers_crudPageDef"/>
+    <page path="/Test.jsf" usageId="com_aalm_pm_view_TestPageDef"/>
+    <page path="/WEB-INF/projects-pricing/projects-pricing.jsff" usageId="com_aalm_pm_view_projects_pricingPageDef"/>
+    <page path="/WEB-INF/projects/projects.jsff" usageId="com_aalm_pm_view_projectsPageDef"/>
+    <page path="/WEB-INF/selectItemview.jsf" usageId="com_aalm_pm_view_selectItemviewPageDef"/>
+    <page path="/WEB-INF/projects-pricing/projects-pricing_TF.xml#projects-pricing_TF@ExecuteWithParams"
+          usageId="com_aalm_pm_view_projects_pricing_TF_projects_pricing_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/projects-pricing/projects-pricing_TF.xml#projects-pricing_TF@CreateInsert"
+          usageId="com_aalm_pm_view_projects_pricing_TF_projects_pricing_TF_CreateInsertPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_aalm_pm_view_customersPageDef" path="customers.clientsPageDef"/>
+    <page id="com_aalm_pm_view_customers_crudPageDef" path="customers.clients_crudPageDef"/>
+    <page id="com_aalm_pm_view_TestPageDef" path="com.aalm.pm.view.pageDefs.TestPageDef"/>
+    <page id="com_aalm_pm_view_projects_pricingPageDef" path="projects_pricing.projects_pricingPageDef"/>
+    <page id="com_aalm_pm_view_projectsPageDef" path="projects.projectsPageDef"/>
+    <page id="com_aalm_pm_view_selectItemviewPageDef" path="com.aalm.pm.view.pageDefs.selectItemviewPageDef"/>
+    <page id="com_aalm_pm_view_projects_pricing_TF_projects_pricing_TF_ExecuteWithParamsPageDef"
+          path="projects_pricing.projects_pricing_TF_projects_pricing_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_pm_view_projects_pricing_TF_projects_pricing_TF_CreateInsertPageDef"
+          path="projects_pricing.projects_pricing_TF_projects_pricing_TF_CreateInsertPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AalmPmDataControl" Package="com.aalm.pm.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AalmPmLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="crud_supplierPageDef"
+                Package="suppliers">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SuppliersCRUDV" RangeSize="25" DataControl="AalmPrcrmntDataControl" id="SuppliersCRUDVIterator"/>
+    <iterator Binds="SuppliersV" RangeSize="25" DataControl="AalmPrcrmntDataControl" id="SuppliersVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SuppliersCRUDVIterator" id="SuppId">
+      <AttrNames>
+        <Item Value="SuppId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SuppliersCRUDVIterator" id="SuppName">
+      <AttrNames>
+        <Item Value="SuppName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SuppliersCRUDVIterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SuppliersCRUDVIterator" id="Mobile">
+      <AttrNames>
+        <Item Value="Mobile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SuppliersCRUDVIterator" id="SegelNo">
+      <AttrNames>
+        <Item Value="SegelNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SuppliersCRUDVIterator" id="ContactPerson">
+      <AttrNames>
+        <Item Value="ContactPerson"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SuppliersCRUDVIterator" id="OrgCode">
+      <AttrNames>
+        <Item Value="OrgCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SuppliersCRUDVIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SuppliersCRUDVIterator" id="Website">
+      <AttrNames>
+        <Item Value="Website"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SuppliersCRUDVIterator" StaticList="false" Uses="LOV_SuppType" id="SuppType" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="SuppliersCRUDVIterator" StaticList="false" Uses="LOV_SuppCategory" id="SuppCategory"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

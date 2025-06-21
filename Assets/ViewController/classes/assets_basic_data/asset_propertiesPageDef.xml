@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="asset_propertiesPageDef"
+                Package="assets_basic_data">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AssetAllPropertiesV" RangeSize="25" DataControl="AalmAssetsDataControl"
+              id="AssetPropertiesLOVIterator"/>
+    <searchRegion Binds="AssetPropertiesLOVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="AssetAllPropertiesVQuery"/>
+    <iterator Binds="AssetsPropsValuesV" RangeSize="10" DataControl="AalmAssetsDataControl"
+              id="AssetsPropsValuesVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AssetPropertiesLOVIterator" id="AssetAllPropertiesV">
+      <nodeDefinition DefName="com.aalm.assets.model.views.AssetsAllProperties" Name="AssetAllPropertiesV0">
+        <AttrNames>
+          <Item Value="AssPropId"/>
+          <Item Value="AssPropName"/>
+          <Item Value="Selected" Binds="Selected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="AssetPropertiesLOVIterator" id="Selected" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Selected"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <action IterBinding="AssetsPropsValuesVIterator" id="CreateWithParams"
+            InstanceName="AalmAssetsDataControl.AssetsPropsValuesV" DataControl="AalmAssetsDataControl"
+            RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="AssetId" NDValue="#{pageFlowScope.pAssetId}" NDType="java.lang.String"/>
+      <NamedData NDName="AssPropId" NDType="java.lang.String"/>
+      <NamedData NDName="AssPropertyValue" NDType="java.lang.String" NDValue="#{'Null'}"/>
+    </action>
+  </bindings>
+</pageDefinition>

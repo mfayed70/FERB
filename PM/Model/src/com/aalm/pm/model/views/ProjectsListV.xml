@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProjectsListV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.pm.model.views.ProjectsListV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="ClientsV1"
+    ViewObjectName="com.aalm.pm.model.views.ClientsV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CustId"
+    ListVOName="ClientsV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CustId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT ProjectsMast.cust_id, 
+       ProjectsMast.overhead_perc, 
+       ProjectsMast.proj_code, 
+       ProjectsMast.proj_dt, 
+       ProjectsMast.proj_id, 
+       ProjectsMast.proj_name, 
+       ProjectsMast.selected, 
+       ProjectsMast.version_no, (select count(section_id) from PROJECT_SECTIONS 
+                                    where PROJECT_SECTIONS.proj_id = ProjectsMast.proj_id
+                                    and   PROJECT_SECTIONS.version_no = ProjectsMast.version_no) ver_count
+FROM  PROJECTS_MAST ProjectsMast]]></SQLQuery>
+  <EntityUsage
+    Name="ProjectsMast"
+    Entity="com.aalm.pm.model.entities.ProjectsMast"/>
+  <ViewAttribute
+    Name="CustId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustId"
+    EntityUsage="ProjectsMast"
+    AliasName="cust_id"
+    LOVName="LOV_CustId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OverheadPerc"
+    PrecisionRule="true"
+    EntityAttrName="OverheadPerc"
+    EntityUsage="ProjectsMast"
+    AliasName="overhead_perc"/>
+  <ViewAttribute
+    Name="ProjCode"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProjCode"
+    EntityUsage="ProjectsMast"
+    AliasName="proj_code"/>
+  <ViewAttribute
+    Name="ProjDt"
+    PrecisionRule="true"
+    EntityAttrName="ProjDt"
+    EntityUsage="ProjectsMast"
+    AliasName="proj_dt">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProjId"
+    PrecisionRule="true"
+    EntityAttrName="ProjId"
+    EntityUsage="ProjectsMast"
+    AliasName="proj_id">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="3"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProjName"
+    PrecisionRule="true"
+    EntityAttrName="ProjName"
+    EntityUsage="ProjectsMast"
+    AliasName="proj_name"/>
+  <ViewAttribute
+    Name="Selected"
+    PrecisionRule="true"
+    EntityAttrName="Selected"
+    EntityUsage="ProjectsMast"
+    AliasName="selected"/>
+  <ViewAttribute
+    Name="VersionNo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VersionNo"
+    EntityUsage="ProjectsMast"
+    AliasName="version_no"
+    DefaultValue="0"/>
+  <ViewAttribute
+    Name="VerCount"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="ver_count"
+    Expression="ver_count"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="21"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.pm.model.AalmPmMBndl"/>
+  </ResourceBundle>
+</ViewObject>

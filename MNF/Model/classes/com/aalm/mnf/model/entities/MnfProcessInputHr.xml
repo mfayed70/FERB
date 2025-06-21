@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnfProcessInputHr"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="MNF_PROCESS_INPUT_HR"
+  AliasName="MnfProcessInputHr"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="Seq"
+    ColumnName="seq"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="MNF_PROCESS_INPUT_HR"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.mnf.model.entities.MnfProcessInputHr.Seq_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="MnfPrcsId"
+    IsNotNull="true"
+    Precision="8"
+    ColumnName="mnf_prcs_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="MNF_PROCESS_INPUT_HR"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="JobId"
+    IsNotNull="true"
+    ColumnName="job_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="MNF_PROCESS_INPUT_HR"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.mnf.model.entities.MnfProcessInputHr.JobId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Duration"
+    IsNotNull="true"
+    ColumnName="duration"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="MNF_PROCESS_INPUT_HR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.mnf.model.entities.MnfProcessInputHr.Duration_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="TimeUnit"
+    IsNotNull="true"
+    Precision="2"
+    ColumnName="time_unit"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="MNF_PROCESS_INPUT_HR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.mnf.model.entities.MnfProcessInputHr.TimeUnit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="MnfProcesses"
+    Association="com.aalm.mnf.model.entities.fk_MANF_PROCESS_INPUT_HR_MANF_PROCESSES1Assoc"
+    AssociationEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_INPUT_HR_MANF_PROCESSES1Assoc.MnfProcesses"
+    AssociationOtherEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_INPUT_HR_MANF_PROCESSES1Assoc.MnfProcessInputHr"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.mnf.model.entities.MnfProcessInputHr.Seq"/>
+      <Item Value="com.aalm.mnf.model.entities.MnfProcessInputHr.MnfPrcsId"/>
+      <Item Value="com.aalm.mnf.model.entities.MnfProcessInputHr.JobId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkManufactureProcessInputHrJobs1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_MANUFACTURE_PROCESS_INPUT_HR_JOBS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.mnf.model.entities.MnfProcessInputHr.JobId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkManufactureProcessInputHrManufacturingProcesses1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_MANUFACTURE_PROCESS_INPUT_HR_MANUFACTURING_PROCESSES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.mnf.model.entities.MnfProcessInputHr.MnfPrcsId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.mnf.model.AalmMnfBndl"/>
+  </ResourceBundle>
+</Entity>

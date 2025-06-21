@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="clients-TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>Execute</default-activity>
+    <view id="clients">
+      <page>/WEB-INF/clients/clients.jsff</page>
+    </view>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="clients-CRUD-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/clients/clients-CRUD-TF.xml</document>
+        <id>clients-CRUD-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__5">
+        <name>pCustId</name>
+        <value>#{pageFlowScope.pCustId}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>Execute</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>clients</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>clients</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>toCrud</from-outcome>
+        <to-activity-id>clients-CRUD-TF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

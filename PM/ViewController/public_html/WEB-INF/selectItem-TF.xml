@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="selectItem-TF">
+    <default-activity>selectItemview</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <return-value-definition id="__4">
+      <name>returnItemCode</name>
+      <value>#{pageFlowScope.returnItemCode}</value>
+      <class>java.lang.String</class>
+    </return-value-definition>
+    <return-value-definition id="__3">
+      <name>returnSelected</name>
+      <value>#{pageFlowScope.returnSelected}</value>
+      <class>java.lang.Boolean</class>
+    </return-value-definition>
+    <return-value-definition id="__5">
+      <name>returnItemIndx</name>
+      <value>#{pageFlowScope.returnItemIndx}</value>
+      <class>java.lang.String</class>
+    </return-value-definition>
+    <return-value-definition id="__6">
+      <name>returnItemName</name>
+      <value>#{pageFlowScope.returnItemName}</value>
+      <class>java.lang.String</class>
+    </return-value-definition>
+    <view id="selectItemview">
+      <page>/WEB-INF/selectItemview.jsf</page>
+    </view>
+    <task-flow-return id="exit">
+      <outcome>
+        <name>exit</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>selectItemview</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>exit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

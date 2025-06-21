@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserRoles"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="USER_ROLES"
+  AliasName="UserRoles"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="SystemId"
+    IsNotNull="true"
+    Precision="3"
+    ColumnName="system_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="USER_ROLES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserId"
+    IsNotNull="true"
+    ColumnName="user_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="USER_ROLES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RoleGroupId"
+    IsNotNull="true"
+    ColumnName="role_group_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="USER_ROLES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Systems"
+    Association="com.aalm.master.model.entities.FkUserRolesSystems1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkUserRolesSystems1Assoc.Systems"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkUserRolesSystems1Assoc.UserRoles"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="UserRolesMaster"
+    Association="com.aalm.master.model.entities.FkUserRolesUserRolesMaster1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkUserRolesUserRolesMaster1Assoc.UserRolesMaster"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkUserRolesUserRolesMaster1Assoc.UserRoles"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="UserPermissions"
+    Association="com.aalm.master.model.entities.FkUserPermissionsUserRoles1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkUserPermissionsUserRoles1Assoc.UserPermissions"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkUserPermissionsUserRoles1Assoc.UserRoles"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="FkUserRolesSystems1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_USER_ROLES_SYSTEMS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="FkUserRolesUserRolesMaster1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_USER_ROLES_USER_ROLES_MASTER1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="fk_UserRoles">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_User_Roles"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+</Entity>

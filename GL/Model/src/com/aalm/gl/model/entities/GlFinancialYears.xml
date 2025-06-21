@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlFinancialYears"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="GL_FINANCIAL_YEARS"
+  AliasName="GlFinancialYears"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="FinYearCode"
+    IsNotNull="true"
+    Precision="9"
+    ColumnName="fin_year_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="GL_FINANCIAL_YEARS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlFinancialYears.FinYearCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="PeriodNo"
+    IsNotNull="true"
+    ColumnName="period_no"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_FINANCIAL_YEARS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlFinancialYears.PeriodNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="StatusFlag"
+    IsNotNull="true"
+    Precision="2"
+    ColumnName="status_flag"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="GL_FINANCIAL_YEARS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlFinancialYears.StatusFlag_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="StartDt"
+    ColumnName="start_dt"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="GL_FINANCIAL_YEARS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlFinancialYears.StartDt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="EndDt"
+    ColumnName="end_dt"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="GL_FINANCIAL_YEARS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlFinancialYears.EndDt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlFinancialYears.FinYearCode"/>
+      <Item Value="com.aalm.gl.model.entities.GlFinancialYears.PeriodNo"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.gl.model.AalmGlBndl"/>
+  </ResourceBundle>
+</Entity>

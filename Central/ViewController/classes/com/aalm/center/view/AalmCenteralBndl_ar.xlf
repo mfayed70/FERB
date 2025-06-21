@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.center.view.AalmCenteralBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="CURRENCIES">
+        <source>العمـــلات</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="CURRENCY_TRANSFER">
+        <source>تحويل بين العملات</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW">
+        <source>جديـــد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEM_CATEGORIES">
+        <source>فثـــات الأصناف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>حفـــظ</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>إلغـــاء</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="STORE_CATEGORIES">
+        <source>فثات المخـــازن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MEASURMENT_UNITS">
+        <source>وحدات القياس</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MEASURMENT_UNITS_TRANSFORMATION">
+        <source>تحويل بين وحدات القياس</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="UNITS_TRANSFORMATION">
+        <source>تحويلات وحدات الثياس</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COMPANY_STRUCTURE">
+        <source>هيكل الشركة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="_ADD_CHILD">
+        <source>+أضف مستوي قرعي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MASTER_MATERIAL_LIST">
+        <source>قائمة المركب الرئيسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MATERIAL_ASSEMBLY_COMPONENTS">
+        <source>أصناف المادة المركبة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Preview">
+        <source>Preview</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CODE">
+        <source>المز</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="QTY">
+        <source>الكمية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="UNIT">
+        <source>الوحدة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_MATERIALS_TO_YOUR_ASSEMBLY">
+        <source>أضف مادة لهذا المركب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CreateAssembly">
+        <source>إنشاء مركب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_NEW_CUSTOMER">
+        <source>أضف عميل جديد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CUSTOMERS">
+        <source>العمـــلاء</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="ITEM_LIST___ASSEMBLIES">
+        <source>قائمة المواد ومكوناتها</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_TO_STRUCTURE">
+        <source>أضف للهيكل البنائي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEM_VARIABLES">
+        <source>متغيرات الأصناف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="VARIABLE_VALUES">
+        <source>قيم المتغيرات</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="IN_VARIABLE_NAME__DON_T_USE_WORD__GROUP__OR_USE_WORDS_WITH_SPACES_">
+        <source>في إسم المتغير, لا تستخدم إسم group, أو مسافات في الإسم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="300">
+        <source>300</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEMS_VARIABLES_STRUCTURE">
+        <source>هيكل متغيرات الأصناف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEMS_VARIABLES">
+        <source>متغيرات الأصناف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEMS_VARIABLES_VALUES">
+        <source>قيم متغيرات الصنف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="New">
+        <source>جديد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CHANGE_COLUMN_NAME_IN_ITEMS">
+        <source>Change column name in Items</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="OK">
+        <source>تم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CHOOSE_UNIT___ITEM_CATEGORY">
+        <source>إختار الوحدة وفئة الصنف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_CHILD">
+        <source>أضف سجل فرعي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREATE_ITEMS_FOR_REVISION">
+        <source>إنشيء الأصناف للمراجعة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_TO_ITEMS_LIST">
+        <source>أضف لقائمة الأصناف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="StructuredItemsRevision">
+        <source>مراجعة هيكل الأصناف</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="ITEMS_COUNT">
+        <source>عدد الأصناف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SER_">
+        <source>م.</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="COUNT__">
+        <source>العدد :</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="TIP_ITEM_VARIABLE_ORDER">
+        <source>ملحوظة: أدخل الترتيب الذي ترغب في عرض بيانات المتغير عليه, مثال, لعرض الإسم أولا إجعل ترتيبه 1 ثم بعد ذلك الآخرين....و هكذا.</source>
+        <target/>
+      </trans-unit>
+      
+    </body>
+  </file>
+</xliff>

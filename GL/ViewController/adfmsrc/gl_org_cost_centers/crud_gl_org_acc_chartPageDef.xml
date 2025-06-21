@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="crud_gl_org_acc_chartPageDef"
+                Package="gl_org_cost_centers">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlOrgAccChartCRUDV" RangeSize="25" DataControl="AalmGlDataControl"
+              id="GlOrgAccChartCRUDVIterator"/>
+    <iterator id="GlAccAssistancesVIterator" Binds="GlAccAssistancesV" DataControl="AalmGlDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="GlOrgAccChartCRUDVIterator" id="AccCode">
+      <AttrNames>
+        <Item Value="AccCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlOrgAccChartCRUDVIterator" id="AccNameA">
+      <AttrNames>
+        <Item Value="AccNameA"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlOrgAccChartCRUDVIterator" id="AccNameE">
+      <AttrNames>
+        <Item Value="AccNameE"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="GlOrgAccChartCRUDVIterator" StaticList="false" Uses="LOV_GlAccTypeId" id="GlAccTypeId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="GlOrgAccChartCRUDVIterator" StaticList="false" Uses="LOV_GlAssTblId" id="GlAssTblId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="GlOrgAccChartCRUDVIterator" StaticList="false" Uses="LOV_PrntAccCode" id="PrntAccCode"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="GlOrgAccChartCRUDVIterator" id="TblNameE">
+      <AttrNames>
+        <Item Value="TblNameE"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AalmGlDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <methodAction id="create_gl_assistance_from_tables" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="create_gl_assistance_from_tables" IsViewObjectMethod="false"
+                  DataControl="AalmGlDataControl" InstanceName="data.AalmGlDataControl.dataProvider"
+                  ReturnName="data.AalmGlDataControl.methodResults.create_gl_assistance_from_tables_AalmGlDataControl_dataProvider_create_gl_assistance_from_tables_result">
+      <NamedData NDName="vAccCode" NDType="java.lang.Integer"/>
+      <NamedData NDName="vTblName" NDType="java.lang.String"/>
+      <NamedData NDType="java.lang.Integer" NDName="vOrgCode" NDValue="#{2}"/>
+    </methodAction>
+    <attributeValues IterBinding="GlOrgAccChartCRUDVIterator" id="ChildCount">
+      <AttrNames>
+        <Item Value="ChildCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlOrgAccChartCRUDVIterator" id="GlAssTblId1">
+      <AttrNames>
+        <Item Value="GlAssTblId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

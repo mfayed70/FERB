@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="gl_gen_acc_chartPageDef"
+                Package="gl_gen_acc_chart">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlGenAccChartV" RangeSize="25" DataControl="AalmGlDataControl" id="GlGenAccChartVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="GlGenAccChartVIterator" id="GlGenAccChartV">
+      <nodeDefinition DefName="com.aalm.gl.model.views.GlGenAccChartV" Name="GlGenAccChartV0">
+        <AttrNames>
+          <Item Value="AccCode"/>
+          <Item Value="AccNameE"/>
+          <Item Value="AccNameA"/>
+          <Item Value="AccTypeId"/>
+          <Item Value="AccTypeName"/>
+          <Item Value="PrntAccCode"/>
+          <Item Value="ChildCount"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="GlGenAccChartV"/>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmGlDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmGlDataControl"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="gl_financial_years-TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>gl_financial_years</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="gl_financial_years">
+      <page>/WEB-INF/gl_financial_years/gl_financial_years.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

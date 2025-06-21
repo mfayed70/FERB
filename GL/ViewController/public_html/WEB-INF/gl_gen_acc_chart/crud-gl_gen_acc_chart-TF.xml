@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="crud-gl_gen_acc_chart-TF">
+    <default-activity>router1</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>pPrntAccCode</name>
+      <value>#{pageFlowScope.pPrntAccCode}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__9">
+      <name>pAccCode</name>
+      <value>#{pageFlowScope.pAccCode}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__14">
+      <name>pAction</name>
+      <value>#{pageFlowScope.pAction}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__13">
+      <managed-bean-name>GlBean</managed-bean-name>
+      <managed-bean-class>com.aalm.gl.view.beans.GlBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <router id="router1">
+      <case id="__15">
+        <expression>#{pageFlowScope.pAction=='N'}</expression>
+        <outcome>new</outcome>
+      </case>
+      <default-outcome>edit</default-outcome>
+    </router>
+    <method-call id="CreateWithParameters">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="crud-gl_gen_acc_chart">
+      <page>/WEB-INF/gl_gen_acc_chart/crud-gl_gen_acc_chart.jsf</page>
+    </view>
+    <task-flow-return id="commit">
+      <outcome>
+        <name>commit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="rollback">
+      <outcome>
+        <name>rollback</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__2">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>new</from-outcome>
+        <to-activity-id>CreateWithParameters</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>CreateWithParameters</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>CreateWithParams</from-outcome>
+        <to-activity-id>crud-gl_gen_acc_chart</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>crud-gl_gen_acc_chart</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>crud-gl_gen_acc_chart</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

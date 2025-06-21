@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="JobsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="Jobs"
+    Entity="com.aalm.hr.model.entities.Jobs"/>
+  <ViewAttribute
+    Name="JobId"
+    PrecisionRule="true"
+    EntityAttrName="JobId"
+    EntityUsage="Jobs"
+    AliasName="job_id"/>
+  <ViewAttribute
+    Name="JobNameEn"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="JobNameEn"
+    EntityUsage="Jobs"
+    AliasName="job_name_en"/>
+  <ViewAttribute
+    Name="JobNameAr"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="JobNameAr"
+    EntityUsage="Jobs"
+    AliasName="job_name_ar"/>
+  <ViewAttribute
+    Name="OrgCode"
+    PrecisionRule="true"
+    EntityAttrName="OrgCode"
+    EntityUsage="Jobs"
+    AliasName="org_code">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.context.sessionScope.orgCode]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+</ViewObject>

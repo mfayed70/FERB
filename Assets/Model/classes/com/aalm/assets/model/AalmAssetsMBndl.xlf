@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.assets.model.AalmAssetsMBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="com.aalm.assets.model.lovs.IncreaseOrFixedLOV.SL_0_0">
+        <source>I</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.IncreaseOrFixedLOV.SL_0_1">
+        <source>Increase-متزايد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.IncreaseOrFixedLOV.SL_1_0">
+        <source>F</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.IncreaseOrFixedLOV.SL_1_1">
+        <source>Fixed-ثابت</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.IncreaseOrFixedLOV_LABEL">
+        <source>Increase Or Fixed Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.YearlsOrHours.SL_0_0">
+        <source>Y</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.YearlsOrHours.SL_0_1">
+        <source>Yearly-سنوي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.YearlsOrHours.SL_1_0">
+        <source>H</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.YearlsOrHours.SL_1_1">
+        <source>Hourly-بالساعة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.YearlsOrHours_LABEL">
+        <source>Years Or Hours</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV.SL_0_0">
+        <source>I</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV.SL_0_1">
+        <source>Initiate-إنشاء</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV.SL_1_0">
+        <source>T</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV.SL_1_1">
+        <source>Transfer-نقل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV.SL_2_0">
+        <source>S</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV.SL_2_1">
+        <source>Stop-إيقاف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV.SL_3_0">
+        <source>D</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV.SL_3_1">
+        <source>Depreciate-إهلاك</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV.SL_4_0">
+        <source>R</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV.SL_4_1">
+        <source>Re-operate-إعادة تشغيل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV.SL_5_0">
+        <source>E</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV.SL_5_1">
+        <source>Expense-مصروف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV_LABEL">
+        <source>Asset Trns Type Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.CurrenciesLOV_LABEL">
+        <source>Currencies Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.FkAssetsItemsAssetsBasicData1Link_LABEL">
+        <source>Fk Assets Items Assets Basic Data 1 Link</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.FkAssetsPropsValuesAssetsBasicData1Link_LABEL">
+        <source>Fk Assets Props Values Assets Basic Data 1 Link</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsAllProperties_LABEL">
+        <source>Asset Properties Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.FkAssetsPropsValuesAssetsProperties1Link_LABEL">
+        <source>Fk Assets Props Values Assets Properties 1 Link</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsAllSparaPartsV_LABEL">
+        <source>Assets All Spara Parts V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.AssetTransTypesLOV_LABEL">
+        <source>Asset Trans Types Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.lovs.FromToOrgLOV_LABEL">
+        <source>From To Org Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.FkAssetTransDetAssetTransMast1Link_LABEL">
+        <source>Fk Asset Trans Det Asset Trans Mast 1 Link</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsBasicData.AssetId_LABEL">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsBasicData.AssetName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsBasicData.AssetAddDtTm_LABEL">
+        <source>Added in Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Value">
+        <source>Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsBasicData.AssetValue_LABEL">
+        <source>Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsBasicData.Notes_LABEL">
+        <source>Notes</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsBasicData.CurrCode_LABEL">
+        <source>Currency</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsDepreciationTypes.AssDeprId_LABEL">
+        <source>Depretiation ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsDepreciationTypes.AssDeprName_LABEL">
+        <source>Depretiation Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsDepreciationTypes.YearlyDepreciationPerc_LABEL">
+        <source>Yearly Depr. %</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsDepreciationTypes.IncreaseOrFixed_LABEL">
+        <source>Increase / Fixed</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsDepreciationTypes.YearOrHours_LABEL">
+        <source>Years / Hours</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsGroups.AssGrpId_LABEL">
+        <source>Group ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsGroups.AssGrpName_LABEL">
+        <source>Group Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsGroups.YearlyDepreciationPerc_LABEL">
+        <source>Yearly Depr. %</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsGroups.AssDeprId_LABEL">
+        <source>Depretiation ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsItemsV.Id_LABEL">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="REGISTER_DATE">
+        <source>Register Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsItemsV.Registr_LABEL">
+        <source>Register Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsItemsV.Qty_LABEL">
+        <source>Quantity in Asset</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsItemsV.AssetId_LABEL">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SPARE_PART">
+        <source>Spare Part</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsItemsV.ItemCode_LABEL">
+        <source>Spare Part Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsItemsV.ItemName_LABEL">
+        <source>Spare Part Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsProperties.AssPropId_LABEL">
+        <source>Property ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsProperties.AssPropName_LABEL">
+        <source>Property Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsPropsValues.AssetId_LABEL">
+        <source>Asset ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsPropsValues.AssPropId_LABEL">
+        <source>Property ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsPropsValues.AssPropertyValue_LABEL">
+        <source>Property Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsTransTypes.AssTrnsTypeCode_LABEL">
+        <source>Trans Type Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsTransTypes.AssTrnsTypeName_LABEL">
+        <source>Trans Type Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsTransTypes.Effect_LABEL">
+        <source>Effect</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.entities.AssetsTransTypes.AssTrnsTypeDt_LABEL">
+        <source>Added in Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsItemsV.ItemIndx_LABEL">
+        <source>Spare Part Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsAllSparaPartsV.ItemIndx_LABEL">
+        <source>Spare Part Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsAllSparaPartsV.ItemName_LABEL">
+        <source>Spare Part Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASS_PROPERTY_ID">
+        <source>Ass.Property ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsAllProperties.AssPropId_LABEL">
+        <source>Property ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PropertyName">
+        <source>Property Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.assets.model.views.AssetsAllProperties.AssPropName_LABEL">
+        <source>Property Name</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

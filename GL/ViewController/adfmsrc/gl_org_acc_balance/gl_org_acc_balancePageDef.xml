@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="gl_org_acc_balancePageDef"
+                Package="gl_org_acc_balance">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlOrgAccBalanceV" RangeSize="25" DataControl="AalmGlDataControl" id="GlOrgAccBalanceVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="GlOrgAccBalanceVIterator" id="GlOrgAccBalanceV">
+      <nodeDefinition DefName="com.aalm.gl.model.views.GlOrgAccBalanceV" Name="GlOrgAccBalanceV0">
+        <AttrNames>
+          <Item Value="OrgCode"/>
+          <Item Value="AccCode"/>
+          <Item Value="CurrCode"/>
+          <Item Value="OpenCredit"/>
+          <Item Value="OpenDebit"/>
+          <Item Value="CloseCredit"/>
+          <Item Value="CloseDebit"/>
+          <Item Value="LocalOpenCredit"/>
+          <Item Value="LocalOpenDebit"/>
+          <Item Value="LocalCloseCredit"/>
+          <Item Value="LocalCloseDebit"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

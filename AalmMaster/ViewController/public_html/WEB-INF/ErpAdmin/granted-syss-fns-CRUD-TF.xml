@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="granted-syss-fns-CRUD-TF">
+    <default-activity>ExecuteWithParamsSyss</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__5">
+      <name>pGrpRolId</name>
+      <value>#{pageFlowScope.pGrpRolId}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <managed-bean id="__9">
+      <managed-bean-name>ErpAdminClass</managed-bean-name>
+      <managed-bean-class>com.aalm.master.view.beans.ErpAdminClass</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <method-call id="ExecuteWithParamsSyss">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParamsFncns">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="granted-roles-fncns">
+      <page>/WEB-INF/ErpAdmin/granted-roles-fncns.jsf</page>
+    </view>
+    <task-flow-return id="commit">
+      <outcome>
+        <name>commit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="rollback">
+      <outcome>
+        <name>rollback</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>ExecuteWithParamsSyss</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>ExecuteWithParamsFncns</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>ExecuteWithParamsFncns</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>granted-roles-fncns</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>granted-roles-fncns</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

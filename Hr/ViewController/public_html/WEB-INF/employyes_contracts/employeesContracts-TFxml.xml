@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="employeesContracts-TFxml">
+    <default-activity>ExecuteWithParams</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>pEmpId</name>
+      <value>#{pageFlowScope.pEmpId}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <managed-bean id="__7">
+      <managed-bean-name>HrBean</managed-bean-name>
+      <managed-bean-class>com.aalm.hr.view.beans.HrBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="employeesContracts">
+      <page>/WEB-INF/employyes_contracts/employeesContracts.jsff</page>
+    </view>
+    <parent-action id="Commit">
+      <parent-outcome>toSave</parent-outcome>
+    </parent-action>
+    <parent-action id="Rollback">
+      <parent-outcome>toCancel</parent-outcome>
+    </parent-action>
+    <control-flow-rule id="__2">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>employeesContracts</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>employeesContracts</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

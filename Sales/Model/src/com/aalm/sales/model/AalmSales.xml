@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AalmSales"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.sales.model.AalmSales_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="CustomersV"
+    ViewObjectName="com.aalm.sales.model.views.CustomersV"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.aalm.sales.model.ModelBundle"/>
+  </ResourceBundle>
+</AppModule>

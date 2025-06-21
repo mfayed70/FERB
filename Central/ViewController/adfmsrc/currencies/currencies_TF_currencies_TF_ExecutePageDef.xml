@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="currencies_TF_currencies_TF_ExecutePageDef" Package="currencies" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="CurrenciesV" RangeSize="25" DataControl="AalmCentralDataControl" id="CurrenciesVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CurrenciesVIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="unitsPageDef" Package="units">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="UnitsV" RangeSize="25" DataControl="AalmCentralDataControl" id="UnitsVIterator"/>
+    <iterator Binds="UnitsTransformV" RangeSize="25" DataControl="AalmCentralDataControl" id="UnitsTransformVIterator"/>
+    <searchRegion Binds="UnitsVIterator" Criteria="__ImplicitViewCriteria__"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="UnitsVQuery"/>
+    <searchRegion Binds="UnitsTransformVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="UnitsTransformVQuery"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmCentralDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AalmCentralDataControl"/>
+    <action IterBinding="UnitsVIterator" id="CreateInsert" InstanceName="AalmCentralDataControl.UnitsV"
+            DataControl="AalmCentralDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="UnitsVIterator" id="UnitsV">
+      <nodeDefinition DefName="com.aalm.center.model.views.UnitsV" Name="UnitsV0">
+        <AttrNames>
+          <Item Value="UnitId"/>
+          <Item Value="UnitName"/>
+          <Item Value="RegisterDt"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="UnitsTransformVIterator" id="UnitsTransformV">
+      <nodeDefinition DefName="com.aalm.center.model.views.UnitsTransformV" Name="UnitsTransformV0">
+        <AttrNames>
+          <Item Value="FromUnitId"/>
+          <Item Value="ToUnitId"/>
+          <Item Value="MultiplyBy"/>
+          <Item Value="RegisterDt"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

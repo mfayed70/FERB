@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProjectSectionItems"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PROJECT_SECTION_ITEMS"
+  AliasName="ProjectSectionItems"
+  BindingStyle="JDBC"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <Attribute
+    Name="SectionId"
+    ColumnName="section_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SectionItemId"
+    IsNotNull="true"
+    ColumnName="section_item_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PROJECT_SECTION_ITEMS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ItemCode"
+    Precision="100"
+    ColumnName="item_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="2000"
+    ColumnName="description"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ForeignUnitCost"
+    ColumnName="foreign_unit_cost"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SuppDiscountPerc"
+    ColumnName="supp_discount_perc"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustomsPerc"
+    ColumnName="customs_perc"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PrntSectionItemId"
+    ColumnName="prnt_section_item_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CurrCode"
+    Precision="5"
+    ColumnName="curr_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustomerDisc"
+    ColumnName="customer_disc"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SalesTaxPerc"
+    ColumnName="sales_tax_perc"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LocalUnitCost"
+    ColumnName="local_unit_cost"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SubsectionOrItem"
+    Precision="2"
+    ColumnName="subsection_or_item"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UnitId"
+    ColumnName="unit_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Qty"
+    ColumnName="qty"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UnitCost"
+    ColumnName="unit_cost"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TotalCost"
+    ColumnName="total_cost"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="PROJECT_SECTION_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="ProjectSectionItems3"
+    Association="com.aalm.pm.model.entities.FkProjectSectionItemsProjectSectionItems1Assoc"
+    AssociationEnd="com.aalm.pm.model.entities.FkProjectSectionItemsProjectSectionItems1Assoc.ProjectSectionItems3"
+    AssociationOtherEnd="com.aalm.pm.model.entities.FkProjectSectionItemsProjectSectionItems1Assoc.PrntSectionItemIdProjectSectionItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PrntSectionItemIdProjectSectionItems"
+    Association="com.aalm.pm.model.entities.FkProjectSectionItemsProjectSectionItems1Assoc"
+    AssociationEnd="com.aalm.pm.model.entities.FkProjectSectionItemsProjectSectionItems1Assoc.PrntSectionItemIdProjectSectionItems"
+    AssociationOtherEnd="com.aalm.pm.model.entities.FkProjectSectionItemsProjectSectionItems1Assoc.ProjectSectionItems3"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ProjectSections"
+    Association="com.aalm.pm.model.entities.FkProjectSectionItemsProjectSections1Assoc"
+    AssociationEnd="com.aalm.pm.model.entities.FkProjectSectionItemsProjectSections1Assoc.ProjectSections"
+    AssociationOtherEnd="com.aalm.pm.model.entities.FkProjectSectionItemsProjectSections1Assoc.ProjectSectionItems"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ItemsListRO"
+    Association="com.aalm.pm.model.entities.FkProjectSectionItemsItemsList1Assoc"
+    AssociationEnd="com.aalm.pm.model.entities.FkProjectSectionItemsItemsList1Assoc.ItemsListRO"
+    AssociationOtherEnd="com.aalm.pm.model.entities.FkProjectSectionItemsItemsList1Assoc.ProjectSectionItems4"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.pm.model.entities.ProjectSectionItems.SectionItemId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkProjectSectionItemsCurrencies1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PROJECT_SECTION_ITEMS_CURRENCIES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.pm.model.entities.ProjectSectionItems.CurrCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkProjectSectionItemsItemsList1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PROJECT_SECTION_ITEMS_ITEMS_LIST1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.pm.model.entities.ProjectSectionItems.ItemCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkProjectSectionItemsProjectSectionItems1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PROJECT_SECTION_ITEMS_PROJECT_SECTION_ITEMS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.pm.model.entities.ProjectSectionItems.PrntSectionItemId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkProjectSectionItemsProjectSections1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PROJECT_SECTION_ITEMS_PROJECT_SECTIONS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.pm.model.entities.ProjectSectionItems.SectionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkProjectSectionItemsUnits1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PROJECT_SECTION_ITEMS_UNITS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.pm.model.entities.ProjectSectionItems.UnitId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.aalm.assets.model.AalmAssets">
+      <AppModuleConfig DeployPlatform="LOCAL" name="AalmAssetsLocal" ApplicationName="com.aalm.assets.model.AalmAssets" jbo.project="com.aalm.assets.model.Model">
+         <Database jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQL92"/>
+         <Security AppModuleJndiName="com.aalm.assets.model.AalmAssets"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="jdbc/eleconConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig jbo.project="com.aalm.assets.model.Model" ApplicationName="com.aalm.assets.model.AalmAssets" DeployPlatform="LOCAL" name="AalmAssetsShared">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.resetnontransactionalstate="false" jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.SQLBuilder="SQL92"/>
+         <Security AppModuleJndiName="com.aalm.assets.model.AalmAssets"/>
+         <Custom ns0:JDBCDataSource="jdbc/eleconConnDS" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

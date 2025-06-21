@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="gl_org_cost_centers-TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>gl_org_cost_centers</default-activity>
+    <managed-bean id="__5">
+      <managed-bean-name>GlBean</managed-bean-name>
+      <managed-bean-class>com.aalm.gl.view.beans.GlBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="gl_org_cost_centers">
+      <page>/WEB-INF/gl_org_cost_centers/gl_org_cost_centers.jsff</page>
+    </view>
+    <task-flow-call id="crud-gl_org_cost_centers-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/gl_org_cost_centers/crud-gl_org_cost_centers-TF.xml</document>
+        <id>crud-gl_org_cost_centers-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__1">
+        <name>pPrntCostCenterCode</name>
+        <value>#{pageFlowScope.pPrntCostCenterCode}</value>
+      </input-parameter>
+      <input-parameter id="__2">
+        <name>pCostCenterCode</name>
+        <value>#{pageFlowScope.pCostCenterCode}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__3">
+      <from-activity-id>gl_org_cost_centers</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>toCrud</from-outcome>
+        <to-activity-id>crud-gl_org_cost_centers-TF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

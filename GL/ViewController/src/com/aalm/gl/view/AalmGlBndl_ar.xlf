@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="AalmGlBndl_ar" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="GENERAL_LEDGER_ACCOUNT_TYPES">
+        <source>أنواع الحسابات</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>إلغاء</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW">
+        <source>جديد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GENERAL_LEDGER_TRANSACTION_TYPES">
+        <source>أنواع الحركات المالية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW___EDIT_GL_TRANSACTION_TYPE">
+        <source>إضافة / تعديل نوع حركة مالية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>حفظ</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GL_ACCOUNT_CHART">
+        <source>الشجرة المحاسبية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_SUB_ACCOUNT">
+        <source>إضافة حساب فرعي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_MASTER_ACCOUNT">
+        <source>إضافة حساب رئيسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD___EDIT_GL_ACCOUNT">
+        <source>إضافة / تعديل حساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CostCenters">
+        <source>مراكز التكلفة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AddSubCostCenter">
+        <source>إضافة مركز تكلفة فرعي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AddEditCostCenter">
+        <source>إضافة / تعديل مركز تكلفة</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="ORGANIZATION_ACCOUNT_CHART">
+        <source>الشجرة المحاسبية للشركة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GENERAL_ACCOUNT_CHART">
+        <source>الشجرة المحاسبية العامة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD___EDIT_ACCOUNT">
+        <source>إضافة / تعديل حساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GL_ASSISTANT_ACCOUNTS">
+        <source>حساب الأستاذ المساعد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DOCUMENT_JOURNALS">
+        <source>حسابات القيد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW_DOCUMENT">
+        <source>قيد جديد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NewJournal">
+        <source>سطر جديد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TOTAL_">
+        <source>الإجمالي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GL_DOCUMENT">
+        <source>القيود اليومية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GL_DOCUMENTS">
+        <source>القيود المحاسبية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="POST">
+        <source>ترحيل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="POSTED">
+        <source>تم ترحيله</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="UNBALANCED">
+        <source>غير متزن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="balanced">
+        <source>متزن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="post">
+        <source>ترحيل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ACTIONS">
+        <source>التأثير</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BALANCE">
+        <source>الرصيد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ACCOUNT_BALANCE">
+        <source>رصيد الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Exit">
+        <source>رجوع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FinancialPeriods">
+        <source>الفترات المالية</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="Search">
+        <source>بحــث</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Balanced">
+        <source>متــزن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Delete">
+        <source>حــذف</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="CREATE_REVERSE_DOCUMENT">
+        <source>إنشاء قيد عكسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ORIGINAL_DOCUMENT">
+        <source>القيد الرئيسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ORIGIN_DOC_ID_">
+        <source>القيد الرئيسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="REVERSE_DOC_ID_">
+        <source>القيد العكسي</source>
+        <target/>
+      </trans-unit>
+      
+    </body>
+  </file>
+</xliff>

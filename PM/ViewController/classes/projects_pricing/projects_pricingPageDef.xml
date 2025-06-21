@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="projects_pricingPageDef"
+                Package="projects_pricing">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProjectMastV" RangeSize="25" DataControl="AalmPmDataControl" id="ProjectMastVIterator"/>
+    <iterator Binds="ProjectSectionsV" RangeSize="25" DataControl="AalmPmDataControl" id="ProjectSectionsVIterator"/>
+    <iterator Binds="ProjectSectionItemsV" RangeSize="25" DataControl="AalmPmDataControl"
+              id="ProjectSectionItemsVIterator"/>
+    <iterator Binds="ProjectSectionSubItemsV" RangeSize="10" DataControl="AalmPmDataControl"
+              id="ProjectSectionSubItemsVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ProjectMastVIterator" id="ProjectMastV">
+      <nodeDefinition DefName="com.aalm.pm.model.views.ProjectMastV" Name="ProjectMastV0">
+        <AttrNames>
+          <Item Value="CustId"/>
+          <Item Value="ChildCount"/>
+          <Item Value="OverheadPerc"/>
+          <Item Value="ProjCode"/>
+          <Item Value="ProjDt"/>
+          <Item Value="ProjId"/>
+          <Item Value="ProjName"/>
+          <Item Value="Selected"/>
+          <Item Value="TCostAftrOvrhPerc"/>
+          <Item Value="TCostAftrSpecificPerc"/>
+          <Item Value="TotalCost"/>
+          <Item Value="VersionNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ProjectMastVIterator" id="ProjId">
+      <AttrNames>
+        <Item Value="ProjId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProjectMastVIterator" id="ProjCode">
+      <AttrNames>
+        <Item Value="ProjCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProjectMastVIterator" id="ProjName">
+      <AttrNames>
+        <Item Value="ProjName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ProjectMastVIterator" StaticList="false" Uses="LOV_CustId" id="CustId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ProjectMastVIterator" id="ProjDt">
+      <AttrNames>
+        <Item Value="ProjDt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProjectMastVIterator" id="VersionNo">
+      <AttrNames>
+        <Item Value="VersionNo"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ProjectMastVIterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="ProjectMastVIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="ProjectMastVIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="ProjectMastVIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="ProjectMastVIterator" id="CreateInsertProject" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" DataControl="AalmPmDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ProjectSectionsVIterator" id="SectionId">
+      <AttrNames>
+        <Item Value="SectionId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ProjectSectionsVIterator" id="ProjectSectionsV">
+      <nodeDefinition DefName="com.aalm.pm.model.views.ProjectSectionsV" Name="ProjectSectionsV0">
+        <AttrNames>
+          <Item Value="ProjId"/>
+          <Item Value="ChildCount"/>
+          <Item Value="PrntSectionId"/>
+          <Item Value="SectionCode"/>
+          <Item Value="SectionId"/>
+          <Item Value="SectionName"/>
+          <Item Value="VersionNo"/>
+          <Item Value="ItemsCount"/>
+          <Item Value="CountUnitCost"/>
+          <Item Value="Qty"/>
+          <Item Value="MasterUnitCost"/>
+          <Item Value="SpecificPerc"/>
+          <Item Value="TotalCost"/>
+          <Item Value="TotCostAftrOvrhead"/>
+          <Item Value="TotCostAftrSpecfcPerc"/>
+          <Item Value="UcostAftrOvrhead"/>
+          <Item Value="UcostAftrSpecPerc"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="ProjectSectionsV"/>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ProjectSectionsVIterator" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ProjectSectionItemsVIterator" id="ExecuteWithParams"
+            InstanceName="AalmPmDataControl.ProjectSectionItemsV" DataControl="AalmPmDataControl"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="pSectionId" NDType="java.lang.Integer"/>
+    </action>
+    <action IterBinding="ProjectSectionsVIterator" id="CreateMainSection"
+            InstanceName="AalmPmDataControl.ProjectSectionsV" DataControl="AalmPmDataControl" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="VersionNo" NDValue="#{bindings.VersionNo.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="PrntSectionId" NDValue="#{null}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ProjectSectionsVIterator" id="CreateSubSection"
+            InstanceName="AalmPmDataControl.ProjectSectionsV" DataControl="AalmPmDataControl" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="PrntSectionId" NDValue="#{node.SectionId}" NDType="java.lang.String"/>
+      <NamedData NDName="VersionNo" NDValue="#{bindings.VersionNo.inputValue}" NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="ProjectSectionItemsVIterator" id="ProjectSectionItemsV">
+      <nodeDefinition DefName="com.aalm.pm.model.views.ProjectSectionItemsV" Name="ProjectSectionItemsV0">
+        <AttrNames>
+          <Item Value="SectionId"/>
+          <Item Value="ChildCount"/>
+          <Item Value="CurrCode" Binds="CurrCode"/>
+          <Item Value="CustomerDisc"/>
+          <Item Value="CustomsPerc"/>
+          <Item Value="Description"/>
+          <Item Value="ForeignUnitCost"/>
+          <Item Value="ItemCode"/>
+          <Item Value="LocalUnitCost"/>
+          <Item Value="PrntSectionItemId"/>
+          <Item Value="SalesTaxPerc"/>
+          <Item Value="SectionItemId"/>
+          <Item Value="SubsectionOrItem"/>
+          <Item Value="SuppDiscountPerc"/>
+          <Item Value="Qty"/>
+          <Item Value="TotalCost"/>
+          <Item Value="UnitCost"/>
+          <Item Value="UnitId" Binds="UnitId"/>
+          <Item Value="MasterUnitCost"/>
+          <Item Value="TrnsUnitCost"/>
+          <Item Value="LeafTotCost"/>
+          <Item Value="ItemIndx"/>
+          <Item Value="ItemName"/>
+          <Item Value="MasterTotCost"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="ProjectSectionItemsV"/>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ProjectSectionItemsVIterator" id="CreateGroupPricing"
+            InstanceName="AalmPmDataControl.ProjectSectionItemsV" DataControl="AalmPmDataControl"
+            RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="SectionId" NDType="java.lang.String" NDValue="#{pageFlowScope.PmBean.treeCurrKey}"/>
+      <NamedData NDName="SubsectionOrItem" NDValue="#{'S'}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ProjectSectionItemsVIterator" id="CreateItemPricing"
+            InstanceName="AalmPmDataControl.ProjectSectionItemsV" DataControl="AalmPmDataControl"
+            RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="SectionId" NDType="java.lang.String" NDValue="${pageFlowScope.PmBean.treeCurrKey}"/>
+      <NamedData NDName="SubsectionOrItem" NDType="java.lang.String" NDValue="#{'I'}"/>
+    </action>
+    <action IterBinding="ProjectSectionItemsVIterator" id="CreateWithParams"
+            InstanceName="AalmPmDataControl.ProjectSectionItemsV" DataControl="AalmPmDataControl"
+            RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="SectionId" NDType="java.lang.String"/>
+      <NamedData NDName="PrntSectionItemId" NDType="java.lang.String" NDValue="#{node.SectionItemId}"/>
+    </action>
+    <action IterBinding="ProjectSectionItemsVIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="ProjectSectionSubItemsVIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <list IterBinding="ProjectSectionItemsVIterator" StaticList="false" Uses="LOV_SubsectionOrItem"
+          id="SubsectionOrItem" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="ProjectSectionItemsVIterator" StaticList="false" Uses="LOV_CurrCode" id="CurrCode"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Rollback" DataControl="AalmPmDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="ProjectMastVIterator" id="setCurrentRowWithKeyValue"
+            InstanceName="AalmPmDataControl.ProjectMastV" DataControl="AalmPmDataControl" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
+    <attributeValues IterBinding="ProjectSectionSubItemsVIterator" id="LocalUnitCost">
+      <AttrNames>
+        <Item Value="LocalUnitCost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProjectMastVIterator" id="TotalCost">
+      <AttrNames>
+        <Item Value="TotalCost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProjectMastVIterator" id="OverheadPerc">
+      <AttrNames>
+        <Item Value="OverheadPerc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProjectMastVIterator" id="TCostAftrOvrhPerc">
+      <AttrNames>
+        <Item Value="TCostAftrOvrhPerc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProjectMastVIterator" id="TCostAftrSpecificPerc">
+      <AttrNames>
+        <Item Value="TCostAftrSpecificPerc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProjectSectionsVIterator" id="ItemsCount">
+      <AttrNames>
+        <Item Value="ItemsCount"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ProjectSectionItemsVIterator" StaticList="false" Uses="LOV_UnitId" id="UnitId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ProjectMastVIterator" id="ChildCount">
+      <AttrNames>
+        <Item Value="ChildCount"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

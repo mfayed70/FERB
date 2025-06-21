@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.inventory.model.AalmInventoryMBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="com.aalm.inventory.model.entities.Stores.StoreId_LABEL">
+        <source>Id</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.entities.Stores.StoreName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.entities.Stores.RegisterDt_LABEL">
+        <source>Registeration Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.entities.Stores.StCatId_LABEL">
+        <source>Store Category</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.views.fk_STORE_ITEM_CATEGORIES_STORES1VL_LABEL">
+        <source>Fk Store Item Categories Stores1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.lov.ItemCategoriesLOV_LABEL">
+        <source>Item Categories Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CATEGORY">
+        <source>Category</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.entities.StoreItemCategories.CatId_LABEL">
+        <source>Category</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ACTIVE">
+        <source>Active</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.entities.StoreItemCategories.Active_LABEL">
+        <source>Active</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.lov.TransTypeLOV.SL_0_0">
+        <source>A</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.lov.TransTypeLOV.SL_0_1">
+        <source>add - </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.lov.TransTypeLOV.SL_1_0">
+        <source>W</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.lov.TransTypeLOV.SL_1_1">
+        <source>withdraw - </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.lov.TransTypeLOV.SL_2_0">
+        <source>R</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.lov.TransTypeLOV.SL_2_1">
+        <source>return - </source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

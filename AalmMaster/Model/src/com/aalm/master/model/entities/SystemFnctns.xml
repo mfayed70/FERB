@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SystemFnctns"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SYSTEM_FNCTNS"
+  AliasName="SystemFnctns"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="FncnId"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="fncn_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SYSTEM_FNCTNS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.master.model.entities.SystemFnctns.FncnId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="EnFncnName"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="en_fncn_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SYSTEM_FNCTNS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.master.model.entities.SystemFnctns.EnFncnName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ArFncnName"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="ar_fncn_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SYSTEM_FNCTNS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.master.model.entities.SystemFnctns.ArFncnName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="SystemId"
+    IsNotNull="true"
+    Precision="3"
+    ColumnName="system_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SYSTEM_FNCTNS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.master.model.entities.SystemFnctns.SystemId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="EnFncnDesc"
+    Precision="2000"
+    ColumnName="en_fncn_desc"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SYSTEM_FNCTNS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ArFncnDesc"
+    Precision="2000"
+    ColumnName="ar_fncn_desc"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SYSTEM_FNCTNS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TfLink"
+    Precision="2000"
+    ColumnName="tf_link"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SYSTEM_FNCTNS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Systems"
+    Association="com.aalm.master.model.entities.FkSubSystemsSystemsAssoc"
+    AssociationEnd="com.aalm.master.model.entities.FkSubSystemsSystemsAssoc.Systems"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkSubSystemsSystemsAssoc.SystemFnctns"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="UserPermissions"
+    Association="com.aalm.master.model.entities.FkUserPermissionsSystemFNCTNS1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkUserPermissionsSystemFNCTNS1Assoc.UserPermissions"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkUserPermissionsSystemFNCTNS1Assoc.SystemFnctns"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Permissions"
+    Association="com.aalm.master.model.entities.FkPrivilegesSystemFNCTNS1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkPrivilegesSystemFNCTNS1Assoc.Permissions"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkPrivilegesSystemFNCTNS1Assoc.SystemFnctns"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.SystemFnctns.FncnId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkSubSystemsSystems">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_SUB_SYSTEMS_SYSTEMS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.SystemFnctns.SystemId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.master.model.AalmMasterMBndl"/>
+  </ResourceBundle>
+</Entity>

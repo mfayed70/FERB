@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition  xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.center.view.AalmCenteralBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.CURRENCIES}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:panelGroupLayout id="pgl3" layout="horizontal">
+        <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}" immediate="true"
+                   id="b3" styleClass="but" icon="#{resource['images:cancelF.png']}"
+                   hoverIcon="#{resource['images:cancelO.png']}">
+          <af:resetActionListener/>
+        </af:button>
+        <af:button actionListener="#{bindings.Commit.execute}" text="#{viewcontrollerBundle.SAVE}" id="b2"
+                   styleClass="but" icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend">
+      <af:spacer width="10" height="10" id="s1"/>
+    </f:facet>
+    <f:facet name="info"/>
+    <af:panelGroupLayout id="pgl1" layout="scroll" inlineStyle="margin-bottom:30px;">
+      <af:table value="#{bindings.CurrenciesV.collectionModel}" var="row" rows="#{bindings.CurrenciesV.rangeSize}"
+                emptyText="#{bindings.CurrenciesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.CurrenciesV.collectionModel.selectedRow}"
+                selectionListener="#{bindings.CurrenciesV.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.CurrenciesV.rangeSize}" filterModel="#{bindings.CurrenciesVQuery.queryDescriptor}"
+                queryListener="#{bindings.CurrenciesVQuery.processQuery}" filterVisible="true" varStatus="vs" id="t1"
+                inlineStyle="background-color:white; border-color:White;">
+        <af:column sortProperty="#{bindings.CurrenciesV.hints.CurrCode.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.CurrenciesV.hints.CurrCode.label}" id="c1">
+          <af:outputText value="#{row.CurrCode}" shortDesc="#{bindings.CurrenciesV.hints.CurrCode.tooltip}" id="ot1"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.CurrenciesV.hints.CurrName.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.CurrenciesV.hints.CurrName.label}" id="c2" width="250">
+          <af:outputText value="#{row.CurrName}" shortDesc="#{bindings.CurrenciesV.hints.CurrName.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.CurrenciesV.hints.CurrSymbol.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.CurrenciesV.hints.CurrSymbol.label}" id="c3" align="center" width="120">
+          <af:outputText value="#{row.CurrSymbol}" shortDesc="#{bindings.CurrenciesV.hints.CurrSymbol.tooltip}"
+                         id="ot3"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.CurrenciesV.hints.DefaultCurr.name}" sortable="true"
+                   headerText="#{bindings.CurrenciesV.hints.DefaultCurr.label}" id="c4" width="120" align="center">
+          <af:selectOneChoice value="#{row.bindings.DefaultCurr.inputValue}" label="#{row.bindings.DefaultCurr.label}"
+                              required="#{bindings.CurrenciesV.hints.DefaultCurr.mandatory}"
+                              shortDesc="#{bindings.CurrenciesV.hints.DefaultCurr.tooltip}" readOnly="true" id="soc3">
+            <f:selectItems value="#{row.bindings.DefaultCurr.items}" id="si3"/>
+            <f:validator binding="#{row.bindings.DefaultCurr.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+      </af:table>
+    </af:panelGroupLayout>
+    <af:panelHeader text="#{viewcontrollerBundle.CURRENCY_TRANSFER}" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info">
+        <af:button actionListener="#{bindings.CreateInsert.execute}" text="#{viewcontrollerBundle.NEW}"
+                   disabled="#{!bindings.CreateInsert.enabled}" id="b1" styleClass="but"
+                   icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+      </f:facet>
+      <af:panelGroupLayout id="pgl2" layout="scroll" inlineStyle="height:400px;">
+        <af:table value="#{bindings.CurrencyTransformV.collectionModel}" var="row"
+                  rows="#{bindings.CurrencyTransformV.rangeSize}"
+                  emptyText="#{bindings.CurrencyTransformV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.CurrencyTransformV.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.CurrencyTransformV.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.CurrencyTransformV.rangeSize}"
+                  filterModel="#{bindings.CurrencyTransformVQuery.queryDescriptor}"
+                  queryListener="#{bindings.CurrencyTransformVQuery.processQuery}" filterVisible="true" varStatus="vs"
+                  id="t2" partialTriggers="::b1" inlineStyle="background-color:white; border-color:White;">
+          <af:column sortProperty="#{bindings.CurrencyTransformV.hints.Id.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.CurrencyTransformV.hints.Id.label}" id="c5">
+            <af:outputText value="#{row.Id}" shortDesc="#{bindings.CurrencyTransformV.hints.Id.tooltip}" id="ot5">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CurrencyTransformV.hints.Id.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CurrencyTransformV.hints.FromCurrCode.name}" sortable="true"
+                     headerText="#{bindings.CurrencyTransformV.hints.FromCurrCode.label}" id="c8" width="250">
+            <af:selectOneChoice value="#{row.bindings.FromCurrCode.inputValue}"
+                                label="#{row.bindings.FromCurrCode.label}"
+                                required="#{bindings.CurrencyTransformV.hints.FromCurrCode.mandatory}"
+                                shortDesc="#{bindings.CurrencyTransformV.hints.FromCurrCode.tooltip}" readOnly="true"
+                                id="soc2">
+              <f:selectItems value="#{row.bindings.FromCurrCode.items}" id="si2"/>
+              <f:validator binding="#{row.bindings.FromCurrCode.validator}"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column sortProperty="#{bindings.CurrencyTransformV.hints.ToCurrCode.name}"
+                     sortable="true" headerText="#{bindings.CurrencyTransformV.hints.ToCurrCode.label}" id="c6"
+                     width="250" filterable="true">
+            <af:selectOneChoice value="#{row.bindings.ToCurrCode.inputValue}" label="#{row.bindings.ToCurrCode.label}"
+                                required="#{bindings.CurrencyTransformV.hints.ToCurrCode.mandatory}"
+                                shortDesc="#{bindings.CurrencyTransformV.hints.ToCurrCode.tooltip}" id="soc1">
+              <f:selectItems value="#{row.bindings.ToCurrCode.items}" id="si1"/>
+              <f:validator binding="#{row.bindings.ToCurrCode.validator}"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column sortProperty="#{bindings.CurrencyTransformV.hints.MultiplyBy.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.CurrencyTransformV.hints.MultiplyBy.label}" id="c7">
+            <af:inputText value="#{row.bindings.MultiplyBy.inputValue}"
+                          label="#{bindings.CurrencyTransformV.hints.MultiplyBy.label}"
+                          required="#{bindings.CurrencyTransformV.hints.MultiplyBy.mandatory}"
+                          columns="#{bindings.CurrencyTransformV.hints.MultiplyBy.displayWidth}"
+                          maximumLength="#{bindings.CurrencyTransformV.hints.MultiplyBy.precision}"
+                          shortDesc="#{bindings.CurrencyTransformV.hints.MultiplyBy.tooltip}" id="it1">
+              <f:validator binding="#{row.bindings.MultiplyBy.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CurrencyTransformV.hints.MultiplyBy.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.CurrencyTransformV.hints.TransformDt.name}"
+                     sortable="true" headerText="#{bindings.CurrencyTransformV.hints.TransformDt.label}" id="c9"
+                     width="150">
+            <f:facet name="filter">
+              <af:inputDate value="#{bindings.CurrencyTransformVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.TransformDt.value}"
+                            id="id1">
+                <af:convertDateTime pattern="#{bindings.CurrencyTransformV.hints.TransformDt.format}"/>
+              </af:inputDate>
+            </f:facet>
+            <af:inputDate value="#{row.bindings.TransformDt.inputValue}"
+                          label="#{bindings.CurrencyTransformV.hints.TransformDt.label}"
+                          required="#{bindings.CurrencyTransformV.hints.TransformDt.mandatory}"
+                          columns="#{bindings.CurrencyTransformV.hints.TransformDt.displayWidth}"
+                          shortDesc="#{bindings.CurrencyTransformV.hints.TransformDt.tooltip}" id="id2" readOnly="true">
+              <f:validator binding="#{row.bindings.TransformDt.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CurrencyTransformV.hints.TransformDt.format}"/>
+            </af:inputDate>
+          </af:column>
+        </af:table>
+      </af:panelGroupLayout>
+    </af:panelHeader>
+  </af:panelHeader>
+</ui:composition>

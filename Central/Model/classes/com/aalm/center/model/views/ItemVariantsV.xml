@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemVariantsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="ItemVariants"
+    Entity="com.aalm.center.model.entities.ItemVariants"/>
+  <ViewAttribute
+    Name="VarCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VarCode"
+    EntityUsage="ItemVariants"
+    AliasName="var_code"/>
+  <ViewAttribute
+    Name="VarName"
+    PrecisionRule="true"
+    EntityAttrName="VarName"
+    EntityUsage="ItemVariants"
+    AliasName="var_name"/>
+  <ViewAttribute
+    Name="DisplayInReps"
+    PrecisionRule="true"
+    EntityAttrName="DisplayInReps"
+    EntityUsage="ItemVariants"
+    AliasName="display_in_reps"/>
+  <ViewAttribute
+    Name="CartizianApplied"
+    PrecisionRule="true"
+    EntityAttrName="CartizianApplied"
+    EntityUsage="ItemVariants"
+    AliasName="cartizian_applied"/>
+</ViewObject>

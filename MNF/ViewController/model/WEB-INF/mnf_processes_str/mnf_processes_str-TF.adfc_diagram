@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">Execute</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Execute&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">259.53125</property>
+      <property
+         name="x">233.5</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">mnf-processes-str</property>
+      <property
+         name="page">/WEB-INF/mnf_processes_str/mnf-processes-str.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>mnf-processes-str&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">256.125</property>
+      <property
+         name="x">478.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="fromOutcome">Execute</property>
+      <property
+         name="sdm:polyPoints">R50,274.5,259.54688,437.0,256.14062,L50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall5">
+      <property
+         name="taskFlowId">str_toBeSelected_mnfPrcs-TF</property>
+      <property
+         name="activityId">str_toBeSelected_mnfPrcs-TF</property>
+      <property
+         name="documentReference">/WEB-INF/mnf_processes_str/str_toBeSelected_mnfPrcs-TF.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>str_toBeSelected_mnfPrcs-TF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">255.53125</property>
+      <property
+         name="x">730.3369</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View3"
+      to="TaskFlowCall5">
+      <property
+         name="fromOutcome">toSelectProcess</property>
+      <property
+         name="sdm:polyPoints">R50,519.0,256.14062,689.3369,255.54688,L50</property>
+   </ControlFlowCase>
+</SDM>

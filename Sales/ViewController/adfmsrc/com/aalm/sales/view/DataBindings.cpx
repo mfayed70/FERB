@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.aalm.sales.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/SLS/customers/customers-CRUD-TF.xml#customers-CRUD-TF@CreateInsert"
+          usageId="com_aalm_sales_view_customers_CRUD_TF_customers_CRUD_TF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/SLS/customers/customers.jsff" usageId="com_aalm_sales_view_customersPageDef"/>
+    <page path="/WEB-INF/SLS/customers/customers-TF.xml#customers-TF@Execute"
+          usageId="com_aalm_sales_view_customers_TF_customers_TF_ExecutePageDef"/>
+    <page path="/Test.jsf" usageId="com_aalm_sales_view_TestPageDef"/>
+    <page path="/WEB-INF/SLS/customers/customers-crud.jsf" usageId="com_aalm_sales_view_customers_crudPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_aalm_sales_view_customers_CRUD_TF_customers_CRUD_TF_CreateInsertPageDef"
+          path="customers.customers_CRUD_TF_customers_CRUD_TF_CreateInsertPageDef"/>
+    <page id="com_aalm_sales_view_customersPageDef" path="customers.customersPageDef"/>
+    <page id="com_aalm_sales_view_customers_TF_customers_TF_ExecutePageDef"
+          path="customers.customers_TF_customers_TF_ExecutePageDef"/>
+    <page id="com_aalm_sales_view_TestPageDef" path="com.aalm.sales.view.pageDefs.TestPageDef"/>
+    <page id="com_aalm_sales_view_customers_crudPageDef" path="customers.customers_crudPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AalmSalesDataControl" Package="com.aalm.sales.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AalmSalesLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

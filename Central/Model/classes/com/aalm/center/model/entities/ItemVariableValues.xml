@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemVariableValues"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ITEM_VARIABLE_VALUES"
+  AliasName="ItemVariableValues"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="VarValCode"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="var_val_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ITEM_VARIABLE_VALUES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemVariableValues.VarValCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <?audit suppress oracle.jbo.object.jpx-hint-rule?>
+  <Attribute
+    Name="VarValValue"
+    Precision="100"
+    ColumnName="var_val_value"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ITEM_VARIABLE_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemVariableValues.VarValValue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="OrgCode"
+    ColumnName="org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ITEM_VARIABLE_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VarCode"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="var_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ITEM_VARIABLE_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemVariableValues.VarCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CartizianApplied"
+    Precision="2"
+    ColumnName="cartizian_applied"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ITEM_VARIABLE_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemVariableValues.CartizianApplied_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="ItemVariables"
+    Association="com.aalm.center.model.entities.FkItemVariantValuesItemVariants1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkItemVariantValuesItemVariants1Assoc.ItemVariables"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkItemVariantValuesItemVariants1Assoc.ItemVariableValues"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Organizations"
+    Association="com.aalm.center.model.entities.FkItemVariantValuesOrganizations1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkItemVariantValuesOrganizations1Assoc.Organizations"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkItemVariantValuesOrganizations1Assoc.ItemVariableValues"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ItemsStructure2"
+    Association="com.aalm.center.model.entities.FkItemsStructureUnits1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkItemsStructureUnits1Assoc.ItemsStructure2"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkItemsStructureUnits1Assoc.ItemVariableValues2"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ItemsStructure3"
+    Association="com.aalm.center.model.entities.FkItemsStructureItemsList2Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkItemsStructureItemsList2Assoc.ItemsStructure3"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkItemsStructureItemsList2Assoc.ItemVariableValues3"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ItemsStructure4"
+    Association="com.aalm.center.model.entities.FkItemsStructureItemsList1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkItemsStructureItemsList1Assoc.ItemsStructure4"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkItemsStructureItemsList1Assoc.ItemVariableValues4"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="FkItemVariantValuesItemVariants1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ITEM_VARIANT_VALUES_ITEM_VARIANTS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="FkItemVariantValuesOrganizations1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ITEM_VARIANT_VALUES_ORGANIZATIONS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.center.model.AalmCenteralMBndl"/>
+  </ResourceBundle>
+</Entity>

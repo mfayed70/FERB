@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.1" xmlns="http://java.sun.com/xml/ns/javaee">
+  <application>
+    <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
+    <resource-bundle>
+      <base-name>AalmCenteralBndl</base-name>
+      <var>AalmCenteralBndl</var>
+    </resource-bundle>
+    <resource-bundle>
+      <base-name>AalmCenteralBndl_ar</base-name>
+      <var>AalmCenteralBndl_ar</var>
+    </resource-bundle>
+    <locale-config>
+      <default-locale>en</default-locale>
+      <supported-locale>ar</supported-locale>
+    </locale-config>
+  </application>
+  <converter>
+    <converter-id>ItemCodeConverter</converter-id>
+    <converter-class>com.aalm.center.view.beans.ItemCodeConverter</converter-class>
+  </converter>
+</faces-config>

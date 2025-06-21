@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="setupDataPageDef"
+                Package="setupData">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AssetsDepreciationTypesV" RangeSize="25" DataControl="AalmAssetsDataControl"
+              id="AssetsDepreciationTypesVIterator"/>
+    <searchRegion Binds="AssetsDepreciationTypesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="AssetsDepreciationTypesVQuery"/>
+    <iterator Binds="AssetsGroupsV" RangeSize="25" DataControl="AalmAssetsDataControl" id="AssetsGroupsVIterator"/>
+    <searchRegion Binds="AssetsGroupsVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="AssetsGroupsVQuery"/>
+    <iterator Binds="AssetsPropertiesV" RangeSize="25" DataControl="AalmAssetsDataControl"
+              id="AssetsPropertiesVIterator"/>
+    <searchRegion Binds="AssetsPropertiesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="AssetsPropertiesVQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AssetsDepreciationTypesVIterator" id="AssetsDepreciationTypesV">
+      <nodeDefinition DefName="com.aalm.assets.model.views.AssetsDepreciationTypesV" Name="AssetsDepreciationTypesV0">
+        <AttrNames>
+          <Item Value="AssDeprId"/>
+          <Item Value="AssDeprName"/>
+          <Item Value="YearlyDepreciationPerc"/>
+          <Item Value="IncreaseOrFixed"/>
+          <Item Value="YearOrHours"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="AssetsDepreciationTypesVIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmAssetsDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmAssetsDataControl"/>
+    <tree IterBinding="AssetsGroupsVIterator" id="AssetsGroupsV">
+      <nodeDefinition DefName="com.aalm.assets.model.views.AssetsGroupsV" Name="AssetsGroupsV0">
+        <AttrNames>
+          <Item Value="AssGrpId"/>
+          <Item Value="AssGrpName"/>
+          <Item Value="YearlyDepreciationPerc"/>
+          <Item Value="AssDeprId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="AssetsGroupsVIterator" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="AssetsPropertiesVIterator" id="AssetsPropertiesV">
+      <nodeDefinition DefName="com.aalm.assets.model.views.AssetsPropertiesV" Name="AssetsPropertiesV0">
+        <AttrNames>
+          <Item Value="AssPropId"/>
+          <Item Value="AssPropName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="AssetsPropertiesVIterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="AssetsDepreciationTypesVIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="AssetsGroupsVIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="AssetsPropertiesVIterator" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

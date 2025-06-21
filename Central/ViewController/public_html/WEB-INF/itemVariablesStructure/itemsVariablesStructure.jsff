@@ -1,0 +1,606 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition dir="ltr"
+xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:custom="http://fayed.com/custom">
+  <af:resource type="javascript">
+  function selectRowsnt (event) {
+      var checkbox = event.getSource();
+      var checkboxLocator =  checkbox.getProperty("checkboxLocator");
+      var tableLocator = checkbox.getProperty("tableLocator");
+      var table = checkbox.findComponent(tableLocator);
+      var nbRows=parseInt(table.getRows());
+        var tableAbsLocator=table.getAbsoluteLoicator();
+        while(nbRows--){
+        var rowCheckBox=AdfPage.PAGE.findComponentByAbsoluteLocator(tableAbsLocator+"["+checkboxLocator);
+        if(checkbox.getValue()!=rowCheckBox.getValue()) {
+        rowCheckBox.setValue(checkbox.getValue());
+     }
+   }
+}  
+  </af:resource>
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.center.view.AalmCenteralBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.ITEMS_VARIABLES_STRUCTURE}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:button actionListener="#{bindings.Commit.execute}" text="#{viewcontrollerBundle.SAVE}" id="b3"
+                 styleClass="but" icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"
+                 action="#{pageFlowScope.CentralBean.saveForm}"/>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}"
+                 immediate="true" id="b4" styleClass="but" icon="#{resource['images:cancelF.png']}"
+                 hoverIcon="#{resource['images:cancelO.png']}">
+        <af:resetActionListener/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend">
+      <af:panelGroupLayout id="pgl7" inlineStyle="width:650px;" layout="scroll">
+        <af:outputText value="#{viewcontrollerBundle.TIP_ITEM_VARIABLE_ORDER}" id="ot6"
+                       inlineStyle="font-size:18px;color:maroon;"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="info">
+      <af:panelGroupLayout id="pgl3" layout="horizontal">
+        <f:facet name="separator">
+          <af:spacer width="10" height="10" id="s5"/>
+        </f:facet>
+        <af:button text="#{viewcontrollerBundle.uncheckallselected}" id="b9" styleClass="but"
+                   actionListener="#{pageFlowScope.CentralBean.uncheckSelected}" rendered="false"/>
+        <af:button actionListener="#{bindings.CreateInsert1.execute}" text="#{viewcontrollerBundle.New}"
+                   disabled="#{!bindings.CreateInsert1.enabled}" id="b2" styleClass="but"
+                   icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="550">
+      <f:facet name="first">
+        <af:panelSplitter id="ps2" splitterPosition="620">
+          <f:facet name="first">
+            <af:panelHeader text="#{viewcontrollerBundle.ITEMS_VARIABLES}" id="ph2" inlineStyle="width:600px;">
+              <f:facet name="context">
+                <af:panelGroupLayout id="pgl4" inlineStyle="min-width:200px;" halign="left" layout="horizontal">
+                  <af:spacer width="30" height="10" id="s2"/>
+                  <af:inputText value="#{bindings.ItemVariablesV.estimatedRowCount}" id="ot1"
+                                label="#{viewcontrollerBundle.COUNT__}" contentStyle="color:maroon;" readOnly="true"/>
+                </af:panelGroupLayout>
+              </f:facet>
+              <f:facet name="menuBar"/>
+              <f:facet name="toolbar"/>
+              <f:facet name="legend"/>
+              <af:table value="#{bindings.ItemVariablesV1.collectionModel}" var="row"
+                        rows="#{bindings.ItemVariablesV1.rangeSize}"
+                        emptyText="#{bindings.ItemVariablesV1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        rowBandingInterval="0" selectedRowKeys="#{bindings.ItemVariablesV1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.ItemVariablesV1.collectionModel.makeCurrent}"
+                        rowSelection="single" fetchSize="#{bindings.ItemVariablesV1.rangeSize}"
+                        filterModel="#{bindings.ItemVariablesV1Query.queryDescriptor}"
+                        queryListener="#{bindings.ItemVariablesV1Query.processQuery}" filterVisible="true"
+                        varStatus="vs" id="t1">
+                <af:column sortProperty="#{bindings.ItemVariablesV1.hints.VarCode.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.ItemVariablesV1.hints.VarCode.label}" id="c1">
+                  <af:outputText value="#{row.VarCode}" shortDesc="#{bindings.ItemVariablesV1.hints.VarCode.tooltip}"
+                                 id="ot3"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.ItemVariablesV1.hints.VarName.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.ItemVariablesV1.hints.VarName.label}" id="c2">
+                  <af:outputText value="#{row.VarName}" shortDesc="#{bindings.ItemVariablesV1.hints.VarName.tooltip}"
+                                 id="ot4"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.ItemVariablesV1.hints.ColNameInItems.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.ItemVariablesV1.hints.ColNameInItems.label}" id="c3"
+                           width="350">
+                  <af:inputText value="#{row.bindings.ColNameInItems.inputValue}"
+                                label="#{bindings.ItemVariablesV1.hints.ColNameInItems.label}"
+                                required="#{bindings.ItemVariablesV1.hints.ColNameInItems.mandatory}"
+                                columns="#{bindings.ItemVariablesV1.hints.ColNameInItems.displayWidth}"
+                                maximumLength="#{bindings.ItemVariablesV1.hints.ColNameInItems.precision}"
+                                shortDesc="#{bindings.ItemVariablesV1.hints.ColNameInItems.tooltip}" id="it1"
+                                readOnly="true">
+                    <f:validator binding="#{row.bindings.ColNameInItems.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.ItemVariablesV1.hints.Ordr.label}" id="c33" sortable="true"
+                           sortProperty="#{bindings.ItemVariablesV1.hints.Ordr.name}">
+                  <af:inputText value="#{row.bindings.Ordr.inputValue}"
+                                label="#{bindings.ItemVariablesV1.hints.Ordr.label}"
+                                required="#{bindings.ItemVariablesV1.hints.Ordr.mandatory}"
+                                columns="#{bindings.ItemVariablesV1.hints.Ordr.displayWidth}"
+                                maximumLength="#{bindings.ItemVariablesV1.hints.Ordr.precision}"
+                                shortDesc="#{bindings.ItemVariablesV1.hints.Ordr.tooltip}" id="it3">
+                    <f:validator binding="#{row.bindings.Ordr.validator}"/>
+                  </af:inputText>
+                </af:column>
+              </af:table>
+              <f:facet name="info"/>
+            </af:panelHeader>
+          </f:facet>
+          <f:facet name="second">
+            <af:panelSplitter id="ps3" splitterPosition="640">
+              <f:facet name="first">
+                <af:panelHeader text="#{viewcontrollerBundle.ITEMS_VARIABLES_VALUES}" id="ph3">
+                  <f:facet name="context">
+                    <af:panelGroupLayout id="pgl5" halign="end" layout="horizontal" inlineStyle="min-width:200px;">
+                      <af:spacer width="30" height="10" id="s3"/>
+                      <af:inputText value="#{bindings.ItemVariableValuesV.estimatedRowCount}" id="ot2"
+                                    label="#{viewcontrollerBundle.COUNT__}" contentStyle="color:maroon;" readOnly="true"
+                                    partialTriggers="::t1"/>
+                    </af:panelGroupLayout>
+                  </f:facet>
+                  <f:facet name="menuBar"/>
+                  <f:facet name="toolbar"/>
+                  <f:facet name="legend"/>
+                  <f:facet name="info"/>
+                  <af:table value="#{bindings.ItemVariableValuesV.collectionModel}" var="row"
+                            rows="#{bindings.ItemVariableValuesV.rangeSize}"
+                            emptyText="#{bindings.ItemVariableValuesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.ItemVariableValuesV.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.ItemVariableValuesV.collectionModel.makeCurrent}"
+                            rowSelection="single" fetchSize="#{bindings.ItemVariableValuesV.rangeSize}"
+                            filterModel="#{bindings.ItemVariableValuesVQuery.queryDescriptor}"
+                            queryListener="#{bindings.ItemVariableValuesVQuery.processQuery}" filterVisible="true"
+                            varStatus="vs" id="t2" partialTriggers="::b2 ::b9" scrollPolicy="loadMore">
+                    <af:column sortProperty="#{bindings.ItemVariableValuesV.hints.VarCode.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ItemVariableValuesV.hints.VarCode.label}" id="c4"
+                               rendered="false">
+                      <af:inputText value="#{row.bindings.VarCode.inputValue}"
+                                    label="#{bindings.ItemVariableValuesV.hints.VarCode.label}"
+                                    required="#{bindings.ItemVariableValuesV.hints.VarCode.mandatory}"
+                                    columns="#{bindings.ItemVariableValuesV.hints.VarCode.displayWidth}"
+                                    maximumLength="#{bindings.ItemVariableValuesV.hints.VarCode.precision}"
+                                    shortDesc="#{bindings.ItemVariableValuesV.hints.VarCode.tooltip}" id="it4"
+                                    readOnly="true">
+                        <f:validator binding="#{row.bindings.VarCode.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ItemVariableValuesV.hints.VarValCode.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ItemVariableValuesV.hints.VarValCode.label}"
+                               id="c5">
+                      <af:inputText value="#{row.bindings.VarValCode.inputValue}"
+                                    label="#{bindings.ItemVariableValuesV.hints.VarValCode.label}"
+                                    required="#{bindings.ItemVariableValuesV.hints.VarValCode.mandatory}"
+                                    columns="#{bindings.ItemVariableValuesV.hints.VarValCode.displayWidth}"
+                                    maximumLength="#{bindings.ItemVariableValuesV.hints.VarValCode.precision}"
+                                    shortDesc="#{bindings.ItemVariableValuesV.hints.VarValCode.tooltip}" id="it5"
+                                    contentStyle="width:100px;" autoSubmit="true"
+                                    valueChangeListener="#{pageFlowScope.CentralBean.varVlaueChngLsnr}"
+                                    binding="#{pageFlowScope.CentralBean.vvarValCode}">
+                        <f:validator binding="#{row.bindings.VarValCode.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ItemVariableValuesV.hints.VarValValue.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ItemVariableValuesV.hints.VarValValue.label}"
+                               id="c6" width="400">
+                      <af:inputText value="#{row.bindings.VarValValue.inputValue}"
+                                    label="#{bindings.ItemVariableValuesV.hints.VarValValue.label}"
+                                    required="#{bindings.ItemVariableValuesV.hints.VarValValue.mandatory}"
+                                    columns="#{bindings.ItemVariableValuesV.hints.VarValValue.displayWidth}"
+                                    maximumLength="#{bindings.ItemVariableValuesV.hints.VarValValue.precision}"
+                                    shortDesc="#{bindings.ItemVariableValuesV.hints.VarValValue.tooltip}" id="it9" autoSubmit="true"
+                                    binding="#{pageFlowScope.CentralBean.vvarValValue}"
+                                    valueChangeListener="#{pageFlowScope.CentralBean.varValValueChngLsnr}">
+                        <f:validator binding="#{row.bindings.VarValValue.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column id="c25" align="center" sortable="true" filterable="true"
+                               sortProperty="#{bindings.CartizianApplied.name}">
+                      <af:selectBooleanCheckbox value="#{row.bindings.CartizianApplied.inputValue}"
+                                                label="#{row.bindings.CartizianApplied.label}"
+                                                shortDesc="#{bindings.ItemVariableValuesV.hints.CartizianApplied.tooltip}"
+                                                id="sbc1" autoSubmit="true"
+                                                valueChangeListener="#{pageFlowScope.CentralBean.checkItemValue}"/>
+                      <f:facet name="header">
+                        <af:selectBooleanCheckbox id="checkbox" simple="true"
+                                                  valueChangeListener="#{pageFlowScope.CentralBean.checkUncheckAllItemVarValues}"
+                                                  autoSubmit="true">
+                          <!--<af:clientListener method="SelectRows" type="click"/>
+                      <af:clientAttribute name="tableLocator" value="::tab"/>
+                      <af:clientAttribute name="checkboxLocator" value=":checkbox"/>-->
+                        </af:selectBooleanCheckbox>
+                        <!--<af:link text="link 1" id="l2" actionListener="#{pageFlowScope.CentralBean.xxx}"
+                             inlineStyle="color:White;"/>-->
+                      </f:facet>
+                    </af:column>
+                  </af:table>
+                </af:panelHeader>
+              </f:facet>
+              <f:facet name="second">
+                <af:panelHeader text="#{viewcontrollerBundle.SELECTED_ITEM_VARIABLES_STATISTICS}" id="ph6">
+                  <f:facet name="context"/>
+                  <f:facet name="menuBar"/>
+                  <af:table value="#{bindings.ItemVariablesVaaluesStatistics.collectionModel}" var="row"
+                            rows="#{bindings.ItemVariablesVaaluesStatistics.rangeSize}"
+                            emptyText="#{bindings.ItemVariablesVaaluesStatistics.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            rowBandingInterval="0" fetchSize="#{bindings.ItemVariablesVaaluesStatistics.rangeSize}"
+                            id="t4" inlineStyle="margin:70px 0 0 20px; width:370px;" verticalGridVisible="false"
+                            partialTriggers="::t2:checkbox ::b3 ::b2">
+                    <af:column id="c34" width="200"
+                               inlineStyle="#{row.VarCode=='A0' ?'background-color:#d6d6d6' :'background-color:white'}">
+                      <af:inputText value="#{row.bindings.ColNameInItems.inputValue}"
+                                    label="#{bindings.ItemVariablesVaaluesStatistics.hints.ColNameInItems.label}"
+                                    required="#{bindings.ItemVariablesVaaluesStatistics.hints.ColNameInItems.mandatory}"
+                                    columns="#{bindings.ItemVariablesVaaluesStatistics.hints.ColNameInItems.displayWidth}"
+                                    maximumLength="#{bindings.ItemVariablesVaaluesStatistics.hints.ColNameInItems.precision}"
+                                    shortDesc="#{bindings.ItemVariablesVaaluesStatistics.hints.ColNameInItems.tooltip}"
+                                    id="it7" contentStyle="#{row.VarCode=='A0'? 'color:Maroon': 'color:Navy'}">
+                        <f:validator binding="#{row.bindings.ColNameInItems.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column id="c35" width="120"
+                               inlineStyle="#{row.VarCode=='A0' ?'background-color:#d6d6d6' :'background-color:white'}">
+                      <af:inputText value="#{row.bindings.YesCount.inputValue}"
+                                    label="#{bindings.ItemVariablesVaaluesStatistics.hints.YesCount.label}"
+                                    required="#{bindings.ItemVariablesVaaluesStatistics.hints.YesCount.mandatory}"
+                                    columns="#{bindings.ItemVariablesVaaluesStatistics.hints.YesCount.displayWidth}"
+                                    maximumLength="#{bindings.ItemVariablesVaaluesStatistics.hints.YesCount.precision}"
+                                    shortDesc="#{bindings.ItemVariablesVaaluesStatistics.hints.YesCount.tooltip}"
+                                    id="it10" contentStyle="#{row.VarCode=='A0'? 'color:Maroon': 'color:Navy'}">
+                        <f:validator binding="#{row.bindings.YesCount.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.ItemVariablesVaaluesStatistics.hints.YesCount.format}"/>
+                      </af:inputText>
+                    </af:column>
+                  </af:table>
+                  <f:facet name="toolbar"/>
+                  <f:facet name="legend"/>
+                  <f:facet name="info"/>
+                </af:panelHeader>
+              </f:facet>
+            </af:panelSplitter>
+          </f:facet>
+        </af:panelSplitter>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelHeader text="#{viewcontrollerBundle.StructuredItemsRevision}" id="ph4">
+          <f:facet name="context">
+            <af:panelGroupLayout id="pgl6" layout="horizontal">
+              <af:spacer width="30" height="10" id="s4"/>
+              <af:inputText label="#{viewcontrollerBundle.COUNT__}" id="it2"
+                            value="#{bindings.ItemVariablesTestV.estimatedRowCount}" contentStyle="color:maroon;"
+                            readOnly="true" partialTriggers="b7 b1 b8 pc1:b10 pc1:t3 pc1:b11"/>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="menuBar">
+            <af:button text="#{viewcontrollerBundle.ADD_TO_ITEMS_LIST}" id="b7" icon="#{resource['images:CreateF.png']}"
+                       hoverIcon="#{resource['images:CreateO.png']}"
+                       actionListener="#{pageFlowScope.CentralBean.addItemsToListItems}" styleClass="but"
+                       visible="#{bindings.ItemVariablesTestVIterator.estimatedRowCount>0}"
+                       partialTriggers="b1 pc1:t3"/>
+          </f:facet>
+          <f:facet name="toolbar">
+            <af:panelGroupLayout id="pgl1" layout="horizontal">
+              <af:button id="b1" text="#{viewcontrollerBundle.CREATE_ITEMS_FOR_REVISION}"
+                         actionListener="#{pageFlowScope.CentralBean.createItemsTest}" styleClass="but"
+                         icon="#{resource['images:CreateF.png']}" hoverIcon="#{resource['images:CreateO.png']}"
+                         visible="#{bindings.ItemVariablesTestVIterator.estimatedRowCount==0}"
+                         partialTriggers="b5 b6 it2"/>
+              <af:button text="#{viewcontrollerBundle.DeleteAllTestItems}" id="b8" styleClass="but"
+                         actionListener="#{pageFlowScope.CentralBean.deleteAllTestItems}"
+                         visible="#{bindings.ItemVariablesTestVIterator.estimatedRowCount>0}"
+                         partialTriggers="b1 pc1:t3 it2"/>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t5">
+                <af:button text="#{viewcontrollerBundle.CLEAR_FILTER}" id="b10" action="#{pageFlowScope.CentralBean.clearItemTestFilter}"
+                           styleClass="but" icon="#{resource['images:clearFilterO.png']}"
+                           hoverIcon="#{resource['images:clearFilterF.png']}"/>
+                <af:button text="Delete Selected" id="b11" icon="#{resource['images:delete24.png']}"
+                           actionListener="#{pageFlowScope.CentralBean.delSelectedItems}"/>
+              </af:toolbar>
+            </f:facet>
+            <af:table value="#{bindings.ItemVariablesTestV.collectionModel}" var="row"
+                      rows="#{bindings.ItemVariablesTestV.rangeSize}"
+                      emptyText="#{bindings.ItemVariablesTestV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.ItemVariablesTestV.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.ItemVariablesTestV.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.ItemVariablesTestV.rangeSize}"
+                      filterModel="#{bindings.ItemVariablesTestVQuery.queryDescriptor}"
+                      queryListener="#{bindings.ItemVariablesTestVQuery.processQuery}" filterVisible="true"
+                      varStatus="vs" id="t3" columnStretching="column:c8" scrollPolicy="loadMore"
+                      binding="#{pageFlowScope.CentralBean.itemTestTbl}" partialTriggers="l1">
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.ItemCode.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.ItemVariablesTestV.hints.ItemCode.label}" id="c7">
+                <af:panelGroupLayout id="pgl2" layout="horizontal">
+                  <af:link id="l1" icon="#{resource['images:delete24.png']}"
+                           actionListener="#{bindings.Delete.execute}"/>
+                  <af:selectBooleanCheckbox value="#{row.bindings.Selected.inputValue}"
+                                            label="#{row.bindings.Selected.label}"
+                                            shortDesc="#{bindings.ItemVariablesTestV.hints.Selected.tooltip}"
+                                            id="sbc2" autoSubmit="true"/>
+                  <af:outputText value="#{row.ItemCode}"
+                                 shortDesc="#{bindings.ItemVariablesTestV.hints.ItemCode.tooltip}" id="ot5"/>
+                  <f:facet name="separator">
+                    <af:spacer width="10" height="10" id="s1"/>
+                  </f:facet>
+                </af:panelGroupLayout>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.ItemName.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.ItemVariablesTestV.hints.ItemName.label}" id="c8"
+                         width="500">
+                <af:outputText value="#{row.ItemName}" shortDesc="#{bindings.ItemVariablesTestV.hints.ItemName.tooltip}"
+                               id="ot7"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar1.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[0]}" id="c9">
+                <af:selectOneChoice value="#{row.bindings.StrVar1.inputValue}" label="#{row.bindings.StrVar1.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar1.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar1.tooltip}" readOnly="true"
+                                    id="soc4">
+                  <f:selectItems value="#{row.bindings.StrVar1.items}" id="si4"/>
+                  <f:validator binding="#{row.bindings.StrVar1.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar2.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[1]}" id="c10">
+                <af:selectOneChoice value="#{row.bindings.StrVar2.inputValue}" label="#{row.bindings.StrVar2.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar2.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar2.tooltip}" readOnly="true"
+                                    id="soc5">
+                  <f:selectItems value="#{row.bindings.StrVar2.items}" id="si5"/>
+                  <f:validator binding="#{row.bindings.StrVar2.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar3.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[2]}" id="c11">
+                <af:selectOneChoice value="#{row.bindings.StrVar3.inputValue}" label="#{row.bindings.StrVar3.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar3.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar3.tooltip}" readOnly="true"
+                                    id="soc6">
+                  <f:selectItems value="#{row.bindings.StrVar3.items}" id="si6"/>
+                  <f:validator binding="#{row.bindings.StrVar3.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar4.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[3]}" id="c12">
+                <af:selectOneChoice value="#{row.bindings.StrVar4.inputValue}" label="#{row.bindings.StrVar4.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar4.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar4.tooltip}" readOnly="true"
+                                    id="soc7">
+                  <f:selectItems value="#{row.bindings.StrVar4.items}" id="si7"/>
+                  <f:validator binding="#{row.bindings.StrVar4.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar5.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[4]}" id="c13">
+                <af:selectOneChoice value="#{row.bindings.StrVar5.inputValue}" label="#{row.bindings.StrVar5.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar5.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar5.tooltip}" readOnly="true"
+                                    id="soc8">
+                  <f:selectItems value="#{row.bindings.StrVar5.items}" id="si8"/>
+                  <f:validator binding="#{row.bindings.StrVar5.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar6.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[5]}" id="c14">
+                <af:selectOneChoice value="#{row.bindings.StrVar6.inputValue}" label="#{row.bindings.StrVar6.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar6.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar6.tooltip}" readOnly="true"
+                                    id="soc9">
+                  <f:selectItems value="#{row.bindings.StrVar6.items}" id="si9"/>
+                  <f:validator binding="#{row.bindings.StrVar6.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar7.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[6]}" id="c15">
+                <af:selectOneChoice value="#{row.bindings.StrVar7.inputValue}" label="#{row.bindings.StrVar7.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar7.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar7.tooltip}" readOnly="true"
+                                    id="soc10">
+                  <f:selectItems value="#{row.bindings.StrVar7.items}" id="si10"/>
+                  <f:validator binding="#{row.bindings.StrVar7.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar8.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[7]}" id="c16">
+                <af:selectOneChoice value="#{row.bindings.StrVar8.inputValue}" label="#{row.bindings.StrVar8.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar8.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar8.tooltip}" readOnly="true"
+                                    id="soc11">
+                  <f:selectItems value="#{row.bindings.StrVar8.items}" id="si11"/>
+                  <f:validator binding="#{row.bindings.StrVar8.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar9.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[8]}" id="c17">
+                <af:selectOneChoice value="#{row.bindings.StrVar9.inputValue}" label="#{row.bindings.StrVar9.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar9.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar9.tooltip}" readOnly="true"
+                                    id="soc12">
+                  <f:selectItems value="#{row.bindings.StrVar9.items}" id="si12"/>
+                  <f:validator binding="#{row.bindings.StrVar9.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar10.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[9]}" id="c18">
+                <af:selectOneChoice value="#{row.bindings.StrVar10.inputValue}" label="#{row.bindings.StrVar10.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar10.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar10.tooltip}" readOnly="true"
+                                    id="soc13">
+                  <f:selectItems value="#{row.bindings.StrVar10.items}" id="si13"/>
+                  <f:validator binding="#{row.bindings.StrVar10.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar11.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[10]}" id="c19">
+                <af:selectOneChoice value="#{row.bindings.StrVar11.inputValue}" label="#{row.bindings.StrVar11.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar11.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar11.tooltip}" readOnly="true"
+                                    id="soc14">
+                  <f:selectItems value="#{row.bindings.StrVar11.items}" id="si14"/>
+                  <f:validator binding="#{row.bindings.StrVar11.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar12.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[11]}" id="c20">
+                <af:selectOneChoice value="#{row.bindings.StrVar12.inputValue}" label="#{row.bindings.StrVar12.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar12.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar12.tooltip}" readOnly="true"
+                                    id="soc15">
+                  <f:selectItems value="#{row.bindings.StrVar12.items}" id="si15"/>
+                  <f:validator binding="#{row.bindings.StrVar12.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar13.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[12]}" id="c21">
+                <af:selectOneChoice value="#{row.bindings.StrVar13.inputValue}" label="#{row.bindings.StrVar13.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar13.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar13.tooltip}" readOnly="true"
+                                    id="soc16">
+                  <f:selectItems value="#{row.bindings.StrVar13.items}" id="si16"/>
+                  <f:validator binding="#{row.bindings.StrVar13.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar14.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[13]}" id="c22">
+                <af:selectOneChoice value="#{row.bindings.StrVar14.inputValue}" label="#{row.bindings.StrVar14.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar14.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar14.tooltip}" readOnly="true"
+                                    id="soc17">
+                  <f:selectItems value="#{row.bindings.StrVar14.items}" id="si17"/>
+                  <f:validator binding="#{row.bindings.StrVar14.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar15.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[14]}" id="c23">
+                <af:selectOneChoice value="#{row.bindings.StrVar15.inputValue}" label="#{row.bindings.StrVar15.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar15.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar15.tooltip}" readOnly="true"
+                                    id="soc18">
+                  <f:selectItems value="#{row.bindings.StrVar15.items}" id="si18"/>
+                  <f:validator binding="#{row.bindings.StrVar15.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar16.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[15]}" id="c24">
+                <af:selectOneChoice value="#{row.bindings.StrVar16.inputValue}" label="#{row.bindings.StrVar16.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar16.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar16.tooltip}" readOnly="true"
+                                    id="soc19">
+                  <f:selectItems value="#{row.bindings.StrVar16.items}" id="si19"/>
+                  <f:validator binding="#{row.bindings.StrVar16.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar17.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[16]}" id="c26">
+                <af:selectOneChoice value="#{row.bindings.StrVar17.inputValue}" label="#{row.bindings.StrVar17.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar17.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar17.tooltip}" readOnly="true"
+                                    id="soc20">
+                  <f:selectItems value="#{row.bindings.StrVar17.items}" id="si20"/>
+                  <f:validator binding="#{row.bindings.StrVar17.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar18.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[17]}" id="c27">
+                <af:selectOneChoice value="#{row.bindings.StrVar18.inputValue}" label="#{row.bindings.StrVar18.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar18.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar18.tooltip}" readOnly="true"
+                                    id="soc21">
+                  <f:selectItems value="#{row.bindings.StrVar18.items}" id="si21"/>
+                  <f:validator binding="#{row.bindings.StrVar18.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar19.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[18]}" id="c28">
+                <af:selectOneChoice value="#{row.bindings.StrVar19.inputValue}" label="#{row.bindings.StrVar19.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar19.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar19.tooltip}" readOnly="true"
+                                    id="soc22">
+                  <f:selectItems value="#{row.bindings.StrVar19.items}" id="si22"/>
+                  <f:validator binding="#{row.bindings.StrVar19.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.StrVar20.name}" filterable="true"
+                         sortable="true" headerText="#{pageFlowScope.CentralBean.captions[19]}" id="c29">
+                <af:selectOneChoice value="#{row.bindings.StrVar20.inputValue}" label="#{row.bindings.StrVar20.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.StrVar20.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.StrVar20.tooltip}" readOnly="true"
+                                    id="soc23">
+                  <f:selectItems value="#{row.bindings.StrVar20.items}" id="si23"/>
+                  <f:validator binding="#{row.bindings.StrVar20.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.UnitId.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.ItemVariablesTestV.hints.UnitId.label}" id="c30">
+                <af:selectOneChoice value="#{row.bindings.UnitId.inputValue}" label="#{row.bindings.UnitId.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.UnitId.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.UnitId.tooltip}" readOnly="true"
+                                    id="soc24">
+                  <f:selectItems value="#{row.bindings.UnitId.items}" id="si24"/>
+                  <f:validator binding="#{row.bindings.UnitId.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.CatId.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.ItemVariablesTestV.hints.CatId.label}" id="c31">
+                <af:selectOneChoice value="#{row.bindings.CatId.inputValue}" label="#{row.bindings.CatId.label}"
+                                    required="#{bindings.ItemVariablesTestV.hints.CatId.mandatory}"
+                                    shortDesc="#{bindings.ItemVariablesTestV.hints.CatId.tooltip}" readOnly="true"
+                                    id="soc25">
+                  <f:selectItems value="#{row.bindings.CatId.items}" id="si25"/>
+                  <f:validator binding="#{row.bindings.CatId.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ItemVariablesTestV.hints.OrgCode.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.ItemVariablesTestV.hints.OrgCode.label}" id="c32">
+                <af:outputText value="#{row.OrgCode}" shortDesc="#{bindings.ItemVariablesTestV.hints.OrgCode.tooltip}"
+                               id="ot8">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.ItemVariablesTestV.hints.OrgCode.format}"/>
+                </af:outputText>
+              </af:column>
+            </af:table>
+            <f:facet name="statusbar"/>
+          </af:panelCollection>
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                    binding="#{pageFlowScope.CentralBean.chooseUnitCatPopup}">
+            <af:dialog id="d1" type="none" title="#{viewcontrollerBundle.CHOOSE_UNIT___ITEM_CATEGORY}"
+                       inlineStyle="padding:20px 0 30px 0;">
+              <af:panelHeader id="ph5" styleClass="AFStretchWidth" text=" ">
+                <af:panelFormLayout id="pfl1" maxColumns="4" rows="1" labelAlignment="top">
+                  <af:selectOneChoice value="#{bindings.DCatId.inputValue}" label="#{bindings.DCatId.label}"
+                                      required="#{bindings.DCatId.hints.mandatory}"
+                                      shortDesc="#{bindings.DCatId.hints.tooltip}" id="soc1"
+                                      contentStyle="width:400px;">
+                    <f:selectItems value="#{bindings.DCatId.items}" id="si1"/>
+                    <f:validator binding="#{bindings.DCatId.validator}"/>
+                  </af:selectOneChoice>
+                  <af:selectOneChoice value="#{bindings.DUnitId.inputValue}" label="#{bindings.DUnitId.label}"
+                                      required="#{bindings.DUnitId.hints.mandatory}"
+                                      shortDesc="#{bindings.DUnitId.hints.tooltip}" id="soc2"
+                                      contentStyle="width:400px;">
+                    <f:selectItems value="#{bindings.DUnitId.items}" id="si2"/>
+                    <f:validator binding="#{bindings.DUnitId.validator}"/>
+                  </af:selectOneChoice>
+                  <af:selectOneChoice value="#{bindings.DOrgCode.inputValue}" label="#{bindings.DOrgCode.label}"
+                                      required="#{bindings.DOrgCode.hints.mandatory}"
+                                      shortDesc="#{bindings.DOrgCode.hints.tooltip}" id="soc3" rendered="false">
+                    <f:selectItems value="#{bindings.DOrgCode.items}" id="si3"/>
+                    <f:validator binding="#{bindings.DOrgCode.validator}"/>
+                  </af:selectOneChoice>
+                </af:panelFormLayout>
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+              </af:panelHeader>
+              <f:facet name="buttonBar">
+                <af:button text="#{viewcontrollerBundle.CANCEL}" id="b5" styleClass="but"
+                           actionListener="#{pageFlowScope.CentralBean.cancelPopupBut}"
+                           inlineStyle="margin-bottom:10px;" immediate="true"/>
+                <af:button text="#{viewcontrollerBundle.OK}" id="b6" styleClass="but"
+                           actionListener="#{pageFlowScope.CentralBean.okPopupBut}" inlineStyle="margin-bottom:10px;"
+                           partialTriggers="b1 b7"/>
+              </f:facet>
+            </af:dialog>
+          </af:popup>
+        </af:panelHeader>
+      </f:facet>
+    </af:panelSplitter>
+  </af:panelHeader>
+</ui:composition>

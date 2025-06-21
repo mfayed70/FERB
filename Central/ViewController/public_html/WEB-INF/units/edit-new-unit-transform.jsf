@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core" locale="#{sessionScope.refreshLocale}">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.center.view.AalmCenteralBndl']}"/>
+    <af:document title="#{viewcontrollerBundle.UNITS_TRANSFORMATION}" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text=" " id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:panelGroupLayout id="pgl1">
+                        <af:button text="#{viewcontrollerBundle.CANCEL}" disabled="#{!bindings.Rollback.enabled}"
+                                   immediate="true" id="b2" action="toCancel" styleClass="but"
+                                   actionListener="#{bindings.Rollback.execute}"
+                                   icon="#{resource['images:cancelF.png']}"
+                                   hoverIcon="#{resource['images:cancelO.png']}">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                    <af:button text="#{viewcontrollerBundle.SAVE}" disabled="#{!bindings.Commit.enabled}" id="b1"
+                               action="toSave" styleClass="but" actionListener="#{bindings.Commit.execute}"
+                               icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}">
+                        <af:setPropertyListener from="#{pageFlowScope.CentralBean.refresh_region}"
+                                                to="#{sessionScope.refreshRegion}" type="action"/>
+                    </af:button>
+                </f:facet>
+                <f:facet name="legend"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:selectOneChoice value="#{bindings.FromUnitId.inputValue}" label="#{bindings.FromUnitId.label}"
+                                        required="#{bindings.FromUnitId.hints.mandatory}"
+                                        shortDesc="#{bindings.FromUnitId.hints.tooltip}" id="soc1" autoSubmit="true"
+                                        contentStyle="min-width:250px;height:40px;">
+                        <f:selectItems value="#{bindings.FromUnitId.items}" id="si1"/>
+                        <f:validator binding="#{bindings.FromUnitId.validator}"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.ToUnitId.inputValue}" label="#{bindings.ToUnitId.label}"
+                                        shortDesc="#{bindings.ToUnitId.hints.tooltip}" id="soc2" partialTriggers="soc1"
+                                        contentStyle="min-width:250px;height:40px;">
+                        <f:selectItems value="#{bindings.ToUnitId.items}" id="si2"/>
+                        <f:validator binding="#{bindings.ToUnitId.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.MultiplyBy.inputValue}" label="#{bindings.MultiplyBy.hints.label}"
+                                  required="#{bindings.MultiplyBy.hints.mandatory}"
+                                  columns="#{bindings.MultiplyBy.hints.displayWidth}"
+                                  maximumLength="#{bindings.MultiplyBy.hints.precision}"
+                                  shortDesc="#{bindings.MultiplyBy.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.MultiplyBy.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.MultiplyBy.format}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.RegisterDt.inputValue}" label="#{bindings.RegisterDt.hints.label}"
+                                  required="#{bindings.RegisterDt.hints.mandatory}"
+                                  columns="#{bindings.RegisterDt.hints.displayWidth}"
+                                  shortDesc="#{bindings.RegisterDt.hints.tooltip}" id="id1" readOnly="true">
+                        <f:validator binding="#{bindings.RegisterDt.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.RegisterDt.format}"/>
+                    </af:inputDate>
+                </af:panelFormLayout>
+                <f:facet name="info"/>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

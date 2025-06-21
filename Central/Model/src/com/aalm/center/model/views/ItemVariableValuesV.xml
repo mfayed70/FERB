@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemVariableValuesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="ItemVariableValues"
+    Entity="com.aalm.center.model.entities.ItemVariableValues"/>
+  <ViewAttribute
+    Name="VarValCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VarValCode"
+    EntityUsage="ItemVariableValues"
+    AliasName="var_val_code"/>
+  <ViewAttribute
+    Name="VarValValue"
+    PrecisionRule="true"
+    EntityAttrName="VarValValue"
+    EntityUsage="ItemVariableValues"
+    AliasName="var_val_value"/>
+  <ViewAttribute
+    Name="VarCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VarCode"
+    EntityUsage="ItemVariableValues"
+    AliasName="var_code"/>
+  <ViewAttribute
+    Name="OrgCode"
+    PrecisionRule="true"
+    EntityAttrName="OrgCode"
+    EntityUsage="ItemVariableValues"
+    AliasName="org_code">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[if (adf.context.sessionScope.orgCode==null)
+return 2
+else return adf.context.sessionScope.orgCode;]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CartizianApplied"
+    PrecisionRule="true"
+    EntityAttrName="CartizianApplied"
+    EntityUsage="ItemVariableValues"
+    AliasName="cartizian_applied"/>
+</ViewObject>

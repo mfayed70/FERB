@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemVariablesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="ItemVariables"
+    Entity="com.aalm.center.model.entities.ItemVariables"/>
+  <ViewAttribute
+    Name="VarCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VarCode"
+    EntityUsage="ItemVariables"
+    AliasName="var_code"/>
+  <ViewAttribute
+    Name="VarName"
+    PrecisionRule="true"
+    EntityAttrName="VarName"
+    EntityUsage="ItemVariables"
+    AliasName="var_name"/>
+  <ViewAttribute
+    Name="Ordr"
+    PrecisionRule="true"
+    EntityAttrName="Ordr"
+    EntityUsage="ItemVariables"
+    AliasName="ordr">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.views.ItemVariablesV.Ordr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ColNameInItems"
+    PrecisionRule="true"
+    EntityAttrName="ColNameInItems"
+    EntityUsage="ItemVariables"
+    AliasName="col_name_in_items"/>
+  <ViewLinkAccessor
+    Name="ItemVariableValuesV"
+    ViewLink="com.aalm.center.model.views.FkItemVariantValuesItemVariants1VL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.center.model.AalmCenteralMBndl"/>
+  </ResourceBundle>
+</ViewObject>

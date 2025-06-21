@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UnitsTransformV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="UnitsV1"
+    ViewObjectName="com.aalm.center.model.views.UnitsV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UnitsV2"
+    ViewObjectName="com.aalm.center.model.views.UnitsV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="UnitsVCriteria"
+      FullName="com.aalm.center.model.views.UnitsV.UnitsVCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="pUnitId">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[FromUnitId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_FromUnitId"
+    ListVOName="UnitsV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
+    <AttrArray Name="AttrNames">
+      <Item Value="FromUnitId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnitName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ToUnitId"
+    ListVOName="UnitsV2"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
+    <AttrArray Name="AttrNames">
+      <Item Value="ToUnitId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnitName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="UnitsTransform"
+    Entity="com.aalm.center.model.entities.UnitsTransform"/>
+  <ViewAttribute
+    Name="FromUnitId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FromUnitId"
+    EntityUsage="UnitsTransform"
+    AliasName="from_unit_id"
+    LOVName="LOV_FromUnitId">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <LABEL
+          ResId="com.aalm.center.model.views.UnitsTransformV.FromUnitId_LABEL"/>
+        <FMT_FORMAT
+          ResId="com.aalm.center.model.views.UnitsTransformV.FromUnitId_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.aalm.center.model.views.UnitsTransformV.FromUnitId_FMT_FORMATTER"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToUnitId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ToUnitId"
+    EntityUsage="UnitsTransform"
+    AliasName="to_unit_id"
+    LOVName="LOV_ToUnitId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.views.UnitsTransformV.ToUnitId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="FromUnitId"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MultiplyBy"
+    PrecisionRule="true"
+    EntityAttrName="MultiplyBy"
+    EntityUsage="UnitsTransform"
+    AliasName="multiply_by">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.views.UnitsTransformV.MultiplyBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RegisterDt"
+    PrecisionRule="true"
+    EntityAttrName="RegisterDt"
+    EntityUsage="UnitsTransform"
+    AliasName="register_dt">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.views.UnitsTransformV.RegisterDt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.aalm.center.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.master.view.AalmMasterBndl']}"/>
+  <af:panelGroupLayout id="pgl3" layout="vertical" halign="center">
+    <af:panelGroupLayout id="pgl4" layout="horizontal" inlineStyle="width:330px;margin:20px 0 0 0;">
+      <af:outputText value="#{viewcontrollerBundle.LOGIN}" id="ot1"
+                     inlineStyle="font-size:40px; font-family:Arslan;"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl5" layout="horizontal"
+                         inlineStyle="width:800px; background-color:white;padding:0 30px 0 30px;margin-bottom:-10px;" halign="center">
+      <af:panelFormLayout id="pfl1" labelAlignment="top"
+                          inlineStyle="width:290px; padding:50px 20px 20px; border-style:solid; border-width:thin; border-color:#e7e7e7;margin:20px 0 0 0;border-radius:30px 30px 30px 30px / 30px 30px 30px 30px ;">
+        <af:inputText label="#{viewcontrollerBundle.USERNAME}" id="it1" contentStyle="width:220px;font-size:20px;"
+                      value="#{backingBeanScope.LoginBean.userName}"/>
+        <af:panelGroupLayout id="pgl2" layout="horizontal" inlineStyle="margin:0 0 10px;width:230px;" halign="end">
+          <af:link text="#{viewcontrollerBundle.FORGOT_PASSWORD}" id="l1" inlineStyle="color:Maroon;font-size:20px;"
+                   action="toForgotPswrd"/>
+        </af:panelGroupLayout>
+        <af:inputText id="it2" label="#{viewcontrollerBundle.PASSWORD}" contentStyle="width:220px;font-size:20px;"
+                      value="#{backingBeanScope.LoginBean.password}" secret="true"/>
+        <f:facet name="footer"/>
+        <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center" inlineStyle="margin:20px 0 0 0;">
+          <af:button text="#{viewcontrollerBundle.LOGIN}" id="b1"
+                     inlineStyle="width:220px; text-align:center;font-size:25px;"
+                     action="#{backingBeanScope.LoginBean.login}" styleClass="Loginbut" selected="true"/>
+        </af:panelGroupLayout>
+      </af:panelFormLayout>
+      <af:panelGroupLayout id="pgl6" layout="vertical">
+        <af:panelGroupLayout id="pgl7" layout="horizontal">
+          <af:outputText value="#{viewcontrollerBundle.WELCOME_TO}" id="ot2"/>
+          <af:outputText value="FERP" id="ot4" inlineStyle="font-size:100px;"/>
+          <f:facet name="separator">
+            <af:spacer width="10" height="10" id="s1"/>
+          </f:facet>
+        </af:panelGroupLayout>
+        <af:outputText value="#{viewcontrollerBundle.FREE_OF_LICENSE___ERP_SYSTEM}" id="ot3"/>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:LoginBean-->
+</ui:composition>

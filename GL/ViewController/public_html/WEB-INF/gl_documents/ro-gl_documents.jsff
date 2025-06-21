@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.gl.view.AalmGlBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.GL_DOCUMENTS}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:button text="#{viewcontrollerBundle.NEW_DOCUMENT}" id="b1" icon="#{resource['images:NewF.png']}"
+                 action="toGlDocument" styleClass="but" hoverIcon="#{resource['images:NewO.png']}">
+        <af:setPropertyListener from="#{'new'}" to="#{pageFlowScope.action}" type="action"/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend"/>
+    <af:panelGroupLayout id="pgl1">
+      <af:panelHeader text=" " id="ph2">
+        <af:query id="qryId1" headerText="#{viewcontrollerBundle.Search}"
+                  value="#{bindings.RoGlDocumentsVCriteriaQuery.queryDescriptor}"
+                  model="#{bindings.RoGlDocumentsVCriteriaQuery.queryModel}"
+                  queryListener="#{bindings.RoGlDocumentsVCriteriaQuery.processQuery}"
+                  queryOperationListener="#{bindings.RoGlDocumentsVCriteriaQuery.processQueryOperation}"
+                  saveQueryMode="hidden"/>
+        <af:listView value="#{bindings.ReadOnlyGlDocumentsV.treeModel}" var="item"
+                     emptyText="#{bindings.ReadOnlyGlDocumentsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                     fetchSize="#{bindings.ReadOnlyGlDocumentsV.rangeSize}" id="lv1" partialTriggers="::b1 ::qryId1 i2"
+                     varStatus="row" selectionListener="#{bindings.ReadOnlyGlDocumentsV.treeModel.makeCurrent}"
+                     selectedRowKeys="#{bindings.ReadOnlyGlDocumentsV.collectionModel.selectedRow}">
+          <af:listItem id="li1">
+            <af:panelGridLayout id="pgl2" inlineStyle="background-color:Gray;">
+              <af:gridRow marginTop="2px" height="auto" id="gr1" rendered="#{row.index==0}" marginBottom="2px">
+                <af:gridCell marginStart="2px" width="140px" id="gc1" inlineStyle="background-color:Gray;color:White;">
+                  <af:outputText value="#{item.bindings.JornalId.label}" id="ot5"/>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="150px" id="gc2" inlineStyle="background-color:Gray;color:White;">
+                  <af:outputText value="#{item.bindings.AccCode.label}" id="ot6"/>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="300px" id="gc3" inlineStyle="background-color:Gray;color:White;">
+                  <af:outputText value="#{item.bindings.AccNameE.label}" id="ot7"/>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="300px" id="gc4" inlineStyle="background-color:Gray;color:White;">
+                  <af:outputText value="#{item.bindings.AssCode.label}" id="ot8"/>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="130px" id="gc5" inlineStyle="background-color:Gray;color:White;"
+                             halign="center">
+                  <af:outputText value="#{item.bindings.Debit.label}" id="ot9"/>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="130px" id="gc6" inlineStyle="background-color:Gray;color:White;"
+                             halign="center">
+                  <af:outputText value="#{item.bindings.Credit.label}" id="ot10"/>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="100px" id="gc7" inlineStyle="background-color:Gray;color:White;">
+                  <af:outputText value="#{item.bindings.CurrCode.label}" id="ot11"/>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="200px" id="gc8" inlineStyle="background-color:Gray;color:White;">
+                  <af:outputText value="#{item.bindings.CostCenterCode.label}" id="ot12"/>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="150px" marginEnd="2px" id="gc9"
+                             inlineStyle="background-color:Gray;color:White;">
+                  <af:outputText value="#{item.bindings.Notes.label}" id="ot18"/>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+            <af:panelGridLayout id="pgl7" inlineStyle="margin-top:10px;">
+              <af:gridRow height="auto" marginBottom="2px" id="gr2" marginTop="2px">
+                <af:gridCell marginStart="2px" width="140px" id="gc10">
+                  <af:outputFormatted value="#{item.bindings.JornalId.inputValue}" id="of1"/>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="150px" id="gc11">
+                  <af:outputFormatted value="#{item.bindings.AccCode.inputValue}" id="of2">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.ReadOnlyGlDocumentsV.hints.AccCode.format}"/>
+                  </af:outputFormatted>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="300px" id="gc12">
+                  <af:panelGroupLayout id="pgl5" layout="scroll" inlineStyle="width:300px;">
+                    <af:panelGroupLayout id="pgl6" layout="vertical">
+                      <af:outputFormatted value="#{item.bindings.AccNameE.inputValue}" id="of3"/>
+                      <af:outputFormatted value="#{item.bindings.AccNameA.inputValue}" id="of10"/>
+                    </af:panelGroupLayout>
+                  </af:panelGroupLayout>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="300px" id="gc13">
+                  <af:selectOneChoice value="#{item.bindings.AssCode.inputValue}"
+                                      required="#{bindings.ReadOnlyGlDocumentsV.hints.AssCode.mandatory}"
+                                      shortDesc="#{bindings.ReadOnlyGlDocumentsV.hints.AssCode.tooltip}" readOnly="true"
+                                      id="soc1">
+                    <f:selectItems value="#{item.bindings.AssCode.items}" id="si1"/>
+                    <f:validator binding="#{item.bindings.AssCode.validator}"/>
+                  </af:selectOneChoice>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="130px" id="gc14" halign="center">
+                  <af:outputFormatted value="#{item.bindings.Debit.inputValue}" id="of4">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.ReadOnlyGlDocumentsV.hints.Debit.format}"/>
+                  </af:outputFormatted>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="130px" id="gc15" halign="center">
+                  <af:outputFormatted value="#{item.bindings.Credit.inputValue}" id="of5">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.ReadOnlyGlDocumentsV.hints.Credit.format}"/>
+                  </af:outputFormatted>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="100px" id="gc16">
+                  <af:outputFormatted value="#{item.bindings.CurrCode.inputValue}" id="of11"/>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="200px" id="gc17">
+                  <af:selectOneChoice value="#{item.bindings.CostCenterCode.inputValue}"
+                                      required="#{bindings.CostCenterCode.hints.mandatory}"
+                                      shortDesc="#{bindings.CostCenterCode.hints.tooltip}" id="soc3" readOnly="true">
+                    <f:selectItems value="#{item.bindings.CostCenterCode.items}" id="si3"/>
+                    <f:validator binding="#{item.bindings.CostCenterCode.validator}"/>
+                  </af:selectOneChoice>
+                </af:gridCell>
+                <af:gridCell marginStart="1px" width="150px" marginEnd="2px" id="gc18">
+                  <af:panelGroupLayout id="pgl9" layout="scroll" inlineStyle="width:150px;">
+                    <af:outputFormatted value="#{item.bindings.Notes.inputValue}" id="of7"/>
+                  </af:panelGroupLayout>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+            <af:separator id="s2" inlineStyle="min-width:800px;height:2px;"/>
+          </af:listItem>
+          <f:facet name="groupHeaderStamp">
+            <af:listItem id="li2"
+                         inlineStyle="background-image:linear-gradient(90deg, Navy 2%, Navy 22%, Navy 112%); margin-bottom:10px; border-radius:30px 30px 30px 30px;">
+              <af:panelGridLayout id="pgl8">
+                <af:gridRow marginTop="5px" height="auto" id="gr3">
+                  <af:gridCell marginStart="5px" width="140px" id="gc19" halign="center">
+                    <af:outputText value="#{item.bindings.GlDocId.label}" id="ot1"
+                                   inlineStyle="color:#d6d6d6; text-decoration:underline;"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="210px" id="gc20" halign="center">
+                    <af:outputText value="#{item.bindings.GlDocDt.label}" id="ot2"
+                                   inlineStyle="color:#d6d6d6; text-decoration:underline;"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="300px" id="gc21">
+                    <af:outputText value="#{item.bindings.GlTrnsTypeId.label}" id="ot4"
+                                   inlineStyle="color:#d6d6d6; text-decoration:underline;"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="200px" id="gc22">
+                    <af:outputText value="#{item.bindings.GlDocName.label}" id="ot3"
+                                   inlineStyle="color:#d6d6d6; text-decoration:underline;"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="130px" marginEnd="5px" id="gc23" halign="center">
+                    <af:outputText value="#{item.bindings.SumDebit.label}" id="ot14"
+                                   inlineStyle="color:#d6d6d6; text-decoration:underline;"/>
+                  </af:gridCell>
+                  <af:gridCell id="gc29" width="130px">
+                    <af:outputText value="#{item.bindings.SumCredit.label}" id="ot15"
+                                   inlineStyle="color:#d6d6d6; text-decoration:underline;"/>
+                  </af:gridCell>
+                  <af:gridCell id="gc33" width="140px">
+                    <af:outputText value="#{item.bindings.ReversedFlag.inputValue=='Y'? viewcontrollerBundle.REVERSE_DOC_ID_ : viewcontrollerBundle.ORIGIN_DOC_ID_}"
+                                   id="ot19" inlineStyle="color:#d6d6d6; text-decoration:underline;"
+                                   visible="#{item.bindings.OriginGlDocId.inputValue!=null}"/>
+                  </af:gridCell>
+                  <af:gridCell id="gc32" width="300px" halign="center">
+                    <af:panelGroupLayout id="pgl10" layout="horizontal" inlineStyle="width:200px;"
+                                         valign="top" halign="center">
+                      <af:image source="#{resource['images:balance-W-24.png']}" id="i1"
+                                visible="#{item.bindings.BalanceFlag.inputValue=='Y' &amp;&amp; item.bindings.PostFlag!='Y'}"
+                                shortDesc="#{viewcontrollerBundle.Balanced}"/>
+                      <af:image id="l2" visible="#{item.bindings.PostFlag.inputValue=='Y'}"
+                                source="#{resource['images:posted-W-30.png']}"
+                                shortDesc="#{viewcontrollerBundle.POSTED}"/>
+                      <af:image id="l3" visible="#{item.bindings.BalanceFlag!='Y'}" inlineStyle="color:white;"
+                                source="#{resource['images:unbalanced-W-30.png']}"
+                                shortDesc="#{viewcontrollerBundle.UNBALANCED}"/>
+                      <af:link id="i2" icon="#{resource['images:reverse-doc.png']}"
+                               visible="#{item.bindings.PostFlag.inputValue=='Y' &amp;&amp; item.bindings.ReversedFlag.inputValue=='N' &amp;&amp; item.bindings.OriginGlDocId.inputValue==null}"
+                               shortDesc="#{viewcontrollerBundle.CREATE_REVERSE_DOCUMENT}"
+                               actionListener="#{pageFlowScope.GlBean.createReverseDocument}" action="toGlDocument"
+                               partialTriggers="::lv1 li2">
+                        <af:setPropertyListener from="#{'edit'}" to="#{pageFlowScope.action}" type="action"/>
+                      </af:link>
+                      <f:facet name="separator">
+                        <af:spacer width="1" height="10" id="s1"/>
+                      </f:facet>
+                    </af:panelGroupLayout>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+              <af:panelGridLayout id="pgl4">
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                  <af:gridCell marginStart="5px" width="140px" id="gc24" halign="center" valign="middle">
+                    <af:link id="of8" text="#{item.bindings.GlDocId.inputValue}"
+                             action="toGlDocument"
+                             disabled="#{item.bindings.PostFlag.inputValue=='Y'}"
+                             inlineStyle="#{item.bindings.PostFlag.inputValue=='Y' ? 'color:gray;' : 'color:white'}"
+                             disabledIcon="#{resource['images:edit-disabled-24.png']}"
+                             icon="#{resource['images:icons8-edit-24.png']}">
+                      <af:setPropertyListener from="#{'edit'}" to="#{pageFlowScope.action}" type="action"/>
+                      <af:setPropertyListener from="#{item.bindings.GlDocId.inputValue}" to="#{pageFlowScope.pGlDocId}"
+                                              type="action"/>
+                    </af:link>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="210px" id="gc25" halign="center" valign="middle">
+                    <af:inputDate value="#{item.bindings.GlDocDt.inputValue}" id="of9" inlineStyle="color:White;"
+                                  readOnly="true" contentStyle="color:White;">
+                      <af:convertDateTime pattern="dd/MM/yyyy hh:mm:ss"/>
+                    </af:inputDate>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="300px" id="gc26" valign="middle">
+                    <af:selectOneChoice value="#{item.bindings.GlTrnsTypeId.inputValue}"
+                                        required="#{bindings.ReadOnlyGlDocumentsV.hints.GlTrnsTypeId.mandatory}"
+                                        shortDesc="#{bindings.ReadOnlyGlDocumentsV.hints.GlTrnsTypeId.tooltip}"
+                                        readOnly="true" id="soc2"
+                                        contentStyle="color:White;">
+                      <f:selectItems value="#{item.bindings.GlTrnsTypeId.items}" id="si2"/>
+                      <f:validator binding="#{item.bindings.GlTrnsTypeId.validator}"/>
+                    </af:selectOneChoice>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="200px" id="gc27" valign="middle">
+                    <af:panelGroupLayout id="pgl3" layout="scroll" inlineStyle="width:200px;">
+                      <af:outputText id="ot13" inlineStyle="color:White;"
+                                     value="#{item.bindings.GlDocName.inputValue}" truncateAt="20"/>
+                    </af:panelGroupLayout>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="130px" marginEnd="5px" id="gc28" halign="center" valign="middle">
+                    <af:outputText id="ot16" value="#{item.bindings.SumDebit.inputValue}" inlineStyle="color:Red;"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="130px" marginEnd="5px" id="gc30" halign="center"
+                               valign="middle">
+                    <af:outputText value="#{item.bindings.SumCredit.inputValue}" id="ot17" inlineStyle="color:Red;"/>
+                  </af:gridCell>
+                  <af:gridCell id="gc31" width="140px">
+                    <af:outputText value="#{item.bindings.OriginGlDocId.inputValue}" id="ot20"
+                                   inlineStyle="color:White;"
+                                   visible="#{item.bindings.OriginGlDocId.inputValue!=null}"/>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+            </af:listItem>
+          </f:facet>
+        </af:listView>
+      </af:panelHeader>
+    </af:panelGroupLayout>
+    <f:facet name="info"/>
+  </af:panelHeader>
+</ui:composition>

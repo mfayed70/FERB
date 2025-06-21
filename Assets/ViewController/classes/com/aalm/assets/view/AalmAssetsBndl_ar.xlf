@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.asets.view.AalmAssetsBndl_ar" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="SETUP_DATA">
+        <source>البيانات التمهيدية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DEPRECIATION_TYPES">
+        <source>أنواع الإهلاك</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSETS_GROUPS">
+        <source>مجموعات الأصول</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSETS_PROPERTIES">
+        <source>خواص الأصول</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>إلغاء</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>حفظ</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW">
+        <source>جديد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSETS_TRANSACTION_TYPES">
+        <source>أنواع حركات الأصول</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSETS_DATA">
+        <source>بيانات الأصول</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BACK">
+        <source>رجوع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSET_PROPERTIES">
+        <source>خواص الأصول</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSET_SPARE_PARTS">
+        <source>قطع غيار الأصول</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AddProperty">
+        <source>إضافة خاصية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AssetsSpareParts">
+        <source>قطع غيار الأصل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AddSparePart">
+        <source>إضافة قطعة غيار</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AssetsTransactions">
+        <source>حركات الأصول</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Ser.">
+        <source>م.</source>
+        <target/>
+      </trans-unit>
+      
+    </body>
+  </file>
+</xliff>

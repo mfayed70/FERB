@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UnitsTransform"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="UNITS_TRANSFORM"
+  AliasName="UnitsTransform"
+  BindingStyle="JDBC"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <Attribute
+    Name="FromUnitId"
+    IsNotNull="true"
+    ColumnName="from_unit_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="UNITS_TRANSFORM"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.UnitsTransform.FromUnitId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ToUnitId"
+    IsNotNull="true"
+    ColumnName="to_unit_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="UNITS_TRANSFORM"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.UnitsTransform.ToUnitId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="MultiplyBy"
+    ColumnName="multiply_by"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="UNITS_TRANSFORM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.UnitsTransform.MultiplyBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="RegisterDt"
+    ColumnName="register_dt"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="UNITS_TRANSFORM">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.aalm.center.model.entities.UnitsTransform.RegisterDt_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.aalm.center.model.entities.UnitsTransform.RegisterDt_FMT_FORMATTER"/>
+        <LABEL
+          ResId="com.aalm.center.model.entities.UnitsTransform.RegisterDt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="Units"
+    Association="com.aalm.center.model.entities.FkUnitsTransformUnits2Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkUnitsTransformUnits2Assoc.Units"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkUnitsTransformUnits2Assoc.UnitsTransform"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Units1"
+    Association="com.aalm.center.model.entities.FkUnitsTransformUnits1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkUnitsTransformUnits1Assoc.Units1"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkUnitsTransformUnits1Assoc.UnitsTransform1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.UnitsTransform.FromUnitId"/>
+      <Item Value="com.aalm.center.model.entities.UnitsTransform.ToUnitId"/>
+    </AttrArray>
+  </Key>
+</Entity>

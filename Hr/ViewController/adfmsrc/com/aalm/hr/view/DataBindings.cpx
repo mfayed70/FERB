@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.aalm.hr.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/jobs/jobs-TF.xml#jobs-TF@Execute" usageId="com_aalm_hr_view_jobs_TF_jobs_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/jobs/jobs.jsff" usageId="com_aalm_hr_view_jobsPageDef"/>
+    <page path="/Test.jsf" usageId="com_aalm_hr_view_TestPageDef"/>
+    <page path="/WEB-INF/employees/employees-TF.xml#employees-TF@Execute"
+          usageId="com_aalm_hr_view_employees_TF_employees_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/employees/employees.jsff" usageId="com_aalm_hr_view_employeesPageDef"/>
+    <page path="/WEB-INF/employees/crud-employee-TF.xml#crud-employee-TF@CreateInsert"
+          usageId="com_aalm_hr_view_crud_employee_TF_crud_employee_TF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/employees/crud-employee-TF.xml#crud-employee-TF@ExecuteWithParams"
+          usageId="com_aalm_hr_view_crud_employee_TF_crud_employee_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/employees/crud-employee.jsf" usageId="com_aalm_hr_view_crud_employeePageDef"/>
+    <page path="/WEB-INF/employyes_contracts/employeesContracts-TFxml.xml#employeesContracts-TFxml@ExecuteWithParams"
+          usageId="com_aalm_hr_view_employeesContracts_TFxml_employeesContracts_TFxml_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/employyes_contracts/empsContractsHolder.jsf"
+          usageId="com_aalm_hr_view_empsContractsHolderPageDef"/>
+    <page path="/WEB-INF/employyes_contracts/employeesContracts.jsff"
+          usageId="com_aalm_hr_view_employeesContractsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_aalm_hr_view_jobs_TF_jobs_TF_ExecutePageDef" path="jobs.jobs_TF_jobs_TF_ExecutePageDef"/>
+    <page id="com_aalm_hr_view_jobsPageDef" path="jobs.jobsPageDef"/>
+    <page id="com_aalm_hr_view_TestPageDef" path="com.aalm.hr.view.pageDefs.TestPageDef"/>
+    <page id="com_aalm_hr_view_employees_TF_employees_TF_ExecutePageDef"
+          path="employees.employees_TF_employees_TF_ExecutePageDef"/>
+    <page id="com_aalm_hr_view_employeesPageDef" path="employees.employeesPageDef"/>
+    <page id="com_aalm_hr_view_crud_employee_TF_crud_employee_TF_CreateInsertPageDef"
+          path="employees.crud_employee_TF_crud_employee_TF_CreateInsertPageDef"/>
+    <page id="com_aalm_hr_view_crud_employee_TF_crud_employee_TF_ExecuteWithParamsPageDef"
+          path="employees.crud_employee_TF_crud_employee_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_hr_view_crud_employeePageDef" path="employees.crud_employeePageDef"/>
+    <page id="com_aalm_hr_view_employeesContracts_TFxml_employeesContracts_TFxml_ExecuteWithParamsPageDef"
+          path="employyes_contracts.employeesContracts_TFxml_employeesContracts_TFxml_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_hr_view_empsContractsHolderPageDef" path="employyes_contracts.empsContractsHolderPageDef"/>
+    <page id="com_aalm_hr_view_employeesContractsPageDef" path="employyes_contracts.employeesContractsPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AalmHrDataControl" Package="com.aalm.hr.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AalmHrLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="new_unit_transform_TF_new_unit_transform_TF_CreateInsertPageDef" Package="units"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="UnitsTransformV" RangeSize="25" DataControl="AalmCentralDataControl" id="UnitsTransformVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="UnitsTransformVIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

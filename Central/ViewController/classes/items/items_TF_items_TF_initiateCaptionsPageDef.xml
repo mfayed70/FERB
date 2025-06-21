@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="items_TF_items_TF_initiateCaptionsPageDef" Package="items" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ItemsVariablesForCaptionsV" RangeSize="20" DataControl="AalmCentralDataControl"
+              id="ItemsVariablesForCaptionsVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ItemsVariablesForCaptionsVIterator" id="Execute"
+            InstanceName="AalmCentralDataControl.ItemsVariablesForCaptionsV" DataControl="AalmCentralDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

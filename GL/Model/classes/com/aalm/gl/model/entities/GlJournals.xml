@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlJournals"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="GL_JOURNALS"
+  AliasName="GlJournals"
+  BindingStyle="JDBC"
+  RowClass="com.aalm.gl.model.entities.GlJournalsImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="JornalId"
+    IsNotNull="true"
+    Precision="12"
+    ColumnName="jornal_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="GL_JOURNALS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[return (int) (new Date().getTime()/1000);]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlJournals.JornalId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="AccCode"
+    IsNotNull="true"
+    ColumnName="acc_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_JOURNALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlJournals.AccCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="OrgCode"
+    IsNotNull="true"
+    ColumnName="org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_JOURNALS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AssCode"
+    Precision="20"
+    ColumnName="ass_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="GL_JOURNALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlJournals.AssCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CurrCode"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="curr_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="GL_JOURNALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlJournals.CurrCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Debit"
+    ColumnName="debit"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_JOURNALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlJournals.Debit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Credit"
+    ColumnName="credit"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_JOURNALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlJournals.Credit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CostCenterCode"
+    ColumnName="cost_center_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_JOURNALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlJournals.CostCenterCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Notes"
+    Precision="1000"
+    ColumnName="notes"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="GL_JOURNALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlJournals.Notes_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="GlDocId"
+    IsNotNull="true"
+    ColumnName="gl_doc_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_JOURNALS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GlDocumentsOrgCode"
+    IsNotNull="true"
+    ColumnName="gl_documents_org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_JOURNALS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LocalCredit"
+    ColumnName="local_credit"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_JOURNALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LocalDebit"
+    ColumnName="local_debit"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_JOURNALS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="GlDocuments"
+    Association="com.aalm.gl.model.entities.FkGlJournalsGlDocuments1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.FkGlJournalsGlDocuments1Assoc.GlDocuments"
+    AssociationOtherEnd="com.aalm.gl.model.entities.FkGlJournalsGlDocuments1Assoc.GlJournals"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlOrgAccChart"
+    Association="com.aalm.gl.model.entities.fk_GL_JOURNALS_GL_ORG_ACC_CHART1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.fk_GL_JOURNALS_GL_ORG_ACC_CHART1Assoc.GlOrgAccChart"
+    AssociationOtherEnd="com.aalm.gl.model.entities.fk_GL_JOURNALS_GL_ORG_ACC_CHART1Assoc.GlJournals"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlAccAssistances"
+    Association="com.aalm.gl.model.entities.fk_GL_JOURNALS_GL_ACC_ASSISTANCES1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.fk_GL_JOURNALS_GL_ACC_ASSISTANCES1Assoc.GlAccAssistances"
+    AssociationOtherEnd="com.aalm.gl.model.entities.fk_GL_JOURNALS_GL_ACC_ASSISTANCES1Assoc.GlJournals"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlCostCenters"
+    Association="com.aalm.gl.model.entities.fk_GL_JOURNALS_GL_COST_CENTERS1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.fk_GL_JOURNALS_GL_COST_CENTERS1Assoc.GlCostCenters"
+    AssociationOtherEnd="com.aalm.gl.model.entities.fk_GL_JOURNALS_GL_COST_CENTERS1Assoc.GlJournals"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlJournals.GlDocId"/>
+      <Item Value="com.aalm.gl.model.entities.GlJournals.GlDocumentsOrgCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkGlJournalsCurrencies1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_JOURNALS_CURRENCIES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="FkGlJournalsGlAccAssistances1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_JOURNALS_GL_ACC_ASSISTANCES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="FkGlJournalsGlCostCenters1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_JOURNALS_GL_COST_CENTERS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="FkGlJournalsGlDocuments1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_JOURNALS_GL_DOCUMENTS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="FkGlJournalsGlOrgAccChart1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_JOURNALS_GL_ORG_ACC_CHART1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="fk_GlJournals">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Gl_Journals"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlJournals.OrgCode"/>
+      <Item Value="com.aalm.gl.model.entities.GlJournals.AccCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_GlJournals1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Gl_Journals1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlJournals.CostCenterCode"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.gl.model.AalmGlBndl"/>
+  </ResourceBundle>
+</Entity>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="customers_TF_customers_TF_ExecutePageDef" Package="customers" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="CustomersV" RangeSize="25" DataControl="AalmSalesDataControl" id="CustomersVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CustomersVIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

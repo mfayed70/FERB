@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlJournalsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="LeafAccountsLOV1"
+    ViewObjectName="com.aalm.gl.model.lov.LeafAccountsLOV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="LeafAccountsLOVCriteria"
+      FullName="com.aalm.gl.model.lov.LeafAccountsLOV.LeafAccountsLOVCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="pOrgCode">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[GlDocumentsOrgCode]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="GlAssistanceCodesLOV1"
+    ViewObjectName="com.aalm.gl.model.lov.GlAssistanceCodesLOV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlAssistanceCodesLOVCriteria"
+      FullName="com.aalm.gl.model.lov.GlAssistanceCodesLOV.GlAssistanceCodesLOVCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="pAccCode">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[AccCode]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="pOrgCode">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[OrgCode]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="GlCostCentersLOV1"
+    ViewObjectName="com.aalm.gl.model.lov.GlCostCentersLOV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlCostCentersLOVCriteria"
+      FullName="com.aalm.gl.model.lov.GlCostCentersLOV.GlCostCentersLOVCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="pOrgCode">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[GlDocumentsOrgCode]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_AccCode"
+    ListVOName="LeafAccountsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="AccCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="AccNameE"/>
+      <Item Value="AccNameA"/>
+      <Item Value="GlAssTblId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AccCode"/>
+      <Item Value="AccNameE"/>
+      <Item Value="AccNameA"/>
+      <Item Value="GlAssTblId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccNameE"/>
+      <Item Value="AccCode"/>
+      <Item Value="AccNameA"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"
+      Name="LeafAccountsLOVCriteria"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_AssCode"
+    ListVOName="GlAssistanceCodesLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
+    <AttrArray Name="AttrNames">
+      <Item Value="AssCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AssCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AssName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CostCenterCode"
+    ListVOName="GlCostCentersLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CostCenterCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CostCenterCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CostCenterNameE"/>
+      <Item Value="CostCenterNameA"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT GlJournals.jornal_id, 
+       GlJournals.acc_code, 
+       GlJournals.org_code, 
+       GlJournals.ass_code, 
+       GlJournals.curr_code, 
+       GlJournals.debit, 
+       GlJournals.credit, 
+       GlJournals.cost_center_code, 
+       GlJournals.notes, 
+       GlJournals.gl_doc_id, 
+       GlJournals.gl_documents_org_code,
+       GlJournals.local_debit ,
+       GlJournals.local_credit ,
+       GlOrgAccChart.acc_name_a, 
+       GlOrgAccChart.acc_name_e, 
+       GlOrgAccChart.gl_ass_tbl_id/* 
+       GlAccAssistances.ass_code AS Ass_Code1, 
+       GlAccAssistances.org_code AS Org_Code2, 
+       GlCostCenters.cost_center_name_a, 
+       GlCostCenters.cost_center_name_e, 
+       GlCostCenters.cost_center_code AS Cost_Center_Code1 */
+FROM  GL_JOURNALS GlJournals
+INNER JOIN GL_ORG_ACC_CHART GlOrgAccChart ON (GlJournals.org_code = GlOrgAccChart.org_code AND GlJournals.acc_code = GlOrgAccChart.acc_code)
+/*LEFT OUTER JOIN GL_ACC_ASSISTANCES GlAccAssistances ON (GlJournals.ass_code = GlAccAssistances.ass_code)
+LEFT OUTER JOIN GL_COST_CENTERS GlCostCenters ON (GlJournals.cost_center_code = GlCostCenters.cost_center_code)*/]]></SQLQuery>
+  <EntityUsage
+    Name="GlJournals"
+    Entity="com.aalm.gl.model.entities.GlJournals"/>
+  <ViewAttribute
+    Name="JornalId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="JornalId"
+    EntityUsage="GlJournals"
+    AliasName="jornal_id">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[return (int) (new Date().getTime()/1000);]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccCode"
+    PrecisionRule="true"
+    EntityAttrName="AccCode"
+    EntityUsage="GlJournals"
+    AliasName="acc_code"
+    LOVName="LOV_AccCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OrgCode"
+    EntityUsage="GlJournals"
+    AliasName="org_code">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlDocumentsOrgCode]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AssCode"
+    PrecisionRule="true"
+    EntityAttrName="AssCode"
+    EntityUsage="GlJournals"
+    AliasName="ass_code"
+    LOVName="LOV_AssCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CurrCode"
+    EntityUsage="GlJournals"
+    AliasName="curr_code"
+    DefaultValue="EGP"/>
+  <ViewAttribute
+    Name="Debit"
+    PrecisionRule="true"
+    EntityAttrName="Debit"
+    EntityUsage="GlJournals"
+    AliasName="debit">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <FMT_FORMAT
+          ResId="com.aalm.gl.model.views.GlJournalsV.Debit_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.aalm.gl.model.views.GlJournalsV.Debit_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Credit"
+    PrecisionRule="true"
+    EntityAttrName="Credit"
+    EntityUsage="GlJournals"
+    AliasName="credit">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <FMT_FORMATTER
+          ResId="com.aalm.gl.model.views.GlJournalsV.Credit_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.aalm.gl.model.views.GlJournalsV.Credit_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CostCenterCode"
+    PrecisionRule="true"
+    EntityAttrName="CostCenterCode"
+    EntityUsage="GlJournals"
+    AliasName="cost_center_code"
+    LOVName="LOV_CostCenterCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="GlJournals"
+    AliasName="notes"/>
+  <ViewAttribute
+    Name="GlDocId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GlDocId"
+    EntityUsage="GlJournals"
+    AliasName="gl_doc_id"/>
+  <ViewAttribute
+    Name="GlDocumentsOrgCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GlDocumentsOrgCode"
+    EntityUsage="GlJournals"
+    AliasName="gl_documents_org_code">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LocalDebit"
+    PrecisionRule="true"
+    AliasName="local_debit"
+    EntityAttrName="LocalDebit"
+    EntityUsage="GlJournals"/>
+  <ViewAttribute
+    Name="LocalCredit"
+    PrecisionRule="true"
+    AliasName="local_credit"
+    EntityAttrName="LocalCredit"
+    EntityUsage="GlJournals"/>
+  <ViewAttribute
+    Name="AccNameA"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="acc_name_a"
+    Expression="acc_name_a"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.views.GlJournalsV.AccNameA_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccNameE"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="acc_name_e"
+    Expression="acc_name_e"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.views.GlJournalsV.AccNameE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GlAssTblId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="gl_ass_tbl_id"
+    Expression="gl_ass_tbl_id"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SumDebit"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression><![CDATA[object.getRowSet().sum('Debit')]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <FMT_FORMATTER
+          ResId="com.aalm.gl.model.views.GlJournalsV.SumDebit_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.aalm.gl.model.views.GlJournalsV.SumDebit_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SumCredit"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression><![CDATA[object.getRowSet().sum('Credit')]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <FMT_FORMAT
+          ResId="com.aalm.gl.model.views.GlJournalsV.SumCredit_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.aalm.gl.model.views.GlJournalsV.SumCredit_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.gl.model.AalmGlBndl"/>
+  </ResourceBundle>
+</ViewObject>

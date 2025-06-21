@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="new-store-TF">
+    <default-activity>router1</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__5">
+      <name>pStoreId</name>
+      <value>#{pageFlowScope.pStoreId}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <router id="router1">
+      <case id="__4">
+        <expression>#{pageFlowScope.pStoreId==null}</expression>
+        <outcome>new</outcome>
+      </case>
+      <default-outcome>edit</default-outcome>
+    </router>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="new-store">
+      <page>/WEB-INF/stores/crud-store.jsf</page>
+    </view>
+    <task-flow-return id="commit">
+      <outcome>
+        <name>commit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="rollbacl">
+      <outcome>
+        <name>rollbacl</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>new</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>new-store</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>new-store</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>new-store</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>rollbacl</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

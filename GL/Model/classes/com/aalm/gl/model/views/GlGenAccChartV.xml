@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlGenAccChartV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="pAccCode"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <ViewAccessor
+    Name="AccTypeLOV1"
+    ViewObjectName="com.aalm.gl.model.lov.AccTypeLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="GlGenAccChartV1"
+    ViewObjectName="com.aalm.gl.model.views.GlGenAccChartV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_AccTypeId"
+    ListVOName="AccTypeLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AccTypeId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="GlAccTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="GlAccTypeNameA"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PrntAccCode"
+    ListVOName="GlGenAccChartV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PrntAccCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AccCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccNameA"/>
+      <Item Value="AccNameE"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT GlGenAccChart.acc_code, 
+       GlGenAccChart.acc_name_a, 
+       GlGenAccChart.acc_name_e, 
+       GlGenAccChart.prnt_acc_code, 
+       GlGenAccChart.acc_type_id,
+       concat(GL_ACC_TYPES.gl_acc_type_name_a,'-',GL_ACC_TYPES.gl_acc_type_name_e) acc_type_name
+FROM  GL_GEN_ACC_CHART GlGenAccChart 
+left outer join GL_ACC_TYPES
+on GL_ACC_TYPES.gl_acc_type_id = GlGenAccChart.acc_type_id]]></SQLQuery>
+  <EntityUsage
+    Name="GlGenAccChart"
+    Entity="com.aalm.gl.model.entities.GlGenAccChart"/>
+  <ViewAttribute
+    Name="AccCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AccCode"
+    EntityUsage="GlGenAccChart"
+    AliasName="acc_code">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.views.GlGenAccChartV.AccCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccNameA"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AccNameA"
+    EntityUsage="GlGenAccChart"
+    AliasName="acc_name_a">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.views.GlGenAccChartV.AccNameA_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccNameE"
+    PrecisionRule="true"
+    EntityAttrName="AccNameE"
+    EntityUsage="GlGenAccChart"
+    AliasName="acc_name_e">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.views.GlGenAccChartV.AccNameE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrntAccCode"
+    PrecisionRule="true"
+    EntityAttrName="PrntAccCode"
+    EntityUsage="GlGenAccChart"
+    AliasName="prnt_acc_code"
+    LOVName="LOV_PrntAccCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.aalm.gl.model.views.GlGenAccChartV.PrntAccCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccTypeId"
+    PrecisionRule="true"
+    EntityAttrName="AccTypeId"
+    EntityUsage="GlGenAccChart"
+    AliasName="acc_type_id"
+    LOVName="LOV_AccTypeId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.aalm.gl.model.views.GlGenAccChartV.AccTypeId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccTypeName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="acc_type_name"
+    Expression="acc_type_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.views.GlGenAccChartV.AccTypeName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ChildCount"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlGenAccChartV.count("AccCode")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="GlGenAccChartVCriteria"
+    ViewObjectName="com.aalm.gl.model.views.GlGenAccChartV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="GlGenAccChartVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PrntAccCode"
+        ViewAttribute="PrntAccCode"
+        Operator="ISBLANK"
+        Conjunction="AND"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="GlGenAccChartVCriteria1"
+    ViewObjectName="com.aalm.gl.model.views.GlGenAccChartV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="GlGenAccChartVCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="GlGenAccChartVCriteria1_GlGenAccChartVCriteria1_row_0_AccCode"
+        ViewAttribute="AccCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":pAccCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="GlGenAccChartV"
+    ViewLink="com.aalm.gl.model.views.FkGlGenAccChartGlGenAccChart1VL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.gl.model.AalmGlBndl"/>
+  </ResourceBundle>
+</ViewObject>

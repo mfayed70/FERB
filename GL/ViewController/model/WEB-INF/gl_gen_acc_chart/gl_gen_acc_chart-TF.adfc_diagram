@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">gl_gen_acc_chart</property>
+      <property
+         name="page">/WEB-INF/gl_gen_acc_chart/gl_gen_acc_chart.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>gl_gen_acc_chart&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">248.17188</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">335.0</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="taskFlowId">crud-gl_gen_acc_chart-TF</property>
+      <property
+         name="activityId">crud-gl_gen_acc_chart-TF</property>
+      <property
+         name="documentReference">/WEB-INF/gl_gen_acc_chart/crud-gl_gen_acc_chart-TF.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>crud-gl_gen_acc_chart-TF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">238.53125</property>
+      <property
+         name="x">616.47363</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">toCrud</property>
+      <property
+         name="sdm:polyPoints">R50,376.0,248.1875,575.47363,238.54688,L50</property>
+   </ControlFlowCase>
+</SDM>

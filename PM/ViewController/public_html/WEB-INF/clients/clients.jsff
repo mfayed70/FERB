@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.pm.view.AalmPmBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.CLIENTS}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:button text="#{viewcontrollerBundle.NEW}" id="b1" action="toCrud" useWindow="true"
+                 windowEmbedStyle="inlineDocument" windowHeight="400" windowWidth="600" styleClass="but">
+        <af:setPropertyListener from="#{null}" to="#{pageFlowScope.pCustId}" type="action"/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:table value="#{bindings.ClientsV.collectionModel}" var="row" rows="#{bindings.ClientsV.rangeSize}"
+              emptyText="#{bindings.ClientsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.ClientsV.collectionModel.selectedRow}"
+              selectionListener="#{bindings.ClientsV.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.ClientsV.rangeSize}" filterModel="#{bindings.ClientsVQuery.queryDescriptor}"
+              queryListener="#{bindings.ClientsVQuery.processQuery}" filterVisible="true" varStatus="vs" id="t1"
+              partialTriggers="ot1 ::b1">
+      <af:column sortProperty="#{bindings.ClientsV.hints.CustId.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.ClientsV.hints.CustId.label}" id="c1" align="center">
+        <af:link shortDesc="#{bindings.ClientsV.hints.CustId.tooltip}" id="ot1" text="#{row.CustId}" action="toCrud"
+                 useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="400" windowWidth="600">
+          <af:setPropertyListener from="#{row.CustId}" to="#{pageFlowScope.pCustId}" type="action"/>
+        </af:link>
+      </af:column>
+      <af:column sortProperty="#{bindings.ClientsV.hints.CustName.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.ClientsV.hints.CustName.label}" id="c2" width="170">
+        <af:outputText value="#{row.CustName}" shortDesc="#{bindings.ClientsV.hints.CustName.tooltip}" id="ot2"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ClientsV.hints.Address.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.ClientsV.hints.Address.label}" id="c3" width="300">
+        <af:outputText value="#{row.Address}" shortDesc="#{bindings.ClientsV.hints.Address.tooltip}" id="ot3"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ClientsV.hints.MobileNo.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.ClientsV.hints.MobileNo.label}" id="c4" width="250">
+        <af:outputText value="#{row.MobileNo}" shortDesc="#{bindings.ClientsV.hints.MobileNo.tooltip}" id="ot4"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ClientsV.hints.SegelNo.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.ClientsV.hints.SegelNo.label}" id="c5" width="150">
+        <af:outputText value="#{row.SegelNo}" shortDesc="#{bindings.ClientsV.hints.SegelNo.tooltip}" id="ot5"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ClientsV.hints.PermittedLimit.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.ClientsV.hints.PermittedLimit.label}" id="c6">
+        <af:outputText value="#{row.PermittedLimit}" shortDesc="#{bindings.ClientsV.hints.PermittedLimit.tooltip}"
+                       id="ot6">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.ClientsV.hints.PermittedLimit.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.ClientsV.hints.CurrCode.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.ClientsV.hints.CurrCode.label}" id="c7" width="200">
+        <af:selectOneChoice value="#{row.bindings.CurrCode.inputValue}" label="#{row.bindings.CurrCode.label}"
+                            required="#{bindings.ClientsV.hints.CurrCode.mandatory}"
+                            shortDesc="#{bindings.ClientsV.hints.CurrCode.tooltip}" readOnly="true" id="soc1">
+          <f:selectItems value="#{row.bindings.CurrCode.items}" id="si1"/>
+          <f:validator binding="#{row.bindings.CurrCode.validator}"/>
+        </af:selectOneChoice>
+      </af:column>
+    </af:table>
+  </af:panelHeader>
+</ui:composition>

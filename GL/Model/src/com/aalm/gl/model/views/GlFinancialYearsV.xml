@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlFinancialYearsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="GlFinancialYears"
+    Entity="com.aalm.gl.model.entities.GlFinancialYears"/>
+  <ViewAttribute
+    Name="FinYearCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FinYearCode"
+    EntityUsage="GlFinancialYears"
+    AliasName="fin_year_code"/>
+  <ViewAttribute
+    Name="PeriodNo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PeriodNo"
+    EntityUsage="GlFinancialYears"
+    AliasName="period_no"/>
+  <ViewAttribute
+    Name="StatusFlag"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StatusFlag"
+    EntityUsage="GlFinancialYears"
+    AliasName="status_flag"/>
+  <ViewAttribute
+    Name="StartDt"
+    PrecisionRule="true"
+    EntityAttrName="StartDt"
+    EntityUsage="GlFinancialYears"
+    AliasName="start_dt"/>
+  <ViewAttribute
+    Name="EndDt"
+    PrecisionRule="true"
+    EntityAttrName="EndDt"
+    EntityUsage="GlFinancialYears"
+    AliasName="end_dt"/>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.gl.model.AalmGlBndl"/>
+  </ResourceBundle>
+</ViewObject>

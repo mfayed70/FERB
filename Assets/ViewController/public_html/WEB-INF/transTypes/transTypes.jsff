@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.assets.view.AalmAssetsBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.ASSETS_TRANSACTION_TYPES}" id="ph1"
+                  styleClass="AFStretchWidth AFHVNodeStretchHeight">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:button actionListener="#{bindings.Commit.execute}" text="#{viewcontrollerBundle.SAVE}"
+                 id="b2" styleClass="but" icon="#{resource['images:SaveF.png']}"
+                 hoverIcon="#{resource['images:SaveO.png']}"/>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}"
+                 immediate="true" id="b3" styleClass="but" icon="#{resource['images:cancelF.png']}"
+                 hoverIcon="#{resource['images:cancelO.png']}">
+        <af:resetActionListener/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend">
+      <af:spacer width="10" height="20" id="s1"/>
+    </f:facet>
+    <af:table value="#{bindings.AssetsTransTypesV.collectionModel}" var="row"
+              rows="#{bindings.AssetsTransTypesV.rangeSize}"
+              emptyText="#{bindings.AssetsTransTypesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.AssetsTransTypesV.collectionModel.selectedRow}"
+              selectionListener="#{bindings.AssetsTransTypesV.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.AssetsTransTypesV.rangeSize}"
+              filterModel="#{bindings.AssetsTransTypesVQuery.queryDescriptor}"
+              queryListener="#{bindings.AssetsTransTypesVQuery.processQuery}" filterVisible="true" varStatus="vs"
+              id="t1" partialTriggers="l1">
+      <af:column sortProperty="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeCode.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeCode.label}" id="c1">
+        <af:inputText value="#{row.bindings.AssTrnsTypeCode.inputValue}"
+                      label="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeCode.label}"
+                      required="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeCode.mandatory}"
+                      columns="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeCode.displayWidth}"
+                      maximumLength="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeCode.precision}"
+                      shortDesc="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeCode.tooltip}" id="it1">
+          <f:validator binding="#{row.bindings.AssTrnsTypeCode.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeCode.format}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeName.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeName.label}" id="c2"
+                 width="400">
+        <af:inputText value="#{row.bindings.AssTrnsTypeName.inputValue}"
+                      label="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeName.label}"
+                      required="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeName.mandatory}"
+                      columns="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeName.displayWidth}"
+                      maximumLength="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeName.precision}"
+                      shortDesc="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeName.tooltip}" id="it2">
+          <f:validator binding="#{row.bindings.AssTrnsTypeName.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.AssetsTransTypesV.hints.Effect.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.AssetsTransTypesV.hints.Effect.label}" id="c3" width="500">
+        <af:panelGroupLayout id="pgl1" layout="scroll">
+          <af:selectOneChoice value="#{row.bindings.Effect.inputValue}" label="#{row.bindings.Effect.label}"
+                              required="#{bindings.AssetsTransTypesV.hints.Effect.mandatory}"
+                              shortDesc="#{bindings.AssetsTransTypesV.hints.Effect.tooltip}" id="soc1">
+            <f:selectItems value="#{row.bindings.Effect.items}" id="si1"/>
+            <f:validator binding="#{row.bindings.Effect.validator}"/>
+          </af:selectOneChoice>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeDt.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeDt.label}" id="c4" width="200">
+        <f:facet name="filter">
+          <af:inputDate value="#{bindings.AssetsTransTypesVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.AssTrnsTypeDt.value}"
+                        id="id1">
+            <af:convertDateTime pattern="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeDt.format}"/>
+          </af:inputDate>
+        </f:facet>
+        <af:inputDate value="#{row.bindings.AssTrnsTypeDt.inputValue}"
+                      label="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeDt.label}"
+                      required="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeDt.mandatory}"
+                      columns="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeDt.displayWidth}"
+                      shortDesc="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeDt.tooltip}" id="id2" readOnly="true">
+          <f:validator binding="#{row.bindings.AssTrnsTypeDt.validator}"/>
+          <af:convertDateTime pattern="#{bindings.AssetsTransTypesV.hints.AssTrnsTypeDt.format}" dateStyle="full"/>
+        </af:inputDate>
+      </af:column>
+      <af:column id="c5" align="center">
+        <af:link actionListener="#{bindings.Delete.execute}" disabled="#{!bindings.Delete.enabled}"
+                 id="l1" icon="#{resource['images:delete24.png']}"/>
+      </af:column>
+    </af:table>
+    <f:facet name="info">
+      <af:button actionListener="#{bindings.CreateInsert.execute}" text="#{viewcontrollerBundle.NEW}" id="b4" styleClass="but"
+                 icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+    </f:facet>
+  </af:panelHeader>
+</ui:composition>

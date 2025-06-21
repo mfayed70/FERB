@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.hr.view.AalmHrBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.JOBS}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:panelGroupLayout id="pgl1" layout="horizontal">
+        <af:button text="#{viewcontrollerBundle.CANCEL}" id="b1" styleClass="but"
+                   actionListener="#{bindings.Rollback.execute}" immediate="true"
+                   icon="#{resource['images:cancelF.png']}" hoverIcon="#{resource['images:cancelO.png']}"/>
+        <af:button text="#{viewcontrollerBundle.SAVE}" id="b2" styleClass="but"
+                   actionListener="#{bindings.Commit.execute}" icon="#{resource['images:SaveF.png']}"
+                   hoverIcon="#{resource['images:SaveO.png']}"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <af:table value="#{bindings.JobsV.collectionModel}" var="row" rows="#{bindings.JobsV.rangeSize}"
+              emptyText="#{bindings.JobsV.viewable ? 'No data to display.' : 'Access Denied.'}" rowBandingInterval="0"
+              selectedRowKeys="#{bindings.JobsV.collectionModel.selectedRow}"
+              selectionListener="#{bindings.JobsV.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.JobsV.rangeSize}" filterModel="#{bindings.JobsVQuery.queryDescriptor}"
+              queryListener="#{bindings.JobsVQuery.processQuery}" filterVisible="true" varStatus="vs" id="t1"
+              partialTriggers="::b3 ::b2 ::b1" editingMode="clickToEdit">
+      <af:column sortProperty="#{bindings.JobsV.hints.JobId.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.JobsV.hints.JobId.label}" id="c1">
+        <af:outputFormatted value="#{row.bindings.JobId.inputValue}" id="of1">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.JobsV.hints.JobId.format}"/>
+        </af:outputFormatted>
+      </af:column>
+      <af:column sortProperty="#{bindings.JobsV.hints.JobNameEn.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.JobsV.hints.JobNameEn.label}" id="c2" width="400">
+        <af:inputText value="#{row.bindings.JobNameEn.inputValue}" label="#{bindings.JobsV.hints.JobNameEn.label}"
+                      columns="#{bindings.JobsV.hints.JobNameEn.displayWidth}"
+                      maximumLength="#{bindings.JobsV.hints.JobNameEn.precision}"
+                      shortDesc="#{bindings.JobsV.hints.JobNameEn.tooltip}" id="it1">
+          <f:validator binding="#{row.bindings.JobNameEn.validator}"/>
+        </af:inputText>
+        <f:facet name="filter"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.JobsV.hints.JobNameAr.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.JobsV.hints.JobNameAr.label}" id="c3" width="400">
+        <af:inputText value="#{row.bindings.JobNameAr.inputValue}" label="#{bindings.JobsV.hints.JobNameAr.label}"
+                      columns="#{bindings.JobsV.hints.JobNameAr.displayWidth}"
+                      maximumLength="#{bindings.JobsV.hints.JobNameAr.precision}"
+                      shortDesc="#{bindings.JobsV.hints.JobNameAr.tooltip}" id="it2">
+          <f:validator binding="#{row.bindings.JobNameAr.validator}"/>
+        </af:inputText>
+      </af:column>
+    </af:table>
+    <f:facet name="info">
+      <af:button actionListener="#{bindings.CreateInsert.execute}" text="#{viewcontrollerBundle.NEW}"
+                 disabled="#{!bindings.CreateInsert.enabled}" id="b3" styleClass="but"
+                 icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+    </f:facet>
+  </af:panelHeader>
+</ui:composition>

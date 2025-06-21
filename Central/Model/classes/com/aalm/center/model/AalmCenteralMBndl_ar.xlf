@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.center.model.AalmCenteralMBndl_ar" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="com.aalm.center.model.entities.Currencies.CurrCode_LABEL">
+        <source>الكود</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Currencies.CurrSymbol_LABEL">
+        <source>الرمـــز</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Currencies.CurrName_LABEL">
+        <source>الإســـم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Currencies.DefaultCurr_LABEL">
+        <source>الأصلي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.CurrencyTransform.TransformDt_LABEL">
+        <source>تاريخ التسعير</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.CurrencyTransform.MultiplyBy_LABEL">
+        <source>إضرب في</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.CurrencyTransform.FromCurrCode_LABEL">
+        <source>من عملة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.CurrencyTransform.ToCurrCode_LABEL">
+        <source>إلي عملة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.CurrencyTransform.Id_LABEL">
+        <source>الرقم التعريفي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemCategories.CatId_LABEL">
+        <source>الرقم التعريفي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemCategories.CatName_LABEL">
+        <source>الإســـم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemCategories.RegisterDt_LABEL">
+        <source>تاريخ التسجيل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemCategories.Active_LABEL">
+        <source>نشـــط</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemCategories.IsAss_LABEL">
+        <source>مركـــب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.ItemCode_LABEL">
+        <source>الرقم التعريفي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.ItemName_LABEL">
+        <source>الإســـم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.CatId_LABEL">
+        <source>الفئـــة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.UnitId_LABEL">
+        <source>وحدة القياس</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.RegisterDt_LABEL">
+        <source>تاريخ التسجيل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.IsAssmbly_LABEL">
+        <source>مركـــب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.Active_LABEL">
+        <source>نشـــط</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsStructure.Seq_LABEL">
+        <source>م.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsStructure.AssCode_LABEL">
+        <source>كود المركب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsStructure.ItemCode_LABEL">
+        <source>كود الصنف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsStructure.QtyInAss_LABEL">
+        <source>الكمية في المركب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsStructure.UnitId_LABEL">
+        <source>وحدة القياس</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsStructure.RegisterDt_LABEL">
+        <source>تاريخ التسجيل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Organizations.OrgCode_LABEL">
+        <source>الرقم التعريفي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Organizations.EnOrgName_LABEL">
+        <source>الإســـم لاتيني</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Organizations.ArOrgName_LABEL">
+        <source>الإســـم عربي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Organizations.PrntOrgCode_LABEL">
+        <source>المستوي الأب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.StoreCategories.StCatId_LABEL">
+        <source>الرقم التعريفي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.StoreCategories.StCatName_LABEL">
+        <source>الإســـم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.StoreCategories.RegisterDt_LABEL">
+        <source>تاريخ التسجيل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.StoreCategories.Active_LABEL">
+        <source>نشـــط</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Units.UnitId_LABEL">
+        <source>الرقم التعريفي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Units.UnitName_LABEL">
+        <source>الإســـم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Units.RegisterDt_LABEL">
+        <source>تاريخ التسجيل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.UnitsTransform.FromUnitId_LABEL">
+        <source>من وحدة قياس</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.UnitsTransform.ToUnitId_LABEL">
+        <source>إلي وحدة قياس</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.UnitsTransform.MultiplyBy_LABEL">
+        <source>إضرب في</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.UnitsTransform.RegisterDt_LABEL">
+        <source>تاريخ التسجيل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemList.OrderLimit_LABEL">
+        <source>حد الطلـــب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemList.SalesProfitPerc_LABEL">
+        <source>% ربح البيع</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="com.aalm.center.model.entities.ItemsList.SalesProfitPerc_LABEL">
+        <source>% هامش الربح</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.OrderLimit_LABEL">
+        <source>حد الطلـــب</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="com.aalm.center.model.views.FkItemVariantValuesItemVariants1VL_LABEL">
+        <source>Fk Item Variant Values Item Variants 1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CODE">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariants.VarCode_LABEL">
+        <source>الكود</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NAME">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariants.VarName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="APPLIED">
+        <source>Applied</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariants.CartizianApplied_LABEL">
+        <source>Applied</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariantValues.VarValCode_LABEL">
+        <source>الكود</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="VALUE">
+        <source>Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariantValues.VarValValue_LABEL">
+        <source>القيمة</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="com.aalm.center.model.lovs.UnitsLOV_LABEL">
+        <source>Units Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.ItemCategoriesLOV_LABEL">
+        <source>Item Categories Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrganizationsLOV_LABEL">
+        <source>Organizations Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.ItemVariablesValuesLOV_LABEL">
+        <source>Item Variables Values Lov</source>
+        <target/>
+      </trans-unit>
+       <trans-unit id="com.aalm.center.model.views.ItemVariablesV.DataLength_LABEL">
+        <source>الترتيب</source>
+        <target/>
+      </trans-unit>
+      
+    </body>
+  </file>
+</xliff>

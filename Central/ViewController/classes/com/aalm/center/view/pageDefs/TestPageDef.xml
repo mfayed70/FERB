@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="TestPageDef"
+                Package="com.aalm.center.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="currenciesTF1" taskFlowId="/WEB-INF/currencies/currencies-TF.xml#currencies-TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
+      <parameters>
+        <parameter id="refreshRegion" value="#{sessionScope.refreshRegion}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="itemCategoriesTF1" taskFlowId="/WEB-INF/itemCategories/itemCategories-TF.xml#itemCategories-TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
+      <parameters>
+        <parameter id="refreshRegion" value="#{sessionScope.refreshRegion}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="storeCategoriesTF1" taskFlowId="/WEB-INF/storeCategories/storeCategories-TF.xml#storeCategories-TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
+      <parameters>
+        <parameter id="refreshRegion" value="#{sessionScope.refreshRegion}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="unitstransformTF1" taskFlowId="/WEB-INF/units/units-transform-TF.xml#units-transform-TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
+      <parameters>
+        <parameter id="refreshRegion" value="#{sessionScope.refreshRegion}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="organizationsTF1" taskFlowId="/WEB-INF/organizations/organizations-TF.xml#organizations-TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="refreshRegion" value="#{sessionScope.refreshRegion}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="itemsTF1" taskFlowId="/WEB-INF/items/items-TF.xml#items-TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
+      <parameters>
+        <parameter id="refreshRegion" value="#{sessionScope.refreshRegion}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="items_variables_structureTF1"
+              taskFlowId="/WEB-INF/itemVariablesStructure/items_variables_structure-TF.xml#items_variables_structure-TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="itemCategoriesTF2" taskFlowId="/WEB-INF/itemCategories/itemCategories-TF.xml#itemCategories-TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

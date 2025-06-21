@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.pm.view.AalmPmBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.PROJECT_BASIC_DATA}" id="ph1">
+    <f:facet name="context">
+      <af:button actionListener="#{bindings.CreateInsertProject.execute}" text="CreateInsert" id="b5" rendered="false"/>
+    </f:facet>
+    <f:facet name="menuBar">
+      <af:button actionListener="#{pageFlowScope.PmBean.projPricingCommit}" text="Save"
+                 id="b7" icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"
+                 styleClass="but"/>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button actionListener="#{pageFlowScope.PmBean.cancelActnLsnr}" text="cancel" immediate="true" id="b8"
+                 icon="#{resource['images:cancelF.png']}" hoverIcon="#{resource['images:cancelO.png']}"
+                 styleClass="but" partialTriggers="b7">
+        <af:resetActionListener/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info">
+      <af:button text="#{viewcontrollerBundle.BACK_TO_PROJECTS}" id="b13" styleClass="but" action="backToProjects"
+                 immediate="true" actionListener="#{bindings.Rollback.execute}">
+        <af:setPropertyListener from="#{false}" to="#{sessionScope.showItemsTree}" type="action"/>
+      </af:button>
+    </f:facet>
+    <af:panelSplitter id="ps1" orientation="vertical">
+      <f:facet name="first">
+        <af:panelFormLayout id="pfl1" maxColumns="3" rows="3">
+          <af:inputText value="#{bindings.ProjId.inputValue}" label="#{bindings.ProjId.hints.label}"
+                        required="true" columns="#{bindings.ProjId.hints.displayWidth}"
+                        maximumLength="#{bindings.ProjId.hints.precision}" shortDesc="#{bindings.ProjId.hints.tooltip}"
+                        id="it26" contentStyle="width:50px;">
+            <f:validator binding="#{bindings.ProjId.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.ProjId.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.ProjCode.inputValue}" label="#{bindings.ProjCode.hints.label}"
+                        required="#{bindings.ProjCode.hints.mandatory}"
+                        columns="#{bindings.ProjCode.hints.displayWidth}"
+                        maximumLength="#{bindings.ProjCode.hints.precision}"
+                        shortDesc="#{bindings.ProjCode.hints.tooltip}" id="it1">
+            <f:validator binding="#{bindings.ProjCode.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.ProjName.inputValue}" label="#{bindings.ProjName.hints.label}"
+                        required="#{bindings.ProjName.hints.mandatory}"
+                        columns="#{bindings.ProjName.hints.displayWidth}"
+                        maximumLength="#{bindings.ProjName.hints.precision}"
+                        shortDesc="#{bindings.ProjName.hints.tooltip}" id="it2" rows="3"
+                        contentStyle="width:300px;height:50px;">
+            <f:validator binding="#{bindings.ProjName.validator}"/>
+          </af:inputText>
+          <af:group id="Group">
+            <af:selectOneChoice value="#{bindings.CustId.inputValue}" label="#{bindings.CustId.label}"
+                                required="#{bindings.CustId.hints.mandatory}"
+                                shortDesc="#{bindings.CustId.hints.tooltip}" id="soc1" contentStyle="width:300px;">
+              <f:selectItems value="#{bindings.CustId.items}" id="si1"/>
+              <f:validator binding="#{bindings.CustId.validator}"/>
+            </af:selectOneChoice>
+            <af:inputDate value="#{bindings.ProjDt.inputValue}" label="#{bindings.ProjDt.hints.label}"
+                          required="#{bindings.ProjDt.hints.mandatory}" columns="#{bindings.ProjDt.hints.displayWidth}"
+                          shortDesc="#{bindings.ProjDt.hints.tooltip}" id="id1" contentStyle="width:200px">
+              <f:validator binding="#{bindings.ProjDt.validator}"/>
+              <af:convertDateTime pattern="#{bindings.ProjDt.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.VersionNo.inputValue}" label="#{bindings.VersionNo.hints.label}"
+                          required="#{bindings.VersionNo.hints.mandatory}"
+                          columns="#{bindings.VersionNo.hints.displayWidth}"
+                          maximumLength="#{bindings.VersionNo.hints.precision}"
+                          shortDesc="#{bindings.VersionNo.hints.tooltip}" id="it3" readOnly="true"
+                          contentStyle="width:30px;">
+              <f:validator binding="#{bindings.VersionNo.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.VersionNo.format}"/>
+            </af:inputText>
+            <af:outputText value="#{bindings.ChildCount.inputValue}" shortDesc="#{bindings.ChildCount.hints.tooltip}"
+                           id="ot14" rendered="false">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.ChildCount.format}"/>
+            </af:outputText>
+          </af:group>
+          <f:facet name="footer">
+            <af:panelGroupLayout layout="horizontal" id="pgl1" inlineStyle="padding:10px 0 10px 0;" rendered="false">
+              <af:button actionListener="#{bindings.First.execute}" text="First" disabled="#{!bindings.First.enabled}"
+                         partialSubmit="true" id="b1">
+                <af:setPropertyListener from="#{false}" to="#{sessionScope.showItemsTree}" type="action"/>
+              </af:button>
+              <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                         disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2">
+                <af:setPropertyListener from="#{false}" to="#{sessionScope.showItemsTree}" type="action"/>
+              </af:button>
+              <af:button actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}"
+                         partialSubmit="true" id="b3">
+                <af:setPropertyListener from="#{false}" to="#{sessionScope.showItemsTree}" type="action"/>
+              </af:button>
+              <af:button actionListener="#{bindings.Last.execute}" text="Last" disabled="#{!bindings.Last.enabled}"
+                         partialSubmit="true" id="b4">
+                <af:setPropertyListener from="#{false}" to="#{sessionScope.showItemsTree}" type="action"/>
+              </af:button>
+            </af:panelGroupLayout>
+          </f:facet>
+          <af:panelGroupLayout id="pfl2" layout="vertical" inlineStyle="margin-left:30px;" halign="end">
+            <af:inputText label="Total" id="it19" value="#{bindings.TotalCost.inputValue}" disabled="true"
+                          contentStyle="font-size:30px;color:Maroon;"
+                          partialTriggers="it20 tt2:it11 tt2:it12 tt2:it13"/>
+            <af:panelGroupLayout id="pgl16" layout="horizontal">
+              <af:inputText value="#{bindings.OverheadPerc.inputValue}" label="#{bindings.OverheadPerc.hints.label}"
+                            required="#{bindings.OverheadPerc.hints.mandatory}"
+                            columns="#{bindings.OverheadPerc.hints.displayWidth}"
+                            maximumLength="#{bindings.OverheadPerc.hints.precision}"
+                            shortDesc="#{bindings.OverheadPerc.hints.tooltip}" id="it20"
+                            contentStyle="width:30px;font-size:30px;" autoSubmit="true">
+                <f:validator binding="#{bindings.OverheadPerc.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.OverheadPerc.format}"/>
+              </af:inputText>
+              <af:outputLabel value="%" id="ol4" inlineStyle="font-size:24px; color:Navy; "/>
+            </af:panelGroupLayout>
+            <af:inputText value="#{bindings.TCostAftrOvrhPerc.inputValue}"
+                          label="#{bindings.TCostAftrOvrhPerc.hints.label}"
+                          required="#{bindings.TCostAftrOvrhPerc.hints.mandatory}"
+                          columns="#{bindings.TCostAftrOvrhPerc.hints.displayWidth}"
+                          maximumLength="#{bindings.TCostAftrOvrhPerc.hints.precision}"
+                          shortDesc="#{bindings.TCostAftrOvrhPerc.hints.tooltip}" id="it21"
+                          partialTriggers="it20 tt2:it11 tt2:it12 tt2:it13" contentStyle="font-size:30px;color:Maroon;"
+                          disabled="true">
+              <f:validator binding="#{bindings.TCostAftrOvrhPerc.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.TCostAftrOvrhPerc.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.TCostAftrSpecificPerc.inputValue}"
+                          label="#{bindings.TCostAftrSpecificPerc.hints.label}"
+                          required="#{bindings.TCostAftrSpecificPerc.hints.mandatory}"
+                          columns="#{bindings.TCostAftrSpecificPerc.hints.displayWidth}"
+                          maximumLength="#{bindings.TCostAftrSpecificPerc.hints.precision}"
+                          shortDesc="#{bindings.TCostAftrSpecificPerc.hints.tooltip}" id="it25"
+                          contentStyle="font-size:30px;color:Maroon;"
+                          partialTriggers="it20 tt2:it11 tt2:it12 tt2:it13 tt1:it23">
+              <f:validator binding="#{bindings.TCostAftrSpecificPerc.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.TCostAftrSpecificPerc.format}"/>
+            </af:inputText>
+          </af:panelGroupLayout>
+        </af:panelFormLayout>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelHeader text="#{viewcontrollerBundle.projectSections}" id="ph2" inlineStyle="min-height:900px;">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar">
+            <af:button text="#{viewcontrollerBundle.CreateMainSection}" id="b6"
+                       actionListener="#{pageFlowScope.PmBean.createMainSection}"
+                       icon="#{resource['images:CreateF.png']}" styleClass="but"
+                       hoverIcon="#{resource['images:CreateO.png']}"
+                       partialTriggers="b7"/>
+          </f:facet>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:treeTable value="#{bindings.ProjectSectionsV.treeModel}" var="node" rowSelection="single" id="tt1"
+                        partialTriggers="::b6 l3 b9 ::b12 ::b10"
+                        selectionListener="#{pageFlowScope.PmBean.projSectionsTreeSelListener}"
+                        binding="#{pageFlowScope.PmBean.projSectionTree}" inlineStyle="background-color:White;"
+                        initiallyExpanded="true">
+            <f:facet name="nodeStamp">
+              <af:column id="c1" width="100" headerText="#{bindings.ProjectSectionsV.hints.SectionId.label}">
+                <af:panelGroupLayout id="pgl5" layout="horizontal">
+                  <af:link disabled="#{!bindings.Delete2.enabled}" id="l3" icon="#{resource['images:delete24.png']}"
+                           visible="#{node.ChildCount==0 &amp;&amp; node.ItemsCount==0}"
+                           actionListener="#{pageFlowScope.PmBean.deleteProjSection}"/>
+                  <af:outputText value="#{node.SectionId}" id="ot1"/>
+                  <f:facet name="separator">
+                    <af:spacer width="10" height="10" id="s2"/>
+                  </f:facet>
+                </af:panelGroupLayout>
+              </af:column>
+            </f:facet>
+            <f:facet name="pathStamp">
+              <af:outputText value="#{node}" id="ot2"/>
+            </f:facet>
+            <af:column id="c3" headerText="#{bindings.ProjectSectionsV.hints.SectionCode.label}">
+              <af:inputText id="it4" value="#{node.SectionCode}" placeholder="enter your code" required="true"/>
+            </af:column>
+            <af:column id="c4" width="400" headerText="#{bindings.ProjectSectionsV.hints.SectionName.label}">
+              <af:inputText id="it5" value="#{node.SectionName}"/>
+            </af:column>
+            <af:column id="c12" rendered="false">
+              <af:outputText value="#{node.ChildCount}--#{node.ItemsCount}" id="ot7"/>
+            </af:column>
+            <af:column id="c5" width="100" headerText="#{bindings.ProjectSectionsV.hints.Qty.label}">
+              <af:inputText label="Label 1" id="it16" simple="true" value="#{node.Qty}"/>
+            </af:column>
+            <af:column id="c16" width="250" headerText="#{bindings.ProjectSectionsV.hints.CountUnitCost.label}"
+                       align="center">
+              <af:panelGroupLayout id="pgl12" layout="horizontal" partialTriggers="::tt2:it8 ::tt2:it10 ::tt2:it9">
+                <af:inputText value="#{node.CountUnitCost}" id="ot5" label="Unit"
+                              contentStyle="font-size:30px; color:Navy;" disabled="true"
+                              visible="#{node.ChildCount==0}"/>
+                <af:inputText label="Master" id="it17" value="#{node.MasterUnitCost}"
+                              contentStyle="font-size:30px; color:Maroon;" visible="#{node.ChildCount>0}"/>
+                <f:facet name="separator">
+                  <af:spacer width="80" height="10" id="s5"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column id="c22" width="250" align="center"
+                       headerText="#{bindings.ProjectSectionsV.hints.TotalCost.label}">
+              <af:panelGroupLayout id="pgl13" layout="horizontal">
+                <af:inputText value="#{node.CountUnitCost * node.Qty}" id="ot13" label="Label 5" simple="true"
+                              contentStyle="font-size:30px;"
+                              visible="#{node.ChildCount==0 &amp;&amp; node.PrntSectionId!=null}"/>
+                <af:inputText label="Label 4" id="it18" simple="true" value="#{node.TotalCost}"
+                              contentStyle="font-size:30px;color:Maroon;" disabled="true"
+                              visible="#{node.ChildCount>0 || node.PrntSectionId==null}"/>
+                <f:facet name="separator">
+                  <af:spacer width="80" height="10" id="s6"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column id="c6" align="center" headerText="#{bindings.ProjectSectionsV.hints.UcostAftrOvrhead.label}">
+              <af:inputText label="Label 6" id="it27" simple="true" readOnly="true"
+                            visible="#{node.ChildCount>0 || node.PrntSectionId==null}"
+                            value="#{node.UcostAftrOvrhead}" contentStyle="font-size:30px; color:Maroon;"/>
+            </af:column>
+            <af:column id="c24" headerText="#{bindings.ProjectSectionsV.hints.TotCostAftrOvrhead.label}" align="center">
+              <af:inputText id="it22" simple="true" value="#{node.TotCostAftrOvrhead}"
+                            contentStyle="font-size:30px;color:Maroon;" disabled="true"
+                            visible="#{node.ChildCount>0 || node.PrntSectionId==null}"/>
+            </af:column>
+            <af:column id="c25" headerText="#{bindings.ProjectSectionsV.hints.SpecificPerc.label}" width="70"
+                       align="center">
+              <af:panelGroupLayout id="pgl17" layout="horizontal"
+                                   visible="#{node.ChildCount>0 || node.PrntSectionId==null}" halign="center">
+                <af:inputText id="it23" simple="true" value="#{node.SpecificPerc}" contentStyle="width:50px;"
+                              autoSubmit="true"/>
+                <af:outputLabel value="%" id="ol5" inlineStyle="font-size:24px;color:Maroon;"/>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column id="c27" align="center" headerText="#{bindings.ProjectSectionsV.hints.UcostAftrSpecPerc.label}">
+              <af:inputText label="Label 6" id="it28" simple="true" readOnly="true"
+                            visible="#{node.ChildCount>0 || node.PrntSectionId==null}"
+                            value="#{node.UcostAftrSpecPerc}" contentStyle="font-size:30px; color:Maroon;"/>
+            </af:column>
+            <af:column id="c26" headerText="#{bindings.ProjectSectionsV.hints.TotCostAftrSpecfcPerc.label}"
+                       align="center">
+              <af:inputText id="it24" value="#{node.TotCostAftrSpecfcPerc}" disabled="true"
+                            contentStyle="font-size:30px;color:Maroon;" autoSubmit="true"
+                            visible="#{node.ChildCount>0 || node.PrntSectionId==null}" partialTriggers="it23"/>
+            </af:column>
+            <af:column id="c13" width="200" align="center">
+              <af:button text="Create Sub-Section" id="b9" actionListener="#{pageFlowScope.PmBean.createSubSection}"
+                         icon="#{resource['images:CreateF.png']}" styleClass="but"
+                         hoverIcon="#{resource['images:CreateO.png']}"
+                         visible="#{node.ItemsCount==0 || node.ItemsCount==0}" partialTriggers="::b10 ::b12"/>
+            </af:column>
+            <af:column id="c23" headerText="#{bindings.ProjectSectionsV.hints.ItemsCount.label}" width="100"
+                       align="center">
+              <af:outputText id="ot10" value="#{node.ChildCount}----#{node.ItemsCount}"/>
+            </af:column>
+          </af:treeTable>
+          <af:panelHeader text="#{viewcontrollerBundle.SectionItemsPricing}" id="ph3"
+                          inlineStyle="margin-top:20px;min-height:300px;" visible="#{sessionScope.showItemsTree}"
+                          partialTriggers="tt1 b1 b2 b3 b4">
+            <f:facet name="context"/>
+            <f:facet name="menuBar">
+              <af:button text="Create Group Price" id="b12" actionListener="#{pageFlowScope.PmBean.createGroupPrice}"
+                         partialSubmit="false" visible="#{pageFlowScope.PmBean.sectionTreeChildCount==0}"
+                         partialTriggers="tt1"/>
+            </f:facet>
+            <f:facet name="toolbar">
+              <af:button text="Create Item Price" id="b10" actionListener="#{pageFlowScope.PmBean.createItemPricing}"
+                         partialTriggers="tt1" visible="#{pageFlowScope.PmBean.sectionTreeChildCount==0}"/>
+            </f:facet>
+            <f:facet name="legend"/>
+            <af:treeTable value="#{bindings.ProjectSectionItemsV.treeModel}" var="node"
+                          selectionListener="#{pageFlowScope.PmBean.sectionItemSelListnerTree}" rowSelection="single"
+                          id="tt2" partialTriggers="l1 l2 b11" binding="#{pageFlowScope.PmBean.sectionItemTree}"
+                          inlineStyle="background-color:White;min-height:500px;" initiallyExpanded="true">
+              <f:facet name="nodeStamp">
+                <af:column id="c2" width="150"
+                           inlineStyle="#{node.ChildCount>0 ? 'background-color:#d6d6d6' :'background-color:white'}"
+                           headerText="#{bindings.ProjectSectionItemsV.hints.SectionItemId.label}">
+                  <af:panelGroupLayout id="pgl4" layout="horizontal" valign="top" inlineStyle="border-color:Blue;">
+                    <af:link id="l4" actionListener="#{pageFlowScope.PmBean.deleteSectionItem}"
+                             visible="#{node.ChildCount==0}" icon="#{resource['images:delete24.png']}"/>
+                    <af:outputText value="#{node.SectionItemId}" id="ot3"/>
+                    <f:facet name="separator">
+                      <af:spacer width="10" height="10" id="s3"/>
+                    </f:facet>
+                  </af:panelGroupLayout>
+                </af:column>
+              </f:facet>
+              <f:facet name="pathStamp">
+                <af:outputText value="#{node}" id="ot4"/>
+              </f:facet>
+              <af:column id="c7"
+                         inlineStyle="#{node.ChildCount>0 ? 'background-color:#d6d6d6' :'background-color:white'} "
+                         headerText="#{bindings.ProjectSectionItemsV.hints.SubsectionOrItem.label}">
+                <af:inputText id="it6" value="#{node.SubsectionOrItem}" autoSubmit="true" partialTriggers="soc2"
+                              rendered="false"/>
+                <af:selectOneChoice value="#{node.SubsectionOrItem}" label="#{bindings.SubsectionOrItem.label}"
+                                    required="#{bindings.SubsectionOrItem.hints.mandatory}"
+                                    shortDesc="#{bindings.SubsectionOrItem.hints.tooltip}" id="soc2" autoSubmit="true"
+                                    partialTriggers="it6" simple="true">
+                  <f:selectItems value="#{bindings.SubsectionOrItem.items}" id="si2"/>
+                  <f:validator binding="#{bindings.SubsectionOrItem.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column id="c8" width="500"
+                         inlineStyle="#{node.ChildCount>0 ? 'background-color:#d6d6d6' :'background-color:white'} "
+                         headerText="#{bindings.ProjectSectionItemsV.hints.Description.label}">
+                <af:panelGroupLayout id="pgl2" layout="vertical" partialTriggers="it6">
+                  <af:inputText id="it7" value="#{node.bindings.Description.inputValue}" visible="#{node.SubsectionOrItem=='S'}"
+                                contentStyle="width:480px;" rows="2" autoSubmit="true"/>
+                  <af:panelGroupLayout id="pgl8" layout="vertical" visible="#{node.SubsectionOrItem=='I'}"
+                                       partialTriggers="it6">
+                    <af:panelGroupLayout id="pgl6" layout="horizontal">
+                      <af:outputText value="#{node.bindings.ItemCode.inputValue}"
+                                     shortDesc="#{bindings.ProjectSectionItemsV.hints.ItemCode.tooltip}" id="it14"
+                                     partialTriggers="l5"/>
+                      <af:link id="l5" action="open" windowEmbedStyle="inlineDocument" windowHeight="600"
+                               windowWidth="900" useWindow="true"
+                               returnListener="#{pageFlowScope.PmBean.selectItemRtrnLsnr}"
+                               icon="#{resource['images:search.png']}"/>
+                      <f:facet name="separator">
+                        <af:spacer width="10" height="10" id="s4"/>
+                      </f:facet>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pgl7" layout="vertical">
+                      <af:outputText id="ot11" value="#{node.ItemIndx}" partialTriggers="l5"/>
+                      <af:outputText id="ot12" value="#{node.ItemName}" partialTriggers="l5"/>
+                    </af:panelGroupLayout>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+              </af:column>
+              <af:column id="c11" width="70"
+                         inlineStyle="#{node.ChildCount>0 ? 'background-color:#d6d6d6' :'background-color:white'} "
+                         headerText="#{bindings.ProjectSectionItemsV.hints.Qty.label}">
+                <af:panelGroupLayout id="pgl3" layout="vertical" rendered="false">
+                  <af:link text="Delete master" disabled="#{!bindings.Delete.enabled}" id="l1"
+                           visible="#{node.PrntSectionItemId==null &amp;&amp; node.ChildCount==0}"
+                           icon="#{resource['images:delete24.png']}"
+                           actionListener="#{pageFlowScope.PmBean.deleteSectionItem}"/>
+                  <af:link actionListener="#{pageFlowScope.PmBean.deleteSectionItem}" text="Delete Detail"
+                           disabled="#{!bindings.Delete1.enabled}" id="l2"
+                           visible="#{node.PrntSectionItemId!=null &amp;&amp; node.ChildCount==0}"
+                           icon="#{resource['images:delete24.png']}"/>
+                  <f:facet name="separator">
+                    <af:spacer width="10" height="10" id="s1"/>
+                  </f:facet>
+                </af:panelGroupLayout>
+                <af:inputText id="it8" value="#{node.Qty}" partialTriggers="it13 ot8"
+                              valueChangeListener="#{pageFlowScope.PmBean.valChngListener}" clientComponent="true"
+                              binding="#{pageFlowScope.PmBean.qty}" autoSubmit="true">
+                  <f:validator binding="#{node.bindings.Qty.validator}"/>
+                  <af:convertNumber groupingUsed="false"/>
+                </af:inputText>
+              </af:column>
+              <af:column id="c10"
+                         inlineStyle="#{node.ChildCount>0 ? 'background-color:#d6d6d6' :'background-color:white'} "
+                         headerText="#{bindings.ProjectSectionItemsV.hints.UnitId.label}">
+                <af:outputText value="#{node.ChildCount}" id="ot6" rendered="false"/>
+                <af:selectOneChoice value="#{node.UnitId}" label="#{bindings.UnitId.label}"
+                                    required="#{bindings.UnitId.hints.mandatory}"
+                                    shortDesc="#{bindings.UnitId.hints.tooltip}" id="soc3">
+                  <f:selectItems value="#{bindings.UnitId.items}" id="si3"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column id="c15"
+                         inlineStyle="#{node.ChildCount>0 ? 'background-color:#d6d6d6' :'background-color:white'} "
+                         width="150" headerText="#{bindings.ProjectSectionItemsV.hints.UnitCost.label}" align="center">
+                <af:panelGroupLayout id="pgl14" layout="horizontal" halign="center">
+                  <af:inputText value="#{node.bindings.UnitCost.inputValue}"
+                                required="#{bindings.ProjectSectionItemsV.hints.UnitCost.mandatory}"
+                                columns="#{bindings.ProjectSectionItemsV.hints.UnitCost.displayWidth}"
+                                maximumLength="#{bindings.ProjectSectionItemsV.hints.UnitCost.precision}"
+                                shortDesc="#{bindings.ProjectSectionItemsV.hints.UnitCost.tooltip}" id="it10"
+                                visible="#{node.ChildCount==0}" autoSubmit="true" partialTriggers="it13 ot8"
+                                binding="#{pageFlowScope.PmBean.unitCost}"
+                                valueChangeListener="#{pageFlowScope.PmBean.valChngListener}"
+                                contentStyle="width:60px;">
+                    <?audit suppress oracle.adf.faces.bindingWithoutRequestOrBackingBeanScope?>
+                  </af:inputText>
+                  <af:inputText value="#{node.bindings.MasterUnitCost.inputValue}"
+                                required="#{bindings.ProjectSectionItemsV.hints.MasterUnitCost.mandatory}"
+                                columns="#{bindings.ProjectSectionItemsV.hints.MasterUnitCost.displayWidth}"
+                                maximumLength="#{bindings.ProjectSectionItemsV.hints.MasterUnitCost.precision}"
+                                shortDesc="#{bindings.ProjectSectionItemsV.hints.MasterUnitCost.tooltip}" id="it9"
+                                disabled="true" contentStyle="color:Maroon;width:100px;"
+                                visible="#{node.ChildCount>0}"/>
+                  <f:facet name="separator">
+                    <af:spacer width="50" height="10" id="s7"/>
+                  </f:facet>
+                </af:panelGroupLayout>
+              </af:column>
+              <af:column id="c14"
+                         inlineStyle="#{node.ChildCount>0 ? 'background-color:#d6d6d6' :'background-color:white'} "
+                         headerText="#{bindings.ProjectSectionItemsV.hints.CurrCode.label}">
+                <af:selectOneChoice value="#{node.bindings.CurrCode.inputValue}" label="#{bindings.CurrCode.label}"
+                                    required="#{bindings.CurrCode.hints.mandatory}"
+                                    shortDesc="#{bindings.CurrCode.hints.tooltip}" id="soc4">
+                  <f:selectItems value="#{bindings.CurrCode.items}" id="si4"/>
+                  <f:validator binding="#{bindings.CurrCode.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column id="c17" headerText="#{bindings.ProjectSectionItemsV.hints.SuppDiscountPerc.label}" width="70"
+                         inlineStyle="#{node.ChildCount>0 ? 'background-color:#d6d6d6' :'background-color:white'} ">
+                <af:panelGroupLayout id="pgl10" layout="horizontal" halign="end" visible="#{node.ChildCount==0}">
+                  <af:inputText value="#{node.bindings.SuppDiscountPerc.inputValue}"
+                                required="#{bindings.ProjectSectionItemsV.hints.SuppDiscountPerc.mandatory}"
+                                columns="#{bindings.ProjectSectionItemsV.hints.SuppDiscountPerc.displayWidth}"
+                                maximumLength="#{bindings.ProjectSectionItemsV.hints.SuppDiscountPerc.precision}"
+                                shortDesc="#{bindings.ProjectSectionItemsV.hints.SuppDiscountPerc.tooltip}" id="it11"
+                                contentStyle="width:35px;" visible="#{node.ChildCount==0}" autoSubmit="true"
+                                partialTriggers="it13 ot8" binding="#{pageFlowScope.PmBean.suppDisc}"
+                                valueChangeListener="#{pageFlowScope.PmBean.valChngListener}"
+                                inlineStyle="text-align:end;">
+                    <f:validator binding="#{node.bindings.SuppDiscountPerc.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.ProjectSectionItemsV.hints.SuppDiscountPerc.format}"/>
+                  </af:inputText>
+                  <af:outputLabel value="%" id="ol2" inlineStyle="color:Navy; font-size:x-large;"/>
+                </af:panelGroupLayout>
+              </af:column>
+              <af:column id="c18" headerText="#{bindings.ProjectSectionItemsV.hints.CustomsPerc.label}"
+                         inlineStyle="#{node.ChildCount>0 ? 'background-color:#d6d6d6' :'background-color:white'} "
+                         width="70">
+                <af:panelGroupLayout id="pgl9" layout="horizontal" halign="end" visible="#{node.ChildCount==0}">
+                  <af:inputText value="#{node.bindings.CustomsPerc.inputValue}"
+                                required="#{bindings.ProjectSectionItemsV.hints.CustomsPerc.mandatory}"
+                                columns="#{bindings.ProjectSectionItemsV.hints.CustomsPerc.displayWidth}"
+                                maximumLength="#{bindings.ProjectSectionItemsV.hints.CustomsPerc.precision}"
+                                shortDesc="#{bindings.ProjectSectionItemsV.hints.CustomsPerc.tooltip}" id="it12"
+                                contentStyle="width:35px;" visible="#{node.ChildCount==0}" partialTriggers="it13 ot8"
+                                autoSubmit="true" binding="#{pageFlowScope.PmBean.customs}"
+                                valueChangeListener="#{pageFlowScope.PmBean.valChngListener}"
+                                inlineStyle="text-align:end;">
+                    <f:validator binding="#{node.bindings.CustomsPerc.validator}"/>
+                    <af:convertNumber pattern="#{bindings.ProjectSectionItemsV.hints.CustomsPerc.format}"
+                                      groupingUsed="false"/>
+                  </af:inputText>
+                  <af:outputLabel value="%" id="ol1" inlineStyle="color:Navy; font-size:x-large;"/>
+                </af:panelGroupLayout>
+              </af:column>
+              <af:column id="c19" headerText="#{bindings.ProjectSectionItemsV.hints.SalesTaxPerc.label}" width="70"
+                         inlineStyle="#{node.ChildCount>0 ? 'background-color:#d6d6d6' :'background-color:white'} ">
+                <af:panelGroupLayout id="pgl11" layout="horizontal" halign="end" visible="#{node.ChildCount==0}">
+                  <af:inputText value="#{node.bindings.SalesTaxPerc.inputValue}"
+                                required="#{bindings.ProjectSectionItemsV.hints.CustomerDisc.mandatory}"
+                                columns="#{bindings.ProjectSectionItemsV.hints.CustomerDisc.displayWidth}"
+                                maximumLength="#{bindings.ProjectSectionItemsV.hints.CustomerDisc.precision}"
+                                shortDesc="#{bindings.ProjectSectionItemsV.hints.CustomerDisc.tooltip}" id="it13"
+                                contentStyle="width:35px;" visible="#{node.ChildCount==0}" partialTriggers="it13 ot8"
+                                autoSubmit="true" binding="#{pageFlowScope.PmBean.salesTax}"
+                                valueChangeListener="#{pageFlowScope.PmBean.valChngListener}">
+                    <f:validator binding="#{node.bindings.CustomerDisc.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.ProjectSectionItemsV.hints.CustomerDisc.format}"/>
+                  </af:inputText>
+                  <af:outputLabel value="%" id="ol3" inlineStyle="color:Navy; font-size:x-large;"/>
+                </af:panelGroupLayout>
+              </af:column>
+              <af:column id="c20" headerText="#{bindings.ProjectSectionItemsV.hints.TrnsUnitCost.label}" align="center"
+                         inlineStyle="font-size:24px;">
+                <af:outputText value="#{node.TrnsUnitCost}"
+                               shortDesc="#{bindings.ProjectSectionItemsV.hints.TrnsUnitCost.tooltip}" id="ot8"
+                               inlineStyle="#{node.ChildCount>0 ? 'margin-left:50px;color:Maroon;' : 'color:Navy'}"
+                               partialTriggers="it13 it12 it11 it10 it9 it8">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.ProjectSectionItemsV.hints.TrnsUnitCost.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column id="c21" headerText="#{bindings.ProjectSectionItemsV.hints.LeafTotCost.label}"
+                         inlineStyle="font-size:24px;" width="170">
+                <af:panelGroupLayout id="pgl15" layout="horizontal" halign="center">
+                  <af:inputText value="#{node.LeafTotCost} / "
+                                shortDesc="#{bindings.ProjectSectionItemsV.hints.LeafTotCost.tooltip}" id="ot9"
+                                simple="true" disabled="true" binding="#{pageFlowScope.PmBean.trnsTotCost}"
+                                inlineStyle="#{node.ChildCount>0 ? 'margin-left:50px;' : ''}"
+                                contentStyle="color:Navy;" partialTriggers="it8 it10 it9 it11 it12 it13">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.ProjectSectionItemsV.hints.TrnsTotUnitCost.format}"/>
+                  </af:inputText>
+                  <af:inputText id="it15" simple="true" value="#{node.MasterTotCost}" contentStyle="color:Maroon;"
+                                visible="#{node.ChildCount>0 || node.PrntSectionItemId==null}"
+                                partialTriggers="it8 it10 it9 it11 it12 it13"/>
+                  <f:facet name="separator">
+                    <af:spacer width="10" height="10" id="s8"/>
+                  </f:facet>
+                </af:panelGroupLayout>
+              </af:column>
+              <af:column id="c9" width="130" align="center"
+                         inlineStyle="#{node.ChildCount>0 ? 'background-color:#d6d6d6' :'background-color:white'} ">
+                <af:button text="Create Child" id="b11"
+                           actionListener="#{pageFlowScope.PmBean.createSectionItemChild}"/>
+              </af:column>
+            </af:treeTable>
+            <f:facet name="info"/>
+          </af:panelHeader>
+        </af:panelHeader>
+      </f:facet>
+    </af:panelSplitter>
+    <!--<af:panelTabbed position="above" id="pt1">
+      <af:iterator id="i1" value="#{bindings.ProjectMastV.collectionModel}" var="pm">
+        <af:showDetailItem id="tab1" text="#{'version '}#{pm.VersionNo}"
+                           disclosureListener="#{pageFlowScope.PmBean.changeTabDisclsrLsnr}">
+          <af:setPropertyListener from="#{pm.VersionNo}" to="#{pageFlowScope.pVersionNo}" type="disclosure"/>
+        </af:showDetailItem>
+      </af:iterator>
+    </af:panelTabbed>-->
+  </af:panelHeader>
+</ui:composition>

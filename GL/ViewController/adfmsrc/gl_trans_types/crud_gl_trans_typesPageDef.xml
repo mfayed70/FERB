@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="crud_gl_trans_typesPageDef"
+                Package="gl_trans_types">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlTransTypesCRUDV" RangeSize="25" DataControl="AalmGlDataControl" id="GlTransTypesCRUDVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="GlTransTypesCRUDVIterator" id="GlTrnsTypeId">
+      <AttrNames>
+        <Item Value="GlTrnsTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTransTypesCRUDVIterator" id="TransNameA">
+      <AttrNames>
+        <Item Value="TransNameA"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTransTypesCRUDVIterator" id="TransNameE">
+      <AttrNames>
+        <Item Value="TransNameE"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="GlTransTypesCRUDVIterator" StaticList="false" Uses="LOV_TransType" id="TransType"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <button IterBinding="GlTransTypesCRUDVIterator" id="Active" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Active"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkAssetsBasicDataAssetsBasicData1Assoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="PrntAssetIdAssetsBasicData"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.assets.model.entities.AssetsBasicData">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="PrntAssetIdAssetsBasicData"/>
+      <Attr Name="_foreignKey" Value="com.aalm.assets.model.entities.AssetsBasicData.Primary1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetsBasicData.AssetId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="AssetsBasicData"
+    Cardinality="-1"
+    Owner="com.aalm.assets.model.entities.AssetsBasicData">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="AssetsBasicData"/>
+      <Attr Name="_foreignKey"
+        Value="com.aalm.assets.model.entities.AssetsBasicData.FkAssetsBasicDataAssetsBasicData1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetsBasicData.PrntAssetId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

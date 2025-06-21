@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="gl_org_acc_balance-TF">
+    <default-activity>ExecuteWithParams</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>pOrgCode</name>
+      <value>#{pageFlowScope.pOrgCode}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__2">
+      <name>pAccCode</name>
+      <value>#{pageFlowScope.pAccCode}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="gl_org_acc_balance">
+      <page>/WEB-INF/gl_org_acc_balance/gl_org_acc_balance.jsf</page>
+    </view>
+    <task-flow-return id="Exit">
+      <outcome>
+        <name>Exit</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>gl_org_acc_balance</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>gl_org_acc_balance</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>toExit</from-outcome>
+        <to-activity-id>Exit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserControlOrgs"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="USER_CONTROL_ORGS"
+  AliasName="UserControlOrgs"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="UserId"
+    IsNotNull="true"
+    ColumnName="user_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="USER_CONTROL_ORGS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrgCode"
+    IsNotNull="true"
+    ColumnName="org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="USER_CONTROL_ORGS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <TransientExpression
+      trustMode="trusted"><![CDATA[adf.context.sessionScope.orgCode]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.master.model.entities.UserControlOrgs.OrgCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="Organizations"
+    Association="com.aalm.master.model.entities.FkUsersControlOrgsOganizations1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkUsersControlOrgsOganizations1Assoc.Organizations"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkUsersControlOrgsOganizations1Assoc.UserControlOrgs"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="OrgUsers"
+    Association="com.aalm.master.model.entities.FkUsersControlOrgsOrgUsers1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkUsersControlOrgsOrgUsers1Assoc.OrgUsers"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkUsersControlOrgsOrgUsers1Assoc.UserControlOrgs"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.UserControlOrgs.OrgCode"/>
+      <Item Value="com.aalm.master.model.entities.UserControlOrgs.UserId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkUsersControlOrgsOrgUsers1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_USERS_CONTROL_ORGS_ORG_USERS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.UserControlOrgs.UserId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkUsersControlOrgsOrganizations1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_USERS_CONTROL_ORGS_ORGANIZATIONS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.UserControlOrgs.OrgCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_UserControlOrgs">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_User_Control_Orgs"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.UserControlOrgs.OrgCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_UserControlOrgs1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_User_Control_Orgs1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.UserControlOrgs.UserId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.master.model.AalmMasterMBndl"/>
+  </ResourceBundle>
+</Entity>

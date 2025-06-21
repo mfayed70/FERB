@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="assets_spare_parts_TF_assets_spare_parts_TF_ExecuteWithParamsPageDef" Package="assets_basic_data"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="AssetsAllSparaPartsV" RangeSize="25" DataControl="AalmAssetsDataControl"
+              id="AssetsAllSparaPartsVIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="AssetsAllSparaPartsVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pAssetId" NDValue="#{pageFlowScope.pAssetId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

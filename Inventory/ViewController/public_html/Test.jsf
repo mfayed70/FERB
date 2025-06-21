@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:document title="Test.jsf" id="d1">
+    <af:form id="f1">
+      <af:panelTabbed position="above" id="pt1">
+        <af:showDetailItem id="tab1" text="Tab Label 1">
+          <af:region value="#{bindings.storeTF1.regionModel}" id="r1"/>
+        </af:showDetailItem>
+        <af:showDetailItem id="tab2" text="Tab Label 2">
+          <af:region value="#{bindings.st_trans_typesTF1.regionModel}" id="r2"/>
+        </af:showDetailItem>
+        <af:showDetailItem id="tab3" text="Tab Label 3"/>
+      </af:panelTabbed>
+    </af:form>
+  </af:document>
+</f:view>

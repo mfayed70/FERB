@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.inventory.model.AalmInventoryMBndl_ar" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="com.aalm.inventory.model.entities.Stores.StoreId_LABEL">
+        <source>الرقم التعريفي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.entities.Stores.StoreName_LABEL">
+        <source>الإســـم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.entities.Stores.RegisterDt_LABEL">
+        <source>تاريخ التسجيل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.inventory.model.entities.Stores.StCatId_LABEL">
+        <source>قئة المخــزن</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="CATEGORY">
+        <source>فئة الصنف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ACTIVE">
+        <source>نشـــط</source>
+        <target/>
+      </trans-unit>
+
+      
+      </body>
+  </file>
+</xliff>

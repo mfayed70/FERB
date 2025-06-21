@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="gl_org_acc_chartPageDef"
+                Package="gl_org_acc_chart">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlOrgAccChartV" RangeSize="25" DataControl="AalmGlDataControl" id="GlOrgAccChartVIterator"/>
+    <iterator id="GlOrgAccChartTreeVIterator" Binds="GlOrgAccChartTreeV" DataControl="AalmGlDataControl"
+              RangeSize="25"/>
+    <iterator id="GlAccAssistancesVIterator" Binds="GlAccAssistancesV" DataControl="AalmGlDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="GlOrgAccChartVIterator" id="GlOrgAccChartV">
+      <nodeDefinition DefName="com.aalm.gl.model.views.GlOrgAccChartV" Name="GlOrgAccChartV0"
+                      TargetIterator="${bindings.GlOrgAccChartTreeVIterator}">
+        <AttrNames>
+          <Item Value="AccCode"/>
+          <Item Value="AccNameA"/>
+          <Item Value="AccNameE"/>
+          <Item Value="AccTypeName"/>
+          <Item Value="ChildCount"/>
+          <Item Value="GlAccTypeId"/>
+          <Item Value="GlAssTblId"/>
+          <Item Value="OrgCode"/>
+          <Item Value="PrntAccCode"/>
+          <Item Value="TblName"/>
+          <Item Value="TblNameE"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="GlOrgAccChartV"/>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" DataControl="AalmGlDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AalmGlDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

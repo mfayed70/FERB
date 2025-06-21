@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AssetsPropsValuesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="AssetsPropsValues"
+    Entity="com.aalm.assets.model.entities.AssetsPropsValues"/>
+  <EntityUsage
+    Name="AssetsProperties"
+    Entity="com.aalm.assets.model.entities.AssetsProperties"
+    Association="com.aalm.assets.model.entities.FkAssetsPropsValuesAssetsProperties1Assoc"
+    AssociationEnd="com.aalm.assets.model.entities.FkAssetsPropsValuesAssetsProperties1Assoc.AssetsProperties"
+    SourceUsage="com.aalm.assets.model.views.AssetsPropsValuesV.AssetsPropsValues"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.aalm.assets.model.entities.AssetsPropsValues.AssPropId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.aalm.assets.model.entities.AssetsProperties.AssPropId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="AssetId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AssetId"
+    EntityUsage="AssetsPropsValues"
+    AliasName="asset_id"/>
+  <ViewAttribute
+    Name="AssPropertyValue"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AssPropertyValue"
+    EntityUsage="AssetsPropsValues"
+    AliasName="ass_property_value"/>
+  <ViewAttribute
+    Name="AssPropId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AssPropId"
+    EntityUsage="AssetsPropsValues"
+    AliasName="ass_prop_id"/>
+  <ViewAttribute
+    Name="AssPropName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AssPropName"
+    EntityUsage="AssetsProperties"
+    AliasName="ass_prop_name"/>
+  <ViewAttribute
+    Name="AssPropId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AssPropId"
+    EntityUsage="AssetsProperties"
+    AliasName="Ass_Prop_Id1"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="AssetId"/>
+    <Item Value="AssPropId"/>
+  </AttrArray>
+</ViewObject>

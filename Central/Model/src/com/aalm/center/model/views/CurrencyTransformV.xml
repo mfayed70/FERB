@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CurrencyTransformV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="CurrenciesV1"
+    ViewObjectName="com.aalm.center.model.views.CurrenciesV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CurrenciesV2"
+    ViewObjectName="com.aalm.center.model.views.CurrenciesV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_FromCurrCode"
+    ListVOName="CurrenciesV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FromCurrCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CurrCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CurrName"/>
+      <Item Value="CurrCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ToCurrCode"
+    ListVOName="CurrenciesV2"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ToCurrCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CurrCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CurrName"/>
+      <Item Value="CurrCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT CurrencyTransform.transform_dt, 
+       CurrencyTransform.multiply_by, 
+       CurrencyTransform.from_curr_code,
+       CurrencyTransform.to_curr_code,
+       CurrencyTransform.id
+FROM  CURRENCY_TRANSFORM CurrencyTransform
+order by 4,1 DESC]]></SQLQuery>
+  <EntityUsage
+    Name="CurrencyTransform"
+    Entity="com.aalm.center.model.entities.CurrencyTransform"/>
+  <ViewAttribute
+    Name="TransformDt"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TransformDt"
+    EntityUsage="CurrencyTransform"
+    AliasName="transform_dt">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.aalm.center.model.views.CurrencyTransformV.TransformDt_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.aalm.center.model.views.CurrencyTransformV.TransformDt_FMT_FORMATTER"/>
+        <LABEL
+          ResId="com.aalm.center.model.views.CurrencyTransformV.TransformDt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MultiplyBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MultiplyBy"
+    EntityUsage="CurrencyTransform"
+    AliasName="multiply_by">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.views.CurrencyTransformV.MultiplyBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FromCurrCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FromCurrCode"
+    EntityUsage="CurrencyTransform"
+    AliasName="from_curr_code"
+    LOVName="LOV_FromCurrCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.aalm.center.model.views.CurrencyTransformV.FromCurrCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToCurrCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ToCurrCode"
+    EntityUsage="CurrencyTransform"
+    AliasName="to_curr_code"
+    LOVName="LOV_ToCurrCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.aalm.center.model.views.CurrencyTransformV.ToCurrCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Id"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="CurrencyTransform"
+    AliasName="id">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.views.CurrencyTransformV.Id_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.aalm.center.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

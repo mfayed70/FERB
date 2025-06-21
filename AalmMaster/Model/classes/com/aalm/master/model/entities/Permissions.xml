@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Permissions"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PERMISSIONS"
+  AliasName="Permissions"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="FncnId"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="fncn_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PERMISSIONS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RoleGroupId"
+    IsNotNull="true"
+    ColumnName="role_group_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PERMISSIONS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SystemId"
+    IsNotNull="true"
+    Precision="3"
+    ColumnName="system_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PERMISSIONS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Roles"
+    Association="com.aalm.master.model.entities.FkPermissionsRoles1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkPermissionsRoles1Assoc.Roles"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkPermissionsRoles1Assoc.Permissions"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SystemFnctns"
+    Association="com.aalm.master.model.entities.FkPrivilegesSystemFNCTNS1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkPrivilegesSystemFNCTNS1Assoc.SystemFnctns"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkPrivilegesSystemFNCTNS1Assoc.Permissions"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.Permissions.RoleGroupId"/>
+      <Item Value="com.aalm.master.model.entities.Permissions.SystemId"/>
+      <Item Value="com.aalm.master.model.entities.Permissions.FncnId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPermissionsRoles1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PERMISSIONS_ROLES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.Permissions.RoleGroupId"/>
+      <Item Value="com.aalm.master.model.entities.Permissions.SystemId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPrivilegesSystemFnctns1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PRIVILEGES_SYSTEM_FNCTNS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.Permissions.FncnId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Permissions">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Permissions"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.Permissions.RoleGroupId"/>
+      <Item Value="com.aalm.master.model.entities.Permissions.SystemId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Permissions1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Permissions1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.Permissions.FncnId"/>
+    </AttrArray>
+  </Key>
+</Entity>

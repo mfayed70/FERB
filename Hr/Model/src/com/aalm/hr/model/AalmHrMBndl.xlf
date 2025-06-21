@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.hr.model.AalmHrMBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="com.aalm.hr.model.entities.Employees.EmpId_LABEL">
+        <source>Id</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.Employees.EmpName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.Employees.MaritalStatus_LABEL">
+        <source>Marital Status</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.Employees.EmpCat_LABEL">
+        <source>Category</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.Employees.ContractNo_LABEL">
+        <source>Contract No.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.Employees.Salary_LABEL">
+        <source>Salary</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.Employees.IdNo_LABEL">
+        <source>Identification No.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.Employees.CurrCode_LABEL">
+        <source>Currency</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.Jobs.JobId_LABEL">
+        <source>Id</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.MaritalStatusLOV.SL_0_0">
+        <source>M</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.MaritalStatusLOV.SL_0_1">
+        <source>Married</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.MaritalStatusLOV.SL_1_0">
+        <source>S</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.MaritalStatusLOV.SL_1_1">
+        <source>Single</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmpCategoryLOV.SL_0_1">
+        <source>Permenant - تعيين</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmpCategoryLOV.SL_0_0">
+        <source>P</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmpCategoryLOV.SL_1_0">
+        <source>T</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmpCategoryLOV.SL_1_1">
+        <source>Temporary - مؤقــت</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.Jobs.JobNameAr_LABEL">
+        <source>Arabic Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.Jobs.JobNameEn_LABEL">
+        <source>English Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.JobsLOV_LABEL">
+        <source>Jobs Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="JOB">
+        <source>Job</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.Employees.JobId_LABEL">
+        <source>Job</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL_LABEL">
+        <source>Fk Employee Job History Employees1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.JobId_LABEL">
+        <source>Job</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FROM_DATE">
+        <source>from Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_LABEL">
+        <source>from Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultDateFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_FMT_FORMAT">
+        <source>dd/MM/yyyy HH:mm a</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TO_DATE">
+        <source>to Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_LABEL">
+        <source>to Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultDateFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_FMT_FORMAT">
+        <source>dd/MM/yyyy HH:mm a</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SER_">
+        <source>Ser.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.EmployeeJobHistory.Seq_LABEL">
+        <source>Ser.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV_LABEL">
+        <source>Employees Contracts V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV_LABEL">
+        <source>Id Type Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_0_0">
+        <source>A</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_0_1">
+        <source>AAAAA</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_1_0">
+        <source>B</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_1_1">
+        <source>BBBBB</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_2_0">
+        <source>C</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_2_1">
+        <source>CCCCC</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_3_0">
+        <source>D</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_3_1">
+        <source>DDDDD</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TestLOV_LABEL">
+        <source>Test Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TestVO_LABEL">
+        <source>Test Vo</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LAST_EDUCATIONAL_CERTIFICATE">
+        <source>Last Educational Certificate</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.Certificate_LABEL">
+        <source>Last Educational Certificate</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DATE_OF_LAST_EDUCATIONAL_CERTIFICATE">
+        <source>Date of Last Educational Certificate</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.CertificateDt_LABEL">
+        <source>Date of Last Educational Certificate</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CONTRACT_APPLYING_START_DATE">
+        <source>Contract applying start Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.ContractApplyDt_LABEL">
+        <source>Contract applying start Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DESCRIPTION">
+        <source>Description</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.ContractDesc_LABEL">
+        <source>Description</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CONTRACT_ID">
+        <source>Contract ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.ContractId_LABEL">
+        <source>Contract ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.CurrCode_LABEL">
+        <source>Currency</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EMPLOYEE_ID">
+        <source>Employee ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.EmpId_LABEL">
+        <source>Employee ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FIRST_NAME">
+        <source>First Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.FirstName_LABEL">
+        <source>First Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.IdNo_LABEL">
+        <source>Identification No.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="IDENTIFICATION_TYPE">
+        <source>Identification Type</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.IdType_LABEL">
+        <source>Identification Type</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.JobId_LABEL">
+        <source>Job</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LAST_NAME">
+        <source>Last Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.LastName_LABEL">
+        <source>Last Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MIDDLE_NAME">
+        <source>Middle Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.MiddleName_LABEL">
+        <source>Middle Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.SystemParameters_LABEL">
+        <source>System Parameters</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV.SL_0_0">
+        <source>I</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV.SL_0_1">
+        <source>National No.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV.SL_1_0">
+        <source>P</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV.SL_1_1">
+        <source>Passport No.</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

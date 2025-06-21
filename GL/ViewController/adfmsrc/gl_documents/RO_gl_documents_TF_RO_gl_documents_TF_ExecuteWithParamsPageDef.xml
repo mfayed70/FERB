@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="RO_gl_documents_TF_RO_gl_documents_TF_ExecuteWithParamsPageDef" Package="gl_documents"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ReadOnlyGlDocumentsV" RangeSize="25" DataControl="AalmGlDataControl"
+              id="ReadOnlyGlDocumentsVIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ReadOnlyGlDocumentsVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams" InstanceName="AalmGlDataControl.ReadOnlyGlDocumentsV"
+            DataControl="AalmGlDataControl">
+      <NamedData NDName="pOrgCode" NDValue="#{sessionScope.orgCode}" NDType="java.lang.Integer"/>
+      <NamedData NDName="pGlDocId" NDValue="#{pageFlowScope.pGlDocId}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

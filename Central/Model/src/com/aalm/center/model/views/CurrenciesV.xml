@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CurrenciesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="YesNoLOV1"
+    ViewObjectName="com.aalm.center.model.lovs.YesNoLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_DefaultCurr"
+    ListVOName="YesNoLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DefaultCurr"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT Currencies.curr_code, 
+       Currencies.curr_symbol, 
+       Currencies.curr_name, 
+       Currencies.default_curr
+FROM  CURRENCIES Currencies
+-- where Currencies.default_curr ='Y'
+order by 4 desc]]></SQLQuery>
+  <EntityUsage
+    Name="Currencies"
+    Entity="com.aalm.center.model.entities.Currencies"/>
+  <ViewAttribute
+    Name="CurrCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CurrCode"
+    EntityUsage="Currencies"
+    AliasName="curr_code">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.views.CurrenciesV.CurrCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrSymbol"
+    PrecisionRule="true"
+    EntityAttrName="CurrSymbol"
+    EntityUsage="Currencies"
+    AliasName="curr_symbol">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.views.CurrenciesV.CurrSymbol_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrName"
+    PrecisionRule="true"
+    EntityAttrName="CurrName"
+    EntityUsage="Currencies"
+    AliasName="curr_name">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.views.CurrenciesV.CurrName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DefaultCurr"
+    PrecisionRule="true"
+    EntityAttrName="DefaultCurr"
+    EntityUsage="Currencies"
+    AliasName="default_curr"
+    LOVName="LOV_DefaultCurr">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+        <LABEL
+          ResId="com.aalm.center.model.views.CurrenciesV.DefaultCurr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="CurrenciesVCriteria"
+    ViewObjectName="com.aalm.center.model.views.CurrenciesV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CurrenciesVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="DefaultCurr"
+        ViewAttribute="DefaultCurr"
+        Operator="="
+        Conjunction="AND"
+        Value="Y"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="CurrencyTransformV"
+    ViewLink="com.aalm.center.model.views.fk_CURRENCY_TRANSFORM_CURRENCIES1VL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.aalm.center.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

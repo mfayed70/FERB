@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="itemCategories_TF_itemCategories_TF_ExecutePageDef" Package="itemCategories" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ItemCategoriesV" RangeSize="25" DataControl="AalmCentralDataControl" id="ItemCategoriesVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ItemCategoriesVIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

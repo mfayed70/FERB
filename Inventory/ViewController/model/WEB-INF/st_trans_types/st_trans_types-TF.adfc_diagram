@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">st_trans_types</property>
+      <property
+         name="page">/WEB-INF/st_trans_types/st_trans_types.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>st_trans_types&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">244.04688</property>
+      <property
+         name="x">315.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+</SDM>

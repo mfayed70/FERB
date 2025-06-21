@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/suppliers/suppliers-TF.xml" id="suppliers-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/suppliers/crud-supplier-TF.xml" id="new-supplier-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pSuppId"/>
+   </task-flow-descriptor>
+</task-flow-registry>

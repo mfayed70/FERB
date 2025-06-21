@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Organizations"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ORGANIZATIONS"
+  AliasName="Organizations"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="OrgCode"
+    ColumnName="org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ORGANIZATIONS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.Organizations.OrgCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="EnOrgName"
+    Precision="100"
+    ColumnName="en_org_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ORGANIZATIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.Organizations.EnOrgName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ArOrgName"
+    Precision="100"
+    ColumnName="ar_org_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ORGANIZATIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.Organizations.ArOrgName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="PrntOrgCode"
+    ColumnName="prnt_org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ORGANIZATIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.Organizations.PrntOrgCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="Organizations"
+    Association="com.aalm.center.model.entities.FkOrganizationsOrganizations1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkOrganizationsOrganizations1Assoc.Organizations"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkOrganizationsOrganizations1Assoc.PrntOrgCodeOrganizations"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PrntOrgCodeOrganizations"
+    Association="com.aalm.center.model.entities.FkOrganizationsOrganizations1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkOrganizationsOrganizations1Assoc.PrntOrgCodeOrganizations"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkOrganizationsOrganizations1Assoc.Organizations"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ItemVariableValues"
+    Association="com.aalm.center.model.entities.FkItemVariantValuesOrganizations1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkItemVariantValuesOrganizations1Assoc.ItemVariableValues"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkItemVariantValuesOrganizations1Assoc.Organizations"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.Organizations.OrgCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkOrganizationsOrganizations1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ORGANIZATIONS_ORGANIZATIONS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.Organizations.PrntOrgCode"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.center.model.AalmCenteralMBndl"/>
+  </ResourceBundle>
+</Entity>

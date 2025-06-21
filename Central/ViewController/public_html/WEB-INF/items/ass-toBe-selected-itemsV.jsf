@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core" locale="#{sessionScope.refreshLocale}">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.center.view.AalmCenteralBndl']}"/>
+    <af:document id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{viewcontrollerBundle.ADD_MATERIALS_TO_YOUR_ASSEMBLY}" id="ph1">
+                <f:facet name="context">
+                    <af:outputText id="ot3"
+                                   inlineStyle="font-size:x-large;"/>
+                </f:facet>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:panelGroupLayout id="pgl1" layout="horizontal">
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}" immediate="true" id="b2" styleClass="but"
+                                   action="toCancel" icon="#{resource['images:cancelF.png']}"
+                                   hoverIcon="#{resource['images:NewO.png']}">
+                            <af:resetActionListener/>
+                            <af:setPropertyListener from="#{pageFlowScope.CentralBean.refresh_region}"
+                                                    to="#{sessionScope.refreshRegion}" type="action"/>
+                        </af:button>
+                        <af:button text="#{viewcontrollerBundle.SAVE}" id="b1" styleClass="but"
+                                   action="#{pageFlowScope.CentralBean.saveComponentsToAss}"
+                                   actionListener="#{bindings.Commit.execute}" icon="#{resource['images:SaveF.png']}"
+                                   hoverIcon="#{resource['images:SaveO.png']}">
+                            <af:setPropertyListener from="#{pageFlowScope.CentralBean.refresh_region}"
+                                                    to="#{sessionScope.refreshRegion}"
+                                                    type="action"/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="legend"/>
+                <af:table value="#{bindings.ItemsToBeSelectedInAss.collectionModel}" var="row"
+                          rows="#{bindings.ItemsToBeSelectedInAss.rangeSize}"
+                          emptyText="#{bindings.ItemsToBeSelectedInAss.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.ItemsToBeSelectedInAss.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.ItemsToBeSelectedInAss.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.ItemsToBeSelectedInAss.rangeSize}"
+                          filterModel="#{bindings.ItemsToBeSelectedInAssQuery.queryDescriptor}"
+                          queryListener="#{bindings.ItemsToBeSelectedInAssQuery.processQuery}" filterVisible="true"
+                          varStatus="vs" id="t1">
+                    <af:column sortProperty="#{bindings.ItemsToBeSelectedInAss.hints.ItemCode.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ItemsToBeSelectedInAss.hints.ItemCode.label}"
+                               id="c1" width="200">
+                        <af:outputText value="#{row.ItemCode}"
+                                       shortDesc="#{bindings.ItemsToBeSelectedInAss.hints.ItemCode.tooltip}" id="ot1"
+                                       visible="#{row.ItemCode!=pageFlowScope.pItemCode}"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ItemsToBeSelectedInAss.hints.ItemName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ItemsToBeSelectedInAss.hints.ItemName.label}"
+                               id="c2" width="200">
+                        <af:outputText value="#{row.ItemName}"
+                                       shortDesc="#{bindings.ItemsToBeSelectedInAss.hints.ItemName.tooltip}" id="ot2"
+                                       visible="#{row.ItemCode!=pageFlowScope.pItemCode}"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ItemsToBeSelectedInAss.hints.CatId.name}"
+                               sortable="true" headerText="#{bindings.ItemsToBeSelectedInAss.hints.CatId.label}"
+                               id="c3" width="200">
+                        <af:selectOneChoice value="#{row.bindings.CatId.inputValue}" label="#{row.bindings.CatId.label}"
+                                            required="#{bindings.ItemsToBeSelectedInAss.hints.CatId.mandatory}"
+                                            shortDesc="#{bindings.ItemsToBeSelectedInAss.hints.CatId.tooltip}"
+                                            readOnly="true" id="soc1"
+                                            visible="#{row.ItemCode!=pageFlowScope.pItemCode}">
+                            <f:selectItems value="#{row.bindings.CatId.items}" id="si1"/>
+                            <f:validator binding="#{row.bindings.CatId.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ItemsToBeSelectedInAss.hints.UnitId.name}"
+                               sortable="true" headerText="#{bindings.ItemsToBeSelectedInAss.hints.UnitId.label}"
+                               id="c4" width="140">
+                        <af:selectOneChoice value="#{row.bindings.UnitId.inputValue}"
+                                            label="#{row.bindings.UnitId.label}"
+                                            required="#{bindings.ItemsToBeSelectedInAss.hints.UnitId.mandatory}"
+                                            shortDesc="#{bindings.ItemsToBeSelectedInAss.hints.UnitId.tooltip}"
+                                            readOnly="true" id="soc2"
+                                            visible="#{row.ItemCode!=pageFlowScope.pItemCode}">
+                            <f:selectItems value="#{row.bindings.UnitId.items}" id="si2"/>
+                            <f:validator binding="#{row.bindings.UnitId.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ItemsToBeSelectedInAss.hints.Selected.name}"
+                               sortable="true" headerText="#{bindings.ItemsToBeSelectedInAss.hints.Selected.label}"
+                               id="c5" align="center">
+                        <af:selectBooleanCheckbox value="#{row.bindings.Selected.inputValue}"
+                                                  label="#{row.bindings.Selected.label}"
+                                                  shortDesc="#{bindings.ItemsToBeSelectedInAss.hints.Selected.tooltip}"
+                                                  id="sbc1" autoSubmit="true"
+                                                  visible="#{row.ItemCode!=pageFlowScope.pItemCode}"/>
+                    </af:column>
+                </af:table>
+                <f:facet name="info"/>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

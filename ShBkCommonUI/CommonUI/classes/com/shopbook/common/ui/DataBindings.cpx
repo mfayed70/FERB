@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.shopbook.common.ui" ClientType="Generic">
+  <pageMap>
+    <page path="/WEB-INF/selectFromItemsList/select_items-TF.xml#select_items-TF@Execute"
+          usageId="com_shopbook_common_ui_select_items_TF_select_items_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/selectFromItemsList/select_items-TF.xml#select_items-TF@initiateCaptions"
+          usageId="com_shopbook_common_ui_select_items_TF_select_items_TF_initiateCaptionsPageDef"/>
+    <page path="/WEB-INF/selectFromItemsList/itemsList.jsf" usageId="com_shopbook_common_ui_itemsListPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_shopbook_common_ui_select_items_TF_select_items_TF_ExecutePageDef"
+          path="com.shopbook.common.ui.pageDefs.select_items_TF_select_items_TF_ExecutePageDef"/>
+    <page id="com_shopbook_common_ui_select_items_TF_select_items_TF_initiateCaptionsPageDef"
+          path="com.shopbook.common.ui.pageDefs.select_items_TF_select_items_TF_initiateCaptionsPageDef"/>
+    <page id="com_shopbook_common_ui_itemsListPageDef" path="com.shopbook.common.ui.pageDefs.itemsListPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AalmCommonDataControl" Package="com.shopbook.common"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AalmCommonDataControlLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

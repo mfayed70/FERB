@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.center.view.AalmCenteralBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="CURRENCIES">
+        <source>Currencies</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CURRENCY_TRANSFER">
+        <source>Currency Transfer</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW">
+        <source>New</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEM_CATEGORIES">
+        <source>Item Categories</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>Save</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>Cancel</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="STORE_CATEGORIES">
+        <source>Store Categories</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MEASURMENT_UNITS">
+        <source>Measurment Units</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MEASURMENT_UNITS_TRANSFORMATION">
+        <source>Measurment units transformation</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="UNITS_TRANSFORMATION">
+        <source>Units Transformation</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COMPANY_STRUCTURE">
+        <source>Company Structure</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MASTER_MATERIAL_LIST">
+        <source>Master Material List</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MATERIAL_ASSEMBLY_COMPONENTS">
+        <source>Material Assembly Components</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Preview">
+        <source>Preview</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CODE">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="QTY">
+        <source>Qty</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="UNIT">
+        <source>Unit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_MATERIALS_TO_YOUR_ASSEMBLY">
+        <source>Add Materials to your Assembly</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CreateAssembly">
+        <source>Create Assembly</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_NEW_CUSTOMER">
+        <source>Add New Customer</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CUSTOMERS">
+        <source>Customers</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEM_STRUCTURE">
+        <source>Item Structure</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEM_LIST___ASSEMBLIES">
+        <source>Item List &amp; Assemblies</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_TO_STRUCTURE">
+        <source>Add to structure</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEM_VARIABLES">
+        <source>Item Variables</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="VARIABLE_VALUES">
+        <source>Variable Values</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="IN_VARIABLE_NAME__DON_T_USE_WORD__GROUP__OR_USE_WORDS_WITH_SPACES_">
+        <source>in variable name, don't use word "group" or use words with spaces.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="300">
+        <source>300</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEMS_VARIABLES_STRUCTURE">
+        <source>Items Variables Structure</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEMS_VARIABLES">
+        <source>Items Variables</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEMS_VARIABLES_VALUES">
+        <source>Items Variables Values</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="New">
+        <source>New</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CHANGE_COLUMN_NAME_IN_ITEMS">
+        <source>Change column name in Items</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="OK">
+        <source>Ok</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CHOOSE_UNIT___ITEM_CATEGORY">
+        <source>choose Unit &amp; Item Category</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_CHILD">
+        <source>Add Child</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREATE_ITEMS_FOR_REVISION">
+        <source>Create Items for revision</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_TO_ITEMS_LIST">
+        <source>Add to Items List</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="StructuredItemsRevision">
+        <source>Structured Items Revision</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEMS_COUNT">
+        <source>Items Count</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SER_">
+        <source>Ser.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COUNT__">
+        <source>Count :</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DeleteAllTestItems">
+        <source>Delete All Test Items</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="uncheckallselected">
+        <source>uncheck all selected</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ShowPrintable">
+        <source>Show Printable</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Actions">
+        <source>Actions</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ExporttoExcel">
+        <source>Export to Excel</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Count">
+        <source>Count</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TIP_ITEM_VARIABLE_ORDER">
+        <source>Tip: enter the order in which you want your variable values to be displayed; ex. to display the name first, let it's order be 1, then others ....etc.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SELECTED_ITEM_VARIABLES_STATISTICS">
+        <source>Selected Item Variables Statistics</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CLEAR_FILTER">
+        <source>Clear Filter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEM_CATEGORIES_SETUP">
+        <source>Item categories Setup</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CATEGORY_TYPES">
+        <source>Category Types</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

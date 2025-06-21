@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.pm.model.AalmPmMBndl_ar" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="com.aalm.pm.model.entities.Clients.CustId_LABEL">
+        <source>الرقم التعريفي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.entities.Clients.CustName_LABEL">
+        <source>الإســم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.entities.Clients.MobileNo_LABEL">
+        <source>بيانات الإتصال</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.entities.Clients.SegelNo_LABEL">
+        <source>رقم السجل التجاري</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.entities.Clients.PermittedLimit_LABEL">
+        <source>حد السحب علي المكشوف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.entities.Clients.CurrCode_LABEL">
+        <source>العملة</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="com.aalm.pm.model.entities.Clients.Address_LABEL">
+        <source>العنـــوان</source>
+        <target/>
+      </trans-unit>
+      
+    </body>
+  </file>
+</xliff>

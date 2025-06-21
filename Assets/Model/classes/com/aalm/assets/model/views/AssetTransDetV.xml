@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AssetTransDetV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="AssetsBasicDataV1"
+    ViewObjectName="com.aalm.assets.model.views.AssetsBasicDataV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_AssetId"
+    ListVOName="AssetsBasicDataV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AssetId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AssetId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AssetName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="AssetTransDet"
+    Entity="com.aalm.assets.model.entities.AssetTransDet"/>
+  <ViewAttribute
+    Name="TransDetId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TransDetId"
+    EntityUsage="AssetTransDet"
+    AliasName="trans_det_id"/>
+  <ViewAttribute
+    Name="AddDt"
+    PrecisionRule="true"
+    EntityAttrName="AddDt"
+    EntityUsage="AssetTransDet"
+    AliasName="add_dt"/>
+  <ViewAttribute
+    Name="DepreciationVal"
+    PrecisionRule="true"
+    EntityAttrName="DepreciationVal"
+    EntityUsage="AssetTransDet"
+    AliasName="depreciation_val"/>
+  <ViewAttribute
+    Name="ExpensesVal"
+    PrecisionRule="true"
+    EntityAttrName="ExpensesVal"
+    EntityUsage="AssetTransDet"
+    AliasName="expenses_val"/>
+  <ViewAttribute
+    Name="CurrCode"
+    PrecisionRule="true"
+    EntityAttrName="CurrCode"
+    EntityUsage="AssetTransDet"
+    AliasName="curr_code"/>
+  <ViewAttribute
+    Name="TransMastId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TransMastId"
+    EntityUsage="AssetTransDet"
+    AliasName="trans_mast_id"/>
+  <ViewAttribute
+    Name="AssetId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AssetId"
+    EntityUsage="AssetTransDet"
+    AliasName="asset_id"
+    LOVName="LOV_AssetId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="AssetTransDetV1"
+    ViewLink="com.aalm.assets.model.views.FkAssetTransDetAssetsBasicData1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

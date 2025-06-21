@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkGlJournalsGlDocuments1VL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.aalm.gl.model.entities.FkGlJournalsGlDocuments1Assoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.gl.model.views.FkGlJournalsGlDocuments1VL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="GlDocumentsV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.gl.model.views.GlDocumentsV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="GlDocumentsV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.views.GlDocumentsV.GlDocId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="GlJournalsV"
+    Cardinality="-1"
+    Owner="com.aalm.gl.model.views.GlJournalsV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="GlJournalsV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.views.GlJournalsV.GlDocId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.gl.model.AalmGlBndl"/>
+  </ResourceBundle>
+</ViewLink>

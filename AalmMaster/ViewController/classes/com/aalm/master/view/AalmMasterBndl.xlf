@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.master.view.AalmMasterBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="Languages">
+        <source>Languages</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="WELCOME">
+        <source>Welcome</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="USERNAME">
+        <source>username</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PASSWORD">
+        <source>password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LOGIN">
+        <source>Login</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FORGOT_PASSWORD">
+        <source>Forgot Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PLEASE_ENTER_YOUR_EMAIL_REGISTERED_IN_THE_SYSTEM">
+        <source>please enter your email registered in the system</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YOUR_EMAIL">
+        <source>your email</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SUBMIT">
+        <source>submit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>Cancel</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FORGOT_PASSSWORD">
+        <source>forgot passsword</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COPYRIGHT_C__2011_2023">
+        <source>Copyright(C) 2020,2023</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ERP_SYSTEM_ADMINISTRATION">
+        <source>ERP System Administration</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SYSTEM_USERS">
+        <source>System Users</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="HOME">
+        <source>Home</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ROLES_RELATED_SYSTEMS___FUNCTIONS">
+        <source>Roles-related Systems &amp; Functions</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SYSTEMS_GRANTED_TO_ROLE">
+        <source>Systems Granted to Role</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GRANTED_SYSTEM_FUNCTIONS">
+        <source>Granted System Functions</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ROLES_DEFINED_IN_SYSTEM">
+        <source>Roles defined in System</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ELECON_FERP_SYSTEM">
+        <source>Elecon for Contracting - FERP System</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ZAMZAM___FERP_SYSTEM">
+        <source>Zamzam - FERP System</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FREE_OF_LICENSE_ENTRPRISE_RESOURCE_PLANNING">
+        <source>Free of license Entrprise Resource Planning</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="WELCOME_TO">
+        <source>Welcome to</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FREE_OF_LICENSE___ERP_SYSTEM">
+        <source>Free of License - ERP System</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="WECOME_IN_FERP_SYSTEM">
+        <source>Welcome in FERP System</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FREE_OF_LICENSE___ENTERPRISE_RESOURCE_PLANNING">
+        <source>Free of license - Enterprise Resource Planning system</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LOGOUT">
+        <source>Logout</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SIDE_MENU">
+        <source>Side Menu</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DELETE_ROLE_____BEFORE_THAT__DELETE_GRANTED_FUNCTIONS___SYSTEMS_FIRST_">
+        <source>delete Role...! before that, delete granted functions &amp; systems first.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="WARNNING">
+        <source>Warnning</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YOU_HAVE_UNCOMMITTED_DATA__DO_YOU_WANT_TO_NAVIGATE_WITHOUT_SAVE__">
+        <source>You have uncommitted data, do you want to navigate without save ?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YES">
+        <source>Yes</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NO">
+        <source>No</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW">
+        <source>New</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>Save</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SEND_VERIFICATION_EMAIL">
+        <source>send verification email</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BASIC_DATA">
+        <source>Basic Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ROLES_GRANTED">
+        <source>Roles Granted</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COMPANIES_USER_ACCESS">
+        <source>Companies user access</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PASSWORD_SHOULD_NOT_BE_LESS_THAN_6_CHARACTERS">
+        <source>Password should not be less than 6 characters, </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NOW_YOU_CAN">
+        <source>now you can</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RE_ENTER_PASSWORD">
+        <source>re-enter password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREATE_PASSWORD_FOR_YOUR_ACCOUNT">
+        <source>Create password for your account</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PASSWORDS_ARE_MISMATCH__PLEASE_TRY_AGAIN_">
+        <source>Passwords are mismatch, please try again.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PASSWORD_HAS_BEEN_SET_SUCCESSFULLY">
+        <source>Password has been set successfully.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NON_GRANTED_SYSTEMS___FUNCTIONS">
+        <source>Non-granted Systems &amp; Functions</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SYSTEMS">
+        <source>Systems</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SYSTEM_FUNCTIONS">
+        <source>System Functions</source>
+        <target/>
+      </trans-unit>
+      
+    </body>
+  </file>
+</xliff>

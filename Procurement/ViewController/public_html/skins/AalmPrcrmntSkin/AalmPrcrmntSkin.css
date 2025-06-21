@@ -1,0 +1,146 @@
+@charset "UTF-8";
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+@font-face {
+ font-family: 'Arslan';
+  font-style: normal;
+  font-size: 15px; 
+  font-weight: 400;
+  src:url('../fonts/arslanWessam/Arslan-Wessam-A.ttf');
+}
+.AFDefaultFontFamily:alias {
+    font-family: Arslan,Tahoma, Verdana, Helvetica, sans-serif; 
+    font-size: 25px;
+    font-weight: 400;
+}
+.AFDefaultFont:alias {
+    font-family: Arslan,  Tahoma, Verdana, Helvetica, sans-serif; 
+}
+.PreWrap {
+    white-space: -moz-pre-wrap; /* Mozilla */
+    white-space: pre;           /* CSS 2.0 */
+    white-space: pre-wrap;      /* CSS 2.1 */
+    word-wrap: break-word;      /* IE 5.5-7 */
+}
+af|panelWindow::close-icon-style{
+     display: none;
+}
+af|dialog::close-icon-style{
+     display: none;
+}
+.AFTextColor:alias {
+    color: navy; 
+}
+
+.AFTextPrimaryColor:alias {
+    color: navy; 
+}
+
+.AFLabelColor:alias {
+    color: #848484; 
+}
+
+.AFTextSecondaryColor:alias {
+    color: #848484; 
+}
+
+.AFTextTertiaryColor:alias {
+    color: #000080; 
+}
+
+.AFHeaderTextColor:alias {
+    color: navy; 
+}
+
+.AFDefaultFont:alias {
+    font-size: 20px; 
+}
+
+af|table{
+    background-color: White;
+    border-color: White ;
+}
+
+af|inputText::content {
+    color: Navy; 
+    border: 1px solid White; 
+    font-size:24px;
+    border-color: White; 
+    height: 25px; 
+    background-color: white; 
+    border-bottom: Navy; 
+    border-bottom-style: solid; 
+    border-bottom-width: thin; 
+}
+
+af|inputText:click-to-edit::content {
+    color: Navy; 
+    border: 1px solid White; 
+    border-color: White; 
+    height: 25px; 
+    background-color: white; 
+    border-bottom: Navy; 
+    border-bottom-style: solid; 
+    border-bottom-width: thin; 
+}
+
+af|button.but {
+    background-image: none; 
+    background-color: White !important;
+    color: navy; 
+}
+
+af|button:hover.but{
+    color: White !important;
+    background-color: Navy !important; 
+    background-image: none; 
+}
+
+af|button::text.but{
+    color:Navy !important;
+}
+af|button:disabled.but{
+    background-color: #d6d6d6 !important; 
+    background-image: none; 
+}
+af|button {
+    background-image: none; 
+    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px; 
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px; 
+    border-style: solid; 
+    border-radius: 30px; 
+    font-weight:bold;
+}
+
+af|column::column-header-cell {
+    background-color: Navy; 
+    color: White; 
+    height: 30px;
+    font-size: 25px;
+}
+
+/*af|column::banded-data-cell {
+    background-color: white; 
+    font-size: 20px; 
+}
+
+af|column::data-cell:disabled{
+    background-color: white; 
+    font-size: 20px; 
+}*/
+
+.dataCell af|column::data-cell{
+   font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  font-family:Arslan;
+  font-size: 20px;
+  height:40px;
+}

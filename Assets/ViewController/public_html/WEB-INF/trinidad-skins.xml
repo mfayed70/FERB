@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+  <skin>
+    <id>AalmAssetSkin.desktop</id>
+    <family>AalmAssetSkin</family>
+    <extends>fusionFx-v3.desktop</extends>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>skins/AalmAssetSkin/AalmAssetSkin.css</style-sheet-name>
+    <bundle-name>com.aalm.assets.view.skinBundle</bundle-name>
+  </skin>
+</skins>

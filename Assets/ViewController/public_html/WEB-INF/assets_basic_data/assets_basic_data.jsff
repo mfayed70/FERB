@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.assets.view.AalmAssetsBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.ASSETS_DATA}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:button actionListener="#{bindings.Commit.execute}" text="#{viewcontrollerBundle.SAVE}"
+                 id="b3" styleClass="but" icon="#{resource['images:SaveF.png']}"
+                 hoverIcon="#{resource['images:SaveO.png']}"/>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}" immediate="true"
+                 id="b4" icon="#{resource['images:cancelF.png']}" hoverIcon="#{resource['images:cancelO.png']}"
+                 styleClass="but">
+        <af:resetActionListener/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend">
+      <af:spacer width="10" height="20" id="s1"/>
+    </f:facet>
+    <af:panelSplitter id="ps1" splitterPosition="#{sessionScope.display ? 0 : 1700}" partialTriggers="t1:l2"
+                      disabled="true">
+      <f:facet name="first">
+        <af:panelGroupLayout id="pgl1" layout="vertical">
+          <af:table value="#{bindings.AssetsBasicDataV.collectionModel}" var="row"
+                    rows="#{bindings.AssetsBasicDataV.rangeSize}"
+                    emptyText="#{bindings.AssetsBasicDataV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.AssetsBasicDataV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.AssetsBasicDataV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.AssetsBasicDataV.rangeSize}"
+                    filterModel="#{bindings.AssetsBasicDataVQuery.queryDescriptor}"
+                    queryListener="#{bindings.AssetsBasicDataVQuery.processQuery}" filterVisible="true" varStatus="vs"
+                    id="t1" partialTriggers="::b2 ::b3">
+            <af:column id="c23" headerText="#{viewcontrollerBundle['Ser.']}">
+              <af:outputText value="#{row.index+1}" id="ot8"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsBasicDataV.hints.AssetId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.AssetsBasicDataV.hints.AssetId.label}" id="c1">
+              <af:inputText value="#{row.bindings.AssetId.inputValue}"
+                            label="#{bindings.AssetsBasicDataV.hints.AssetId.label}"
+                            required="#{bindings.AssetsBasicDataV.hints.AssetId.mandatory}"
+                            columns="#{bindings.AssetsBasicDataV.hints.AssetId.displayWidth}"
+                            maximumLength="#{bindings.AssetsBasicDataV.hints.AssetId.precision}"
+                            shortDesc="#{bindings.AssetsBasicDataV.hints.AssetId.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.AssetId.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsBasicDataV.hints.AssetName.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AssetsBasicDataV.hints.AssetName.label}" id="c2"
+                       width="400">
+              <af:inputText value="#{row.bindings.AssetName.inputValue}"
+                            label="#{bindings.AssetsBasicDataV.hints.AssetName.label}"
+                            required="#{bindings.AssetsBasicDataV.hints.AssetName.mandatory}"
+                            columns="#{bindings.AssetsBasicDataV.hints.AssetName.displayWidth}"
+                            maximumLength="#{bindings.AssetsBasicDataV.hints.AssetName.precision}"
+                            shortDesc="#{bindings.AssetsBasicDataV.hints.AssetName.tooltip}" id="it2">
+                <f:validator binding="#{row.bindings.AssetName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsBasicDataV.hints.AssetAddDtTm.name}"
+                       sortable="true" headerText="#{bindings.AssetsBasicDataV.hints.AssetAddDtTm.label}" id="c3"
+                       width="170">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.AssetsBasicDataVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.AssetAddDtTm.value}"
+                              id="id1">
+                  <af:convertDateTime pattern="#{bindings.AssetsBasicDataV.hints.AssetAddDtTm.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.AssetAddDtTm.inputValue}"
+                            label="#{bindings.AssetsBasicDataV.hints.AssetAddDtTm.label}"
+                            required="#{bindings.AssetsBasicDataV.hints.AssetAddDtTm.mandatory}"
+                            columns="#{bindings.AssetsBasicDataV.hints.AssetAddDtTm.displayWidth}"
+                            shortDesc="#{bindings.AssetsBasicDataV.hints.AssetAddDtTm.tooltip}" id="id2"
+                            readOnly="true">
+                <f:validator binding="#{row.bindings.AssetAddDtTm.validator}"/>
+                <af:convertDateTime pattern="#{bindings.AssetsBasicDataV.hints.AssetAddDtTm.format}" dateStyle="full"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsBasicDataV.hints.AssGrpId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.AssetsBasicDataV.hints.AssGrpId.label}" id="c6" width="200">
+              <af:selectOneChoice value="#{row.bindings.AssGrpId.inputValue}" label="#{row.bindings.AssGrpId.label}"
+                                  required="#{bindings.AssetsBasicDataV.hints.AssGrpId.mandatory}"
+                                  shortDesc="#{bindings.AssetsBasicDataV.hints.AssGrpId.tooltip}" id="soc1"
+                                  contentStyle="background-color:white;">
+                <f:selectItems value="#{row.bindings.AssGrpId.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.AssGrpId.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsBasicDataV.hints.AssetValue.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AssetsBasicDataV.hints.AssetValue.label}" id="c4"
+                       width="150">
+              <af:inputText value="#{row.bindings.AssetValue.inputValue}"
+                            label="#{bindings.AssetsBasicDataV.hints.AssetValue.label}"
+                            required="#{bindings.AssetsBasicDataV.hints.AssetValue.mandatory}"
+                            columns="#{bindings.AssetsBasicDataV.hints.AssetValue.displayWidth}"
+                            maximumLength="#{bindings.AssetsBasicDataV.hints.AssetValue.precision}"
+                            shortDesc="#{bindings.AssetsBasicDataV.hints.AssetValue.tooltip}" id="it3">
+                <f:validator binding="#{row.bindings.AssetValue.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.AssetsBasicDataV.hints.AssetValue.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsBasicDataV.hints.CurrCode.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.AssetsBasicDataV.hints.CurrCode.label}" id="c7" width="150">
+              <af:selectOneChoice value="#{row.bindings.CurrCode.inputValue}" label="#{row.bindings.CurrCode.label}"
+                                  required="#{bindings.AssetsBasicDataV.hints.CurrCode.mandatory}"
+                                  shortDesc="#{bindings.AssetsBasicDataV.hints.CurrCode.tooltip}" id="soc2">
+                <f:selectItems value="#{row.bindings.CurrCode.items}" id="si2"/>
+                <f:validator binding="#{row.bindings.CurrCode.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsBasicDataV.hints.Notes.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.AssetsBasicDataV.hints.Notes.label}" id="c5" width="400">
+              <af:inputText value="#{row.bindings.Notes.inputValue}"
+                            label="#{bindings.AssetsBasicDataV.hints.Notes.label}"
+                            required="#{bindings.AssetsBasicDataV.hints.Notes.mandatory}"
+                            columns="#{bindings.AssetsBasicDataV.hints.Notes.displayWidth}"
+                            maximumLength="#{bindings.AssetsBasicDataV.hints.Notes.precision}"
+                            shortDesc="#{bindings.AssetsBasicDataV.hints.Notes.tooltip}" id="it4">
+                <f:validator binding="#{row.bindings.Notes.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsBasicDataV.hints.OrgCode.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.AssetsBasicDataV.hints.OrgCode.label}" id="c8" rendered="false">
+              <af:inputText value="#{row.bindings.OrgCode.inputValue}"
+                            label="#{bindings.AssetsBasicDataV.hints.OrgCode.label}"
+                            required="#{bindings.AssetsBasicDataV.hints.OrgCode.mandatory}"
+                            columns="#{bindings.AssetsBasicDataV.hints.OrgCode.displayWidth}"
+                            maximumLength="#{bindings.AssetsBasicDataV.hints.OrgCode.precision}"
+                            shortDesc="#{bindings.AssetsBasicDataV.hints.OrgCode.tooltip}" id="it5">
+                <f:validator binding="#{row.bindings.OrgCode.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.AssetsBasicDataV.hints.OrgCode.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsBasicDataV.hints.PrntAssetId.name}" filterable="true"
+                       sortable="true" id="c9"
+                       align="center">
+              <af:inputText value="#{row.bindings.PrntAssetId.inputValue}"
+                            label="#{bindings.AssetsBasicDataV.hints.PrntAssetId.label}"
+                            required="#{bindings.AssetsBasicDataV.hints.PrntAssetId.mandatory}"
+                            columns="#{bindings.AssetsBasicDataV.hints.PrntAssetId.displayWidth}"
+                            maximumLength="#{bindings.AssetsBasicDataV.hints.PrntAssetId.precision}"
+                            shortDesc="#{bindings.AssetsBasicDataV.hints.PrntAssetId.tooltip}" id="it6"
+                            rendered="false">
+                <f:validator binding="#{row.bindings.PrntAssetId.validator}"/>
+              </af:inputText>
+              <af:link id="l2" icon="#{resource['images:3Hdotsf.png']}" hoverIcon="#{resource['images:3Hdotso.png']}">
+                <af:setPropertyListener from="#{true}" to="#{sessionScope.display}" type="action"/>
+              </af:link>
+            </af:column>
+          </af:table>
+        </af:panelGroupLayout>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelBorderLayout id="ph2" visible="#{sessionScope.display}">
+          <af:panelTabbed position="above" id="pt1" inlineStyle="margin-top:20px;">
+            <af:showDetailItem id="tab1" text="#{viewcontrollerBundle.ASSET_PROPERTIES}">
+              <af:panelHeader text=" " id="ph3">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                  <af:button text="#{viewcontrollerBundle.AddProperty}"
+                             disabled="#{!bindings.CreateInsert1.enabled}" id="b1"
+                             icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"
+                             styleClass="but" action="toProperties" useWindow="true" windowEmbedStyle="inlineDocument"
+                             windowHeight="400" windowWidth="700">
+                    <af:setPropertyListener from="#{bindings.AssetId.inputValue}" to="#{pageFlowScope.pAssetId}" type="action"/>
+                  </af:button>
+                </f:facet>
+                <f:facet name="legend"/>
+                <af:table value="#{bindings.AssetsPropsValuesV.collectionModel}" var="row"
+                          rows="#{bindings.AssetsPropsValuesV.rangeSize}"
+                          emptyText="#{bindings.AssetsPropsValuesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.AssetsPropsValuesV.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.AssetsPropsValuesV.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.AssetsPropsValuesV.rangeSize}"
+                          filterModel="#{bindings.AssetsPropsValuesVQuery.queryDescriptor}"
+                          queryListener="#{bindings.AssetsPropsValuesVQuery.processQuery}" filterVisible="true"
+                          varStatus="vs" id="t2" partialTriggers="::b1">
+                  <af:column sortProperty="#{bindings.AssetsPropsValuesV.hints.AssetId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.AssetsPropsValuesV.hints.AssetId.label}" id="c10"
+                             rendered="false">
+                    <af:inputText value="#{row.bindings.AssetId.inputValue}"
+                                  label="#{bindings.AssetsPropsValuesV.hints.AssetId.label}"
+                                  required="#{bindings.AssetsPropsValuesV.hints.AssetId.mandatory}"
+                                  columns="#{bindings.AssetsPropsValuesV.hints.AssetId.displayWidth}"
+                                  maximumLength="#{bindings.AssetsPropsValuesV.hints.AssetId.precision}"
+                                  shortDesc="#{bindings.AssetsPropsValuesV.hints.AssetId.tooltip}" id="it8"
+                                  readOnly="true">
+                      <f:validator binding="#{row.bindings.AssetId.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column id="c24" headerText="#{viewcontrollerBundle['Ser.']}">
+                    <af:outputText value="#{row.index+1}" id="ot9"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.AssetsPropsValuesV.hints.AssPropId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.AssetsPropsValuesV.hints.AssPropId.label}" id="c12">
+                    <af:inputText value="#{row.bindings.AssPropId.inputValue}"
+                                  required="#{bindings.AssetsPropsValuesV.hints.AssPropId.mandatory}"
+                                  columns="#{bindings.AssetsPropsValuesV.hints.AssPropId.displayWidth}"
+                                  maximumLength="#{bindings.AssetsPropsValuesV.hints.AssPropId.precision}"
+                                  shortDesc="#{bindings.AssetsPropsValuesV.hints.AssPropId.tooltip}" id="it12"
+                                  readOnly="true">
+                      <f:validator binding="#{row.bindings.AssPropId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.AssetsPropsValuesV.hints.AssPropId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.AssetsPropsValuesV.hints.AssPropName.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.AssetsPropsValuesV.hints.AssPropName.label}"
+                             id="c13" width="500">
+                    <af:inputText value="#{row.bindings.AssPropName.inputValue}" simple="true"
+                                  required="#{bindings.AssetsPropsValuesV.hints.AssPropName.mandatory}"
+                                  columns="#{bindings.AssetsPropsValuesV.hints.AssPropName.displayWidth}"
+                                  maximumLength="#{bindings.AssetsPropsValuesV.hints.AssPropName.precision}"
+                                  shortDesc="#{bindings.AssetsPropsValuesV.hints.AssPropName.tooltip}" id="it9"
+                                  readOnly="true">
+                      <f:validator binding="#{row.bindings.AssPropName.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.AssetsPropsValuesV.hints.AssPropId1.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.AssetsPropsValuesV.hints.AssPropId1.label}"
+                             id="c14" rendered="false">
+                    <af:inputText value="#{row.bindings.AssPropId1.inputValue}"
+                                  label="#{bindings.AssetsPropsValuesV.hints.AssPropId1.label}"
+                                  required="#{bindings.AssetsPropsValuesV.hints.AssPropId1.mandatory}"
+                                  columns="#{bindings.AssetsPropsValuesV.hints.AssPropId1.displayWidth}"
+                                  maximumLength="#{bindings.AssetsPropsValuesV.hints.AssPropId1.precision}"
+                                  shortDesc="#{bindings.AssetsPropsValuesV.hints.AssPropId1.tooltip}" id="it11"
+                                  readOnly="true">
+                      <f:validator binding="#{row.bindings.AssPropId1.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.AssetsPropsValuesV.hints.AssPropId1.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.AssetsPropsValuesV.hints.AssPropertyValue.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.AssetsPropsValuesV.hints.AssPropertyValue.label}"
+                             id="c11" width="200">
+                    <af:inputText value="#{row.bindings.AssPropertyValue.inputValue}" simple="true"
+                                  required="#{bindings.AssetsPropsValuesV.hints.AssPropertyValue.mandatory}"
+                                  columns="#{bindings.AssetsPropsValuesV.hints.AssPropertyValue.displayWidth}"
+                                  maximumLength="#{bindings.AssetsPropsValuesV.hints.AssPropertyValue.precision}"
+                                  shortDesc="#{bindings.AssetsPropsValuesV.hints.AssPropertyValue.tooltip}" id="it10">
+                      <f:validator binding="#{row.bindings.AssPropertyValue.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:table>
+                <f:facet name="info"/>
+              </af:panelHeader>
+            </af:showDetailItem>
+            <af:showDetailItem id="tab2" text="#{viewcontrollerBundle.ASSET_SPARE_PARTS}">
+              <af:panelHeader text=" " id="ph4">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                  <af:button text="#{viewcontrollerBundle.AddSparePart}" id="b5" icon="#{resource['images:NewF.png']}"
+                             hoverIcon="#{resource['images:NewO.png']}" styleClass="but" action="toSpareParts"
+                             useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="500" windowWidth="1100">
+                    <af:setPropertyListener from="#{bindings.AssetId.inputValue}" to="#{pageFlowScope.pAssetId}"
+                                            type="action"/>
+                  </af:button>
+                </f:facet>
+                <f:facet name="legend"/>
+                <af:table value="#{bindings.AssetsItemsV.collectionModel}" var="row"
+                          rows="#{bindings.AssetsItemsV.rangeSize}"
+                          emptyText="#{bindings.AssetsItemsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.AssetsItemsV.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.AssetsItemsV.collectionModel.makeCurrent}" rowSelection="single"
+                          fetchSize="#{bindings.AssetsItemsV.rangeSize}"
+                          filterModel="#{bindings.AssetsItemsVQuery.queryDescriptor}"
+                          queryListener="#{bindings.AssetsItemsVQuery.processQuery}" filterVisible="true" varStatus="vs"
+                          id="t3" partialTriggers="::b5">
+                  <af:column sortProperty="#{bindings.AssetsItemsV.hints.AssetId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.AssetsItemsV.hints.AssetId.label}" id="c15"
+                             rendered="false">
+                    <af:outputText value="#{row.AssetId}" shortDesc="#{bindings.AssetsItemsV.hints.AssetId.tooltip}"
+                                   id="ot1"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.AssetsItemsV.hints.Id.name}" filterable="true" sortable="true"
+                             headerText="#{bindings.AssetsItemsV.hints.Id.label}" id="c16" rendered="false">
+                    <af:outputText value="#{row.Id}" shortDesc="#{bindings.AssetsItemsV.hints.Id.tooltip}" id="ot2">
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.AssetsItemsV.hints.Id.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column id="c22" headerText="#{viewcontrollerBundle['Ser.']}">
+                    <af:outputText value="#{row.index+1}" id="ot7"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.AssetsItemsV.hints.ItemCode.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.AssetsItemsV.hints.ItemCode.label}" id="c17">
+                    <af:outputText value="#{row.ItemCode}" shortDesc="#{bindings.AssetsItemsV.hints.ItemCode.tooltip}"
+                                   id="ot3"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.AssetsItemsV.hints.ItemIndx.label}" id="c21" width="220"
+                             sortable="true" filterable="true"
+                             sortProperty="#{bindings.AssetsItemsV.hints.ItemIndx.name}" rendered="false">
+                    <af:inputText value="#{row.bindings.ItemIndx.inputValue}"
+                                  label="#{bindings.AssetsItemsV.hints.ItemIndx.label}"
+                                  required="#{bindings.AssetsItemsV.hints.ItemIndx.mandatory}"
+                                  columns="#{bindings.AssetsItemsV.hints.ItemIndx.displayWidth}"
+                                  maximumLength="#{bindings.AssetsItemsV.hints.ItemIndx.precision}"
+                                  shortDesc="#{bindings.AssetsItemsV.hints.ItemIndx.tooltip}" id="it13">
+                      <f:validator binding="#{row.bindings.ItemIndx.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.AssetsItemsV.hints.ItemName.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.AssetsItemsV.hints.ItemName.label}" id="c18"
+                             width="600">
+                    <af:outputText value="#{row.ItemName}" shortDesc="#{bindings.AssetsItemsV.hints.ItemName.tooltip}"
+                                   id="ot4"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.AssetsItemsV.hints.Registr.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.AssetsItemsV.hints.Registr.label}" id="c19"
+                             width="200">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{bindings.AssetsItemsVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Registr.value}"
+                                    id="id3">
+                        <af:convertDateTime pattern="#{bindings.AssetsItemsV.hints.Registr.format}"/>
+                      </af:inputDate>
+                    </f:facet>
+                    <af:outputText value="#{row.Registr}" shortDesc="#{bindings.AssetsItemsV.hints.Registr.tooltip}"
+                                   id="ot5">
+                      <af:convertDateTime pattern="#{bindings.AssetsItemsV.hints.Registr.format}" dateStyle="full"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.AssetsItemsV.hints.Qty.name}" filterable="true" sortable="true"
+                             headerText="#{bindings.AssetsItemsV.hints.Qty.label}" id="c20" width="200">
+                    <af:inputText value="#{row.Qty}" shortDesc="#{bindings.AssetsItemsV.hints.Qty.tooltip}" id="ot6">
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.AssetsItemsV.hints.Qty.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:table>
+                <f:facet name="info"/>
+              </af:panelHeader>
+            </af:showDetailItem>
+          </af:panelTabbed>
+          <f:facet name="start">
+            <af:spacer width="20" height="10" id="s3"/>
+          </f:facet>
+          <f:facet name="bottom"/>
+          <f:facet name="end"/>
+          <f:facet name="top">
+            <af:link id="it7" text="#{bindings.AssetName.inputValue}" icon="#{resource['images:logout-close-24.png']}">
+              <af:setPropertyListener from="#{false}" to="#{sessionScope.display}" type="action"/>
+            </af:link>
+          </f:facet>
+        </af:panelBorderLayout>
+      </f:facet>
+    </af:panelSplitter>
+    <f:facet name="info">
+      <af:button actionListener="#{bindings.CreateInsert.execute}" text="#{viewcontrollerBundle.NEW}" id="b2"
+                 icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}" styleClass="but"
+                 visible="#{!sessionScope.display}"/>
+    </f:facet>
+  </af:panelHeader>
+</ui:composition>

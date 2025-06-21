@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.mnf.view.AalmMnfBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.MANUFACTURING_PROCESSES}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <af:table value="#{bindings.MnfProcessesV.collectionModel}" var="row" rows="#{bindings.MnfProcessesV.rangeSize}"
+              emptyText="#{bindings.MnfProcessesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.MnfProcessesV.collectionModel.selectedRow}"
+              selectionListener="#{bindings.MnfProcessesV.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.MnfProcessesV.rangeSize}"
+              filterModel="#{bindings.MnfProcessesVQuery.queryDescriptor}"
+              queryListener="#{bindings.MnfProcessesVQuery.processQuery}" filterVisible="true" varStatus="vs" id="t1"
+              inlineStyle="padding-bottom:30px;" partialTriggers="b1">
+      <af:column sortProperty="#{bindings.MnfProcessesV.hints.MnfPrcsId.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.MnfProcessesV.hints.MnfPrcsId.label}" id="c1">
+        <af:outputText value="#{row.MnfPrcsId}" shortDesc="#{bindings.MnfProcessesV.hints.MnfPrcsId.tooltip}" id="ot1"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.MnfProcessesV.hints.MnfPrcsName.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.MnfProcessesV.hints.MnfPrcsName.label}" id="c2" width="400">
+        <af:outputText value="#{row.MnfPrcsName}" shortDesc="#{bindings.MnfProcessesV.hints.MnfPrcsName.tooltip}"
+                       id="ot2"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.MnfProcessesV.hints.IsComplex.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.MnfProcessesV.hints.IsComplex.label}" id="c4" align="center">
+        <af:selectBooleanCheckbox value="#{row.bindings.IsComplex.inputValue}" label="#{row.bindings.IsComplex.label}"
+                                  shortDesc="#{bindings.MnfProcessesV.hints.IsComplex.tooltip}" id="sbc1"
+                                  disabled="true"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.MnfProcessesV.hints.HasAction.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.MnfProcessesV.hints.HasAction.label}" id="c3" width="300" align="center">
+        <af:button text="#{viewcontrollerBundle.CREATE_PROCESS_STRUCTURE}" id="b1" styleClass="but"
+                   action="#{pageFlowScope.MnfBean.createMnfPrcsStrMstr}" useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="500"
+                   windowWidth="1000" returnListener="#{pageFlowScope.MnfBean.refrshMnfProcessesRtrnLsnr}"
+                   partialTriggers="sbc1" icon="#{resource['images:CreateF.png']}"
+                   hoverIcon="#{resource['images:CreateO.png']}">
+          <af:setPropertyListener from="#{row.MnfPrcsId}" to="#{pageFlowScope.pMnfProcess}" type="action"/>
+          <af:setPropertyListener from="#{row.MnfPrcsId}" to="#{pageFlowScope.pPrntMnfProcess}" type="action"/>
+          <af:setPropertyListener from="#{row.MnfPrcsId}" to="#{pageFlowScope.pMnfAssemblies}" type="action"/>
+        </af:button>
+      </af:column>
+    </af:table>
+    <af:panelHeader text="#{viewcontrollerBundle.MANUFACTURING_PROCESS_STRUCTURE}" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="legend"/>
+      <af:treeTable value="#{bindings.MnfProcessStructureV.treeModel}" var="node"
+                    selectionListener="#{bindings.MnfProcessStructureV.treeModel.makeCurrent}" rowSelection="single"
+                    id="tt1">
+        <f:facet name="nodeStamp">
+          <af:column id="c5" width="300">
+            <af:outputText value="#{node}" id="ot3"/>
+          </af:column>
+        </f:facet>
+        <f:facet name="pathStamp">
+          <af:outputText value="#{node}" id="ot4"/>
+        </f:facet>
+        <af:column id="c6"/>
+        <af:column id="c7" align="center" width="70">
+          <af:link id="l1" icon="#{resource['images:delete24.png']}"/>
+        </af:column>
+      </af:treeTable>
+      <f:facet name="info"/>
+    </af:panelHeader>
+    <f:facet name="info"/>
+  </af:panelHeader>
+</ui:composition>

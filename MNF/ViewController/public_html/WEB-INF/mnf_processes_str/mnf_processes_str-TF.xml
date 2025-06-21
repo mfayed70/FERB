@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="mnf_processes_str-TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>Execute</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <managed-bean id="__3">
+      <managed-bean-name>MnfBean</managed-bean-name>
+      <managed-bean-class>com.aalm.mnf.view.beans.MnfBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="mnf-processes-str">
+      <page>/WEB-INF/mnf_processes_str/mnf-processes-str.jsff</page>
+    </view>
+    <task-flow-call id="str_toBeSelected_mnfPrcs-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/mnf_processes_str/str_toBeSelected_mnfPrcs-TF.xml</document>
+        <id>str_toBeSelected_mnfPrcs-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__6">
+        <name>pMnfProcess</name>
+        <value>#{pageFlowScope.pMnfProcess}</value>
+      </input-parameter>
+      <input-parameter id="__7">
+        <name>pPrntMnfProcess</name>
+        <value>#{pageFlowScope.pPrntMnfProcess}</value>
+      </input-parameter>
+      <input-parameter id="__8">
+        <name>pMnfAssemblies</name>
+        <value>#{pageFlowScope.pMnfAssemblies}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>Execute</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>mnf-processes-str</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>mnf-processes-str</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>toSelectProcess</from-outcome>
+        <to-activity-id>str_toBeSelected_mnfPrcs-TF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

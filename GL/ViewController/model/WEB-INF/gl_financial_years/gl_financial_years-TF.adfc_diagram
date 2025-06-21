@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">gl_financial_years</property>
+      <property
+         name="page">/WEB-INF/gl_financial_years/gl_financial_years.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>gl_financial_years&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">247.0625</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">394.0</property>
+   </View>
+</SDM>

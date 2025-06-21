@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemsStructure"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ITEMS_STRUCTURE"
+  AliasName="ItemsStructure"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="Seq"
+    ColumnName="seq"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ITEMS_STRUCTURE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemsStructure.Seq_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="AssCode"
+    Precision="20"
+    ColumnName="ass_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ITEMS_STRUCTURE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemsStructure.AssCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ItemCode"
+    Precision="20"
+    ColumnName="item_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ITEMS_STRUCTURE"
+    IsNotNull="true"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemsStructure.ItemCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="QtyInAss"
+    ColumnName="qty_in_ass"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="ITEMS_STRUCTURE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemsStructure.QtyInAss_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="UnitId"
+    ColumnName="unit_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ITEMS_STRUCTURE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemsStructure.UnitId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="RegisterDt"
+    ColumnName="register_dt"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="ITEMS_STRUCTURE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemsStructure.RegisterDt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="ItemsList"
+    Association="com.aalm.center.model.entities.fk_ITEMS_STRUCTURE_ITEMS_LIST2"
+    AssociationEnd="com.aalm.center.model.entities.fk_ITEMS_STRUCTURE_ITEMS_LIST2.ItemsList"
+    AssociationOtherEnd="com.aalm.center.model.entities.fk_ITEMS_STRUCTURE_ITEMS_LIST2.ItemsStructure"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ItemVariableValues2"
+    Association="com.aalm.center.model.entities.FkItemsStructureUnits1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkItemsStructureUnits1Assoc.ItemVariableValues2"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkItemsStructureUnits1Assoc.ItemsStructure2"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ItemVariableValues3"
+    Association="com.aalm.center.model.entities.FkItemsStructureItemsList2Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkItemsStructureItemsList2Assoc.ItemVariableValues3"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkItemsStructureItemsList2Assoc.ItemsStructure3"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ItemVariableValues4"
+    Association="com.aalm.center.model.entities.FkItemsStructureItemsList1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkItemsStructureItemsList1Assoc.ItemVariableValues4"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkItemsStructureItemsList1Assoc.ItemsStructure4"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="ItemsStructureItemCodeCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Items_Structure_Item_Code_Chec"/>
+      <Attr Name="_checkCondition" Value='"item_code" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.ItemsStructure.ItemCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.ItemsStructure.Seq"/>
+      <Item Value="com.aalm.center.model.entities.ItemsStructure.ItemCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkItemsStructureItemsList1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ITEMS_STRUCTURE_ITEMS_LIST1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.ItemsStructure.AssCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkItemsStructureItemsList2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ITEMS_STRUCTURE_ITEMS_LIST2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.ItemsStructure.ItemCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkItemsStructureUnits1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ITEMS_STRUCTURE_UNITS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.ItemsStructure.UnitId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ItemsStructure">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Items_Structure"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.ItemsStructure.AssCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ItemsStructure1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Items_Structure1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.ItemsStructure.ItemCode"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.center.model.AalmCenteralMBndl"/>
+  </ResourceBundle>
+</Entity>

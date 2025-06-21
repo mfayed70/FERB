@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="fk_SUPPLIER_DELIVER_ITEM_CATS_SUPPLIERS1VL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.aalm.prcrmnt.model.entities.fk_SUPPLIER_DELIVER_ITEM_CATS_SUPPLIERS1Assoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.prcrmnt.model.views.fk_SUPPLIER_DELIVER_ITEM_CATS_SUPPLIERS1VL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="SuppliersV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.prcrmnt.model.views.SuppliersV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SuppliersV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.views.SuppliersV.SuppId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SupplierDeliverItemCatsV"
+    Cardinality="-1"
+    Owner="com.aalm.prcrmnt.model.views.SupplierDeliverItemCatsV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SupplierDeliverItemCatsV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.views.SupplierDeliverItemCatsV.SuppId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.prcrmnt.model.AalmPrcrmntMBndl"/>
+  </ResourceBundle>
+</ViewLink>

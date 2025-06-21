@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="projects-pricing_TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>router1</default-activity>
+    <input-parameter-definition id="__8">
+      <name>pProjId</name>
+      <value>#{pageFlowScope.pProjId}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__18">
+      <name>pVersionNo</name>
+      <value>#{pageFlowScope.pVersionNo}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <managed-bean id="__2">
+      <managed-bean-name>PmBean</managed-bean-name>
+      <managed-bean-class>com.aalm.pm.view.beans.PmBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="projects-pricing">
+      <page>/WEB-INF/projects-pricing/projects-pricing.jsff</page>
+    </view>
+    <task-flow-call id="selectItem-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/selectItem-TF.xml</document>
+        <id>selectItem-TF</id>
+      </task-flow-reference>
+      <return-value id="__5">
+        <name>returnItemCode</name>
+        <value>#{pageFlowScope.returnItemCode}</value>
+      </return-value>
+      <return-value id="__1">
+        <name>returnSelected</name>
+        <value>#{pageFlowScope.returnSelected}</value>
+      </return-value>
+      <return-value id="__6">
+        <name>returnItemIndx</name>
+        <value>#{pageFlowScope.returnItemIndx}</value>
+      </return-value>
+      <return-value id="__7">
+        <name>returnItemName</name>
+        <value>#{pageFlowScope.returnItemName}</value>
+      </return-value>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="select_items-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/selectFromItemsList/select_items-TF.xml</document>
+        <id>select_items-TF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-return id="exit">
+      <outcome>
+        <name>exit</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="router1">
+      <case id="__17">
+        <expression>#{pageFlowScope.pProjId==null}</expression>
+        <outcome>new</outcome>
+      </case>
+      <default-outcome>edit</default-outcome>
+    </router>
+    <control-flow-rule id="__3">
+      <from-activity-id>projects-pricing</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>open</from-outcome>
+        <to-activity-id>selectItem-TF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>backToProjects</from-outcome>
+        <to-activity-id>exit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>new</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>projects-pricing</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>projects-pricing</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

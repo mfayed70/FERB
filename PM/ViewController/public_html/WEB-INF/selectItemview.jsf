@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.pm.view.AalmPmBndl']}"/>
+  <af:document id="d1">
+    <af:form id="f1">
+      <af:panelHeader text="panelHeader 1" id="ph1">
+        <f:facet name="context">
+          <af:button text="Select Item" id="b1" action="back">
+            <af:setPropertyListener from="#{bindings.ItemCode.inputValue}" to="#{pageFlowScope.returnItemCode}"
+                                    type="action"/>
+            <af:setPropertyListener from="#{bindings.ItemIndx.inputValue}" to="#{pageFlowScope.returnItemIndx}"
+                                    type="action"/>
+            <af:setPropertyListener from="#{bindings.ItemName.inputValue}" to="#{pageFlowScope.returnItemName}"
+                                    type="action"/>
+            <af:setPropertyListener from="#{true}" to="#{pageFlowScope.returnSelected}"
+                                    type="action"/>
+          </af:button>
+        </f:facet>
+        <f:facet name="menuBar"/>
+        <f:facet name="toolbar">
+          <af:button text="#{viewcontrollerBundle.EXIT}" id="b2" styleClass="but">
+            <af:setPropertyListener from="#{false}" to="#{pageFlowScope.returnSelected}" type="action"/>
+          </af:button>
+        </f:facet>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+        <af:panelCollection id="pc1">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.ItemsListRo.collectionModel}" var="row" rows="#{bindings.ItemsListRo.rangeSize}"
+                    emptyText="#{bindings.ItemsListRo.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.ItemsListRo.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.ItemsListRo.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.ItemsListRo.rangeSize}"
+                    filterModel="#{bindings.ItemsListRoQuery.queryDescriptor}"
+                    queryListener="#{bindings.ItemsListRoQuery.processQuery}" filterVisible="true" varStatus="vs"
+                    id="t1">
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.Active.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.Active.label}" id="c1">
+              <af:outputText value="#{row.Active}" shortDesc="#{bindings.ItemsListRo.hints.Active.tooltip}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.CatId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.CatId.label}" id="c2">
+              <af:outputText value="#{row.CatId}" shortDesc="#{bindings.ItemsListRo.hints.CatId.tooltip}" id="ot2">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ItemsListRo.hints.CatId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.ItemCode.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.ItemCode.label}" id="c3">
+              <af:outputText value="#{row.ItemCode}" shortDesc="#{bindings.ItemsListRo.hints.ItemCode.tooltip}"
+                             id="ot3"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.ItemIndx.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.ItemIndx.label}" id="c4">
+              <af:outputText value="#{row.ItemIndx}" shortDesc="#{bindings.ItemsListRo.hints.ItemIndx.tooltip}"
+                             id="ot4"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.ItemName.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.ItemName.label}" id="c5">
+              <af:outputText value="#{row.ItemName}" shortDesc="#{bindings.ItemsListRo.hints.ItemName.tooltip}"
+                             id="ot5"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.OrgCode.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.OrgCode.label}" id="c6">
+              <af:outputText value="#{row.OrgCode}" shortDesc="#{bindings.ItemsListRo.hints.OrgCode.tooltip}" id="ot6">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ItemsListRo.hints.OrgCode.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar1.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar1.label}" id="c7">
+              <af:outputText value="#{row.StrVar1}" shortDesc="#{bindings.ItemsListRo.hints.StrVar1.tooltip}" id="ot7"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar10.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar10.label}" id="c8">
+              <af:outputText value="#{row.StrVar10}" shortDesc="#{bindings.ItemsListRo.hints.StrVar10.tooltip}"
+                             id="ot8"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar11.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar11.label}" id="c9">
+              <af:outputText value="#{row.StrVar11}" shortDesc="#{bindings.ItemsListRo.hints.StrVar11.tooltip}"
+                             id="ot9"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar12.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar12.label}" id="c10">
+              <af:outputText value="#{row.StrVar12}" shortDesc="#{bindings.ItemsListRo.hints.StrVar12.tooltip}"
+                             id="ot10"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar13.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar13.label}" id="c11">
+              <af:outputText value="#{row.StrVar13}" shortDesc="#{bindings.ItemsListRo.hints.StrVar13.tooltip}"
+                             id="ot11"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar14.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar14.label}" id="c12">
+              <af:outputText value="#{row.StrVar14}" shortDesc="#{bindings.ItemsListRo.hints.StrVar14.tooltip}"
+                             id="ot12"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar15.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar15.label}" id="c13">
+              <af:outputText value="#{row.StrVar15}" shortDesc="#{bindings.ItemsListRo.hints.StrVar15.tooltip}"
+                             id="ot13"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar16.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar16.label}" id="c14">
+              <af:outputText value="#{row.StrVar16}" shortDesc="#{bindings.ItemsListRo.hints.StrVar16.tooltip}"
+                             id="ot14"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar17.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar17.label}" id="c15">
+              <af:outputText value="#{row.StrVar17}" shortDesc="#{bindings.ItemsListRo.hints.StrVar17.tooltip}"
+                             id="ot15"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar18.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar18.label}" id="c16">
+              <af:outputText value="#{row.StrVar18}" shortDesc="#{bindings.ItemsListRo.hints.StrVar18.tooltip}"
+                             id="ot16"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar19.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar19.label}" id="c17">
+              <af:outputText value="#{row.StrVar19}" shortDesc="#{bindings.ItemsListRo.hints.StrVar19.tooltip}"
+                             id="ot17"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar2.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar2.label}" id="c18">
+              <af:outputText value="#{row.StrVar2}" shortDesc="#{bindings.ItemsListRo.hints.StrVar2.tooltip}"
+                             id="ot18"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar20.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar20.label}" id="c19">
+              <af:outputText value="#{row.StrVar20}" shortDesc="#{bindings.ItemsListRo.hints.StrVar20.tooltip}"
+                             id="ot19"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar3.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar3.label}" id="c20">
+              <af:outputText value="#{row.StrVar3}" shortDesc="#{bindings.ItemsListRo.hints.StrVar3.tooltip}"
+                             id="ot20"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar4.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar4.label}" id="c21">
+              <af:outputText value="#{row.StrVar4}" shortDesc="#{bindings.ItemsListRo.hints.StrVar4.tooltip}"
+                             id="ot21"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar5.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar5.label}" id="c22">
+              <af:outputText value="#{row.StrVar5}" shortDesc="#{bindings.ItemsListRo.hints.StrVar5.tooltip}"
+                             id="ot22"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar6.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar6.label}" id="c23">
+              <af:outputText value="#{row.StrVar6}" shortDesc="#{bindings.ItemsListRo.hints.StrVar6.tooltip}"
+                             id="ot23"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar7.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar7.label}" id="c24">
+              <af:outputText value="#{row.StrVar7}" shortDesc="#{bindings.ItemsListRo.hints.StrVar7.tooltip}"
+                             id="ot24"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar8.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar8.label}" id="c25">
+              <af:outputText value="#{row.StrVar8}" shortDesc="#{bindings.ItemsListRo.hints.StrVar8.tooltip}"
+                             id="ot25"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.StrVar9.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.StrVar9.label}" id="c26">
+              <af:outputText value="#{row.StrVar9}" shortDesc="#{bindings.ItemsListRo.hints.StrVar9.tooltip}"
+                             id="ot26"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListRo.hints.UnitId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListRo.hints.UnitId.label}" id="c27">
+              <af:outputText value="#{row.UnitId}" shortDesc="#{bindings.ItemsListRo.hints.UnitId.tooltip}" id="ot27">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ItemsListRo.hints.UnitId.format}"/>
+              </af:outputText>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:panelHeader>
+    </af:form>
+  </af:document>
+</f:view>

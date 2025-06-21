@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemCategoryTypes"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ITEM_CATEGORY_TYPES"
+  AliasName="ItemCategoryTypes"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="CatId"
+    IsNotNull="true"
+    ColumnName="cat_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ITEM_CATEGORY_TYPES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ItemTypeId"
+    IsNotNull="true"
+    ColumnName="item_type_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ITEM_CATEGORY_TYPES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="ItemCategories"
+    Association="com.aalm.center.model.entities.fk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.fk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1Assoc.ItemCategories"
+    AssociationOtherEnd="com.aalm.center.model.entities.fk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1Assoc.ItemCategoryTypes"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ItemTypes"
+    Association="com.aalm.center.model.entities.fk_ITEM_CATEGORY_TYPES_ITEM_TYPES1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.fk_ITEM_CATEGORY_TYPES_ITEM_TYPES1Assoc.ItemTypes"
+    AssociationOtherEnd="com.aalm.center.model.entities.fk_ITEM_CATEGORY_TYPES_ITEM_TYPES1Assoc.ItemCategoryTypes"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="FkItemCategoryTypesItemCategories1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="FkItemCategoryTypesItemTypes1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ITEM_CATEGORY_TYPES_ITEM_TYPES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="fk_ItemCategoryTypes">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Item_Category_Types"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.ItemCategoryTypes.CatId"/>
+    </AttrArray>
+  </Key>
+</Entity>

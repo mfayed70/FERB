@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="stndrd-role-perms-TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>Execute</default-activity>
+    <managed-bean id="__4">
+      <managed-bean-name>ErpAdminClass</managed-bean-name>
+      <managed-bean-class>com.aalm.master.view.beans.ErpAdminClass</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="stndrd-role-perms">
+      <page>/WEB-INF/ErpAdmin/stndrd-role-perms.jsff</page>
+    </view>
+    <task-flow-call id="granted-syss-fns-CRUD-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/ErpAdmin/granted-syss-fns-CRUD-TF.xml</document>
+        <id>granted-syss-fns-CRUD-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__3">
+        <name>pGrpRolId</name>
+        <value>#{pageFlowScope.pGrpRolId}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>stndrd-role-perms</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toGrant</from-outcome>
+        <to-activity-id>granted-syss-fns-CRUD-TF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>Execute</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>stndrd-role-perms</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

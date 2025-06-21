@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="fk_CURRENCY_TRANSFORM_CURRENCIES1"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Currencies"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.center.model.entities.Currencies"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Currencies"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.Currencies.CurrCode"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="CurrencyTransform"
+    Cardinality="-1"
+    Owner="com.aalm.center.model.entities.CurrencyTransform">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="CurrencyTransform"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.CurrencyTransform.FromCurrCode"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

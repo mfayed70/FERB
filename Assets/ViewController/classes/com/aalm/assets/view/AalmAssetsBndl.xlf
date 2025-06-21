@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.assets.view.AalmAssetsBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="SETUP_DATA">
+        <source>Setup Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DEPRECIATION_TYPES">
+        <source>Depreciation Types</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSETS_GROUPS">
+        <source>Assets Groups</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSETS_PROPERTIES">
+        <source>Assets Properties</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>cancel</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>Save</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW">
+        <source>New</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSETS_TRANSACTION_TYPES">
+        <source>Assets Transaction Types</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSETS_DATA">
+        <source>Assets Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BACK">
+        <source>Back</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSET_PROPERTIES">
+        <source>Asset Properties</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSET_SPARE_PARTS">
+        <source>Asset Spare Parts</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AddProperty">
+        <source>Add Property</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AssetsSpareParts">
+        <source>Assets Spare Parts</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AddSparePart">
+        <source>Add Spare Part</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AssetsTransactions">
+        <source>Assets Transactions</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Ser.">
+        <source>Ser.</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

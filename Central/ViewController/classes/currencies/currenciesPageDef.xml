@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="currenciesPageDef"
+                Package="currencies">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CurrencyTransformV" RangeSize="25" DataControl="AalmCentralDataControl"
+              id="CurrencyTransformVIterator"/>
+    <iterator Binds="CurrenciesV" RangeSize="25" DataControl="AalmCentralDataControl" id="CurrenciesVIterator"/>
+    <searchRegion Binds="CurrenciesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CurrenciesVQuery"/>
+    <searchRegion Binds="CurrencyTransformVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CurrencyTransformVQuery"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CurrencyTransformVIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmCentralDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AalmCentralDataControl"/>
+    <tree IterBinding="CurrenciesVIterator" id="CurrenciesV">
+      <nodeDefinition DefName="com.aalm.center.model.views.CurrenciesV" Name="CurrenciesV0">
+        <AttrNames>
+          <Item Value="CurrCode"/>
+          <Item Value="CurrName"/>
+          <Item Value="CurrSymbol"/>
+          <Item Value="DefaultCurr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CurrencyTransformVIterator" id="CurrencyTransformV">
+      <nodeDefinition DefName="com.aalm.center.model.views.CurrencyTransformV" Name="CurrencyTransformV0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="ToCurrCode"/>
+          <Item Value="MultiplyBy"/>
+          <Item Value="FromCurrCode"/>
+          <Item Value="TransformDt"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

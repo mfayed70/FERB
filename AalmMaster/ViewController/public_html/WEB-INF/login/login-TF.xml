@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="login-TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>login</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name>LoginBean</managed-bean-name>
+      <managed-bean-class>com.aalm.master.view.beans.LoginBean</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="login">
+      <page>/WEB-INF/login/login.jsff</page>
+    </view>
+    <view id="forgot-pswrd">
+      <page>/WEB-INF/login/forgot-pswrd.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>login</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toForgotPswrd</from-outcome>
+        <to-activity-id>forgot-pswrd</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>forgot-pswrd</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>backToLogin</from-outcome>
+        <to-activity-id>login</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

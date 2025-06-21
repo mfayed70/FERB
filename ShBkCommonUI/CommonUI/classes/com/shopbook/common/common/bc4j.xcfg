@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.shopbook.common.AalmCommon">
+      <AppModuleConfig name="AalmCommonDataControlLocal" ApplicationName="com.shopbook.common.AalmCommon" DeployPlatform="LOCAL" jbo.project="com.shopbook.common.ui.CommonUI">
+         <Database jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQL92"/>
+         <Security AppModuleJndiName="com.shopbook.common.AalmCommon"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/eleconConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AalmCommonDataControlShared" ApplicationName="com.shopbook.common.AalmCommon" DeployPlatform="LOCAL" jbo.project="com.shopbook.common.ui.CommonUI">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Database jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQL92"/>
+         <Security AppModuleJndiName="com.shopbook.common.AalmCommon"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/eleconConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

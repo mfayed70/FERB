@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.hr.view.AalmHrBndl_ar" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="JOBS">
+        <source>الوظائـــف</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="CANCEL">
+        <source>إلغــاء</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>حفـــظ</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW">
+        <source>جديد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EMPLOYEES">
+        <source>الموظفـــين</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT___NEW_EMPLOYEE">
+        <source>تعديل / موظــف جديـد</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="EMPLOYEE_JOB_HISTORY">
+        <source>التاريخ الوظيفي للموظف</source>
+        <target/>
+      </trans-unit>
+      
+    </body>
+  </file>
+</xliff>

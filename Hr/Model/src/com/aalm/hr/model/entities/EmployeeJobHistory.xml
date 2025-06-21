@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeeJobHistory"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="EMPLOYEE_JOB_HISTORY"
+  AliasName="EmployeeJobHistory"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="Seq"
+    IsNotNull="true"
+    ColumnName="seq"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEE_JOB_HISTORY"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.entities.EmployeeJobHistory.Seq_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="EmpId"
+    IsNotNull="true"
+    ColumnName="emp_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEE_JOB_HISTORY"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="JobId"
+    IsNotNull="true"
+    ColumnName="job_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEE_JOB_HISTORY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FrmDt"
+    IsNotNull="true"
+    ColumnName="frm_dt"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="EMPLOYEE_JOB_HISTORY"/>
+  <Attribute
+    Name="ToDt"
+    ColumnName="to_dt"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="EMPLOYEE_JOB_HISTORY"/>
+  <AccessorAttribute
+    Name="Employees"
+    Association="com.aalm.hr.model.entities.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1Assoc"
+    AssociationEnd="com.aalm.hr.model.entities.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1Assoc.Employees"
+    AssociationOtherEnd="com.aalm.hr.model.entities.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1Assoc.EmployeeJobHistory"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeeJobHistory.Seq"/>
+      <Item Value="com.aalm.hr.model.entities.EmployeeJobHistory.EmpId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkEmployeeJobHistoryEmployees1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeeJobHistory.EmpId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkEmployeeJobHistoryJobs1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_EMPLOYEE_JOB_HISTORY_JOBS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeeJobHistory.JobId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_EmployeeJobHistory">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Employee_Job_History"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeeJobHistory.EmpId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.hr.model.AalmHrMBndl"/>
+  </ResourceBundle>
+</Entity>

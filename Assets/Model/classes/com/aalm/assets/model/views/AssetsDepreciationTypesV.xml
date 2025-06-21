@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AssetsDepreciationTypesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="IncreaseOrFixedLOV1"
+    ViewObjectName="com.aalm.assets.model.lovs.IncreaseOrFixedLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="YearlsOrHours1"
+    ViewObjectName="com.aalm.assets.model.lovs.YearlsOrHours"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_IncreaseOrFixed"
+    ListVOName="IncreaseOrFixedLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IncreaseOrFixed"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_YearOrHours"
+    ListVOName="YearlsOrHours1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="YearOrHours"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="AssetsDepreciationTypes"
+    Entity="com.aalm.assets.model.entities.AssetsDepreciationTypes"/>
+  <ViewAttribute
+    Name="AssDeprId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AssDeprId"
+    EntityUsage="AssetsDepreciationTypes"
+    AliasName="ass_depr_id"/>
+  <ViewAttribute
+    Name="AssDeprName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AssDeprName"
+    EntityUsage="AssetsDepreciationTypes"
+    AliasName="ass_depr_name"/>
+  <ViewAttribute
+    Name="YearlyDepreciationPerc"
+    PrecisionRule="true"
+    EntityAttrName="YearlyDepreciationPerc"
+    EntityUsage="AssetsDepreciationTypes"
+    AliasName="yearly_depreciation_perc"/>
+  <ViewAttribute
+    Name="IncreaseOrFixed"
+    PrecisionRule="true"
+    EntityAttrName="IncreaseOrFixed"
+    EntityUsage="AssetsDepreciationTypes"
+    AliasName="increase_or_fixed"
+    LOVName="LOV_IncreaseOrFixed">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="YearOrHours"
+    PrecisionRule="true"
+    EntityAttrName="YearOrHours"
+    EntityUsage="AssetsDepreciationTypes"
+    AliasName="year_or_hours"
+    LOVName="LOV_YearOrHours">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+</ViewObject>

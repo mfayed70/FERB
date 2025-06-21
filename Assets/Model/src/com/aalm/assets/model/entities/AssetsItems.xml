@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AssetsItems"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ASSETS_ITEMS"
+  AliasName="AssetsItems"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="Id"
+    IsNotNull="flase"
+    ColumnName="id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ASSETS_ITEMS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Registr"
+    ColumnName="registr"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="ASSETS_ITEMS"/>
+  <Attribute
+    Name="Qty"
+    ColumnName="qty"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ASSETS_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AssetId"
+    IsNotNull="true"
+    Precision="7"
+    ColumnName="asset_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ASSETS_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ItemCode"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="item_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ASSETS_ITEMS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="AssetsBasicData"
+    Association="com.aalm.assets.model.entities.FkAssetsItemsAssetsBasicData1Assoc"
+    AssociationEnd="com.aalm.assets.model.entities.FkAssetsItemsAssetsBasicData1Assoc.AssetsBasicData"
+    AssociationOtherEnd="com.aalm.assets.model.entities.FkAssetsItemsAssetsBasicData1Assoc.AssetsItems"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ItemsList"
+    Association="com.aalm.assets.model.entities.fk_ASSETS_ITEMS_ITEMS_LIST1Assoc"
+    AssociationEnd="com.aalm.assets.model.entities.fk_ASSETS_ITEMS_ITEMS_LIST1Assoc.ItemsList"
+    AssociationOtherEnd="com.aalm.assets.model.entities.fk_ASSETS_ITEMS_ITEMS_LIST1Assoc.AssetsItems"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetsItems.Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkAssetsItemsAssetsBasicData1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ASSETS_ITEMS_ASSETS_BASIC_DATA1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetsItems.AssetId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkAssetsItemsItemsList1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ASSETS_ITEMS_ITEMS_LIST1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetsItems.ItemCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_AssetsItems">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Assets_Items"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetsItems.AssetId"/>
+    </AttrArray>
+  </Key>
+</Entity>

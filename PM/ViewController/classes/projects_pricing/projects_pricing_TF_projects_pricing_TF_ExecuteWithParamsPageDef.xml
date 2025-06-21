@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="projects_pricing_TF_projects_pricing_TF_ExecuteWithParamsPageDef" Package="projects_pricing"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ProjectMastV" RangeSize="25" DataControl="AalmPmDataControl" id="ProjectMastVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ProjectMastVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams" InstanceName="AalmPmDataControl.ProjectMastV" DataControl="AalmPmDataControl">
+      <NamedData NDName="pProjId" NDValue="#{pageFlowScope.pProjId}" NDType="java.lang.Integer"/>
+      <NamedData NDName="pVerNo" NDValue="#{pageFlowScope.pVersionNo}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

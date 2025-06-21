@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnfProcessStructureV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT 
+    MnfProcessStructure.seq, 
+    MnfProcessStructure.mnf_prcs_id, 
+    MnfProcessStructure.prnt_mnf_prcs_id1, 
+    MnfProcessStructure.active, 
+    MNF_PROCESSES.mnf_prcs_name mnf_prcs_name, 
+    MNF_PROCESSES.has_action has_action 
+FROM 
+    MNF_PROCESS_STRUCTURE MnfProcessStructure, 
+    MNF_PROCESSES 
+WHERE 
+    MnfProcessStructure.mnf_prcs_id = MNF_PROCESSES.mnf_prcs_id]]></SQLQuery>
+  <EntityUsage
+    Name="MnfProcessStructure"
+    Entity="com.aalm.mnf.model.entities.MnfProcessStructure"/>
+  <ViewAttribute
+    Name="Seq"
+    PrecisionRule="true"
+    EntityAttrName="Seq"
+    EntityUsage="MnfProcessStructure"
+    AliasName="seq"/>
+  <ViewAttribute
+    Name="MnfPrcsId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MnfPrcsId"
+    EntityUsage="MnfProcessStructure"
+    AliasName="mnf_prcs_id"/>
+  <ViewAttribute
+    Name="PrntMnfPrcsId1"
+    PrecisionRule="true"
+    EntityAttrName="PrntMnfPrcsId1"
+    EntityUsage="MnfProcessStructure"
+    AliasName="prnt_mnf_prcs_id1"/>
+  <ViewAttribute
+    Name="Active"
+    PrecisionRule="true"
+    EntityAttrName="Active"
+    EntityUsage="MnfProcessStructure"
+    AliasName="active"/>
+  <ViewAttribute
+    Name="MnfPrcsName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="mnf_prcs_name"
+    Expression="mnf_prcs_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="HasAction"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="has_action"
+    Expression="has_action"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="MnfProcessStructureVCriteria"
+    ViewObjectName="com.aalm.mnf.model.views.MnfProcessStructureV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="MnfProcessStructureVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PrntMnfPrcsId1"
+        ViewAttribute="PrntMnfPrcsId1"
+        Operator="ISBLANK"
+        Conjunction="AND"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="MnfProcessStructureV"
+    ViewLink="com.aalm.mnf.model.views.MnfProcessStructureTreeCL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

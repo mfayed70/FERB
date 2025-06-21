@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">gl_org_cost_centers</property>
+      <property
+         name="page">/WEB-INF/gl_org_cost_centers/gl_org_cost_centers.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>gl_org_cost_centers&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">281.28125</property>
+      <property
+         name="x">323.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="taskFlowId">crud-gl_org_cost_centers-TF</property>
+      <property
+         name="activityId">crud-gl_org_cost_centers-TF</property>
+      <property
+         name="documentReference">/WEB-INF/gl_org_cost_centers/crud-gl_org_cost_centers-TF.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>crud-gl_org_cost_centers-TF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">282.5625</property>
+      <property
+         name="x">586.12305</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">toCrud</property>
+      <property
+         name="sdm:polyPoints">R50,364.0,281.29688,545.12305,282.57812,L50</property>
+   </ControlFlowCase>
+</SDM>

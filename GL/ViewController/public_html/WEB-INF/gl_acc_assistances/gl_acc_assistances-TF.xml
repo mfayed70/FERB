@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="gl_acc_assistances-TF">
+    <default-activity>ExecuteWithParams</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__6">
+      <name>pAccCode</name>
+      <value>#{pageFlowScope.pAccCode}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <view id="gl_acc_assistances">
+      <page>/WEB-INF/gl_acc_assistances/gl_acc_assistances.jsf</page>
+    </view>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="rollback">
+      <outcome>
+        <name>rollback</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="commit">
+      <outcome>
+        <name>commit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>gl_acc_assistances</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>gl_acc_assistances</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>rollback</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

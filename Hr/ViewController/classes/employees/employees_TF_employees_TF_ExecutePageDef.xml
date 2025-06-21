@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="employees_TF_employees_TF_ExecutePageDef" Package="employees" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="EmployeesV" RangeSize="25" DataControl="AalmHrDataControl" id="EmployeesVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="EmployeesVIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

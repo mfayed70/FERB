@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="suppliersPageDef"
+                Package="suppliers">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SuppliersV" RangeSize="25" DataControl="AalmPrcrmntDataControl" id="SuppliersVIterator"/>
+    <searchRegion Binds="SuppliersVIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="SuppliersVQuery"/>
+    <iterator Binds="SupplierDeliverItemCatsV" RangeSize="25" DataControl="AalmPrcrmntDataControl"
+              id="SupplierDeliverItemCatsVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SuppliersVIterator" id="SuppliersV">
+      <nodeDefinition DefName="com.aalm.prcrmnt.model.views.SuppliersV" Name="SuppliersV0">
+        <AttrNames>
+          <Item Value="SuppId"/>
+          <Item Value="SuppName"/>
+          <Item Value="Address"/>
+          <Item Value="Mobile"/>
+          <Item Value="SegelNo"/>
+          <Item Value="ContactPerson"/>
+          <Item Value="Email"/>
+          <Item Value="Website"/>
+          <Item Value="SuppType"/>
+          <Item Value="SuppCategory"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SupplierDeliverItemCatsVIterator" id="SupplierDeliverItemCatsV">
+      <nodeDefinition DefName="com.aalm.prcrmnt.model.views.SupplierDeliverItemCatsV" Name="SupplierDeliverItemCatsV0">
+        <AttrNames>
+          <Item Value="CatId"/>
+          <Item Value="Active" Binds="Active"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="SupplierDeliverItemCatsVIterator" id="Active" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Active"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <action IterBinding="SupplierDeliverItemCatsVIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AalmPrcrmntDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmPrcrmntDataControl"/>
+  </bindings>
+</pageDefinition>

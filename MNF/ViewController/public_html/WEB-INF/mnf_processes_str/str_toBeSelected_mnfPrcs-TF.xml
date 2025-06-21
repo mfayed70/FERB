@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="str_toBeSelected_mnfPrcs-TF">
+    <default-activity>ExecuteWithParams</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>pMnfProcess</name>
+      <value>#{pageFlowScope.pMnfProcess}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__2">
+      <name>pPrntMnfProcess</name>
+      <value>#{pageFlowScope.pPrntMnfProcess}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__3">
+      <name>pMnfAssemblies</name>
+      <value>#{pageFlowScope.pMnfAssemblies}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__9">
+      <managed-bean-name>MnfBean</managed-bean-name>
+      <managed-bean-class>com.aalm.mnf.view.beans.MnfBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="str_toBeSelected_mnfPrcs">
+      <page>/WEB-INF/mnf_processes_str/str_toBeSelected_mnfPrcs.jsf</page>
+    </view>
+    <task-flow-return id="commit">
+      <outcome>
+        <name>commit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="rollback">
+      <outcome>
+        <name>rollback</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__4">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>str_toBeSelected_mnfPrcs</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>str_toBeSelected_mnfPrcs</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

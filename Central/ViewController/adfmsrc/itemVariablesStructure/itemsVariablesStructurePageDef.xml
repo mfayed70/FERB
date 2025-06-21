@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="itemsVariablesStructurePageDef"
+                Package="itemVariablesStructure">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ItemVariablesV" RangeSize="25" DataControl="AalmCentralDataControl" id="ItemVariablesVIterator"/>
+    <iterator Binds="ItemVariableValuesV" RangeSize="25" DataControl="AalmCentralDataControl"
+              id="ItemVariableValuesVIterator"/>
+    <iterator Binds="ItemVariablesTestV" RangeSize="25" DataControl="AalmCentralDataControl"
+              id="ItemVariablesTestVIterator"/>
+    <searchRegion Binds="ItemVariableValuesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ItemVariableValuesVQuery"/>
+    <searchRegion Binds="ItemVariablesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ItemVariablesV1Query"/>
+    <iterator Binds="ItemVariablesVaaluesStatistics" RangeSize="25" DataControl="AalmCentralDataControl"
+              id="ItemVariablesVaaluesStatisticsIterator"/>
+    <iterator Binds="DummyUnitsCategoriesV" RangeSize="25" DataControl="AalmCentralDataControl"
+              id="DummyUnitsCategoriesVIterator"/>
+    <searchRegion Binds="ItemVariablesTestVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ItemVariablesTestVQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ItemVariablesVIterator" id="ItemVariablesV">
+      <nodeDefinition DefName="com.aalm.center.model.views.ItemVariablesV" Name="ItemVariablesV0">
+        <AttrNames>
+          <Item Value="VarCode"/>
+          <Item Value="VarName"/>
+          <Item Value="Ordr"/>
+          <Item Value="ColNameInItems"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="ItemVariableValuesVIterator" id="CartizianApplied" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="CartizianApplied"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <action IterBinding="ItemVariableValuesVIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmCentralDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AalmCentralDataControl"/>
+    <methodAction id="create_items_from_variables" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="create_items_from_variables" IsViewObjectMethod="false"
+                  DataControl="AalmCentralDataControl" InstanceName="data.AalmCentralDataControl.dataProvider"
+                  ReturnName="data.AalmCentralDataControl.methodResults.create_items_from_variables_AalmCentralDataControl_dataProvider_create_items_from_variables_result">
+      <NamedData NDName="catId" NDValue="#{bindings.DCatId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="unitId" NDValue="#{bindings.DUnitId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="orgCode" NDValue="#{sessionScope.orgCode==null ? 2 :sessionScope.orgCode}" NDType="java.lang.Integer"/>
+    </methodAction>
+    <methodAction id="create_items_from_item_variables_test" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="create_items_from_item_variables_test" IsViewObjectMethod="false"
+                  DataControl="AalmCentralDataControl" InstanceName="data.AalmCentralDataControl.dataProvider"
+                  ReturnName="data.AalmCentralDataControl.methodResults.create_items_from_item_variables_test_AalmCentralDataControl_dataProvider_create_items_from_item_variables_test_result"/>
+    <tree IterBinding="ItemVariableValuesVIterator" id="ItemVariableValuesV">
+      <nodeDefinition DefName="com.aalm.center.model.views.ItemVariableValuesV" Name="ItemVariableValuesV0">
+        <AttrNames>
+          <Item Value="VarCode"/>
+          <Item Value="VarValCode"/>
+          <Item Value="VarValValue"/>
+          <Item Value="CartizianApplied" Binds="CartizianApplied"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ItemVariablesVIterator" id="ItemVariablesV1">
+      <nodeDefinition DefName="com.aalm.center.model.views.ItemVariablesV" Name="ItemVariablesV10">
+        <AttrNames>
+          <Item Value="VarCode"/>
+          <Item Value="VarName"/>
+          <Item Value="ColNameInItems"/>
+          <Item Value="Ordr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="delete_items_from_item_variables_test" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="delete_items_from_item_variables_test" IsViewObjectMethod="false"
+                  DataControl="AalmCentralDataControl" InstanceName="data.AalmCentralDataControl.dataProvider"
+                  ReturnName="data.AalmCentralDataControl.methodResults.delete_items_from_item_variables_test_AalmCentralDataControl_dataProvider_delete_items_from_item_variables_test_result"/>
+    <action IterBinding="ItemVariablesVIterator" id="setCurrentRowWithKeyValue"
+            InstanceName="AalmCentralDataControl.ItemVariablesV" DataControl="AalmCentralDataControl"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="ItemVariablesVaaluesStatisticsIterator" id="ItemVariablesVaaluesStatistics">
+      <nodeDefinition DefName="com.aalm.center.model.views.ItemVariablesVaaluesStatistics"
+                      Name="ItemVariablesVaaluesStatistics0">
+        <AttrNames>
+          <Item Value="ColNameInItems"/>
+          <Item Value="YesCount"/>
+          <Item Value="VarCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="DummyUnitsCategoriesVIterator" StaticList="false" Uses="LOV_DCatId" id="DCatId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="DummyUnitsCategoriesVIterator" StaticList="false" Uses="LOV_DUnitId" id="DUnitId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="DummyUnitsCategoriesVIterator" StaticList="false" Uses="LOV_DOrgCode" id="DOrgCode"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="ItemVariablesTestVIterator" id="ItemVariablesTestV">
+      <nodeDefinition DefName="com.aalm.center.model.views.ItemVariablesTestV" Name="ItemVariablesTestV0">
+        <AttrNames>
+          <Item Value="ItemCode"/>
+          <Item Value="ItemName"/>
+          <Item Value="StrVar1"/>
+          <Item Value="StrVar2"/>
+          <Item Value="StrVar3"/>
+          <Item Value="StrVar4"/>
+          <Item Value="StrVar5"/>
+          <Item Value="StrVar6"/>
+          <Item Value="StrVar7"/>
+          <Item Value="StrVar8"/>
+          <Item Value="StrVar9"/>
+          <Item Value="StrVar10"/>
+          <Item Value="StrVar11"/>
+          <Item Value="StrVar12"/>
+          <Item Value="StrVar13"/>
+          <Item Value="StrVar14"/>
+          <Item Value="StrVar15"/>
+          <Item Value="StrVar16"/>
+          <Item Value="StrVar17"/>
+          <Item Value="StrVar18"/>
+          <Item Value="StrVar19"/>
+          <Item Value="StrVar20"/>
+          <Item Value="UnitId"/>
+          <Item Value="CatId"/>
+          <Item Value="OrgCode"/>
+          <Item Value="Selected" Binds="Selected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ItemVariablesTestVIterator" id="Delete"
+            InstanceName="AalmCentralDataControl.ItemVariablesTestV" DataControl="AalmCentralDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <button IterBinding="ItemVariablesTestVIterator" id="Selected" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Selected"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <methodAction id="validate_var_value" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="validate_var_value" IsViewObjectMethod="false" DataControl="AalmCentralDataControl"
+                  InstanceName="data.AalmCentralDataControl.dataProvider"
+                  ReturnName="data.AalmCentralDataControl.methodResults.validate_var_value_AalmCentralDataControl_dataProvider_validate_var_value_result">
+      <NamedData NDName="v_val" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

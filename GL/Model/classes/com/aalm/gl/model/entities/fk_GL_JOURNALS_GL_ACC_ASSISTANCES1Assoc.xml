@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="fk_GL_JOURNALS_GL_ACC_ASSISTANCES1Assoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="GlAccAssistances"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.gl.model.entities.GlAccAssistances"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="GlAccAssistances"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlAccAssistances.AssCode"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="GlJournals"
+    Cardinality="-1"
+    Owner="com.aalm.gl.model.entities.GlJournals">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="GlJournals"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlJournals.AssCode"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

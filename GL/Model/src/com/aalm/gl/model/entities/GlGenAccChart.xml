@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlGenAccChart"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="GL_GEN_ACC_CHART"
+  AliasName="GlGenAccChart"
+  BindingStyle="JDBC"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <Attribute
+    Name="AccCode"
+    IsNotNull="true"
+    ColumnName="acc_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_GEN_ACC_CHART"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <validation:RangeValidationBean
+      Name="AccCodeRule0"
+      ResId="ACC_CODE_RANGES_BETWEEN_1_999999999"
+      OnAttribute="AccCode"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="1"
+      MaxValue="999999999"/>
+  </Attribute>
+  <Attribute
+    Name="AccNameA"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="acc_name_a"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="GL_GEN_ACC_CHART">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AccNameE"
+    Precision="200"
+    ColumnName="acc_name_e"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="GL_GEN_ACC_CHART">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PrntAccCode"
+    ColumnName="prnt_acc_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_GEN_ACC_CHART"
+    Precision="11">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AccTypeId"
+    ColumnName="acc_type_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_GEN_ACC_CHART">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="GlGenAccChart1"
+    Association="com.aalm.gl.model.entities.FkGlGenAccChartGlGenAccChart1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.FkGlGenAccChartGlGenAccChart1Assoc.GlGenAccChart1"
+    AssociationOtherEnd="com.aalm.gl.model.entities.FkGlGenAccChartGlGenAccChart1Assoc.PrntAccCodeGlGenAccChart"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PrntAccCodeGlGenAccChart"
+    Association="com.aalm.gl.model.entities.FkGlGenAccChartGlGenAccChart1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.FkGlGenAccChartGlGenAccChart1Assoc.PrntAccCodeGlGenAccChart"
+    AssociationOtherEnd="com.aalm.gl.model.entities.FkGlGenAccChartGlGenAccChart1Assoc.GlGenAccChart1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlAccTypes"
+    Association="com.aalm.gl.model.entities.FkGlGenAccChartGlAccTypes1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.FkGlGenAccChartGlAccTypes1Assoc.GlAccTypes"
+    AssociationOtherEnd="com.aalm.gl.model.entities.FkGlGenAccChartGlAccTypes1Assoc.GlGenAccChart"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlGenAccChart.AccCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkGlGenAccChartGlAccTypes1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_GEN_ACC_CHART_GL_ACC_TYPES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlGenAccChart.AccTypeId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkGlGenAccChartGlGenAccChart1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_GEN_ACC_CHART_GL_GEN_ACC_CHART1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlGenAccChart.PrntAccCode"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.gl.model.AalmGlBndl"/>
+  </ResourceBundle>
+</Entity>

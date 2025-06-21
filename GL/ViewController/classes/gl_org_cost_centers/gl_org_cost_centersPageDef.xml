@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="gl_org_cost_centersPageDef"
+                Package="gl_org_cost_centers">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlCostCentersV" RangeSize="25" DataControl="AalmGlDataControl" id="GlCostCentersVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="GlCostCentersVIterator" id="GlCostCentersV">
+      <nodeDefinition DefName="com.aalm.gl.model.views.GlCostCentersV" Name="GlCostCentersV0">
+        <AttrNames>
+          <Item Value="CostCenterCode"/>
+          <Item Value="CostCenterNameA"/>
+          <Item Value="CostCenterNameE"/>
+          <Item Value="OrgCode"/>
+          <Item Value="PrntCostCenterCode"/>
+          <Item Value="ChildCount"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="GlCostCentersV"/>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmGlDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmGlDataControl"/>
+  </bindings>
+</pageDefinition>

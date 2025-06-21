@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.hr.view.AalmHrBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="JOBS">
+        <source>Jobs</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>cancel</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>Save</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW">
+        <source>New</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EMPLOYEES">
+        <source>Employees</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT___NEW_EMPLOYEE">
+        <source>Edit / New Employee</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EMPLOYEE_JOB_HISTORY">
+        <source>Employee Job History</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EmployeeContract">
+        <source>Employee Contract</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="contracts">
+        <source>contracts</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NewContract">
+        <source>New Contract</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PersonalPhoto">
+        <source>Personal Photo</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="IDPhoto">
+        <source>ID Photo</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Edu.Cer.Photo">
+        <source>Edu. Cer. Photo</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="OthersPhoto">
+        <source>Others Photo</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

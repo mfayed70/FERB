@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.aalm.mnf.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/Mnf-Process-basic-Data/mnf-process-basic-data.jsff"
+          usageId="com_aalm_mnf_view_mnf_process_basic_dataPageDef"/>
+    <page path="/Test.jsf" usageId="com_aalm_mnf_view_TestPageDef"/>
+    <page path="/WEB-INF/mnf_processes_str/mnf_processes_str-TF.xml#mnf_processes_str-TF@Execute"
+          usageId="com_aalm_mnf_view_mnf_processes_str_TF_mnf_processes_str_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/mnf_processes_str/str_toBeSelected_mnfPrcs-TF.xml#str_toBeSelected_mnfPrcs-TF@ExecuteWithParams"
+          usageId="com_aalm_mnf_view_str_toBeSelected_mnfPrcs_TF_str_toBeSelected_mnfPrcs_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/mnf_processes_str/mnf-processes-str.jsff"
+          usageId="com_aalm_mnf_view_mnf_processes_strPageDef"/>
+    <page path="/WEB-INF/mnf_processes_str/str_toBeSelected_mnfPrcs.jsf"
+          usageId="com_aalm_mnf_view_str_toBeSelected_mnfPrcsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_aalm_mnf_view_mnf_process_basic_dataPageDef"
+          path="Mnf_Process_basic_Data.mnf_process_basic_dataPageDef"/>
+    <page id="com_aalm_mnf_view_TestPageDef" path="com.aalm.mnf.view.pageDefs.TestPageDef"/>
+    <page id="com_aalm_mnf_view_mnf_processes_str_TF_mnf_processes_str_TF_ExecutePageDef"
+          path="mnf_processes_str.mnf_processes_str_TF_mnf_processes_str_TF_ExecutePageDef"/>
+    <page id="com_aalm_mnf_view_str_toBeSelected_mnfPrcs_TF_str_toBeSelected_mnfPrcs_TF_ExecuteWithParamsPageDef"
+          path="mnf_processes_str.str_toBeSelected_mnfPrcs_TF_str_toBeSelected_mnfPrcs_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_mnf_view_mnf_processes_strPageDef" path="mnf_processes_str.mnf_processes_strPageDef"/>
+    <page id="com_aalm_mnf_view_str_toBeSelected_mnfPrcsPageDef"
+          path="mnf_processes_str.str_toBeSelected_mnfPrcsPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AalmMnfDataControl" Package="com.aalm.mnf.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AalmMnfAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

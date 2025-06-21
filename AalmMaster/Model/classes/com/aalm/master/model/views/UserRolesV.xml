@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserRolesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="pSystemId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT UserRoles.system_id, 
+       UserRoles.user_id, 
+       UserRoles.role_group_id, 
+       Systems.system_id AS System_Id1, 
+       Systems.ar_system_name, 
+       Systems.en_system_name, 
+       Systems.en_system_desc, 
+       Systems.ar_system_desc
+FROM  USER_ROLES UserRoles
+INNER JOIN SYSTEMS Systems 
+ON (UserRoles.system_id = Systems.system_id 
+and Systems.system_id in ( select system_id from SYSTEM_FNCTNS SystemFnctns
+		where Systems.system_id = SystemFnctns.system_id and SystemFnctns.tf_link is not null ))]]></SQLQuery>
+  <EntityUsage
+    Name="UserRoles"
+    Entity="com.aalm.master.model.entities.UserRoles"/>
+  <EntityUsage
+    Name="Systems"
+    Entity="com.aalm.master.model.entities.Systems"
+    Association="com.aalm.master.model.entities.FkUserRolesSystems1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkUserRolesSystems1Assoc.Systems"
+    SourceUsage="com.aalm.master.model.views.UserRolesV.UserRoles"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.aalm.master.model.entities.UserRoles.SystemId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.aalm.master.model.entities.Systems.SystemId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="SystemId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SystemId"
+    EntityUsage="UserRoles"
+    AliasName="system_id"/>
+  <ViewAttribute
+    Name="UserId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="UserRoles"
+    AliasName="user_id"/>
+  <ViewAttribute
+    Name="RoleGroupId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RoleGroupId"
+    EntityUsage="UserRoles"
+    AliasName="role_group_id"/>
+  <ViewAttribute
+    Name="ArSystemDesc"
+    PrecisionRule="true"
+    EntityAttrName="ArSystemDesc"
+    EntityUsage="Systems"
+    AliasName="ar_system_desc"/>
+  <ViewAttribute
+    Name="ArSystemName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ArSystemName"
+    EntityUsage="Systems"
+    AliasName="ar_system_name"/>
+  <ViewAttribute
+    Name="EnSystemName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EnSystemName"
+    EntityUsage="Systems"
+    AliasName="en_system_name"/>
+  <ViewAttribute
+    Name="EnSystemDesc"
+    PrecisionRule="true"
+    EntityAttrName="EnSystemDesc"
+    EntityUsage="Systems"
+    AliasName="en_system_desc"/>
+  <ViewAttribute
+    Name="SystemId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SystemId"
+    EntityUsage="Systems"
+    AliasName="System_Id1"/>
+  <ViewCriteria
+    Name="UserRolesVCriteria"
+    ViewObjectName="com.aalm.master.model.views.UserRolesV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="UserRolesVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SystemId"
+        ViewAttribute="SystemId"
+        Operator="="
+        Conjunction="AND"
+        Value=":pSystemId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="RoleGroupId"/>
+    <Item Value="SystemId"/>
+    <Item Value="UserId"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="UserPermissionsV"
+    ViewLink="com.aalm.master.model.views.FkUserPermissionsUserRoles1VL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

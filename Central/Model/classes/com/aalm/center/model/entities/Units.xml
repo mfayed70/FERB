@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Units"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="UNITS"
+  AliasName="Units"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="UnitId"
+    ColumnName="unit_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="UNITS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.Units.UnitId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="UnitName"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="unit_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.Units.UnitName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="RegisterDt"
+    ColumnName="register_dt"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="UNITS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.Units.RegisterDt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="UnitsTransform"
+    Association="com.aalm.center.model.entities.FkUnitsTransformUnits2Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkUnitsTransformUnits2Assoc.UnitsTransform"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkUnitsTransformUnits2Assoc.Units"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="UnitsTransform1"
+    Association="com.aalm.center.model.entities.FkUnitsTransformUnits1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.FkUnitsTransformUnits1Assoc.UnitsTransform1"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkUnitsTransformUnits1Assoc.Units1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ItemsList1"
+    Association="com.aalm.center.model.entities.FkItemsListUnitsAssoc"
+    AssociationEnd="com.aalm.center.model.entities.FkItemsListUnitsAssoc.ItemsList1"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkItemsListUnitsAssoc.Units"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.Units.UnitId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.center.model.AalmCenteralMBndl"/>
+  </ResourceBundle>
+</Entity>

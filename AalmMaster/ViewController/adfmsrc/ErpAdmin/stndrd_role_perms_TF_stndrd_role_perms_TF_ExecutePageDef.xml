@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="stndrd_role_perms_TF_stndrd_role_perms_TF_ExecutePageDef" Package="ErpAdmin" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="RoleMasterV" RangeSize="25" DataControl="AalmMasterDataControl" id="RoleMasterVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="RoleMasterVIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

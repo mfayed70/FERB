@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/clients/clients-TF.xml" id="clients-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/projects/projects-TF.xml" id="projects-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
+   <task-flow-descriptor path="WEB-INF/projects-pricing/projects-pricing_TF.xml" id="projects-pricing_TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="pVersionNo"/>
+      <input-parameter name="pProjId"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/selectItem-TF.xml" id="selectItem-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/clients/clients-CRUD-TF.xml" id="clients-CRUD-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pCustId"/>
+   </task-flow-descriptor>
+</task-flow-registry>

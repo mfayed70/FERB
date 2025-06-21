@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.gl.view.AalmGlBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.GENERAL_ACCOUNT_CHART}" id="ph1">
+    <af:spacer width="10" height="30" id="s3"/>
+    <af:treeTable value="#{bindings.GlGenAccChartV.treeModel}" var="node"
+                  selectionListener="#{bindings.GlGenAccChartV.treeModel.makeCurrent}" rowSelection="single" id="tt1"
+                  partialTriggers="ot1 b1 ::b2" inlineStyle="background-color:white;"
+                  binding="#{pageFlowScope.GlBean.genericGlAccChart}">
+      <f:facet name="nodeStamp">
+        <af:column id="c1" width="150" headerText="#{bindings.GlGenAccChartV.hints.AccCode.label}">
+          <af:link id="ot1" text="#{node.AccCode}" action="toCrud" useWindow="true" windowEmbedStyle="inlineDocument"
+                   windowHeight="300" windowWidth="600"
+                   returnListener="#{pageFlowScope.GlBean.refreshGlGenAccChartTbl}">
+            <af:setPropertyListener from="#{node.AccCode}" to="#{pageFlowScope.pAccCode}" type="action"/>
+            <af:setPropertyListener from="#{'E'}" to="#{pageFlowScope.pAction}" type="action"/>
+          </af:link>
+        </af:column>
+      </f:facet>
+      <f:facet name="pathStamp">
+        <af:outputText value="#{node}" id="ot2"/>
+      </f:facet>
+      <af:column id="c2" width="300" headerText="#{bindings.GlGenAccChartV.hints.AccNameA.label}" align="center">
+        <af:outputText value="#{node.AccNameA}" id="ot3"/>
+      </af:column>
+      <af:column id="c3" width="300" headerText="#{bindings.GlGenAccChartV.hints.AccNameE.label}" align="center">
+        <af:outputText value="#{node.AccNameE}" id="ot4"/>
+      </af:column>
+      <af:column id="c4" width="200" headerText="#{bindings.GlGenAccChartV.hints.AccTypeId.label}" align="center">
+        <af:outputText value="#{node.AccTypeName}" id="ot5"/>
+      </af:column>
+      <af:column id="c5" width="250" align="center">
+        <af:button text="#{viewcontrollerBundle.ADD_SUB_ACCOUNT}" id="b1" styleClass="but" action="toCrud"
+                   useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="300" windowWidth="600"
+                   returnListener="#{pageFlowScope.GlBean.refreshGlGenAccChartTbl}"
+                   hoverIcon="#{resource['images:CreateO.png']}" icon="#{resource['images:CreateF.png']}">
+          <af:setPropertyListener from="#{node.AccCode}" to="#{pageFlowScope.pPrntAccCode}" type="action"/>
+          <af:setPropertyListener from="#{'N'}" to="#{pageFlowScope.pAction}" type="action"/>
+        </af:button>
+      </af:column>
+      <af:column id="c6" width="70" align="center">
+        <af:link
+                 id="l1" icon="#{resource['images:delete24.png']}"
+                 actionListener="#{pageFlowScope.GlBean.delAccFromChartTreeActnLsnr}"
+                 visible="#{node.ChildCount==0}"/>
+      </af:column>
+    </af:treeTable>
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:button actionListener="#{bindings.Commit.execute}" text="#{viewcontrollerBundle.SAVE}"
+                 id="b3" styleClass="but" icon="#{resource['images:SaveF.png']}"
+                 hoverIcon="#{resource['images:SaveO.png']}"/>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}"
+                 immediate="true" id="b4" styleClass="but" icon="#{resource['images:cancelF.png']}"
+                 hoverIcon="#{resource['images:cancelO.png']}">
+        <af:resetActionListener/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info">
+      <af:button text="#{viewcontrollerBundle.ADD_MASTER_ACCOUNT}" id="b2" action="toCrud" styleClass="but"
+                 useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="300" windowWidth="600"
+                 returnListener="#{pageFlowScope.GlBean.refreshGlGenAccChartTbl}"
+                 icon="#{resource['images:CreateF.png']}" hoverIcon="#{resource['images:CreateO.png']}">
+        <af:setPropertyListener from="#{null}" to="#{pageFlowScope.pPrntAccCode}" type="action"/>
+        <af:setPropertyListener from="#{'N'}" to="#{pageFlowScope.pAction}" type="action"/>
+      </af:button>
+    </f:facet>
+  </af:panelHeader>
+</ui:composition>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.aalm.prcrmnt.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/suppliers/suppliers-TF.xml#suppliers-TF@Execute"
+          usageId="com_aalm_prcrmnt_view_suppliers_TF_suppliers_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/suppliers/suppliers.jsff" usageId="com_aalm_prcrmnt_view_suppliersPageDef"/>
+    <page path="/Test.jsf" usageId="com_aalm_prcrmnt_view_TestPageDef"/>
+    <page path="/WEB-INF/suppliers/crud-supplier-TF.xml#new-supplier-TF@ExecuteWithParams"
+          usageId="com_aalm_prcrmnt_view_new_supplier_TF_new_supplier_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/suppliers/crud-supplier-TF.xml#new-supplier-TF@CreateInsert"
+          usageId="com_aalm_prcrmnt_view_new_supplier_TF_new_supplier_TF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/suppliers/crud-supplier.jsf" usageId="com_aalm_prcrmnt_view_crud_supplierPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_aalm_prcrmnt_view_suppliers_TF_suppliers_TF_ExecutePageDef"
+          path="suppliers.suppliers_TF_suppliers_TF_ExecutePageDef"/>
+    <page id="com_aalm_prcrmnt_view_suppliersPageDef" path="suppliers.suppliersPageDef"/>
+    <page id="com_aalm_prcrmnt_view_TestPageDef" path="com.aalm.prcrmnt.view.pageDefs.TestPageDef"/>
+    <page id="com_aalm_prcrmnt_view_new_supplier_TF_new_supplier_TF_ExecuteWithParamsPageDef"
+          path="suppliers.new_supplier_TF_new_supplier_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_prcrmnt_view_new_supplier_TF_new_supplier_TF_CreateInsertPageDef"
+          path="suppliers.new_supplier_TF_new_supplier_TF_CreateInsertPageDef"/>
+    <page id="com_aalm_prcrmnt_view_crud_supplierPageDef" path="suppliers.crud_supplierPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AalmPrcrmntDataControl" Package="com.aalm.prcrmnt.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AalmPrcrmntLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

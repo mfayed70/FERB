@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="AalmLoginPageTemplatePageDef"
+                Package="com.aalm.master.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="LanguageVIterator" Binds="LanguageV" DataControl="AalmMasterDataControl" RangeSize="25"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

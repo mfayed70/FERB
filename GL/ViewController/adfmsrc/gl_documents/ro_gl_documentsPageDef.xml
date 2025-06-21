@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="ro_gl_documentsPageDef"
+                Package="gl_documents">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ReadOnlyGlDocumentsV" RangeSize="25" DataControl="AalmGlDataControl"
+              id="ReadOnlyGlDocumentsVIterator"/>
+    <searchRegion Criteria="RoGlDocumentsVCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ReadOnlyGlDocumentsVIterator" id="RoGlDocumentsVCriteriaQuery" InitialQueryOverridden="true"/>
+    <iterator Binds="ReadOnlyGlJournalsV" RangeSize="25" DataControl="AalmGlDataControl"
+              id="ReadOnlyGlJournalsVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ReadOnlyGlDocumentsVIterator" id="ReadOnlyGlDocumentsV">
+      <nodeDefinition DefName="com.aalm.gl.model.views.GlDocumentsV" Name="ReadOnlyGlDocumentsV0">
+        <AttrNames>
+          <Item Value="GlDocId"/>
+          <Item Value="GlDocDt"/>
+          <Item Value="GlDocName"/>
+          <Item Value="GlTrnsTypeId"/>
+          <Item Value="SumCredit"/>
+          <Item Value="SumDebit"/>
+          <Item Value="BalanceFlag"/>
+          <Item Value="PostFlag"/>
+          <Item Value="OriginGlDocId"/>
+          <Item Value="ReversedFlag"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="GlJournalsV"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="com.aalm.gl.model.views.GlJournalsV" Name="ReadOnlyGlDocumentsV1">
+        <AttrNames>
+          <Item Value="JornalId"/>
+          <Item Value="AccCode"/>
+          <Item Value="AccNameA"/>
+          <Item Value="AccNameE"/>
+          <Item Value="AssCode"/>
+          <Item Value="Debit"/>
+          <Item Value="Credit"/>
+          <Item Value="CostCenterCode"/>
+          <Item Value="Notes"/>
+          <Item Value="CurrCode"/>
+          <Item Value="GlDocId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="ReadOnlyGlJournalsVIterator" StaticList="false" Uses="LOV_CostCenterCode" id="CostCenterCode"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Commit" DataControl="AalmGlDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <methodAction id="reverse_document" RequiresUpdateModel="true" Action="invokeMethod" MethodName="reverse_document"
+                  IsViewObjectMethod="false" DataControl="AalmGlDataControl"
+                  InstanceName="data.AalmGlDataControl.dataProvider"
+                  ReturnName="data.AalmGlDataControl.methodResults.reverse_document_AalmGlDataControl_dataProvider_reverse_document_result">
+      <NamedData NDName="vOrgCode" NDType="java.lang.Integer" NDValue="#{sessionScope.orgCode}"/>
+      <NamedData NDName="vGlDocId" NDType="java.lang.Integer"/>
+    </methodAction>
+    <attributeValues IterBinding="ReadOnlyGlDocumentsVIterator" id="ReversedFlag">
+      <AttrNames>
+        <Item Value="ReversedFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReadOnlyGlDocumentsVIterator" id="OriginGlDocId">
+      <AttrNames>
+        <Item Value="OriginGlDocId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core" locale="#{sessionScope.refreshLocale}">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.gl.view.AalmGlBndl']}"/>
+    <af:document id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{viewcontrollerBundle.AddEditCostCenter}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar">
+                    <af:button text="#{viewcontrollerBundle.SAVE}" id="b1" styleClass="but" action="toSave"
+                               icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"/>
+                </f:facet>
+                <f:facet name="toolbar">
+                    <af:button text="#{viewcontrollerBundle.CANCEL}" id="b2" action="toCancel" styleClass="but"
+                               immediate="true" icon="#{resource['images:cancelF.png']}"
+                               hoverIcon="#{resource['images:cancelO.png']}"/>
+                </f:facet>
+                <f:facet name="legend"/>
+                <af:panelFormLayout id="pfl1" inlineStyle="padding:20px 0 20px 0;">
+                    <af:inputText value="#{bindings.CostCenterCode.inputValue}"
+                                  label="#{bindings.CostCenterCode.hints.label}"
+                                  required="#{bindings.CostCenterCode.hints.mandatory}"
+                                  columns="#{bindings.CostCenterCode.hints.displayWidth}"
+                                  maximumLength="#{bindings.CostCenterCode.hints.precision}"
+                                  shortDesc="#{bindings.CostCenterCode.hints.tooltip}" id="it1"
+                                  disabled="#{pageFlowScope.pCostCenterCode!=null}" autoSubmit="true">
+                        <f:validator binding="#{bindings.CostCenterCode.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CostCenterCode.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CostCenterNameA.inputValue}"
+                                  label="#{bindings.CostCenterNameA.hints.label}"
+                                  required="#{bindings.CostCenterNameA.hints.mandatory}"
+                                  columns="#{bindings.CostCenterNameA.hints.displayWidth}"
+                                  maximumLength="#{bindings.CostCenterNameA.hints.precision}"
+                                  shortDesc="#{bindings.CostCenterNameA.hints.tooltip}" id="it2"
+                                  contentStyle="width:350px;">
+                        <f:validator binding="#{bindings.CostCenterNameA.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CostCenterNameE.inputValue}"
+                                  label="#{bindings.CostCenterNameE.hints.label}"
+                                  required="#{bindings.CostCenterNameE.hints.mandatory}"
+                                  columns="#{bindings.CostCenterNameE.hints.displayWidth}"
+                                  maximumLength="#{bindings.CostCenterNameE.hints.precision}"
+                                  shortDesc="#{bindings.CostCenterNameE.hints.tooltip}" id="it3"
+                                  contentStyle="width:350px;">
+                        <f:validator binding="#{bindings.CostCenterNameE.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.PrntCostCenterCode.inputValue}"
+                                        label="#{bindings.PrntCostCenterCode.label}"
+                                        required="#{bindings.PrntCostCenterCode.hints.mandatory}"
+                                        shortDesc="#{bindings.PrntCostCenterCode.hints.tooltip}" readOnly="true"
+                                        id="soc1">
+                        <f:selectItems value="#{bindings.PrntCostCenterCode.items}" id="si1"/>
+                        <f:validator binding="#{bindings.PrntCostCenterCode.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.OrgCode.inputValue}" label="#{bindings.OrgCode.hints.label}"
+                                  required="#{bindings.OrgCode.hints.mandatory}"
+                                  columns="#{bindings.OrgCode.hints.displayWidth}"
+                                  maximumLength="#{bindings.OrgCode.hints.precision}"
+                                  shortDesc="#{bindings.OrgCode.hints.tooltip}" id="it4" autoSubmit="true"
+                                  rendered="false">
+                        <f:validator binding="#{bindings.OrgCode.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.OrgCode.format}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+                <f:facet name="info"/>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

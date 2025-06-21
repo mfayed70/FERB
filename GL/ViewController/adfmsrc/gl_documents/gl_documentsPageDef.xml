@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="gl_documentsPageDef"
+                Package="gl_documents">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlDocumentsV" RangeSize="25" DataControl="AalmGlDataControl" id="GlDocumentsVIterator"/>
+    <iterator Binds="GlJournalsV" RangeSize="25" DataControl="AalmGlDataControl" id="GlJournalsVIterator"/>
+    <iterator Binds="GlFinancialYearsV" RangeSize="10" DataControl="AalmGlDataControl" id="GlFinancialYearsVIterator"/>
+    <iterator id="ReadOnlyGlDocumentsVIterator" Binds="ReadOnlyGlDocumentsV" DataControl="AalmGlDataControl"
+              RangeSize="25"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmGlDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmGlDataControl"/>
+    <action IterBinding="GlDocumentsVIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="GlJournalsVIterator" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="GlDocumentsVIterator" id="GlDocId">
+      <AttrNames>
+        <Item Value="GlDocId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlDocumentsVIterator" id="GlDocName">
+      <AttrNames>
+        <Item Value="GlDocName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="GlDocumentsVIterator" StaticList="false" Uses="LOV_GlTrnsTypeId" id="GlTrnsTypeId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="GlDocumentsVIterator" id="OrgCode">
+      <AttrNames>
+        <Item Value="OrgCode"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="GlJournalsVIterator" id="GlJournalsV">
+      <nodeDefinition DefName="com.aalm.gl.model.views.GlJournalsV" Name="GlJournalsV0">
+        <AttrNames>
+          <Item Value="JornalId"/>
+          <Item Value="AccNameA"/>
+          <Item Value="AccCode"/>
+          <Item Value="AccNameE"/>
+          <Item Value="OrgCode"/>
+          <Item Value="AssCode"/>
+          <Item Value="CurrCode"/>
+          <Item Value="Debit"/>
+          <Item Value="Credit"/>
+          <Item Value="CostCenterCode"/>
+          <Item Value="Notes"/>
+          <Item Value="GlDocId"/>
+          <Item Value="GlDocumentsOrgCode"/>
+          <Item Value="GlAssTblId"/>
+          <Item Value="SumDebit"/>
+          <Item Value="SumCredit"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues Uses="LOV_AccCode" StaticList="false" IterBinding="GlJournalsVIterator" id="AccCode"/>
+    <button IterBinding="GlDocumentsVIterator" id="PostFlag" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="PostFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="GlDocumentsVIterator" id="BalanceFlag" DTSupportsMRU="false" StaticList="true"
+            SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="BalanceFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="GlJournalsVIterator" id="SumDebit">
+      <AttrNames>
+        <Item Value="SumDebit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlJournalsVIterator" id="SumCredit">
+      <AttrNames>
+        <Item Value="SumCredit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlJournalsVIterator" id="Debit">
+      <AttrNames>
+        <Item Value="Debit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlJournalsVIterator" id="Credit">
+      <AttrNames>
+        <Item Value="Credit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlDocumentsVIterator" id="GlDocDt">
+      <AttrNames>
+        <Item Value="GlDocDt"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="gl_posting" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gl_posting"
+                  IsViewObjectMethod="false" DataControl="AalmGlDataControl"
+                  InstanceName="data.AalmGlDataControl.dataProvider"
+                  ReturnName="data.AalmGlDataControl.methodResults.gl_posting_AalmGlDataControl_dataProvider_gl_posting_result">
+      <NamedData NDName="vOrgCode" NDType="java.lang.Integer" NDValue="#{sessionScope.orgCode}"/>
+      <NamedData NDName="vAccCode" NDType="java.lang.Integer"/>
+      <NamedData NDName="vCurrCode" NDType="java.lang.String"/>
+      <NamedData NDName="vTrDate" NDType="java.sql.Date"/>
+      <NamedData NDName="vTrDebit" NDType="float"/>
+      <NamedData NDName="vTrCredit" NDType="float"/>
+    </methodAction>
+    <attributeValues IterBinding="GlDocumentsVIterator" id="PostFlag1">
+      <AttrNames>
+        <Item Value="PostFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlDocumentsVIterator" id="BalanceFlag1">
+      <AttrNames>
+        <Item Value="BalanceFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlFinancialYearsVIterator" id="StartDt">
+      <AttrNames>
+        <Item Value="StartDt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlFinancialYearsVIterator" id="EndDt">
+      <AttrNames>
+        <Item Value="EndDt"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="GlJournalsVIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="GlDocumentsVIterator" id="GlTrnsTypeId1">
+      <AttrNames>
+        <Item Value="GlTrnsTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlDocumentsVIterator" id="OriginGlDocId">
+      <AttrNames>
+        <Item Value="OriginGlDocId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlDocumentsVIterator" id="OriginOrgCode">
+      <AttrNames>
+        <Item Value="OriginOrgCode"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="GlDocumentsVIterator" id="Delete" InstanceName="AalmGlDataControl.GlDocumentsV"
+            DataControl="AalmGlDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <methodAction id="update_original_gl_doc" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="update_original_gl_doc" IsViewObjectMethod="false" DataControl="AalmGlDataControl"
+                  InstanceName="data.AalmGlDataControl.dataProvider"
+                  ReturnName="data.AalmGlDataControl.methodResults.update_original_gl_doc_AalmGlDataControl_dataProvider_update_original_gl_doc_result">
+      <NamedData NDName="vOriginGlDocId" NDValue="#{bindings.OriginGlDocId.inputValue}" NDType="java.lang.Integer"/>
+      <NamedData NDName="vOriginOrgCode" NDValue="#{sessionScope.orgCode}" NDType="java.lang.Integer"/>
+    </methodAction>
+    <attributeValues IterBinding="GlDocumentsVIterator" id="ReversedFlag">
+      <AttrNames>
+        <Item Value="ReversedFlag"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

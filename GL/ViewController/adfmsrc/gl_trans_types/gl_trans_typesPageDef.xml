@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="gl_trans_typesPageDef"
+                Package="gl_trans_types">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlTransTypesV" RangeSize="25" DataControl="AalmGlDataControl" id="GlTransTypesVIterator"/>
+  </executables>
+  <bindings>
+    <button IterBinding="GlTransTypesVIterator" id="Active" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Active"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <tree IterBinding="GlTransTypesVIterator" id="GlTransTypesV">
+      <nodeDefinition DefName="com.aalm.gl.model.views.GlTransTypesV" Name="GlTransTypesV0">
+        <AttrNames>
+          <Item Value="GlTrnsTypeId"/>
+          <Item Value="TransNameA"/>
+          <Item Value="TransNameE"/>
+          <Item Value="TransType"/>
+          <Item Value="Active" Binds="Active"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

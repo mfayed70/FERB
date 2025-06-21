@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" 
+        xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        locale="#{Locale.locale}">
+    <af:document title="#{sessionScope.orgIni=='e' ? 'Elecon ERP' : 'Zamzam ERP'}" id="d1"
+                 smallIconSource="#{sessionScope.orgIni=='e' ? resource['images:eleconLogo.png'] : resource['images:zamzamlogo.png']}">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/AalmHomePageTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_mainContent">
+                    <af:panelGroupLayout id="pgl6" layout="vertical">
+                        <af:panelGroupLayout id="pgl1" layout="vertical"
+                                             inlineStyle="margin:60px 30px 30px 30px; padding:30px 0 0 0; background: rgb(234,255,250); background: linear-gradient(176deg, rgba(234,255,250,1) 0%, rgba(148,175,246,1) 100%);"
+                                             visible="#{not sessionScope.show_fncn}" partialTriggers="pt_b1 pt_l5">
+                            <af:activeOutputText value="#{sessionScope.userEmail}#{'--'}#{sessionScope.orgCode}#{'--'}#{sessionScope.userMobile}#{'--'}#{sessionScope.userId}"
+                                                 id="aot1" rendered="false"/>
+                            <af:panelGroupLayout id="pgl2" layout="scroll">
+                                <af:panelFormLayout id="pfl1" maxColumns="5" rows="2" fieldWidth="100%" labelWidth="0%">
+                                    <f:facet name="footer"/>
+                                    <af:iterator id="i1" value="#{bindings.UserRolesV.collectionModel}" var="roles">
+                                        <af:panelGroupLayout id="pgl3" layout="vertical"
+                                                             inlineStyle="margin:0 0 40px 0;" halign="center">
+                                            <af:link
+                                                     id="l1"
+                                                     inlineStyle="font-size:25px; color:navy; font-weight:bold;"
+                                                     iconPosition="top"
+                                                     partialSubmit="true"
+                                                     icon="resources/images/#{Locale.locale}#{roles.SystemId}o.png"
+                                                     partialTriggers="::pt_soc1"
+                                                     actionListener="#{pageFlowScope.AppsBean.showFncnPopupActnLsnr}">
+                                                <!--<af:setPropertyListener from="#{roles.SystemId}"
+                                                                        to="#{pageFlowScope.SystemId}" type="action"/>
+                                                <af:setPropertyListener from="#{roles.RoleGroupId}"
+                                                                        to="#{pageFlowScope.RoleGroupId}"
+                                                                        type="action"/>-->
+                                                <!--<af:showPopupBehavior popupId="p1" triggerType="click"
+                                                                      align="afterEnd"/>-->
+                                            </af:link>
+                                            <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                                                      binding="#{pageFlowScope.AppsBean.noteWindowFncnPopup}">
+                                                <af:noteWindow id="nw1" inlineStyle="background-color:white;">
+                                                    <af:panelGroupLayout id="pgl5" layout="scroll"
+                                                                         inlineStyle="background-color:White;">
+                                                        <af:panelFormLayout id="pfl2" maxColumns="5" rows="1"
+                                                                            fieldWidth="100%" labelWidth="0%"
+                                                                            inlineStyle="background-color:White;">
+                                                            <f:facet name="footer"/>
+                                                            <af:iterator id="i2"
+                                                                         value="#{bindings.SpecUserPermissionsV.collectionModel}"
+                                                                         var="perms">
+                                                                <af:panelGroupLayout id="pgl4" layout="horizontal"
+                                                                                     inlineStyle="padding:10px 0 10px 0;background-color:White;">
+                                                                    <af:link text="#{Locale.locale=='en' ? perms.EnFncnName :perms.ArFncnName}"
+                                                                             id="l2"
+                                                                             icon="resources/images/#{perms.FncnId}o.png"
+                                                                             action="#{pageFlowScope.AppsBean.onClickFncnActn}"
+                                                                             hoverIcon="resources/images/#{perms.FncnId}f.png"/>
+                                                                </af:panelGroupLayout>
+                                                            </af:iterator>
+                                                        </af:panelFormLayout>
+                                                    </af:panelGroupLayout>
+                                                </af:noteWindow>
+                                            </af:popup>
+                                        </af:panelGroupLayout>
+                                    </af:iterator>
+                                </af:panelFormLayout>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                        <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
+                                   partialTriggers="::l3 ::pt_b1 ::l4 ::l5 ::l6 ::l7 ::l8 ::l12 ::l13 ::l14 ::l15 ::l16 ::l17 ::l18 ::l19 ::l20 ::l21 ::l22 ::l23 ::l24 ::l25 ::l26 ::l25 ::l27 ::l28 ::l29 ::l30 ::l31"
+                                   visible="#{sessionScope.show_fncn}"/>
+                        <af:panelGroupLayout id="pgl7" layout="vertical" rendered="false">
+                            <af:link text="Currencies-TF" id="l9" action="#{pageFlowScope.AppsBean.currenciesTF}"/>
+                            <af:link text="stndrd-role-perms-TF" action="#{pageFlowScope.AppsBean.stndrdrolepermsTF}"
+                                     id="l3" visible="false"/>
+                            <af:link text="itemCategories-TF" action="#{pageFlowScope.AppsBean.itemCategoriesTF}"
+                                     id="l4"/>
+                            <af:link text="storeCategories-TF" action="#{pageFlowScope.AppsBean.storeCategoriesTF}"
+                                     id="l5"/>
+                            <af:link text="organizations-TF" action="#{pageFlowScope.AppsBean.organizationsTF}"
+                                     id="l6"/>
+                            <af:link text="units-transform-TF" action="#{pageFlowScope.AppsBean.unitstransformTF}"
+                                     id="l7"/>
+                            <af:link text="items-TF" action="#{pageFlowScope.AppsBean.itemsTF}" id="l8"/>
+                            <af:link text="stndrd-role-perms-TF" id="l10"
+                                     action="#{pageFlowScope.AppsBean.stndrdrolepermsTF}"/>
+                            <af:link text="users-TF" id="l11" action="#{pageFlowScope.AppsBean.usersTF}"/>
+                            <af:link text="employees-TF" action="#{pageFlowScope.AppsBean.employeesTF}" id="l12"/>
+                            <af:link text="jobs-TF" action="#{pageFlowScope.AppsBean.jobsTF}" id="l13"/>
+                            <af:link text="store-TF" action="#{pageFlowScope.AppsBean.storeTF}" id="l14"/>
+                            <af:link text="customers-TF" action="#{pageFlowScope.AppsBean.customersTF}" id="l15"/>
+                            <af:link text="suppliers-TF" action="#{pageFlowScope.AppsBean.suppliersTF}" id="l16"/>
+                            <af:link text="clients-TF" action="#{pageFlowScope.AppsBean.clientsTF}" id="l17"/>
+                            <af:link text="mnf_process_basic_data-TF"
+                                     action="#{pageFlowScope.AppsBean.mnf_process_basic_dataTF}" id="l18"/>
+                            <af:link text="items_variables_structure-TF"
+                                     action="#{pageFlowScope.AppsBean.items_variables_structureTF}" id="l19"/>
+                            <af:link text="gl_trans_types-TF" action="#{pageFlowScope.AppsBean.gl_trans_typesTF}"
+                                     id="l20"/>
+                            <af:link text="RO-gl_documents-TF" action="#{pageFlowScope.AppsBean.rOgl_documentsTF}"
+                                     id="l25"/>
+                            <af:link text="gl_financial_years-TF"
+                                     action="#{pageFlowScope.AppsBean.gl_financial_yearsTF}" id="l26"/>
+                            <af:link text="gl_acc_types-TF" action="#{pageFlowScope.AppsBean.gl_acc_typesTF}" id="l21"/>
+                            <af:link text="gl_gen_acc_chart-TF" action="#{pageFlowScope.AppsBean.gl_gen_acc_chartTF}"
+                                     id="l22"/>
+                            <af:link text="gl_org_cost_centers-TF"
+                                     action="#{pageFlowScope.AppsBean.gl_org_cost_centersTF}" id="l23"/>
+                            <af:link text="gl_org_acc_chart-TF" action="#{pageFlowScope.AppsBean.gl_org_acc_chartTF}"
+                                     id="l24"/>
+                            <af:link text="setupData-TF" action="#{pageFlowScope.AppsBean.setupDataTF}" id="l27"/>
+                            <af:link text="transTypes-TF" action="#{pageFlowScope.AppsBean.transTypesTF}" id="l28"/>
+                            <af:link text="assets_basic_data-TF" action="#{pageFlowScope.AppsBean.assets_basic_dataTF}"
+                                     id="l29"/>
+                            <af:link text="AssetTransactions-TF" action="#{pageFlowScope.AppsBean.assetTransactionsTF}"
+                                     id="l30"/>
+                            <af:link text="projects-TF" action="#{pageFlowScope.AppsBean.projectsTF}" id="l31"/>
+                        </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+        <f:facet name="metaContainer"/>
+    </af:document>
+</f:view>

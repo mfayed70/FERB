@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="edit_new_unit_transformPageDef"
+                Package="units">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="UnitsTransformV" RangeSize="25" DataControl="AalmCentralDataControl" id="UnitsTransformVIterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmCentralDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AalmCentralDataControl"/>
+    <list IterBinding="UnitsTransformVIterator" StaticList="false" Uses="LOV_FromUnitId" id="FromUnitId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="UnitsTransformVIterator" StaticList="false" Uses="LOV_ToUnitId" id="ToUnitId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="UnitsTransformVIterator" id="MultiplyBy">
+      <AttrNames>
+        <Item Value="MultiplyBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UnitsTransformVIterator" id="RegisterDt">
+      <AttrNames>
+        <Item Value="RegisterDt"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

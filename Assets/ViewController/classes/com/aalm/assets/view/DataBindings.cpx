@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.aalm.assets.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/setupData/setupData.jsff" usageId="com_aalm_assets_view_setupDataPageDef"/>
+    <page path="/test.jsf" usageId="com_aalm_assets_view_testPageDef"/>
+    <page path="/WEB-INF/transTypes/transTypes.jsff" usageId="com_aalm_assets_view_transTypesPageDef"/>
+    <page path="/WEB-INF/assets_basic_data/assets_basic_data.jsff"
+          usageId="com_aalm_assets_view_assets_basic_dataPageDef"/>
+    <page path="/WEB-INF/assets_basic_data/assets_properties-TF.xml#assets_properties-TF@ExecuteWithParams"
+          usageId="com_aalm_assets_view_assets_properties_TF_assets_properties_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/assets_basic_data/asset_properties.jsf"
+          usageId="com_aalm_assets_view_asset_propertiesPageDef"/>
+    <page path="/WEB-INF/assets_basic_data/assets_spare_parts-TF.xml#assets_spare_parts-TF@ExecuteWithParams"
+          usageId="com_aalm_assets_view_assets_spare_parts_TF_assets_spare_parts_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/assets_basic_data/assets_spare_parts.jsf"
+          usageId="com_aalm_assets_view_assets_spare_partsPageDef"/>
+    <page path="/WEB-INF/AssetTransactions/AssetTransactions-TF.xml#AssetTransactions-TF@Execute"
+          usageId="com_aalm_assets_view_AssetTransactions_TF_AssetTransactions_TF_ExecutePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_aalm_assets_view_setupDataPageDef" path="setupData.setupDataPageDef"/>
+    <page id="com_aalm_assets_view_testPageDef" path="com.aalm.assets.view.pageDefs.testPageDef"/>
+    <page id="com_aalm_assets_view_transTypesPageDef" path="transTypes.transTypesPageDef"/>
+    <page id="com_aalm_assets_view_assets_basic_dataPageDef" path="assets_basic_data.assets_basic_dataPageDef"/>
+    <page id="com_aalm_assets_view_assets_properties_TF_assets_properties_TF_ExecuteWithParamsPageDef"
+          path="assets_basic_data.assets_properties_TF_assets_properties_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_assets_view_asset_propertiesPageDef" path="assets_basic_data.asset_propertiesPageDef"/>
+    <page id="com_aalm_assets_view_assets_spare_parts_TF_assets_spare_parts_TF_ExecuteWithParamsPageDef"
+          path="assets_basic_data.assets_spare_parts_TF_assets_spare_parts_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_assets_view_assets_spare_partsPageDef" path="assets_basic_data.assets_spare_partsPageDef"/>
+    <page id="com_aalm_assets_view_AssetTransactions_TF_AssetTransactions_TF_ExecutePageDef"
+          path="AssetTransactions.AssetTransactions_TF_AssetTransactions_TF_ExecutePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AalmAssetsDataControl" Package="com.aalm.assets.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AalmAssetsLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

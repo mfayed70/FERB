@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/stores/crud-store-TF.xml" id="new-store-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pStoreId"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/st_trans_types/st_trans_types-TF.xml" id="st_trans_types-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/st_trans_types/crud-st_trans_types-TF.xml" id="crud-st_trans_types-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
+   <task-flow-descriptor path="WEB-INF/stores/store-TF.xml" id="store-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+</task-flow-registry>

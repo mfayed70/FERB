@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core" locale="#{sessionScope.refreshLocale}">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.gl.view.AalmGlBndl']}"/>
+    <af:document id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{viewcontrollerBundle.ACCOUNT_BALANCE}" id="ph1" inlineStyle="padding-left:10px;">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:button text="#{viewcontrollerBundle.Exit}" id="b1" action="toExit" styleClass="but"
+                               icon="#{resource['images:logout-close-24.png']}"/>
+                </f:facet>
+                <f:facet name="legend">
+                    <af:spacer width="10" height="10" id="s1"/>
+                </f:facet>
+                <af:table value="#{bindings.GlOrgAccBalanceV.collectionModel}" var="row"
+                          rows="#{bindings.GlOrgAccBalanceV.rangeSize}"
+                          emptyText="#{bindings.GlOrgAccBalanceV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" fetchSize="#{bindings.GlOrgAccBalanceV.rangeSize}" id="t1">
+                    <af:column headerText="#{bindings.GlOrgAccBalanceV.hints.OrgCode.label}" id="c1" width="30"
+                               rendered="false">
+                        <af:outputText value="#{row.OrgCode}"
+                                       shortDesc="#{bindings.GlOrgAccBalanceV.hints.OrgCode.tooltip}" id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.GlOrgAccBalanceV.hints.OrgCode.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.GlOrgAccBalanceV.hints.AccCode.label}" id="c2" width="150">
+                        <af:outputText value="#{row.AccCode}"
+                                       shortDesc="#{bindings.GlOrgAccBalanceV.hints.AccCode.tooltip}" id="ot2">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.GlOrgAccBalanceV.hints.AccCode.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.GlOrgAccBalanceV.hints.OpenCredit.label}" id="c4" width="150">
+                        <af:outputText value="#{row.OpenCredit}"
+                                       shortDesc="#{bindings.GlOrgAccBalanceV.hints.OpenCredit.tooltip}" id="ot4">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.GlOrgAccBalanceV.hints.OpenCredit.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.GlOrgAccBalanceV.hints.OpenDebit.label}" id="c5" width="150">
+                        <af:outputText value="#{row.OpenDebit}"
+                                       shortDesc="#{bindings.GlOrgAccBalanceV.hints.OpenDebit.tooltip}" id="ot5">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.GlOrgAccBalanceV.hints.OpenDebit.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.GlOrgAccBalanceV.hints.CloseCredit.label}" id="c6" width="150">
+                        <af:outputText value="#{row.CloseCredit}"
+                                       shortDesc="#{bindings.GlOrgAccBalanceV.hints.CloseCredit.tooltip}" id="ot6">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.GlOrgAccBalanceV.hints.CloseCredit.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.GlOrgAccBalanceV.hints.CloseDebit.label}" id="c7" width="150">
+                        <af:outputText value="#{row.CloseDebit}"
+                                       shortDesc="#{bindings.GlOrgAccBalanceV.hints.CloseDebit.tooltip}" id="ot7">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.GlOrgAccBalanceV.hints.CloseDebit.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.GlOrgAccBalanceV.hints.CurrCode.label}" id="c3">
+                        <af:outputText value="#{row.CurrCode}"
+                                       shortDesc="#{bindings.GlOrgAccBalanceV.hints.CurrCode.tooltip}" id="ot3"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.GlOrgAccBalanceV.hints.LocalOpenCredit.label}" id="c8"
+                               rendered="false">
+                        <af:outputText value="#{row.LocalOpenCredit}"
+                                       shortDesc="#{bindings.GlOrgAccBalanceV.hints.LocalOpenCredit.tooltip}" id="ot8">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.GlOrgAccBalanceV.hints.LocalOpenCredit.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.GlOrgAccBalanceV.hints.LocalOpenDebit.label}" id="c9"
+                               rendered="false">
+                        <af:outputText value="#{row.LocalOpenDebit}"
+                                       shortDesc="#{bindings.GlOrgAccBalanceV.hints.LocalOpenDebit.tooltip}" id="ot9">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.GlOrgAccBalanceV.hints.LocalOpenDebit.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.GlOrgAccBalanceV.hints.LocalCloseCredit.label}" id="c10"
+                               rendered="false">
+                        <af:outputText value="#{row.LocalCloseCredit}"
+                                       shortDesc="#{bindings.GlOrgAccBalanceV.hints.LocalCloseCredit.tooltip}"
+                                       id="ot10">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.GlOrgAccBalanceV.hints.LocalCloseCredit.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.GlOrgAccBalanceV.hints.LocalCloseDebit.label}" id="c11"
+                               rendered="false">
+                        <af:outputText value="#{row.LocalCloseDebit}"
+                                       shortDesc="#{bindings.GlOrgAccBalanceV.hints.LocalCloseDebit.tooltip}" id="ot11">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.GlOrgAccBalanceV.hints.LocalCloseDebit.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+                <f:facet name="info"/>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

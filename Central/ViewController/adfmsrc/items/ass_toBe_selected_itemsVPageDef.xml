@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ass_toBe_selected_itemsVPageDef" Package="items">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ItemsToBeSelectedInAss" RangeSize="25" DataControl="AalmCentralDataControl"
+              id="ItemsToBeSelectedInAssIterator"/>
+    <searchRegion Binds="ItemsToBeSelectedInAssIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ItemsToBeSelectedInAssQuery"/>
+    <iterator Binds="ItemsStructureV1" RangeSize="10" DataControl="AalmCentralDataControl"
+              id="ItemsStructureV1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AalmCentralDataControl"/>
+    <tree IterBinding="ItemsToBeSelectedInAssIterator" id="ItemsToBeSelectedInAss">
+      <nodeDefinition DefName="com.aalm.center.model.views.ItemsToBeSelectedInAss" Name="ItemsToBeSelectedInAss0">
+        <AttrNames>
+          <Item Value="ItemCode"/>
+          <Item Value="ItemIndx"/>
+          <Item Value="ItemName"/>
+          <Item Value="CatId"/>
+          <Item Value="UnitId"/>
+          <Item Value="Selected" Binds="Selected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ItemsStructureV1Iterator" id="CreateWithParams"
+            InstanceName="AalmCentralDataControl.ItemsStructureV1" DataControl="AalmCentralDataControl"
+            RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="Seq" NDType="java.lang.String"/>
+      <NamedData NDName="AssCode" NDType="java.lang.String" NDValue="#{pageFlowScope.pAssCode}"/>
+      <NamedData NDName="ItemCode" NDType="java.lang.String"/>
+      <NamedData NDName="QtyInAss" NDType="java.lang.String"/>
+      <NamedData NDName="UnitId" NDType="java.lang.String"/>
+    </action>
+    <action id="Commit" DataControl="AalmCentralDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <button IterBinding="ItemsToBeSelectedInAssIterator" id="Selected" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Selected"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>

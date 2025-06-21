@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlOrgAccBalance"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="GL_ORG_ACC_BALANCE"
+  AliasName="GlOrgAccBalance"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="OrgCode"
+    IsNotNull="true"
+    ColumnName="org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_ORG_ACC_BALANCE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AccCode"
+    IsNotNull="true"
+    ColumnName="acc_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_ORG_ACC_BALANCE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CurrCode"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="curr_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="GL_ORG_ACC_BALANCE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OpenCredit"
+    ColumnName="open_credit"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_ORG_ACC_BALANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OpenDebit"
+    ColumnName="open_debit"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_ORG_ACC_BALANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CloseCredit"
+    ColumnName="close_credit"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_ORG_ACC_BALANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CloseDebit"
+    ColumnName="close_debit"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_ORG_ACC_BALANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LocalOpenCredit"
+    ColumnName="local_open_credit"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_ORG_ACC_BALANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LocalOpenDebit"
+    ColumnName="local_open_debit"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_ORG_ACC_BALANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LocalCloseCredit"
+    ColumnName="local_close_credit"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_ORG_ACC_BALANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LocalCloseDebit"
+    ColumnName="local_close_debit"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="GL_ORG_ACC_BALANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="GlOrgAccChart"
+    Association="com.aalm.gl.model.entities.FkGLOrgAccBalanceDetailsGlOrgAccChart1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.FkGLOrgAccBalanceDetailsGlOrgAccChart1Assoc.GlOrgAccChart"
+    AssociationOtherEnd="com.aalm.gl.model.entities.FkGLOrgAccBalanceDetailsGlOrgAccChart1Assoc.GlOrgAccBalance"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccBalance.OrgCode"/>
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccBalance.AccCode"/>
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccBalance.CurrCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkGlOrgAccBalanceDetailsCurrencies1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_ORG_ACC_BALANCE_DETAILS_CURRENCIES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccBalance.CurrCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkGlOrgAccBalanceDetailsGlOrgAccChart1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_ORG_ACC_BALANCE_DETAILS_GL_ORG_ACC_CHART1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccBalance.AccCode"/>
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccBalance.OrgCode"/>
+    </AttrArray>
+  </Key>
+</Entity>

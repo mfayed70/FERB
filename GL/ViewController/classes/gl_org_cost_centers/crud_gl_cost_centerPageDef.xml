@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="crud_gl_cost_centerPageDef"
+                Package="gl_org_cost_centers">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlCostCentersCRUDV" RangeSize="25" DataControl="AalmGlDataControl"
+              id="GlCostCentersCRUDVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="GlCostCentersCRUDVIterator" id="CostCenterCode">
+      <AttrNames>
+        <Item Value="CostCenterCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlCostCentersCRUDVIterator" id="CostCenterNameA">
+      <AttrNames>
+        <Item Value="CostCenterNameA"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlCostCentersCRUDVIterator" id="CostCenterNameE">
+      <AttrNames>
+        <Item Value="CostCenterNameE"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="GlCostCentersCRUDVIterator" StaticList="false" Uses="LOV_PrntCostCenterCode"
+          id="PrntCostCenterCode" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="GlCostCentersCRUDVIterator" id="OrgCode">
+      <AttrNames>
+        <Item Value="OrgCode"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnfProcesses"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="MNF_PROCESSES"
+  AliasName="MnfProcesses"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="MnfPrcsId"
+    IsNotNull="true"
+    Precision="8"
+    ColumnName="mnf_prcs_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="MNF_PROCESSES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.mnf.model.entities.MnfProcesses.MnfPrcsId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="MnfPrcsName"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="mnf_prcs_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="MNF_PROCESSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.mnf.model.entities.MnfProcesses.MnfPrcsName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="OrgCode"
+    IsNotNull="true"
+    ColumnName="org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="MNF_PROCESSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="HasAction"
+    Precision="2"
+    ColumnName="has_action"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="MNF_PROCESSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Active"
+    Precision="2"
+    ColumnName="active"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="MNF_PROCESSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsComplex"
+    Precision="2"
+    ColumnName="is_complex"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="MNF_PROCESSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="MnfProcessInputItems"
+    Association="com.aalm.mnf.model.entities.fk_MANF_PROCESS_INPUT_ITEMS_MANF_PROCESSES1Assoc"
+    AssociationEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_INPUT_ITEMS_MANF_PROCESSES1Assoc.MnfProcessInputItems"
+    AssociationOtherEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_INPUT_ITEMS_MANF_PROCESSES1Assoc.MnfProcesses"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="MnfProcessInputHr"
+    Association="com.aalm.mnf.model.entities.fk_MANF_PROCESS_INPUT_HR_MANF_PROCESSES1Assoc"
+    AssociationEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_INPUT_HR_MANF_PROCESSES1Assoc.MnfProcessInputHr"
+    AssociationOtherEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_INPUT_HR_MANF_PROCESSES1Assoc.MnfProcesses"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="MnfProcessOutputItems"
+    Association="com.aalm.mnf.model.entities.fk_MANF_PROCESS_OUTPUT_MANF_PROCESSES1Assoc"
+    AssociationEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_OUTPUT_MANF_PROCESSES1Assoc.MnfProcessOutputItems"
+    AssociationOtherEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_OUTPUT_MANF_PROCESSES1Assoc.MnfProcesses"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="MnfProcessOtherCosts"
+    Association="com.aalm.mnf.model.entities.fk_MANF_PROCESS_OTHER_COSTS_MANF_PROCESSES1Assoc"
+    AssociationEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_OTHER_COSTS_MANF_PROCESSES1Assoc.MnfProcessOtherCosts"
+    AssociationOtherEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_OTHER_COSTS_MANF_PROCESSES1Assoc.MnfProcesses"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="MnfProcessStructure"
+    Association="com.aalm.mnf.model.entities.fk_MANF_PROCESS_STRUCTURE_MANF_PROCESSES1Assoc"
+    AssociationEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_STRUCTURE_MANF_PROCESSES1Assoc.MnfProcessStructure"
+    AssociationOtherEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_STRUCTURE_MANF_PROCESSES1Assoc.MnfProcesses"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="FkManufacturingProcessesOrganizations1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_MANUFACTURING_PROCESSES_ORGANIZATIONS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.mnf.model.AalmMnfBndl"/>
+  </ResourceBundle>
+</Entity>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="store_TF_store_TF_ExecutePageDef" Package="stores" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="StoresV" RangeSize="25" DataControl="AalmInventoryDataControl" id="StoresVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="StoresVIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

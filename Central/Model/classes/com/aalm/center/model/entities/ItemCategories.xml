@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemCategories"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ITEM_CATEGORIES"
+  AliasName="ItemCategories"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="CatId"
+    ColumnName="cat_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ITEM_CATEGORIES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemCategories.CatId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CatName"
+    Precision="45"
+    ColumnName="cat_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ITEM_CATEGORIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemCategories.CatName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="RegisterDt"
+    ColumnName="register_dt"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="ITEM_CATEGORIES">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemCategories.RegisterDt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Active"
+    Precision="2"
+    ColumnName="active"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ITEM_CATEGORIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemCategories.Active_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="IsAss"
+    Precision="2"
+    ColumnName="is_ass"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ITEM_CATEGORIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+        <LABEL
+          ResId="com.aalm.center.model.entities.ItemCategories.IsAss_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="ItemsList"
+    Association="com.aalm.center.model.entities.FkItemsListItemCategoriesAssoc"
+    AssociationEnd="com.aalm.center.model.entities.FkItemsListItemCategoriesAssoc.ItemsList"
+    AssociationOtherEnd="com.aalm.center.model.entities.FkItemsListItemCategoriesAssoc.ItemCategories"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ItemCategoryTypes"
+    Association="com.aalm.center.model.entities.fk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1Assoc"
+    AssociationEnd="com.aalm.center.model.entities.fk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1Assoc.ItemCategoryTypes"
+    AssociationOtherEnd="com.aalm.center.model.entities.fk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1Assoc.ItemCategories"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.entities.ItemCategories.CatId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.center.model.AalmCenteralMBndl"/>
+  </ResourceBundle>
+</Entity>

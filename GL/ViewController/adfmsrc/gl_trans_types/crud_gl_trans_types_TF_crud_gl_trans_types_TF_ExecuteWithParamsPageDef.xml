@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="crud_gl_trans_types_TF_crud_gl_trans_types_TF_ExecuteWithParamsPageDef" Package="gl_trans_types"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlTransTypesCRUDV" RangeSize="25" DataControl="AalmGlDataControl" id="GlTransTypesCRUDVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlTransTypesCRUDVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pGlTransTypeId" NDValue="#{pageFlowScope.pGlTransTypeId}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

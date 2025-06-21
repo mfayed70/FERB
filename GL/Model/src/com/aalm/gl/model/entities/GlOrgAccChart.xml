@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlOrgAccChart"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="GL_ORG_ACC_CHART"
+  AliasName="GlOrgAccChart"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="AccCode"
+    IsNotNull="true"
+    ColumnName="acc_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_ORG_ACC_CHART"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlOrgAccChart.AccCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="AccNameA"
+    Precision="200"
+    ColumnName="acc_name_a"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="GL_ORG_ACC_CHART">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlOrgAccChart.AccNameA_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="AccNameE"
+    Precision="200"
+    ColumnName="acc_name_e"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="GL_ORG_ACC_CHART">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlOrgAccChart.AccNameE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="GlAccTypeId"
+    ColumnName="gl_acc_type_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_ORG_ACC_CHART">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlOrgAccChart.GlAccTypeId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="OrgCode"
+    IsNotNull="true"
+    ColumnName="org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_ORG_ACC_CHART"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GlAssTblId"
+    Precision="3"
+    ColumnName="gl_ass_tbl_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="GL_ORG_ACC_CHART">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlOrgAccChart.GlAssTblId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="PrntAccCode"
+    ColumnName="prnt_acc_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_ORG_ACC_CHART">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.gl.model.entities.GlOrgAccChart.PrntAccCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="PrntOrgCode"
+    ColumnName="prnt_org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="GL_ORG_ACC_CHART">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="GlAccAssitances"
+    Association="com.aalm.gl.model.entities.FkGlAccAssistancesGlOrgAccChart1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.FkGlAccAssistancesGlOrgAccChart1Assoc.GlAccAssitances"
+    AssociationOtherEnd="com.aalm.gl.model.entities.FkGlAccAssistancesGlOrgAccChart1Assoc.GlOrgAccChart"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GlOrgAccChart"
+    Association="com.aalm.gl.model.entities.FkGlOrgAccChartGlOrgAccChart1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.FkGlOrgAccChartGlOrgAccChart1Assoc.GlOrgAccChart"
+    AssociationOtherEnd="com.aalm.gl.model.entities.FkGlOrgAccChartGlOrgAccChart1Assoc.PrntAccCodeGlOrgAccChart"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PrntAccCodeGlOrgAccChart"
+    Association="com.aalm.gl.model.entities.FkGlOrgAccChartGlOrgAccChart1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.FkGlOrgAccChartGlOrgAccChart1Assoc.PrntAccCodeGlOrgAccChart"
+    AssociationOtherEnd="com.aalm.gl.model.entities.FkGlOrgAccChartGlOrgAccChart1Assoc.GlOrgAccChart"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlJournals"
+    Association="com.aalm.gl.model.entities.fk_GL_JOURNALS_GL_ORG_ACC_CHART1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.fk_GL_JOURNALS_GL_ORG_ACC_CHART1Assoc.GlJournals"
+    AssociationOtherEnd="com.aalm.gl.model.entities.fk_GL_JOURNALS_GL_ORG_ACC_CHART1Assoc.GlOrgAccChart"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GlOrgAccBalance"
+    Association="com.aalm.gl.model.entities.FkGLOrgAccBalanceDetailsGlOrgAccChart1Assoc"
+    AssociationEnd="com.aalm.gl.model.entities.FkGLOrgAccBalanceDetailsGlOrgAccChart1Assoc.GlOrgAccBalance"
+    AssociationOtherEnd="com.aalm.gl.model.entities.FkGLOrgAccBalanceDetailsGlOrgAccChart1Assoc.GlOrgAccChart"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccChart.AccCode"/>
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccChart.OrgCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkGlOrgAccChartGlAccTypes1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_ORG_ACC_CHART_GL_ACC_TYPES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccChart.GlAccTypeId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkGlOrgAccChartGlAssistanceTables1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_ORG_ACC_CHART_GL_ASSISTANCE_TABLES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccChart.GlAssTblId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkGlOrgAccChartGlOrgAccChart1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_ORG_ACC_CHART_GL_ORG_ACC_CHART1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccChart.PrntAccCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkGlOrgAccChartOrganizations1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_GL_ORG_ACC_CHART_ORGANIZATIONS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccChart.OrgCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_GlOrgAccChart">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Gl_Org_Acc_Chart"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.gl.model.entities.GlOrgAccChart.PrntAccCode"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.gl.model.AalmGlBndl"/>
+  </ResourceBundle>
+</Entity>

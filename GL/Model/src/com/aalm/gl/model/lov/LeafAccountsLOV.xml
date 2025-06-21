@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LeafAccountsLOV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.gl.model.lov.LeafAccountsLOV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pOrgCode"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <SQLQuery><![CDATA[SELECT 
+    GL_ORG_ACC_CHART.acc_code acc_code, 
+    GL_ORG_ACC_CHART.org_code org_code, 
+    GL_ORG_ACC_CHART.acc_name_a acc_name_a, 
+    GL_ORG_ACC_CHART.acc_name_e acc_name_e,
+    GL_ORG_ACC_CHART.gl_ass_tbl_id gl_ass_tbl_id
+FROM 
+    GL_ORG_ACC_CHART
+Where GL_ORG_ACC_CHART.acc_code not in (select prnt.prnt_acc_code from GL_ORG_ACC_CHART prnt 
+                                        where prnt.prnt_acc_code is not null and prnt.org_code is not null)]]></SQLQuery>
+  <ViewAttribute
+    Name="AccCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="acc_code"
+    Expression="acc_code"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="16"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="org_code"
+    Expression="org_code"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccNameA"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="acc_name_a"
+    Expression="acc_name_a"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccNameE"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="acc_name_e"
+    Expression="acc_name_e"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GlAssTblId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="gl_ass_tbl_id"
+    Expression="gl_ass_tbl_id"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="LeafAccountsLOVCriteria"
+    ViewObjectName="com.aalm.gl.model.lov.LeafAccountsLOV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="LeafAccountsLOVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="LeafAccountsLOVCriteria_LeafAccountsLOVCriteria_row_0_AccCode"
+        ViewAttribute="AccCode"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="OrgCode"
+        ViewAttribute="OrgCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":pOrgCode"
+        IsBindVarValue="true"
+        Required="Optional">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Never"/>
+          </CustomProperties>
+        </Properties>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="LeafAccountsLOVCriteria_LeafAccountsLOVCriteria_row_0_AccNameA"
+        ViewAttribute="AccNameA"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="LeafAccountsLOVCriteria_LeafAccountsLOVCriteria_row_0_AccNameE"
+        ViewAttribute="AccNameE"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="AccCode"/>
+  </AttrArray>
+  <LOVUIHints
+    ListType="113"
+    MRUCount="0"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    ComboRowCountHint="10">
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccCode"/>
+      <Item Value="AccNameE"/>
+      <Item Value="AccNameA"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </LOVUIHints>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.gl.model.AalmGlBndl"/>
+  </ResourceBundle>
+</ViewObject>

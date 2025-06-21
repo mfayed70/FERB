@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.center.view.AalmCenteralBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.COMPANY_STRUCTURE}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:panelGroupLayout id="pgl1" layout="horizontal">
+        <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}" immediate="true" id="b2" styleClass="but"
+                   icon="#{resource['images:cancelF.png']}" hoverIcon="#{resource['images:cancelO.png']}">
+          <af:resetActionListener/>
+        </af:button>
+        <af:button actionListener="#{bindings.Commit.execute}" text="#{viewcontrollerBundle.SAVE}" id="b1" styleClass="but"
+                   icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="legend"/>
+    <af:table value="#{bindings.OrganizationsV.collectionModel}" var="row" rows="#{bindings.OrganizationsV.rangeSize}"
+              emptyText="#{bindings.OrganizationsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.OrganizationsV.collectionModel.selectedRow}"
+              selectionListener="#{bindings.OrganizationsV.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.OrganizationsV.rangeSize}" id="t1" partialTriggers="b3 l1" verticalGridVisible="false">
+      <af:column headerText="#{bindings.OrganizationsV.hints.OrgCode.label}" id="c1" width="130" align="center">
+        <af:panelGroupLayout id="pgl2" layout="horizontal">
+          <af:link actionListener="#{bindings.Delete.execute}" disabled="#{!bindings.Delete.enabled}"
+                   id="l1" icon="#{resource['images:delete24.png']}" visible="#{row.PrntOrgCode==0}"/>
+          <af:inputText value="#{row.OrgCode}" shortDesc="#{bindings.OrganizationsV.hints.OrgCode.tooltip}" id="ot1"
+                        contentStyle="width:100px;">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.OrganizationsV.hints.OrgCode.format}"/>
+          </af:inputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column headerText="#{bindings.OrganizationsV.hints.EnOrgName.label}" id="c2" width="198">
+        <af:inputText value="#{row.bindings.EnOrgName.inputValue}"
+                      label="#{bindings.OrganizationsV.hints.EnOrgName.label}"
+                      required="#{bindings.OrganizationsV.hints.EnOrgName.mandatory}"
+                      columns="#{bindings.OrganizationsV.hints.EnOrgName.displayWidth}"
+                      maximumLength="#{bindings.OrganizationsV.hints.EnOrgName.precision}"
+                      shortDesc="#{bindings.OrganizationsV.hints.EnOrgName.tooltip}" id="it1">
+          <f:validator binding="#{row.bindings.EnOrgName.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column headerText="#{bindings.OrganizationsV.hints.ArOrgName.label}" id="c3" width="250" rendered="false">
+        <af:inputText value="#{row.bindings.ArOrgName.inputValue}"
+                      label="#{bindings.OrganizationsV.hints.ArOrgName.label}"
+                      required="#{bindings.OrganizationsV.hints.ArOrgName.mandatory}"
+                      columns="#{bindings.OrganizationsV.hints.ArOrgName.displayWidth}"
+                      maximumLength="#{bindings.OrganizationsV.hints.ArOrgName.precision}"
+                      shortDesc="#{bindings.OrganizationsV.hints.ArOrgName.tooltip}" id="it2">
+          <f:validator binding="#{row.bindings.ArOrgName.validator}"/>
+        </af:inputText>
+      </af:column>
+      <af:column headerText="#{bindings.OrganizationsV.hints.PrntOrgCode.label}" id="c4" width="250">
+        <af:selectOneChoice value="#{row.bindings.PrntOrgCode.inputValue}" label="#{row.bindings.PrntOrgCode.label}"
+                            required="#{bindings.OrganizationsV.hints.PrntOrgCode.mandatory}"
+                            shortDesc="#{bindings.OrganizationsV.hints.PrntOrgCode.tooltip}" id="soc1" readOnly="true"
+                            partialTriggers="b3" autoSubmit="true">
+          <f:selectItems value="#{row.bindings.PrntOrgCode.items}" id="si1"/>
+          <f:validator binding="#{row.bindings.PrntOrgCode.validator}"/>
+        </af:selectOneChoice>
+      </af:column>
+      <af:column id="c5" width="170" align="center">
+        <af:button actionListener="#{bindings.CreateWithParams.execute}" text="#{viewcontrollerBundle.ADD_CHILD}"
+                   disabled="#{!bindings.CreateWithParams.enabled}" id="b3" styleClass="but"
+                   icon="#{resource['images:CreateF.png']}" hoverIcon="#{resource['images:CreateO.png']}"/>
+      </af:column>
+    </af:table>
+    <f:facet name="info"/>
+  </af:panelHeader>
+</ui:composition>

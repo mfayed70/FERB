@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="customers_crudPageDef"
+                Package="customers">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CustomersV" RangeSize="25" DataControl="AalmSalesDataControl" id="CustomersVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CustomersVIterator" id="CustId">
+      <AttrNames>
+        <Item Value="CustId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomersVIterator" id="CustName">
+      <AttrNames>
+        <Item Value="CustName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomersVIterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomersVIterator" id="MobileNo">
+      <AttrNames>
+        <Item Value="MobileNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomersVIterator" id="SegelNo">
+      <AttrNames>
+        <Item Value="SegelNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CustomersVIterator" StaticList="false" Uses="LOV_CurrCode" id="CurrCode" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CustomersVIterator" id="PermittedLimit">
+      <AttrNames>
+        <Item Value="PermittedLimit"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

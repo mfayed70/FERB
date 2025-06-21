@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemCategoriesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="YesNoLOV1"
+    ViewObjectName="com.aalm.center.model.lovs.YesNoLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="YesNoLOV2"
+    ViewObjectName="com.aalm.center.model.lovs.YesNoLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Active"
+    ListVOName="YesNoLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Active"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_IsAss"
+    ListVOName="YesNoLOV2"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsAss"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ItemCategories"
+    Entity="com.aalm.center.model.entities.ItemCategories"/>
+  <ViewAttribute
+    Name="CatId"
+    PrecisionRule="true"
+    EntityAttrName="CatId"
+    EntityUsage="ItemCategories"
+    AliasName="cat_id">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.views.ItemCategoriesV.CatId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CatName"
+    PrecisionRule="true"
+    EntityAttrName="CatName"
+    EntityUsage="ItemCategories"
+    AliasName="cat_name">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.center.model.views.ItemCategoriesV.CatName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RegisterDt"
+    PrecisionRule="true"
+    EntityAttrName="RegisterDt"
+    EntityUsage="ItemCategories"
+    AliasName="register_dt">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.aalm.center.model.views.ItemCategoriesV.RegisterDt_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.aalm.center.model.views.ItemCategoriesV.RegisterDt_FMT_FORMAT"/>
+        <LABEL
+          ResId="com.aalm.center.model.views.ItemCategoriesV.RegisterDt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Active"
+    PrecisionRule="true"
+    EntityAttrName="Active"
+    EntityUsage="ItemCategories"
+    AliasName="active"
+    LOVName="LOV_Active">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IsAss"
+    PrecisionRule="true"
+    EntityAttrName="IsAss"
+    EntityUsage="ItemCategories"
+    AliasName="is_ass"
+    LOVName="LOV_IsAss">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="ItemCategoryTypesV"
+    ViewLink="com.aalm.center.model.views.fk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1VL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.aalm.center.model.AalmCenteralMBndl"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.gl.view.AalmGlBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.GL_DOCUMENT}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:button actionListener="#{bindings.Commit.execute}" text="#{viewcontrollerBundle.SAVE}" id="b1"
+                 styleClass="but" icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"
+                 action="toSave" disabled="#{bindings.OriginGlDocId.inputValue!=null}"/>
+      <af:button actionListener="#{pageFlowScope.GlBean.deleteGlDocument}" text="#{viewcontrollerBundle.Delete}"
+                 disabled="#{bindings.GlJournalsVIterator.estimatedRowCount>0}"
+                 id="b4" styleClass="but" icon="#{resource['images:deleteF.png']}"
+                 hoverIcon="#{resource['images:deleteO.png']}" immediate="true" action="toSave" partialTriggers="b5"/>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}"
+                 immediate="true" id="b2" styleClass="but" icon="#{resource['images:cancelF.png']}"
+                 hoverIcon="#{resource['images:cancelO.png']}" action="toCancel"
+                 disabled="#{bindings.OriginGlDocId.inputValue!=null}"/>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info">
+      <af:panelGroupLayout id="pgl1" layout="horizontal">
+        <af:button
+                   disabled="#{!bindings.CreateInsert.enabled}" id="b3" styleClass="but"
+                   hoverIcon="#{resource['images:toPost-O-24.png']}"
+                   text="#{viewcontrollerBundle.post}" icon="#{resource['images:posted-W-24-F.png']}"
+                   action="#{pageFlowScope.GlBean.postGlDoc}"
+                   partialTriggers="t1:ot4 t1:ot3"
+                   visible="#{(bindings.SumCredit.inputValue==bindings.SumDebit.inputValue) &amp;&amp; ( not empty bindings.SumDebit.inputValue &amp;&amp;  not empty bindings.SumCredit.inputValue)}"
+                   actionListener="#{bindings.Commit.execute}"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <af:panelSplitter id="ps1" splitterPosition="700"
+                      inlineStyle="border-style:none none solid; border-color:currentColor currentColor Navy; padding-bottom:10px; border-width:medium medium thin medium;"
+                      disabled="true">
+      <f:facet name="first">
+        <af:panelFormLayout id="pfl1">
+          <af:panelLabelAndMessage label="#{bindings.GlDocId.hints.label}" id="plam1">
+            <af:outputText value="#{bindings.GlDocId.inputValue}" shortDesc="#{bindings.GlDocId.hints.tooltip}" id="ot1"
+                           inlineStyle="text-decoration:underline;">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.GlDocId.format}"/>
+            </af:outputText>
+          </af:panelLabelAndMessage>
+          <af:inputDate value="#{bindings.GlDocDt.inputValue}" label="#{bindings.GlDocDt.hints.label}"
+                        required="#{bindings.GlDocDt.hints.mandatory}" columns="#{bindings.GlDocDt.hints.displayWidth}"
+                        shortDesc="#{bindings.GlDocDt.hints.tooltip}" id="it3"
+                        minValue="#{bindings.StartDt.inputValue}" maxValue="#{bindings.EndDt.inputValue}"
+                        disabled="#{bindings.OriginGlDocId.inputValue!=null}">
+            <f:validator binding="#{bindings.GlDocDt.validator}"/>
+            <af:convertDateTime pattern="#{bindings.GlDocDt.format}"/>
+          </af:inputDate>
+          <af:inputText value="#{bindings.GlDocName.inputValue}" label="#{bindings.GlDocName.hints.label}"
+                        required="#{bindings.GlDocName.hints.mandatory}"
+                        columns="#{bindings.GlDocName.hints.displayWidth}"
+                        maximumLength="#{bindings.GlDocName.hints.precision}"
+                        shortDesc="#{bindings.GlDocName.hints.tooltip}" id="it1"
+                        contentStyle="width:300px;min-height:60px;" rows="4"
+                        disabled="#{bindings.OriginGlDocId.inputValue!=null}">
+            <f:validator binding="#{bindings.GlDocName.validator}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.GlTrnsTypeId.inputValue}" label="#{bindings.GlTrnsTypeId.label}"
+                              required="#{bindings.GlTrnsTypeId.hints.mandatory}"
+                              shortDesc="#{bindings.GlTrnsTypeId.hints.tooltip}" id="soc1" contentStyle="width:300px;"
+                              disabled="#{bindings.OriginGlDocId.inputValue!=null}">
+            <f:selectItems value="#{bindings.GlTrnsTypeId.items}" id="si1"/>
+            <f:validator binding="#{bindings.GlTrnsTypeId.validator}"/>
+          </af:selectOneChoice>
+          <af:inputText value="#{bindings.OrgCode.inputValue}" label="#{bindings.OrgCode.hints.label}"
+                        required="#{bindings.OrgCode.hints.mandatory}" columns="#{bindings.OrgCode.hints.displayWidth}"
+                        maximumLength="#{bindings.OrgCode.hints.precision}"
+                        shortDesc="#{bindings.OrgCode.hints.tooltip}" id="it2" rendered="false">
+            <f:validator binding="#{bindings.OrgCode.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.OrgCode.format}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelGroupLayout id="pgl3" layout="vertical" halign="center"
+                             inlineStyle="padding-top:30px;max-width:300px;">
+          <af:panelGroupLayout id="pgl5" layout="vertical" halign="end">
+            <af:selectBooleanCheckbox value="#{bindings.BalanceFlag.inputValue}" label="#{bindings.BalanceFlag.label}"
+                                      shortDesc="#{bindings.BalanceFlag.hints.tooltip}" id="sbc3" disabled="true"/>
+            <af:selectBooleanCheckbox value="#{bindings.PostFlag.inputValue}" label="#{bindings.PostFlag.label}"
+                                      shortDesc="#{bindings.PostFlag.hints.tooltip}" id="sbc1" disabled="true"/>
+          </af:panelGroupLayout>
+          <f:facet name="separator">
+            <af:spacer width="20" height="5" id="s1"/>
+          </f:facet>
+          <af:panelHeader text="#{viewcontrollerBundle.ORIGINAL_DOCUMENT}" id="ph3"
+                          inlineStyle="border-width:thin; border-style:solid; border-color:Navy;"
+                          visible="#{bindings.OriginGlDocId.inputValue!=null}">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend">
+              <af:spacer width="10" height="10" id="s3"/>
+            </f:facet>
+            <af:outputText value="#{bindings.OriginGlDocId.inputValue}"
+                           shortDesc="#{bindings.OriginGlDocId.hints.tooltip}" id="ot6">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.OriginGlDocId.format}"/>
+            </af:outputText>
+            <f:facet name="info"/>
+          </af:panelHeader>
+        </af:panelGroupLayout>
+      </f:facet>
+    </af:panelSplitter>
+    <af:spacer width="10" height="20" id="s2"/>
+    <af:panelHeader text="#{viewcontrollerBundle.DOCUMENT_JOURNALS}" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="toolbar">
+        <af:button actionListener="#{bindings.CreateInsert1.execute}" text="#{viewcontrollerBundle.NewJournal}"
+                   disabled="#{!bindings.CreateInsert1.enabled || bindings.OriginGlDocId.inputValue!=null}" id="b5" icon="#{resource['images:NewF.png']}"
+                   hoverIcon="#{resource['images:NewO.png']}" styleClass="but" partialTriggers="b4"/>
+      </f:facet>
+      <f:facet name="legend"/>
+      <af:panelGroupLayout id="pgl4" inlineStyle="padding:10px; border-collapse:separate; border-color:#000084;">
+        <af:table value="#{bindings.GlJournalsV.collectionModel}" var="row" rows="#{bindings.GlJournalsV.rangeSize}"
+                  emptyText="#{bindings.GlJournalsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.GlJournalsV.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.GlJournalsV.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.GlJournalsV.rangeSize}" id="t1" partialTriggers="::b5 l1" horizontalGridVisible="true"
+                  verticalGridVisible="false">
+          <af:column headerText="#{bindings.GlJournalsV.hints.JornalId.label}" id="c1" width="120" align="center">
+            <af:inputText value="#{row.bindings.JornalId.inputValue}"
+                          label="#{bindings.GlJournalsV.hints.JornalId.label}"
+                          required="#{bindings.GlJournalsV.hints.JornalId.mandatory}"
+                          columns="#{bindings.GlJournalsV.hints.JornalId.displayWidth}"
+                          maximumLength="#{bindings.GlJournalsV.hints.JornalId.precision}"
+                          shortDesc="#{bindings.GlJournalsV.hints.JornalId.tooltip}" id="it6" readOnly="true">
+              <f:validator binding="#{row.bindings.JornalId.validator}"/>
+            </af:inputText>
+            <f:facet name="footer">
+              <af:outputText value="#{viewcontrollerBundle.TOTAL_}" id="ot5"
+                             inlineStyle="color:Maroon; font-size:24px; font-style:italic;"/>
+            </f:facet>
+          </af:column>
+          <af:column headerText="#{bindings.GlJournalsV.hints.AccCode.label}" id="c2" width="130" align="center">
+            <af:inputComboboxListOfValues id="accCodeId"
+                                          popupTitle="Search and Select: #{bindings.GlJournalsV.hints.AccCode.label}"
+                                          value="#{row.bindings.AccCode.inputValue}"
+                                          model="#{row.bindings.AccCode.listOfValuesModel}"
+                                          required="#{bindings.GlJournalsV.hints.AccCode.mandatory}"
+                                          columns="#{bindings.GlJournalsV.hints.AccCode.displayWidth}"
+                                          shortDesc="#{bindings.GlJournalsV.hints.AccCode.tooltip}" autoSubmit="true"
+                                          disabled="#{bindings.OriginGlDocId.inputValue!=null}">
+              <f:validator binding="#{row.bindings.AccCode.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.GlJournalsV.hints.AccCode.format}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.AccCode.suggestedItems}"/>
+            </af:inputComboboxListOfValues>
+          </af:column>
+          <af:column headerText="#{bindings.GlJournalsV.hints.AccNameA.label}" id="c3" width="300" align="center">
+            <af:panelGroupLayout id="pgl2" layout="vertical">
+              <af:inputText value="#{row.bindings.AccNameE.inputValue}"
+                            label="#{bindings.GlJournalsV.hints.AccNameE.label}"
+                            required="#{bindings.GlJournalsV.hints.AccNameE.mandatory}"
+                            columns="#{bindings.GlJournalsV.hints.AccNameE.displayWidth}"
+                            maximumLength="#{bindings.GlJournalsV.hints.AccNameE.precision}"
+                            shortDesc="#{bindings.GlJournalsV.hints.AccNameE.tooltip}" id="it7" readOnly="true">
+                <f:validator binding="#{row.bindings.AccNameE.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{row.bindings.AccNameA.inputValue}"
+                            label="#{bindings.GlJournalsV.hints.AccNameA.label}"
+                            required="#{bindings.GlJournalsV.hints.AccNameA.mandatory}"
+                            columns="#{bindings.GlJournalsV.hints.AccNameA.displayWidth}"
+                            maximumLength="#{bindings.GlJournalsV.hints.AccNameA.precision}"
+                            shortDesc="#{bindings.GlJournalsV.hints.AccNameA.tooltip}" id="it4" readOnly="true">
+                <f:validator binding="#{row.bindings.AccNameA.validator}"/>
+              </af:inputText>
+            </af:panelGroupLayout>
+          </af:column>
+          <af:column headerText="#{bindings.GlJournalsV.hints.OrgCode.label}" id="c5" rendered="false" align="center">
+            <af:inputText value="#{row.bindings.OrgCode.inputValue}" label="#{bindings.GlJournalsV.hints.OrgCode.label}"
+                          required="#{bindings.GlJournalsV.hints.OrgCode.mandatory}"
+                          columns="#{bindings.GlJournalsV.hints.OrgCode.displayWidth}"
+                          maximumLength="#{bindings.GlJournalsV.hints.OrgCode.precision}"
+                          shortDesc="#{bindings.GlJournalsV.hints.OrgCode.tooltip}" id="it9">
+              <f:validator binding="#{row.bindings.OrgCode.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.GlJournalsV.hints.OrgCode.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column id="c4" rendered="false" align="center">
+            <af:outputText value="#{row.bindings.GlAssTblId.inputValue}" id="ot2"/>
+          </af:column>
+          <af:column headerText="#{bindings.GlJournalsV.hints.AssCode.label}" id="c6" width="200" align="center">
+            <af:selectOneChoice value="#{row.bindings.AssCode.inputValue}" label="#{row.bindings.AssCode.label}"
+                                required="#{bindings.GlJournalsV.hints.AssCode.mandatory}"
+                                shortDesc="#{bindings.GlJournalsV.hints.AssCode.tooltip}" id="soc2"
+                                disabled="#{row.bindings.GlAssTblId.inputValue==null || bindings.OriginGlDocId.inputValue!=null}">
+              <f:selectItems value="#{row.bindings.AssCode.items}" id="si2"/>
+              <f:validator binding="#{row.bindings.AssCode.validator}"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column headerText="#{bindings.GlJournalsV.hints.Debit.label}" id="c8" align="center" width="100">
+            <af:inputText value="#{row.bindings.Debit.inputValue}" label="#{bindings.GlJournalsV.hints.Debit.label}"
+                          required="#{bindings.GlJournalsV.hints.Debit.mandatory}"
+                          columns="#{bindings.GlJournalsV.hints.Debit.displayWidth}"
+                          maximumLength="#{bindings.GlJournalsV.hints.Debit.precision}"
+                          shortDesc="#{bindings.GlJournalsV.hints.Debit.tooltip}" id="it11" placeholder="00.00"
+                          autoSubmit="true" valueChangeListener="#{pageFlowScope.GlBean.DeditChngListener}"
+                          partialTriggers="it12" disabled="#{bindings.OriginGlDocId.inputValue!=null}">
+              <f:validator binding="#{row.bindings.Debit.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.GlJournalsV.hints.Debit.format}"/>
+            </af:inputText>
+            <f:facet name="footer">
+              <af:outputText value="#{bindings.SumDebit.inputValue}"
+                             shortDesc="#{bindings.GlJournalsV.hints.SumDebit.tooltip}" id="ot3" partialTriggers="it11"
+                             inlineStyle="font-size:22px; color:Maroon; text-decoration:underline;">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.GlJournalsV.hints.SumDebit.format}"/>
+              </af:outputText>
+            </f:facet>
+          </af:column>
+          <af:column headerText="#{bindings.GlJournalsV.hints.Credit.label}" id="c9" align="center" width="100">
+            <af:inputText value="#{row.bindings.Credit.inputValue}" label="#{bindings.GlJournalsV.hints.Credit.label}"
+                          required="#{bindings.GlJournalsV.hints.Credit.mandatory}"
+                          columns="#{bindings.GlJournalsV.hints.Credit.displayWidth}"
+                          maximumLength="#{bindings.GlJournalsV.hints.Credit.precision}"
+                          shortDesc="#{bindings.GlJournalsV.hints.Credit.tooltip}" id="it12" placeholder="0000.00"
+                          autoSubmit="true" valueChangeListener="#{pageFlowScope.GlBean.CreditChngListener}"
+                          partialTriggers="it11">
+              <f:validator binding="#{row.bindings.Credit.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.GlJournalsV.hints.Credit.format}"/>
+            </af:inputText>
+            <f:facet name="footer">
+              <af:outputText value="#{bindings.SumCredit.inputValue}"
+                             shortDesc="#{bindings.GlJournalsV.hints.SumCredit.tooltip}" id="ot4" partialTriggers="it12"
+                             inlineStyle="font-size:22px; color:Maroon; text-decoration:underline;">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.GlJournalsV.hints.SumCredit.format}"/>
+              </af:outputText>
+            </f:facet>
+          </af:column>
+          <af:column headerText="#{bindings.GlJournalsV.hints.CostCenterCode.label}" id="c11" width="250"
+                     align="center">
+            <af:selectOneChoice value="#{row.bindings.CostCenterCode.inputValue}"
+                                label="#{row.bindings.CostCenterCode.label}"
+                                required="#{bindings.GlJournalsV.hints.CostCenterCode.mandatory}"
+                                shortDesc="#{bindings.GlJournalsV.hints.CostCenterCode.tooltip}" id="soc3"
+                                disabled="#{bindings.OriginGlDocId.inputValue!=null}">
+              <f:selectItems value="#{row.bindings.CostCenterCode.items}" id="si3"/>
+              <f:validator binding="#{row.bindings.CostCenterCode.validator}"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column headerText="#{bindings.GlJournalsV.hints.Notes.label}" id="c12" align="center">
+            <af:inputText value="#{row.bindings.Notes.inputValue}" label="#{bindings.GlJournalsV.hints.Notes.label}"
+                          required="#{bindings.GlJournalsV.hints.Notes.mandatory}"
+                          columns="#{bindings.GlJournalsV.hints.Notes.displayWidth}"
+                          maximumLength="#{bindings.GlJournalsV.hints.Notes.precision}"
+                          shortDesc="#{bindings.GlJournalsV.hints.Notes.tooltip}" id="it14">
+              <f:validator binding="#{row.bindings.Notes.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.GlJournalsV.hints.CurrCode.label}" id="c7" align="center" width="70">
+            <af:inputText value="#{row.bindings.CurrCode.inputValue}"
+                          label="#{bindings.GlJournalsV.hints.CurrCode.label}"
+                          required="#{bindings.GlJournalsV.hints.CurrCode.mandatory}"
+                          columns="#{bindings.GlJournalsV.hints.CurrCode.displayWidth}"
+                          maximumLength="#{bindings.GlJournalsV.hints.CurrCode.precision}"
+                          shortDesc="#{bindings.GlJournalsV.hints.CurrCode.tooltip}" id="it10" readOnly="true">
+              <f:validator binding="#{row.bindings.CurrCode.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.GlJournalsV.hints.GlDocId.label}" id="c13" rendered="false" align="center">
+            <af:inputText value="#{row.bindings.GlDocId.inputValue}" label="#{bindings.GlJournalsV.hints.GlDocId.label}"
+                          required="#{bindings.GlJournalsV.hints.GlDocId.mandatory}"
+                          columns="#{bindings.GlJournalsV.hints.GlDocId.displayWidth}"
+                          maximumLength="#{bindings.GlJournalsV.hints.GlDocId.precision}"
+                          shortDesc="#{bindings.GlJournalsV.hints.GlDocId.tooltip}" id="it15">
+              <f:validator binding="#{row.bindings.GlDocId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.GlJournalsV.hints.GlDocId.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.GlJournalsV.hints.GlDocumentsOrgCode.label}" id="c14" rendered="false"
+                     align="center">
+            <af:inputText value="#{row.bindings.GlDocumentsOrgCode.inputValue}"
+                          label="#{bindings.GlJournalsV.hints.GlDocumentsOrgCode.label}"
+                          required="#{bindings.GlJournalsV.hints.GlDocumentsOrgCode.mandatory}"
+                          columns="#{bindings.GlJournalsV.hints.GlDocumentsOrgCode.displayWidth}"
+                          maximumLength="#{bindings.GlJournalsV.hints.GlDocumentsOrgCode.precision}"
+                          shortDesc="#{bindings.GlJournalsV.hints.GlDocumentsOrgCode.tooltip}" id="it16">
+              <f:validator binding="#{row.bindings.GlDocumentsOrgCode.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.GlJournalsV.hints.GlDocumentsOrgCode.format}"/>
+            </af:inputText>
+          </af:column>
+          <f:facet name="footer"/>
+          <af:column id="c10" width="50">
+            <af:link actionListener="#{bindings.Delete1.execute}" disabled="#{!bindings.Delete1.enabled}"
+                     id="l1" icon="#{resource['images:delete24.png']}" partialTriggers="::b4" immediate="true"/>
+          </af:column>
+        </af:table>
+      </af:panelGroupLayout>
+      <f:facet name="info"/>
+    </af:panelHeader>
+  </af:panelHeader>
+</ui:composition>

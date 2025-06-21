@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="homePageDef"
+                Package="com.aalm.master.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="com.aalm.master.view.pageDefs.AalmHomePageTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="UserRolesV" RangeSize="10" DataControl="AalmMasterDataControl" id="UserRolesVIterator"/>
+    <iterator Binds="SpecUserPermissionsV" RangeSize="10" DataControl="AalmMasterDataControl"
+              id="SpecUserPermissionsVIterator"/>
+    <taskFlow id="dynamicRegion1" taskFlowId="${pageFlowScope.AppsBean.dynamicTaskFlowId}" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
+      <parameters>
+        <parameter id="show_fncn" value="#{sessionScope.show_fncn}"/>
+        <parameter id="refreshRegion" value="#{sessionScope.refreshRegion}"/>
+        <parameter id="refreshLocale" value="#{sessionScope.refreshLocale}"/>
+
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings>
+    <tree IterBinding="UserRolesVIterator" id="UserRolesV">
+      <nodeDefinition DefName="com.aalm.master.model.views.UserRolesV" Name="UserRolesV0">
+        <AttrNames>
+          <Item Value="SystemId"/>
+          <Item Value="ArSystemDesc"/>
+          <Item Value="ArSystemName"/>
+          <Item Value="EnSystemDesc"/>
+          <Item Value="EnSystemName"/>
+          <Item Value="RoleGroupId"/>
+          <Item Value="SystemId1"/>
+          <Item Value="UserId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SpecUserPermissionsVIterator" id="SpecUserPermissionsV">
+      <nodeDefinition DefName="com.aalm.master.model.views.UserPermissionsV" Name="SpecUserPermissionsV0">
+        <AttrNames>
+          <Item Value="FncnId"/>
+          <Item Value="ArFncnDesc"/>
+          <Item Value="ArFncnName"/>
+          <Item Value="EnFncnDesc"/>
+          <Item Value="EnFncnName"/>
+          <Item Value="FncnId1"/>
+          <Item Value="RoleGroupId"/>
+          <Item Value="SystemId"/>
+          <Item Value="SystemId1"/>
+          <Item Value="UserId"/>
+          <Item Value="TfLink"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SpecUserPermissionsVIterator" id="ExecuteWithParams"
+            InstanceName="AalmMasterDataControl.SpecUserPermissionsV" DataControl="AalmMasterDataControl"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="pSystemId" NDType="java.lang.String"/>
+      <NamedData NDName="pRoleGroupId" NDType="java.lang.Integer"/>
+      <NamedData NDName="pUserId" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemTypesLOV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.center.model.lovs.ItemTypesLOV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="ItemTypes"
+    Entity="com.aalm.center.model.entities.ItemTypes"
+    ReadOnly="true"
+    DeleteParticipant="false"/>
+  <ViewAttribute
+    Name="ItemTypeId"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ItemTypeId"
+    EntityUsage="ItemTypes"
+    AliasName="item_type_id"/>
+  <ViewAttribute
+    Name="TypeName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TypeName"
+    EntityUsage="ItemTypes"
+    AliasName="type_name"/>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.center.model.AalmCenteralMBndl"/>
+  </ResourceBundle>
+</ViewObject>

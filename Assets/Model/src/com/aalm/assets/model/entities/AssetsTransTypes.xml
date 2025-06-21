@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AssetsTransTypes"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ASSETS_TRANS_TYPES"
+  AliasName="AssetsTransTypes"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="AssTrnsTypeCode"
+    IsNotNull="true"
+    ColumnName="ass_trns_type_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ASSETS_TRANS_TYPES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.assets.model.entities.AssetsTransTypes.AssTrnsTypeCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="AssTrnsTypeName"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="ass_trns_type_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ASSETS_TRANS_TYPES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.assets.model.entities.AssetsTransTypes.AssTrnsTypeName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Effect"
+    IsNotNull="true"
+    Precision="2"
+    ColumnName="effect"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ASSETS_TRANS_TYPES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.assets.model.entities.AssetsTransTypes.Effect_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="AssTrnsTypeDt"
+    ColumnName="ass_trns_type_dt"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="ASSETS_TRANS_TYPES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.assets.model.entities.AssetsTransTypes.AssTrnsTypeDt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="AssetTransMast1"
+    Association="com.aalm.assets.model.entities.FkAssetTransMastAssetsTransTypes1Assoc"
+    AssociationEnd="com.aalm.assets.model.entities.FkAssetTransMastAssetsTransTypes1Assoc.AssetTransMast1"
+    AssociationOtherEnd="com.aalm.assets.model.entities.FkAssetTransMastAssetsTransTypes1Assoc.AssetsTransTypes"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.assets.model.AalmAssetsMBndl"/>
+  </ResourceBundle>
+</Entity>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.mnf.model.AalmMnfBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="ID">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcesses.MnfPrcsId_LABEL">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NAME">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcesses.MnfPrcsName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DO_ACTION">
+        <source>Do Action</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcesses.HasAction_LABEL">
+        <source>Do Action</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="IS_COMPLEX">
+        <source>is Complex</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcesses.IsComplex_LABEL">
+        <source>is Complex</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessInputItems.MnfPrcsId_LABEL">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="INPUT_MATERIAL">
+        <source>Input Material</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessInputItems.ItemCode_LABEL">
+        <source>Input Material</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="UNIT">
+        <source>Unit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessInputItems.UnitId_LABEL">
+        <source>Unit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="QTY">
+        <source>Qty</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessInputItems.Qty_LABEL">
+        <source>Qty</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SEQ_">
+        <source>Seq.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessInputItems.Seq_LABEL">
+        <source>Seq.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessInputHr.Seq_LABEL">
+        <source>Seq.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEEDED_JOB">
+        <source>needed Job</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessInputHr.JobId_LABEL">
+        <source>needed Job</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DURATION">
+        <source>Duration</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessInputHr.Duration_LABEL">
+        <source>Duration</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="WORK_UNIT">
+        <source>Work Unit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessInputHr.TimeUnit_LABEL">
+        <source>Work Unit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessOutputItems.Seq_LABEL">
+        <source>Seq.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="OUTPUT_PRODUCT">
+        <source>Output Product</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessOutputItems.ItemCode_LABEL">
+        <source>Output Product</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessOutputItems.UnitId_LABEL">
+        <source>Unit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.entities.MnfProcessOutputItems.Qty_LABEL">
+        <source>Qty</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.views.MnfProcessesTobeSelectedInStrV_LABEL">
+        <source>Mnf Processes Tobe Selected In Ass V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.views.lovs.YesNoLOV_LABEL">
+        <source>Yes No Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.views.lovs.YesNoLOV.SL_0_0">
+        <source>Y</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.views.lovs.YesNoLOV.SL_0_1">
+        <source>Yes</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.views.lovs.YesNoLOV.SL_1_0">
+        <source>N</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.views.lovs.YesNoLOV.SL_1_1">
+        <source>No</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.views.lovs.YesNoLOV.SL_0_0">
+        <source>Y</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.views.lovs.YesNoLOV.SL_0_1">
+        <source>Yes</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.views.lovs.YesNoLOV.SL_1_0">
+        <source>N</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.mnf.model.views.lovs.YesNoLOV.SL_1_1">
+        <source>No</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

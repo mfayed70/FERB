@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserControlOrgsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="OrganizationsV1"
+    ViewObjectName="com.aalm.master.model.views.OrganizationsV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_OrgCode"
+    ListVOName="OrganizationsV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OrgCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="EnOrgName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT UserControlOrgs.user_id, 
+       UserControlOrgs.org_code, 
+       Organizations.en_org_name, 
+       Organizations.org_code AS Org_Code1
+FROM  USER_CONTROL_ORGS UserControlOrgs
+JOIN ORGANIZATIONS Organizations ON (UserControlOrgs.org_code = Organizations.org_code)
+where UserControlOrgs.org_code in (select org_code from ORGANIZATIONS where
+        prnt_org_code=0)]]></SQLQuery>
+  <EntityUsage
+    Name="UserControlOrgs"
+    Entity="com.aalm.master.model.entities.UserControlOrgs"/>
+  <EntityUsage
+    Name="Organizations"
+    Entity="com.aalm.master.model.entities.Organizations"
+    Association="com.aalm.master.model.entities.FkUsersControlOrgsOganizations1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkUsersControlOrgsOganizations1Assoc.Organizations"
+    SourceUsage="com.aalm.master.model.views.UserControlOrgsV.UserControlOrgs"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.aalm.master.model.entities.UserControlOrgs.OrgCode"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.aalm.master.model.entities.Organizations.OrgCode"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="UserId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="UserControlOrgs"
+    AliasName="user_id"/>
+  <ViewAttribute
+    Name="OrgCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OrgCode"
+    EntityUsage="UserControlOrgs"
+    AliasName="org_code"
+    LOVName="LOV_OrgCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.aalm.master.model.views.UserControlOrgsV.OrgCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EnOrgName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EnOrgName"
+    EntityUsage="Organizations"
+    AliasName="en_org_name"/>
+  <ViewAttribute
+    Name="OrgCode1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OrgCode"
+    EntityUsage="Organizations"
+    AliasName="Org_Code1"/>
+</ViewObject>

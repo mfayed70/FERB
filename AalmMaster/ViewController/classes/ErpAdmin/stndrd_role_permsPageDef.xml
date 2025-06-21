@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="stndrd_role_permsPageDef"
+                Package="ErpAdmin">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RolesV" RangeSize="25" DataControl="AalmMasterDataControl" id="RolesVIterator"/>
+    <iterator Binds="RoleMasterV" RangeSize="25" DataControl="AalmMasterDataControl" id="RoleMasterVIterator"/>
+    <iterator Binds="PermissionsV" RangeSize="25" DataControl="AalmMasterDataControl" id="PermissionsVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="RolesVIterator" id="RolesV">
+      <nodeDefinition DefName="com.aalm.master.model.views.RolesV" Name="RolesV0">
+        <AttrNames>
+          <Item Value="SystemId"/>
+          <Item Value="EnSystemName"/>
+          <Item Value="ArSystemName"/>
+          <Item Value="EnSystemDesc"/>
+          <Item Value="ArSystemDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="RoleMasterVIterator" id="RoleMasterV">
+      <nodeDefinition DefName="com.aalm.master.model.views.RoleMasterV" Name="RoleMasterV0">
+        <AttrNames>
+          <Item Value="RoleGroupId"/>
+          <Item Value="EnRoleGroupName"/>
+          <Item Value="ArRoleGroupName"/>
+          <Item Value="PreDefined" Binds="PreDefined"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="PermissionsVIterator" id="PermissionsV">
+      <nodeDefinition DefName="com.aalm.master.model.views.PermissionsV" Name="PermissionsV0">
+        <AttrNames>
+          <Item Value="FncnId"/>
+          <Item Value="EnFncnName"/>
+          <Item Value="ArFncnName"/>
+          <Item Value="RoleGroupId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="RoleMasterVIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="RoleMasterVIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmMasterDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmMasterDataControl"/>
+    <action IterBinding="PermissionsVIterator" id="DeletePermission" InstanceName="AalmMasterDataControl.PermissionsV"
+            DataControl="AalmMasterDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="RolesVIterator" id="DeleteSys" InstanceName="AalmMasterDataControl.RolesV"
+            DataControl="AalmMasterDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <button IterBinding="RoleMasterVIterator" id="PreDefined" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="PreDefined"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>

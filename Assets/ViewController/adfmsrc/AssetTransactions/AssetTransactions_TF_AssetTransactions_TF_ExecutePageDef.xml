@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="AssetTransactions_TF_AssetTransactions_TF_ExecutePageDef" Package="AssetTransactions"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="AssetTransMastV" RangeSize="25" DataControl="AalmAssetsDataControl" id="AssetTransMastVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="AssetTransMastVIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

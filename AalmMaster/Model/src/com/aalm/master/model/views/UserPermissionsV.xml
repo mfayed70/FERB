@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserPermissionsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="pSystemId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pRoleGroupId"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="pUserId"
+    Kind="viewcriteria"
+    Type="java.lang.Integer">
+    <TransientExpression
+      trustMode="untrusted"
+      Name="expression"><![CDATA[adf.context.sessionScope.userId]]></TransientExpression>
+  </Variable>
+  <SQLQuery><![CDATA[SELECT distinct UserPermissions.fncn_id, 
+       UserPermissions.system_id, 
+       UserPermissions.user_id, 
+       UserPermissions.role_group_id, 
+       SystemFnctns.fncn_id AS Fncn_Id1, 
+       SystemFnctns.en_fncn_name, 
+       SystemFnctns.ar_fncn_name, 
+       SystemFnctns.system_id AS System_Id1, 
+       SystemFnctns.en_fncn_desc, 
+       SystemFnctns.ar_fncn_desc, 
+       SystemFnctns.tf_link
+FROM  USER_PERMISSIONS UserPermissions
+INNER JOIN SYSTEM_FNCTNS SystemFnctns ON (UserPermissions.fncn_id = SystemFnctns.fncn_id and SystemFnctns.tf_link is not null)]]></SQLQuery>
+  <EntityUsage
+    Name="UserPermissions"
+    Entity="com.aalm.master.model.entities.UserPermissions"/>
+  <EntityUsage
+    Name="SystemFnctns"
+    Entity="com.aalm.master.model.entities.SystemFnctns"
+    Association="com.aalm.master.model.entities.FkUserPermissionsSystemFNCTNS1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkUserPermissionsSystemFNCTNS1Assoc.SystemFnctns"
+    SourceUsage="com.aalm.master.model.views.UserPermissionsV.UserPermissions"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.aalm.master.model.entities.UserPermissions.FncnId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.aalm.master.model.entities.SystemFnctns.FncnId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="FncnId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FncnId"
+    EntityUsage="UserPermissions"
+    AliasName="fncn_id"/>
+  <ViewAttribute
+    Name="SystemId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SystemId"
+    EntityUsage="UserPermissions"
+    AliasName="system_id"/>
+  <ViewAttribute
+    Name="UserId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="UserPermissions"
+    AliasName="user_id"/>
+  <ViewAttribute
+    Name="RoleGroupId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RoleGroupId"
+    EntityUsage="UserPermissions"
+    AliasName="role_group_id"/>
+  <ViewAttribute
+    Name="FncnId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FncnId"
+    EntityUsage="SystemFnctns"
+    AliasName="Fncn_Id1"/>
+  <ViewAttribute
+    Name="EnFncnName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EnFncnName"
+    EntityUsage="SystemFnctns"
+    AliasName="en_fncn_name"/>
+  <ViewAttribute
+    Name="ArFncnName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ArFncnName"
+    EntityUsage="SystemFnctns"
+    AliasName="ar_fncn_name"/>
+  <ViewAttribute
+    Name="SystemId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SystemId"
+    EntityUsage="SystemFnctns"
+    AliasName="System_Id1"/>
+  <ViewAttribute
+    Name="EnFncnDesc"
+    PrecisionRule="true"
+    EntityAttrName="EnFncnDesc"
+    EntityUsage="SystemFnctns"
+    AliasName="en_fncn_desc"/>
+  <ViewAttribute
+    Name="ArFncnDesc"
+    PrecisionRule="true"
+    EntityAttrName="ArFncnDesc"
+    EntityUsage="SystemFnctns"
+    AliasName="ar_fncn_desc"/>
+  <ViewAttribute
+    Name="TfLink"
+    PrecisionRule="true"
+    EntityAttrName="TfLink"
+    EntityUsage="SystemFnctns"
+    AliasName="tf_link"/>
+  <ViewCriteria
+    Name="UserPermissionsVCriteria"
+    ViewObjectName="com.aalm.master.model.views.UserPermissionsV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="UserPermissionsVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SystemId"
+        ViewAttribute="SystemId"
+        Operator="="
+        Conjunction="AND"
+        Value=":pSystemId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="UserId"
+        ViewAttribute="UserId"
+        Operator="="
+        Conjunction="AND"
+        Value=":pUserId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="RoleGroupId"
+        ViewAttribute="RoleGroupId"
+        Operator="="
+        Conjunction="AND"
+        Value=":pRoleGroupId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TfLink"
+        ViewAttribute="TfLink"
+        Operator="ISNOTBLANK"
+        Conjunction="AND"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="FncnId"/>
+    <Item Value="SystemId"/>
+    <Item Value="UserId"/>
+    <Item Value="RoleGroupId"/>
+  </AttrArray>
+</ViewObject>

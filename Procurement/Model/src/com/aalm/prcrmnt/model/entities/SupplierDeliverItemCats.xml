@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SupplierDeliverItemCats"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SUPPLIER_DELIVER_ITEM_CATS"
+  AliasName="SupplierDeliverItemCats"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="CatId"
+    IsNotNull="true"
+    ColumnName="cat_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SUPPLIER_DELIVER_ITEM_CATS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SuppId"
+    IsNotNull="true"
+    ColumnName="supp_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SUPPLIER_DELIVER_ITEM_CATS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Active"
+    Precision="2"
+    ColumnName="active"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SUPPLIER_DELIVER_ITEM_CATS"
+    DefaultValue="Y">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Suppliers"
+    Association="com.aalm.prcrmnt.model.entities.fk_SUPPLIER_DELIVER_ITEM_CATS_SUPPLIERS1Assoc"
+    AssociationEnd="com.aalm.prcrmnt.model.entities.fk_SUPPLIER_DELIVER_ITEM_CATS_SUPPLIERS1Assoc.Suppliers"
+    AssociationOtherEnd="com.aalm.prcrmnt.model.entities.fk_SUPPLIER_DELIVER_ITEM_CATS_SUPPLIERS1Assoc.SupplierDeliverItemCats"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.SupplierDeliverItemCats.CatId"/>
+      <Item Value="com.aalm.prcrmnt.model.entities.SupplierDeliverItemCats.SuppId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkSupplierDeliverItemCatsItemCategories1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_SUPPLIER_DELIVER_ITEM_CATS_ITEM_CATEGORIES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.SupplierDeliverItemCats.CatId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkSupplierDeliverItemCatsSuppliers1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_SUPPLIER_DELIVER_ITEM_CATS_SUPPLIERS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.SupplierDeliverItemCats.SuppId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SupplierDeliverItemCats">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Supplier_Deliver_Item_Cats"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.SupplierDeliverItemCats.SuppId"/>
+    </AttrArray>
+  </Key>
+</Entity>

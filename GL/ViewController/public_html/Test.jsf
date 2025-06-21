@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Test.jsf" id="d1">
+        <af:form id="f1">
+            <af:panelTabbed position="above" id="pt1" inlineStyle="padding-top:10px;">
+                <af:showDetailItem text="showDetailItem 7" id="sdi4">
+                    <af:region value="#{bindings.gl_financial_yearsTF1.regionModel}" id="r7"/>
+                </af:showDetailItem>
+                <af:showDetailItem text="Tab Label 6" id="sdi3">
+                    <af:region value="#{bindings.ROgl_documentsTF1.regionModel}" id="r6"/>
+                </af:showDetailItem>
+                <af:showDetailItem text="showDetailItem 5" id="sdi2">
+                    <af:region value="#{bindings.gl_org_acc_chartTF1.regionModel}" id="r5"/>
+                </af:showDetailItem>
+                <af:showDetailItem text="showDetailItem 4" id="sdi1">
+                    <af:region value="#{bindings.gl_org_cost_centersTF1.regionModel}" id="r4"/>
+                </af:showDetailItem>
+                <af:showDetailItem id="tab3" text="Tab Label 3">
+                    <af:region value="#{bindings.gl_gen_acc_chartTF1.regionModel}" id="r3"/>
+                </af:showDetailItem>
+                <af:showDetailItem id="tab2" text="Tab Label 2">
+                    <af:region value="#{bindings.gl_acc_typesTF1.regionModel}" id="r2"/>
+                </af:showDetailItem>
+                <af:showDetailItem id="tab1" text="Tab Label 1">
+                    <af:region value="#{bindings.gl_trans_typesTF1.regionModel}" id="r1"/>
+                </af:showDetailItem>
+            </af:panelTabbed>
+        </af:form>
+    </af:document>
+</f:view>

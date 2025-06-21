@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.pm.view.AalmPmBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="CLIENTS">
+        <source>Clients</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT___NEW_CLIENT">
+        <source>Edit / New Client</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>Cancel</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>Save</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW">
+        <source>New</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PROJECT_BASIC_DATA">
+        <source>Project Basic Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="VERSION">
+        <source>version-</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="projectSections">
+        <source>project Sections</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CreateMainSection">
+        <source>Create Main Section</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CreateSubSection">
+        <source>Create Sub-Section</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SectionItemsPricing">
+        <source>Section Items Pricing</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CreateItem">
+        <source>Create Item</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CreateSubLevel">
+        <source>Create Sub-Level</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PROJECTS">
+        <source>Projects</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BACK_TO_PROJECTS">
+        <source>back to Projects</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EXIT">
+        <source>Exit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="cancel">
+        <source>cancel</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="view">
+        <source>view</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="createnewversionfromit">
+        <source>create new version from it</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

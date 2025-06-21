@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="RO-gl_documents-TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>ExecuteWithParams</default-activity>
+    <input-parameter-definition id="__4">
+      <name>pGlDocID</name>
+      <value>#{pageFlowScope.pGlDocId}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__5">
+      <name>pGlDt</name>
+      <value>#{pageFlowScope.pGlDt}</value>
+      <class>java.sql.Date</class>
+    </input-parameter-definition>
+    <managed-bean id="__3">
+      <managed-bean-name>GlBean</managed-bean-name>
+      <managed-bean-class>com.aalm.gl.view.beans.GlBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ro-gl_documents">
+      <page>/WEB-INF/gl_documents/ro-gl_documents.jsff</page>
+    </view>
+    <task-flow-call id="gl_documents-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/gl_documents/gl_documents-TF.xml</document>
+        <id>gl_documents-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__8">
+        <name>action</name>
+        <value>#{pageFlowScope.action}</value>
+      </input-parameter>
+      <input-parameter id="__9">
+        <name>pGlDocId</name>
+        <value>#{pageFlowScope.pGlDocId}</value>
+      </input-parameter>
+      <input-parameter id="__10">
+        <name>refreshRegion</name>
+        <value>#{sessionScope.refreshRegion}</value>
+      </input-parameter>
+      <input-parameter id="__11">
+        <name>refreshLocale</name>
+        <value>#{sessionScope.refreshLocale}</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>ro-gl_documents</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>ro-gl_documents</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>toGlDocument</from-outcome>
+        <to-activity-id>gl_documents-TF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

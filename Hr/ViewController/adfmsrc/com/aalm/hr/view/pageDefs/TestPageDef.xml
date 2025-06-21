@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="TestPageDef"
+                Package="com.aalm.hr.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="jobsTF1" taskFlowId="/WEB-INF/jobs/jobs-TF.xml#jobs-TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="refreshRegion" value="#{sessionScope.refreshRegion}"/>
+        <parameter id="refreshLocale" value="#{sessionScope.refreshLocale}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="employeesTF1" taskFlowId="/WEB-INF/employees/employees-TF.xml#employees-TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="refreshRegion" value="#{sessionScope.refreshRegion}"/>
+        <parameter id="refreshLocale" value="#{sessionScope.refreshLocale}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

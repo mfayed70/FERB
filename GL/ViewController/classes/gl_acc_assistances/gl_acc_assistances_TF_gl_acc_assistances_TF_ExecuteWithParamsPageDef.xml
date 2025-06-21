@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="gl_acc_assistances_TF_gl_acc_assistances_TF_ExecuteWithParamsPageDef" Package="gl_acc_assistances"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlAccAssistancesV" RangeSize="25" DataControl="AalmGlDataControl" id="GlAccAssistancesVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlAccAssistancesVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pAccCode" NDValue="#{pageFlowScope.pAccCode}" NDType="java.lang.Integer"/>
+      <NamedData NDName="pOrgCode" NDType="java.lang.Integer" NDValue="#{sessionScope.orgCode}"/>
+    </action>
+  </bindings>
+</pageDefinition>

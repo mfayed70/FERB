@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="gl_trans_types-TF">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
+    <default-activity>gl_trans_types</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__4">
+      <managed-bean-name>GlBean</managed-bean-name>
+      <managed-bean-class>com.aalm.gl.view.beans.GlBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="gl_trans_types">
+      <page>/WEB-INF/gl_trans_types/gl_trans_types.jsff</page>
+    </view>
+    <task-flow-call id="crud-gl_trans_types-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/gl_trans_types/crud-gl_trans_types-TF.xml</document>
+        <id>crud-gl_trans_types-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__3">
+        <name>pGlTransTypeId</name>
+        <value>#{pageFlowScope.pGlTransTypeId}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>gl_trans_types</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toCrud</from-outcome>
+        <to-activity-id>crud-gl_trans_types-TF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

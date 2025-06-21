@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlAccTypesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="GlAccTypes"
+    Entity="com.aalm.gl.model.entities.GlAccTypes"/>
+  <ViewAttribute
+    Name="GlAccTypeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GlAccTypeId"
+    EntityUsage="GlAccTypes"
+    AliasName="gl_acc_type_id"/>
+  <ViewAttribute
+    Name="GlAccTypeNameA"
+    PrecisionRule="true"
+    EntityAttrName="GlAccTypeNameA"
+    EntityUsage="GlAccTypes"
+    AliasName="gl_acc_type_name_a"/>
+  <ViewAttribute
+    Name="GlAccTypeNameE"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GlAccTypeNameE"
+    EntityUsage="GlAccTypes"
+    AliasName="gl_acc_type_name_e"/>
+</ViewObject>

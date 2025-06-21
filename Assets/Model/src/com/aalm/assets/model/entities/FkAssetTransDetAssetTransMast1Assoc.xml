@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkAssetTransDetAssetTransMast1Assoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="AssetTransMast"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.assets.model.entities.AssetTransMast"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetTransMast.TransMastId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="AssetTransDet2"
+    Cardinality="-1"
+    Owner="com.aalm.assets.model.entities.AssetTransDet">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="AssetTransDet2"/>
+      <Attr Name="_foreignKey" Value="com.aalm.assets.model.entities.AssetTransDet.FkAssetTransDetAssetTransMast1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetTransDet.TransMastId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

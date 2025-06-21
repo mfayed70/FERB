@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="employeesContracts_TFxml_employeesContracts_TFxml_ExecuteWithParamsPageDef"
+                Package="employyes_contracts" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="EmployeesContractsV" RangeSize="25" DataControl="AalmHrDataControl"
+              id="EmployeesContractsVIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="EmployeesContractsVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pEmpId" NDValue="#{pageFlowScope.pEmpId}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

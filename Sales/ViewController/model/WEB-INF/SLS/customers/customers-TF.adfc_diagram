@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">Execute</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Execute&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">245.5</property>
+      <property
+         name="x">440.5</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">customers</property>
+      <property
+         name="page">/WEB-INF/SLS/customers/customers.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>customers&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">245.125</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">656.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="fromOutcome">Execute</property>
+      <property
+         name="sdm:polyPoints">R50,481.5,245.51562,615.0,245.14062,L50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall5">
+      <property
+         name="taskFlowId">customers-CRUD-TF</property>
+      <property
+         name="activityId">customers-CRUD-TF</property>
+      <property
+         name="documentReference">/WEB-INF/SLS/customers/customers-CRUD-TF.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>customers-CRUD-TF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">436.54688</property>
+      <property
+         name="x">732.1963</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View3"
+      to="TaskFlowCall5">
+      <property
+         name="fromOutcome">toCrud</property>
+      <property
+         name="sdm:polyPoints">B50,656.0,299.14062,732.1963,382.5625,T50</property>
+   </ControlFlowCase>
+</SDM>

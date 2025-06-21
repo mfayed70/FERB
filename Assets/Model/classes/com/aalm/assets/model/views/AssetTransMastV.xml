@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AssetTransMastV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="AssetTransTypesLOV1"
+    ViewObjectName="com.aalm.assets.model.lovs.AssetTransTypesLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FromOrgLOV1"
+    ViewObjectName="com.aalm.assets.model.lovs.FromToOrgLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ToOrgLOV1"
+    ViewObjectName="com.aalm.assets.model.lovs.FromToOrgLOV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="FromToOrgLOVCriteria"
+      FullName="com.aalm.assets.model.lovs.FromToOrgLOV.FromToOrgLOVCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="pOrgCode">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[FromOrgCode]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_AssTrnsTypeCode"
+    ListVOName="AssetTransTypesLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AssTrnsTypeCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AssTrnsTypeCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AssTrnsTypeName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_FromOrgCode"
+    ListVOName="FromOrgLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FromOrgCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="EnOrgName"/>
+      <Item Value="ArOrgName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ToOrgCode"
+    ListVOName="ToOrgLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ToOrgCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="EnOrgName"/>
+      <Item Value="ArOrgName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="AssetTransMast"
+    Entity="com.aalm.assets.model.entities.AssetTransMast"/>
+  <ViewAttribute
+    Name="TransMastId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TransMastId"
+    EntityUsage="AssetTransMast"
+    AliasName="trans_mast_id"/>
+  <ViewAttribute
+    Name="TransDesc"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TransDesc"
+    EntityUsage="AssetTransMast"
+    AliasName="trans_desc"/>
+  <ViewAttribute
+    Name="TransDt"
+    PrecisionRule="true"
+    EntityAttrName="TransDt"
+    EntityUsage="AssetTransMast"
+    AliasName="trans_dt">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="AssetTransMast"
+    AliasName="notes"/>
+  <ViewAttribute
+    Name="FromOrgCode"
+    PrecisionRule="true"
+    EntityAttrName="FromOrgCode"
+    EntityUsage="AssetTransMast"
+    AliasName="from_org_code"
+    LOVName="LOV_FromOrgCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToOrgCode"
+    PrecisionRule="true"
+    EntityAttrName="ToOrgCode"
+    EntityUsage="AssetTransMast"
+    AliasName="to_org_code"
+    LOVName="LOV_ToOrgCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AssTrnsTypeCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AssTrnsTypeCode"
+    EntityUsage="AssetTransMast"
+    AliasName="ass_trns_type_code"
+    LOVName="LOV_AssTrnsTypeCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="AssetTransMastV1"
+    ViewLink="com.aalm.assets.model.views.FkAssetTransMastAssetsTransTypes1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AssetTransDetV"
+    ViewLink="com.aalm.assets.model.views.FkAssetTransDetAssetTransMast1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core"
+                    xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="AalmMasterBndl" value="#{adfBundle['com.aalm.master.view.AalmMasterBndl']}"/>
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>AalmHomePageTemplate</afc:display-name>
+            <afc:facet>
+                <afc:facet-name>_mainContent</afc:facet-name>
+            </afc:facet>
+        </afc:component>
+    </af:xmlContent>
+    <af:panelGridLayout id="pt_pgl1">
+        <af:gridRow height="40px" id="pt_gr2">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" columnSpan="2" id="pt_gc1"
+                         inlineStyle="background: rgb(234,255,250); background: linear-gradient(176deg, rgba(234,255,250,1) 0%, rgba(148,175,246,1) 100%);">
+                <!-- Header -->
+                <af:panelStretchLayout id="pt_psl1" startWidth="200px" endWidth="320px">
+                    <f:facet name="center">
+                        <af:panelGroupLayout id="pt_pgl3" layout="horizontal" inlineStyle="padding:5px 0 0 0;">
+                            <af:outputText value="#{sessionScope.orgIni=='z' ? AalmMasterBndl.ZAMZAM___FERP_SYSTEM : AalmMasterBndl.ELECON_FERP_SYSTEM}"
+                                           id="pt_ot1" inlineStyle="color:navy;font-size:30px;"/>
+                            <af:spacer width="20" height="10" id="pt_s6"/>
+                            <af:outputText value="#{AalmMasterBndl.FREE_OF_LICENSE_ENTRPRISE_RESOURCE_PLANNING}"
+                                           id="pt_ot6" inlineStyle="color:navy;font-size:15px;"/>
+                            <af:spacer width="130" height="10" id="pt_s1"/>
+                            <af:outputText value="#{AalmMasterBndl.WELCOME}" id="pt_ot2"
+                                           inlineStyle="color:navy;font-size:25px;"/>
+                            <af:spacer width="10" height="10" id="pt_s2"/>
+                            <af:outputText value="#{sessionScope.userName}" id="pt_ot3"
+                                           inlineStyle="color:navy;font-size:25px;"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="start">
+                        <af:selectOneChoice label="#{AalmMasterBndl.Languages}"
+                                            valueChangeListener="#{Locale.localeChangeListener}" id="pt_soc1"
+                                            value="#{Locale.locale}" autoSubmit="true"
+                                            labelStyle="font-size:20px;height:10px;color:navy;"
+                                            contentStyle="height:24px;font-size:10px;color:navy;font-size:15px;"
+                                            inlineStyle="color:#1c6f74; border-width:thin; border-color:White; border-bottom-left-radius:30px 30px; border-bottom-right-radius:30px 30px; border-style:solid; border-top-left-radius:30px 30px; border-top-right-radius:30px 30px; background-color:White;padding:0 10px 0 10px;margin:5px 20px 0 20px;">
+                            <f:selectItems value="#{Locale.locales}" id="pt_si1"/>
+                        </af:selectOneChoice>
+                    </f:facet>
+                    <f:facet name="end">
+                        <af:panelGroupLayout id="pt_pgl11" layout="horizontal" valign="bottom">
+                            <af:link id="pt_l5" icon="#{resource['images:home-32.png']}"
+                                     shortDesc="#{AalmMasterBndl.HOME}" action="#{pageFlowScope.AppsBean.homeActn}"
+                                     partialSubmit="true"></af:link>
+                            <af:panelGroupLayout id="pt_pgl4"
+                                                 inlineStyle="background-color:White;border-bottom-left-radius:30px 30px; border-bottom-right-radius:30px 30px; border-top-left-radius:30px 30px; border-top-right-radius:30px 30px; border-width:thin; border-style:solid; border-color:White;padding:0 5px 0 5px;margin:5px 5px 0 5px;"
+                                                 layout="horizontal" halign="center">
+                                <af:outputText id="pt_ot4" inlineStyle="color:navy;font-size:20px;" value="#{Locale.tm}"
+                                               partialTriggers="pt_p1"/>
+                                <af:link id="pt_l1"
+                                         icon="#{Locale.locale=='en' ? resource['images:logout-open-24.png'] : resource['images:logout-close-24.png']}"
+                                         actionListener="#{backingBeanScope.LoginBean.logOut}"
+                                         shortDesc="#{AalmMasterBndl.LOGOUT}"/>
+                                <f:facet name="separator">
+                                    <af:spacer width="10" height="10" id="pt_s4"/>
+                                </f:facet>
+                                <af:poll id="pt_p1" interval="10000" pollListener="#{Locale.pollLsnr}"
+                                         immediate="true"/>
+                            </af:panelGroupLayout>
+                            <f:facet name="separator">
+                                <af:spacer width="20" height="10" id="pt_s5"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelStretchLayout>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow height="100%" id="pt_gr1">
+            <af:gridCell width="50px" halign="stretch" valign="stretch" id="pt_gc3"
+                         inlineStyle="background: rgb(234,255,250); background: linear-gradient(176deg, rgba(234,255,250,1) 0%, rgba(148,175,246,1) 100%);">
+                <!-- Left -->
+                <af:panelGroupLayout id="pt_pgl2" layout="scroll" halign="center" inlineStyle="padding:10px 0 0 0;">
+                    <af:link id="pt_l2"
+                             icon="#{Locale.locale=='en' ? resource['images:side-menu-open-navy-40.png'] : resource['images:side-menu-close-navy-40.png']}"
+                             shortDesc="#{AalmMasterBndl.SIDE_MENU}" partialSubmit="true"
+                             windowModalityType="modeless">
+                        <af:showPopupBehavior popupId="pt_p2" triggerType="click" align="afterStart" alignId="pt_l2"/>
+                    </af:link>
+                </af:panelGroupLayout>
+            </af:gridCell>
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="pt_gc2">
+                <!-- Content -->
+                <af:panelGroupLayout id="pt_pgl5" layout="scroll" inlineStyle="padding:10px 10px 10px 10px;">
+                    <af:facetRef facetName="_mainContent"/>
+                    <af:outputText value="#{AalmMasterBndl.COPYRIGHT_C__2011_2023}" id="pt_ot5"
+                                   inlineStyle="font-size:15px;color:Gray;"/>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="pt_p2"
+              binding="#{pageFlowScope.AppsBean.sideMenuPopup}">
+        <af:panelWindow id="pt_pw1" contentWidth="600">
+            <af:panelGroupLayout id="pt_pgl10" layout="horizontal" halign="end"
+                                 inlineStyle="padding:0 10px; border-color:currentColor currentColor Navy; border-style:none none solid; border-width:medium medium thin medium;">
+                <af:link id="pt_l4"
+                         icon="#{Locale.locale=='ar' ? resource['images:side-menu-open-navy-40.png'] : resource['images:side-menu-close-navy-40.png']}"
+                         actionListener="#{pageFlowScope.AppsBean.hideSideMenuActnLsnr}" partialSubmit="true"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pt_pgl7" layout="vertical">
+                <af:panelGroupLayout id="pt_pgl8" layout="scroll">
+                    <af:iterator id="pt_i1" value="#{bindings.UserRolesV.collectionModel}" var="roles">
+                        <af:showDetailHeader text="#{Locale.locale=='en' ? roles.EnSystemName : roles.ArSystemName}"
+                                             id="pt_pb1"
+                                             inlineStyle="border-style:none none solid; border-color:Gray; border-width:thin; font-size:20px;padding:0 0 20px 0;"
+                                             contentStyle="color:Gray;">
+                            <f:facet name="toolbar"/>
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info"/>
+                            <af:panelGroupLayout id="pt_pgl6" layout="scroll">
+                                <af:panelFormLayout id="pt_pfl1" maxColumns="3" rows="1" fieldWidth="100%"
+                                                    labelWidth="0%">
+                                    <f:facet name="footer"/>
+                                    <af:iterator id="pt_i2" value="#{roles.UserPermissionsV}" var="perms">
+                                        <af:panelGroupLayout id="pt_pgl9" inlineStyle="padding:10px 0 10px 0;"
+                                                             layout="horizontal">
+                                            <af:link text="#{Locale.locale=='en' ? perms.EnFncnName : perms.ArFncnName}"
+                                                     id="pt_l3"
+                                                     icon="resources/images/#{perms.FncnId}o.png"
+                                                     iconPosition="leading"
+                                                     action="#{pageFlowScope.AppsBean.onClickFncnActn}"
+                                                     hoverIcon="resources/images/#{perms.FncnId}f.png"/>
+                                        </af:panelGroupLayout>
+                                    </af:iterator>
+                                </af:panelFormLayout>
+                            </af:panelGroupLayout>
+                        </af:showDetailHeader>
+                    </af:iterator>
+                    <f:facet name="separator">
+                        <af:spacer width="10" height="10" id="pt_s3"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+            </af:panelGroupLayout>
+        </af:panelWindow>
+    </af:popup>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="pt_p3"
+              binding="#{pageFlowScope.AppsBean.uncommittedDataPopup}">
+        <af:panelWindow id="pt_pw2" inlineStyle="border-radius:30px 30px 30px 30px;width:420px;">
+            <af:panelHeader text="#{AalmMasterBndl.WARNNING}" id="pt_ph1" messageType="warning">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelGroupLayout id="pt_pgl15" layout="horizontal" inlineStyle="margin:10px 0 10px 0;">
+                    <af:outputText value="#{AalmMasterBndl.YOU_HAVE_UNCOMMITTED_DATA__DO_YOU_WANT_TO_NAVIGATE_WITHOUT_SAVE__}"
+                                   id="pt_ot7"/>
+                </af:panelGroupLayout>
+                <af:panelGroupLayout id="pt_pgl14" layout="horizontal"
+                                     inlineStyle="margin:30px 0 10px 0;min-width:400px;" halign="center">
+                    <af:button text="#{AalmMasterBndl.YES}" id="pt_b1" inlineStyle="min-width:100px; text-align:center;"
+                               styleClass="but" actionListener="#{pageFlowScope.AppsBean.uncommittedDataYesActnLsnr}">
+                        <af:setPropertyListener from="#{false}" to="#{sessionScope.show_fncn}" type="action"/>
+                    </af:button>
+                    <af:button text="#{AalmMasterBndl.NO}" id="pt_b2" inlineStyle="min-width:100px; text-align:center;"
+                               styleClass="but" actionListener="#{pageFlowScope.AppsBean.uncommittedDataNoActnLsnr}"/>
+                    <f:facet name="separator">
+                        <af:spacer width="50" height="10" id="pt_s7"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+            </af:panelHeader>
+        </af:panelWindow>
+    </af:popup>
+</af:pageTemplateDef>

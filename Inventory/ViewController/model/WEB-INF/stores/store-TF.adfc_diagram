@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">Execute</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Execute&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">204.5</property>
+      <property
+         name="x">191.5</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">stores</property>
+      <property
+         name="page">/WEB-INF/stores/stores.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>stores&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">206.0625</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">459.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="fromOutcome">Execute</property>
+      <property
+         name="sdm:polyPoints">R50,232.5,204.51562,418.0,206.07812,L50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall5">
+      <property
+         name="taskFlowId">new-store-TF</property>
+      <property
+         name="activityId">new-store-TF</property>
+      <property
+         name="documentReference">/WEB-INF/stores/new-store-TF.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>new-store-TF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">397.51562</property>
+      <property
+         name="x">575.1553</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View3"
+      to="TaskFlowCall5">
+      <property
+         name="fromOutcome">toEdit</property>
+      <property
+         name="sdm:polyPoints">B50,459.0,260.07812,575.1553,343.53125,T50</property>
+   </ControlFlowCase>
+</SDM>

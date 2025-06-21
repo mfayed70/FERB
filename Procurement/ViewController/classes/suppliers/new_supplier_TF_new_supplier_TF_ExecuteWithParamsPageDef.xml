@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="new_supplier_TF_new_supplier_TF_ExecuteWithParamsPageDef" Package="suppliers" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SuppliersCRUDV" RangeSize="10" DataControl="AalmPrcrmntDataControl" id="SuppliersCRUDVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SuppliersCRUDVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams" InstanceName="AalmPrcrmntDataControl.SuppliersCRUDV"
+            DataControl="AalmPrcrmntDataControl">
+      <NamedData NDName="pSuppId" NDValue="#{pageFlowScope.pSuppId}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

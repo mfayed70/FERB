@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AssetsPropsValues"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ASSETS_PROPS_VALUES"
+  AliasName="AssetsPropsValues"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="AssetId"
+    IsNotNull="true"
+    Precision="7"
+    ColumnName="asset_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ASSETS_PROPS_VALUES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.assets.model.entities.AssetsPropsValues.AssetId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="AssPropertyValue"
+    IsNotNull="true"
+    ColumnName="ass_property_value"
+    SQLType="INTEGER"
+    Type="java.lang.String"
+    ColumnType="INT"
+    TableName="ASSETS_PROPS_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.assets.model.entities.AssetsPropsValues.AssPropertyValue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="AssPropId"
+    IsNotNull="true"
+    ColumnName="ass_prop_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ASSETS_PROPS_VALUES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.assets.model.entities.AssetsPropsValues.AssPropId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="AssetsProperties"
+    Association="com.aalm.assets.model.entities.FkAssetsPropsValuesAssetsProperties1Assoc"
+    AssociationEnd="com.aalm.assets.model.entities.FkAssetsPropsValuesAssetsProperties1Assoc.AssetsProperties"
+    AssociationOtherEnd="com.aalm.assets.model.entities.FkAssetsPropsValuesAssetsProperties1Assoc.AssetsPropsValues"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AssetsBasicData"
+    Association="com.aalm.assets.model.entities.FkAssetsPropsValuesAssetsBasicData1Assoc"
+    AssociationEnd="com.aalm.assets.model.entities.FkAssetsPropsValuesAssetsBasicData1Assoc.AssetsBasicData"
+    AssociationOtherEnd="com.aalm.assets.model.entities.FkAssetsPropsValuesAssetsBasicData1Assoc.AssetsPropsValues"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetsPropsValues.AssetId"/>
+      <Item Value="com.aalm.assets.model.entities.AssetsPropsValues.AssPropId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkAssetsPropsValuesAssetsBasicData1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ASSETS_PROPS_VALUES_ASSETS_BASIC_DATA1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetsPropsValues.AssetId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkAssetsPropsValuesAssetsProperties1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_ASSETS_PROPS_VALUES_ASSETS_PROPERTIES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetsPropsValues.AssPropId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_AssetsPropsValues">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Assets_Props_Values"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetsPropsValues.AssetId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_AssetsPropsValues1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Assets_Props_Values1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.assets.model.entities.AssetsPropsValues.AssetId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.assets.model.AalmAssetsMBndl"/>
+  </ResourceBundle>
+</Entity>

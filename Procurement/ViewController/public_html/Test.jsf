@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Test.jsf" id="d1">
+        <af:form id="f1">
+            <af:panelTabbed position="above" id="pt1">
+                <af:showDetailItem id="tab1" text="Suppliers">
+                    <af:region value="#{bindings.suppliersTF1.regionModel}" id="r1"/>
+                </af:showDetailItem>
+                <af:showDetailItem id="tab2" text="Tab Label 2"/>
+                <af:showDetailItem id="tab3" text="Tab Label 3"/>
+            </af:panelTabbed>
+        </af:form>
+    </af:document>
+</f:view>

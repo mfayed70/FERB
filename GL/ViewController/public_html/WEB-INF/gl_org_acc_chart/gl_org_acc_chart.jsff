@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.gl.view.AalmGlBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.ORGANIZATION_ACCOUNT_CHART}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:button text="#{viewcontrollerBundle.SAVE}" id="b4" icon="#{resource['images:SaveF.png']}"
+                 hoverIcon="#{resource['images:SaveO.png']}" actionListener="#{bindings.Commit.execute}"
+                 styleClass="but"/>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button text="#{viewcontrollerBundle.CANCEL}" id="b3" icon="#{resource['images:cancelF.png']}"
+                 hoverIcon="#{resource['images:cancelO.png']}" actionListener="#{bindings.Rollback.execute}"
+                 styleClass="but"/>
+    </f:facet>
+    <f:facet name="legend"/>
+    <af:spacer width="10" height="30" id="s1"/>
+    <af:treeTable value="#{bindings.GlOrgAccChartV.treeModel}" var="node"
+                  selectionListener="#{bindings.GlOrgAccChartV.treeModel.makeCurrent}" rowSelection="single" id="tt1"
+                  partialTriggers="ot3 b1 l2 l4 ::b2" initiallyExpanded="true" inlineStyle="background-color:white;"
+                  binding="#{pageFlowScope.GlBean.orgGlAccChartTree}">
+      <af:column id="c4" width="250" headerText="#{bindings.GlOrgAccChartV.hints.AccNameE.label}">
+        <af:outputText value="#{node.AccNameE}" id="ot3"/>
+      </af:column>
+      <af:column id="c2" headerText="#{bindings.GlOrgAccChartV.hints.AccNameA.label}" width="250">
+        <af:outputText value="#{node.AccNameA}" id="ot4"/>
+      </af:column>
+      <af:column id="c5" headerText="#{bindings.GlOrgAccChartV.hints.AccTypeName.label}" width="200">
+        <af:outputText value="#{node.AccTypeName}" id="ot5"/>
+      </af:column>
+      <af:column id="c6" width="300" headerText="#{bindings.GlOrgAccChartV.hints.TblName.label}">
+        <af:panelGroupLayout id="pgl1" layout="horizontal"
+                             visible="#{node.ChildCount==0 &amp;&amp; node.TblName!=null}">
+          <af:outputText value="#{node.TblName}" id="ot6"/>
+          <af:link id="l1" icon="#{resource['images:3Hdotsf.png']}" useWindow="true" windowEmbedStyle="inlineDocument"
+                   windowHeight="300" windowWidth="700" action="toGlAssistance">
+            <af:setPropertyListener from="#{node.AccCode}" to="#{pageFlowScope.pAccCode}" type="action"/>
+            <af:setPropertyListener from="#{node.OrgCode}" to="#{sessionScope.pOrgCode}" type="action"/>
+          </af:link>
+          <f:facet name="separator">
+            <af:spacer width="10" height="10" id="s2"/>
+          </f:facet>
+        </af:panelGroupLayout>
+      </af:column>
+      <f:facet name="nodeStamp">
+        <af:column id="c1" headerText="#{bindings.GlOrgAccChartV.hints.AccCode.label}" width="180">
+          <af:link id="ot1" text="#{node.AccCode}" useWindow="true" windowEmbedStyle="inlineDocument"
+                   windowHeight="300" windowWidth="600" action="toCrudChart">
+            <af:setPropertyListener from="#{'E'}" to="#{pageFlowScope.pAction}" type="action"/>
+            <af:setPropertyListener from="#{node.AccCode}" to="#{pageFlowScope.pAccCode}" type="action"/>
+            <af:setPropertyListener from="#{node.OrgCode}" to="#{pageFlowScope.pOrgCode}" type="action"/>
+          </af:link>
+        </af:column>
+      </f:facet>
+      <f:facet name="pathStamp">
+        <af:outputText value="#{node}" id="ot2"/>
+      </f:facet>
+      <af:column id="c3" width="230" align="center">
+        <af:button text="#{viewcontrollerBundle.ADD_SUB_ACCOUNT}" id="b1" icon="#{resource['images:CreateF.png']}"
+                   hoverIcon="#{resource['images:CreateO.png']}" styleClass="but" useWindow="true"
+                   windowEmbedStyle="inlineDocument" windowHeight="300" windowWidth="600" action="toCrudChart"
+                   visible="#{node.TblName==null}"
+                   returnListener="#{pageFlowScope.GlBean.refreshGlOrgAccChartRtrnLsnr}">
+          <af:setPropertyListener from="#{'N'}" to="#{pageFlowScope.pAction}" type="action"/>
+          <af:setPropertyListener from="#{node.AccCode}" to="#{pageFlowScope.pPrntAccCode}" type="action"/>
+          <af:setPropertyListener from="#{node.OrgCode}" to="#{pageFlowScope.pPrntOrgCode}" type="action"/>
+        </af:button>
+      </af:column>
+      <af:column id="c8" headerText="#{viewcontrollerBundle.BALANCE}">
+        <af:link id="l3" icon="#{resource['images:3Hdotsf.png']}" windowHeight="200" windowWidth="900" useWindow="true"
+                 windowEmbedStyle="inlineDocument" action="toAccBalance"
+                 shortDesc="#{viewcontrollerBundle.ACCOUNT_BALANCE}">
+          <af:setPropertyListener from="#{node.AccCode}" to="#{pageFlowScope.pAccCode}" type="action"/>
+          <af:setPropertyListener from="#{sessionScope.orgCode}" to="#{pageFlowScope.pOrgCode}" type="action"/>
+        </af:link>
+      </af:column>
+      <af:column id="c7" width="50" headerText="#{viewcontrollerBundle.ACTIONS}">
+        <af:link id="l2" icon="#{resource['images:delete24.png']}"
+                 visible="#{node.ChildCount==0 &amp;&amp; node.TblName==null &amp;&amp; node.PrntAccCode!=null}"
+                 actionListener="#{pageFlowScope.GlBean.delAccFromOrgAccTreeActnLsnr}" shortDesc="Leaf"/>
+        <af:link id="l4" icon="#{resource['images:delete24.png']}"
+                 visible="#{node.ChildCount==0 &amp;&amp; node.TblName==null &amp;&amp; node.PrntAccCode==null}"
+                 actionListener="#{pageFlowScope.GlBean.delAccFromOrgAccTreeActnLsnr}" shortDesc="Master"/>
+      </af:column>
+    </af:treeTable>
+    <f:facet name="info">
+      <af:button text="#{viewcontrollerBundle.ADD_MASTER_ACCOUNT}" id="b2" icon="#{resource['images:CreateF.png']}"
+                 hoverIcon="#{resource['images:CreateO.png']}" useWindow="true" windowEmbedStyle="inlineDocument"
+                 windowHeight="300" windowWidth="600" action="toCrudChart"
+                 returnListener="#{pageFlowScope.GlBean.refreshGlOrgAccChartRtrnLsnr}" styleClass="but">
+        <af:setPropertyListener from="#{'N'}" to="#{pageFlowScope.pAction}" type="action"/>
+        <af:setPropertyListener from="#{null}" to="#{pageFlowScope.pPrntAccCode}" type="action"/>
+        <af:setPropertyListener from="#{null}" to="#{pageFlowScope.pPrntOrgCode}" type="action"/>
+      </af:button>
+    </f:facet>
+  </af:panelHeader>
+</ui:composition>

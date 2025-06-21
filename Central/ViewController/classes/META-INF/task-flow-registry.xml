@@ -1,0 +1,35 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/units/units-transform-TF.xml" id="units-transform-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/units/new-unit-transform-TF.xml" id="new-unit-transform-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/organizations/organizations-TF.xml" id="organizations-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
+   <task-flow-descriptor path="WEB-INF/itemVariablesStructure/items_variables_structure-TF.xml" id="items_variables_structure-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/items/items-TF.xml" id="items-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/currencies/currencies-TF.xml" id="currencies-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/items/ass-selected-items-TF.xml" id="ass-selected-items-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pAssCode"/>
+      <input-parameter name="pPrntAsmblies"/>
+      <input-parameter name="pItemCode"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/storeCategories/storeCategories-TF.xml" id="storeCategories-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/itemCategories/itemCategories-TF.xml" id="itemCategories-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+</task-flow-registry>

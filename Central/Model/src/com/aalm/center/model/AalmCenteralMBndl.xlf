@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.center.model.AalmCenteralMBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="com.aalm.center.model.entities.Currencies.CurrCode_LABEL">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Currencies.CurrSymbol_LABEL">
+        <source>Symbol</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Currencies.CurrName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Currencies.DefaultCurr_LABEL">
+        <source>Default</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.CurrencyTransform.TransformDt_LABEL">
+        <source>transfer date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.CurrencyTransform.MultiplyBy_LABEL">
+        <source>multiply by</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.CurrencyTransform.FromCurrCode_LABEL">
+        <source>From Currency</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.CurrencyTransform.ToCurrCode_LABEL">
+        <source>To Currency</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.CurrencyTransform.Id_LABEL">
+        <source>Id</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemCategories.CatId_LABEL">
+        <source>Id</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemCategories.CatName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemCategories.RegisterDt_LABEL">
+        <source>Registeration Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemCategories.Active_LABEL">
+        <source>Active</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemCategories.IsAss_LABEL">
+        <source>Assembly</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.ItemCode_LABEL">
+        <source>Id</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.ItemName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.CatId_LABEL">
+        <source>Category</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.UnitId_LABEL">
+        <source>Measurment Unit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.RegisterDt_LABEL">
+        <source>Registeration Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.IsAssmbly_LABEL">
+        <source>Assembly</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.Active_LABEL">
+        <source>Active</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsStructure.Seq_LABEL">
+        <source>Seq.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsStructure.AssCode_LABEL">
+        <source>Ass. Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsStructure.ItemCode_LABEL">
+        <source>Material Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsStructure.QtyInAss_LABEL">
+        <source>Qty in Ass.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsStructure.UnitId_LABEL">
+        <source>Measurment Unit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsStructure.RegisterDt_LABEL">
+        <source>Registeration Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Organizations.OrgCode_LABEL">
+        <source>Id</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Organizations.EnOrgName_LABEL">
+        <source>English Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Organizations.ArOrgName_LABEL">
+        <source>Arabic Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Organizations.PrntOrgCode_LABEL">
+        <source>Parent Id</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.StoreCategories.StCatId_LABEL">
+        <source>Id</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.StoreCategories.StCatName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.StoreCategories.RegisterDt_LABEL">
+        <source>Registeration Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.StoreCategories.Active_LABEL">
+        <source>Active</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Units.UnitId_LABEL">
+        <source>Id</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Units.UnitName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.Units.RegisterDt_LABEL">
+        <source>Registeration Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.UnitsTransform.FromUnitId_LABEL">
+        <source>From Unit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.UnitsTransform.ToUnitId_LABEL">
+        <source>To Unit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.UnitsTransform.MultiplyBy_LABEL">
+        <source>multiply by</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.UnitsTransform.RegisterDt_LABEL">
+        <source>Registeration Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.SalesProfitPerc_LABEL">
+        <source>Sales Profit %</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemsList.OrderLimit_LABEL">
+        <source>Order Limit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.FkItemVariantValuesItemVariants1VL_LABEL">
+        <source>Fk Item Variant Values Item Variants 1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CODE">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariants.VarCode_LABEL">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NAME">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariants.VarName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="APPLIED">
+        <source>Applied</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariants.CartizianApplied_LABEL">
+        <source>Applied</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariantValues.VarValCode_LABEL">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="VALUE">
+        <source>Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariantValues.VarValValue_LABEL">
+        <source>Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.temp.temp1.sectionsLOV_LABEL">
+        <source>Sec 1lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.DummyUnitsCategoriesV_LABEL">
+        <source>Dummy Units Categories V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.UnitsLOV_LABEL">
+        <source>Units Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.ItemCategoriesLOV_LABEL">
+        <source>Item Categories Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.DummyOrganizationsLOV_LABEL">
+        <source>Organizations Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.ItemVariablesValuesLOV_LABEL">
+        <source>Item Variables Values Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariableValues.VarValValue_LABEL">
+        <source>Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SELECT">
+        <source>Select</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariableValues.CartizianApplied_LABEL">
+        <source>Select</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariables.VarCode_LABEL">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariables.VarName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NAME_IN_MATERIAL_LIST">
+        <source>Name in Material List</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariables.ColNameInItems_LABEL">
+        <source>Name in Material List</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEM_CODE">
+        <source>Item Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEM_NAME">
+        <source>Item Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariablesTest.ItemName_LABEL">
+        <source>Item Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariablesTest.ItemCode_LABEL">
+        <source>Item Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="VALUE_CODE">
+        <source>Value Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariableValues.VarValCode_LABEL">
+        <source>Value Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariableValues.VarCode_LABEL">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.AssSelectedItemsV_LABEL">
+        <source>Ass Selected Items V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.ItemVariablesV.Ordr_LABEL">
+        <source>Order</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.DumyItemsUnitsCats_LABEL">
+        <source>Dumy Items Units Cats</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.DumyCategories_LABEL">
+        <source>Dumy Categories</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.entities.ItemVariables_Rule_0">
+        <source>Order should be unique.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.ItemVariablesValuesLOV.Ordr_LABEL">
+        <source>Order</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.ItemVariablesVaaluesStatistics_LABEL">
+        <source>Item Variables Vaalues Statistics</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.DummyUnitsLOV_LABEL">
+        <source>Measurment Units Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.DummyCategoriesLOV_LABEL">
+        <source>Dummy Categories Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.DummyUnitsCategoriesV.DUnitId_LABEL">
+        <source>Measurment Unit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.DummyUnitsCategoriesV.DCatId_LABEL">
+        <source>Category</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.ItemsVariablesForCaptionsV_LABEL">
+        <source>Items Variables For Captions V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.ValidateValuesInItemsListV_LABEL">
+        <source>Validate Values In Items List V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.ItemCategoryTypesV_LABEL">
+        <source>Item Category Types V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.ItemTypesLOV_LABEL">
+        <source>Item Types Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.fk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1VL_LABEL">
+        <source>Fk Item Category Types Item Categories1vl</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

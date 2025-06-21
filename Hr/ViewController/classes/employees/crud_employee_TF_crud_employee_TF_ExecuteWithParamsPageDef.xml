@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="crud_employee_TF_crud_employee_TF_ExecuteWithParamsPageDef" Package="employees"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="EmployeesCRUDV" RangeSize="25" DataControl="AalmHrDataControl" id="EmployeesCRUDVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="EmployeesCRUDVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pEmpId" NDValue="#{pageFlowScope.pEmpId}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

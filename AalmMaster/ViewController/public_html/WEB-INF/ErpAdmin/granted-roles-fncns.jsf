@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core" locale="#{sessionScope.refreshLocale}">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.master.view.AalmMasterBndl']}"/>
+    <af:document id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{viewcontrollerBundle.NON_GRANTED_SYSTEMS___FUNCTIONS}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:panelGroupLayout id="pgl1" layout="horizontal">
+                        <af:button text="#{viewcontrollerBundle.CANCEL}" id="b1" action="toCancel"/>
+                        <af:button text="#{viewcontrollerBundle.SAVE}" id="b2"
+                                   action="#{ErpAdminClass.saveGrantedRoles}"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="legend">
+                    <af:spacer width="10" height="10" id="s1"/>
+                </f:facet>
+                <f:facet name="info"/>
+                <af:panelSplitter id="ps1" splitterPosition="550" disabled="true">
+                    <f:facet name="first">
+                        <af:panelHeader text="#{viewcontrollerBundle.SYSTEMS}" id="ph2">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info"/>
+                            <af:table value="#{bindings.NonGrantedRolesSyssV.collectionModel}" var="row"
+                                      rows="#{bindings.NonGrantedRolesSyssV.rangeSize}"
+                                      emptyText="#{bindings.NonGrantedRolesSyssV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.NonGrantedRolesSyssV.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.NonGrantedRolesSyssV.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.NonGrantedRolesSyssV.rangeSize}"
+                                      id="t1">
+                                <af:column headerText="#{bindings.NonGrantedRolesSyssV.hints.SystemId.label}" id="c1"
+                                           rendered="false">
+                                    <af:outputText value="#{row.SystemId}"
+                                                   shortDesc="#{bindings.NonGrantedRolesSyssV.hints.SystemId.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.NonGrantedRolesSyssV.hints.EnSystemName.label}"
+                                           id="c2" width="250">
+                                    <af:outputText value="#{row.EnSystemName}"
+                                                   shortDesc="#{bindings.NonGrantedRolesSyssV.hints.EnSystemName.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.NonGrantedRolesSyssV.hints.ArSystemName.label}"
+                                           id="c3" width="250">
+                                    <af:outputText value="#{row.ArSystemName}"
+                                                   shortDesc="#{bindings.NonGrantedRolesSyssV.hints.ArSystemName.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelHeader>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:panelHeader text="#{viewcontrollerBundle.SYSTEM_FUNCTIONS}" id="ph3">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info"/>
+                            <af:table value="#{bindings.NonGrantedSysFncnsV.collectionModel}" var="row"
+                                      rows="#{bindings.NonGrantedSysFncnsV.rangeSize}"
+                                      emptyText="#{bindings.NonGrantedSysFncnsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.NonGrantedSysFncnsV.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.NonGrantedSysFncnsV.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.NonGrantedSysFncnsV.rangeSize}"
+                                      id="t2">
+                                <af:column headerText="#{bindings.NonGrantedSysFncnsV.hints.SystemId.label}" id="c4">
+                                    <af:outputText value="#{row.SystemId}"
+                                                   shortDesc="#{bindings.NonGrantedSysFncnsV.hints.SystemId.tooltip}"
+                                                   id="ot4"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.NonGrantedSysFncnsV.hints.FncnId.label}" id="c5">
+                                    <af:outputText value="#{row.FncnId}"
+                                                   shortDesc="#{bindings.NonGrantedSysFncnsV.hints.FncnId.tooltip}"
+                                                   id="ot5"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.NonGrantedSysFncnsV.hints.EnFncnName.label}" id="c6">
+                                    <af:outputText value="#{row.EnFncnName}"
+                                                   shortDesc="#{bindings.NonGrantedSysFncnsV.hints.EnFncnName.tooltip}"
+                                                   id="ot6"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.NonGrantedSysFncnsV.hints.ArFncnName.label}" id="c7">
+                                    <af:outputText value="#{row.ArFncnName}"
+                                                   shortDesc="#{bindings.NonGrantedSysFncnsV.hints.ArFncnName.tooltip}"
+                                                   id="ot7"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.NonGrantedSysFncnsV.hints.Selected.label}" id="c8"
+                                           align="center">
+                                    <af:selectBooleanCheckbox value="#{row.bindings.SelectedFncn.inputValue}"
+                                                              label="#{row.bindings.SelectedFncn.label}"
+                                                              shortDesc="#{bindings.NonGrantedSysFncnsV.hints.SelectedFncn.tooltip}"
+                                                              id="sbc2" autoSubmit="true"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelHeader>
+                    </f:facet>
+                </af:panelSplitter>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

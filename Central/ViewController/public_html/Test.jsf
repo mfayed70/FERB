@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Test.jsf" id="d1">
+        <af:form id="f1">
+            <af:outputText value="-----#{sessionScope.refreshRegion}" id="ot1" partialTriggers="sdi1 tab1 tab2"/>
+            <af:panelTabbed position="above" id="pt1">
+                <af:showDetailItem text="showDetailItem 6" id="sdi4">
+                    <af:region value="#{bindings.items_variables_structureTF1.regionModel}" id="r7"/>
+                </af:showDetailItem>
+                <af:showDetailItem text="showDetailItem 5" id="sdi3">
+                    <af:region value="#{bindings.itemsTF1.regionModel}" id="r6"/>
+                </af:showDetailItem>
+                <af:showDetailItem text="Tab Label 3" id="sdi1">
+                    <af:region value="#{bindings.storeCategoriesTF1.regionModel}" id="r3"/>
+                    <af:region value="#{bindings.organizationsTF1.regionModel}" id="r5"/>
+                    <af:setPropertyListener from="#{pageFlowScope.CentralBean.refresh_region}"
+                                            to="#{sessionScope.refreshRegion}" type="disclosure"/>
+                </af:showDetailItem>
+                <af:showDetailItem id="tab1" text="Tab Label 1">
+                    <af:region value="#{bindings.currenciesTF1.regionModel}" id="r1"/>
+                    <af:setPropertyListener from="#{pageFlowScope.CentralBean.refresh_region}"
+                                            to="#{sessionScope.refreshRegion}" type="disclosure"/>
+                </af:showDetailItem>
+                <af:showDetailItem id="tab2" text="Tab Label 2">
+                    <af:region value="#{bindings.itemCategoriesTF1.regionModel}" id="r2"/>
+                    <af:setPropertyListener from="#{pageFlowScope.CentralBean.refresh_region}"
+                                            to="#{sessionScope.refreshRegion}" type="disclosure"/>
+                </af:showDetailItem>
+                <af:showDetailItem text="Tab Label 4" id="sdi2">
+                    <af:region value="#{bindings.unitstransformTF1.regionModel}" id="r4"/>
+                    <af:setPropertyListener from="#{pageFlowScope.CentralBean.refresh_region}"
+                                            to="#{sessionScope.refreshRegion}" type="disclosure"/>
+                </af:showDetailItem>
+                <af:showDetailItem text="showDetailItem 7" id="sdi5">
+                    <af:region value="#{bindings.itemCategoriesTF2.regionModel}" id="r8"/>
+                </af:showDetailItem>
+            </af:panelTabbed>
+        </af:form>
+    </af:document>
+</f:view>

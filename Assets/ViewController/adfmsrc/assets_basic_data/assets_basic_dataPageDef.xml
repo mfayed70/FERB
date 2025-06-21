@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="assets_basic_dataPageDef"
+                Package="assets_basic_data">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AssetsBasicDataV" RangeSize="25" DataControl="AalmAssetsDataControl"
+              id="AssetsBasicDataVIterator"/>
+    <searchRegion Binds="AssetsBasicDataVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="AssetsBasicDataVQuery"/>
+    <iterator Binds="AssetsPropsValuesV" RangeSize="25" DataControl="AalmAssetsDataControl"
+              id="AssetsPropsValuesVIterator"/>
+    <searchRegion Binds="AssetsPropsValuesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="AssetsPropsValuesVQuery"/>
+    <iterator Binds="AssetsItemsV" RangeSize="25" DataControl="AalmAssetsDataControl" id="AssetsItemsVIterator"/>
+    <searchRegion Binds="AssetsItemsVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="AssetsItemsVQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AssetsBasicDataVIterator" id="AssetsBasicDataV">
+      <nodeDefinition DefName="com.aalm.assets.model.views.AssetsBasicDataV" Name="AssetsBasicDataV0">
+        <AttrNames>
+          <Item Value="AssetId"/>
+          <Item Value="AssetName"/>
+          <Item Value="AssetAddDtTm"/>
+          <Item Value="AssetValue"/>
+          <Item Value="Notes"/>
+          <Item Value="AssGrpId"/>
+          <Item Value="CurrCode"/>
+          <Item Value="OrgCode"/>
+          <Item Value="PrntAssetId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="AssetsBasicDataVIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmAssetsDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmAssetsDataControl"/>
+    <attributeValues IterBinding="AssetsBasicDataVIterator" id="AssetName">
+      <AttrNames>
+        <Item Value="AssetName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="AssetsPropsValuesVIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="AssetsPropsValuesVIterator" id="AssetsPropsValuesV">
+      <nodeDefinition DefName="com.aalm.assets.model.views.AssetsPropsValuesV" Name="AssetsPropsValuesV0">
+        <AttrNames>
+          <Item Value="AssetId"/>
+          <Item Value="AssPropertyValue"/>
+          <Item Value="AssPropId"/>
+          <Item Value="AssPropName"/>
+          <Item Value="AssPropId1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="AssetsBasicDataVIterator" id="AssetId">
+      <AttrNames>
+        <Item Value="AssetId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="AssetsItemsVIterator" id="AssetsItemsV">
+      <nodeDefinition DefName="com.aalm.assets.model.views.AssetsItemsV" Name="AssetsItemsV0">
+        <AttrNames>
+          <Item Value="AssetId"/>
+          <Item Value="Id"/>
+          <Item Value="ItemCode"/>
+          <Item Value="ItemName"/>
+          <Item Value="Registr"/>
+          <Item Value="Qty"/>
+          <Item Value="ItemIndx"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

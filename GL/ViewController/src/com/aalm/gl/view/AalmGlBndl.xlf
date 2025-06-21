@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="AalmGlBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="GENERAL_LEDGER_ACCOUNT_TYPES">
+        <source>General Ledger Account Types</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>Cancel</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW">
+        <source>New</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GENERAL_LEDGER_TRANSACTION_TYPES">
+        <source>General Ledger Transaction Types</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW___EDIT_GL_TRANSACTION_TYPE">
+        <source>New / Edit GL Transaction Type</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>Save</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_SUB_ACCOUNT">
+        <source>Add Sub-Account</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_MASTER_ACCOUNT">
+        <source>Add Master Account</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD___EDIT_GL_ACCOUNT">
+        <source>Add / Edit GL Account</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CostCenters">
+        <source>Cost Centers</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="26051970">
+        <source>26051970</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AddSubCostCenter">
+        <source>Add Sub-Cost Center</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AddEditCostCenter">
+        <source>Add / Edit Cost Center</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ORGANIZATION_ACCOUNT_CHART">
+        <source>Organization Account Chart</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GENERAL_ACCOUNT_CHART">
+        <source>Gneral Account Chart</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD___EDIT_ACCOUNT">
+        <source>Add / Edit Account</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GL_ASSISTANT_ACCOUNTS">
+        <source>GL Assistant Accounts</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DOCUMENT_JOURNALS">
+        <source>Document Journals</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW_DOCUMENT">
+        <source>New Document</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NewJournal">
+        <source>New Journal</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TOTAL_">
+        <source>Total </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GL_DOCUMENT">
+        <source>GL Document</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GL_DOCUMENTS">
+        <source>GL Documents</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="POST">
+        <source>post</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="POSTED">
+        <source>posted</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="UNBALANCED">
+        <source>unbalanced</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="balanced">
+        <source>balanced</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="post">
+        <source>post</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ACTIONS">
+        <source>actions</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BALANCE">
+        <source>Balance</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ACCOUNT_BALANCE">
+        <source>Account Balance</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Exit">
+        <source>Exit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FinancialPeriods">
+        <source>Financial Periods</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Search">
+        <source>Search</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Balanced">
+        <source>Balanced</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Delete">
+        <source>Delete</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREATE_REVERSE_DOCUMENT">
+        <source>Create Reverse Document</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ORIGINAL_DOCUMENT">
+        <source>Original Document</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ORIGIN_DOC_ID_">
+        <source>Origin Doc ID.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="REVERSE_DOC_ID_">
+        <source>Reverse Doc ID.</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

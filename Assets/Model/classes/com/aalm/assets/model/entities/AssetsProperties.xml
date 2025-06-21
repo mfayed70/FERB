@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AssetsProperties"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ASSETS_PROPERTIES"
+  AliasName="AssetsProperties"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="AssPropId"
+    IsNotNull="true"
+    ColumnName="ass_prop_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ASSETS_PROPERTIES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.assets.model.entities.AssetsProperties.AssPropId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="AssPropName"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="ass_prop_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ASSETS_PROPERTIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.assets.model.entities.AssetsProperties.AssPropName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="AssetsPropsValues"
+    Association="com.aalm.assets.model.entities.FkAssetsPropsValuesAssetsProperties1Assoc"
+    AssociationEnd="com.aalm.assets.model.entities.FkAssetsPropsValuesAssetsProperties1Assoc.AssetsPropsValues"
+    AssociationOtherEnd="com.aalm.assets.model.entities.FkAssetsPropsValuesAssetsProperties1Assoc.AssetsProperties"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.assets.model.AalmAssetsMBndl"/>
+  </ResourceBundle>
+</Entity>

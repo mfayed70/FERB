@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.aalm.inventory.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/stores/store-TF.xml#store-TF@Execute"
+          usageId="com_aalm_inventory_view_store_TF_store_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/stores/stores.jsff" usageId="com_aalm_inventory_view_storesPageDef"/>
+    <page path="/Test.jsf" usageId="com_aalm_inventory_view_TestPageDef"/>
+    <page path="/WEB-INF/stores/crud-store-TF.xml#new-store-TF@ExecuteWithParams"
+          usageId="com_aalm_inventory_view_new_store_TF_new_store_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/stores/crud-store-TF.xml#new-store-TF@CreateInsert"
+          usageId="com_aalm_inventory_view_new_store_TF_new_store_TF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/stores/crud-store.jsf" usageId="com_aalm_inventory_view_new_storePageDef"/>
+    <page path="/WEB-INF/st_trans_types/st_trans_types.jsff" usageId="com_aalm_inventory_view_st_trans_typesPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_aalm_inventory_view_store_TF_store_TF_ExecutePageDef" path="stores.store_TF_store_TF_ExecutePageDef"/>
+    <page id="com_aalm_inventory_view_storesPageDef" path="stores.storesPageDef"/>
+    <page id="com_aalm_inventory_view_TestPageDef" path="com.aalm.inventory.view.pageDefs.TestPageDef"/>
+    <page id="com_aalm_inventory_view_new_store_TF_new_store_TF_ExecuteWithParamsPageDef"
+          path="stores.new_store_TF_new_store_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_inventory_view_new_store_TF_new_store_TF_CreateInsertPageDef"
+          path="stores.new_store_TF_new_store_TF_CreateInsertPageDef"/>
+    <page id="com_aalm_inventory_view_new_storePageDef" path="stores.new_storePageDef"/>
+    <page id="com_aalm_inventory_view_st_trans_typesPageDef" path="st_trans_types.st_trans_typesPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AalmInventoryDataControl" Package="com.aalm.inventory.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AalmInventoryLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

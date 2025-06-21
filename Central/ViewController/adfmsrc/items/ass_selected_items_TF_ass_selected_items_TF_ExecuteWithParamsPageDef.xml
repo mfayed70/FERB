@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ass_selected_items_TF_ass_selected_items_TF_ExecuteWithParamsPageDef" Package="items"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ItemsToBeSelectedInAss" RangeSize="25" DataControl="AalmCentralDataControl"
+              id="ItemsToBeSelectedInAssIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ItemsToBeSelectedInAssIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams" InstanceName="AalmCentralDataControl.ItemsToBeSelectedInAss"
+            DataControl="AalmCentralDataControl">
+      <NamedData NDName="pItemCode" NDValue="#{pageFlowScope.pItemCode}" NDType="java.lang.String"/>
+      <NamedData NDName="pAssCode" NDValue="#{pageFlowScope.pItemCode}" NDType="java.lang.String"/>
+      <NamedData NDName="pPrntAsmblies" NDValue="#{pageFlowScope.pItemCode}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

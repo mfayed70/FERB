@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="jobs_TF_jobs_TF_ExecutePageDef"
+                Package="jobs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="JobsV" RangeSize="25" DataControl="AalmHrDataControl" id="JobsVIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="JobsVIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

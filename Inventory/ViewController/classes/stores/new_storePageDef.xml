@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="new_storePageDef"
+                Package="stores">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="StoresCRUDV" RangeSize="25" DataControl="AalmInventoryDataControl" id="StoresCRUDVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="StoresCRUDVIterator" id="StoreId">
+      <AttrNames>
+        <Item Value="StoreId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StoresCRUDVIterator" id="StoreName">
+      <AttrNames>
+        <Item Value="StoreName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StoresCRUDVIterator" id="RegisterDt">
+      <AttrNames>
+        <Item Value="RegisterDt"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="StoresCRUDVIterator" StaticList="false" Uses="LOV_StCatId" id="StCatId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

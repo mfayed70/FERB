@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="organizationsPageDef"
+                Package="organizations">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OrganizationsV" RangeSize="25" DataControl="AalmCentralDataControl" id="OrganizationsVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="OrganizationsVIterator" id="OrganizationsV">
+      <nodeDefinition DefName="com.aalm.center.model.views.OrganizationsV" Name="OrganizationsV0">
+        <AttrNames>
+          <Item Value="OrgCode"/>
+          <Item Value="EnOrgName"/>
+          <Item Value="ArOrgName"/>
+          <Item Value="PrntOrgCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmCentralDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AalmCentralDataControl"/>
+    <action IterBinding="OrganizationsVIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="PrntOrgCode" NDValue="#{row.OrgCode}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="OrganizationsVIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

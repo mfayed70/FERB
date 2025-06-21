@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/login/login-TF.xml" id="login-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/ErpAdmin/stndrd-role-perms-TF.xml" id="stndrd-role-perms-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/ErpAdmin/users-TF.xml" id="users-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/ErpAdmin/granted-syss-fns-CRUD-TF.xml" id="granted-syss-fns-CRUD-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pGrpRolId"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/verify-reset-pswrd-TF.xml" id="verify-reset-pswrd-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pOtp"/>
+      <input-parameter name="pStatus"/>
+   </task-flow-descriptor>
+</task-flow-registry>

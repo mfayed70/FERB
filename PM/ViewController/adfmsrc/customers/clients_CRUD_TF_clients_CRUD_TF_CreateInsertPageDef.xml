@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="clients_CRUD_TF_clients_CRUD_TF_CreateInsertPageDef" Package="customers" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ClientsV" RangeSize="25" DataControl="AalmPmDataControl" id="CustomersVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CustomersVIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

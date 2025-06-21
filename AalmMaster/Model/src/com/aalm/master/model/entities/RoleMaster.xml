@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RoleMaster"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ROLE_MASTER"
+  AliasName="RoleMaster"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="RoleGroupId"
+    ColumnName="role_group_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ROLE_MASTER"
+    PrimaryKey="true"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.master.model.entities.RoleMaster.RoleGroupId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="EnRoleGroupName"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="en_role_group_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ROLE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.master.model.entities.RoleMaster.EnRoleGroupName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ArRoleGroupName"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="ar_role_group_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ROLE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.master.model.entities.RoleMaster.ArRoleGroupName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="PreDefined"
+    Precision="2"
+    ColumnName="pre_defined"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ROLE_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.master.model.entities.RoleMaster.PreDefined_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="Roles"
+    Association="com.aalm.master.model.entities.FkRoleSystemsRoles1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkRoleSystemsRoles1Assoc.Roles"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkRoleSystemsRoles1Assoc.RoleMaster"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="UserRolesMaster"
+    Association="com.aalm.master.model.entities.FkUserRolesMasterRoleMaster1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkUserRolesMasterRoleMaster1Assoc.UserRolesMaster"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkUserRolesMasterRoleMaster1Assoc.RoleMaster"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="RoleMasterRoleGroupIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Role_Master_Role_Group_Id_Chec"/>
+      <Attr Name="_checkCondition" Value='"role_group_id" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.RoleMaster.RoleGroupId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.master.model.AalmMasterMBndl"/>
+  </ResourceBundle>
+</Entity>

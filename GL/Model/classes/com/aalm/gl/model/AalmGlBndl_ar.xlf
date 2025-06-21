@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="AalmGlBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="GENERAL_LEDGER_ACCOUNT_TYPES">
+        <source>أنواع الحسابات </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>إلغاء</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COMMIT">
+        <source>حفظ</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW">
+        <source>جديد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.TransTypeLOV.SL_0_0">
+        <source>1</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.TransTypeLOV.SL_0_1">
+        <source>قيد إفتتاحي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.TransTypeLOV.SL_1_0">
+        <source>2</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.TransTypeLOV.SL_1_1">
+        <source>قيد محاسبي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.TransTypeLOV.SL_2_0">
+        <source>3</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.TransTypeLOV.SL_2_1">
+        <source>قيد متكرر</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.TransTypeLOV.SL_3_0">
+        <source>4</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.TransTypeLOV.SL_3_1">
+        <source>قيد عكسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.TransTypeLOV.SL_4_0">
+        <source>5</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.TransTypeLOV.SL_4_1">
+        <source>قيد إغلاق</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.TransTypeLOV_LABEL">
+        <source>Trans Type Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ID">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlAccTypes.GlAccTypeId_LABEL">
+        <source>الكود</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ARABIC_NAME">
+        <source>الإسم عربي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlAccTypes.GlAccTypeNameA_LABEL">
+        <source>الإسم عربي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ENGLISH_NAME">
+        <source>الإسم اللاتيني</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlAccTypes.GlAccTypeNameE_LABEL">
+        <source>الإسم اللاتيني</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlTransTypes.GlTrnsTypeId_LABEL">
+        <source>الكود</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlTransTypes.TransNameA_LABEL">
+        <source>الإسم عربي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlTransTypes.TransNameE_LABEL">
+        <source>الإسم اللاتيني</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TYPE">
+        <source>النوع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlTransTypes.TransType_LABEL">
+        <source>النوع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ACTIVE">
+        <source>نشط</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlTransTypes.Active_LABEL">
+        <source>نشط</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.AccTypeLOV_LABEL">
+        <source>Acc Type Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.FkGlGenAccChartGlGenAccChart1VL_LABEL">
+        <source>Fk Gl Gen Acc Chart Gl Gen Acc Chart1cl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.FkGlCostCentersGlCostCenters1VL_LABEL">
+        <source>Fk Gl Cost Centers Gl Cost Centers 1vl</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="com.aalm.gl.model.views.GlCostCentersV.CostCenterCode_LABEL">
+        <source>الكود</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlCostCentersV.CostCenterNameA_LABEL">
+        <source>الإسم عربي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlCostCentersV.CostCenterNameE_LABEL">
+        <source>الإسم اللاتيني</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MASTER_COST_CENTER">
+        <source>مركز التكلفة الرئيسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlCostCentersV.PrntCostCenterCode_LABEL">
+        <source>مركز التكلفة الرئيسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlGenAccChartV.AccCode_LABEL">
+        <source>الكود</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlGenAccChartV.AccNameA_LABEL">
+        <source>الإسم عربي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlGenAccChartV.AccNameE_LABEL">
+        <source>الإسم اللاتيني</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MASTER_ACCOUNT">
+        <source>الحساب الرئيسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlGenAccChartV.PrntAccCode_LABEL">
+        <source>الحساب الرئيسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ACCOUNT_TYPE">
+        <source>نوع الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlGenAccChartV.AccTypeId_LABEL">
+        <source>نوع الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlGenAccChartV.AccTypeName_LABEL">
+        <source>نوع الحساب</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="com.aalm.gl.model.lov.GlAssistantTablesLOV_LABEL">
+        <source>Gl Assistant Tables Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.FkGlAccAssitancesGlOrgAccChart1VL_LABEL">
+        <source>Fk Gl Acc Assitances Gl Org Acc Chart 1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.FkGlJournalsGlDocuments1VL_LABEL">
+        <source>Fk Gl Journals Gl Documents 1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ACC_CODE_RANGES_BETWEEN_1_999999999">
+        <source>كود الحساب يتراوح من 1:999999999</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.FkGlOrgAccChartGlOrgAccChart1VL_LABEL">
+        <source>Fk Gl Org Acc Chart Gl Org Acc Chart 1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.FkGlAccAssistancesGlOrgAccChart1VL_LABEL">
+        <source>Fk Gl Acc Assistances Gl Org Acc Chart 1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GL_ASSISTANCE_CODE">
+        <source>كود حساب الأستاذ المساعد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlAccAssistances.AssCode_LABEL">
+        <source>كود حساب الأستاذ المساعد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GL_ASSISTANCE_NAME">
+        <source>إسم الأستاذ المساعد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlAccAssistances.AssName_LABEL">
+        <source>إسم حساب الأستاذ المساعد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlAccAssistances.Active_LABEL">
+        <source>نشط</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COST_CENTER_CODE">
+        <source>كود مركزالتكلفة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlCostCenters.CostCenterCode_LABEL">
+        <source>كود مركز التكلفة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlCostCenters.CostCenterNameA_LABEL">
+        <source>الإسم عربي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlCostCenters.CostCenterNameE_LABEL">
+        <source>الإسم اللاتيني</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PARENT_COST_CENTER">
+        <source>مركز التكلفة الرئيسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlCostCenters.PrntCostCenterCode_LABEL">
+        <source>مركز التكلفة الرئيسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ACCOUNT_CODE">
+        <source>كود الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlOrgAccChart.AccCode_LABEL">
+        <source>كود الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlOrgAccChart.AccNameA_LABEL">
+        <source>الإسم عربي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlOrgAccChart.AccNameE_LABEL">
+        <source>الإسم لاتيني</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlOrgAccChart.GlAccTypeId_LABEL">
+        <source>نوع الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSISTANCE_TABLE_NAME">
+        <source>جدول الأستاذ المساعد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlOrgAccChart.GlAssTblId_LABEL">
+        <source>جدول الأستاذ المساعد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PARENT_ACCOUNT">
+        <source>الحساب الرئيسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlOrgAccChart.PrntAccCode_LABEL">
+        <source>الحساب الرئيسي</source>
+        <target/>
+      </trans-unit>
+            <trans-unit id="com.aalm.gl.model.views.GlOrgAccChartV.AccTypeName_LABEL">
+        <source>نوع الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASS__ACC__TABLE_NAME">
+        <source>جدول حساب الأستاذ المساعد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlOrgAccChartV.TblName_LABEL">
+        <source>جدول الأستاذ المساعد</source>
+        <target/>
+      </trans-unit>
+           <trans-unit id="com.aalm.gl.model.lov.LeafAccountsLOV_LABEL">
+        <source>Leaf Accounts Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.GlCostCentersLOV_LABEL">
+        <source>Gl Cost Centers Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.lov.GlAssistanceCodesLOV_LABEL">
+        <source>Gl Assistance Codes Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.fk_GL_JOURNALS_GL_ORG_ACC_CHART1VL_LABEL">
+        <source>Fk Gl Journals Gl Org Acc Chart1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.fk_GL_JOURNALS_GL_ACC_ASSISTANCES1VL_LABEL">
+        <source>Fk Gl Journals Gl Acc Assistances1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.fk_GL_JOURNALS_GL_COST_CENTERS1VL_LABEL">
+        <source>Fk Gl Journals Gl Cost Centers1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BALANCED">
+        <source>متزن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlDocumentsV.BalanceFlag_LABEL">
+        <source>متزن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="REVIEWED">
+        <source>Reviewed</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlDocumentsV.ReviewFlag_LABEL">
+        <source>Reviewed</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlDocumentsV.PostFlag_LABEL">
+        <source>تم ترحيله</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.SumDebit_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultBigDecimalFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.SumDebit_FMT_FORMAT">
+        <source>####.00</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.SumCredit_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultBigDecimalFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.SumCredit_FMT_FORMAT">
+        <source>####.00</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlJournalsV.SumDebit_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultBigDecimalFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlJournalsV.SumDebit_FMT_FORMAT">
+        <source>####.00</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlJournalsV.SumCredit_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultBigDecimalFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlJournalsV.SumCredit_FMT_FORMAT">
+        <source>####.00</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlJournalsV.Credit_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultBigDecimalFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlJournalsV.Credit_FMT_FORMAT">
+        <source>####.00</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlJournalsV.Debit_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultBigDecimalFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlJournalsV.Debit_FMT_FORMAT">
+        <source>####.00</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NAME">
+        <source>الإسم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ID">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.GlDocId_LABEL">
+        <source>ID</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.ReviewFlag_LABEL">
+        <source>Reviewed</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.BalanceFlag_LABEL">
+        <source>متزن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.PostFlag_LABEL">
+        <source>تم ترحيله</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.GlTrnsTypeId_LABEL">
+        <source>النوع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlJournals.JornalId_LABEL">
+        <source>م</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ACCOUNT_NO_">
+        <source>رقم الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlJournals.AccCode_LABEL">
+        <source>رقم الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ASSISTANCE_ACC__NO_">
+        <source>Assistance Acc. No.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlJournals.AssCode_LABEL">
+        <source>رقم حساب الأستاذ المساعد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CURRENCY">
+        <source>العملة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlJournals.CurrCode_LABEL">
+        <source>العملة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DEBIT">
+        <source>مدين</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlJournals.Debit_LABEL">
+        <source>مدين</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREDIT">
+        <source>دائن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlJournals.Credit_LABEL">
+        <source>دائن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COST_CENTER">
+        <source>مركز التكلفة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlJournals.CostCenterCode_LABEL">
+        <source>مركز التكلفة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NOTES">
+        <source>ملاحظات</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlJournals.Notes_LABEL">
+        <source>ملاحظات</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="REGISTER_DATE">
+        <source>Register Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.GlDocDt_LABEL">
+        <source>تاريخ التسجيل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.GlDocDt_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultDateFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.GlDocDt_FMT_FORMAT">
+        <source>dd/MM/yyyy H:12 a</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ACCOUNT_NAME">
+        <source>إسم الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlJournalsV.AccNameA_LABEL">
+        <source>إسم الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlJournalsV.AccNameE_LABEL">
+        <source>إسم الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DESCRIPTION">
+        <source>الوصف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.GlDocName_LABEL">
+        <source>الوصف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlDocumentsV.GlDocId_LABEL">
+        <source>رقم المستند</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.FkGLOrgAccBalanceDetailsGlOrgAccChart1VL_LABEL">
+        <source>Fk Gl Org Acc Balance Details Gl Org Acc Chart 1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlOrgAccBalanceV.AccCode_LABEL">
+        <source>رقم الحساب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlOrgAccBalanceV.CurrCode_LABEL">
+        <source>العملة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="OPEN_BALANCE_CREDIT">
+        <source>الرصيد الإقتتاحي مدين</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlOrgAccBalanceV.OpenCredit_LABEL">
+        <source>الرصيد الإفتتاحي دائن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="OPEN_BALANCE_DEBIT">
+        <source>Open Balance Debit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlOrgAccBalanceV.OpenDebit_LABEL">
+        <source>الرصيد الإفتتاحي مدين</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CLOSE_BALANCE_CREDIT">
+        <source>رصيد الإغلاق دائن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlOrgAccBalanceV.CloseCredit_LABEL">
+        <source>رصيد الإغلاق دائن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CLOSE_BALANCE_DEBIT">
+        <source>رصيد الإغلاق مدين</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlOrgAccBalanceV.CloseDebit_LABEL">
+        <source>رصيد الإغلاق دائن</source>
+        <target/>
+      </trans-unit>
+     <trans-unit id="com.aalm.gl.model.entities.GlFinancialYears.StartDt_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultDateFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlFinancialYears.StartDt_FMT_FORMAT">
+        <source>dd/MM/yyyy</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlFinancialYears.EndDt_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultDateFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlFinancialYears.EndDt_FMT_FORMAT">
+        <source>dd/MM/yyyy</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlFinancialYears.FinYearCode_LABEL">
+        <source>كود السنة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlFinancialYears.PeriodNo_LABEL">
+        <source>كود الفترة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlFinancialYears.StatusFlag_LABEL">
+        <source>مغلقة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlFinancialYears.StartDt_LABEL">
+        <source>من تاريخ</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlFinancialYears.EndDt_LABEL">
+        <source>حتي تاريخ</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlFinancialYears.EndDt_LABEL">
+        <source>End Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.SumDebit_LABEL">
+        <source>إجمالي مدين</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.entities.GlDocuments.SumCredit_LABEL">
+        <source>إجمالي دائن</source>
+        <target/>
+      </trans-unit>      
+            <trans-unit id="com.aalm.gl.model.views.GlDocumentsV.BalanceAttr_LABEL">
+        <source>متــزن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.gl.model.views.GlDocumentsV.PostAttr_LABEL">
+        <source>تم ترحيله</source>
+        <target/>
+      </trans-unit>
+      
+    </body>
+  </file>
+</xliff>

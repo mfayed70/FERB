@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.prcrmnt.view.AalmPrcrmntBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.SUPPLIERS}" id="ph1" inlineStyle="padding-bottom:50px;">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:button text="#{viewcontrollerBundle.NEW}" id="b1" action="toCrud" useWindow="true"
+                 windowEmbedStyle="inlineDocument" windowHeight="400" windowWidth="650" styleClass="but"
+                 returnListener="#{PrcrmntClass.refreshSuppliersRtrnLsnr}" icon="#{resource['images:NewF.png']}"
+                 hoverIcon="#{resource['images:NewO.png']}">
+        <af:setPropertyListener from="#{null}" to="#{pageFlowScope.pSuppId}" type="action"/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend"/>
+    <af:panelCollection id="pc1" inlineStyle="width:1605px;">
+      <f:facet name="menus"/>
+      <f:facet name="toolbar"/>
+      <af:table value="#{bindings.SuppliersV.collectionModel}" var="row" rows="#{bindings.SuppliersV.rangeSize}"
+                emptyText="#{bindings.SuppliersV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.SuppliersV.collectionModel.selectedRow}"
+                selectionListener="#{bindings.SuppliersV.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.SuppliersV.rangeSize}" filterModel="#{bindings.SuppliersVQuery.queryDescriptor}"
+                queryListener="#{bindings.SuppliersVQuery.processQuery}" filterVisible="true" varStatus="vs" id="t1"
+                columnStretching="last" partialTriggers=":::b1">
+        <af:column sortProperty="#{bindings.SuppliersV.hints.SuppId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SuppliersV.hints.SuppId.label}" id="c1" width="50" align="center">
+          <af:link shortDesc="#{bindings.SuppliersV.hints.SuppId.tooltip}" id="ot1" text="#{row.SuppId}"
+                   action="toCrud" useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="400"
+                   windowWidth="600">
+            <af:setPropertyListener from="#{row.SuppId}" to="#{pageFlowScope.pSuppId}" type="action"/>
+          </af:link>
+        </af:column>
+        <af:column sortProperty="#{bindings.SuppliersV.hints.SuppName.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SuppliersV.hints.SuppName.label}" id="c2" width="200">
+          <af:outputText value="#{row.SuppName}" shortDesc="#{bindings.SuppliersV.hints.SuppName.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.SuppliersV.hints.Address.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SuppliersV.hints.Address.label}" id="c3" width="200">
+          <af:outputText value="#{row.Address}" shortDesc="#{bindings.SuppliersV.hints.Address.tooltip}" id="ot3"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.SuppliersV.hints.Mobile.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SuppliersV.hints.Mobile.label}" id="c4" width="150">
+          <af:outputText value="#{row.Mobile}" shortDesc="#{bindings.SuppliersV.hints.Mobile.tooltip}" id="ot4"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.SuppliersV.hints.SegelNo.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SuppliersV.hints.SegelNo.label}" id="c5" width="150">
+          <af:outputText value="#{row.SegelNo}" shortDesc="#{bindings.SuppliersV.hints.SegelNo.tooltip}" id="ot5"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.SuppliersV.hints.ContactPerson.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SuppliersV.hints.ContactPerson.label}" id="c6" width="200">
+          <af:outputText value="#{row.ContactPerson}" shortDesc="#{bindings.SuppliersV.hints.ContactPerson.tooltip}"
+                         id="ot6"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.SuppliersV.hints.Email.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SuppliersV.hints.Email.label}" id="c7" width="150">
+          <af:outputText value="#{row.Email}" shortDesc="#{bindings.SuppliersV.hints.Email.tooltip}" id="ot7"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.SuppliersV.hints.Website.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SuppliersV.hints.Website.label}" id="c8" width="200">
+          <af:outputText value="#{row.Website}" shortDesc="#{bindings.SuppliersV.hints.Website.tooltip}" id="ot8"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.SuppliersV.hints.SuppType.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SuppliersV.hints.SuppType.label}" id="c9" width="130">
+          <af:selectOneChoice value="#{row.bindings.SuppType.inputValue}" label="#{row.bindings.SuppType.label}"
+                              required="#{bindings.SuppliersV.hints.SuppType.mandatory}"
+                              shortDesc="#{bindings.SuppliersV.hints.SuppType.tooltip}" readOnly="true" id="soc1">
+            <f:selectItems value="#{row.bindings.SuppType.items}" id="si1"/>
+            <f:validator binding="#{row.bindings.SuppType.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column sortProperty="#{bindings.SuppliersV.hints.SuppCategory.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SuppliersV.hints.SuppCategory.label}" id="c10" width="150">
+          <af:selectOneChoice value="#{row.bindings.SuppCategory.inputValue}" label="#{row.bindings.SuppCategory.label}"
+                              required="#{bindings.SuppliersV.hints.SuppCategory.mandatory}"
+                              shortDesc="#{bindings.SuppliersV.hints.SuppCategory.tooltip}" readOnly="true" id="soc2">
+            <f:selectItems value="#{row.bindings.SuppCategory.items}" id="si2"/>
+            <f:validator binding="#{row.bindings.SuppCategory.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+      </af:table>
+      <f:facet name="statusbar"/>
+    </af:panelCollection>
+    <f:facet name="info"/>
+    <af:panelHeader text="#{viewcontrollerBundle.SUPPLIER_DELIVER_ITEM_CATEGORIES}" id="ph2">
+      <f:facet name="context"/>
+      <f:facet name="menuBar">
+        <af:button actionListener="#{bindings.Commit.execute}" text="#{viewcontrollerBundle.SAVE}" disabled="#{!bindings.Commit.enabled}"
+                   id="b4" icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"/>
+      </f:facet>
+      <f:facet name="toolbar">
+        <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}"
+                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
+                   icon="#{resource['images:cancelF.png']}" hoverIcon="#{resource['images:cancelO.png']}">
+          <af:resetActionListener/>
+        </af:button>
+      </f:facet>
+      <f:facet name="legend"/>
+      <af:table value="#{bindings.SupplierDeliverItemCatsV.collectionModel}" var="row"
+                rows="#{bindings.SupplierDeliverItemCatsV.rangeSize}"
+                emptyText="#{bindings.SupplierDeliverItemCatsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0"
+                selectedRowKeys="#{bindings.SupplierDeliverItemCatsV.collectionModel.selectedRow}"
+                selectionListener="#{bindings.SupplierDeliverItemCatsV.collectionModel.makeCurrent}"
+                rowSelection="single" fetchSize="#{bindings.SupplierDeliverItemCatsV.rangeSize}" id="t2"
+                partialTriggers="::b2">
+        <af:column headerText="#{bindings.SupplierDeliverItemCatsV.hints.CatId.label}" id="c11" width="300">
+          <af:selectOneChoice value="#{row.bindings.CatId.inputValue}" label="#{row.bindings.CatId.label}"
+                              required="#{bindings.SupplierDeliverItemCatsV.hints.CatId.mandatory}"
+                              shortDesc="#{bindings.SupplierDeliverItemCatsV.hints.CatId.tooltip}" id="soc3">
+            <f:selectItems value="#{row.bindings.CatId.items}" id="si3"/>
+            <f:validator binding="#{row.bindings.CatId.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column headerText="#{bindings.SupplierDeliverItemCatsV.hints.Active.label}" id="c12" align="center">
+          <af:selectBooleanCheckbox value="#{row.bindings.Active.inputValue}" label="#{row.bindings.Active.label}"
+                                    shortDesc="#{bindings.SupplierDeliverItemCatsV.hints.Active.tooltip}" id="sbc1"/>
+        </af:column>
+      </af:table>
+      <f:facet name="info">
+        <af:button actionListener="#{bindings.CreateInsert.execute}" text="#{viewcontrollerBundle.NEW}"
+                   disabled="#{!bindings.CreateInsert.enabled}" id="b2" styleClass="but"
+                   icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+      </f:facet>
+    </af:panelHeader>
+  </af:panelHeader>
+</ui:composition>

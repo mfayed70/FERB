@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnfProcessOtherCosts"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="MNF_PROCESS_OTHER_COSTS"
+  AliasName="MnfProcessOtherCosts"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="Seq"
+    ColumnName="seq"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="MNF_PROCESS_OTHER_COSTS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MnfPrcsId"
+    IsNotNull="true"
+    Precision="8"
+    ColumnName="mnf_prcs_id"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="MNF_PROCESS_OTHER_COSTS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Value"
+    IsNotNull="true"
+    ColumnName="value"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="MNF_PROCESS_OTHER_COSTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TimeUnit"
+    IsNotNull="true"
+    Precision="2"
+    ColumnName="time_unit"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="MNF_PROCESS_OTHER_COSTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CurrCode"
+    IsNotNull="true"
+    Precision="5"
+    ColumnName="curr_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="MNF_PROCESS_OTHER_COSTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="MnfProcesses"
+    Association="com.aalm.mnf.model.entities.fk_MANF_PROCESS_OTHER_COSTS_MANF_PROCESSES1Assoc"
+    AssociationEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_OTHER_COSTS_MANF_PROCESSES1Assoc.MnfProcesses"
+    AssociationOtherEnd="com.aalm.mnf.model.entities.fk_MANF_PROCESS_OTHER_COSTS_MANF_PROCESSES1Assoc.MnfProcessOtherCosts"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+  </Key>
+  <Key
+    Name="FkManufactureProcessOtherCostsCurrencies1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_MANUFACTURE_PROCESS_OTHER_COSTS_CURRENCIES1"/>
+    </DesignTime>
+  </Key>
+  <Key
+    Name="FkManufactureProcessOtherCostsManufacturingProcesses1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_MANUFACTURE_PROCESS_OTHER_COSTS_MANUFACTURING_PROCESSES1"/>
+    </DesignTime>
+  </Key>
+</Entity>

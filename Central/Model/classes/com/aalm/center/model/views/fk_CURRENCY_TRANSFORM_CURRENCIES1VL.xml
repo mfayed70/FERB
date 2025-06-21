@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="fk_CURRENCY_TRANSFORM_CURRENCIES1VL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.aalm.center.model.entities.fk_CURRENCY_TRANSFORM_CURRENCIES1">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.center.model.views.fk_CURRENCY_TRANSFORM_CURRENCIES1VL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="CurrenciesV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.center.model.views.CurrenciesV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CurrenciesV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.views.CurrenciesV.CurrCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="CurrencyTransformV"
+    Cardinality="-1"
+    Owner="com.aalm.center.model.views.CurrencyTransformV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CurrencyTransformV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.center.model.views.CurrencyTransformV.FromCurrCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.aalm.center.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

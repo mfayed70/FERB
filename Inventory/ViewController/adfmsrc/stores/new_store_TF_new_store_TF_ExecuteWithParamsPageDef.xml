@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="new_store_TF_new_store_TF_ExecuteWithParamsPageDef" Package="stores" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="StoresCRUDV" RangeSize="25" DataControl="AalmInventoryDataControl" id="StoresCRUDVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="StoresCRUDVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pStoreId" NDValue="#{pageFlowScope.pStoreId}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

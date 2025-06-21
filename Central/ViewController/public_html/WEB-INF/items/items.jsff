@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.center.view.AalmCenteralBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.MASTER_MATERIAL_LIST}" id="ph1">
+    <f:facet name="context">
+      <af:outputText id="ot6" rendered="false"/>
+    </f:facet>
+    <f:facet name="menuBar">
+      <af:button text="#{viewcontrollerBundle.ExporttoExcel}" id="b6" styleClass="but" immediate="true"
+                 rendered="false">
+        <af:exportCollectionActionListener type="excelHTML" exportedId="pc2:t1"
+                                           filename="MaterialList" title="Material List"/>
+      </af:button>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:panelGroupLayout id="pgl1" layout="horizontal">
+        <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}" immediate="true"
+                   id="b1" styleClass="but" icon="#{resource['images:cancelF.png']}"
+                   hoverIcon="#{resource['images:cancelO.png']}">
+          <af:resetActionListener/>
+        </af:button>
+        <af:button actionListener="#{pageFlowScope.CentralBean.saveItemListActnLsnr}"
+                   text="#{viewcontrollerBundle.SAVE}" id="b2" styleClass="but" icon="#{resource['images:SaveF.png']}"
+                   hoverIcon="#{resource['images:SaveO.png']}"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="legend">
+      <af:selectBooleanCheckbox value="#{bindings.IsAssmbly.inputValue}" label="#{bindings.IsAssmbly.label}"
+                                shortDesc="#{bindings.IsAssmbly.hints.tooltip}" id="sbc3" rendered="false"/>
+    </f:facet>
+    <f:facet name="info">
+      <af:panelGroupLayout id="pgl3">
+        <af:button text="#{viewcontrollerBundle.Preview}" id="b4" styleClass="but" visible="false">
+          <af:showPrintablePageBehavior/>
+        </af:button>
+        <af:button actionListener="#{pageFlowScope.CentralBean.newItemActnLsnr}" text="#{viewcontrollerBundle.NEW}"
+                   disabled="#{!bindings.CreateInsert.enabled}" id="b3" icon="#{resource['images:NewF.png']}"
+                   hoverIcon="#{resource['images:NewO.png']}" styleClass="but"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="500">
+      <f:facet name="first">
+        <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t3">
+              <af:button text="#{viewcontrollerBundle.CLEAR_FILTER}" id="b7"
+                         icon="#{resource['images:clearFilterO.png']}" styleClass="but"
+                         hoverIcon="#{resource['images:clearFilterF.png']}"
+                         action="#{pageFlowScope.CentralBean.clearItemListFilter}"/>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.ItemsListV.collectionModel}" var="row" rows="#{bindings.ItemsListV.rangeSize}"
+                    emptyText="#{bindings.ItemsListV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.ItemsListV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.ItemsListV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.ItemsListV.rangeSize}"
+                    filterModel="#{bindings.ItemsListVQuery.queryDescriptor}"
+                    queryListener="#{bindings.ItemsListVQuery.processQuery}" filterVisible="true" varStatus="vs" id="t1"
+                    partialTriggers="b5" columnStretching="column:c2" inlineStyle="padding-bottom:10px;"
+                    scrollPolicy="loadMore" verticalGridVisible="false"
+                    binding="#{pageFlowScope.CentralBean.itemListTbl}" contentDelivery="lazy">
+            <af:column id="c14" width="60" headerText="#{viewcontrollerBundle.SER_}">
+              <af:outputText value="#{vs.index+1}" id="ot7"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListV.hints.ItemCode.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListV.hints.ItemCode.label}" id="c1" width="300">
+              <af:inputText value="#{row.bindings.ItemIndx.inputValue}"
+                            label="#{bindings.ItemsListV.hints.ItemCode.label}"
+                            required="#{bindings.ItemsListV.hints.ItemCode.mandatory}"
+                            columns="#{bindings.ItemsListV.hints.ItemCode.displayWidth}"
+                            maximumLength="#{bindings.ItemsListV.hints.ItemCode.precision}"
+                            shortDesc="#{bindings.ItemsListV.hints.ItemCode.tooltip}" id="it1"
+                            contentStyle="font-size:30px;" autoSubmit="true" readOnly="true">
+                <f:validator binding="#{row.bindings.ItemCode.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListV.hints.ItemName.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListV.hints.ItemName.label}" id="c2" width="500">
+              <af:outputText value="#{row.bindings.ItemName.inputValue}"
+                             shortDesc="#{bindings.ItemsListV.hints.ItemName.tooltip}" id="it2" escape="false"
+                             styleClass="rtl,ltr"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListV.hints.CatId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListV.hints.CatId.label}" id="c3" width="170">
+              <af:selectOneChoice value="#{row.bindings.CatId.inputValue}" label="#{row.bindings.CatId.label}"
+                                  required="#{bindings.ItemsListV.hints.CatId.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.CatId.tooltip}" id="soc1" readOnly="true">
+                <f:selectItems value="#{row.bindings.CatId.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.CatId.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListV.hints.UnitId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListV.hints.UnitId.label}" id="c4" width="170">
+              <af:selectOneChoice value="#{row.bindings.UnitId.inputValue}" label="#{row.bindings.UnitId.label}"
+                                  shortDesc="#{bindings.ItemsListV.hints.UnitId.tooltip}" id="soc2" readOnly="true">
+                <f:selectItems value="#{row.bindings.UnitId.items}" id="si2"/>
+                <f:validator binding="#{row.bindings.UnitId.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListV.hints.RegisterDt.name}" sortable="true"
+                       headerText="#{bindings.ItemsListV.hints.RegisterDt.label}" id="c5" width="130" rendered="false">
+              <f:facet name="filter"/>
+              <af:inputDate value="#{row.bindings.RegisterDt.inputValue}"
+                            label="#{bindings.ItemsListV.hints.RegisterDt.label}"
+                            required="#{bindings.ItemsListV.hints.RegisterDt.mandatory}"
+                            columns="#{bindings.ItemsListV.hints.RegisterDt.displayWidth}"
+                            shortDesc="#{bindings.ItemsListV.hints.RegisterDt.tooltip}" id="id2" readOnly="true">
+                <f:validator binding="#{row.bindings.RegisterDt.validator}"/>
+                <af:convertDateTime pattern="dd-MM-yyyy HH:mm a"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListV.hints.Active.name}" sortable="true"
+                       headerText="#{bindings.ItemsListV.hints.Active.label}" id="c7" align="center" width="70">
+              <af:selectBooleanCheckbox value="#{row.bindings.Active.inputValue}" label="#{row.bindings.Active.label}"
+                                        shortDesc="#{bindings.ItemsListV.hints.Active.tooltip}" id="sbc1"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListV.hints.IsAssmbly.name}" sortable="true"
+                       headerText="#{bindings.ItemsListV.hints.IsAssmbly.label}" id="c6" align="center" width="70">
+              <af:selectBooleanCheckbox value="#{row.bindings.IsAssmbly.inputValue}"
+                                        label="#{row.bindings.IsAssmbly.label}"
+                                        shortDesc="#{bindings.ItemsListV.hints.IsAssmbly.tooltip}" id="sbc2"
+                                        disabled="true"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListV.hints.OrderLimit.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.ItemsListV.hints.OrderLimit.label}" id="c16" width="70"
+                       rendered="#{sessionScope.orgIni=='z'}">
+              <af:inputText value="#{row.bindings.OrderLimit.inputValue}"
+                            label="#{bindings.ItemsListV.hints.OrderLimit.label}"
+                            columns="#{bindings.ItemsListV.hints.OrderLimit.displayWidth}"
+                            maximumLength="#{bindings.ItemsListV.hints.OrderLimit.precision}"
+                            shortDesc="#{bindings.ItemsListV.hints.OrderLimit.tooltip}" id="it3"
+                            required="#{bindings.ItemsListV.hints.OrderLimit.mandatory}" readOnly="true">
+                <f:validator binding="#{row.bindings.OrderLimit.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemsListV.hints.SalesProfitPerc.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.ItemsListV.hints.SalesProfitPerc.label}" id="c17"
+                       width="70" rendered="#{sessionScope.orgIni=='z'}">
+              <af:inputText value="#{row.bindings.SalesProfitPerc.inputValue}"
+                            label="#{bindings.ItemsListV.hints.SalesProfitPerc.label}"
+                            columns="#{bindings.ItemsListV.hints.SalesProfitPerc.displayWidth}"
+                            maximumLength="#{bindings.ItemsListV.hints.SalesProfitPerc.precision}"
+                            shortDesc="#{bindings.ItemsListV.hints.SalesProfitPerc.tooltip}" id="it4"
+                            required="#{bindings.ItemsListV.hints.SalesProfitPerc.mandatory}" readOnly="true">
+                <f:validator binding="#{row.bindings.SalesProfitPerc.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column id="c12" width="130">
+              <af:button text="#{viewcontrollerBundle.CreateAssembly}" id="b5" styleClass="but"
+                         action="#{pageFlowScope.CentralBean.addComponentActn}" windowEmbedStyle="inlineDocument"
+                         useWindow="true" windowHeight="500" windowWidth="850"
+                         binding="#{pageFlowScope.CentralBean.addComponentBtn}" partialTriggers="it1">
+                <af:setPropertyListener from="#{row.bindings.ItemCode.inputValue}" to="#{pageFlowScope.pAssCode}"
+                                        type="action"/>
+                <af:setPropertyListener from="#{row.bindings.ItemCode.inputValue}" to="#{pageFlowScope.pItemCode}"
+                                        type="action"/>
+                <af:setPropertyListener from="#{row.bindings.ItemCode.inputValue}" to="#{pageFlowScope.pPrntAsmblies}"
+                                        type="action"/>
+              </af:button>
+            </af:column>
+            <af:column id="c33" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar1.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[0]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar1.inputValue}"
+                                  required="#{bindings.ItemsListV.hints.StrVar1.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar1.tooltip}" id="soc8" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar1.items}" id="si8"/>
+                <f:validator binding="#{row.bindings.StrVar1.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c34" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar2.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[1]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar2.inputValue}" label="#{row.bindings.StrVar2.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar2.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar2.tooltip}" id="soc9" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar2.items}" id="si9"/>
+                <f:validator binding="#{row.bindings.StrVar2.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c32" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar3.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[2]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar3.inputValue}" label="#{row.bindings.StrVar3.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar3.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar3.tooltip}" id="soc10" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar3.items}" id="si10"/>
+                <f:validator binding="#{row.bindings.StrVar3.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c38" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar4.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[3]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar4.inputValue}" label="#{row.bindings.StrVar4.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar4.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar4.tooltip}" id="soc11" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar4.items}" id="si11"/>
+                <f:validator binding="#{row.bindings.StrVar4.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c37" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar5.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[4]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar5.inputValue}" label="#{row.bindings.StrVar5.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar5.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar5.tooltip}" id="soc12" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar5.items}" id="si12"/>
+                <f:validator binding="#{row.bindings.StrVar5.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c35" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar6.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[5]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar6.inputValue}" label="#{row.bindings.StrVar6.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar6.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar6.tooltip}" id="soc13" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar6.items}" id="si13"/>
+                <f:validator binding="#{row.bindings.StrVar6.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c36" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar7.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[6]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar7.inputValue}" label="#{row.bindings.StrVar7.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar7.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar7.tooltip}" id="soc14" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar7.items}" id="si14"/>
+                <f:validator binding="#{row.bindings.StrVar7.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c39" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar8.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[7]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar8.inputValue}" label="#{row.bindings.StrVar8.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar8.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar8.tooltip}" id="soc15" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar8.items}" id="si15"/>
+                <f:validator binding="#{row.bindings.StrVar8.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c40" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar9.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[8]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar9.inputValue}" label="#{row.bindings.StrVar9.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar9.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar9.tooltip}" id="soc16" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar9.items}" id="si16"/>
+                <f:validator binding="#{row.bindings.StrVar9.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c41" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar10.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[9]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar10.inputValue}" label="#{row.bindings.StrVar10.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar10.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar10.tooltip}" id="soc17" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar10.items}" id="si17"/>
+                <f:validator binding="#{row.bindings.StrVar10.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c42" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar11.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[10]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar11.inputValue}" label="#{row.bindings.StrVar11.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar11.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar11.tooltip}" id="soc18" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar11.items}" id="si18"/>
+                <f:validator binding="#{row.bindings.StrVar11.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c43" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar12.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[11]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar12.inputValue}" label="#{row.bindings.StrVar12.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar12.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar12.tooltip}" id="soc19" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar12.items}" id="si19"/>
+                <f:validator binding="#{row.bindings.StrVar12.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c44" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar13.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[12]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar13.inputValue}" label="#{row.bindings.StrVar13.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar13.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar13.tooltip}" id="soc20" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar13.items}" id="si20"/>
+                <f:validator binding="#{row.bindings.StrVar13.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c15" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar14.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[13]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar14.inputValue}" label="#{row.bindings.StrVar14.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar14.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar14.tooltip}" id="soc3" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar14.items}" id="si3"/>
+                <f:validator binding="#{row.bindings.StrVar14.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c18" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar15.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[14]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar15.inputValue}" label="#{row.bindings.StrVar15.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar15.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar15.tooltip}" id="soc4" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar15.items}" id="si4"/>
+                <f:validator binding="#{row.bindings.StrVar15.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c19" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar16.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[15]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar16.inputValue}" label="#{row.bindings.StrVar16.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar16.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar16.tooltip}" id="soc5" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar16.items}" id="si5"/>
+                <f:validator binding="#{row.bindings.StrVar16.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c20" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar17.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[16]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar17.inputValue}" label="#{row.bindings.StrVar17.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar17.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar17.tooltip}" id="soc6" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar17.items}" id="si6"/>
+                <f:validator binding="#{row.bindings.StrVar17.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c21" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar18.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[17]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar18.inputValue}" label="#{row.bindings.StrVar18.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar18.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar18.tooltip}" id="soc7" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar18.items}" id="si7"/>
+                <f:validator binding="#{row.bindings.StrVar18.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c22" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar19.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[18]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar19.inputValue}" label="#{row.bindings.StrVar19.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar19.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar19.tooltip}" id="soc21" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar19.items}" id="si21"/>
+                <f:validator binding="#{row.bindings.StrVar19.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c23" sortable="true" filterable="true"
+                       sortProperty="#{bindings.ItemsListV.hints.StrVar20.name}"
+                       headerText="#{pageFlowScope.CentralBean.captions[19]}">
+              <af:selectOneChoice value="#{row.bindings.StrVar20.inputValue}" label="#{row.bindings.StrVar20.label}"
+                                  required="#{bindings.ItemsListV.hints.StrVar20.mandatory}"
+                                  shortDesc="#{bindings.ItemsListV.hints.StrVar20.tooltip}" id="soc22" readOnly="true">
+                <f:selectItems value="#{row.bindings.StrVar20.items}" id="si22"/>
+                <f:validator binding="#{row.bindings.StrVar20.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+          </af:table>
+          <f:facet name="secondaryToolbar">
+            <af:toolbar id="t2" inlineStyle="padding-left:20px;">
+              <af:inputText label="#{viewcontrollerBundle.ITEMS_COUNT}" id="it5" readOnly="true"
+                            value="#{bindings.ItemsListV.estimatedRowCount}" partialTriggers="t1 b7"/>
+            </af:toolbar>
+          </f:facet>
+        </af:panelCollection>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelHeader text="#{viewcontrollerBundle.MATERIAL_ASSEMBLY_COMPONENTS}" id="ph2"
+                        inlineStyle="padding:20px 0 20px 0;background-color:white; border-color:White;">
+          <f:facet name="context">
+            <af:panelGroupLayout id="pgl2" layout="horizontal">
+              <af:spacer width="50" height="10" id="s2"/>
+              <af:inputText label="#{viewcontrollerBundle.Count}" id="it6"
+                            value="#{bindings.ItemsStructureV2Iterator.estimatedRowCount}" contentStyle="color:Maroon;"
+                            partialTriggers="tt1 pc2:t1" readOnly="true"/>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <af:treeTable value="#{bindings.ItemsStructureV1.treeModel}" var="node"
+                        selectionListener="#{bindings.ItemsStructureV1.treeModel.makeCurrent}" rowSelection="single"
+                        id="tt1" initiallyExpanded="true" editingMode="clickToEdit"
+                        inlineStyle="background-color:white; border-color:White;"
+                        binding="#{pageFlowScope.CentralBean.merialAssTree}">
+            <f:facet name="nodeStamp">
+              <af:column id="c8" width="500" sortable="true">
+                <af:outputText value="#{node.AssName}" id="ot1"/>
+              </af:column>
+            </f:facet>
+            <f:facet name="pathStamp">
+              <af:outputText value="#{node}" id="ot2"/>
+            </f:facet>
+            <af:column id="c9" width="250" align="center" headerText="#{viewcontrollerBundle.CODE}" rendered="false">
+              <af:inputText value="#{node.ItemCode}" id="ot3" visible="#{node.AssCode!=null}" readOnly="true"/>
+            </af:column>
+            <af:column id="c10" width="150" align="center" headerText="#{viewcontrollerBundle.QTY}" sortable="true">
+              <af:inputText value="#{node.QtyInAss}" id="ot4" visible="#{node.AssCode!=null}"/>
+            </af:column>
+            <af:column id="c11" headerText="#{viewcontrollerBundle.UNIT}" align="center" width="250" sortable="true">
+              <af:outputText value="#{node.UnitName}" id="ot5" visible="#{node.ItemCode!=null}"/>
+            </af:column>
+            <af:column id="c13" width="70" align="center">
+              <af:panelGroupLayout id="pgl4" layout="horizontal">
+                <f:facet name="separator">
+                  <af:spacer width="10" height="10" id="s1"/>
+                  <af:link text="del" id="l2" actionListener="#{bindings.DeleteLeaf.execute}"/>
+                </f:facet>
+                <af:link id="l3" actionListener="#{pageFlowScope.CentralBean.delAssComponent}"
+                         icon="#{resource['images:delete24.png']}"
+                         visible="#{(node.AssCode==bindings.ItemCode.inputValue)}">
+                  <af:clientAttribute name="assCode" value="#{node.AssCode}"/>
+                  <af:clientAttribute name="itemCode" value="#{node.ItemCode}"/>
+                </af:link>
+              </af:panelGroupLayout>
+            </af:column>
+          </af:treeTable>
+          <f:facet name="info"/>
+        </af:panelHeader>
+      </f:facet>
+    </af:panelSplitter>
+  </af:panelHeader>
+</ui:composition>

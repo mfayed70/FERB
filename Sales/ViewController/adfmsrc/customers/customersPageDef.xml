@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="customersPageDef"
+                Package="customers">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CustomersV" RangeSize="25" DataControl="AalmSalesDataControl" id="CustomersVIterator"/>
+    <searchRegion Binds="CustomersVIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CustomersVQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CustomersVIterator" id="CustomersV">
+      <nodeDefinition DefName="com.aalm.sales.model.views.CustomersV" Name="CustomersV0">
+        <AttrNames>
+          <Item Value="CustId"/>
+          <Item Value="CustName"/>
+          <Item Value="Address"/>
+          <Item Value="MobileNo"/>
+          <Item Value="SegelNo"/>
+          <Item Value="PermittedLimit"/>
+          <Item Value="CurrCode"/>
+          <Item Value="OrgCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

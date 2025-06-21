@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="itemsPageDef" Package="items">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ItemsListV" RangeSize="100" DataControl="AalmCentralDataControl" id="ItemsListVIterator"/>
+    <searchRegion Binds="ItemsListVIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ItemsListVQuery"/>
+    <iterator Binds="ItemsStructureV1" RangeSize="25" DataControl="AalmCentralDataControl"
+              id="ItemsStructureV1Iterator"/>
+    <iterator id="ItemsStructureV2Iterator" Binds="ItemsStructureV2" DataControl="AalmCentralDataControl"
+              RangeSize="25"/>
+    <iterator Binds="ItemVariantsV" RangeSize="25" DataControl="AalmCentralDataControl" id="ItemVariantsVIterator"/>
+    <iterator Binds="ItemVariantValuesV" RangeSize="25" DataControl="AalmCentralDataControl"
+              id="ItemVariantValuesVIterator"/>
+  </executables>
+  <bindings>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AalmCentralDataControl"/>
+    <action IterBinding="ItemsListVIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="ItemsListVIterator" id="ItemsListV">
+      <nodeDefinition DefName="com.aalm.center.model.views.ItemsListV" Name="ItemsListV0">
+        <AttrNames>
+          <Item Value="ItemCode"/>
+          <Item Value="ItemIndx"/>
+          <Item Value="ItemName"/>
+          <Item Value="CatId"/>
+          <Item Value="UnitId"/>
+          <Item Value="RegisterDt"/>
+          <Item Value="IsAssmbly"/>
+          <Item Value="Active" Binds="Active"/>
+          <Item Value="OrderLimit"/>
+          <Item Value="SalesProfitPerc"/>
+          <Item Value="StrVar1"/>
+          <Item Value="StrVar2"/>
+          <Item Value="StrVar3"/>
+          <Item Value="StrVar4"/>
+          <Item Value="StrVar5"/>
+          <Item Value="StrVar6"/>
+          <Item Value="StrVar7"/>
+          <Item Value="StrVar8"/>
+          <Item Value="StrVar9"/>
+          <Item Value="StrVar10"/>
+          <Item Value="StrVar11"/>
+          <Item Value="StrVar12"/>
+          <Item Value="StrVar13"/>
+          <Item Value="StrVar14"/>
+          <Item Value="StrVar15"/>
+          <Item Value="StrVar16"/>
+          <Item Value="StrVar17"/>
+          <Item Value="StrVar18"/>
+          <Item Value="StrVar19"/>
+          <Item Value="StrVar20"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ItemsStructureV1Iterator" id="ItemsStructureV1">
+      <nodeDefinition DefName="com.aalm.center.model.views.ItemsStructureV" Name="ItemsStructureV10">
+        <AttrNames>
+          <Item Value="AssName"/>
+          <Item Value="AssCode"/>
+          <Item Value="ItemCode"/>
+          <Item Value="QtyInAss"/>
+          <Item Value="UnitId"/>
+          <Item Value="UnitName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="ItemsRecursiveStructureVL"/>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ItemsStructureV1Iterator" id="CreateWithParamsMastAss"
+            InstanceName="AalmCentralDataControl.ItemsStructureV1" DataControl="AalmCentralDataControl"
+            RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="Seq" NDType="java.lang.String"/>
+      <NamedData NDName="ItemCode" NDValue="#{row.bindings.ItemCode.inputValue}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ItemsStructureV1Iterator" id="DeleteMastAss" InstanceName="AalmCentralDataControl.ItemsStructureV1"
+            DataControl="AalmCentralDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="ItemsListVIterator" id="ItemCode">
+      <AttrNames>
+        <Item Value="ItemCode"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ItemsStructureV2Iterator" id="DeleteLeaf" InstanceName="AalmCentralDataControl.ItemsStructureV2"
+            DataControl="AalmCentralDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <button IterBinding="ItemVariantsVIterator" id="CartizianApplied" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="CartizianApplied"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="ItemVariantValuesVIterator" id="ValCartizianApplied" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="ValCartizianApplied"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <methodAction id="add_item_structure" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="add_item_structure" IsViewObjectMethod="false" DataControl="AalmCentralDataControl"
+                  InstanceName="data.AalmCentralDataControl.dataProvider"
+                  ReturnName="data.AalmCentralDataControl.methodResults.add_item_structure_AalmCentralDataControl_dataProvider_add_item_structure_result">
+      <NamedData NDName="origCol" NDType="java.lang.String"/>
+      <NamedData NDName="COLNAME" NDType="java.lang.String"/>
+    </methodAction>
+    <button IterBinding="ItemsListVIterator" id="IsAssmbly" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="IsAssmbly"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <action id="Commit" DataControl="AalmCentralDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <button IterBinding="ItemsListVIterator" id="Active" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Active"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.aalm.gl.model.AalmGl">
+      <AppModuleConfig DeployPlatform="LOCAL" name="AalmGlLocal" ApplicationName="com.aalm.gl.model.AalmGl" jbo.project="com.aalm.gl.model.Model">
+         <Database jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQL92"/>
+         <Security AppModuleJndiName="com.aalm.gl.model.AalmGl"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="jdbc/eleconConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig jbo.project="com.aalm.gl.model.Model" ApplicationName="com.aalm.gl.model.AalmGl" DeployPlatform="LOCAL" name="AalmGlShared">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.resetnontransactionalstate="false" jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.SQLBuilder="SQL92"/>
+         <Security AppModuleJndiName="com.aalm.gl.model.AalmGl"/>
+         <Custom ns0:JDBCDataSource="jdbc/eleconConnDS" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

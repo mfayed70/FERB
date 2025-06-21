@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/gl_gen_acc_chart/gl_gen_acc_chart-TF.xml" id="gl_gen_acc_chart-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+      <input-parameter name="currAccCode"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/gl_org_acc_chart/crud-gl_org_acc_chart-TF.xml" id="crud-gl_org_acc_chart-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pPrntAccCode"/>
+      <input-parameter name="pPrntOrgCode"/>
+      <input-parameter name="pOrgCode"/>
+      <input-parameter name="pAccCode"/>
+      <input-parameter name="pAction"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/gl_org_acc_balance/gl_org_acc_balance-TF.xml" id="gl_org_acc_balance-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pOrgCode"/>
+      <input-parameter name="pAccCode"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/gl_trans_types/crud-gl_trans_types-TF.xml" id="crud-gl_trans_types-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pGlTransTypeId"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/gl_org_cost_centers/crud-gl_org_cost_centers-TF.xml" id="crud-gl_org_cost_centers-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pCostCenterCode"/>
+      <input-parameter name="pPrntCostCenterCode"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/gl_gen_acc_chart/crud-gl_gen_acc_chart-TF.xml" id="crud-gl_gen_acc_chart-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pPrntAccCode"/>
+      <input-parameter name="pAccCode"/>
+      <input-parameter name="pAction"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/gl_documents/RO-gl_documents-TF.xml" id="RO-gl_documents-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+      <input-parameter name="pGlDt"/>
+      <input-parameter name="pGlDocID"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/gl_trans_types/gl_trans_types-TF.xml" id="gl_trans_types-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
+   <task-flow-descriptor path="WEB-INF/gl_documents/gl_documents-TF.xml" id="gl_documents-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+      <input-parameter name="action"/>
+      <input-parameter name="pGlDocId"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/gl_org_cost_centers/gl_org_cost_centers-TF.xml" id="gl_org_cost_centers-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/gl_acc_types/gl_acc_types-TF.xml" id="gl_acc_types-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/gl_acc_assistances/gl_acc_assistances-TF.xml" id="gl_acc_assistances-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pAccCode"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/gl_org_acc_chart/gl_org_acc_chart-TF.xml" id="gl_org_acc_chart-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/gl_financial_years/gl_financial_years-TF.xml" id="gl_financial_years-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="refreshRegion"/>
+   </task-flow-descriptor>
+</task-flow-registry>

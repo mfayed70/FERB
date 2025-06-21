@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.assets.view.AalmAssetsBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.SETUP_DATA}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:button actionListener="#{bindings.Commit.execute}" text="#{viewcontrollerBundle.SAVE}"
+                 id="b3" styleClass="but" icon="#{resource['images:SaveF.png']}"
+                 hoverIcon="#{resource['images:SaveO.png']}"/>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}"
+                 immediate="true" id="b2" styleClass="but" icon="#{resource['images:cancelF.png']}"
+                 hoverIcon="#{resource['images:cancelO.png']}">
+        <af:resetActionListener/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend">
+      <af:spacer width="10" height="20" id="s1"/>
+    </f:facet>
+    <f:facet name="info"/>
+    <af:panelTabbed position="above" id="pt1" minTabSize="0px" inlineStyle="background-color:#e7e7e7;">
+      <af:showDetailItem id="tab1" text="#{viewcontrollerBundle.DEPRECIATION_TYPES}">
+        <af:panelHeader text=" " id="ph2">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar">
+            <af:button actionListener="#{bindings.CreateInsert.execute}" text="#{viewcontrollerBundle.NEW}" id="b1" styleClass="but"
+                       icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+          </f:facet>
+          <f:facet name="legend"/>
+          <af:table value="#{bindings.AssetsDepreciationTypesV.collectionModel}" var="row"
+                    rows="#{bindings.AssetsDepreciationTypesV.rangeSize}"
+                    emptyText="#{bindings.AssetsDepreciationTypesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.AssetsDepreciationTypesV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.AssetsDepreciationTypesV.collectionModel.makeCurrent}"
+                    rowSelection="single" fetchSize="#{bindings.AssetsDepreciationTypesV.rangeSize}"
+                    filterModel="#{bindings.AssetsDepreciationTypesVQuery.queryDescriptor}"
+                    queryListener="#{bindings.AssetsDepreciationTypesVQuery.processQuery}" filterVisible="true"
+                    varStatus="vs" id="t1" partialTriggers="::b1 l1">
+            <af:column sortProperty="#{bindings.AssetsDepreciationTypesV.hints.AssDeprId.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AssetsDepreciationTypesV.hints.AssDeprId.label}" id="c1">
+              <af:inputText value="#{row.bindings.AssDeprId.inputValue}"
+                            label="#{bindings.AssetsDepreciationTypesV.hints.AssDeprId.label}"
+                            required="#{bindings.AssetsDepreciationTypesV.hints.AssDeprId.mandatory}"
+                            columns="#{bindings.AssetsDepreciationTypesV.hints.AssDeprId.displayWidth}"
+                            maximumLength="#{bindings.AssetsDepreciationTypesV.hints.AssDeprId.precision}"
+                            shortDesc="#{bindings.AssetsDepreciationTypesV.hints.AssDeprId.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.AssDeprId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AssetsDepreciationTypesV.hints.AssDeprId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsDepreciationTypesV.hints.AssDeprName.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AssetsDepreciationTypesV.hints.AssDeprName.label}"
+                       id="c2" width="400">
+              <af:inputText value="#{row.bindings.AssDeprName.inputValue}"
+                            label="#{bindings.AssetsDepreciationTypesV.hints.AssDeprName.label}"
+                            required="#{bindings.AssetsDepreciationTypesV.hints.AssDeprName.mandatory}"
+                            columns="#{bindings.AssetsDepreciationTypesV.hints.AssDeprName.displayWidth}"
+                            maximumLength="#{bindings.AssetsDepreciationTypesV.hints.AssDeprName.precision}"
+                            shortDesc="#{bindings.AssetsDepreciationTypesV.hints.AssDeprName.tooltip}" id="it2">
+                <f:validator binding="#{row.bindings.AssDeprName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsDepreciationTypesV.hints.YearlyDepreciationPerc.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.AssetsDepreciationTypesV.hints.YearlyDepreciationPerc.label}" id="c3"
+                       width="150">
+              <af:inputText value="#{row.bindings.YearlyDepreciationPerc.inputValue}"
+                            label="#{bindings.AssetsDepreciationTypesV.hints.YearlyDepreciationPerc.label}"
+                            required="#{bindings.AssetsDepreciationTypesV.hints.YearlyDepreciationPerc.mandatory}"
+                            columns="#{bindings.AssetsDepreciationTypesV.hints.YearlyDepreciationPerc.displayWidth}"
+                            maximumLength="#{bindings.AssetsDepreciationTypesV.hints.YearlyDepreciationPerc.precision}"
+                            shortDesc="#{bindings.AssetsDepreciationTypesV.hints.YearlyDepreciationPerc.tooltip}"
+                            id="it3">
+                <f:validator binding="#{row.bindings.YearlyDepreciationPerc.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AssetsDepreciationTypesV.hints.YearlyDepreciationPerc.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsDepreciationTypesV.hints.IncreaseOrFixed.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AssetsDepreciationTypesV.hints.IncreaseOrFixed.label}"
+                       id="c4" width="350">
+              <af:selectOneRadio value="#{row.bindings.IncreaseOrFixed.inputValue}"
+                                 label="#{row.bindings.IncreaseOrFixed.label}"
+                                 required="#{bindings.AssetsDepreciationTypesV.hints.IncreaseOrFixed.mandatory}"
+                                 shortDesc="#{bindings.AssetsDepreciationTypesV.hints.IncreaseOrFixed.tooltip}"
+                                 id="sor1" layout="horizontal">
+                <f:selectItems value="#{row.bindings.IncreaseOrFixed.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.IncreaseOrFixed.validator}"/>
+              </af:selectOneRadio>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsDepreciationTypesV.hints.YearOrHours.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AssetsDepreciationTypesV.hints.YearOrHours.label}"
+                       id="c5" width="350">
+              <af:selectOneRadio value="#{row.bindings.YearOrHours.inputValue}"
+                                 label="#{row.bindings.YearOrHours.label}"
+                                 required="#{bindings.AssetsDepreciationTypesV.hints.YearOrHours.mandatory}"
+                                 shortDesc="#{bindings.AssetsDepreciationTypesV.hints.YearOrHours.tooltip}" id="sor2"
+                                 layout="horizontal">
+                <f:selectItems value="#{row.bindings.YearOrHours.items}" id="si2"/>
+                <f:validator binding="#{row.bindings.YearOrHours.validator}"/>
+              </af:selectOneRadio>
+            </af:column>
+            <af:column id="c6" width="130" align="center">
+              <af:link actionListener="#{bindings.Delete.execute}" disabled="#{!bindings.Delete.enabled}"
+                       id="l1" icon="#{resource['images:delete24.png']}"/>
+            </af:column>
+          </af:table>
+          <f:facet name="info"/>
+        </af:panelHeader>
+      </af:showDetailItem>
+      <af:showDetailItem id="tab2" text="#{viewcontrollerBundle.ASSETS_GROUPS}">
+        <af:panelHeader text=" " id="ph3">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar">
+            <af:button actionListener="#{bindings.CreateInsert1.execute}" text="#{viewcontrollerBundle.NEW}"
+                       disabled="#{!bindings.CreateInsert1.enabled}" id="b6" styleClass="but"
+                       icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+          </f:facet>
+          <f:facet name="legend"/>
+          <af:table value="#{bindings.AssetsGroupsV.collectionModel}" var="row"
+                    rows="#{bindings.AssetsGroupsV.rangeSize}"
+                    emptyText="#{bindings.AssetsGroupsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.AssetsGroupsV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.AssetsGroupsV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.AssetsGroupsV.rangeSize}"
+                    filterModel="#{bindings.AssetsGroupsVQuery.queryDescriptor}"
+                    queryListener="#{bindings.AssetsGroupsVQuery.processQuery}" filterVisible="true" varStatus="vs"
+                    id="t2" partialTriggers="::b3 ::b6 l2">
+            <af:column sortProperty="#{bindings.AssetsGroupsV.hints.AssGrpId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.AssetsGroupsV.hints.AssGrpId.label}" id="c7">
+              <af:inputText value="#{row.bindings.AssGrpId.inputValue}"
+                            label="#{bindings.AssetsGroupsV.hints.AssGrpId.label}"
+                            required="#{bindings.AssetsGroupsV.hints.AssGrpId.mandatory}"
+                            columns="#{bindings.AssetsGroupsV.hints.AssGrpId.displayWidth}"
+                            maximumLength="#{bindings.AssetsGroupsV.hints.AssGrpId.precision}"
+                            shortDesc="#{bindings.AssetsGroupsV.hints.AssGrpId.tooltip}" id="it4">
+                <f:validator binding="#{row.bindings.AssGrpId.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.AssetsGroupsV.hints.AssGrpId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsGroupsV.hints.AssGrpName.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.AssetsGroupsV.hints.AssGrpName.label}" id="c8" width="400">
+              <af:inputText value="#{row.bindings.AssGrpName.inputValue}"
+                            label="#{bindings.AssetsGroupsV.hints.AssGrpName.label}"
+                            required="#{bindings.AssetsGroupsV.hints.AssGrpName.mandatory}"
+                            columns="#{bindings.AssetsGroupsV.hints.AssGrpName.displayWidth}"
+                            maximumLength="#{bindings.AssetsGroupsV.hints.AssGrpName.precision}"
+                            shortDesc="#{bindings.AssetsGroupsV.hints.AssGrpName.tooltip}" id="it5">
+                <f:validator binding="#{row.bindings.AssGrpName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsGroupsV.hints.YearlyDepreciationPerc.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AssetsGroupsV.hints.YearlyDepreciationPerc.label}"
+                       id="c9" rendered="false">
+              <af:inputText value="#{row.bindings.YearlyDepreciationPerc.inputValue}"
+                            label="#{bindings.AssetsGroupsV.hints.YearlyDepreciationPerc.label}"
+                            required="#{bindings.AssetsGroupsV.hints.YearlyDepreciationPerc.mandatory}"
+                            columns="#{bindings.AssetsGroupsV.hints.YearlyDepreciationPerc.displayWidth}"
+                            maximumLength="#{bindings.AssetsGroupsV.hints.YearlyDepreciationPerc.precision}"
+                            shortDesc="#{bindings.AssetsGroupsV.hints.YearlyDepreciationPerc.tooltip}" id="it6">
+                <f:validator binding="#{row.bindings.YearlyDepreciationPerc.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AssetsGroupsV.hints.YearlyDepreciationPerc.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsGroupsV.hints.AssDeprId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.AssetsGroupsV.hints.AssDeprId.label}" id="c10" width="300">
+              <af:selectOneChoice value="#{row.bindings.AssDeprId.inputValue}" label="#{row.bindings.AssDeprId.label}"
+                                  required="#{bindings.AssetsGroupsV.hints.AssDeprId.mandatory}"
+                                  shortDesc="#{bindings.AssetsGroupsV.hints.AssDeprId.tooltip}" id="soc1">
+                <f:selectItems value="#{row.bindings.AssDeprId.items}" id="si3"/>
+                <f:validator binding="#{row.bindings.AssDeprId.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c11" width="130" align="center">
+              <af:link actionListener="#{bindings.Delete1.execute}"
+                       disabled="#{!bindings.Delete1.enabled}" id="l2" icon="#{resource['images:delete24.png']}"/>
+            </af:column>
+          </af:table>
+          <f:facet name="info"/>
+        </af:panelHeader>
+      </af:showDetailItem>
+      <af:showDetailItem id="tab3" text="#{viewcontrollerBundle.ASSETS_PROPERTIES}">
+        <af:panelHeader text=" " id="ph4">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar">
+            <af:button actionListener="#{bindings.CreateInsert2.execute}" text="#{viewcontrollerBundle.NEW}"
+                       disabled="#{!bindings.CreateInsert2.enabled}" id="b8" styleClass="but"
+                       icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+          </f:facet>
+          <f:facet name="legend"/>
+          <af:table value="#{bindings.AssetsPropertiesV.collectionModel}" var="row"
+                    rows="#{bindings.AssetsPropertiesV.rangeSize}"
+                    emptyText="#{bindings.AssetsPropertiesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.AssetsPropertiesV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.AssetsPropertiesV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.AssetsPropertiesV.rangeSize}"
+                    filterModel="#{bindings.AssetsPropertiesVQuery.queryDescriptor}"
+                    queryListener="#{bindings.AssetsPropertiesVQuery.processQuery}" filterVisible="true" varStatus="vs"
+                    id="t3" partialTriggers="::b8 l3">
+            <af:column sortProperty="#{bindings.AssetsPropertiesV.hints.AssPropId.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AssetsPropertiesV.hints.AssPropId.label}" id="c12">
+              <af:inputText value="#{row.bindings.AssPropId.inputValue}"
+                            label="#{bindings.AssetsPropertiesV.hints.AssPropId.label}"
+                            required="#{bindings.AssetsPropertiesV.hints.AssPropId.mandatory}"
+                            columns="#{bindings.AssetsPropertiesV.hints.AssPropId.displayWidth}"
+                            maximumLength="#{bindings.AssetsPropertiesV.hints.AssPropId.precision}"
+                            shortDesc="#{bindings.AssetsPropertiesV.hints.AssPropId.tooltip}" id="it7">
+                <f:validator binding="#{row.bindings.AssPropId.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.AssetsPropertiesV.hints.AssPropId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AssetsPropertiesV.hints.AssPropName.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AssetsPropertiesV.hints.AssPropName.label}" id="c13"
+                       width="400">
+              <af:inputText value="#{row.bindings.AssPropName.inputValue}"
+                            label="#{bindings.AssetsPropertiesV.hints.AssPropName.label}"
+                            required="#{bindings.AssetsPropertiesV.hints.AssPropName.mandatory}"
+                            columns="#{bindings.AssetsPropertiesV.hints.AssPropName.displayWidth}"
+                            maximumLength="#{bindings.AssetsPropertiesV.hints.AssPropName.precision}"
+                            shortDesc="#{bindings.AssetsPropertiesV.hints.AssPropName.tooltip}" id="it8">
+                <f:validator binding="#{row.bindings.AssPropName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column id="c14" width="130" align="center">
+              <af:link actionListener="#{bindings.Delete2.execute}"
+                       disabled="#{!bindings.Delete2.enabled}" id="l3" icon="#{resource['images:delete24.png']}"/>
+            </af:column>
+          </af:table>
+          <f:facet name="info"/>
+        </af:panelHeader>
+      </af:showDetailItem>
+    </af:panelTabbed>
+  </af:panelHeader>
+</ui:composition>

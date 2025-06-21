@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.master.view.AalmMasterBndl']}"/>
+
+    <af:messages id="m1"/>
+  <af:panelHeader text="#{viewcontrollerBundle.ROLES_RELATED_SYSTEMS___FUNCTIONS}" id="ph1">
+      <f:facet name="context"/>
+      <f:facet name="menuBar">
+      <af:button actionListener="#{bindings.Commit.execute}" id="b2" text="#{viewcontrollerBundle.SAVE}"
+                 styleClass="but" inlineStyle="min-width:80px; text-align:center;" immediate="true"
+                 icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"/>
+    </f:facet>
+      <f:facet name="toolbar">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}" immediate="true"
+                 id="b3" styleClass="but" inlineStyle="min-width:80px; text-align:center;"
+                 icon="#{resource['images:cancelF.png']}" hoverIcon="#{resource['images:cancelO.png']}">
+        <af:resetActionListener/>
+      </af:button>
+      </f:facet>
+      <f:facet name="legend"/>
+      <af:panelHeader text="#{viewcontrollerBundle.ROLES_DEFINED_IN_SYSTEM}" id="ph4">
+        <f:facet name="context"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="toolbar">
+          <af:button actionListener="#{bindings.CreateInsert.execute}" id="b1" text="#{viewcontrollerBundle.NEW}"
+                     styleClass="but" inlineStyle="min-width:80px; text-align:center;"
+                     icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+        </f:facet>
+        <f:facet name="legend"/>
+        <af:table value="#{bindings.RoleMasterV.collectionModel}" var="row" rows="#{bindings.RoleMasterV.rangeSize}"
+                  emptyText="#{bindings.RoleMasterV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.RoleMasterV.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.RoleMasterV.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.RoleMasterV.rangeSize}" id="t1"
+                  inlineStyle="background-color:white;border-color:white;" styleClass="dataCell"
+                  partialTriggers="::b3 ::b2 ::b1 l1" horizontalGridVisible="false">
+          <af:column headerText="#{bindings.RoleMasterV.hints.RoleGroupId.label}" id="c1">
+          <af:link shortDesc="#{bindings.RoleMasterV.hints.RoleGroupId.tooltip}" id="it1"
+                   text="#{row.bindings.RoleGroupId.inputValue}" action="toGrant" useWindow="true"
+                   windowEmbedStyle="inlineDocument" windowHeight="500" windowWidth="1200"
+                   returnListener="#{ErpAdminClass.grantRolesRtrnLsnr}" icon="#{resource['images:CreateF.png']}">
+            <af:setPropertyListener from="#{row.bindings.RoleGroupId.inputValue}" to="#{pageFlowScope.pGrpRolId}" type="action"/>
+          </af:link>
+        </af:column>
+          <af:column headerText="#{bindings.RoleMasterV.hints.EnRoleGroupName.label}" id="c2" width="300">
+            <af:inputText value="#{row.bindings.EnRoleGroupName.inputValue}"
+                          label="#{bindings.RoleMasterV.hints.EnRoleGroupName.label}"
+                          columns="#{bindings.RoleMasterV.hints.EnRoleGroupName.displayWidth}"
+                          maximumLength="#{bindings.RoleMasterV.hints.EnRoleGroupName.precision}"
+                          shortDesc="#{bindings.RoleMasterV.hints.EnRoleGroupName.tooltip}" id="it2"
+                          contentStyle="font-size:20px;"
+                          readOnly="#{row.bindings.RoleGroupId.inputValue==0 || row.bindings.RoleGroupId.inputValue==1}">
+              <f:validator binding="#{row.bindings.EnRoleGroupName.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.RoleMasterV.hints.ArRoleGroupName.label}" id="c3" width="300">
+            <af:inputText value="#{row.bindings.ArRoleGroupName.inputValue}"
+                          label="#{bindings.RoleMasterV.hints.ArRoleGroupName.label}"
+                          columns="#{bindings.RoleMasterV.hints.ArRoleGroupName.displayWidth}"
+                          maximumLength="#{bindings.RoleMasterV.hints.ArRoleGroupName.precision}"
+                          shortDesc="#{bindings.RoleMasterV.hints.ArRoleGroupName.tooltip}" id="it3"
+                          contentStyle="font-size:20px;"
+                          readOnly="#{row.bindings.RoleGroupId.inputValue==0 || row.bindings.RoleGroupId.inputValue==1}">
+              <f:validator binding="#{row.bindings.ArRoleGroupName.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.RoleMasterV.hints.PreDefined.label}" id="c4" align="center">
+            <af:panelGroupLayout id="pgl1" layout="horizontal">
+            <af:selectBooleanCheckbox value="#{row.bindings.PreDefined.inputValue}"
+                                      label="#{row.bindings.PreDefined.label}"
+                                      shortDesc="#{bindings.RoleMasterV.hints.PreDefined.tooltip}" id="sbc1"
+                                      readOnly="true"/>
+            <af:link actionListener="#{bindings.Delete.execute}"
+                       id="l1" visible="#{row.bindings.PreDefined.inputValue=='Y'}"
+                       shortDesc="#{viewcontrollerBundle.DELETE_ROLE_____BEFORE_THAT__DELETE_GRANTED_FUNCTIONS___SYSTEMS_FIRST_}"
+                       icon="#{resource['images:delete24.png']}" immediate="true"/>
+              <f:facet name="separator">
+                <af:spacer width="10" height="10" id="s1"/>
+              </f:facet>
+            </af:panelGroupLayout>
+          </af:column>
+        </af:table>
+        <f:facet name="info"/>
+      </af:panelHeader>
+      <af:panelSplitter id="ps1" splitterPosition="600" inlineStyle="margin:20px 0 0 0;" disabled="true">
+        <f:facet name="first">
+          <af:panelHeader text="#{viewcontrollerBundle.SYSTEMS_GRANTED_TO_ROLE}" id="ph2">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <af:table value="#{bindings.RolesV.collectionModel}" var="row" rows="#{bindings.RolesV.rangeSize}"
+                      emptyText="#{bindings.RolesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.RolesV.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.RolesV.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.RolesV.rangeSize}" id="t2"
+                      inlineStyle="background-color:white;border-color:white;"
+                      styleClass="dataCell" partialTriggers="::b3 ::b2 ::t1:it1" horizontalGridVisible="false">
+              <af:column headerText="#{bindings.RolesV.hints.SystemId.label}" id="c5">
+                <af:inputText value="#{row.bindings.SystemId.inputValue}"
+                              label="#{bindings.RolesV.hints.SystemId.label}"
+                              required="#{bindings.RolesV.hints.SystemId.mandatory}"
+                              columns="#{bindings.RolesV.hints.SystemId.displayWidth}"
+                              maximumLength="#{bindings.RolesV.hints.SystemId.precision}"
+                              shortDesc="#{bindings.RolesV.hints.SystemId.tooltip}" id="it5" readOnly="true"
+                              contentStyle="font-size:20px;">
+                  <f:validator binding="#{row.bindings.SystemId.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.RolesV.hints.EnSystemName.label}" id="c6" width="230">
+                <af:inputText value="#{row.bindings.EnSystemName.inputValue}"
+                              label="#{bindings.RolesV.hints.EnSystemName.label}"
+                              required="#{bindings.RolesV.hints.EnSystemName.mandatory}"
+                              columns="#{bindings.RolesV.hints.EnSystemName.displayWidth}"
+                              maximumLength="#{bindings.RolesV.hints.EnSystemName.precision}"
+                              shortDesc="#{bindings.RolesV.hints.EnSystemName.tooltip}" id="it6" readOnly="true"
+                              contentStyle="font-size:20px;">
+                  <f:validator binding="#{row.bindings.EnSystemName.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.RolesV.hints.ArSystemName.label}" id="c7" width="230">
+                <af:inputText value="#{row.bindings.ArSystemName.inputValue}"
+                              label="#{bindings.RolesV.hints.ArSystemName.label}"
+                              required="#{bindings.RolesV.hints.ArSystemName.mandatory}"
+                              columns="#{bindings.RolesV.hints.ArSystemName.displayWidth}"
+                              maximumLength="#{bindings.RolesV.hints.ArSystemName.precision}"
+                              shortDesc="#{bindings.RolesV.hints.ArSystemName.tooltip}" id="it7" readOnly="true"
+                              contentStyle="font-size:20px;">
+                  <f:validator binding="#{row.bindings.ArSystemName.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.RolesV.hints.EnSystemDesc.label}" id="c8" rendered="false">
+                <af:inputText value="#{row.bindings.EnSystemDesc.inputValue}"
+                              label="#{bindings.RolesV.hints.EnSystemDesc.label}"
+                              required="#{bindings.RolesV.hints.EnSystemDesc.mandatory}"
+                              columns="#{bindings.RolesV.hints.EnSystemDesc.displayWidth}"
+                              maximumLength="#{bindings.RolesV.hints.EnSystemDesc.precision}"
+                              shortDesc="#{bindings.RolesV.hints.EnSystemDesc.tooltip}" id="it8" readOnly="true"
+                              contentStyle="font-size:18px;">
+                  <f:validator binding="#{row.bindings.EnSystemDesc.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.RolesV.hints.ArSystemDesc.label}" id="c9" rendered="false">
+                <af:inputText value="#{row.bindings.ArSystemDesc.inputValue}"
+                              label="#{bindings.RolesV.hints.ArSystemDesc.label}"
+                              required="#{bindings.RolesV.hints.ArSystemDesc.mandatory}"
+                              columns="#{bindings.RolesV.hints.ArSystemDesc.displayWidth}"
+                              maximumLength="#{bindings.RolesV.hints.ArSystemDesc.precision}"
+                              shortDesc="#{bindings.RolesV.hints.ArSystemDesc.tooltip}" id="it9" readOnly="true"
+                              contentStyle="font-size:18px;">
+                  <f:validator binding="#{row.bindings.ArSystemDesc.validator}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+            <f:facet name="info"/>
+          </af:panelHeader>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelHeader text="#{viewcontrollerBundle.GRANTED_SYSTEM_FUNCTIONS}" id="ph3">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <af:table value="#{bindings.PermissionsV.collectionModel}" var="row"
+                      rows="#{bindings.PermissionsV.rangeSize}"
+                      emptyText="#{bindings.PermissionsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.PermissionsV.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.PermissionsV.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.PermissionsV.rangeSize}" id="t3"
+                      inlineStyle="background-color:white;border-color:white;"
+                      partialTriggers="::b3 ::b2 ::t2" horizontalGridVisible="false">
+              <af:column headerText="#{bindings.PermissionsV.hints.FncnId.label}" id="c10">
+                <af:outputText value="#{row.FncnId}" shortDesc="#{bindings.PermissionsV.hints.FncnId.tooltip}"
+                               id="ot1"/>
+              </af:column>
+              <af:column headerText="#{bindings.PermissionsV.hints.EnFncnName.label}" id="c11" width="230">
+                <af:outputText value="#{row.EnFncnName}" shortDesc="#{bindings.PermissionsV.hints.EnFncnName.tooltip}"
+                               id="ot2"/>
+              </af:column>
+              <af:column headerText="#{bindings.PermissionsV.hints.ArFncnName.label}" id="c12" width="230">
+                <af:outputText value="#{row.ArFncnName}" shortDesc="#{bindings.PermissionsV.hints.ArFncnName.tooltip}"
+                               id="ot3"/>
+              </af:column>
+            <af:column id="c13">
+              <af:link id="l2" icon="#{resource['images:delete24.png']}" action="#{ErpAdminClass.delRoleFncnActnLsnr}"
+                       partialSubmit="true" visible="#{row.RoleGroupId!=0 &amp;&amp; row.RoleGroupId!=1}"/>
+            </af:column>
+          </af:table>
+            <f:facet name="info"/>
+          </af:panelHeader>
+        </f:facet>
+      </af:panelSplitter>
+      <f:facet name="info"/>
+    </af:panelHeader>
+</ui:composition>

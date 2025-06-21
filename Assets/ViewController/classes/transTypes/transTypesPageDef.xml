@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="transTypesPageDef"
+                Package="transTypes">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AssetsTransTypesV" RangeSize="25" DataControl="AalmAssetsDataControl"
+              id="AssetsTransTypesVIterator"/>
+    <searchRegion Binds="AssetsTransTypesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="AssetsTransTypesVQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AssetsTransTypesVIterator" id="AssetsTransTypesV">
+      <nodeDefinition DefName="com.aalm.assets.model.views.AssetsTransTypesV" Name="AssetsTransTypesV0">
+        <AttrNames>
+          <Item Value="AssTrnsTypeCode"/>
+          <Item Value="AssTrnsTypeName"/>
+          <Item Value="Effect"/>
+          <Item Value="AssTrnsTypeDt"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmAssetsDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmAssetsDataControl"/>
+    <action IterBinding="AssetsTransTypesVIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="AssetsTransTypesVIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

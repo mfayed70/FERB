@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AssetsTransTypesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="AssetTrnsTypeLOV1"
+    ViewObjectName="com.aalm.assets.model.lovs.AssetTrnsTypeEffectLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Effect"
+    ListVOName="AssetTrnsTypeLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Effect"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="AssetsTransTypes"
+    Entity="com.aalm.assets.model.entities.AssetsTransTypes"/>
+  <ViewAttribute
+    Name="AssTrnsTypeCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AssTrnsTypeCode"
+    EntityUsage="AssetsTransTypes"
+    AliasName="ass_trns_type_code"/>
+  <ViewAttribute
+    Name="AssTrnsTypeName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AssTrnsTypeName"
+    EntityUsage="AssetsTransTypes"
+    AliasName="ass_trns_type_name"/>
+  <ViewAttribute
+    Name="Effect"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Effect"
+    EntityUsage="AssetsTransTypes"
+    AliasName="effect"
+    LOVName="LOV_Effect">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AssTrnsTypeDt"
+    PrecisionRule="true"
+    EntityAttrName="AssTrnsTypeDt"
+    EntityUsage="AssetsTransTypes"
+    AliasName="ass_trns_type_dt">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </ViewAttribute>
+</ViewObject>

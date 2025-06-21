@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="st_trans_typesPageDef"
+                Package="st_trans_types">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="StTransTypesV" RangeSize="25" DataControl="AalmInventoryDataControl" id="StTransTypesVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="StTransTypesVIterator" id="StTransTypesV">
+      <nodeDefinition DefName="com.aalm.inventory.model.views.StTransTypesV" Name="StTransTypesV0">
+        <AttrNames>
+          <Item Value="StTransTypeCode"/>
+          <Item Value="StTransNameA"/>
+          <Item Value="StTransNameE"/>
+          <Item Value="StTransType"/>
+          <Item Value="Active"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

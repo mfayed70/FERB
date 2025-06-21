@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="crud_gl_org_acc_chart_TF_crud_gl_org_acc_chart_TF_CreateWithParametersPageDef"
+                Package="gl_org_acc_chart" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlGenAccChartCRUDV" RangeSize="25" DataControl="AalmGlDataControl"
+              id="GlGenAccChartCRUDVIterator"/>
+    <iterator Binds="GlOrgAccChartCRUDV" RangeSize="10" DataControl="AalmGlDataControl"
+              id="GlOrgAccChartCRUDVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlOrgAccChartCRUDVIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams" InstanceName="AalmGlDataControl.GlOrgAccChartCRUDV"
+            DataControl="AalmGlDataControl">
+      <NamedData NDName="PrntAccCode" NDValue="#{pageFlowScope.pPrntAccCode}" NDType="java.lang.String"/>
+      <NamedData NDName="PrntOrgCode" NDValue="#{pageFlowScope.pPrntOrgCode}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

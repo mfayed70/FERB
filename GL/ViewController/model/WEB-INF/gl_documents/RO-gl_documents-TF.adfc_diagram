@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">ExecuteWithParams</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">259.5625</property>
+      <property
+         name="x">271.34277</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">ro-gl_documents</property>
+      <property
+         name="page">/WEB-INF/gl_documents/ro-gl_documents.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ro-gl_documents&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">259.0625</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">556.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="fromOutcome">ExecuteWithParams</property>
+      <property
+         name="sdm:polyPoints">R50,312.34277,259.57812,515.0,259.07812,L50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall9">
+      <property
+         name="taskFlowId">gl_documents-TF</property>
+      <property
+         name="activityId">gl_documents-TF</property>
+      <property
+         name="documentReference">/WEB-INF/gl_documents/gl_documents-TF.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>gl_documents-TF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">257.54688</property>
+      <property
+         name="x">845.1553</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View3"
+      to="TaskFlowCall9">
+      <property
+         name="fromOutcome">toGlDocument</property>
+      <property
+         name="sdm:polyPoints">R50,597.0,259.07812,804.1553,257.5625,L50</property>
+   </ControlFlowCase>
+</SDM>

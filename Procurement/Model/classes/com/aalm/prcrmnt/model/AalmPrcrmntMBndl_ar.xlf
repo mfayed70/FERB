@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.aalm.prcrmnt.model.AalmPrcrmntMBndl_ar" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="com.aalm.prcrmnt.model.entities.Suppliers.SuppName_LABEL">
+        <source>الإســم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.entities.Suppliers.Address_LABEL">
+        <source>العنــــوان</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.entities.Suppliers.Mobile_LABEL">
+        <source>بيانات الإتصال</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.entities.Suppliers.SegelNo_LABEL">
+        <source>رقم السجل التجاري</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.entities.Suppliers.ContactPerson_LABEL">
+        <source>الشخص المســـثول</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.entities.Suppliers.SuppId_LABEL">
+        <source>الرقم التعريفي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.views.fk_SUPPLIER_DELIVER_ITEM_CATS_SUPPLIERS1VL_LABEL">
+        <source>Fk Supplier Deliver Item Cats Suppliers1vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.SupplierTypeLOV.SL_0_0">
+        <source>I</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.SupplierTypeLOV.SL_0_1">
+        <source>Domestic - محلي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.SupplierTypeLOV.SL_1_0">
+        <source>E</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.SupplierTypeLOV.SL_1_1">
+        <source>International - خارجي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.SupplierTypeLOV_LABEL">
+        <source>Supplier Type Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.SupplierCategoryLOV.SL_0_0">
+        <source>S</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.SupplierCategoryLOV.SL_0_1">
+        <source>Supply - توريد فقط</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.SupplierCategoryLOV.SL_1_0">
+        <source>E</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.SupplierCategoryLOV.SL_1_1">
+        <source>Execution - تركيب فقط</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.SupplierCategoryLOV.SL_2_0">
+        <source>SE</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.SupplierCategoryLOV.SL_2_1">
+        <source>supply/Execution - توريد/تركيب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.SupplierCategoryLOV_LABEL">
+        <source>Supplier Category Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CATEGORY">
+        <source>الفـــئة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TYPE">
+        <source>النوع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.entities.Suppliers.SuppType_LABEL">
+        <source>النوع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.entities.Suppliers.SuppCategory_LABEL">
+        <source>الفـــئة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.ItemCategoriesLOV_LABEL">
+        <source>Item Categories Lov</source>
+        <target/>
+      </trans-unit>
+
+    </body>
+  </file>
+</xliff>
