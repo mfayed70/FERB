@@ -1,0 +1,12 @@
+Select query for currencies related to default crrency with all it's history prices.
+to get the last prices only uncomment what is commented
+-------------------------------------------
+    select distinct (CURRENCY_TRANSFORM.to_curr_code), CURRENCY_TRANSFORM.multiply_by
+    ,CURRENCIEselect distinct (CURRENCY_TRANSFORM.to_curr_code), CURRENCY_TRANSFORM.multiply_by
+    ,CURRENCIES.curr_symbol curr_symbol, CURRENCIES.curr_name curr_name
+    from CURRENCY_TRANSFORM, CURRENCIES
+    where CURRENCY_TRANSFORM.to_curr_code = CURRENCIES.curr_code
+    /*and CURRENCY_TRANSFORM.transform_dt = (select max(det.transform_dt)
+    from CURRENCY_TRANSFORM det where det.to_curr_code = CURRENCY_TRANSFORM.to_curr_code) */
+    order by 1
+--------------------------------------------
