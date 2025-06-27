@@ -1,3 +1,4 @@
+This query may used in the system for the default currency.
 Select query for currencies related to default crrency with all it's history prices.
 to get the last prices only uncomment what is commented
 -------------------------------------------
