@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="employeesContracts-TFxml">
+    <template-reference>
+      <document>/WEB-INF/page-gragment-template.xml</document>
+      <id>page-gragment-template</id>
+    </template-reference>
     <default-activity>ExecuteWithParams</default-activity>
     <transaction>
       <requires-transaction/>

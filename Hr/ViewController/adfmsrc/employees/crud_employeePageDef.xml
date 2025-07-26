@@ -41,5 +41,6 @@
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="EmployeesVIterator" StaticList="false" Uses="LOV_JobId" id="JobId" DTSupportsMRU="true"
           SelectItemValueMode="ListObject"/>
+    <action id="Commit" DataControl="AalmHrDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

@@ -365,10 +365,10 @@
                   <url path="../AalmAdfjars/AalmPrcrmnt.jar" jar-entry=""/>
                   <url path="../AalmAdfjars/AalmSales.jar" jar-entry=""/>
                   <url path="../AalmAdfjars/AaalmCentral.jar" jar-entry=""/>
-                  <url path="../AalmAdfjars/AalmHr.jar" jar-entry=""/>
                   <url path="../AalmAdfjars/AalmGl.jar" jar-entry=""/>
                   <url path="../AalmAdfjars/AalmAssets.jar" jar-entry=""/>
                   <url path="../AalmAdfjars/AalmMnf.jar" jar-entry=""/>
+                  <url path="../AalmAdfjars/AalmHr.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>

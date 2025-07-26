@@ -6,6 +6,11 @@
       <id>page-gragment-template</id>
     </template-reference>
     <default-activity>Execute</default-activity>
+    <input-parameter-definition id="__11">
+      <name>pContractId</name>
+      <value>#{pageFlowScope.rContractId}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
     <managed-bean id="__6">
       <managed-bean-name>HrBean</managed-bean-name>
       <managed-bean-class>com.aalm.hr.view.beans.HrBean</managed-bean-class>
@@ -28,6 +33,10 @@
       <input-parameter id="__3">
         <name>pEmpId</name>
         <value>#{pageFlowScope.pEmpId}</value>
+      </input-parameter>
+      <input-parameter id="__10">
+        <name>pContractId</name>
+        <value>#{pageFlowScope.pContractId}</value>
       </input-parameter>
       <run-as-dialog>
         <display-type>

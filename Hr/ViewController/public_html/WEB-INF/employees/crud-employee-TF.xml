@@ -13,6 +13,11 @@
       <value>#{pageFlowScope.pEmpId}</value>
       <class>java.lang.Integer</class>
     </input-parameter-definition>
+    <input-parameter-definition id="__13">
+      <name>pContractId</name>
+      <value>#{pageFlowScope.pContractId}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
     <router id="router1">
       <case id="__12">
         <expression>#{pageFlowScope.pEmpId!=null}</expression>

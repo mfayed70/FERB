@@ -40,5 +40,35 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="EmployeesVIterator" id="EmpName">
+      <AttrNames>
+        <Item Value="EmpName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVIterator" id="JobId">
+      <AttrNames>
+        <Item Value="JobId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVIterator" id="CurrCode">
+      <AttrNames>
+        <Item Value="CurrCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVIterator" id="Salary">
+      <AttrNames>
+        <Item Value="Salary"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVIterator" id="IdNo">
+      <AttrNames>
+        <Item Value="IdNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesVIterator" id="ContractNo">
+      <AttrNames>
+        <Item Value="ContractNo"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

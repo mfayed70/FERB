@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BenefitTypesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.hr.model.views.BenefitTypesV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="EffectLOV1"
+    ViewObjectName="com.aalm.hr.model.lov.EffectLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_BenefitEffect"
+    ListVOName="EffectLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BenefitEffect"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="BenefitTypes"
+    Entity="com.aalm.hr.model.entities.BenefitTypes"/>
+  <ViewAttribute
+    Name="BenefitCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BenefitCode"
+    EntityUsage="BenefitTypes"
+    AliasName="benefit_code"/>
+  <ViewAttribute
+    Name="BenefitDesc"
+    PrecisionRule="true"
+    EntityAttrName="BenefitDesc"
+    EntityUsage="BenefitTypes"
+    AliasName="benefit_desc"/>
+  <ViewAttribute
+    Name="BenefitEffect"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BenefitEffect"
+    EntityUsage="BenefitTypes"
+    AliasName="benefit_effect"
+    LOVName="LOV_BenefitEffect">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BenefitName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BenefitName"
+    EntityUsage="BenefitTypes"
+    AliasName="benefit_name"/>
+  <ViewAttribute
+    Name="BenefitVal"
+    PrecisionRule="true"
+    EntityAttrName="BenefitVal"
+    EntityUsage="BenefitTypes"
+    AliasName="benefit_val"/>
+  <ViewAttribute
+    Name="FromColumn"
+    PrecisionRule="true"
+    EntityAttrName="FromColumn"
+    EntityUsage="BenefitTypes"
+    AliasName="from_column"/>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.hr.model.AalmHrMBndl"/>
+  </ResourceBundle>
+</ViewObject>

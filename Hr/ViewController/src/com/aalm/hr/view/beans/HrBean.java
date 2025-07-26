@@ -1,6 +1,7 @@
 package com.aalm.hr.view.beans;
 
 import com.shopbook.common.ui.ADFUtils;
+import com.shopbook.common.ui.JSFUtil;
 
 import com.shopbook.common.ui.FileUploadBean;
 
@@ -28,6 +29,7 @@ public class HrBean {
     private String CerPhotoPath = null;
     private String ConPhotoPath = null;
     private String PerPhotoPath = null;
+    private Integer contractId;
 
     public HrBean() {
         IdfileUploadBean = new FileUploadBean();
@@ -47,7 +49,31 @@ public class HrBean {
 //                
 //        }
         ADFUtils.findOperation("Commit").execute();
+//        System.out.println("----"+JSFUtil.resolveExpression("#{bindings.ContractId.inputValue}"));
+//        this.setContractId((Integer) ADFUtils.getBoundAttributeValue("ContractId"));
+//        System.out.println("++++"+contractId);
+//        ADFUtils.setEL("#{pageFlowScope.rContractId}", contractId);
+        JSFUtil.storeOnSession("sContractId", ADFUtils.getBoundAttributeValue("ContractId"));
+        JSFUtil.storeOnSession("sIdNo", ADFUtils.getBoundAttributeValue("IdNo"));
+        JSFUtil.storeOnSession("sSalary", ADFUtils.getBoundAttributeValue("Salary"));
+        JSFUtil.storeOnSession("sJob", ADFUtils.getBoundAttributeValue("JobId1"));
+        JSFUtil.storeOnSession("sName", ADFUtils.getBoundAttributeValue("FirstName")+" "+
+          ADFUtils.getBoundAttributeValue("FirstName")+" "+ADFUtils.getBoundAttributeValue("FirstName"));
+//        JSFUtil.storeOnSession("sJob", ADFUtils.getBoundAttributeValue("Job1"));
+        JSFUtil.storeOnSession("sCurrency", ADFUtils.getBoundAttributeValue("CurrCode"));
     }      
+    
+    public void contractsReturnLsnr(ReturnEvent returnEvent) {
+        // Add event code here...
+    ADFUtils.setBoundAttributeValue("ContractNo", JSFUtil.getFromSession("sContractId"));
+        ADFUtils.setBoundAttributeValue("IdNo", JSFUtil.getFromSession("sIdNo"));
+        ADFUtils.setBoundAttributeValue("Salary", JSFUtil.getFromSession("sSalary"));
+        ADFUtils.setBoundAttributeValue("JobId", JSFUtil.getFromSession("sJob"));
+        ADFUtils.setBoundAttributeValue("EmpName", JSFUtil.getFromSession("sName"));
+        ADFUtils.setBoundAttributeValue("CurrCode", JSFUtil.getFromSession("sCurrency"));
+     ADFUtils.findOperation("Commit").execute();
+        ADFUtils.findOperation("Rollback").execute();
+    }
     
     public void idPhotoFileChange(ValueChangeEvent valueChangeEvent) {
         System.out.println("------"+valueChangeEvent.getNewValue());
@@ -150,6 +176,7 @@ public class HrBean {
     public void refreshEmployeesRtrnLsnr(ReturnEvent returnEvent) {
         // Add event code here...
         ADFUtils.findIterator("EmployeesVIterator").executeQuery();
+        ADFUtils.findOperation("Rollback").execute();
     }
     
     public void setImageInlineFrame(RichInlineFrame imageInlineFrame) {
@@ -215,5 +242,13 @@ public class HrBean {
 
     public RichInlineFrame getPerimageInlineFrame() {
         return PerimageInlineFrame;
+    }
+
+    public void setContractId(Integer contractId) {
+        this.contractId = contractId;
+    }
+
+    public Integer getContractId() {
+        return contractId;
     }
 }

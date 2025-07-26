@@ -17,81 +17,91 @@
       </af:button>
     </f:facet>
     <f:facet name="legend"/>
-    <af:table value="#{bindings.EmployeesV.collectionModel}" var="row" rows="#{bindings.EmployeesV.rangeSize}"
-              emptyText="#{bindings.EmployeesV.viewable ? 'No data to display.' : 'Access Denied.'}"
-              rowBandingInterval="0" selectedRowKeys="#{bindings.EmployeesV.collectionModel.selectedRow}"
-              selectionListener="#{bindings.EmployeesV.collectionModel.makeCurrent}" rowSelection="single"
-              fetchSize="#{bindings.EmployeesV.rangeSize}" filterModel="#{bindings.EmployeesVQuery.queryDescriptor}"
-              queryListener="#{bindings.EmployeesVQuery.processQuery}" varStatus="vs" id="t1"
-              partialTriggers="::b1 ot1">
-      <af:column sortProperty="#{bindings.EmployeesV.hints.EmpId.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.EmployeesV.hints.EmpId.label}" id="c1">
-        <af:link shortDesc="#{bindings.EmployeesV.hints.EmpId.tooltip}" id="ot1" text="#{row.EmpId}" action="toCrud"
-                 useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="350" windowWidth="600"
-                 returnListener="#{HrClass.refreshEmployeesRtrnLsnr}">
-          <af:setPropertyListener from="#{row.EmpId}" to="#{pageFlowScope.pEmpId}" type="action"/>
-        </af:link>
-      </af:column>
-      <af:column sortProperty="#{bindings.EmployeesV.hints.EmpName.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.EmployeesV.hints.EmpName.label}" id="c2" width="300">
-        <af:outputText value="#{row.EmpName}" shortDesc="#{bindings.EmployeesV.hints.EmpName.tooltip}" id="ot2"/>
-      </af:column>
-      <af:column sortProperty="#{bindings.EmployeesV.hints.MaritalStatus.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.EmployeesV.hints.MaritalStatus.label}" id="c3" width="150">
-        <af:selectOneChoice value="#{row.bindings.MaritalStatus.inputValue}" label="#{row.bindings.MaritalStatus.label}"
-                            required="#{bindings.EmployeesV.hints.MaritalStatus.mandatory}"
-                            shortDesc="#{bindings.EmployeesV.hints.MaritalStatus.tooltip}" readOnly="true" id="soc1">
-          <f:selectItems value="#{row.bindings.MaritalStatus.items}" id="si1"/>
-          <f:validator binding="#{row.bindings.MaritalStatus.validator}"/>
-        </af:selectOneChoice>
-      </af:column>
-      <af:column sortProperty="#{bindings.EmployeesV.hints.EmpCat.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.EmployeesV.hints.EmpCat.label}" id="c4" width="150">
-        <af:selectOneChoice value="#{row.bindings.EmpCat.inputValue}" label="#{row.bindings.EmpCat.label}"
-                            required="#{bindings.EmployeesV.hints.EmpCat.mandatory}"
-                            shortDesc="#{bindings.EmployeesV.hints.EmpCat.tooltip}" readOnly="true" id="soc2">
-          <f:selectItems value="#{row.bindings.EmpCat.items}" id="si2"/>
-          <f:validator binding="#{row.bindings.EmpCat.validator}"/>
-        </af:selectOneChoice>
-      </af:column>
-      <af:column sortProperty="#{bindings.EmployeesV.hints.ContractNo.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.EmployeesV.hints.ContractNo.label}" id="c5" width="150">
-        <af:outputText value="#{row.ContractNo}" shortDesc="#{bindings.EmployeesV.hints.ContractNo.tooltip}" id="ot3"/>
-      </af:column>
-      <af:column sortProperty="#{bindings.EmployeesV.hints.IdNo.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.EmployeesV.hints.IdNo.label}" id="c7" width="150">
-        <af:outputText value="#{row.IdNo}" shortDesc="#{bindings.EmployeesV.hints.IdNo.tooltip}" id="ot5"/>
-      </af:column>
-      <af:column sortProperty="#{bindings.EmployeesV.hints.Salary.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.EmployeesV.hints.Salary.label}" id="c6" width="70">
-        <af:outputText value="#{row.Salary}" shortDesc="#{bindings.EmployeesV.hints.Salary.tooltip}" id="ot4">
-          <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeesV.hints.Salary.format}"/>
-        </af:outputText>
-      </af:column>
-      <af:column sortProperty="#{bindings.EmployeesV.hints.CurrCode.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.EmployeesV.hints.CurrCode.label}" id="c9" width="170">
-        <af:selectOneChoice value="#{row.bindings.CurrCode.inputValue}" label="#{row.bindings.CurrCode.label}"
-                            required="#{bindings.EmployeesV.hints.CurrCode.mandatory}"
-                            shortDesc="#{bindings.EmployeesV.hints.CurrCode.tooltip}" readOnly="true" id="soc4">
-          <f:selectItems value="#{row.bindings.CurrCode.items}" id="si4"/>
-          <f:validator binding="#{row.bindings.CurrCode.validator}"/>
-        </af:selectOneChoice>
-      </af:column>
-      <af:column id="c8" headerText="#{bindings.EmployeesV.hints.JobId.label}" width="200">
-        <af:selectOneChoice value="#{row.bindings.JobId.inputValue}" label="#{row.bindings.JobId.label}"
-                            required="#{bindings.EmployeesV.hints.JobId.mandatory}"
-                            shortDesc="#{bindings.EmployeesV.hints.JobId.tooltip}" id="soc3" readOnly="true">
-          <f:selectItems value="#{row.bindings.JobId.items}" id="si3"/>
-          <f:validator binding="#{row.bindings.JobId.validator}"/>
-        </af:selectOneChoice>
-      </af:column>
-      <af:column id="c14">
-        <af:link text="#{viewcontrollerBundle.contracts}" id="l1" action="toContracts" useWindow="true"
-                 windowEmbedStyle="inlineDocument" windowHeight="750" windowWidth="1100">
-          <af:setActionListener from="#{row.EmpId}" to="#{pageFlowScope.pEmpId}"/>
-        </af:link>
-      </af:column>
-    </af:table>
+    <af:panelCollection id="pc1" styleClass="AFStretchWidth" inlineStyle="min-height:300px;">
+      <f:facet name="menus"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="statusbar"/>
+      <af:table value="#{bindings.EmployeesV.collectionModel}" var="row" rows="#{bindings.EmployeesV.rangeSize}"
+                emptyText="#{bindings.EmployeesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.EmployeesV.collectionModel.selectedRow}"
+                selectionListener="#{bindings.EmployeesV.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.EmployeesV.rangeSize}" filterModel="#{bindings.EmployeesVQuery.queryDescriptor}"
+                queryListener="#{bindings.EmployeesVQuery.processQuery}" varStatus="vs" id="t1"
+                partialTriggers="::b1 ot1 l1">
+        <af:column sortProperty="#{bindings.EmployeesV.hints.EmpId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.EmployeesV.hints.EmpId.label}" id="c1" width="90">
+          <af:link shortDesc="#{bindings.EmployeesV.hints.EmpId.tooltip}" id="ot1" text="#{row.EmpId}" action="toCrud"
+                   useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="350" windowWidth="600"
+                   returnListener="#{pageFlowScope.HrBean.refreshEmployeesRtrnLsnr}">
+            <af:setPropertyListener from="#{row.EmpId}" to="#{pageFlowScope.pEmpId}" type="action"/>
+            <af:setPropertyListener from="#{row.ContractNo}" to="#{pageFlowScope.pContractId}" type="action"/>
+          </af:link>
+        </af:column>
+        <af:column sortProperty="#{bindings.EmployeesV.hints.EmpName.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.EmployeesV.hints.EmpName.label}" id="c2" width="300">
+          <af:outputText value="#{row.EmpName}" shortDesc="#{bindings.EmployeesV.hints.EmpName.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.EmployeesV.hints.MaritalStatus.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.EmployeesV.hints.MaritalStatus.label}" id="c3" width="150">
+          <af:selectOneChoice value="#{row.bindings.MaritalStatus.inputValue}"
+                              label="#{row.bindings.MaritalStatus.label}"
+                              required="#{bindings.EmployeesV.hints.MaritalStatus.mandatory}"
+                              shortDesc="#{bindings.EmployeesV.hints.MaritalStatus.tooltip}" readOnly="true" id="soc1">
+            <f:selectItems value="#{row.bindings.MaritalStatus.items}" id="si1"/>
+            <f:validator binding="#{row.bindings.MaritalStatus.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column sortProperty="#{bindings.EmployeesV.hints.EmpCat.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.EmployeesV.hints.EmpCat.label}" id="c4" width="150">
+          <af:selectOneChoice value="#{row.bindings.EmpCat.inputValue}" label="#{row.bindings.EmpCat.label}"
+                              required="#{bindings.EmployeesV.hints.EmpCat.mandatory}"
+                              shortDesc="#{bindings.EmployeesV.hints.EmpCat.tooltip}" readOnly="true" id="soc2">
+            <f:selectItems value="#{row.bindings.EmpCat.items}" id="si2"/>
+            <f:validator binding="#{row.bindings.EmpCat.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column sortProperty="#{bindings.EmployeesV.hints.ContractNo.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.EmployeesV.hints.ContractNo.label}" id="c5" width="150">
+          <af:outputText value="#{row.ContractNo}" shortDesc="#{bindings.EmployeesV.hints.ContractNo.tooltip}"
+                         id="ot3"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.EmployeesV.hints.IdNo.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.EmployeesV.hints.IdNo.label}" id="c7" width="150">
+          <af:outputText value="#{row.IdNo}" shortDesc="#{bindings.EmployeesV.hints.IdNo.tooltip}" id="ot5"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.EmployeesV.hints.Salary.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.EmployeesV.hints.Salary.label}" id="c6" width="70">
+          <af:outputText value="#{row.Salary}" shortDesc="#{bindings.EmployeesV.hints.Salary.tooltip}" id="ot4">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeesV.hints.Salary.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.EmployeesV.hints.CurrCode.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.EmployeesV.hints.CurrCode.label}" id="c9" width="170">
+          <af:selectOneChoice value="#{row.bindings.CurrCode.inputValue}" label="#{row.bindings.CurrCode.label}"
+                              required="#{bindings.EmployeesV.hints.CurrCode.mandatory}"
+                              shortDesc="#{bindings.EmployeesV.hints.CurrCode.tooltip}" readOnly="true" id="soc4">
+            <f:selectItems value="#{row.bindings.CurrCode.items}" id="si4"/>
+            <f:validator binding="#{row.bindings.CurrCode.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column id="c8" headerText="#{bindings.EmployeesV.hints.JobId.label}" width="200">
+          <af:selectOneChoice value="#{row.bindings.JobId.inputValue}" label="#{row.bindings.JobId.label}"
+                              required="#{bindings.EmployeesV.hints.JobId.mandatory}"
+                              shortDesc="#{bindings.EmployeesV.hints.JobId.tooltip}" id="soc3" readOnly="true">
+            <f:selectItems value="#{row.bindings.JobId.items}" id="si3"/>
+            <f:validator binding="#{row.bindings.JobId.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column id="c14" width="120" align="center">
+          <af:link text="#{viewcontrollerBundle.contracts}" id="l1" action="toContracts" useWindow="true"
+                   windowEmbedStyle="inlineDocument" windowHeight="750" windowWidth="1200"
+                   returnListener="#{pageFlowScope.HrBean.contractsReturnLsnr}"
+                   icon="#{resource['images:ContractO.png']}" hoverIcon="#{resource['images:ContractF.png']}">
+            <af:setActionListener from="#{row.EmpId}" to="#{pageFlowScope.pEmpId}"/>
+          </af:link>
+        </af:column>
+      </af:table>
+    </af:panelCollection>
     <f:facet name="info">
       <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}" immediate="true"
                  id="b2" styleClass="but" rendered="false">

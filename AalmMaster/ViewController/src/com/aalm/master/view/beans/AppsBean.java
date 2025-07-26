@@ -270,4 +270,8 @@ public class AppsBean implements Serializable {
         return null;
     }
 
+    public String setup_data() {
+        setDynamicTaskFlowId("/WEB-INF/setup_data/setup_data.xml#setup_data");
+        return null;
+    }
 }

@@ -30,7 +30,58 @@
         <source>التاريخ الوظيفي للموظف</source>
         <target/>
       </trans-unit>
-      
+            <trans-unit id="EmployeeContract">
+        <source>عقد الموظف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="contracts">
+        <source>عقود</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NewContract">
+        <source>عقد جديد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PersonalPhoto">
+        <source>صورة شخصية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="IDPhoto">
+        <source>صورة تحقيق الشخصية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Edu.Cer.Photo">
+        <source>صورة المؤهل الدراسي</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="OthersPhoto">
+        <source>صور أخري</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BENEFIT_TYPES">
+        <source>أنواع الإستحقاقات</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DEDUCTION_TYPES">
+        <source>أنواع الخصومات</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BONUS_TYPES">
+        <source>أنواع العلاوات</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PUNICHMENT_TYPES">
+        <source>أنواع الجزاءات</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="VACATION_TYPES">
+        <source>أنواع الأجازات</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SetupData">
+        <source>الإعدادات</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

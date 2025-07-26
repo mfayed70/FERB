@@ -106,5 +106,15 @@
         <Item Value="BankAccNo"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="EmployeesContractsVIterator" id="CurrCode1">
+      <AttrNames>
+        <Item Value="CurrCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesContractsVIterator" id="JobId1">
+      <AttrNames>
+        <Item Value="JobId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

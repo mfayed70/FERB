@@ -1,0 +1,477 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.hr.view.AalmHrBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.SetupData}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:button actionListener="#{bindings.Commit.execute}" text="#{viewcontrollerBundle.SAVE}" id="b1" styleClass="but"
+                 icon="#{resource['images:SaveF.png']}" action="#{bindings.Rollback.execute}"/>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}" immediate="true" id="b2" styleClass="but"
+                 icon="#{resource['images:cancelF.png']}" hoverIcon="#{resource['images:cancelO.png']}">
+        <af:resetActionListener/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelTabbed position="above" id="pt1">
+      <af:showDetailItem id="tab1" text="#{viewcontrollerBundle.BENEFIT_TYPES}">
+        <af:panelHeader text=" " id="ph2">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <f:facet name="info">
+            <af:button actionListener="#{bindings.CreateInsertBenefit.execute}" text="#{viewcontrollerBundle.NEW}" id="b3" icon="#{resource['images:NewF.png']}"
+                       hoverIcon="#{resource['images:NewO.png']}"/>
+          </f:facet>
+          <af:table value="#{bindings.BenefitTypesV.collectionModel}" var="row"
+                    rows="#{bindings.BenefitTypesV.rangeSize}"
+                    emptyText="#{bindings.BenefitTypesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.BenefitTypesV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.BenefitTypesV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.BenefitTypesV.rangeSize}" id="t1" partialTriggers="l1 ::b3">
+            <af:column headerText="#{bindings.BenefitTypesV.hints.BenefitCode.label}" id="c2" width="120">
+              <af:panelGroupLayout id="pgl1" layout="horizontal">
+                <af:link id="l1" icon="#{resource['images:delete24.png']}"
+                         actionListener="#{bindings.DeleteBenefit.execute}"/>
+                <f:facet name="separator">
+                  <af:spacer width="10" height="10" id="s1"/>
+                </f:facet>
+                <af:link shortDesc="#{bindings.BenefitTypesV.hints.BenefitCode.tooltip}" id="it2"
+                         text="#{row.bindings.BenefitCode.inputValue}" partialTriggers="::b1 ::b2"/>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column headerText="#{bindings.BenefitTypesV.hints.BenefitName.label}" id="c1" width="300">
+              <af:inputText value="#{row.bindings.BenefitName.inputValue}"
+                            label="#{bindings.BenefitTypesV.hints.BenefitName.label}"
+                            required="#{bindings.BenefitTypesV.hints.BenefitName.mandatory}"
+                            columns="#{bindings.BenefitTypesV.hints.BenefitName.displayWidth}"
+                            maximumLength="#{bindings.BenefitTypesV.hints.BenefitName.precision}"
+                            shortDesc="#{bindings.BenefitTypesV.hints.BenefitName.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.BenefitName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.BenefitTypesV.hints.BenefitDesc.label}" id="c3" width="300">
+              <af:inputText value="#{row.bindings.BenefitDesc.inputValue}"
+                            label="#{bindings.BenefitTypesV.hints.BenefitDesc.label}"
+                            required="#{bindings.BenefitTypesV.hints.BenefitDesc.mandatory}"
+                            columns="#{bindings.BenefitTypesV.hints.BenefitDesc.displayWidth}"
+                            maximumLength="#{bindings.BenefitTypesV.hints.BenefitDesc.precision}"
+                            shortDesc="#{bindings.BenefitTypesV.hints.BenefitDesc.tooltip}" id="it3">
+                <f:validator binding="#{row.bindings.BenefitDesc.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.BenefitTypesV.hints.BenefitEffect.label}" id="c4" width="130">
+              <af:selectOneChoice value="#{row.bindings.BenefitEffect.inputValue}"
+                                  label="#{row.bindings.BenefitEffect.label}"
+                                  required="true"
+                                  shortDesc="#{bindings.BenefitTypesV.hints.BenefitEffect.tooltip}" id="soc1"
+                                  autoSubmit="true">
+                <f:selectItems value="#{row.bindings.BenefitEffect.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.BenefitEffect.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.BenefitTypesV.hints.BenefitVal.label}" id="c5" width="160">
+              <af:panelGroupLayout id="pgl6" layout="horizontal">
+                <af:inputText value="#{row.bindings.BenefitVal.inputValue}"
+                              label="#{bindings.BenefitTypesV.hints.BenefitVal.label}" required="true"
+                              columns="#{bindings.BenefitTypesV.hints.BenefitVal.displayWidth}"
+                              maximumLength="#{bindings.BenefitTypesV.hints.BenefitVal.precision}"
+                              shortDesc="#{bindings.BenefitTypesV.hints.BenefitVal.tooltip}" id="it4">
+                  <f:validator binding="#{row.bindings.BenefitVal.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.BenefitTypesV.hints.BenefitVal.format}"/>
+                </af:inputText>
+                <af:outputLabel value="#{row.bindings.BenefitEffect.inputValue == 0 ? 'EGP' : '%'}" id="ol1"
+                                partialTriggers="soc1" inlineStyle="color:Maroon;"/>
+                <f:facet name="separator">
+                  <af:spacer width="5" height="10" id="s6"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column headerText="#{bindings.BenefitTypesV.hints.FromColumn.label}" id="c6" width="200">
+              <af:inputText value="#{row.bindings.FromColumn.inputValue}"
+                            label="#{bindings.BenefitTypesV.hints.FromColumn.label}"
+                            required="#{bindings.BenefitTypesV.hints.FromColumn.mandatory}"
+                            columns="#{bindings.BenefitTypesV.hints.FromColumn.displayWidth}"
+                            maximumLength="#{bindings.BenefitTypesV.hints.FromColumn.precision}"
+                            shortDesc="#{bindings.BenefitTypesV.hints.FromColumn.tooltip}" id="it5">
+                <f:validator binding="#{row.bindings.FromColumn.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+        </af:panelHeader>
+      </af:showDetailItem>
+      <af:showDetailItem id="tab2" text="#{viewcontrollerBundle.DEDUCTION_TYPES}">
+        <af:panelHeader text=" " id="ph3">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <af:table value="#{bindings.DeductionTypesV.collectionModel}" var="row"
+                    rows="#{bindings.DeductionTypesV.rangeSize}"
+                    emptyText="#{bindings.DeductionTypesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.DeductionTypesV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.DeductionTypesV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.DeductionTypesV.rangeSize}" id="t2" partialTriggers="l2 ::b4">
+            <af:column headerText="#{bindings.DeductionTypesV.hints.DeductionCode.label}" id="c7" width="120">
+              <af:panelGroupLayout id="pgl2" layout="horizontal">
+                <af:link id="l2" icon="#{resource['images:delete24.png']}"
+                         actionListener="#{bindings.DeleteDeduction.execute}"/>
+                <af:link shortDesc="#{bindings.DeductionTypesV.hints.DeductionCode.tooltip}" id="it6"
+                         text="#{row.bindings.DeductionCode.inputValue}"/>
+                <f:facet name="separator">
+                  <af:spacer width="10" height="10" id="s2"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column headerText="#{bindings.DeductionTypesV.hints.DeductionName.label}" id="c8" width="300">
+              <af:inputText value="#{row.bindings.DeductionName.inputValue}"
+                            label="#{bindings.DeductionTypesV.hints.DeductionName.label}"
+                            required="#{bindings.DeductionTypesV.hints.DeductionName.mandatory}"
+                            columns="#{bindings.DeductionTypesV.hints.DeductionName.displayWidth}"
+                            maximumLength="#{bindings.DeductionTypesV.hints.DeductionName.precision}"
+                            shortDesc="#{bindings.DeductionTypesV.hints.DeductionName.tooltip}" id="it7">
+                <f:validator binding="#{row.bindings.DeductionName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.DeductionTypesV.hints.DeductionDesc.label}" id="c9" width="300">
+              <af:inputText value="#{row.bindings.DeductionDesc.inputValue}"
+                            label="#{bindings.DeductionTypesV.hints.DeductionDesc.label}"
+                            required="#{bindings.DeductionTypesV.hints.DeductionDesc.mandatory}"
+                            columns="#{bindings.DeductionTypesV.hints.DeductionDesc.displayWidth}"
+                            maximumLength="#{bindings.DeductionTypesV.hints.DeductionDesc.precision}"
+                            shortDesc="#{bindings.DeductionTypesV.hints.DeductionDesc.tooltip}" id="it8">
+                <f:validator binding="#{row.bindings.DeductionDesc.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.DeductionTypesV.hints.DeductionEffect.label}" id="c10" width="150">
+              <af:selectOneChoice value="#{row.bindings.DeductionEffect.inputValue}"
+                                  label="#{row.bindings.DeductionEffect.label}"
+                                  required="true"
+                                  shortDesc="#{bindings.DeductionTypesV.hints.DeductionEffect.tooltip}" id="soc2"
+                                  autoSubmit="true">
+                <f:selectItems value="#{row.bindings.DeductionEffect.items}" id="si2"/>
+                <f:validator binding="#{row.bindings.DeductionEffect.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.DeductionTypesV.hints.DeductionVal.label}" id="c11" width="160">
+              <af:panelGroupLayout id="pgl7" layout="horizontal">
+                <af:inputText value="#{row.bindings.DeductionVal.inputValue}"
+                              label="#{bindings.DeductionTypesV.hints.DeductionVal.label}" required="true"
+                              columns="#{bindings.DeductionTypesV.hints.DeductionVal.displayWidth}"
+                              maximumLength="#{bindings.DeductionTypesV.hints.DeductionVal.precision}"
+                              shortDesc="#{bindings.DeductionTypesV.hints.DeductionVal.tooltip}" id="it9">
+                  <f:validator binding="#{row.bindings.DeductionVal.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.DeductionTypesV.hints.DeductionVal.format}"/>
+                </af:inputText>
+                <af:outputLabel value="#{row.bindings.DeductionEffect.inputValue == 0 ? 'EGP' : '%'}" id="ol2"
+                                inlineStyle="Color:Maroon;" partialTriggers="soc2"/>
+                <f:facet name="separator">
+                  <af:spacer width="5" height="10" id="s7"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column headerText="#{bindings.DeductionTypesV.hints.FromColumn.label}" id="c12" width="200">
+              <af:inputText value="#{row.bindings.FromColumn.inputValue}"
+                            label="#{bindings.DeductionTypesV.hints.FromColumn.label}"
+                            required="#{bindings.DeductionTypesV.hints.FromColumn.mandatory}"
+                            columns="#{bindings.DeductionTypesV.hints.FromColumn.displayWidth}"
+                            maximumLength="#{bindings.DeductionTypesV.hints.FromColumn.precision}"
+                            shortDesc="#{bindings.DeductionTypesV.hints.FromColumn.tooltip}" id="it10">
+                <f:validator binding="#{row.bindings.FromColumn.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+          <f:facet name="info">
+            <af:button actionListener="#{bindings.CreateInsertDeduction.execute}" text="#{viewcontrollerBundle.NEW}" id="b4"
+                       icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"/>
+          </f:facet>
+        </af:panelHeader>
+      </af:showDetailItem>
+      <af:showDetailItem id="tab3" text="#{viewcontrollerBundle.BONUS_TYPES}">
+        <af:panelHeader text=" " id="ph4">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <af:table value="#{bindings.BonusTypesV.collectionModel}" var="row" rows="#{bindings.BonusTypesV.rangeSize}"
+                    emptyText="#{bindings.BonusTypesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.BonusTypesV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.BonusTypesV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.BonusTypesV.rangeSize}" id="t3" partialTriggers="l3 ::b5">
+            <af:column headerText="#{bindings.BonusTypesV.hints.BonusCode.label}" id="c13" width="120">
+              <af:panelGroupLayout id="pgl3" layout="horizontal">
+                <af:link id="l3" icon="#{resource['images:delete24.png']}"
+                         actionListener="#{bindings.DeleteBonus.execute}"/>
+                <af:link shortDesc="#{bindings.BonusTypesV.hints.BonusCode.tooltip}" id="it11"
+                         text="#{row.bindings.BonusCode.inputValue}"/>
+                <f:facet name="separator">
+                  <af:spacer width="10" height="10" id="s5"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column headerText="#{bindings.BonusTypesV.hints.BonusName.label}" id="c14" width="300">
+              <af:inputText value="#{row.bindings.BonusName.inputValue}"
+                            label="#{bindings.BonusTypesV.hints.BonusName.label}"
+                            required="#{bindings.BonusTypesV.hints.BonusName.mandatory}"
+                            columns="#{bindings.BonusTypesV.hints.BonusName.displayWidth}"
+                            maximumLength="#{bindings.BonusTypesV.hints.BonusName.precision}"
+                            shortDesc="#{bindings.BonusTypesV.hints.BonusName.tooltip}" id="it12">
+                <f:validator binding="#{row.bindings.BonusName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.BonusTypesV.hints.BonusDesc.label}" id="c15" width="300">
+              <af:inputText value="#{row.bindings.BonusDesc.inputValue}"
+                            label="#{bindings.BonusTypesV.hints.BonusDesc.label}"
+                            required="#{bindings.BonusTypesV.hints.BonusDesc.mandatory}"
+                            columns="#{bindings.BonusTypesV.hints.BonusDesc.displayWidth}"
+                            maximumLength="#{bindings.BonusTypesV.hints.BonusDesc.precision}"
+                            shortDesc="#{bindings.BonusTypesV.hints.BonusDesc.tooltip}" id="it13">
+                <f:validator binding="#{row.bindings.BonusDesc.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.BonusTypesV.hints.BonusEffect.label}" id="c16">
+              <af:selectOneChoice value="#{row.bindings.BonusEffect.inputValue}"
+                                  label="#{row.bindings.BonusEffect.label}"
+                                  required="true"
+                                  shortDesc="#{bindings.BonusTypesV.hints.BonusEffect.tooltip}" id="soc3"
+                                  autoSubmit="true">
+                <f:selectItems value="#{row.bindings.BonusEffect.items}" id="si3"/>
+                <f:validator binding="#{row.bindings.BonusEffect.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.BonusTypesV.hints.BonusVal.label}" id="c17" width="160">
+              <af:panelGroupLayout id="pgl8" layout="horizontal">
+                <af:inputText value="#{row.bindings.BonusVal.inputValue}"
+                              label="#{bindings.BonusTypesV.hints.BonusVal.label}" required="true"
+                              columns="#{bindings.BonusTypesV.hints.BonusVal.displayWidth}"
+                              maximumLength="#{bindings.BonusTypesV.hints.BonusVal.precision}"
+                              shortDesc="#{bindings.BonusTypesV.hints.BonusVal.tooltip}" id="it14">
+                  <f:validator binding="#{row.bindings.BonusVal.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.BonusTypesV.hints.BonusVal.format}"/>
+                </af:inputText>
+                <af:outputLabel value="#{row.bindings.BonusEffect.inputValue == 0 ? 'EGP' : '%'}" id="ol3"
+                                partialTriggers="soc3" inlineStyle="Color:Maroon;"/>
+                <f:facet name="separator">
+                  <af:spacer width="5" height="10" id="s8"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column headerText="#{bindings.BonusTypesV.hints.FromColumn.label}" id="c18" width="200">
+              <af:inputText value="#{row.bindings.FromColumn.inputValue}"
+                            label="#{bindings.BonusTypesV.hints.FromColumn.label}"
+                            required="#{bindings.BonusTypesV.hints.FromColumn.mandatory}"
+                            columns="#{bindings.BonusTypesV.hints.FromColumn.displayWidth}"
+                            maximumLength="#{bindings.BonusTypesV.hints.FromColumn.precision}"
+                            shortDesc="#{bindings.BonusTypesV.hints.FromColumn.tooltip}" id="it15">
+                <f:validator binding="#{row.bindings.FromColumn.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+          <f:facet name="info">
+            <af:button actionListener="#{bindings.CreateInsert.execute}" text="#{viewcontrollerBundle.NEW}" id="b5" icon="#{resource['images:NewF.png']}"
+                       hoverIcon="#{resource['images:NewO.png']}"/>
+          </f:facet>
+        </af:panelHeader>
+      </af:showDetailItem>
+      <af:showDetailItem id="tab4" text="#{viewcontrollerBundle.PUNICHMENT_TYPES}">
+        <af:panelHeader text=" " id="ph5">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <af:table value="#{bindings.PunishmentTypesV.collectionModel}" var="row"
+                    rows="#{bindings.PunishmentTypesV.rangeSize}"
+                    emptyText="#{bindings.PunishmentTypesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.PunishmentTypesV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.PunishmentTypesV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.PunishmentTypesV.rangeSize}" id="t4" partialTriggers="l4 ::b6">
+            <af:column headerText="#{bindings.PunishmentTypesV.hints.PunishCode.label}" id="c19" width="120">
+              <af:panelGroupLayout id="pgl4" layout="horizontal">
+                <af:link actionListener="#{bindings.Delete.execute}"
+                         disabled="#{!bindings.Delete.enabled}" id="l4" icon="#{resource['images:delete24.png']}"/>
+                <af:link shortDesc="#{bindings.PunishmentTypesV.hints.PunishCode.tooltip}" id="it16"
+                         text="#{row.bindings.PunishCode.inputValue}"/>
+                <f:facet name="separator">
+                  <af:spacer width="10" height="10" id="s3"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column headerText="#{bindings.PunishmentTypesV.hints.PunishName.label}" id="c20" width="250">
+              <af:inputText value="#{row.bindings.PunishName.inputValue}"
+                            label="#{bindings.PunishmentTypesV.hints.PunishName.label}"
+                            required="#{bindings.PunishmentTypesV.hints.PunishName.mandatory}"
+                            columns="#{bindings.PunishmentTypesV.hints.PunishName.displayWidth}"
+                            maximumLength="#{bindings.PunishmentTypesV.hints.PunishName.precision}"
+                            shortDesc="#{bindings.PunishmentTypesV.hints.PunishName.tooltip}" id="it17">
+                <f:validator binding="#{row.bindings.PunishName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.PunishmentTypesV.hints.PunishDesc.label}" id="c21" width="250">
+              <af:inputText value="#{row.bindings.PunishDesc.inputValue}"
+                            label="#{bindings.PunishmentTypesV.hints.PunishDesc.label}"
+                            required="#{bindings.PunishmentTypesV.hints.PunishDesc.mandatory}"
+                            columns="#{bindings.PunishmentTypesV.hints.PunishDesc.displayWidth}"
+                            maximumLength="#{bindings.PunishmentTypesV.hints.PunishDesc.precision}"
+                            shortDesc="#{bindings.PunishmentTypesV.hints.PunishDesc.tooltip}" id="it18">
+                <f:validator binding="#{row.bindings.PunishDesc.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.PunishmentTypesV.hints.DeductFromSalary.label}" id="c22" width="150">
+              <af:selectOneChoice value="#{row.bindings.DeductFromSalary.inputValue}"
+                                  label="#{row.bindings.DeductFromSalary.label}"
+                                  required="true"
+                                  shortDesc="#{bindings.PunishmentTypesV.hints.DeductFromSalary.tooltip}" id="soc4">
+                <f:selectItems value="#{row.bindings.DeductFromSalary.items}" id="si4"/>
+                <f:validator binding="#{row.bindings.DeductFromSalary.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.PunishmentTypesV.hints.PunDedEffect.label}" id="c23" width="150">
+              <af:selectOneChoice value="#{row.bindings.PunDedEffect.inputValue}"
+                                  label="#{row.bindings.PunDedEffect.label}"
+                                  required="true"
+                                  shortDesc="#{bindings.PunishmentTypesV.hints.PunDedEffect.tooltip}" id="soc5"
+                                  autoSubmit="true">
+                <f:selectItems value="#{row.bindings.PunDedEffect.items}" id="si5"/>
+                <f:validator binding="#{row.bindings.PunDedEffect.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.PunishmentTypesV.hints.PunDedVal.label}" id="c24" width="180">
+              <af:panelGroupLayout id="pgl9" layout="horizontal">
+                <af:inputText value="#{row.bindings.PunDedVal.inputValue}"
+                              label="#{bindings.PunishmentTypesV.hints.PunDedVal.label}" required="true"
+                              columns="#{bindings.PunishmentTypesV.hints.PunDedVal.displayWidth}"
+                              maximumLength="#{bindings.PunishmentTypesV.hints.PunDedVal.precision}"
+                              shortDesc="#{bindings.PunishmentTypesV.hints.PunDedVal.tooltip}" id="it19">
+                  <f:validator binding="#{row.bindings.PunDedVal.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.PunishmentTypesV.hints.PunDedVal.format}"/>
+                </af:inputText>
+                <af:outputLabel value="#{row.bindings.PunDedEffect.inputValue == 0 ? 'EGP' : '%'}" id="ol4"
+                                inlineStyle="Color:Maroon;" partialTriggers="soc5"/>
+                <f:facet name="separator">
+                  <af:spacer width="10" height="10" id="s9"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column headerText="#{bindings.PunishmentTypesV.hints.FromColumn.label}" id="c25">
+              <af:inputText value="#{row.bindings.FromColumn.inputValue}"
+                            label="#{bindings.PunishmentTypesV.hints.FromColumn.label}"
+                            required="#{bindings.PunishmentTypesV.hints.FromColumn.mandatory}"
+                            columns="#{bindings.PunishmentTypesV.hints.FromColumn.displayWidth}"
+                            maximumLength="#{bindings.PunishmentTypesV.hints.FromColumn.precision}"
+                            shortDesc="#{bindings.PunishmentTypesV.hints.FromColumn.tooltip}" id="it20">
+                <f:validator binding="#{row.bindings.FromColumn.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+          <f:facet name="info">
+            <af:button actionListener="#{bindings.CreateInsertPunishment.execute}" text="#{viewcontrollerBundle.NEW}" id="b6" icon="#{resource['images:NewF.png']}"
+                       styleClass="but" hoverIcon="#{resource['images:NewO.png']}"/>
+          </f:facet>
+        </af:panelHeader>
+      </af:showDetailItem>
+      <af:showDetailItem id="tab5" text="#{viewcontrollerBundle.VACATION_TYPES}">
+        <af:panelHeader text=" " id="ph6">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <af:table value="#{bindings.VacationTypesV.collectionModel}" var="row"
+                    rows="#{bindings.VacationTypesV.rangeSize}"
+                    emptyText="#{bindings.VacationTypesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.VacationTypesV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.VacationTypesV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.VacationTypesV.rangeSize}" id="t5" partialTriggers="b7 ::b8">
+            <af:column headerText="#{bindings.VacationTypesV.hints.VacationCode.label}" id="c26" width="120">
+              <af:panelGroupLayout id="pgl5" layout="horizontal">
+                <af:button actionListener="#{bindings.Delete1.execute}"
+                           disabled="#{!bindings.Delete1.enabled}" id="b7" icon="#{resource['images:delete24.png']}"/>
+                <af:link shortDesc="#{bindings.VacationTypesV.hints.VacationCode.tooltip}" id="it21"
+                         text="#{row.bindings.VacationCode.inputValue}"/>
+                <f:facet name="separator">
+                  <af:spacer width="10" height="10" id="s4"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column headerText="#{bindings.VacationTypesV.hints.VacationName.label}" id="c27" width="250">
+              <af:inputText value="#{row.bindings.VacationName.inputValue}"
+                            label="#{bindings.VacationTypesV.hints.VacationName.label}"
+                            required="#{bindings.VacationTypesV.hints.VacationName.mandatory}"
+                            columns="#{bindings.VacationTypesV.hints.VacationName.displayWidth}"
+                            maximumLength="#{bindings.VacationTypesV.hints.VacationName.precision}"
+                            shortDesc="#{bindings.VacationTypesV.hints.VacationName.tooltip}" id="it22">
+                <f:validator binding="#{row.bindings.VacationName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.VacationTypesV.hints.VacationDesc.label}" id="c28" width="250">
+              <af:inputText value="#{row.bindings.VacationDesc.inputValue}"
+                            label="#{bindings.VacationTypesV.hints.VacationDesc.label}"
+                            required="#{bindings.VacationTypesV.hints.VacationDesc.mandatory}"
+                            columns="#{bindings.VacationTypesV.hints.VacationDesc.displayWidth}"
+                            maximumLength="#{bindings.VacationTypesV.hints.VacationDesc.precision}"
+                            shortDesc="#{bindings.VacationTypesV.hints.VacationDesc.tooltip}" id="it23">
+                <f:validator binding="#{row.bindings.VacationDesc.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.VacationTypesV.hints.DeductFromSalary.label}" id="c31" width="150">
+              <af:selectOneChoice value="#{row.bindings.DeductFromSalary.inputValue}"
+                                  label="#{row.bindings.DeductFromSalary.label}"
+                                  required="#{bindings.VacationTypesV.hints.DeductFromSalary.mandatory}"
+                                  shortDesc="#{bindings.VacationTypesV.hints.DeductFromSalary.tooltip}" id="soc7"
+                                  autoSubmit="true">
+                <f:selectItems value="#{row.bindings.DeductFromSalary.items}" id="si7"/>
+                <f:validator binding="#{row.bindings.DeductFromSalary.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.VacationTypesV.hints.VacDedEffect.label}" id="c29" width="150">
+              <af:selectOneChoice value="#{row.bindings.VacDedEffect.inputValue}"
+                                  label="#{row.bindings.VacDedEffect.label}"
+                                  required="true"
+                                  shortDesc="#{bindings.VacationTypesV.hints.VacDedEffect.tooltip}" id="soc6"
+                                  autoSubmit="true">
+                <f:selectItems value="#{row.bindings.VacDedEffect.items}" id="si6"/>
+                <f:validator binding="#{row.bindings.VacDedEffect.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.VacationTypesV.hints.VacDedVal.label}" id="c30" width="150">
+              <af:panelGroupLayout id="pgl10" layout="horizontal">
+                <af:inputText value="#{row.bindings.DeductFromSalary.inputValue == 0 ? row.bindings.VacDedVal.inputValue : 0}"
+                              label="#{bindings.VacationTypesV.hints.VacDedVal.label}" required="true"
+                              columns="#{bindings.VacationTypesV.hints.VacDedVal.displayWidth}"
+                              maximumLength="#{bindings.VacationTypesV.hints.VacDedVal.precision}"
+                              shortDesc="#{bindings.VacationTypesV.hints.VacDedVal.tooltip}" id="it24"
+                              readOnly="#{row.bindings.DeductFromSalary.inputValue==1}">
+                  <f:validator binding="#{row.bindings.VacDedVal.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.VacationTypesV.hints.VacDedVal.format}"/>
+                </af:inputText>
+                <af:outputLabel value="#{row.bindings.VacDedEffect.inputValue == 1 ? 'EGP' : ''}" id="ol5"
+                                inlineStyle="Color:Maroon;" partialTriggers="soc6"/>
+                <f:facet name="separator">
+                  <af:spacer width="5" height="10" id="s10"/>
+                </f:facet>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column headerText="#{bindings.VacationTypesV.hints.FromColumn.label}" id="c32">
+              <af:inputText value="#{row.bindings.FromColumn.inputValue}"
+                            label="#{bindings.VacationTypesV.hints.FromColumn.label}"
+                            required="#{bindings.VacationTypesV.hints.FromColumn.mandatory}"
+                            columns="#{bindings.VacationTypesV.hints.FromColumn.displayWidth}"
+                            maximumLength="#{bindings.VacationTypesV.hints.FromColumn.precision}"
+                            shortDesc="#{bindings.VacationTypesV.hints.FromColumn.tooltip}" id="it25">
+                <f:validator binding="#{row.bindings.FromColumn.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+          <f:facet name="info">
+            <af:button actionListener="#{bindings.CreateInsertVacations.execute}" text="#{viewcontrollerBundle.NEW}" id="b8" icon="#{resource['images:NewF.png']}"
+                       hoverIcon="#{resource['images:NewO.png']}" styleClass="but"/>
+          </f:facet>
+        </af:panelHeader>
+      </af:showDetailItem>
+    </af:panelTabbed>
+  </af:panelHeader>
+</ui:composition>

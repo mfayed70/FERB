@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="setupDataPageDef"
+                Package="setup_data">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BenefitTypesV" RangeSize="25" DataControl="AalmHrDataControl" id="BenefitTypesVIterator"/>
+    <iterator Binds="DeductionTypesV" RangeSize="25" DataControl="AalmHrDataControl" id="DeductionTypesVIterator"/>
+    <iterator Binds="BonusTypesV" RangeSize="25" DataControl="AalmHrDataControl" id="BonusTypesVIterator"/>
+    <iterator Binds="PunishmentTypesV" RangeSize="25" DataControl="AalmHrDataControl" id="PunishmentTypesVIterator"/>
+    <iterator Binds="VacationTypesV" RangeSize="25" DataControl="AalmHrDataControl" id="VacationTypesVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="BenefitTypesVIterator" id="BenefitTypesV">
+      <nodeDefinition DefName="com.aalm.hr.model.views.BenefitTypesV" Name="BenefitTypesV0">
+        <AttrNames>
+          <Item Value="BenefitCode"/>
+          <Item Value="BenefitDesc"/>
+          <Item Value="BenefitEffect"/>
+          <Item Value="BenefitVal"/>
+          <Item Value="FromColumn"/>
+          <Item Value="BenefitName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmHrDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmHrDataControl"/>
+    <action IterBinding="BenefitTypesVIterator" id="CreateInsertBenefit" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="BenefitTypesVIterator" id="DeleteBenefit" InstanceName="AalmHrDataControl.BenefitTypesV"
+            DataControl="AalmHrDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="DeductionTypesVIterator" id="CreateInsertDeduction" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="DeductionTypesVIterator" id="DeductionTypesV">
+      <nodeDefinition DefName="com.aalm.hr.model.views.DeductionTypesV" Name="DeductionTypesV0">
+        <AttrNames>
+          <Item Value="DeductionCode"/>
+          <Item Value="DeductionName"/>
+          <Item Value="DeductionDesc"/>
+          <Item Value="DeductionEffect"/>
+          <Item Value="DeductionVal"/>
+          <Item Value="FromColumn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DeductionTypesVIterator" id="DeleteDeduction" InstanceName="AalmHrDataControl.DeductionTypesV"
+            DataControl="AalmHrDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="BonusTypesVIterator" id="BonusTypesV">
+      <nodeDefinition DefName="com.aalm.hr.model.views.BonusTypesV" Name="BonusTypesV0">
+        <AttrNames>
+          <Item Value="BonusCode"/>
+          <Item Value="BonusName"/>
+          <Item Value="BonusDesc"/>
+          <Item Value="BonusEffect"/>
+          <Item Value="BonusVal"/>
+          <Item Value="FromColumn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="BonusTypesVIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="BonusTypesVIterator" id="DeleteBonus" InstanceName="AalmHrDataControl.BonusTypesV"
+            DataControl="AalmHrDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="PunishmentTypesVIterator" id="PunishmentTypesV">
+      <nodeDefinition DefName="com.aalm.hr.model.views.PunishmentTypesV" Name="PunishmentTypesV0">
+        <AttrNames>
+          <Item Value="PunishCode"/>
+          <Item Value="PunishName"/>
+          <Item Value="PunishDesc"/>
+          <Item Value="DeductFromSalary"/>
+          <Item Value="PunDedEffect"/>
+          <Item Value="PunDedVal"/>
+          <Item Value="FromColumn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="PunishmentTypesVIterator" id="CreateInsertPunishment" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="PunishmentTypesVIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="VacationTypesVIterator" id="VacationTypesV">
+      <nodeDefinition DefName="com.aalm.hr.model.views.VacationTypesV" Name="VacationTypesV0">
+        <AttrNames>
+          <Item Value="VacationCode"/>
+          <Item Value="VacationName"/>
+          <Item Value="VacationDesc"/>
+          <Item Value="VacDedEffect"/>
+          <Item Value="VacDedVal"/>
+          <Item Value="DeductFromSalary"/>
+          <Item Value="FromColumn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="VacationTypesVIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="VacationTypesVIterator" id="CreateInsertVacations" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

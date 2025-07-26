@@ -298,6 +298,214 @@
         <source>Passport No.</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.BenefitTypesV_LABEL">
+        <source>Benefit Types V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.BonusTypesV_LABEL">
+        <source>Bonus Types V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.DeductionTypesV_LABEL">
+        <source>Deduction Types V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV_LABEL">
+        <source>Punishment Types V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.VacationTypesV_LABEL">
+        <source>Vacation Types V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EffectLOV.SL_0_0">
+        <source>FV</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EffectLOV.SL_0_1">
+        <source>Fixed-ثابت</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EffectLOV.SL_1_0">
+        <source>V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EffectLOV.SL_1_1">
+        <source>Variable-متغير</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EffectLOV_LABEL">
+        <source>Effect Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV.SL_0_0">
+        <source>Y</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV.SL_0_1">
+        <source>Yes-نعم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV.SL_1_0">
+        <source>N</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV.SL_1_1">
+        <source>No-لا</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV_LABEL">
+        <source>From Salary Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CODE">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacationCode_LABEL">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacationName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacationDesc_LABEL">
+        <source>Description</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DEDUCT_FROM_SALARY">
+        <source>Deduct From Salary</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.VacationTypesV.DeductFromSalary_LABEL">
+        <source>Deduct From Salary</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DEDUCT_FROM_BALANCE">
+        <source>Deduct from Balance</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacDedEffect_LABEL">
+        <source>Deduct from Balance</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DEDUCTION_VALUE">
+        <source>Deduction Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacDedVal_LABEL">
+        <source>Deduction Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusCode_LABEL">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusDesc_LABEL">
+        <source>Description</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BONUS_EFFECT">
+        <source>Bonus Effect</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusEffect_LABEL">
+        <source>Bonus Effect</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BONUS_VALUE">
+        <source>Bonus Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusVal_LABEL">
+        <source>Bonus Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunishCode_LABEL">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunishName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunishDesc_LABEL">
+        <source>Description</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PUNISHMENT_EFFECT">
+        <source>Punishment Effect</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunDedEffect_LABEL">
+        <source>Punishment Effect</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.DeductFromSalary_LABEL">
+        <source>Deduct From Salary</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunDedVal_LABEL">
+        <source>Deduction Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionCode_LABEL">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionDesc_LABEL">
+        <source>Description</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DEDUCTION_EFFECT">
+        <source>Deduction Effect</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionEffect_LABEL">
+        <source>Deduction Effect</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionVal_LABEL">
+        <source>Deduction Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitCode_LABEL">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitDesc_LABEL">
+        <source>Description</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BENEFIT_EFFECT">
+        <source>Benefit Effect</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitEffect_LABEL">
+        <source>Benefit Effect</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BENEFIT_VALUE">
+        <source>Benefit Value</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitVal_LABEL">
+        <source>Benefit Value</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

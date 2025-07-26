@@ -68,7 +68,7 @@
                             </af:panelGroupLayout>
                         </af:panelGroupLayout>
                         <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                                   partialTriggers="::l3 ::pt_b1 ::l4 ::l5 ::l6 ::l7 ::l8 ::l12 ::l13 ::l14 ::l15 ::l16 ::l17 ::l18 ::l19 ::l20 ::l21 ::l22 ::l23 ::l24 ::l25 ::l26 ::l25 ::l27 ::l28 ::l29 ::l30 ::l31"
+                                   partialTriggers="::l3 ::pt_b1 ::l4 ::l5 ::l6 ::l7 ::l8 ::l12 ::l13 ::l14 ::l15 ::l16 ::l17 ::l18 ::l19 ::l20 ::l21 ::l22 ::l23 ::l24 ::l25 ::l26 ::l25 ::l27 ::l28 ::l29 ::l30 ::l31 ::l32"
                                    visible="#{sessionScope.show_fncn}"/>
                         <af:panelGroupLayout id="pgl7" layout="vertical" rendered="false">
                             <af:link text="Currencies-TF" id="l9" action="#{pageFlowScope.AppsBean.currenciesTF}"/>
@@ -116,6 +116,7 @@
                             <af:link text="AssetTransactions-TF" action="#{pageFlowScope.AppsBean.assetTransactionsTF}"
                                      id="l30"/>
                             <af:link text="projects-TF" action="#{pageFlowScope.AppsBean.projectsTF}" id="l31"/>
+                            <af:link text="setup_data" action="#{pageFlowScope.AppsBean.setup_data}" id="l32"/>
                         </af:panelGroupLayout>
                     </af:panelGroupLayout>
                 </f:facet>

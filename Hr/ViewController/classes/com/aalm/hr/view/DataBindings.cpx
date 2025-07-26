@@ -24,6 +24,7 @@
           usageId="com_aalm_hr_view_empsContractsHolderPageDef"/>
     <page path="/WEB-INF/employyes_contracts/employeesContracts.jsff"
           usageId="com_aalm_hr_view_employeesContractsPageDef"/>
+    <page path="/WEB-INF/setup_data/setupData.jsff" usageId="com_aalm_hr_view_setupDataPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_aalm_hr_view_jobs_TF_jobs_TF_ExecutePageDef" path="jobs.jobs_TF_jobs_TF_ExecutePageDef"/>
@@ -41,6 +42,7 @@
           path="employyes_contracts.employeesContracts_TFxml_employeesContracts_TFxml_ExecuteWithParamsPageDef"/>
     <page id="com_aalm_hr_view_empsContractsHolderPageDef" path="employyes_contracts.empsContractsHolderPageDef"/>
     <page id="com_aalm_hr_view_employeesContractsPageDef" path="employyes_contracts.employeesContractsPageDef"/>
+    <page id="com_aalm_hr_view_setupDataPageDef" path="setup_data.setupDataPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AalmHrDataControl" Package="com.aalm.hr.model"

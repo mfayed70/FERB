@@ -58,6 +58,30 @@
         <source>Others Photo</source>
         <target/>
       </trans-unit>
+      <trans-unit id="BENEFIT_TYPES">
+        <source>Benefit Types</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DEDUCTION_TYPES">
+        <source>Deduction Types</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BONUS_TYPES">
+        <source>Bonus Types</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PUNICHMENT_TYPES">
+        <source>Punichment Types</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="VACATION_TYPES">
+        <source>Vacation Types</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SetupData">
+        <source>Setup Data</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

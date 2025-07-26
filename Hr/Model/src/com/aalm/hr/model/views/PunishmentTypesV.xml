@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PunishmentTypesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.hr.model.views.PunishmentTypesV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="EffectLOV1"
+    ViewObjectName="com.aalm.hr.model.lov.EffectLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FromSalaryLOV1"
+    ViewObjectName="com.aalm.hr.model.lov.FromSalaryLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_PunDedEffect"
+    ListVOName="EffectLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PunDedEffect"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DeductFromSalary"
+    ListVOName="FromSalaryLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DeductFromSalary"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="PunishmentTypes"
+    Entity="com.aalm.hr.model.entities.PunishmentTypes"/>
+  <ViewAttribute
+    Name="DeductFromSalary"
+    PrecisionRule="true"
+    EntityAttrName="DeductFromSalary"
+    EntityUsage="PunishmentTypes"
+    AliasName="deduct_from_salary"
+    LOVName="LOV_DeductFromSalary">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.aalm.hr.model.views.PunishmentTypesV.DeductFromSalary_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FromColumn"
+    PrecisionRule="true"
+    EntityAttrName="FromColumn"
+    EntityUsage="PunishmentTypes"
+    AliasName="from_column"/>
+  <ViewAttribute
+    Name="PunDedEffect"
+    PrecisionRule="true"
+    EntityAttrName="PunDedEffect"
+    EntityUsage="PunishmentTypes"
+    AliasName="pun_ded_effect"
+    LOVName="LOV_PunDedEffect">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.aalm.hr.model.views.PunishmentTypesV.PunDedEffect_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PunDedVal"
+    PrecisionRule="true"
+    EntityAttrName="PunDedVal"
+    EntityUsage="PunishmentTypes"
+    AliasName="pun_ded_val">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.views.PunishmentTypesV.PunDedVal_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PunishCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PunishCode"
+    EntityUsage="PunishmentTypes"
+    AliasName="punish_code">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.views.PunishmentTypesV.PunishCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PunishDesc"
+    PrecisionRule="true"
+    EntityAttrName="PunishDesc"
+    EntityUsage="PunishmentTypes"
+    AliasName="punish_desc">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.views.PunishmentTypesV.PunishDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PunishName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PunishName"
+    EntityUsage="PunishmentTypes"
+    AliasName="punish_name">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.views.PunishmentTypesV.PunishName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.hr.model.AalmHrMBndl"/>
+  </ResourceBundle>
+</ViewObject>

@@ -18,6 +18,13 @@
         <parameter id="refreshLocale" value="#{sessionScope.refreshLocale}"/>
       </parameters>
     </taskFlow>
+    <taskFlow id="setup_data1" taskFlowId="/WEB-INF/setup_data/setup_data.xml#setup_data" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="refreshRegion" value="#{sessionScope.refreshRegion}"/>
+        <parameter id="refreshLocale" value="#{sessionScope.refreshLocale}"/>
+      </parameters>
+    </taskFlow>
   </executables>
   <bindings/>
 </pageDefinition>

@@ -39,6 +39,21 @@
   <ViewUsage
     Name="SystemParameters"
     ViewObjectName="com.aalm.hr.model.views.SystemParameters"/>
+  <ViewUsage
+    Name="BenefitTypesV"
+    ViewObjectName="com.aalm.hr.model.views.BenefitTypesV"/>
+  <ViewUsage
+    Name="BonusTypesV"
+    ViewObjectName="com.aalm.hr.model.views.BonusTypesV"/>
+  <ViewUsage
+    Name="DeductionTypesV"
+    ViewObjectName="com.aalm.hr.model.views.DeductionTypesV"/>
+  <ViewUsage
+    Name="PunishmentTypesV"
+    ViewObjectName="com.aalm.hr.model.views.PunishmentTypesV"/>
+  <ViewUsage
+    Name="VacationTypesV"
+    ViewObjectName="com.aalm.hr.model.views.VacationTypesV"/>
   <ViewLinkUsage
     Name="fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL1"
     ViewLinkObjectName="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL"
