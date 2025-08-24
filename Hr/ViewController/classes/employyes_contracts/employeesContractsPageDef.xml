@@ -7,6 +7,8 @@
     <iterator Binds="EmployeesContractsV" RangeSize="25" DataControl="AalmHrDataControl"
               id="EmployeesContractsVIterator"/>
     <iterator Binds="SystemParameters" RangeSize="10" DataControl="AalmHrDataControl" id="SystemParametersIterator"/>
+    <iterator Binds="EmployeesV" RangeSize="10" DataControl="AalmHrDataControl" id="EmployeesVIterator"
+              Refresh="always"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="EmployeesContractsVIterator" id="Certificate">
@@ -116,5 +118,9 @@
         <Item Value="JobId"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="EmployeesVIterator" id="setCurrentRowWithKeyValue" InstanceName="AalmHrDataControl.EmployeesV"
+            DataControl="AalmHrDataControl" RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.pEmpId}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

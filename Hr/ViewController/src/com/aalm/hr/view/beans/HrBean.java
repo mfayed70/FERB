@@ -10,7 +10,13 @@ import java.io.File;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.output.RichInlineFrame;
+
+import oracle.adfdt.model.objects.IteratorBinding;
+
+import oracle.jbo.Row;
+import oracle.jbo.ViewObject;
 
 import org.apache.myfaces.trinidad.event.ReturnEvent;
 import org.apache.myfaces.trinidad.model.UploadedFile;
@@ -49,30 +55,23 @@ public class HrBean {
 //                
 //        }
         ADFUtils.findOperation("Commit").execute();
-//        System.out.println("----"+JSFUtil.resolveExpression("#{bindings.ContractId.inputValue}"));
-//        this.setContractId((Integer) ADFUtils.getBoundAttributeValue("ContractId"));
-//        System.out.println("++++"+contractId);
-//        ADFUtils.setEL("#{pageFlowScope.rContractId}", contractId);
-        JSFUtil.storeOnSession("sContractId", ADFUtils.getBoundAttributeValue("ContractId"));
-        JSFUtil.storeOnSession("sIdNo", ADFUtils.getBoundAttributeValue("IdNo"));
-        JSFUtil.storeOnSession("sSalary", ADFUtils.getBoundAttributeValue("Salary"));
-        JSFUtil.storeOnSession("sJob", ADFUtils.getBoundAttributeValue("JobId1"));
-        JSFUtil.storeOnSession("sName", ADFUtils.getBoundAttributeValue("FirstName")+" "+
-          ADFUtils.getBoundAttributeValue("FirstName")+" "+ADFUtils.getBoundAttributeValue("FirstName"));
-//        JSFUtil.storeOnSession("sJob", ADFUtils.getBoundAttributeValue("Job1"));
-        JSFUtil.storeOnSession("sCurrency", ADFUtils.getBoundAttributeValue("CurrCode"));
+        ADFUtils.findOperation("setCurrentRowWithKeyValue").execute();
+        DCIteratorBinding ro = ADFUtils.findIterator("EmployeesVIterator");
+        Row rws = ro.getCurrentRow();
+        ro.getCurrentRow().setAttribute("IdNo",ADFUtils.getBoundAttributeValue("IdNo"));
+        ro.getCurrentRow().setAttribute("EmpName",ADFUtils.getBoundAttributeValue("FirstName")+" "+
+          ADFUtils.getBoundAttributeValue("MiddleName")+" "+ADFUtils.getBoundAttributeValue("LastName"));
+        ro.getCurrentRow().setAttribute("ContractNo",ADFUtils.getBoundAttributeValue("ContractId"));
+        ro.getCurrentRow().setAttribute("Salary",ADFUtils.getBoundAttributeValue("Salary"));
+        ro.getCurrentRow().setAttribute("JobId",ADFUtils.getBoundAttributeValue("JobId1"));
+        ro.getCurrentRow().setAttribute("CurrCode",ADFUtils.getBoundAttributeValue("CurrCode"));
+        ADFUtils.findOperation("Commit").execute();
+        ADFUtils.findOperation("Rollback").execute();
     }      
     
     public void contractsReturnLsnr(ReturnEvent returnEvent) {
         // Add event code here...
-    ADFUtils.setBoundAttributeValue("ContractNo", JSFUtil.getFromSession("sContractId"));
-        ADFUtils.setBoundAttributeValue("IdNo", JSFUtil.getFromSession("sIdNo"));
-        ADFUtils.setBoundAttributeValue("Salary", JSFUtil.getFromSession("sSalary"));
-        ADFUtils.setBoundAttributeValue("JobId", JSFUtil.getFromSession("sJob"));
-        ADFUtils.setBoundAttributeValue("EmpName", JSFUtil.getFromSession("sName"));
-        ADFUtils.setBoundAttributeValue("CurrCode", JSFUtil.getFromSession("sCurrency"));
-     ADFUtils.findOperation("Commit").execute();
-        ADFUtils.findOperation("Rollback").execute();
+        ADFUtils.findOperation("setCurrentRowWithKeyValue").execute();   
     }
     
     public void idPhotoFileChange(ValueChangeEvent valueChangeEvent) {

@@ -35,4 +35,9 @@
     <managed-bean-class>com.aalm.master.view.beans.AppsBean</managed-bean-class>
     <managed-bean-scope>pageFlow</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__7">
+    <managed-bean-name>locationBean</managed-bean-name>
+    <managed-bean-class>com.aalm.master.view.beans.LocationBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

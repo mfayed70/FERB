@@ -14,6 +14,7 @@
     <Attr Name="_jbo.TypeMapEntries" Value="Java"/>
     <Attr Name="_NamedConnection" Value="eleconConn"/>
     <Attr Name="_appModuleNames0" Value="com.aalm.master.model.AalmMaster"/>
+    <Attr Name="_domainNames0" Value="com.aalm.master.model.entities.Enum"/>
   </DesignTime>
   <Containee
     Name="entities"
@@ -22,6 +23,7 @@
     <DesignTime>
       <Attr Name="_EO" Value="true"/>
       <Attr Name="_AS" Value="true"/>
+      <Attr Name="_DO" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee

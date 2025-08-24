@@ -6,6 +6,14 @@
     <iterator id="OrgUsersVIterator" Binds="OrgUsersV" DataControl="AalmMasterDataControl" RangeSize="25"/>
     <iterator id="UserInOrgVIterator" Binds="UserInOrgV" DataControl="AalmMasterDataControl"
               RangeSize="25"/>
+    <iterator id="UserAttendanceVIterator" Binds="UserAttendanceV" DataControl="AalmMasterDataControl" RangeSize="25"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <methodAction id="createTodayAttendanceIfMissing" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createTodayAttendanceIfMissing" IsViewObjectMethod="false"
+                  DataControl="AalmMasterDataControl" InstanceName="data.AalmMasterDataControl.dataProvider"
+                  ReturnName="data.AalmMasterDataControl.methodResults.createTodayAttendanceIfMissing_AalmMasterDataControl_dataProvider_createTodayAttendanceIfMissing_result">
+      <NamedData NDName="userId" NDType="int" NDValue="#{sessionScope.userId}"/>
+    </methodAction>
+  </bindings>
 </pageDefinition>

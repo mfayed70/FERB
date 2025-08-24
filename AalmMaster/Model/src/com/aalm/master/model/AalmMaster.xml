@@ -6,7 +6,12 @@
   Name="AalmMaster"
   Version="12.1.3.10.47"
   InheritPersonalization="merge"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentClass="com.aalm.master.model.AalmMasterImpl"
+  ComponentInterface="com.aalm.master.model.common.AalmMaster">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -90,6 +95,12 @@
   <ViewUsage
     Name="UserInOrgV"
     ViewObjectName="com.aalm.master.model.views.UserControlOrgsV"/>
+  <ViewUsage
+    Name="UserAttendanceV"
+    ViewObjectName="com.aalm.master.model.views.AttendanceV"/>
+  <ViewUsage
+    Name="AttendanceStatistics"
+    ViewObjectName="com.aalm.master.model.views.AttendanceStatistics"/>
   <ViewLinkUsage
     Name="FkUserRolesMasterOrgUsers1VL1"
     ViewLinkObjectName="com.aalm.master.model.views.FkUserRolesMasterOrgUsers1VL"
@@ -150,6 +161,31 @@
     SrcViewUsageName="com.aalm.master.model.AalmMaster.OrgUsersV"
     DstViewUsageName="com.aalm.master.model.AalmMaster.UserInOrgV"
     Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkAttendanceUserVL1"
+    ViewLinkObjectName="com.aalm.master.model.views.FkAttendanceUserVL"
+    SrcViewUsageName="com.aalm.master.model.AalmMaster.OrgUsersV"
+    DstViewUsageName="com.aalm.master.model.AalmMaster.UserAttendanceV"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AttendanceToAttendanceStatisticsVL1"
+    ViewLinkObjectName="com.aalm.master.model.views.AttendanceToAttendanceStatisticsVL"
+    SrcViewUsageName="com.aalm.master.model.AalmMaster.OrgUsersV"
+    DstViewUsageName="com.aalm.master.model.AalmMaster.AttendanceStatistics"
+    Reversed="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="createTodayAttendanceIfMissing"
+      MethodName="createTodayAttendanceIfMissing">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="userId"
+        Type="int"/>
+    </Method>
+  </ClientInterface>
   <ResourceBundle>
     <XliffBundle
       id="com.aalm.master.model.AalmMasterMBndl"/>

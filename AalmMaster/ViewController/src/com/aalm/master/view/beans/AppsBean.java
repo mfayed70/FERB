@@ -48,6 +48,7 @@ public class AppsBean implements Serializable {
        OperationBinding oper = ADFUtils.findOperation("ExecuteWithParams");
         oper.getParamsMap().put("pSystemId", JSFUtil.resolveExpression("#{roles.SystemId}"));
         oper.getParamsMap().put("pRoleGroupId", JSFUtil.resolveExpression("#{roles.RoleGroupId}"));
+        
         System.out.println("--system id -- "+JSFUtil.resolveExpression("#{roles.SystemId}")+"--role group id-- "+
                         JSFUtil.resolveExpression("#{roles.RoleGroupId}")   );
         oper.execute();
@@ -273,5 +274,10 @@ public class AppsBean implements Serializable {
     public String setup_data() {
         setDynamicTaskFlowId("/WEB-INF/setup_data/setup_data.xml#setup_data");
         return null;
+    }
+
+    public void commitData(ActionEvent actionEvent) {
+        // Add event code here...
+        ADFUtils.findOperation("Commit").execute();
     }
 }

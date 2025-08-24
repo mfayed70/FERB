@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Attendance"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ATTENDANCE"
+  AliasName="Attendance"
+  BindingStyle="JDBC"
+  RowClass="com.aalm.master.model.entities.AttendanceImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="AttendanceId"
+    ColumnName="attendance_id"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    TableName="ATTENDANCE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="19"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserId"
+    IsUnique="true"
+    IsNotNull="true"
+    ColumnName="user_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AttendanceDate"
+    IsUnique="true"
+    IsNotNull="true"
+    ColumnName="attendance_date"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="ATTENDANCE"/>
+  <Attribute
+    Name="CheckInTime"
+    ColumnName="check_in_time"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="ATTENDANCE"/>
+  <Attribute
+    Name="CheckOutTime"
+    ColumnName="check_out_time"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="ATTENDANCE"/>
+  <Attribute
+    Name="Status"
+    Domain="com.aalm.master.model.entities.Enum"
+    ColumnName="status"
+    SQLType="STRUCT"
+    Type="com.aalm.master.model.entities.common.Enum"
+    ColumnType="ENUM"
+    TableName="ATTENDANCE"/>
+  <Attribute
+    Name="Remarks"
+    Precision="255"
+    ColumnName="remarks"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WorkHours"
+    ColumnName="work_hours"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedAt"
+    ColumnName="created_at"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="ATTENDANCE"/>
+  <Attribute
+    Name="UpdatedAt"
+    ColumnName="updated_at"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="ATTENDANCE"/>
+  <AccessorAttribute
+    Name="OrgUsers"
+    Association="com.aalm.master.model.entities.FkAttendanceUserAssoc"
+    AssociationEnd="com.aalm.master.model.entities.FkAttendanceUserAssoc.OrgUsers"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkAttendanceUserAssoc.Attendance"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.Attendance.AttendanceId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UqUserDate">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="uq_user_date"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.Attendance.UserId"/>
+      <Item Value="com.aalm.master.model.entities.Attendance.AttendanceDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkAttendanceUser">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_attendance_user"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.Attendance.UserId"/>
+    </AttrArray>
+  </Key>
+</Entity>

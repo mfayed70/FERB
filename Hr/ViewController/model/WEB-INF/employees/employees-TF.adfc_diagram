@@ -28,11 +28,11 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">235.0625</property>
-      <property
-         name="x">434.0</property>
+         name="y">236.09375</property>
       <property
          name="pageFragment">true</property>
+      <property
+         name="x">342.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -42,7 +42,7 @@
       <property
          name="fromOutcome">Execute</property>
       <property
-         name="sdm:polyPoints">R50,198.5,236.57812,393.0,235.07812,L50</property>
+         name="sdm:polyPoints">R50,198.5,236.57812,301.0,236.10938,L50</property>
    </ControlFlowCase>
    <TaskFlowCall
       id="TaskFlowCall6">
@@ -71,7 +71,7 @@
       <property
          name="fromOutcome">toCrud</property>
       <property
-         name="sdm:polyPoints">R54,475.0,238.57812,604.43945,362.57812,L50</property>
+         name="sdm:polyPoints">R54,383.0,239.60938,604.43945,362.57812,L50</property>
    </ControlFlowCase>
    <TaskFlowCall
       id="TaskFlowCall8">
@@ -88,18 +88,41 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">112.53125</property>
+         name="y">116.65625</property>
       <property
-         name="x">627.2256</property>
+         name="x">922.2256</property>
    </TaskFlowCall>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase9"
       from="View3"
-      to="TaskFlowCall8">
+      to="MethodCall9">
       <property
          name="fromOutcome">toContracts</property>
       <property
-         name="sdm:polyPoints">R46,475.0,231.57812,586.2256,112.546875,L50</property>
+         name="sdm:polyPoints">R46,383.0,232.60938,608.2461,118.625,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall9">
+      <property
+         name="activityId">SetCurrentRowWithKeyValue</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">118.609375</property>
+      <property
+         name="x">649.2461</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="MethodCall9"
+      to="TaskFlowCall8">
+      <property
+         name="fromOutcome">setCurrentRowWithKeyValue</property>
+      <property
+         name="sdm:polyPoints">R50,690.2461,118.625,881.2256,116.671875,L50</property>
    </ControlFlowCase>
 </SDM>

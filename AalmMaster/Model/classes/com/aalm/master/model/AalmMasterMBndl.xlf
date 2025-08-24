@@ -94,6 +94,50 @@
         <source>System Code</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.master.model.views.AttendanceV_LABEL">
+        <source>Attendance V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.views.FkAttendanceUserVL_LABEL">
+        <source>Fk Attendance User Vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.YearsLOV.SL_0_0">
+        <source>2025</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.YearsLOV.SL_1_0">
+        <source>2026</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.YearsLOV.SL_2_0">
+        <source>2027</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.YearsLOV.SL_3_0">
+        <source>2028</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.YearsLOV.SL_4_0">
+        <source>2029</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.YearsLOV.SL_5_0">
+        <source>2030</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.YearsLOV_LABEL">
+        <source>Years Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.views.AttendanceStatistics_LABEL">
+        <source>Attendance Statistics</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.views.AttendanceToAttendanceStatisticsVL_LABEL">
+        <source>Attendance To Attendance Statistics Vl</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

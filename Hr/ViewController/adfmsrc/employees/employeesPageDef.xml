@@ -4,7 +4,8 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="EmployeesV" RangeSize="25" DataControl="AalmHrDataControl" id="EmployeesVIterator"/>
+    <iterator Binds="EmployeesV" RangeSize="25" DataControl="AalmHrDataControl" id="EmployeesVIterator"
+              Refresh="always"/>
     <searchRegion Binds="EmployeesVIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="EmployeesVQuery"/>
     <iterator Binds="EmployeeJobHistoryV" RangeSize="25" DataControl="AalmHrDataControl"
@@ -70,5 +71,9 @@
         <Item Value="ContractNo"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="EmployeesVIterator" id="setCurrentRowWithKeyValue" InstanceName="AalmHrDataControl.EmployeesV"
+            DataControl="AalmHrDataControl" RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDType="java.lang.String" NDValue="#{pageFlowScope.pEmpId}"/>
+    </action>
   </bindings>
 </pageDefinition>

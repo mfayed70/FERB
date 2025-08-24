@@ -17,6 +17,7 @@
 
       </parameters>
     </taskFlow>
+    <iterator Binds="UserAttendanceV" RangeSize="25" DataControl="AalmMasterDataControl" id="UserAttendanceVIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="UserRolesVIterator" id="UserRolesV">
@@ -55,7 +56,35 @@
             RequiresUpdateModel="true" Action="executeWithParams">
       <NamedData NDName="pSystemId" NDType="java.lang.String"/>
       <NamedData NDName="pRoleGroupId" NDType="java.lang.Integer"/>
-      <NamedData NDName="pUserId" NDType="java.lang.Integer"/>
+      <NamedData NDName="pUserId" NDType="java.lang.Integer" NDValue="#{sessionScope.userId}"/>
     </action>
+    <action id="Commit" DataControl="AalmMasterDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="UserAttendanceVIterator" StaticList="false" Uses="LOV_CurrYear" id="CurrYear"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="UserAttendanceVIterator" StaticList="false" Uses="LOV_CurrMonth" id="CurrMonth"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="UserAttendanceVIterator" id="UserAttendanceV">
+      <nodeDefinition DefName="com.aalm.master.model.views.AttendanceV" Name="UserAttendanceV0">
+        <AttrNames>
+          <Item Value="AttendanceDate"/>
+          <Item Value="CheckInTime"/>
+          <Item Value="CheckOutTime"/>
+          <Item Value="Remarks"/>
+          <Item Value="Status"/>
+          <Item Value="WorkHours"/>
+          <Item Value="CurrDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="UserAttendanceVIterator" id="CheckInTime">
+      <AttrNames>
+        <Item Value="CheckInTime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserAttendanceVIterator" id="CheckOutTime">
+      <AttrNames>
+        <Item Value="CheckOutTime"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

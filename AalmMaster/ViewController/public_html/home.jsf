@@ -3,122 +3,381 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" 
         xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
         xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-        locale="#{Locale.locale}">
+        locale="#{Locale.locale}" xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.master.view.AalmMasterBndl']}"/>
     <af:document title="#{sessionScope.orgIni=='e' ? 'Elecon ERP' : 'Zamzam ERP'}" id="d1"
                  smallIconSource="#{sessionScope.orgIni=='e' ? resource['images:eleconLogo.png'] : resource['images:zamzamlogo.png']}">
-        <af:form id="f1">
+        <af:messages id="m1"/>
+        <af:form id="f1" usesUpload="true">
             <af:pageTemplate viewId="/WEB-INF/AalmHomePageTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
                 <f:facet name="_mainContent">
-                    <af:panelGroupLayout id="pgl6" layout="vertical">
-                        <af:panelGroupLayout id="pgl1" layout="vertical"
-                                             inlineStyle="margin:60px 30px 30px 30px; padding:30px 0 0 0; background: rgb(234,255,250); background: linear-gradient(176deg, rgba(234,255,250,1) 0%, rgba(148,175,246,1) 100%);"
-                                             visible="#{not sessionScope.show_fncn}" partialTriggers="pt_b1 pt_l5">
-                            <af:activeOutputText value="#{sessionScope.userEmail}#{'--'}#{sessionScope.orgCode}#{'--'}#{sessionScope.userMobile}#{'--'}#{sessionScope.userId}"
-                                                 id="aot1" rendered="false"/>
-                            <af:panelGroupLayout id="pgl2" layout="scroll">
-                                <af:panelFormLayout id="pfl1" maxColumns="5" rows="2" fieldWidth="100%" labelWidth="0%">
-                                    <f:facet name="footer"/>
-                                    <af:iterator id="i1" value="#{bindings.UserRolesV.collectionModel}" var="roles">
-                                        <af:panelGroupLayout id="pgl3" layout="vertical"
-                                                             inlineStyle="margin:0 0 40px 0;" halign="center">
-                                            <af:link
-                                                     id="l1"
-                                                     inlineStyle="font-size:25px; color:navy; font-weight:bold;"
-                                                     iconPosition="top"
-                                                     partialSubmit="true"
-                                                     icon="resources/images/#{Locale.locale}#{roles.SystemId}o.png"
-                                                     partialTriggers="::pt_soc1"
-                                                     actionListener="#{pageFlowScope.AppsBean.showFncnPopupActnLsnr}">
-                                                <!--<af:setPropertyListener from="#{roles.SystemId}"
+                    <af:panelHeader text="#{viewcontrollerBundle.YourAttendanceTasks}" id="ph2">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:panelSplitter id="ps1" splitterPosition="#{sessionScope.attendancePanel ? 0 : 1300}"
+                                          partialTriggers="l34" disabled="true">
+                            <f:facet name="first">
+                                <af:panelHeader text=" " id="ph3">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar">
+                                        <af:link text="#{viewcontrollerBundle.YourTasks}" id="l34"
+                                                 icon="#{resource['images:logout-open-24.png']}">
+                                            <af:setPropertyListener from="#{true}" to="#{sessionScope.attendancePanel}"
+                                                                    type="action"/>
+                                        </af:link>
+                                    </f:facet>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                    <af:panelGroupLayout layout="vertical" id="pgl8">
+                                        <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="300"
+                                                          disabled="true">
+                                            <f:facet name="first">
+                                                <af:panelSplitter id="ps3" splitterPosition="400" disabled="true">
+                                                    <f:facet name="first">
+                                                        <af:panelGroupLayout id="pgl13" layout="vertical"/>
+                                                    </f:facet>
+                                                    <f:facet name="second">
+                                                        <af:panelSplitter id="ps4" splitterPosition="300"
+                                                                          disabled="true">
+                                                            <f:facet name="first"/>
+                                                            <f:facet name="second"/>
+                                                        </af:panelSplitter>
+                                                    </f:facet>
+                                                </af:panelSplitter>
+                                            </f:facet>
+                                            <f:facet name="second">
+                                                <af:panelHeader text="#{viewcontrollerBundle.ATTENDANCE}" id="ph1">
+                                                    <f:facet name="context"/>
+                                                    <f:facet name="menuBar"/>
+                                                    <f:facet name="toolbar"/>
+                                                    <f:facet name="legend"/>
+                                                    <f:facet name="info"/>
+                                                    <af:panelGroupLayout id="pgl11" layout="horizontal">
+                                                        <af:selectOneChoice value="#{bindings.CurrYear.inputValue}"
+                                                                            label="#{bindings.CurrYear.label}"
+                                                                            required="#{bindings.CurrYear.hints.mandatory}"
+                                                                            shortDesc="#{bindings.CurrYear.hints.tooltip}"
+                                                                            id="soc1">
+                                                            <f:selectItems value="#{bindings.CurrYear.items}" id="si1"/>
+                                                            <f:validator binding="#{bindings.CurrYear.validator}"/>
+                                                        </af:selectOneChoice>
+                                                        <af:selectOneChoice value="#{bindings.CurrMonth.inputValue}"
+                                                                            label="#{bindings.CurrMonth.label}"
+                                                                            required="#{bindings.CurrMonth.hints.mandatory}"
+                                                                            shortDesc="#{bindings.CurrMonth.hints.tooltip}"
+                                                                            id="soc2">
+                                                            <f:selectItems value="#{bindings.CurrMonth.items}"
+                                                                           id="si2"/>
+                                                            <f:validator binding="#{bindings.CurrMonth.validator}"/>
+                                                        </af:selectOneChoice>
+                                                        <f:facet name="separator">
+                                                            <af:spacer width="100" height="10" id="s1"/>
+                                                        </f:facet>
+                                                    </af:panelGroupLayout>
+                                                    <af:spacer width="10" height="10" id="s5"/>
+                                                    <af:panelGroupLayout id="pgl10" layout="vertical">
+                                                        <af:table value="#{bindings.UserAttendanceV.collectionModel}"
+                                                                  var="row" rows="#{bindings.UserAttendanceV.rangeSize}"
+                                                                  emptyText="#{bindings.UserAttendanceV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                                  rowBandingInterval="0"
+                                                                  selectedRowKeys="#{bindings.UserAttendanceV.collectionModel.selectedRow}"
+                                                                  selectionListener="#{bindings.UserAttendanceV.collectionModel.makeCurrent}"
+                                                                  rowSelection="single"
+                                                                  fetchSize="#{bindings.UserAttendanceV.rangeSize}"
+                                                                  id="t1" verticalGridVisible="false">
+                                                            <af:column headerText="#{viewcontrollerBundle['Ser.']}"
+                                                                       id="c3" width="50" align="center">
+                                                                <af:inputText value="#{row.index+1}"
+                                                                              shortDesc="#{bindings.UserAttendanceV.hints.AttendanceDate.tooltip}"
+                                                                              id="ot3" simple="true" readOnly="true"
+                                                                              contentStyle="font-size:26px !important;">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.UserAttendanceV.hints.AttendanceDate.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.UserAttendanceV.hints.AttendanceDate.label}"
+                                                                       id="c1" width="150" align="center">
+                                                                <af:inputDate value="#{row.AttendanceDate}"
+                                                                              shortDesc="#{bindings.UserAttendanceV.hints.AttendanceDate.tooltip}"
+                                                                              id="ot1" label="Label 1" simple="true"
+                                                                              contentStyle="font-size:26px !important;"
+                                                                              readOnly="true">
+                                                                    <af:convertDateTime pattern="#{bindings.UserAttendanceV.hints.AttendanceDate.format}"
+                                                                                        type="date"
+                                                                                        dateStyle="medium"/>
+                                                                </af:inputDate>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.UserAttendanceV.hints.AttendanceDate.label}"
+                                                                       id="c2" width="120" align="center">
+                                                                <af:inputDate value="#{row.AttendanceDate}"
+                                                                              shortDesc="#{bindings.UserAttendanceV.hints.AttendanceDate.tooltip}"
+                                                                              id="ot2" label="Label 2" simple="true"
+                                                                              readOnly="true"
+                                                                              contentStyle="font-size:26px !important;">
+                                                                    <af:convertDateTime pattern="EEEE"/>
+                                                                </af:inputDate>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.UserAttendanceV.hints.CheckInTime.label}"
+                                                                       id="c4" width="150" align="center">
+                                                                <af:panelGroupLayout id="pgl12" layout="horizontal"
+                                                                                     visible="#{row.CheckInTime != null}">
+                                                                    <af:image source="#{resource['images:punci-in-O.png']}"
+                                                                              id="i4"/>
+                                                                    <af:inputDate value="#{row.CheckInTime}"
+                                                                                  shortDesc="#{bindings.UserAttendanceV.hints.CheckInTime.tooltip}"
+                                                                                  id="ot4" label="Label 3" simple="true"
+                                                                                  contentStyle="font-size:26px !important;"
+                                                                                  readOnly="true"
+                                                                                  visible="#{row.CheckInTime != null}">
+                                                                        <af:convertDateTime pattern="#{bindings.UserAttendanceV.hints.CheckInTime.format}"
+                                                                                            type="time"
+                                                                                            timeStyle="short"/>
+                                                                    </af:inputDate>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="5" height="10" id="s3"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                                <af:button text="#{viewcontrollerBundle.Punchin}"
+                                                                           id="b1" styleClass="but"
+                                                                           visible="#{row.AttendanceDate == row.CurrDate &amp;&amp; row.CheckInTime == null &amp;&amp; row.Status != 'Weekend'}"
+                                                                           actionListener="#{backingBeanScope.LoginBean.punchinBtnActnLsnr}"
+                                                                           icon="#{resource['images:punci-in-O.png']}"
+                                                                           inlineStyle="margin:5px 0 5px 0;"
+                                                                           hoverIcon="#{resource['images:punci-in-F.png']}">
+                                                                    <af:setPropertyListener from="#{'Punch-in'}"
+                                                                                            to="#{sessionScope.attendance}"
+                                                                                            type="action"/>
+                                                                </af:button>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.UserAttendanceV.hints.CheckOutTime.label}"
+                                                                       id="c5" width="150">
+                                                                <af:panelGroupLayout id="pgl9" layout="horizontal"
+                                                                                     visible="#{row.CheckOutTime != null}">
+                                                                    <af:image source="#{resource['images:punch-out-O.png']}"
+                                                                              id="i3"/>
+                                                                    <af:inputDate value="#{row.CheckOutTime}"
+                                                                                  shortDesc="#{bindings.UserAttendanceV.hints.CheckOutTime.tooltip}"
+                                                                                  id="ot5" label="Label 4"
+                                                                                  readOnly="true"
+                                                                                  contentStyle="font-size:26px !important;"
+                                                                                  simple="true">
+                                                                        <af:convertDateTime pattern="#{bindings.UserAttendanceV.hints.CheckOutTime.format}"
+                                                                                            type="time"
+                                                                                            timeStyle="short"/>
+                                                                    </af:inputDate>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="5" height="10" id="s2"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                                <af:button text="#{viewcontrollerBundle.Punchout}"
+                                                                           id="b2" styleClass="but"
+                                                                           visible="#{row.AttendanceDate == row.CurrDate &amp;&amp; row.CheckOutTime == null &amp;&amp; row.Status != 'Weekend'}"
+                                                                           actionListener="#{backingBeanScope.LoginBean.punchoutBtnActnLsnr}"
+                                                                           icon="#{resource['images:punch-out-O.png']}"
+                                                                           inlineStyle="margin:5px 0 5px 0;"
+                                                                           hoverIcon="#{resource['images:punch-out-F.png']}">
+                                                                    <af:setPropertyListener from="#{'Punch-out'}"
+                                                                                            to="#{sessionScope.attendance}"
+                                                                                            type="action"/>
+                                                                </af:button>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.UserAttendanceV.hints.Status.label}"
+                                                                       id="c7" width="170" align="center">
+                                                                <af:inputText value="#{row.Status}"
+                                                                              shortDesc="#{bindings.UserAttendanceV.hints.Status.tooltip}"
+                                                                              id="ot7" label="Label 2" simple="true"
+                                                                              readOnly="true"
+                                                                              contentStyle="font-size:26px !important;"/>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.UserAttendanceV.hints.Remarks.label}"
+                                                                       id="c6" width="200" align="center">
+                                                                <af:inputText value="#{row.Remarks}"
+                                                                              shortDesc="#{bindings.UserAttendanceV.hints.Remarks.tooltip}"
+                                                                              id="ot6" label="Label 3" simple="true"
+                                                                              contentStyle="font-size:26px !important;"
+                                                                              readOnly="true"/>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.UserAttendanceV.hints.WorkHours.label}"
+                                                                       id="c8" width="100" align="center">
+                                                                <af:inputText value="#{row.WorkHours}"
+                                                                              shortDesc="#{bindings.UserAttendanceV.hints.WorkHours.tooltip}"
+                                                                              id="ot8" label="Label 1" readOnly="true"
+                                                                              contentStyle="font-size:26px !important;"
+                                                                              simple="true"
+                                                                              visible="#{row.Status != 'Weekend'}">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.UserAttendanceV.hints.WorkHours.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                        </af:table>
+                                                    </af:panelGroupLayout>
+                                                </af:panelHeader>
+                                            </f:facet>
+                                        </af:panelSplitter>
+                                    </af:panelGroupLayout>
+                                </af:panelHeader>
+                            </f:facet>
+                            <f:facet name="second">
+                                <af:panelGroupLayout id="pgl6" layout="vertical">
+                                    <af:link text="#{viewcontrollerBundle.YourAttendance}" id="l33" icon="#{resource['images:logout-close-24.png']}">
+                                        <af:setPropertyListener from="#{false}" to="#{sessionScope.attendancePanel}"
+                                                                type="action"/>
+                                    </af:link>
+                                    <af:panelGroupLayout id="pgl1" layout="vertical"
+                                                         inlineStyle="margin:60px 30px 30px 30px; padding:30px 0 0 0; background: rgb(234,255,250); background: linear-gradient(176deg, rgba(234,255,250,1) 0%, rgba(148,175,246,1) 100%);"
+                                                         visible="#{not sessionScope.show_fncn}"
+                                                         partialTriggers="pt_b1 pt_l5">
+                                        <af:activeOutputText value="#{sessionScope.userEmail}#{'--'}#{sessionScope.orgCode}#{'--'}#{sessionScope.userMobile}#{'--'}#{sessionScope.userId}"
+                                                             id="aot1" rendered="false"/>
+                                        <af:panelGroupLayout id="pgl2" layout="scroll">
+                                            <af:panelFormLayout id="pfl1" maxColumns="5" rows="2" fieldWidth="100%"
+                                                                labelWidth="0%">
+                                                <f:facet name="footer"/>
+                                                <af:iterator id="i1" value="#{bindings.UserRolesV.collectionModel}"
+                                                             var="roles">
+                                                    <af:panelGroupLayout id="pgl3" layout="vertical"
+                                                                         inlineStyle="margin:0 0 40px 0;"
+                                                                         halign="center">
+                                                        <af:link id="l1"
+                                                                 inlineStyle="font-size:25px; color:navy; font-weight:bold;"
+                                                                 iconPosition="top" partialSubmit="true"
+                                                                 icon="resources/images/#{Locale.locale}#{roles.SystemId}o.png"
+                                                                 partialTriggers="::pt_soc1"
+                                                                 actionListener="#{pageFlowScope.AppsBean.showFncnPopupActnLsnr}">
+                                                            <!--<af:setPropertyListener from="#{roles.SystemId}"
                                                                         to="#{pageFlowScope.SystemId}" type="action"/>
                                                 <af:setPropertyListener from="#{roles.RoleGroupId}"
                                                                         to="#{pageFlowScope.RoleGroupId}"
                                                                         type="action"/>-->
-                                                <!--<af:showPopupBehavior popupId="p1" triggerType="click"
+                                                            <!--<af:showPopupBehavior popupId="p1" triggerType="click"
                                                                       align="afterEnd"/>-->
-                                            </af:link>
-                                            <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
-                                                      binding="#{pageFlowScope.AppsBean.noteWindowFncnPopup}">
-                                                <af:noteWindow id="nw1" inlineStyle="background-color:white;">
-                                                    <af:panelGroupLayout id="pgl5" layout="scroll"
-                                                                         inlineStyle="background-color:White;">
-                                                        <af:panelFormLayout id="pfl2" maxColumns="5" rows="1"
-                                                                            fieldWidth="100%" labelWidth="0%"
-                                                                            inlineStyle="background-color:White;">
-                                                            <f:facet name="footer"/>
-                                                            <af:iterator id="i2"
-                                                                         value="#{bindings.SpecUserPermissionsV.collectionModel}"
-                                                                         var="perms">
-                                                                <af:panelGroupLayout id="pgl4" layout="horizontal"
-                                                                                     inlineStyle="padding:10px 0 10px 0;background-color:White;">
-                                                                    <af:link text="#{Locale.locale=='en' ? perms.EnFncnName :perms.ArFncnName}"
-                                                                             id="l2"
-                                                                             icon="resources/images/#{perms.FncnId}o.png"
-                                                                             action="#{pageFlowScope.AppsBean.onClickFncnActn}"
-                                                                             hoverIcon="resources/images/#{perms.FncnId}f.png"/>
+                                                        </af:link>
+                                                        <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                                                                  binding="#{pageFlowScope.AppsBean.noteWindowFncnPopup}">
+                                                            <af:noteWindow id="nw1"
+                                                                           inlineStyle="background-color:white;">
+                                                                <af:panelGroupLayout id="pgl5" layout="scroll"
+                                                                                     inlineStyle="background-color:White;">
+                                                                    <af:panelFormLayout id="pfl2" maxColumns="5"
+                                                                                        rows="1" fieldWidth="100%"
+                                                                                        labelWidth="0%"
+                                                                                        inlineStyle="background-color:White;">
+                                                                        <f:facet name="footer"/>
+                                                                        <af:iterator id="i2"
+                                                                                     value="#{bindings.SpecUserPermissionsV.collectionModel}"
+                                                                                     var="perms">
+                                                                            <af:panelGroupLayout id="pgl4"
+                                                                                                 layout="horizontal"
+                                                                                                 inlineStyle="padding:10px 0 10px 0;background-color:White;">
+                                                                                <af:link text="#{Locale.locale=='en' ? perms.EnFncnName :perms.ArFncnName}"
+                                                                                         id="l2"
+                                                                                         icon="resources/images/#{perms.FncnId}o.png"
+                                                                                         action="#{pageFlowScope.AppsBean.onClickFncnActn}"
+                                                                                         hoverIcon="resources/images/#{perms.FncnId}f.png"/>
+                                                                            </af:panelGroupLayout>
+                                                                        </af:iterator>
+                                                                    </af:panelFormLayout>
                                                                 </af:panelGroupLayout>
-                                                            </af:iterator>
-                                                        </af:panelFormLayout>
+                                                            </af:noteWindow>
+                                                        </af:popup>
                                                     </af:panelGroupLayout>
-                                                </af:noteWindow>
-                                            </af:popup>
+                                                </af:iterator>
+                                            </af:panelFormLayout>
                                         </af:panelGroupLayout>
-                                    </af:iterator>
-                                </af:panelFormLayout>
-                            </af:panelGroupLayout>
-                        </af:panelGroupLayout>
-                        <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                                   partialTriggers="::l3 ::pt_b1 ::l4 ::l5 ::l6 ::l7 ::l8 ::l12 ::l13 ::l14 ::l15 ::l16 ::l17 ::l18 ::l19 ::l20 ::l21 ::l22 ::l23 ::l24 ::l25 ::l26 ::l25 ::l27 ::l28 ::l29 ::l30 ::l31 ::l32"
-                                   visible="#{sessionScope.show_fncn}"/>
-                        <af:panelGroupLayout id="pgl7" layout="vertical" rendered="false">
-                            <af:link text="Currencies-TF" id="l9" action="#{pageFlowScope.AppsBean.currenciesTF}"/>
-                            <af:link text="stndrd-role-perms-TF" action="#{pageFlowScope.AppsBean.stndrdrolepermsTF}"
-                                     id="l3" visible="false"/>
-                            <af:link text="itemCategories-TF" action="#{pageFlowScope.AppsBean.itemCategoriesTF}"
-                                     id="l4"/>
-                            <af:link text="storeCategories-TF" action="#{pageFlowScope.AppsBean.storeCategoriesTF}"
-                                     id="l5"/>
-                            <af:link text="organizations-TF" action="#{pageFlowScope.AppsBean.organizationsTF}"
-                                     id="l6"/>
-                            <af:link text="units-transform-TF" action="#{pageFlowScope.AppsBean.unitstransformTF}"
-                                     id="l7"/>
-                            <af:link text="items-TF" action="#{pageFlowScope.AppsBean.itemsTF}" id="l8"/>
-                            <af:link text="stndrd-role-perms-TF" id="l10"
-                                     action="#{pageFlowScope.AppsBean.stndrdrolepermsTF}"/>
-                            <af:link text="users-TF" id="l11" action="#{pageFlowScope.AppsBean.usersTF}"/>
-                            <af:link text="employees-TF" action="#{pageFlowScope.AppsBean.employeesTF}" id="l12"/>
-                            <af:link text="jobs-TF" action="#{pageFlowScope.AppsBean.jobsTF}" id="l13"/>
-                            <af:link text="store-TF" action="#{pageFlowScope.AppsBean.storeTF}" id="l14"/>
-                            <af:link text="customers-TF" action="#{pageFlowScope.AppsBean.customersTF}" id="l15"/>
-                            <af:link text="suppliers-TF" action="#{pageFlowScope.AppsBean.suppliersTF}" id="l16"/>
-                            <af:link text="clients-TF" action="#{pageFlowScope.AppsBean.clientsTF}" id="l17"/>
-                            <af:link text="mnf_process_basic_data-TF"
-                                     action="#{pageFlowScope.AppsBean.mnf_process_basic_dataTF}" id="l18"/>
-                            <af:link text="items_variables_structure-TF"
-                                     action="#{pageFlowScope.AppsBean.items_variables_structureTF}" id="l19"/>
-                            <af:link text="gl_trans_types-TF" action="#{pageFlowScope.AppsBean.gl_trans_typesTF}"
-                                     id="l20"/>
-                            <af:link text="RO-gl_documents-TF" action="#{pageFlowScope.AppsBean.rOgl_documentsTF}"
-                                     id="l25"/>
-                            <af:link text="gl_financial_years-TF"
-                                     action="#{pageFlowScope.AppsBean.gl_financial_yearsTF}" id="l26"/>
-                            <af:link text="gl_acc_types-TF" action="#{pageFlowScope.AppsBean.gl_acc_typesTF}" id="l21"/>
-                            <af:link text="gl_gen_acc_chart-TF" action="#{pageFlowScope.AppsBean.gl_gen_acc_chartTF}"
-                                     id="l22"/>
-                            <af:link text="gl_org_cost_centers-TF"
-                                     action="#{pageFlowScope.AppsBean.gl_org_cost_centersTF}" id="l23"/>
-                            <af:link text="gl_org_acc_chart-TF" action="#{pageFlowScope.AppsBean.gl_org_acc_chartTF}"
-                                     id="l24"/>
-                            <af:link text="setupData-TF" action="#{pageFlowScope.AppsBean.setupDataTF}" id="l27"/>
-                            <af:link text="transTypes-TF" action="#{pageFlowScope.AppsBean.transTypesTF}" id="l28"/>
-                            <af:link text="assets_basic_data-TF" action="#{pageFlowScope.AppsBean.assets_basic_dataTF}"
-                                     id="l29"/>
-                            <af:link text="AssetTransactions-TF" action="#{pageFlowScope.AppsBean.assetTransactionsTF}"
-                                     id="l30"/>
-                            <af:link text="projects-TF" action="#{pageFlowScope.AppsBean.projectsTF}" id="l31"/>
-                            <af:link text="setup_data" action="#{pageFlowScope.AppsBean.setup_data}" id="l32"/>
-                        </af:panelGroupLayout>
-                    </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                    <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
+                                               partialTriggers="::l3 ::pt_b1 ::l4 ::l5 ::l6 ::l7 ::l8 ::l12 ::l13 ::l14 ::l15 ::l16 ::l17 ::l18 ::l19 ::l20 ::l21 ::l22 ::l23 ::l24 ::l25 ::l26 ::l25 ::l27 ::l28 ::l29 ::l30 ::l31 ::l32"
+                                               visible="#{sessionScope.show_fncn}"/>
+                                    <af:panelGroupLayout id="pgl7" layout="vertical" rendered="false">
+                                        <af:link text="Currencies-TF" id="l9"
+                                                 action="#{pageFlowScope.AppsBean.currenciesTF}"/>
+                                        <af:link text="stndrd-role-perms-TF"
+                                                 action="#{pageFlowScope.AppsBean.stndrdrolepermsTF}" id="l3"
+                                                 visible="false"/>
+                                        <af:link text="itemCategories-TF"
+                                                 action="#{pageFlowScope.AppsBean.itemCategoriesTF}" id="l4"/>
+                                        <af:link text="storeCategories-TF"
+                                                 action="#{pageFlowScope.AppsBean.storeCategoriesTF}" id="l5"/>
+                                        <af:link text="organizations-TF"
+                                                 action="#{pageFlowScope.AppsBean.organizationsTF}" id="l6"/>
+                                        <af:link text="units-transform-TF"
+                                                 action="#{pageFlowScope.AppsBean.unitstransformTF}" id="l7"/>
+                                        <af:link text="items-TF" action="#{pageFlowScope.AppsBean.itemsTF}" id="l8"/>
+                                        <af:link text="stndrd-role-perms-TF" id="l10"
+                                                 action="#{pageFlowScope.AppsBean.stndrdrolepermsTF}"/>
+                                        <af:link text="users-TF" id="l11" action="#{pageFlowScope.AppsBean.usersTF}"/>
+                                        <af:link text="employees-TF" action="#{pageFlowScope.AppsBean.employeesTF}"
+                                                 id="l12"/>
+                                        <af:link text="jobs-TF" action="#{pageFlowScope.AppsBean.jobsTF}" id="l13"/>
+                                        <af:link text="store-TF" action="#{pageFlowScope.AppsBean.storeTF}" id="l14"/>
+                                        <af:link text="customers-TF" action="#{pageFlowScope.AppsBean.customersTF}"
+                                                 id="l15"/>
+                                        <af:link text="suppliers-TF" action="#{pageFlowScope.AppsBean.suppliersTF}"
+                                                 id="l16"/>
+                                        <af:link text="clients-TF" action="#{pageFlowScope.AppsBean.clientsTF}"
+                                                 id="l17"/>
+                                        <af:link text="mnf_process_basic_data-TF"
+                                                 action="#{pageFlowScope.AppsBean.mnf_process_basic_dataTF}" id="l18"/>
+                                        <af:link text="items_variables_structure-TF"
+                                                 action="#{pageFlowScope.AppsBean.items_variables_structureTF}"
+                                                 id="l19"/>
+                                        <af:link text="gl_trans_types-TF"
+                                                 action="#{pageFlowScope.AppsBean.gl_trans_typesTF}" id="l20"/>
+                                        <af:link text="RO-gl_documents-TF"
+                                                 action="#{pageFlowScope.AppsBean.rOgl_documentsTF}" id="l25"/>
+                                        <af:link text="gl_financial_years-TF"
+                                                 action="#{pageFlowScope.AppsBean.gl_financial_yearsTF}" id="l26"/>
+                                        <af:link text="gl_acc_types-TF"
+                                                 action="#{pageFlowScope.AppsBean.gl_acc_typesTF}" id="l21"/>
+                                        <af:link text="gl_gen_acc_chart-TF"
+                                                 action="#{pageFlowScope.AppsBean.gl_gen_acc_chartTF}" id="l22"/>
+                                        <af:link text="gl_org_cost_centers-TF"
+                                                 action="#{pageFlowScope.AppsBean.gl_org_cost_centersTF}" id="l23"/>
+                                        <af:link text="gl_org_acc_chart-TF"
+                                                 action="#{pageFlowScope.AppsBean.gl_org_acc_chartTF}" id="l24"/>
+                                        <af:link text="setupData-TF" action="#{pageFlowScope.AppsBean.setupDataTF}"
+                                                 id="l27"/>
+                                        <af:link text="transTypes-TF" action="#{pageFlowScope.AppsBean.transTypesTF}"
+                                                 id="l28"/>
+                                        <af:link text="assets_basic_data-TF"
+                                                 action="#{pageFlowScope.AppsBean.assets_basic_dataTF}" id="l29"/>
+                                        <af:link text="AssetTransactions-TF"
+                                                 action="#{pageFlowScope.AppsBean.assetTransactionsTF}" id="l30"/>
+                                        <af:link text="projects-TF" action="#{pageFlowScope.AppsBean.projectsTF}"
+                                                 id="l31"/>
+                                        <af:link text="setup_data" action="#{pageFlowScope.AppsBean.setup_data}"
+                                                 id="l32"/>
+                                    </af:panelGroupLayout>
+                                    <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s4"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelSplitter>
+                        <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                                  binding="#{backingBeanScope.LoginBean.attendanceConfirmationPopup}">
+                            <af:dialog id="d2" type="yesNo" contentWidth="400" contentHeight="50"
+                                       title="#{viewcontrollerBundle.Confirmation}"
+                                       dialogListener="#{backingBeanScope.LoginBean.attendanceDialogLsnr}"
+                                       inlineStyle="border-radius:30px 30px 30px 30px;width:520px;padding:10px 10px 10px 10px;">
+                                <f:facet name="buttonBar"/>
+                                <af:inputText value="#{viewcontrollerBundle.ARE_YOU_SURE_YOU_WANT_TO_}" id="ot9"
+                                              label="Label 4" simple="true" readOnly="true"
+                                              contentStyle="font-size:26px;" inlineStyle="padding-left:30px;"/>
+                                <af:inputText value="#{' '}#{viewcontrollerBundle.Punchin}" id="ot10" label="Label 5"
+                                              simple="true" contentStyle="font-size:26px;" readOnly="true"
+                                              visible="#{sessionScope.attendance=='Punch-in'}"/>
+                                <af:inputText value="#{' '}#{viewcontrollerBundle.Punchout}" id="ot11" label="Label 6"
+                                              simple="true" contentStyle="font-size:26px;" readOnly="true"
+                                              visible="#{sessionScope.attendance=='Punch-out'}"/>
+                            </af:dialog>
+                        </af:popup>
+                    </af:panelHeader>
                 </f:facet>
             </af:pageTemplate>
         </af:form>

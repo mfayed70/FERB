@@ -86,7 +86,7 @@
       <property
          name="fromOutcome">CreateInsert</property>
       <property
-         name="sdm:polyPoints">R50,397.27734,146.53125,560.0,268.07812,L50</property>
+         name="sdm:polyPoints">R50,397.27734,146.53125,560.0,264.57812,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

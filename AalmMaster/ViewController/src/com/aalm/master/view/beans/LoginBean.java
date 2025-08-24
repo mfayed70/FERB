@@ -3,6 +3,9 @@ package com.aalm.master.view.beans;
 import com.shopbook.common.ui.ADFUtils;
 import com.shopbook.common.ui.JSFUtil;
 
+import java.sql.Timestamp;
+
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +19,9 @@ import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpServletRequest;
 
 import oracle.adf.share.logging.ADFLogger;
+
+import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.jbo.Row;
 
@@ -34,9 +40,12 @@ public class LoginBean {
     private ADFLogger logger = ADFLogger.createADFLogger(LoginBean.class);
     private final String HOME_URL = "/AalM/erp/home";
     private final String LOGIN_URL = "/AalM/erp/login";
+    private Timestamp currentTime;
+    private RichPopup attendanceConfirmationPopup;
 
     public String login() {
         // Add event code here...
+        
         try {
             // attempt login
             SecurityUtils.getSubject().login(new UsernamePasswordToken(userName, password));
@@ -85,6 +94,9 @@ public class LoginBean {
                 logger.fine("No URL retrieved, redirecting to HOME_URL: " + HOME_URL);
                 externalContext.redirect(HOME_URL);
             }
+            ADFUtils.findOperation("createTodayAttendanceIfMissing").execute();
+            ADFUtils.findIterator("UserAttendanceVIterator").executeQuery();
+            JSFUtil.storeOnSession("attendancePanel", false);
         } catch (AuthenticationException e) {
             logger.config("Failed login validation for user " + userName);
             FacesMessage msg =
@@ -115,6 +127,18 @@ public class LoginBean {
         }
     }
 
+    public Date getCurrentDate() {
+        return new Date();
+    }
+
+    public void setCurrentTime(Timestamp currentTime) {
+        this.currentTime = currentTime;
+    }
+
+    public Timestamp getCurrentTime() {
+        return new Timestamp(new Date().getTime());
+    }
+
     public void setUserName(String userName) {
         this.userName = userName;
     }
@@ -137,5 +161,52 @@ public class LoginBean {
 
     public ADFLogger getLogger() {
         return logger;
+    }
+
+    public void attendanceDialogLsnr(DialogEvent e) {
+        // Add event code here...
+            switch (e.getOutcome()) {
+                       case yes:   // for type="yesNo"
+            System.out.println("User pressed YES - "+JSFUtil.getFromSession("attendance"));
+        System.out.println("curr time : "+this.getCurrentTime());
+    if(JSFUtil.getFromSession("attendance").equals("Punch-in")) {
+                    System.out.println("curr time : "+this.getCurrentTime());
+            ADFUtils.setBoundAttributeValue("CheckInTime", this.getCurrentTime());
+            ADFUtils.findOperation("Commit").execute();
+            ADFUtils.findIterator("UserAttendanceVIterator").executeQuery();
+                } else {
+                    ADFUtils.setBoundAttributeValue("CheckOutTime", this.getCurrentTime());
+                    ADFUtils.findOperation("Commit").execute();
+                    ADFUtils.findIterator("UserAttendanceVIterator").executeQuery();
+                           break;
+                }   case no:    // for type="yesNo"
+                          System.out.println("User pressed NO - "+JSFUtil.getFromSession("attendance"));
+                           break;
+                       // If you ever use type="okCancel", check ok/cancel instead.
+                       default:
+                           logger.info("Dialog dismissed: " + e.getOutcome());
+                   }
+    }
+
+    public void punchinBtnActnLsnr(ActionEvent actionEvent) {
+        // Add event code here...
+//        JSFUtil.storeOnSession("attendance", "Punch-in");
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.attendanceConfirmationPopup.show(hints);
+    }
+
+    public void punchoutBtnActnLsnr(ActionEvent actionEvent) {
+        // Add event code here...
+//        JSFUtil.storeOnSession("attendance", "Punch-out");
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.attendanceConfirmationPopup.show(hints);
+    }
+
+    public void setAttendanceConfirmationPopup(RichPopup attendanceConfirmationPopup) {
+        this.attendanceConfirmationPopup = attendanceConfirmationPopup;
+    }
+
+    public RichPopup getAttendanceConfirmationPopup() {
+        return attendanceConfirmationPopup;
     }
 }

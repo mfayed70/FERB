@@ -194,7 +194,42 @@
         <source>System Functions</source>
         <target/>
       </trans-unit>
-      
+      <trans-unit id="ATTENDANCE">
+        <source>Attendance</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Ser.">
+        <source>Ser.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Punchin">
+        <source>Punch-in</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Confirmation">
+        <source>Confirmation</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ARE_YOU_SURE_YOU_WANT_TO_">
+        <source>are you sure you want to </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Punchout">
+        <source>Punch-out</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YourTasks">
+        <source>Your Tasks</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YourAttendanceTasks">
+        <source>Your Attendance &amp; Tasks</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YourAttendance">
+        <source>Your Attendance</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -59,6 +59,12 @@
         </display-type>
       </run-as-dialog>
     </task-flow-call>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>Execute</from-activity-id>
       <control-flow-case id="__2">
@@ -74,6 +80,13 @@
       </control-flow-case>
       <control-flow-case id="__7">
         <from-outcome>toContracts</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
         <to-activity-id>empsContractsHolder</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

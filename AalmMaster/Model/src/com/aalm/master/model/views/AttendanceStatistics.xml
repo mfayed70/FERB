@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AttendanceStatistics"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.master.model.views.AttendanceStatistics_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="YearsLOV1"
+    ViewObjectName="com.aalm.master.model.lovs.YearsLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CurrMonthLOV1"
+    ViewObjectName="com.aalm.master.model.lovs.CurrMonthLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Year"
+    ListVOName="YearsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Year"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Cyear"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Cyear"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MonthName"
+    ListVOName="CurrMonthLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MonthName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="MonthName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MonthName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT 
+    u.user_id as user_id,
+    YEAR(CURDATE()) AS year,
+    MONTHNAME(CURDATE()) AS month_name,
+    COUNT(CASE WHEN DAYOFWEEK(a.attendance_date) NOT IN (6,7) THEN 1 END) AS total_working_days,
+    SUM(CASE WHEN a.status = 'ABSENT' AND DAYOFWEEK(a.attendance_date) NOT IN (6,7) THEN 1 ELSE 0 END) AS absent_days,
+    SUM(CASE WHEN a.status = 'LEAVE' AND DAYOFWEEK(a.attendance_date) NOT IN (6,7) THEN 1 ELSE 0 END) AS leave_days,
+    SUM(CASE WHEN a.status = 'PRESENT' AND DAYOFWEEK(a.attendance_date) NOT IN (6,7) THEN 1 ELSE 0 END) AS present_days,
+    ROUND(
+        (SUM(CASE WHEN a.status = 'ABSENT' AND DAYOFWEEK(a.attendance_date) NOT IN (6,7) THEN 1 ELSE 0 END) 
+         / COUNT(CASE WHEN DAYOFWEEK(a.attendance_date) NOT IN (6,7) THEN 1 END)) * 100, 2
+    ) AS absent_percentage,
+    ROUND(
+        (SUM(CASE WHEN a.status = 'LEAVE' AND DAYOFWEEK(a.attendance_date) NOT IN (6,7) THEN 1 ELSE 0 END) 
+         / COUNT(CASE WHEN DAYOFWEEK(a.attendance_date) NOT IN (6,7) THEN 1 END)) * 100, 2
+    ) AS leave_percentage
+FROM ATTENDANCE a
+JOIN (SELECT DISTINCT user_id FROM ATTENDANCE) u
+  ON a.user_id = u.user_id
+WHERE YEAR(a.attendance_date) = YEAR(CURDATE())
+  AND MONTH(a.attendance_date) = MONTH(CURDATE())
+GROUP BY u.user_id, year, month_name]]></SQLQuery>
+  <ViewAttribute
+    Name="UserId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="user_id"
+    Expression="user_id"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Year"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="year"
+    Expression="year"
+    SQLType="NUMERIC"
+    LOVName="LOV_Year">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MonthName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="9"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="month_name"
+    Expression="month_name"
+    SQLType="VARCHAR"
+    LOVName="LOV_MonthName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotalWorkingDays"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="total_working_days"
+    Expression="total_working_days"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AbsentDays"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="absent_days"
+    Expression="absent_days"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LeaveDays"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="leave_days"
+    Expression="leave_days"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PresentDays"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="present_days"
+    Expression="present_days"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AbsentPercentage"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="absent_percentage"
+    Expression="absent_percentage"
+    SQLType="DECIMAL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LeavePercentage"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="leave_percentage"
+    Expression="leave_percentage"
+    SQLType="DECIMAL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="UserId"/>
+    <Item Value="Year"/>
+    <Item Value="MonthName"/>
+  </AttrArray>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.master.model.AalmMasterMBndl"/>
+  </ResourceBundle>
+</ViewObject>

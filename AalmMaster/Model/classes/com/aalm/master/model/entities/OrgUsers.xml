@@ -199,6 +199,13 @@
     AssociationOtherEnd="com.aalm.master.model.entities.FkUsersControlOrgsOrgUsers1Assoc.OrgUsers"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Attendance"
+    Association="com.aalm.master.model.entities.FkAttendanceUserAssoc"
+    AssociationEnd="com.aalm.master.model.entities.FkAttendanceUserAssoc.Attendance"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkAttendanceUserAssoc.OrgUsers"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="EmailUnique">
     <DesignTime>
@@ -231,8 +238,4 @@
       <Item Value="com.aalm.master.model.entities.OrgUsers.UserId"/>
     </AttrArray>
   </Key>
-  <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="com.aalm.master.model.AalmMasterMBndl"/>
-  </ResourceBundle>
 </Entity>

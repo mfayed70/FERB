@@ -219,8 +219,14 @@
     ViewLink="com.aalm.master.model.views.FkUsersControlOrgsOrgUsers1VL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
-  <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="com.aalm.master.model.ModelBundle"/>
-  </ResourceBundle>
+  <ViewLinkAccessor
+    Name="AttendanceV"
+    ViewLink="com.aalm.master.model.views.FkAttendanceUserVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AttendanceStatistics"
+    ViewLink="com.aalm.master.model.views.AttendanceToAttendanceStatisticsVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

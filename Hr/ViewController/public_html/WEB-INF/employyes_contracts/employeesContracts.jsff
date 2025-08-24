@@ -3,7 +3,10 @@
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
   <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.hr.view.AalmHrBndl']}"/>
   <af:panelHeader text="#{viewcontrollerBundle.EmployeeContract}" id="ph1" inlineStyle="margin:10px 10px 10px 10px;">
-    <f:facet name="context"/>
+    <f:facet name="context">
+      <af:inputText label="Label 1" id="it15" simple="true" value="#{pageFlowScope.pEmpId}"
+                    contentStyle="color:Maroon; font-size:xx-large;"/>
+    </f:facet>
     <f:facet name="menuBar">
       <af:button text="#{viewcontrollerBundle.CANCEL}" id="b2" action="toCancel"
                  actionListener="#{bindings.Rollback.execute}" immediate="true"/>
@@ -16,14 +19,14 @@
       <af:spacer width="10" height="30" id="s1"/>
     </f:facet>
     <af:panelGroupLayout id="pgl1" layout="vertical">
-      <af:panelSplitter id="ps3" splitterPosition="700">
+      <af:panelSplitter id="ps3" splitterPosition="900">
         <f:facet name="first">
           <af:panelFormLayout id="pfl1" labelAlignment="top" maxColumns="3" rows="5"
                               inlineStyle="border-width:thin; border-style:solid; border-color:#c6c6c6; border-bottom-left-radius:10px 10px; border-bottom-right-radius:10px 10px; border-top-left-radius:10px 10px; border-top-right-radius:10px;margin:10px 10px 10px 10px;">
             <af:inputText value="#{bindings.EmpId.inputValue}" label="#{bindings.EmpId.hints.label}"
                           required="#{bindings.EmpId.hints.mandatory}" columns="#{bindings.EmpId.hints.displayWidth}"
                           maximumLength="#{bindings.EmpId.hints.precision}" shortDesc="#{bindings.EmpId.hints.tooltip}"
-                          id="it4">
+                          id="it4" readOnly="true">
               <f:validator binding="#{bindings.EmpId.validator}"/>
               <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpId.format}"/>
             </af:inputText>
@@ -63,10 +66,10 @@
               <f:validator binding="#{bindings.ContractDesc.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.ContractId.inputValue}" label="#{bindings.ContractId.hints.label}"
-                          required="#{bindings.ContractId.hints.mandatory}"
+                          required="false"
                           columns="#{bindings.ContractId.hints.displayWidth}"
                           maximumLength="#{bindings.ContractId.hints.precision}"
-                          shortDesc="#{bindings.ContractId.hints.tooltip}" id="it3">
+                          shortDesc="#{bindings.ContractId.hints.tooltip}" id="it3" readOnly="true">
               <f:validator binding="#{bindings.ContractId.validator}"/>
               <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractId.format}"/>
             </af:inputText>
