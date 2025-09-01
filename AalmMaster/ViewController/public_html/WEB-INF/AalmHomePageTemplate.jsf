@@ -19,7 +19,8 @@
                 <!-- Header -->
                 <af:panelStretchLayout id="pt_psl1" startWidth="200px" endWidth="320px">
                     <f:facet name="center">
-                        <af:panelGroupLayout id="pt_pgl3" layout="horizontal" inlineStyle="padding:5px 0 0 0;">
+                        <af:panelGroupLayout id="pt_pgl3" layout="horizontal" inlineStyle="padding:5px 0 0 0;"
+                                             valign="top">
                             <af:outputText value="#{sessionScope.orgIni=='z' ? AalmMasterBndl.ZAMZAM___FERP_SYSTEM : AalmMasterBndl.ELECON_FERP_SYSTEM}"
                                            id="pt_ot1" inlineStyle="color:navy;font-size:30px;"/>
                             <af:spacer width="20" height="10" id="pt_s6"/>
@@ -29,8 +30,14 @@
                             <af:outputText value="#{AalmMasterBndl.WELCOME}" id="pt_ot2"
                                            inlineStyle="color:navy;font-size:25px;"/>
                             <af:spacer width="10" height="10" id="pt_s2"/>
-                            <af:outputText value="#{sessionScope.userName}" id="pt_ot3"
-                                           inlineStyle="color:navy;font-size:25px;"/>
+                            <af:panelGroupLayout id="pt_pgl12" layout="horizontal"
+                                                 inlineStyle="background-color:White;border-bottom-left-radius:30px 30px; border-bottom-right-radius:30px 30px; border-top-left-radius:30px 30px; border-top-right-radius:30px 30px; border-width:thin; border-style:solid; border-color:White;padding:0 5px 0 5px;margin:0 5px 0 5px;"
+                                                 valign="top">
+                                <af:link id="pt_ot3" inlineStyle="color:navy; font-size:25px; border-color:White;"
+                                         text="#{sessionScope.userName}"
+                                         action="#{pageFlowScope.AppsBean.homePageSwitcher}"
+                                         icon="#{resource['images:userAvatar.png']}" iconPosition="trailing"/>
+                            </af:panelGroupLayout>
                         </af:panelGroupLayout>
                     </f:facet>
                     <f:facet name="start">
@@ -44,10 +51,10 @@
                         </af:selectOneChoice>
                     </f:facet>
                     <f:facet name="end">
-                        <af:panelGroupLayout id="pt_pgl11" layout="horizontal" valign="bottom">
+                        <af:panelGroupLayout id="pt_pgl11" layout="horizontal">
                             <af:link id="pt_l5" icon="#{resource['images:home-32.png']}"
                                      shortDesc="#{AalmMasterBndl.HOME}" action="#{pageFlowScope.AppsBean.homeActn}"
-                                     partialSubmit="true"></af:link>
+                                     partialSubmit="true" visible="#{view.viewId == '/home'}"></af:link>
                             <af:panelGroupLayout id="pt_pgl4"
                                                  inlineStyle="background-color:White;border-bottom-left-radius:30px 30px; border-bottom-right-radius:30px 30px; border-top-left-radius:30px 30px; border-top-right-radius:30px 30px; border-width:thin; border-style:solid; border-color:White;padding:0 5px 0 5px;margin:5px 5px 0 5px;"
                                                  layout="horizontal" halign="center">
@@ -79,7 +86,8 @@
                     <af:link id="pt_l2"
                              icon="#{Locale.locale=='en' ? resource['images:side-menu-open-navy-40.png'] : resource['images:side-menu-close-navy-40.png']}"
                              shortDesc="#{AalmMasterBndl.SIDE_MENU}" partialSubmit="true"
-                             windowModalityType="modeless">
+                             windowModalityType="modeless"
+                             partialTriggers="pt_ot3" visible="#{view.viewId == '/home'}">
                         <af:showPopupBehavior popupId="pt_p2" triggerType="click" align="afterStart" alignId="pt_l2"/>
                     </af:link>
                 </af:panelGroupLayout>

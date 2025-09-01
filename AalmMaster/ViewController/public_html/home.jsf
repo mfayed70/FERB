@@ -12,7 +12,7 @@
         <af:form id="f1" usesUpload="true">
             <af:pageTemplate viewId="/WEB-INF/AalmHomePageTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
                 <f:facet name="_mainContent">
-                    <af:panelHeader text="#{viewcontrollerBundle.YourAttendanceTasks}" id="ph2">
+                    <af:panelHeader text="#{viewcontrollerBundle.YourTasks}" id="ph2">
                         <f:facet name="context"/>
                         <f:facet name="menuBar"/>
                         <f:facet name="toolbar"/>
@@ -21,7 +21,7 @@
                         <af:panelSplitter id="ps1" splitterPosition="#{sessionScope.attendancePanel ? 0 : 1300}"
                                           partialTriggers="l34" disabled="true">
                             <f:facet name="first">
-                                <af:panelHeader text=" " id="ph3">
+                                <af:panelHeader text=" " id="ph3" rendered="false">
                                     <f:facet name="context"/>
                                     <f:facet name="menuBar">
                                         <af:link text="#{viewcontrollerBundle.YourTasks}" id="l34"
@@ -224,7 +224,8 @@
                             </f:facet>
                             <f:facet name="second">
                                 <af:panelGroupLayout id="pgl6" layout="vertical">
-                                    <af:link text="#{viewcontrollerBundle.YourAttendance}" id="l33" icon="#{resource['images:logout-close-24.png']}">
+                                    <af:link text="#{viewcontrollerBundle.YourAttendance}" id="l33" icon="#{resource['images:logout-close-24.png']}"
+                                             rendered="false">
                                         <af:setPropertyListener from="#{false}" to="#{sessionScope.attendancePanel}"
                                                                 type="action"/>
                                     </af:link>
@@ -291,7 +292,7 @@
                                         </af:panelGroupLayout>
                                     </af:panelGroupLayout>
                                     <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                                               partialTriggers="::l3 ::pt_b1 ::l4 ::l5 ::l6 ::l7 ::l8 ::l12 ::l13 ::l14 ::l15 ::l16 ::l17 ::l18 ::l19 ::l20 ::l21 ::l22 ::l23 ::l24 ::l25 ::l26 ::l25 ::l27 ::l28 ::l29 ::l30 ::l31 ::l32"
+                                               partialTriggers="::l3 ::pt_b1 ::l4 ::l5 ::l6 ::l7 ::l8 ::l12 ::l13 ::l14 ::l15 ::l16 ::l17 ::l18 ::l19 ::l20 ::l21 ::l22 ::l23 ::l24 ::l25 ::l26 ::l25 ::l27 ::l28 ::l29 ::l30 ::l31 ::l32 ::l35"
                                                visible="#{sessionScope.show_fncn}"/>
                                     <af:panelGroupLayout id="pgl7" layout="vertical" rendered="false">
                                         <af:link text="Currencies-TF" id="l9"
@@ -352,6 +353,8 @@
                                                  id="l31"/>
                                         <af:link text="setup_data" action="#{pageFlowScope.AppsBean.setup_data}"
                                                  id="l32"/>
+                                        <af:link text="empProfile-TF" action="#{pageFlowScope.AppsBean.empProfileTF}"
+                                                 id="l35"/>
                                     </af:panelGroupLayout>
                                     <f:facet name="separator">
                                         <af:spacer width="10" height="10" id="s4"/>

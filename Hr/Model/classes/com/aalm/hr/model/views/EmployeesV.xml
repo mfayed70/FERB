@@ -58,8 +58,9 @@
     Name="LOV_MaritalStatus"
     ListVOName="MaritalStatusLOV"
     ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="MaritalStatus"/>
     </AttrArray>
@@ -237,6 +238,11 @@
   <ViewLinkAccessor
     Name="EmployeeJobHistoryV"
     ViewLink="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="OrgUsersV"
+    ViewLink="com.aalm.hr.model.views.FkOrgUsersEmployees1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>

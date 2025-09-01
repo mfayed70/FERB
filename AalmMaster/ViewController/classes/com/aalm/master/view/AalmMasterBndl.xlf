@@ -222,12 +222,12 @@
         <source>Your Tasks</source>
         <target/>
       </trans-unit>
-      <trans-unit id="YourAttendanceTasks">
-        <source>Your Attendance &amp; Tasks</source>
-        <target/>
-      </trans-unit>
       <trans-unit id="YourAttendance">
         <source>Your Attendance</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YourTasks">
+        <source>Your Tasks</source>
         <target/>
       </trans-unit>
     </body>

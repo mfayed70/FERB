@@ -76,4 +76,39 @@
       <property
          name="sdm:polyPoints">B43,308.5,122.046875,173.5,247.5625,T50</property>
    </ControlFlowCase>
+   <View
+      id="View8">
+      <property
+         name="activityId">userProfile</property>
+      <property
+         name="page">/userProfile.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>userProfile&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">475.10938</property>
+      <property
+         name="x">318.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="View8"
+      to="View2">
+      <property
+         name="fromOutcome">toHome</property>
+      <property
+         name="sdm:polyPoints">T50,318.0,421.09375,318.5,352.60938,B50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View2"
+      to="View8">
+      <property
+         name="fromOutcome">toUserProfile</property>
+      <property
+         name="sdm:polyPoints">B56,322.0,352.63492,321.5,421.125,T56</property>
+   </ControlFlowCase>
 </SDM>

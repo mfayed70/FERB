@@ -190,6 +190,20 @@
     AssociationOtherEnd="com.aalm.hr.model.entities.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1Assoc.Employees"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="EmployeesContracts2"
+    Association="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc"
+    AssociationEnd="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc.EmployeesContracts2"
+    AssociationOtherEnd="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc.Employees"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="OrgUsers"
+    Association="com.aalm.hr.model.entities.FkOrgUsersEmployees1Assoc"
+    AssociationEnd="com.aalm.hr.model.entities.FkOrgUsersEmployees1Assoc.OrgUsers"
+    AssociationOtherEnd="com.aalm.hr.model.entities.FkOrgUsersEmployees1Assoc.Employees"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="Primary1"
     PrimaryKey="true">

@@ -14,6 +14,7 @@
     <Attr Name="_jbo.TypeMapEntries" Value="Java"/>
     <Attr Name="_NamedConnection" Value="eleconConn"/>
     <Attr Name="_appModuleNames0" Value="com.aalm.hr.model.AalmHr"/>
+    <Attr Name="_domainNames0" Value="com.aalm.hr.model.entities.temp.Enum"/>
   </DesignTime>
   <Containee
     Name="entities"
@@ -22,6 +23,14 @@
     <DesignTime>
       <Attr Name="_EO" Value="true"/>
       <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="temp"
+    PackageName="com.aalm.hr.model.entities.temp"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_DO" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee

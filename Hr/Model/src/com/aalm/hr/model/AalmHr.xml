@@ -54,11 +54,36 @@
   <ViewUsage
     Name="VacationTypesV"
     ViewObjectName="com.aalm.hr.model.views.VacationTypesV"/>
+  <ViewUsage
+    Name="OrgUsersV"
+    ViewObjectName="com.aalm.hr.model.views.OrgUsersV">
+    <ViewCriteriaUsage
+      Name="OrgUsersVCriteria"
+      FullName="com.aalm.hr.model.views.OrgUsersV.OrgUsersVCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="AttendanceV"
+    ViewObjectName="com.aalm.hr.model.views.AttendanceV"/>
+  <ViewUsage
+    Name="AttendanceStatisticsV"
+    ViewObjectName="com.aalm.hr.model.views.AttendanceStatisticsV"/>
   <ViewLinkUsage
     Name="fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL1"
     ViewLinkObjectName="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL"
     SrcViewUsageName="com.aalm.hr.model.AalmHr.EmployeesV"
     DstViewUsageName="com.aalm.hr.model.AalmHr.EmployeeJobHistoryV"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkAttendanceUserVL1"
+    ViewLinkObjectName="com.aalm.hr.model.views.FkAttendanceUserVL"
+    SrcViewUsageName="com.aalm.hr.model.AalmHr.OrgUsersV"
+    DstViewUsageName="com.aalm.hr.model.AalmHr.AttendanceV"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="OrgUsersToAttendanceStatisticsVL1"
+    ViewLinkObjectName="com.aalm.hr.model.views.OrgUsersToAttendanceStatisticsVL"
+    SrcViewUsageName="com.aalm.hr.model.AalmHr.OrgUsersV"
+    DstViewUsageName="com.aalm.hr.model.AalmHr.AttendanceStatisticsV"
     Reversed="false"/>
   <ResourceBundle>
     <XliffBundle

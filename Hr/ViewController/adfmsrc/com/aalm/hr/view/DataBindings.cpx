@@ -5,6 +5,8 @@
     <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
              className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
     <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
   </definitionFactories>
   <pageMap>
     <page path="/WEB-INF/jobs/jobs-TF.xml#jobs-TF@Execute" usageId="com_aalm_hr_view_jobs_TF_jobs_TF_ExecutePageDef"/>
@@ -27,6 +29,9 @@
     <page path="/WEB-INF/setup_data/setupData.jsff" usageId="com_aalm_hr_view_setupDataPageDef"/>
     <page path="/WEB-INF/employees/employees-TF.xml#employees-TF@SetCurrentRowWithKeyValue"
           usageId="com_aalm_hr_view_employees_TF_employees_TF_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/WEB-INF/empProfile/empProfile-TF.xml#empProfile-TF@ExecuteWithParams"
+          usageId="com_aalm_hr_view_empProfile_TF_empProfile_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/empProfile/empProfile.jsff" usageId="com_aalm_hr_view_empProfilePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_aalm_hr_view_jobs_TF_jobs_TF_ExecutePageDef" path="jobs.jobs_TF_jobs_TF_ExecutePageDef"/>
@@ -47,6 +52,9 @@
     <page id="com_aalm_hr_view_setupDataPageDef" path="setup_data.setupDataPageDef"/>
     <page id="com_aalm_hr_view_employees_TF_employees_TF_SetCurrentRowWithKeyValuePageDef"
           path="employees.employees_TF_employees_TF_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="com_aalm_hr_view_empProfile_TF_empProfile_TF_ExecuteWithParamsPageDef"
+          path="empProfile.empProfile_TF_empProfile_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_hr_view_empProfilePageDef" path="empProfile.empProfilePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AalmHrDataControl" Package="com.aalm.hr.model"

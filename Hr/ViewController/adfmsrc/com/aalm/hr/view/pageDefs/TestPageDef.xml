@@ -25,6 +25,12 @@
         <parameter id="refreshLocale" value="#{sessionScope.refreshLocale}"/>
       </parameters>
     </taskFlow>
+    <taskFlow id="empProfileTF1" taskFlowId="/WEB-INF/empProfile/empProfile-TF.xml#empProfile-TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="pViewForUser" value="#{false}"/>
+      </parameters>
+    </taskFlow>
   </executables>
   <bindings/>
 </pageDefinition>

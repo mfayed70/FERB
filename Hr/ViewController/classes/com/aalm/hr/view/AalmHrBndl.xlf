@@ -82,6 +82,38 @@
         <source>Setup Data</source>
         <target/>
       </trans-unit>
+      <trans-unit id="YourProfile">
+        <source>Your Profile</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EmployeeProfile">
+        <source>Employee Profile</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Punchin">
+        <source>Punch-in</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Punchout">
+        <source>Punch-out</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Confirmation">
+        <source>Confirmation</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ARE_YOU_SURE_YOU_WANT_TO_">
+        <source>Are you sure you want to </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SER_">
+        <source>Ser.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ATTENDANCE_DAY">
+        <source>Attendance Day</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

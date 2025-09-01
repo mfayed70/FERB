@@ -7,11 +7,19 @@ import com.shopbook.common.ui.FileUploadBean;
 
 import java.io.File;
 
+import java.sql.Timestamp;
+
+import java.util.Date;
+
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
 import oracle.adf.model.binding.DCIteratorBinding;
+import oracle.adf.share.logging.ADFLogger;
+import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.output.RichInlineFrame;
+
+import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.adfdt.model.objects.IteratorBinding;
 
@@ -36,6 +44,9 @@ public class HrBean {
     private String ConPhotoPath = null;
     private String PerPhotoPath = null;
     private Integer contractId;
+    private RichPopup attendanceConfirmationPopup;
+    private Timestamp currentTime;
+    private ADFLogger logger = ADFLogger.createADFLogger(HrBean.class);
 
     public HrBean() {
         IdfileUploadBean = new FileUploadBean();
@@ -249,5 +260,60 @@ public class HrBean {
 
     public Integer getContractId() {
         return contractId;
+    }
+
+    public void punchinBtnActnLsnr(ActionEvent actionEvent) {
+        // Add event code here...
+    //        JSFUtil.storeOnSession("attendance", "Punch-in");
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.attendanceConfirmationPopup.show(hints);
+    }
+
+    public void punchoutBtnActnLsnr(ActionEvent actionEvent) {
+        // Add event code here...
+    //        JSFUtil.storeOnSession("attendance", "Punch-out");
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.attendanceConfirmationPopup.show(hints);
+    }
+
+    public void setAttendanceConfirmationPopup(RichPopup attendanceConfirmationPopup) {
+        this.attendanceConfirmationPopup = attendanceConfirmationPopup;
+    }
+
+    public RichPopup getAttendanceConfirmationPopup() {
+        return attendanceConfirmationPopup;
+    }
+
+    public void attendanceDialogLsnr(DialogEvent e) {
+        // Add event code here...
+            switch (e.getOutcome()) {
+                       case yes:   // for type="yesNo"
+            System.out.println("User pressed YES - "+JSFUtil.getFromSession("attendance"));
+        System.out.println("curr time : "+this.getCurrentTime());
+    if(JSFUtil.getFromSession("attendance").equals("Punch-in")) {
+                    System.out.println("curr time : "+this.getCurrentTime());
+            ADFUtils.setBoundAttributeValue("CheckInTime", this.getCurrentTime());
+            ADFUtils.findOperation("Commit").execute();
+            ADFUtils.findIterator("AttendanceVIterator").executeQuery();
+                } else {
+                    ADFUtils.setBoundAttributeValue("CheckOutTime", this.getCurrentTime());
+                    ADFUtils.findOperation("Commit").execute();
+                    ADFUtils.findIterator("AttendanceVIterator").executeQuery();
+                           break;
+                }   case no:    // for type="yesNo"
+                          System.out.println("User pressed NO - "+JSFUtil.getFromSession("attendance"));
+                           break;
+                       // If you ever use type="okCancel", check ok/cancel instead.
+                       default:
+                           logger.info("Dialog dismissed: " + e.getOutcome());
+                   }
+    }
+
+    public void setCurrentTime(Timestamp currentTime) {
+        this.currentTime = currentTime;
+    }
+
+    public Timestamp getCurrentTime() {
+        return new Timestamp(new Date().getTime());
     }
 }

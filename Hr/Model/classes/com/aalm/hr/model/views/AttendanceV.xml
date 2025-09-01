@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AttendanceV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.hr.model.views.AttendanceV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="CurrYearLOV1"
+    ViewObjectName="com.aalm.hr.model.lov.CurrYearLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CurrMonthLOV1"
+    ViewObjectName="com.aalm.hr.model.lov.CurrMonthLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CurrYear"
+    ListVOName="CurrYearLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CurrYear"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Cyear"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Cyear"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CurrMonth"
+    ListVOName="CurrMonthLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CurrMonth"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="MonthName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MonthName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT Attendance.attendance_date , 
+       year(curdate()) as curr_year,
+       MONTHNAME(CURDATE()) as curr_month,
+       CURDATE() AS curr_date,
+       Attendance.attendance_id, 
+       Attendance.check_in_time, 
+       Attendance.check_out_time, 
+       Attendance.created_at, 
+       Attendance.remarks, 
+       Attendance.status,      
+       Attendance.updated_at, 
+       Attendance.user_id, 
+       Attendance.work_hours
+FROM  ATTENDANCE Attendance
+WHERE MONTHNAME(Attendance.attendance_date) = MONTHNAME(CURDATE())]]></SQLQuery>
+  <EntityUsage
+    Name="Attendance"
+    Entity="com.aalm.hr.model.entities.Attendance"/>
+  <ViewAttribute
+    Name="AttendanceDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AttendanceDate"
+    EntityUsage="Attendance"
+    AliasName="attendance_date">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrYear"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="curr_year"
+    Expression="curr_year"
+    SQLType="NUMERIC"
+    LOVName="LOV_CurrYear">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrMonth"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="9"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="curr_month"
+    Expression="curr_month"
+    SQLType="VARCHAR"
+    LOVName="LOV_CurrMonth">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="curr_date"
+    Expression="curr_date"
+    SQLType="DATE"/>
+  <ViewAttribute
+    Name="AttendanceId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AttendanceId"
+    EntityUsage="Attendance"
+    AliasName="attendance_id">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[return (int) (new Date().getTime()/1000);]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CheckInTime"
+    PrecisionRule="true"
+    EntityAttrName="CheckInTime"
+    EntityUsage="Attendance"
+    AliasName="check_in_time"/>
+  <ViewAttribute
+    Name="CheckOutTime"
+    PrecisionRule="true"
+    EntityAttrName="CheckOutTime"
+    EntityUsage="Attendance"
+    AliasName="check_out_time"/>
+  <ViewAttribute
+    Name="CreatedAt"
+    PrecisionRule="true"
+    EntityAttrName="CreatedAt"
+    EntityUsage="Attendance"
+    AliasName="created_at"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="Attendance"
+    AliasName="remarks"/>
+  <ViewAttribute
+    Name="Status"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="Attendance"
+    AliasName="status"/>
+  <ViewAttribute
+    Name="UpdatedAt"
+    PrecisionRule="true"
+    EntityAttrName="UpdatedAt"
+    EntityUsage="Attendance"
+    AliasName="updated_at"/>
+  <ViewAttribute
+    Name="UserId"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="Attendance"
+    AliasName="user_id"/>
+  <ViewAttribute
+    Name="WorkHours"
+    PrecisionRule="true"
+    EntityAttrName="WorkHours"
+    EntityUsage="Attendance"
+    AliasName="work_hours"/>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.hr.model.AalmHrMBndl"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="empProfile_TF_empProfile_TF_ExecuteWithParamsPageDef" Package="empProfile" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="OrgUsersV" RangeSize="25" DataControl="AalmHrDataControl" id="OrgUsersVIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="OrgUsersVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pOrgUserId" NDValue="#{pageFlowScope.pOrgUserId}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

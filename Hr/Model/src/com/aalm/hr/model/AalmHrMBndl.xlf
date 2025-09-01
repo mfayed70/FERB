@@ -506,6 +506,42 @@
         <source>Benefit Value</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.OrgUsersV_LABEL">
+        <source>Org Users V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.AttendanceV_LABEL">
+        <source>Attendance V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.FkAttendanceUserVL_LABEL">
+        <source>Fk Attendance User Vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.CurrMonthLOV_LABEL">
+        <source>Curr Month Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.CurrYearLOV.SL_0_0">
+        <source>2025</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.CurrYearLOV.SL_1_0">
+        <source>2026</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.CurrYearLOV_LABEL">
+        <source>Curr Year Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.AttendanceStatisticsV_LABEL">
+        <source>Attendance Statistics V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.OrgUsersToAttendanceStatisticsVL_LABEL">
+        <source>Org Users To Attendance Statistics Vl</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

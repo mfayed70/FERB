@@ -9,6 +9,9 @@
   <view id="function">
     <page>/function.jsf</page>
   </view>
+  <view id="userProfile">
+    <page>/userProfile.jsf</page>
+  </view>
   <control-flow-rule id="__4">
     <from-activity-id>*</from-activity-id>
     <control-flow-case id="__5">
@@ -18,6 +21,20 @@
     <control-flow-case id="__6">
       <from-outcome>toLogin</from-outcome>
       <to-activity-id>login</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__8">
+    <from-activity-id>userProfile</from-activity-id>
+    <control-flow-case id="__9">
+      <from-outcome>toHome</from-outcome>
+      <to-activity-id>home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__10">
+    <from-activity-id>home</from-activity-id>
+    <control-flow-case id="__11">
+      <from-outcome>toUserProfile</from-outcome>
+      <to-activity-id>userProfile</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__1">

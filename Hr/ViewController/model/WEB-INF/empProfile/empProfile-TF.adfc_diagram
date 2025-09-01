@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall5">
+      <property
+         name="activityId">ExecuteWithParams</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">229.5</property>
+      <property
+         name="x">191.34277</property>
+   </MethodCall>
+   <View
+      id="View6">
+      <property
+         name="activityId">empProfile</property>
+      <property
+         name="page">/WEB-INF/empProfile/empProfile.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>empProfile&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">229.14062</property>
+      <property
+         name="x">523.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="MethodCall5"
+      to="View6">
+      <property
+         name="fromOutcome">ExecuteWithParams</property>
+      <property
+         name="sdm:polyPoints">R50,232.34277,229.51562,482.0,229.15625,L50</property>
+   </ControlFlowCase>
+</SDM>

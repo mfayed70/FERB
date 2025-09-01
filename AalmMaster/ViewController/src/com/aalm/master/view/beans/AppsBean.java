@@ -32,7 +32,6 @@ public class AppsBean implements Serializable {
     private RichPopup noteWindowFncnPopup;
     private RichPopup uncommittedDataPopup;
 
-
     public TaskFlowId getDynamicTaskFlowId() {
 //        System.out.println("from getDynamicTaskFlowId");
         return TaskFlowId.parse(taskFlowId);
@@ -121,6 +120,9 @@ public class AppsBean implements Serializable {
 
     public String homeActn() {
         // Add event code here...
+        // Added for Attendance page
+        
+        // Added for Attendance page
         if (ControllerContext.getInstance().getCurrentViewPort().isDataDirty()) {
             System.out.println("dirty data");
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
@@ -130,6 +132,7 @@ public class AppsBean implements Serializable {
         }
         return null;
     }
+
 
     public String usersTF() {
         setDynamicTaskFlowId("/WEB-INF/ErpAdmin/users-TF.xml#users-TF");
@@ -279,5 +282,20 @@ public class AppsBean implements Serializable {
     public void commitData(ActionEvent actionEvent) {
         // Add event code here...
         ADFUtils.findOperation("Commit").execute();
+    }
+
+    public String homePageSwitcher() {
+        // Add event code here...
+        String viewId = FacesContext.getCurrentInstance().getViewRoot().getViewId();
+        String pageName = viewId.substring(viewId.lastIndexOf("/") + 1);
+        System.out.println("Page Name: " + pageName);
+        if (pageName.equals("userProfile")) {
+            return "toHome";
+        } else return "toUserProfile";
+    }
+
+    public String empProfileTF() {
+        setDynamicTaskFlowId("/WEB-INF/empProfile/empProfile-TF.xml#empProfile-TF");
+        return null;
     }
 }

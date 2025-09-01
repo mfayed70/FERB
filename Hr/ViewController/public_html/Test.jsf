@@ -15,6 +15,9 @@
                 <af:showDetailItem text="HR setup" id="sdi1">
                     <af:region value="#{bindings.setup_data1.regionModel}" id="r3"/>
                 </af:showDetailItem>
+                <af:showDetailItem text="User Profile" id="sdi2">
+                    <af:region value="#{bindings.empProfileTF1.regionModel}" id="r4"/>
+                </af:showDetailItem>
             </af:panelTabbed>
         </af:form>
     </af:document>

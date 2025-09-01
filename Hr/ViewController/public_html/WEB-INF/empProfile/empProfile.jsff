@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.hr.view.AalmHrBndl']}"/>
+  <af:panelHeader text="#{pageFlowScope.pViewForUser ? viewcontrollerBundle.YourProfile : viewcontrollerBundle.EmployeeProfile}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <af:table value="#{bindings.OrgUsersV.collectionModel}" var="row" rows="#{bindings.OrgUsersV.rangeSize}"
+              emptyText="#{bindings.OrgUsersV.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.OrgUsersV.collectionModel.selectedRow}"
+              selectionListener="#{bindings.OrgUsersV.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.OrgUsersV.rangeSize}" filterModel="#{bindings.OrgUsersVQuery.queryDescriptor}"
+              queryListener="#{bindings.OrgUsersVQuery.processQuery}" filterVisible="true" varStatus="vs" id="t1"
+              rendered="#{!pageFlowScope.pViewForUser}" verticalGridVisible="false">
+      <af:column sortProperty="#{bindings.OrgUsersV.hints.EmpId.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.OrgUsersV.hints.EmpId.label}" id="c4" width="150">
+        <af:inputText value="#{row.EmpId}" shortDesc="#{bindings.OrgUsersV.hints.EmpId.tooltip}" id="ot4"
+                      label="Label 3" simple="true" readOnly="true">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.OrgUsersV.hints.EmpId.format}"/>
+        </af:inputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.OrgUsersV.hints.FirstName.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.OrgUsersV.hints.FirstName.label}" id="c2" width="200">
+        <af:inputText value="#{row.FirstName}" shortDesc="#{bindings.OrgUsersV.hints.FirstName.tooltip}" id="ot2"
+                      label="Label 1" simple="true" readOnly="true"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.OrgUsersV.hints.LastName.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.OrgUsersV.hints.LastName.label}" id="c3" width="200">
+        <af:inputText value="#{row.LastName}" shortDesc="#{bindings.OrgUsersV.hints.LastName.tooltip}" id="ot3"
+                      label="Label 2" simple="true" readOnly="true"/>
+      </af:column>
+    </af:table>
+    <f:facet name="info"/>
+    <af:spacer width="10" height="10" id="s1"/>
+    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="300">
+      <f:facet name="first">
+        <dvt:pieChart id="pieChart1" var="row"  value="#{bindings.AttendanceStatisticsV.collectionModel}" 
+                      threeDEffect="on" footnoteHalign="center" inlineStyle="width:500px;font-size:30px;"
+                      sliceLabelPosition="inside"
+                      titleHalign="center" emptyText="Employee Attendance Chart"
+                      title="Employee Attendance Chart"
+                      hideAndShowBehavior="withRescale" sliceLabelStyle="font-size:10px;"
+                      subtitle="#{bindings.CurrentYear.inputValue}#{' '}#{bindings.CurrMonth.inputValue}">
+          <dvt:chartLegend id="cl1" position="bottom"/>
+          <dvt:pieDataItem id="di1" value="#{row.TotalDays}" 
+          label="#{row.Status}" explode="0.1" sliceLabel="#{row.TotalDays}#{' Days'}"/>
+        </dvt:pieChart>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelGroupLayout id="pgl3" layout="vertical">
+          <af:table value="#{bindings.AttendanceV.collectionModel}" var="row" rows="#{bindings.AttendanceV.rangeSize}"
+                    emptyText="#{bindings.AttendanceV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.AttendanceV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.AttendanceV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.AttendanceV.rangeSize}" id="t2" verticalGridVisible="false">
+            <af:column headerText="#{viewcontrollerBundle.SER_}" id="c1" width="30">
+              <af:inputText value="#{row.index+1}" label="#{bindings.AttendanceV.hints.AttendanceDate.label}"
+                            required="#{bindings.AttendanceV.hints.AttendanceDate.mandatory}"
+                            columns="#{bindings.AttendanceV.hints.AttendanceDate.displayWidth}"
+                            maximumLength="#{bindings.AttendanceV.hints.AttendanceDate.precision}"
+                            shortDesc="#{bindings.AttendanceV.hints.AttendanceDate.tooltip}" id="it1" readOnly="true"/>
+            </af:column>
+            <af:column headerText="#{bindings.AttendanceV.hints.AttendanceDate.label}" id="c5">
+              <af:inputDate value="#{row.bindings.AttendanceDate.inputValue}"
+                            label="#{bindings.AttendanceV.hints.AttendanceDate.label}"
+                            required="#{bindings.AttendanceV.hints.AttendanceDate.mandatory}"
+                            columns="#{bindings.AttendanceV.hints.AttendanceDate.displayWidth}"
+                            shortDesc="#{bindings.AttendanceV.hints.AttendanceDate.tooltip}" id="id1" readOnly="true">
+                <f:validator binding="#{row.bindings.AttendanceDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.AttendanceV.hints.AttendanceDate.format}" type="date"
+                                    dateStyle="medium"/>
+              </af:inputDate>
+            </af:column>
+            <af:column headerText="#{viewcontrollerBundle.ATTENDANCE_DAY}" id="c6" align="center">
+              <af:inputDate value="#{row.bindings.AttendanceDate.inputValue}"
+                            label="#{bindings.AttendanceV.hints.AttendanceDate.label}"
+                            required="#{bindings.AttendanceV.hints.AttendanceDate.mandatory}"
+                            columns="#{bindings.AttendanceV.hints.AttendanceDate.displayWidth}"
+                            shortDesc="#{bindings.AttendanceV.hints.AttendanceDate.tooltip}" id="id2" readOnly="true">
+                <f:validator binding="#{row.bindings.AttendanceDate.validator}"/>
+                <af:convertDateTime pattern="EEEE"/>
+              </af:inputDate>
+            </af:column>
+            <af:column headerText="#{bindings.AttendanceV.hints.CheckInTime.label}" id="c7" align="center" width="150">
+              <af:panelGroupLayout id="pgl1" layout="horizontal" visible="#{row.CheckInTime != null}">
+                <af:image id="i1" source="#{resource['images:punci-in-O.png']}"/>
+                <af:inputDate value="#{row.bindings.CheckInTime.inputValue}"
+                              label="#{bindings.AttendanceV.hints.CheckInTime.label}"
+                              required="#{bindings.AttendanceV.hints.CheckInTime.mandatory}"
+                              columns="#{bindings.AttendanceV.hints.CheckInTime.displayWidth}"
+                              shortDesc="#{bindings.AttendanceV.hints.CheckInTime.tooltip}" id="id3" readOnly="true">
+                  <af:convertDateTime pattern="#{bindings.AttendanceV.hints.CheckInTime.format}" type="time"
+                                      timeStyle="short"/>
+                </af:inputDate>
+                <f:facet name="separator">
+                  <af:spacer width="5" height="10" id="s2"/>
+                </f:facet>
+              </af:panelGroupLayout>
+              <af:button text="#{viewcontrollerBundle.Punchin}" id="b1" icon="#{resource['images:punci-in-O.png']}"
+                         hoverIcon="#{resource['images:punci-in-F.png']}"
+                         visible="#{row.AttendanceDate == row.CurrDate &amp;&amp; row.CheckInTime == null &amp;&amp; view.viewId=='/userProfile'}"
+                         actionListener="#{pageFlowScope.HrBean.punchinBtnActnLsnr}" styleClass="but"
+                         inlineStyle="background-color:#42c6ff;">
+                <af:setPropertyListener from="#{'Punch-in'}" to="#{sessionScope.attendance}" type="action"/>
+              </af:button>
+            </af:column>
+            <af:column headerText="#{bindings.AttendanceV.hints.CheckOutTime.label}" id="c8" align="center" width="150">
+              <af:panelGroupLayout id="pgl2" layout="horizontal" visible="#{row.CheckOutTime != null}">
+                <af:image id="i2" source="#{resource['images:punch-out-O.png']}"/>
+                <af:inputDate value="#{row.bindings.CheckOutTime.inputValue}"
+                              label="#{bindings.AttendanceV.hints.CheckOutTime.label}"
+                              required="#{bindings.AttendanceV.hints.CheckOutTime.mandatory}"
+                              columns="#{bindings.AttendanceV.hints.CheckOutTime.displayWidth}"
+                              shortDesc="#{bindings.AttendanceV.hints.CheckOutTime.tooltip}" id="id4" readOnly="true">
+                  <af:convertDateTime pattern="#{bindings.AttendanceV.hints.CheckOutTime.format}" type="time"
+                                      timeStyle="short"/>
+                </af:inputDate>
+                <f:facet name="separator">
+                  <af:spacer width="5" height="10" id="s3"/>
+                </f:facet>
+              </af:panelGroupLayout>
+              <af:button text="#{viewcontrollerBundle.Punchout}" id="b2" icon="#{resource['images:punch-out-O.png']}"
+                         hoverIcon="#{resource['images:punch-out-F.png']}"
+                         visible="#{row.AttendanceDate == row.CurrDate &amp;&amp; row.CheckOutTime == null &amp;&amp; row.CheckInTime != null &amp;&amp; view.viewId=='/userProfile'}"
+                         actionListener="#{pageFlowScope.HrBean.punchoutBtnActnLsnr}" styleClass="but"
+                         inlineStyle="background-color:#42c6ff;">
+                <af:setPropertyListener from="#{'Punch-out'}" to="#{sessionScope.attendance}" type="action"/>
+              </af:button>
+            </af:column>
+            <af:column headerText="#{bindings.AttendanceV.hints.Remarks.label}" id="c9">
+              <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                            label="#{bindings.AttendanceV.hints.Remarks.label}"
+                            required="#{bindings.AttendanceV.hints.Remarks.mandatory}"
+                            columns="#{bindings.AttendanceV.hints.Remarks.displayWidth}"
+                            maximumLength="#{bindings.AttendanceV.hints.Remarks.precision}"
+                            shortDesc="#{bindings.AttendanceV.hints.Remarks.tooltip}" id="it2" readOnly="true">
+                <f:validator binding="#{row.bindings.Remarks.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.AttendanceV.hints.Status.label}" id="c10">
+              <af:inputText value="#{row.bindings.Status.inputValue}" label="#{bindings.AttendanceV.hints.Status.label}"
+                            required="#{bindings.AttendanceV.hints.Status.mandatory}"
+                            columns="#{bindings.AttendanceV.hints.Status.displayWidth}"
+                            maximumLength="#{bindings.AttendanceV.hints.Status.precision}"
+                            shortDesc="#{bindings.AttendanceV.hints.Status.tooltip}" id="it3" readOnly="true">
+                <f:validator binding="#{row.bindings.Status.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.AttendanceV.hints.WorkHours.label}" id="c11">
+              <af:inputText value="#{row.bindings.WorkHours.inputValue}"
+                            label="#{bindings.AttendanceV.hints.WorkHours.label}"
+                            required="#{bindings.AttendanceV.hints.WorkHours.mandatory}"
+                            columns="#{bindings.AttendanceV.hints.WorkHours.displayWidth}"
+                            maximumLength="#{bindings.AttendanceV.hints.WorkHours.precision}"
+                            shortDesc="#{bindings.AttendanceV.hints.WorkHours.tooltip}" id="it4" readOnly="true">
+                <f:validator binding="#{row.bindings.WorkHours.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.AttendanceV.hints.WorkHours.format}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+        </af:panelGroupLayout>
+      </f:facet>
+    </af:panelSplitter>
+  </af:panelHeader>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+            binding="#{pageFlowScope.HrBean.attendanceConfirmationPopup}">
+                            <af:dialog id="d2" type="yesNo" contentWidth="400" contentHeight="50"
+                                       title="#{viewcontrollerBundle.Confirmation}"
+                                       inlineStyle="border-radius:30px 30px 30px 30px;width:520px;padding:10px 10px 10px 10px;"
+                                       dialogListener="#{pageFlowScope.HrBean.attendanceDialogLsnr}">
+                                <f:facet name="buttonBar"/>
+                                <af:inputText value="#{viewcontrollerBundle.ARE_YOU_SURE_YOU_WANT_TO_}" id="ot9"
+                                              label="Label 4" simple="true" readOnly="true"
+                                              contentStyle="font-size:26px;" inlineStyle="padding-left:30px;"/>
+                                <af:inputText value="#{' '}#{viewcontrollerBundle.Punchin}" id="ot10" label="Label 5"
+                                              simple="true" contentStyle="font-size:26px;" readOnly="true"
+                                              visible="#{sessionScope.attendance=='Punch-in'}"/>
+                                <af:inputText value="#{' '}#{viewcontrollerBundle.Punchout}" id="ot11" label="Label 6"
+                                              simple="true" contentStyle="font-size:26px;" readOnly="true"
+                                              visible="#{sessionScope.attendance=='Punch-out'}"/>
+                            </af:dialog>
+                        </af:popup>
+</ui:composition>

@@ -10,6 +10,12 @@
       <input-parameter name="pContractId"/>
    </task-flow-descriptor>
    <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
+   <task-flow-descriptor path="WEB-INF/empProfile/empProfile-TF.xml" id="empProfile-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="refreshLocale"/>
+      <input-parameter name="pViewForUser"/>
+      <input-parameter name="refreshRegion"/>
+      <input-parameter name="pOrgUserId"/>
+   </task-flow-descriptor>
    <task-flow-descriptor path="WEB-INF/setup_data/setup_data.xml" id="setup_data" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
       <input-parameter name="refreshLocale"/>
       <input-parameter name="refreshRegion"/>

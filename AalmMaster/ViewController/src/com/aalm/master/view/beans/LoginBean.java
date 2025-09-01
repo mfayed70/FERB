@@ -38,7 +38,8 @@ public class LoginBean {
     private String userName;
     private String password;
     private ADFLogger logger = ADFLogger.createADFLogger(LoginBean.class);
-    private final String HOME_URL = "/AalM/erp/home";
+//    private final String HOME_URL = "/AalM/erp/home"; //
+    private final String HOME_URL = "/AalM/erp/userProfile";
     private final String LOGIN_URL = "/AalM/erp/login";
     private Timestamp currentTime;
     private RichPopup attendanceConfirmationPopup;

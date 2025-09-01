@@ -27,6 +27,7 @@
     <page path="/WEB-INF/ErpAdmin/granted-roles-fncns.jsf" usageId="com_aalm_master_view_granted_roles_fncnsPageDef"/>
     <page path="/WEB-INF/ErpAdmin/stndrd-role-perms-TF.xml#stndrd-role-perms-TF@Execute"
           usageId="com_aalm_master_view_stndrd_role_perms_TF_stndrd_role_perms_TF_ExecutePageDef"/>
+    <page path="/userProfile.jsf" usageId="com_aalm_master_view_userProfilePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_aalm_master_view_AalmHomePageTemplatePageDef"
@@ -49,6 +50,7 @@
     <page id="com_aalm_master_view_granted_roles_fncnsPageDef" path="ErpAdmin.granted_roles_fncnsPageDef"/>
     <page id="com_aalm_master_view_stndrd_role_perms_TF_stndrd_role_perms_TF_ExecutePageDef"
           path="ErpAdmin.stndrd_role_perms_TF_stndrd_role_perms_TF_ExecutePageDef"/>
+    <page id="com_aalm_master_view_userProfilePageDef" path="com.aalm.master.view.pageDefs.userProfilePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AalmMasterDataControl" Package="com.aalm.master.model"

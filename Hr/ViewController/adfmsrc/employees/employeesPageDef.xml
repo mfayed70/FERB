@@ -6,12 +6,12 @@
     <variableIterator id="variables"/>
     <iterator Binds="EmployeesV" RangeSize="25" DataControl="AalmHrDataControl" id="EmployeesVIterator"
               Refresh="always"/>
-    <searchRegion Binds="EmployeesVIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  id="EmployeesVQuery"/>
     <iterator Binds="EmployeeJobHistoryV" RangeSize="25" DataControl="AalmHrDataControl"
               id="EmployeeJobHistoryVIterator"/>
     <searchRegion Binds="EmployeeJobHistoryVIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="EmployeeJobHistoryVQuery"/>
+    <searchRegion Binds="EmployeesVIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="EmployeesVQuery"/>
   </executables>
   <bindings>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmHrDataControl"/>
@@ -19,15 +19,15 @@
     <tree IterBinding="EmployeesVIterator" id="EmployeesV">
       <nodeDefinition DefName="com.aalm.hr.model.views.EmployeesV" Name="EmployeesV0">
         <AttrNames>
-          <Item Value="EmpId"/>
           <Item Value="EmpName"/>
           <Item Value="MaritalStatus"/>
           <Item Value="EmpCat"/>
           <Item Value="ContractNo"/>
-          <Item Value="Salary"/>
           <Item Value="IdNo"/>
+          <Item Value="Salary"/>
           <Item Value="CurrCode"/>
           <Item Value="JobId"/>
+          <Item Value="EmpId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

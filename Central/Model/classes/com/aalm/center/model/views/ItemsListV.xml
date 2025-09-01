@@ -14,7 +14,8 @@
    WhereFlags="1"
    SelectAllAttributes="false"
    AccessMode="RANGE_PAGING"
-   RangeSize="100">
+   RangeSize="100"
+   PageIterMode="Partial">
    <ViewAccessor
       Name="ItemCategoriesV1"
       ViewObjectName="com.aalm.center.model.views.ItemCategoriesV"
@@ -96,16 +97,16 @@
       ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
       RowLevelBinds="true">
       <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVI"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVI"/>
+         Name="ItemVariablesValuesLOVH"
+         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVH"/>
    </ViewAccessor>
    <ViewAccessor
       Name="ItemVariablesValuesLOV9"
       ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
       RowLevelBinds="true">
       <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVH"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVH"/>
+         Name="ItemVariablesValuesLOVI"
+         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVI"/>
    </ViewAccessor>
    <ViewAccessor
       Name="ItemVariablesValuesLOV10"
