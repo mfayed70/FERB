@@ -1,0 +1,14 @@
+
+# Editor swap files
+*.swp
+*.swo
+*.swx
+*.*.kate-swp
+
+# Editor swap files
+*.swp
+*.swo
+*.swx
+*.*.kate-swp*.ear
+*.war
+
