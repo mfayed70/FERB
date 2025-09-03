@@ -542,6 +542,46 @@
         <source>Org Users To Attendance Statistics Vl</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.WeekDaysLOV_LABEL">
+        <source>Week Days Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_0_0">
+        <source>A</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_0_1">
+        <source>Doctorate- دكتوراه</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_1_0">
+        <source>B</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_1_1">
+        <source>Master- ماجستير</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_2_0">
+        <source>C</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_2_1">
+        <source>Bachelor-بكالوريوس</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_3_0">
+        <source>D</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_3_1">
+        <source>Tech.Diploma-دبلوم فني</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates_LABEL">
+        <source>Employee Certificates</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

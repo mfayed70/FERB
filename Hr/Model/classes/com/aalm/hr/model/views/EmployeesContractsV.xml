@@ -35,6 +35,10 @@
     Name="IdTypeLOV1"
     ViewObjectName="com.aalm.hr.model.lov.IdTypeLOV"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="EmployeeCertificates1"
+    ViewObjectName="com.aalm.hr.model.lov.EmployeeCertificates"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_CurrCode"
     ListVOName="CurrenciesLOV1"
@@ -89,6 +93,25 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_Certificate"
+    ListVOName="EmployeeCertificates1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Certificate"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="EmployeesContracts"
     Entity="com.aalm.hr.model.entities.EmployeesContracts"/>
@@ -97,11 +120,14 @@
     PrecisionRule="true"
     EntityAttrName="Certificate"
     EntityUsage="EmployeesContracts"
-    AliasName="certificate">
+    AliasName="certificate"
+    LOVName="LOV_Certificate">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.aalm.hr.model.views.EmployeesContractsV.Certificate_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

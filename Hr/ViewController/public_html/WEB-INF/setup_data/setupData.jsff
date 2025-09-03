@@ -472,6 +472,146 @@
           </f:facet>
         </af:panelHeader>
       </af:showDetailItem>
+      <af:showDetailItem text="#{viewcontrollerBundle.AttendanceRules}" id="sdi1">
+        <af:panelHeader text=" " id="ph7">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar">
+            <af:button actionListener="#{bindings.CreateInsert1.execute}" text="#{viewcontrollerBundle.NEW}" id="b9" icon="#{resource['images:NewF.png']}"
+                       hoverIcon="#{resource['images:NewO.png']}" styleClass="but"/>
+          </f:facet>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:table value="#{bindings.AttendanceRulesV.collectionModel}" var="row"
+                    rows="#{bindings.AttendanceRulesV.rangeSize}"
+                    emptyText="#{bindings.AttendanceRulesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.AttendanceRulesV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.AttendanceRulesV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.AttendanceRulesV.rangeSize}"
+                    filterModel="#{bindings.AttendanceRulesVQuery.queryDescriptor}"
+                    queryListener="#{bindings.AttendanceRulesVQuery.processQuery}" filterVisible="true" varStatus="vs"
+                    id="t6" partialTriggers="::b9 l5">
+            <af:column sortProperty="#{bindings.AttendanceRulesV.hints.OrgCode.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.AttendanceRulesV.hints.OrgCode.label}" id="c33" width="150">
+              <af:selectOneChoice value="#{row.bindings.OrgCode.inputValue}" label="#{row.bindings.OrgCode.label}"
+                                  required="#{bindings.AttendanceRulesV.hints.OrgCode.mandatory}"
+                                  shortDesc="#{bindings.AttendanceRulesV.hints.OrgCode.tooltip}" id="soc8">
+                <f:selectItems value="#{row.bindings.OrgCode.items}" id="si8"/>
+                <f:validator binding="#{row.bindings.OrgCode.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.AttendanceRulesV.hints.WorkStartHour.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AttendanceRulesV.hints.WorkStartHour.label}" id="c34"
+                       width="120">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.AttendanceRulesVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.WorkStartHour.value}"
+                              id="id1">
+                  <af:convertDateTime pattern="#{bindings.AttendanceRulesV.hints.WorkStartHour.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.WorkStartHour.inputValue}"
+                            label="#{bindings.AttendanceRulesV.hints.WorkStartHour.label}"
+                            required="#{bindings.AttendanceRulesV.hints.WorkStartHour.mandatory}"
+                            columns="#{bindings.AttendanceRulesV.hints.WorkStartHour.displayWidth}"
+                            shortDesc="#{bindings.AttendanceRulesV.hints.WorkStartHour.tooltip}" id="id2">
+                <f:validator binding="#{row.bindings.WorkStartHour.validator}"/>
+                <af:convertDateTime pattern="#{bindings.AttendanceRulesV.hints.WorkStartHour.format}" type="time"
+                                    timeStyle="short"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="#{bindings.AttendanceRulesV.hints.WorkEndHour.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AttendanceRulesV.hints.WorkEndHour.label}" id="c35"
+                       width="120">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.AttendanceRulesVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.WorkEndHour.value}"
+                              id="id3">
+                  <af:convertDateTime pattern="#{bindings.AttendanceRulesV.hints.WorkEndHour.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.WorkEndHour.inputValue}"
+                            label="#{bindings.AttendanceRulesV.hints.WorkEndHour.label}"
+                            required="#{bindings.AttendanceRulesV.hints.WorkEndHour.mandatory}"
+                            columns="#{bindings.AttendanceRulesV.hints.WorkEndHour.displayWidth}"
+                            shortDesc="#{bindings.AttendanceRulesV.hints.WorkEndHour.tooltip}" id="id4">
+                <f:validator binding="#{row.bindings.WorkEndHour.validator}"/>
+                <af:convertDateTime pattern="#{bindings.AttendanceRulesV.hints.WorkEndHour.format}" type="time"
+                                    timeStyle="short"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="#{bindings.AttendanceRulesV.hints.LateAfterMinutes.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AttendanceRulesV.hints.LateAfterMinutes.label}" id="c36"
+                       width="120">
+              <af:inputText value="#{row.bindings.LateAfterMinutes.inputValue}"
+                            label="#{bindings.AttendanceRulesV.hints.LateAfterMinutes.label}"
+                            required="#{bindings.AttendanceRulesV.hints.LateAfterMinutes.mandatory}"
+                            columns="#{bindings.AttendanceRulesV.hints.LateAfterMinutes.displayWidth}"
+                            maximumLength="#{bindings.AttendanceRulesV.hints.LateAfterMinutes.precision}"
+                            shortDesc="#{bindings.AttendanceRulesV.hints.LateAfterMinutes.tooltip}" id="it26">
+                <f:validator binding="#{row.bindings.LateAfterMinutes.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AttendanceRulesV.hints.LateAfterMinutes.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AttendanceRulesV.hints.EarlyLeaveMinutes.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AttendanceRulesV.hints.EarlyLeaveMinutes.label}" id="c37"
+                       width="120">
+              <af:inputText value="#{row.bindings.EarlyLeaveMinutes.inputValue}"
+                            label="#{bindings.AttendanceRulesV.hints.EarlyLeaveMinutes.label}"
+                            required="#{bindings.AttendanceRulesV.hints.EarlyLeaveMinutes.mandatory}"
+                            columns="#{bindings.AttendanceRulesV.hints.EarlyLeaveMinutes.displayWidth}"
+                            maximumLength="#{bindings.AttendanceRulesV.hints.EarlyLeaveMinutes.precision}"
+                            shortDesc="#{bindings.AttendanceRulesV.hints.EarlyLeaveMinutes.tooltip}" id="it27">
+                <f:validator binding="#{row.bindings.EarlyLeaveMinutes.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AttendanceRulesV.hints.EarlyLeaveMinutes.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AttendanceRulesV.hints.OvertimeAfterHour.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AttendanceRulesV.hints.OvertimeAfterHour.label}" id="c38"
+                       width="120">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.AttendanceRulesVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.OvertimeAfterHour.value}"
+                              id="id5">
+                  <af:convertDateTime pattern="#{bindings.AttendanceRulesV.hints.OvertimeAfterHour.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.OvertimeAfterHour.inputValue}"
+                            label="#{bindings.AttendanceRulesV.hints.OvertimeAfterHour.label}"
+                            required="#{bindings.AttendanceRulesV.hints.OvertimeAfterHour.mandatory}"
+                            columns="#{bindings.AttendanceRulesV.hints.OvertimeAfterHour.displayWidth}"
+                            shortDesc="#{bindings.AttendanceRulesV.hints.OvertimeAfterHour.tooltip}" id="id6">
+                <f:validator binding="#{row.bindings.OvertimeAfterHour.validator}"/>
+                <af:convertDateTime pattern="#{bindings.AttendanceRulesV.hints.OvertimeAfterHour.format}" type="time"
+                                    timeStyle="short"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="#{bindings.AttendanceRulesV.hints.WeekendDay1.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AttendanceRulesV.hints.WeekendDay1.label}" id="c39">
+              <af:selectOneChoice value="#{row.bindings.WeekendDay1.inputValue}"
+                                  label="#{row.bindings.WeekendDay1.label}"
+                                  required="#{bindings.AttendanceRulesV.hints.WeekendDay1.mandatory}"
+                                  shortDesc="#{bindings.AttendanceRulesV.hints.WeekendDay1.tooltip}" id="soc9">
+                <f:selectItems value="#{row.bindings.WeekendDay1.items}" id="si9"/>
+                <f:validator binding="#{row.bindings.WeekendDay1.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.AttendanceRulesV.hints.WeekendDay2.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.AttendanceRulesV.hints.WeekendDay2.label}" id="c40">
+              <af:selectOneChoice value="#{row.bindings.WeekendDay2.inputValue}"
+                                  label="#{row.bindings.WeekendDay2.label}"
+                                  required="#{bindings.AttendanceRulesV.hints.WeekendDay2.mandatory}"
+                                  shortDesc="#{bindings.AttendanceRulesV.hints.WeekendDay2.tooltip}" id="soc10">
+                <f:selectItems value="#{row.bindings.WeekendDay2.items}" id="si10"/>
+                <f:validator binding="#{row.bindings.WeekendDay2.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c41" width="30" align="center">
+              <af:link actionListener="#{bindings.Delete2.execute}"
+                       disabled="#{!bindings.Delete2.enabled}" id="l5" icon="#{resource['images:delete24.png']}"/>
+            </af:column>
+          </af:table>
+        </af:panelHeader>
+      </af:showDetailItem>
     </af:panelTabbed>
   </af:panelHeader>
 </ui:composition>

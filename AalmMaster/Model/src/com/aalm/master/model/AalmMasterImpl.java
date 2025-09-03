@@ -35,6 +35,7 @@ public class AalmMasterImpl extends ApplicationModuleImpl implements AalmMaster 
         System.out.println("user is :"+userId);
         stmnt.setInt(1, userId);
         stmnt.execute();
+    
       System.out.println("check done.++++++++");
         executeCommand("Commit");
     }catch (SQLException sqlerr) {

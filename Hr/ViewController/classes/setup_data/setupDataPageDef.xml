@@ -9,6 +9,9 @@
     <iterator Binds="BonusTypesV" RangeSize="25" DataControl="AalmHrDataControl" id="BonusTypesVIterator"/>
     <iterator Binds="PunishmentTypesV" RangeSize="25" DataControl="AalmHrDataControl" id="PunishmentTypesVIterator"/>
     <iterator Binds="VacationTypesV" RangeSize="25" DataControl="AalmHrDataControl" id="VacationTypesVIterator"/>
+    <iterator Binds="AttendanceRulesV" RangeSize="25" DataControl="AalmHrDataControl" id="AttendanceRulesVIterator"/>
+    <searchRegion Binds="AttendanceRulesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="AttendanceRulesVQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="BenefitTypesVIterator" id="BenefitTypesV">
@@ -91,5 +94,22 @@
     <action IterBinding="VacationTypesVIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action IterBinding="VacationTypesVIterator" id="CreateInsertVacations" RequiresUpdateModel="true"
             Action="createInsertRow"/>
+    <tree IterBinding="AttendanceRulesVIterator" id="AttendanceRulesV">
+      <nodeDefinition DefName="com.aalm.hr.model.views.AttendanceRulesV" Name="AttendanceRulesV0">
+        <AttrNames>
+          <Item Value="OrgCode"/>
+          <Item Value="WorkStartHour"/>
+          <Item Value="WorkEndHour"/>
+          <Item Value="LateAfterMinutes"/>
+          <Item Value="EarlyLeaveMinutes"/>
+          <Item Value="OvertimeAfterHour"/>
+          <Item Value="WeekendDay1"/>
+          <Item Value="WeekendDay2"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="AttendanceRulesVIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="AttendanceRulesVIterator" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

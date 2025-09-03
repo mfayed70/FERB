@@ -185,6 +185,17 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="EmpId"
+    ColumnName="emp_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ORG_USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="UserRolesMaster"
     Association="com.aalm.master.model.entities.FkUserRolesMasterOrgUsers1Assoc"
@@ -238,4 +249,8 @@
       <Item Value="com.aalm.master.model.entities.OrgUsers.UserId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.master.model.AalmMasterMBndl"/>
+  </ResourceBundle>
 </Entity>

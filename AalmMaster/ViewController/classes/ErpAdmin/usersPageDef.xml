@@ -20,15 +20,14 @@
       <nodeDefinition DefName="com.aalm.master.model.views.OrgUsersV" Name="OrgUsersV0">
         <AttrNames>
           <Item Value="UserId"/>
-          <Item Value="Address"/>
-          <Item Value="Email"/>
           <Item Value="FirstName"/>
-          <Item Value="FrmDt"/>
           <Item Value="LastName"/>
+          <Item Value="Email"/>
           <Item Value="Mobile"/>
-          <Item Value="Otp"/>
-          <Item Value="Pswrd"/>
+          <Item Value="Address"/>
+          <Item Value="FrmDt"/>
           <Item Value="ToDt"/>
+          <Item Value="EmpId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

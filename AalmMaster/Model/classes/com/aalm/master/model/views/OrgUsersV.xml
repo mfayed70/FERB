@@ -29,6 +29,34 @@
     Name="RoleMasterV1"
     ViewObjectName="com.aalm.master.model.views.RoleMasterV"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="EmployeesLOV1"
+    ViewObjectName="com.aalm.master.model.lovs.EmployeesLOV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="EmployeesLOVCriteria"
+      FullName="com.aalm.master.model.lovs.EmployeesLOV.EmployeesLOVCriteria"/>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_EmpId"
+    ListVOName="EmployeesLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="EmpId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="EmpId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="EmpId"/>
+      <Item Value="EmpName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="OrgUsers"
     Entity="com.aalm.master.model.entities.OrgUsers"/>
@@ -137,6 +165,20 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="EmpId"
+    PrecisionRule="true"
+    EntityAttrName="EmpId"
+    EntityUsage="OrgUsers"
+    AliasName="emp_id"
+    LOVName="LOV_EmpId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="OrgUsersVCriteria"
     ViewObjectName="com.aalm.master.model.views.OrgUsersV"
@@ -229,4 +271,8 @@
     ViewLink="com.aalm.master.model.views.AttendanceToAttendanceStatisticsVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.master.model.AalmMasterMBndl"/>
+  </ResourceBundle>
 </ViewObject>

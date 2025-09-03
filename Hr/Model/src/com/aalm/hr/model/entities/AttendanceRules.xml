@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AttendanceRules"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ATTENDANCE_RULES"
+  AliasName="AttendanceRules"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="OrgCode"
+    IsNotNull="true"
+    ColumnName="org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ATTENDANCE_RULES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WorkStartHour"
+    IsNotNull="true"
+    ColumnName="work_start_hour"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Time"
+    ColumnType="TIME"
+    TableName="ATTENDANCE_RULES"/>
+  <Attribute
+    Name="WorkEndHour"
+    IsNotNull="true"
+    ColumnName="work_end_hour"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Time"
+    ColumnType="TIME"
+    TableName="ATTENDANCE_RULES"/>
+  <Attribute
+    Name="LateAfterMinutes"
+    IsNotNull="true"
+    ColumnName="late_after_minutes"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ATTENDANCE_RULES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EarlyLeaveMinutes"
+    IsNotNull="true"
+    ColumnName="early_leave_minutes"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ATTENDANCE_RULES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OvertimeAfterHour"
+    ColumnName="overtime_after_hour"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Time"
+    ColumnType="TIME"
+    TableName="ATTENDANCE_RULES"/>
+  <Attribute
+    Name="WeekendDay1"
+    IsNotNull="true"
+    ColumnName="weekend_day1"
+    SQLType="TINYINT"
+    Type="java.lang.Integer"
+    ColumnType="TINYINT"
+    TableName="ATTENDANCE_RULES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WeekendDay2"
+    ColumnName="weekend_day2"
+    SQLType="TINYINT"
+    Type="java.lang.Integer"
+    ColumnType="TINYINT"
+    TableName="ATTENDANCE_RULES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.AttendanceRules.OrgCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkRulesOrg">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_rules_org"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.AttendanceRules.OrgCode"/>
+    </AttrArray>
+  </Key>
+</Entity>

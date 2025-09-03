@@ -23,6 +23,8 @@ import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.event.DialogEvent;
 
+import oracle.binding.OperationBinding;
+
 import oracle.jbo.Row;
 
 import oracle.jbo.RowSetIterator;
@@ -75,29 +77,58 @@ public class LoginBean {
             Integer orgCodes = null;
             while (userConOrgsrs.hasNext()){
                 Row myRow = userConOrgsrs.next();
-//                System.out.println("indx"+myRow.getAttribute("OrgCode"));
+                System.out.println("indx : "+myRow.getAttribute("OrgCode"));
 //    orgCodes[userConOrgsrs.getCurrentRowIndex()]= (Integer)myRow.getAttribute("OrgCode");  
                 orgCodes = (Integer)myRow.getAttribute("OrgCode");
             }
             JSFUtil.storeOnSession("orgCode", orgCodes);
             System.out.println("org :"+JSFUtil.getFromSession("orgCode")+"--- "+x+" +++"+JSFUtil.getFromSession("orgCode").getClass());
             if (savedRequest != null) {
-                if(request.getRequestURL().toString().contains("elecon")){
+                if(request.getRequestURL().toString().contains("zamzam")){
+                    JSFUtil.storeOnSession("orgIni", "z");
+//                    System.out.println("header 1 :"+request.getRequestURL().toString());
+                } else {
                     JSFUtil.storeOnSession("orgIni", "e");
-                } else JSFUtil.storeOnSession("orgIni", "z");
-                logger.fine("Retrieved saved URL '" + savedRequest.getRequestUrl() + "', redirecting");
-                externalContext.redirect(savedRequest.getRequestUrl());
+//                    System.out.println("header 2 :"+request.getRequestURL().toString());
+                } 
+//                logger.fine("Retrieved saved URL '" + savedRequest.getRequestUrl() + "', redirecting");
+//                externalContext.redirect(savedRequest.getRequestUrl());
             } else {
-                System.out.println("header :"+request.getRequestURL().toString());
-                if(request.getRequestURL().toString().contains("elecon")){
+//                System.out.println("header :"+request.getRequestURL().toString());
+                if(request.getRequestURL().toString().contains("zamzam")){
+                    JSFUtil.storeOnSession("orgIni", "z");
+//                    System.out.println("header 3 :"+request.getRequestURL().toString());
+                } else {
                     JSFUtil.storeOnSession("orgIni", "e");
-                } else JSFUtil.storeOnSession("orgIni", "z");
-                logger.fine("No URL retrieved, redirecting to HOME_URL: " + HOME_URL);
-                externalContext.redirect(HOME_URL);
+//                    System.out.println("header 4 :"+request.getRequestURL().toString());
+                }
+//                logger.fine("No URL retrieved, redirecting to HOME_URL: " + HOME_URL);
+//                externalContext.redirect(HOME_URL);
             }
+            System.out.println("user ID is :"+JSFUtil.getFromSession("userId"));
             ADFUtils.findOperation("createTodayAttendanceIfMissing").execute();
             ADFUtils.findIterator("UserAttendanceVIterator").executeQuery();
-            JSFUtil.storeOnSession("attendancePanel", false);
+//            OperationBinding op = ADFUtils.findOperation("createTodayAttendanceIfMissing");
+//            System.out.println(">>> Operation binding is " + (op == null ? "NULL" : "FOUND"));
+//            
+//            try {
+//                op.execute();
+//                if (!op.getErrors().isEmpty()) {
+//                    System.out.println(">>> Errors during procedure call: " + op.getErrors());
+//                } else {
+//                    System.out.println(">>> Procedure executed without binding errors.");
+//                }
+//            } catch (Exception ex) {
+//                ex.printStackTrace();
+//            }
+//            ADFUtils.findIterator("UserAttendanceVIterator").executeQuery();
+//            RowSetIterator attIter = ADFUtils.findIterator("UserAttendanceVIterator").getRowSetIterator();
+//            System.out.println(">>> Attendance rows count = " + attIter.getRowCount());
+//            
+            
+            logger.fine("No URL retrieved, redirecting to HOME_URL: " + HOME_URL);
+            externalContext.redirect(HOME_URL);
+//            JSFUtil.storeOnSession("attendancePanel", false);
         } catch (AuthenticationException e) {
             logger.config("Failed login validation for user " + userName);
             FacesMessage msg =

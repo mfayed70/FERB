@@ -73,13 +73,6 @@
               <f:validator binding="#{bindings.ContractId.validator}"/>
               <af:convertNumber groupingUsed="false" pattern="#{bindings.ContractId.format}"/>
             </af:inputText>
-            <af:inputText value="#{bindings.Certificate.inputValue}" label="#{bindings.Certificate.hints.label}"
-                          required="#{bindings.Certificate.hints.mandatory}"
-                          columns="#{bindings.Certificate.hints.displayWidth}"
-                          maximumLength="#{bindings.Certificate.hints.precision}"
-                          shortDesc="#{bindings.Certificate.hints.tooltip}" id="it1">
-              <f:validator binding="#{bindings.Certificate.validator}"/>
-            </af:inputText>
             <af:inputDate value="#{bindings.CertificateDt.inputValue}" label="#{bindings.CertificateDt.hints.label}"
                           required="#{bindings.CertificateDt.hints.mandatory}"
                           columns="#{bindings.CertificateDt.hints.displayWidth}"
@@ -87,6 +80,12 @@
               <f:validator binding="#{bindings.CertificateDt.validator}"/>
               <af:convertDateTime pattern="#{bindings.CertificateDt.format}"/>
             </af:inputDate>
+            <af:selectOneChoice value="#{bindings.Certificate.inputValue}" label="#{bindings.Certificate.label}"
+                                required="#{bindings.Certificate.hints.mandatory}"
+                                shortDesc="#{bindings.Certificate.hints.tooltip}" id="soc4">
+              <f:selectItems value="#{bindings.Certificate.items}" id="si4"/>
+              <f:validator binding="#{bindings.Certificate.validator}"/>
+            </af:selectOneChoice>
             <af:selectOneChoice value="#{bindings.JobId.inputValue}" label="#{bindings.JobId.label}"
                                 required="#{bindings.JobId.hints.mandatory}" shortDesc="#{bindings.JobId.hints.tooltip}"
                                 id="soc2">

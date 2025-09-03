@@ -67,6 +67,9 @@
   <ViewUsage
     Name="AttendanceStatisticsV"
     ViewObjectName="com.aalm.hr.model.views.AttendanceStatisticsV"/>
+  <ViewUsage
+    Name="AttendanceRulesV"
+    ViewObjectName="com.aalm.hr.model.views.AttendanceRulesV"/>
   <ViewLinkUsage
     Name="fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL1"
     ViewLinkObjectName="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL"

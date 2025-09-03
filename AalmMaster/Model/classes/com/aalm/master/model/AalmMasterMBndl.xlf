@@ -138,6 +138,10 @@
         <source>Attendance To Attendance Statistics Vl</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.EmployeesLOV_LABEL">
+        <source>Employees Lov</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

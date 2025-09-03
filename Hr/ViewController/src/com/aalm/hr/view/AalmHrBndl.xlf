@@ -114,6 +114,10 @@
         <source>Attendance Day</source>
         <target/>
       </trans-unit>
+      <trans-unit id="AttendanceRules">
+        <source>Attendance Rules</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>
