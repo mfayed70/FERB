@@ -158,6 +158,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="VacationNameAr"
+    PrecisionRule="true"
+    EntityAttrName="VacationNameAr"
+    EntityUsage="VacationTypes"
+    AliasName="vacation_name_ar"/>
   <ResourceBundle>
     <XliffBundle
       id="com.aalm.hr.model.AalmHrMBndl"/>

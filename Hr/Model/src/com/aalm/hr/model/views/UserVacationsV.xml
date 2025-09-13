@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+
+<ViewObject
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="UserVacationsV"
+   Version="12.1.3.10.47"
+   InheritPersonalization="merge"
+   SelectListFlags="1"
+   FromListFlags="1"
+   WhereFlags="1"
+   BindingStyle="JDBC"
+   CustomQuery="false"
+   PageIterMode="Partial"
+   SelectAllAttributes="false">
+   <ViewAccessor
+      Name="VacationStatusLOV1"
+      ViewObjectName="com.aalm.hr.model.lov.VacationStatusLOV"
+      RowLevelBinds="true"/>
+   <ViewAccessor
+      Name="VacationTypesLOV1"
+      ViewObjectName="com.aalm.hr.model.lov.VacationTypesLOV"
+      RowLevelBinds="true"/>
+   <ListBinding
+      Name="LOV_Status"
+      ListVOName="VacationStatusLOV1"
+      ListRangeSize="-1"
+      NullValueFlag="none"
+      MRUCount="0">
+      <AttrArray Name="AttrNames">
+         <Item Value="Status"/>
+      </AttrArray>
+      <AttrArray Name="AttrExpressions"/>
+      <AttrArray Name="ListAttrNames">
+         <Item Value="code"/>
+      </AttrArray>
+      <AttrArray Name="ListDisplayAttrNames">
+         <Item Value="name"/>
+      </AttrArray>
+      <DisplayCriteria/>
+   </ListBinding>
+   <ListBinding
+      Name="LOV_VacationCode"
+      ListVOName="VacationTypesLOV1"
+      ListRangeSize="-1"
+      NullValueFlag="none"
+      MRUCount="0">
+      <AttrArray Name="AttrNames">
+         <Item Value="VacationCode"/>
+      </AttrArray>
+      <AttrArray Name="AttrExpressions"/>
+      <AttrArray Name="ListAttrNames">
+         <Item Value="VacationCode"/>
+      </AttrArray>
+      <AttrArray Name="ListDisplayAttrNames">
+         <Item Value="VacationName"/>
+         <Item Value="VacationNameAr"/>
+      </AttrArray>
+      <DisplayCriteria/>
+   </ListBinding>
+   <EntityUsage
+      Name="UserVacations"
+      Entity="com.aalm.hr.model.entities.UserVacations" >
+   </EntityUsage>
+   <ViewAttribute
+      Name="Id"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="Id"
+      EntityUsage="UserVacations"
+      AliasName="id" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RegisterDt"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="RegisterDt"
+      EntityUsage="UserVacations"
+      AliasName="register_dt" >
+      <TransientExpression
+         trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="FrmDt"
+      PrecisionRule="true"
+      EntityAttrName="FrmDt"
+      EntityUsage="UserVacations"
+      AliasName="frm_dt" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ToDt"
+      PrecisionRule="true"
+      EntityAttrName="ToDt"
+      EntityUsage="UserVacations"
+      AliasName="to_dt" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EmpId"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="EmpId"
+      EntityUsage="UserVacations"
+      AliasName="emp_id" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="VacationCode"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="VacationCode"
+      EntityUsage="UserVacations"
+      AliasName="vacation_code"
+      LOVName="LOV_VacationCode">
+      <Properties>
+         <SchemaBasedProperties>
+            <CONTROLTYPE
+               Value="choice"/>
+         </SchemaBasedProperties>
+      </Properties>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Status"
+      PrecisionRule="true"
+      EntityAttrName="Status"
+      EntityUsage="UserVacations"
+      AliasName="status"
+      LOVName="LOV_Status">
+      <Properties>
+         <SchemaBasedProperties>
+            <CONTROLTYPE
+               Value="choice"/>
+         </SchemaBasedProperties>
+      </Properties>
+   </ViewAttribute>
+</ViewObject>

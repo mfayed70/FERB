@@ -10,6 +10,11 @@
     <iterator Binds="AttendanceV" RangeSize="25" DataControl="AalmHrDataControl" id="AttendanceVIterator"/>
     <iterator Binds="AttendanceStatisticsV" RangeSize="-1" DataControl="AalmHrDataControl"
               id="AttendanceStatisticsVIterator"/>
+    <iterator Binds="EmployeeVacationsStatisticsV" RangeSize="-1" DataControl="AalmHrDataControl"
+              id="EmployeeVacationsStatisticsVIterator"/>
+    <iterator Binds="UserVacationsV" RangeSize="25" DataControl="AalmHrDataControl" id="UserVacationsVIterator"/>
+    <searchRegion Binds="UserVacationsVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="UserVacationsVQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="OrgUsersVIterator" id="OrgUsersV">
@@ -72,9 +77,45 @@
         <Item Value="CurrentYear"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="AttendanceStatisticsVIterator" id="CurrentMonth">
+    <tree IterBinding="EmployeeVacationsStatisticsVIterator" id="EmployeeVacationsStatisticsV" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="com.aalm.hr.model.views.EmployeeVacationsStatisticsV"
+                      Name="EmployeeVacationsStatisticsV">
+        <AttrNames>
+          <Item Value="TotalDays"/>
+          <Item Value="Year"/>
+          <Item Value="Month"/>
+          <Item Value="VacationName"/>
+          <Item Value="VacationNameAr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="EmployeeVacationsStatisticsVIterator" id="Year">
       <AttrNames>
-        <Item Value="CurrentMonth"/>
+        <Item Value="Year"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeeVacationsStatisticsVIterator" id="Month">
+      <AttrNames>
+        <Item Value="Month"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="UserVacationsVIterator" id="UserVacationsV">
+      <nodeDefinition DefName="com.aalm.hr.model.views.UserVacationsV" Name="UserVacationsV0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="VacationCode"/>
+          <Item Value="RegisterDt"/>
+          <Item Value="FrmDt"/>
+          <Item Value="ToDt"/>
+          <Item Value="Status"/>
+          <Item Value="EmpId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Rollback" DataControl="AalmHrDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <attributeValues IterBinding="OrgUsersVIterator" id="EmpId">
+      <AttrNames>
+        <Item Value="EmpId"/>
       </AttrNames>
     </attributeValues>
   </bindings>

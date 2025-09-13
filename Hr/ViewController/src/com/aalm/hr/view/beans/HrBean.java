@@ -309,6 +309,24 @@ public class HrBean {
                    }
     }
 
+    public void vacationDialogeLsnr(DialogEvent e) {
+        // Add event code here...           
+            switch (e.getOutcome()) {
+                case ok:
+                    System.out.println("User pressed OK");
+                    ADFUtils.findOperation("Commit").execute();
+                    break;
+
+                case cancel:
+                    System.out.println("User pressed Cancel");
+                    ADFUtils.findOperation("Rollback").execute();
+                    break;
+
+                default:
+                    logger.info("Dialog dismissed: " + e.getOutcome());
+            }
+        }
+    
     public void setCurrentTime(Timestamp currentTime) {
         this.currentTime = currentTime;
     }
@@ -316,4 +334,6 @@ public class HrBean {
     public Timestamp getCurrentTime() {
         return new Timestamp(new Date().getTime());
     }
+
+
 }

@@ -1,143 +1,161 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
 <!---->
+
 <ViewObject
-  xmlns="http://xmlns.oracle.com/bc4j"
-  Name="OrgUsersV"
-  Version="12.1.3.10.47"
-  InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
-  BindingStyle="JDBC"
-  CustomQuery="false"
-  SelectAllAttributes="false"
-  PageIterMode="Full">
-  <Variable
-    Name="pOrgUserId"
-    Kind="viewcriteria"
-    Type="java.lang.Integer"/>
-  <EntityUsage
-    Name="OrgUsers"
-    Entity="com.aalm.hr.model.entities.OrgUsers"/>
-  <ViewAttribute
-    Name="UserId"
-    IsUnique="true"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="UserId"
-    EntityUsage="OrgUsers"
-    AliasName="user_id"/>
-  <ViewAttribute
-    Name="FirstName"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="FirstName"
-    EntityUsage="OrgUsers"
-    AliasName="first_name"/>
-  <ViewAttribute
-    Name="LastName"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="LastName"
-    EntityUsage="OrgUsers"
-    AliasName="last_name"/>
-  <ViewAttribute
-    Name="Email"
-    IsUnique="true"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="Email"
-    EntityUsage="OrgUsers"
-    AliasName="email"/>
-  <ViewAttribute
-    Name="Mobile"
-    PrecisionRule="true"
-    EntityAttrName="Mobile"
-    EntityUsage="OrgUsers"
-    AliasName="mobile"/>
-  <ViewAttribute
-    Name="Address"
-    PrecisionRule="true"
-    EntityAttrName="Address"
-    EntityUsage="OrgUsers"
-    AliasName="address"/>
-  <ViewAttribute
-    Name="Pswrd"
-    PrecisionRule="true"
-    EntityAttrName="Pswrd"
-    EntityUsage="OrgUsers"
-    AliasName="pswrd"/>
-  <ViewAttribute
-    Name="Otp"
-    PrecisionRule="true"
-    EntityAttrName="Otp"
-    EntityUsage="OrgUsers"
-    AliasName="otp"/>
-  <ViewAttribute
-    Name="FrmDt"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="FrmDt"
-    EntityUsage="OrgUsers"
-    AliasName="frm_dt"/>
-  <ViewAttribute
-    Name="ToDt"
-    PrecisionRule="true"
-    EntityAttrName="ToDt"
-    EntityUsage="OrgUsers"
-    AliasName="to_dt"/>
-  <ViewAttribute
-    Name="EmpId"
-    IsUnique="true"
-    PrecisionRule="true"
-    EntityAttrName="EmpId"
-    EntityUsage="OrgUsers"
-    AliasName="emp_id"/>
-  <ViewCriteria
-    Name="OrgUsersVCriteria"
-    ViewObjectName="com.aalm.hr.model.views.OrgUsersV"
-    Conjunction="AND">
-    <Properties>
-      <CustomProperties>
-        <Property
-          Name="displayOperators"
-          Value="InAdvancedMode"/>
-        <Property
-          Name="autoExecute"
-          Value="false"/>
-        <Property
-          Name="allowConjunctionOverride"
-          Value="true"/>
-        <Property
-          Name="showInList"
-          Value="true"/>
-        <Property
-          Name="mode"
-          Value="Basic"/>
-      </CustomProperties>
-    </Properties>
-    <ViewCriteriaRow
-      Name="OrgUsersVCriteria_row_0"
-      UpperColumns="1">
-      <ViewCriteriaItem
-        Name="UserId"
-        ViewAttribute="UserId"
-        Operator="="
-        Conjunction="AND"
-        Value=":pOrgUserId"
-        IsBindVarValue="true"
-        Required="Optional"/>
-    </ViewCriteriaRow>
-  </ViewCriteria>
-  <ViewLinkAccessor
-    Name="AttendanceV"
-    ViewLink="com.aalm.hr.model.views.FkAttendanceUserVL"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="AttendanceStatisticsV"
-    ViewLink="com.aalm.hr.model.views.OrgUsersToAttendanceStatisticsVL"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="OrgUsersV"
+   Version="12.1.3.10.47"
+   InheritPersonalization="merge"
+   SelectListFlags="1"
+   FromListFlags="1"
+   WhereFlags="1"
+   BindingStyle="JDBC"
+   CustomQuery="false"
+   SelectAllAttributes="false"
+   PageIterMode="Partial">
+   <Variable
+      Name="pOrgUserId"
+      Kind="viewcriteria"
+      Type="java.lang.Integer" >
+   </Variable>
+   <EntityUsage
+      Name="OrgUsers"
+      Entity="com.aalm.hr.model.entities.OrgUsers" >
+   </EntityUsage>
+   <ViewAttribute
+      Name="UserId"
+      IsUnique="true"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="UserId"
+      EntityUsage="OrgUsers"
+      AliasName="user_id" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="FirstName"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="FirstName"
+      EntityUsage="OrgUsers"
+      AliasName="first_name" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastName"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="LastName"
+      EntityUsage="OrgUsers"
+      AliasName="last_name" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Email"
+      IsUnique="true"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="Email"
+      EntityUsage="OrgUsers"
+      AliasName="email" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Mobile"
+      PrecisionRule="true"
+      EntityAttrName="Mobile"
+      EntityUsage="OrgUsers"
+      AliasName="mobile" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Address"
+      PrecisionRule="true"
+      EntityAttrName="Address"
+      EntityUsage="OrgUsers"
+      AliasName="address" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Pswrd"
+      PrecisionRule="true"
+      EntityAttrName="Pswrd"
+      EntityUsage="OrgUsers"
+      AliasName="pswrd" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Otp"
+      PrecisionRule="true"
+      EntityAttrName="Otp"
+      EntityUsage="OrgUsers"
+      AliasName="otp" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="FrmDt"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="FrmDt"
+      EntityUsage="OrgUsers"
+      AliasName="frm_dt" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ToDt"
+      PrecisionRule="true"
+      EntityAttrName="ToDt"
+      EntityUsage="OrgUsers"
+      AliasName="to_dt" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EmpId"
+      IsUnique="true"
+      PrecisionRule="true"
+      EntityAttrName="EmpId"
+      EntityUsage="OrgUsers"
+      AliasName="emp_id" >
+   </ViewAttribute>
+   <ViewCriteria
+      Name="OrgUsersVCriteria"
+      ViewObjectName="com.aalm.hr.model.views.OrgUsersV"
+      Conjunction="AND" >
+      <Properties >
+         <CustomProperties>
+            <Property Name ="allowConjunctionOverride" Value ="true" />
+            <Property Name ="autoExecute" Value ="false" />
+            <Property Name ="displayOperators" Value ="InAdvancedMode" />
+            <Property Name ="mode" Value ="Basic" />
+            <Property Name ="showInList" Value ="true" />
+         </CustomProperties>
+      </Properties>
+      <ViewCriteriaRow
+         Name="OrgUsersVCriteria_row_0"
+         UpperColumns="1" >
+         <ViewCriteriaItem
+            Name="UserId"
+            ViewAttribute="UserId"
+            Operator="="
+            Conjunction="AND"
+            Value=":pOrgUserId"
+            IsBindVarValue="true"
+            Required="Optional" >
+         </ViewCriteriaItem>
+      </ViewCriteriaRow>
+   </ViewCriteria>
+   <ViewLinkAccessor
+      Name="AttendanceV"
+      ViewLink="com.aalm.hr.model.views.FkAttendanceUserVL"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </ViewLinkAccessor>
+   <ViewLinkAccessor
+      Name="AttendanceStatisticsV"
+      ViewLink="com.aalm.hr.model.views.OrgUsersToAttendanceStatisticsVL"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </ViewLinkAccessor>
+   <ViewLinkAccessor
+      Name="UserVacationsV"
+      ViewLink="com.aalm.hr.model.views.OrgUsersToUserVacationsVL"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </ViewLinkAccessor>
+   <ViewLinkAccessor
+      Name="EmployeeVacationsStatisticsV"
+      ViewLink="com.aalm.hr.model.views.OrgUserToEmpVacationStatisticsVL"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false"/>
 </ViewObject>

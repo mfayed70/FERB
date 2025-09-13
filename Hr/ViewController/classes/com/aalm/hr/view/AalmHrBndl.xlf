@@ -118,6 +118,22 @@
         <source>Attendance Rules</source>
         <target/>
       </trans-unit>
+      <trans-unit id="SUBMIT_A_LEAVE">
+        <source>Submit a leave</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MORNING_PERMISSION">
+        <source>Morning Permission</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EMPLOYEE_VACATIONS_CHART">
+        <source>Employee Vacations Chart</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DAYS">
+        <source>Days</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

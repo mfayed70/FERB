@@ -1,107 +1,120 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
 <!---->
+
 <Entity
-  xmlns="http://xmlns.oracle.com/bc4j"
-  Name="VacationTypes"
-  Version="12.1.3.10.47"
-  InheritPersonalization="merge"
-  DBObjectType="table"
-  DBObjectName="VACATION_TYPES"
-  AliasName="VacationTypes"
-  BindingStyle="JDBC">
-  <Attribute
-    Name="VacationCode"
-    ColumnName="vacation_code"
-    SQLType="INTEGER"
-    Type="java.lang.Integer"
-    ColumnType="INT"
-    TableName="VACATION_TYPES"
-    PrimaryKey="true">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="10"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="VacationName"
-    IsNotNull="true"
-    Precision="200"
-    ColumnName="vacation_name"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="VACATION_TYPES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="200"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="VacationDesc"
-    Precision="200"
-    ColumnName="vacation_desc"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="VACATION_TYPES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="200"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="DeductFromSalary"
-    Precision="2"
-    ColumnName="deduct_from_salary"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="VACATION_TYPES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="2"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="VacDedEffect"
-    Precision="2"
-    ColumnName="vac_ded_effect"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="VACATION_TYPES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="2"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="VacDedVal"
-    ColumnName="vac_ded_val"
-    SQLType="DECIMAL"
-    Type="java.math.BigDecimal"
-    ColumnType="DECIMAL"
-    TableName="VACATION_TYPES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="8"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="FromColumn"
-    Precision="200"
-    ColumnName="from_column"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="VACATION_TYPES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="200"/>
-    </DesignTime>
-  </Attribute>
-  <Key
-    Name="Primary1"
-    PrimaryKey="true">
-    <DesignTime>
-      <Attr Name="_DBObjectName" Value="PRIMARY"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="com.aalm.hr.model.entities.VacationTypes.VacationCode"/>
-    </AttrArray>
-  </Key>
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="VacationTypes"
+   Version="12.1.3.10.47"
+   InheritPersonalization="merge"
+   DBObjectType="table"
+   DBObjectName="VACATION_TYPES"
+   AliasName="VacationTypes"
+   BindingStyle="JDBC" >
+   <Attribute
+      Name="VacationCode"
+      ColumnName="vacation_code"
+      SQLType="INTEGER"
+      Type="java.lang.Integer"
+      ColumnType="INT"
+      TableName="VACATION_TYPES"
+      PrimaryKey="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="10" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="VacationName"
+      IsNotNull="true"
+      Precision="200"
+      ColumnName="vacation_name"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="VACATION_TYPES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="200" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="VacationDesc"
+      Precision="200"
+      ColumnName="vacation_desc"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="VACATION_TYPES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="200" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DeductFromSalary"
+      Precision="2"
+      ColumnName="deduct_from_salary"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="VACATION_TYPES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="VacDedEffect"
+      Precision="2"
+      ColumnName="vac_ded_effect"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="VACATION_TYPES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="VacDedVal"
+      ColumnName="vac_ded_val"
+      SQLType="DECIMAL"
+      Type="java.math.BigDecimal"
+      ColumnType="DECIMAL"
+      TableName="VACATION_TYPES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="8" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="FromColumn"
+      Precision="200"
+      ColumnName="from_column"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="VACATION_TYPES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="200" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="VacationNameAr"
+      Precision="100"
+      ColumnName="vacation_name_ar"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="VACATION_TYPES">
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100"/>
+      </DesignTime>
+   </Attribute>
+   <Key
+      Name="Primary1"
+      PrimaryKey="true" >
+      <DesignTime>
+         <Attr Name="_DBObjectName" Value="PRIMARY"/>
+      </DesignTime>
+      <AttrArray Name="Attributes">
+         <Item Value="com.aalm.hr.model.entities.VacationTypes.VacationCode" />
+      </AttrArray>
+   </Key>
 </Entity>

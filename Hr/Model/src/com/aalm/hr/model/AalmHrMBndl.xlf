@@ -582,6 +582,90 @@
         <source>Employee Certificates</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.OrgUsersToUserVacationsVL_LABEL">
+        <source>Org Users To User Vacations Vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeeVacationsStatisticsV_LABEL">
+        <source>Employee Vacations Statistics V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.OrgUserToEmpVacationStatisticsVL_LABEL">
+        <source>Org User To Emp Vacation Statistics Vl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_0_0">
+        <source>A</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_0_1">
+        <source>Approved</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_1_0">
+        <source>R</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_1_1">
+        <source>Rejected</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_2_0">
+        <source>S</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_2_1">
+        <source>Submitted</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_3_0">
+        <source>I</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_3_1">
+        <source>in-Progress</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV_LABEL">
+        <source>Vacation Status Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TO_DATE_MUST_BE_AFTER_FROM_DATE_">
+        <source>To Date must be after From Date.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_4_0">
+        <source>E</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_4_1">
+        <source>No Cer.- بدون مؤهل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_5_0">
+        <source>F</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_5_1">
+        <source>Primary- الإبتدائية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_6_0">
+        <source>G</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_6_1">
+        <source>Preparatory- الإعدادية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_7_0">
+        <source>H</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_7_1">
+        <source>Above average- فوق متوسط</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

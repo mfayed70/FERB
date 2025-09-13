@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+
+<ViewLink
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="OrgUsersToUserVacationsVL"
+   Version="12.1.3.10.47"
+   InheritPersonalization="merge" >
+   <Properties >
+      <SchemaBasedProperties >
+         <LABEL
+            ResId="com.aalm.hr.model.views.OrgUsersToUserVacationsVL_LABEL" >
+         </LABEL>
+      </SchemaBasedProperties>
+   </Properties>
+   <ViewLinkDefEnd
+      Name="OrgUsersV"
+      Cardinality="1"
+      Source="true"
+      Owner="com.aalm.hr.model.views.OrgUsersV" >
+      <AttrArray Name="Attributes">
+         <Item Value="com.aalm.hr.model.views.OrgUsersV.EmpId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_finderName" Value="OrgUsersV" />
+         <Attr Name="_isUpdateable" Value="true" />
+      </DesignTime>
+   </ViewLinkDefEnd>
+   <ViewLinkDefEnd
+      Name="UserVacationsV"
+      Cardinality="-1"
+      Owner="com.aalm.hr.model.views.UserVacationsV" >
+      <AttrArray Name="Attributes">
+         <Item Value="com.aalm.hr.model.views.UserVacationsV.EmpId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_finderName" Value="UserVacationsV" />
+         <Attr Name="_isUpdateable" Value="true" />
+      </DesignTime>
+   </ViewLinkDefEnd>
+   <ResourceBundle >
+      <XliffBundle
+         id="com.aalm.hr.model.AalmHrMBndl" >
+      </XliffBundle>
+   </ResourceBundle>
+</ViewLink>

@@ -24,7 +24,8 @@
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.lang.String"
-    ColumnType="$none$"/>
+    ColumnType="$none$"
+    SQLType="VARCHAR"/>
   <ViewAttribute
     Name="name"
     IsUpdateable="false"
@@ -38,7 +39,7 @@
     <Item Value="code"/>
   </AttrArray>
   <StaticList
-    Rows="4"
+    Rows="8"
     Columns="2"/>
   <ResourceBundle>
     <XliffBundle

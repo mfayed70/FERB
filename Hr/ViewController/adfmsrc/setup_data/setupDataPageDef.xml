@@ -81,12 +81,11 @@
     <tree IterBinding="VacationTypesVIterator" id="VacationTypesV">
       <nodeDefinition DefName="com.aalm.hr.model.views.VacationTypesV" Name="VacationTypesV0">
         <AttrNames>
-          <Item Value="VacationCode"/>
           <Item Value="VacationName"/>
+          <Item Value="VacationNameAr"/>
           <Item Value="VacationDesc"/>
-          <Item Value="VacDedEffect"/>
-          <Item Value="VacDedVal"/>
           <Item Value="DeductFromSalary"/>
+          <Item Value="VacDedEffect"/>
           <Item Value="FromColumn"/>
         </AttrNames>
       </nodeDefinition>

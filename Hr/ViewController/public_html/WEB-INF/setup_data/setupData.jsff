@@ -388,8 +388,8 @@
                     fetchSize="#{bindings.VacationTypesV.rangeSize}" id="t5" partialTriggers="b7 ::b8">
             <af:column headerText="#{bindings.VacationTypesV.hints.VacationCode.label}" id="c26" width="120">
               <af:panelGroupLayout id="pgl5" layout="horizontal">
-                <af:button actionListener="#{bindings.Delete1.execute}"
-                           disabled="#{!bindings.Delete1.enabled}" id="b7" icon="#{resource['images:delete24.png']}"/>
+                <af:button actionListener="#{bindings.Delete1.execute}" disabled="#{!bindings.Delete1.enabled}" id="b7"
+                           icon="#{resource['images:delete24.png']}"/>
                 <af:link shortDesc="#{bindings.VacationTypesV.hints.VacationCode.tooltip}" id="it21"
                          text="#{row.bindings.VacationCode.inputValue}"/>
                 <f:facet name="separator">
@@ -397,7 +397,7 @@
                 </f:facet>
               </af:panelGroupLayout>
             </af:column>
-            <af:column headerText="#{bindings.VacationTypesV.hints.VacationName.label}" id="c27" width="250">
+            <af:column headerText="#{bindings.VacationTypesV.hints.VacationName.label}" id="c27" width="200">
               <af:inputText value="#{row.bindings.VacationName.inputValue}"
                             label="#{bindings.VacationTypesV.hints.VacationName.label}"
                             required="#{bindings.VacationTypesV.hints.VacationName.mandatory}"
@@ -405,6 +405,16 @@
                             maximumLength="#{bindings.VacationTypesV.hints.VacationName.precision}"
                             shortDesc="#{bindings.VacationTypesV.hints.VacationName.tooltip}" id="it22">
                 <f:validator binding="#{row.bindings.VacationName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.VacationTypesV.hints.VacationNameAr.label}" id="c42" width="200">
+              <af:inputText value="#{row.bindings.VacationNameAr.inputValue}"
+                            label="#{bindings.VacationTypesV.hints.VacationNameAr.label}"
+                            required="#{bindings.VacationTypesV.hints.VacationNameAr.mandatory}"
+                            columns="#{bindings.VacationTypesV.hints.VacationNameAr.displayWidth}"
+                            maximumLength="#{bindings.VacationTypesV.hints.VacationNameAr.precision}"
+                            shortDesc="#{bindings.VacationTypesV.hints.VacationNameAr.tooltip}" id="it28">
+                <f:validator binding="#{row.bindings.VacationNameAr.validator}"/>
               </af:inputText>
             </af:column>
             <af:column headerText="#{bindings.VacationTypesV.hints.VacationDesc.label}" id="c28" width="250">
@@ -429,15 +439,14 @@
             </af:column>
             <af:column headerText="#{bindings.VacationTypesV.hints.VacDedEffect.label}" id="c29" width="150">
               <af:selectOneChoice value="#{row.bindings.VacDedEffect.inputValue}"
-                                  label="#{row.bindings.VacDedEffect.label}"
-                                  required="true"
+                                  label="#{row.bindings.VacDedEffect.label}" required="true"
                                   shortDesc="#{bindings.VacationTypesV.hints.VacDedEffect.tooltip}" id="soc6"
                                   autoSubmit="true">
                 <f:selectItems value="#{row.bindings.VacDedEffect.items}" id="si6"/>
                 <f:validator binding="#{row.bindings.VacDedEffect.validator}"/>
               </af:selectOneChoice>
             </af:column>
-            <af:column headerText="#{bindings.VacationTypesV.hints.VacDedVal.label}" id="c30" width="150">
+            <af:column headerText="#{bindings.VacationTypesV.hints.DeductFromSalary.label}" id="c30" width="150">
               <af:panelGroupLayout id="pgl10" layout="horizontal">
                 <af:inputText value="#{row.bindings.DeductFromSalary.inputValue == 0 ? row.bindings.VacDedVal.inputValue : 0}"
                               label="#{bindings.VacationTypesV.hints.VacDedVal.label}" required="true"
@@ -454,6 +463,13 @@
                   <af:spacer width="5" height="10" id="s10"/>
                 </f:facet>
               </af:panelGroupLayout>
+              <af:selectOneChoice value="#{row.bindings.DeductFromSalary.inputValue}"
+                                  label="#{row.bindings.DeductFromSalary.label}"
+                                  required="#{bindings.VacationTypesV.hints.DeductFromSalary.mandatory}"
+                                  shortDesc="#{bindings.VacationTypesV.hints.DeductFromSalary.tooltip}" id="soc11">
+                <f:selectItems value="#{row.bindings.DeductFromSalary.items}" id="si11"/>
+                <f:validator binding="#{row.bindings.DeductFromSalary.validator}"/>
+              </af:selectOneChoice>
             </af:column>
             <af:column headerText="#{bindings.VacationTypesV.hints.FromColumn.label}" id="c32">
               <af:inputText value="#{row.bindings.FromColumn.inputValue}"

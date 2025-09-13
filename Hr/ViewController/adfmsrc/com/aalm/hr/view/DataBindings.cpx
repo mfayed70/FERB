@@ -32,6 +32,11 @@
     <page path="/WEB-INF/empProfile/empProfile-TF.xml#empProfile-TF@ExecuteWithParams"
           usageId="com_aalm_hr_view_empProfile_TF_empProfile_TF_ExecuteWithParamsPageDef"/>
     <page path="/WEB-INF/empProfile/empProfile.jsff" usageId="com_aalm_hr_view_empProfilePageDef"/>
+    <page path="/WEB-INF/emp-submit-vacation/emp-submit_vacation.jsf"
+          usageId="com_aalm_hr_view_emp_submit_vacationPageDef"/>
+    <page path="PageFlow#CreateInsert" usageId="com_aalm_hr_view_emp_submit_vacation_TF___CreateInsertPageDef"/>
+    <page path="/WEB-INF/emp-submit-vacation/emp-submit-vacation-TF.xml#emp-submit-vacation-TF@CreateWithParameters"
+          usageId="com_aalm_hr_view_emp_submit_vacation_TF_emp_submit_vacation_TF_CreateWithParametersPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_aalm_hr_view_jobs_TF_jobs_TF_ExecutePageDef" path="jobs.jobs_TF_jobs_TF_ExecutePageDef"/>
@@ -55,6 +60,11 @@
     <page id="com_aalm_hr_view_empProfile_TF_empProfile_TF_ExecuteWithParamsPageDef"
           path="empProfile.empProfile_TF_empProfile_TF_ExecuteWithParamsPageDef"/>
     <page id="com_aalm_hr_view_empProfilePageDef" path="empProfile.empProfilePageDef"/>
+    <page id="com_aalm_hr_view_emp_submit_vacationPageDef" path="emp_submit_vacation.emp_submit_vacationPageDef"/>
+    <page id="com_aalm_hr_view_emp_submit_vacation_TF___CreateInsertPageDef"
+          path="emp_submit_vacation.emp_submit_vacation_TF___CreateInsertPageDef"/>
+    <page id="com_aalm_hr_view_emp_submit_vacation_TF_emp_submit_vacation_TF_CreateWithParametersPageDef"
+          path="emp_submit_vacation.emp_submit_vacation_TF_emp_submit_vacation_TF_CreateWithParametersPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AalmHrDataControl" Package="com.aalm.hr.model"

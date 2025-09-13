@@ -1,232 +1,246 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
 <!---->
+
 <Entity
-  xmlns="http://xmlns.oracle.com/bc4j"
-  Name="Employees"
-  Version="12.1.3.10.47"
-  InheritPersonalization="merge"
-  DBObjectType="table"
-  DBObjectName="EMPLOYEES"
-  AliasName="Employees"
-  BindingStyle="JDBC">
-  <Attribute
-    Name="EmpId"
-    ColumnName="emp_id"
-    SQLType="INTEGER"
-    Type="java.lang.Integer"
-    ColumnType="INT"
-    TableName="EMPLOYEES"
-    PrimaryKey="true">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="10"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.aalm.hr.model.entities.Employees.EmpId_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="EmpName"
-    Precision="100"
-    ColumnName="emp_name"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="EMPLOYEES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="100"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.aalm.hr.model.entities.Employees.EmpName_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="MaritalStatus"
-    Precision="2"
-    ColumnName="marital_status"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="EMPLOYEES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="2"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.aalm.hr.model.entities.Employees.MaritalStatus_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="EmpCat"
-    Precision="2"
-    ColumnName="emp_cat"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="EMPLOYEES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="2"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.aalm.hr.model.entities.Employees.EmpCat_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="ContractNo"
-    Precision="45"
-    ColumnName="contract_no"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="EMPLOYEES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="45"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.aalm.hr.model.entities.Employees.ContractNo_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="Salary"
-    ColumnName="salary"
-    SQLType="DECIMAL"
-    Type="java.math.BigDecimal"
-    ColumnType="DECIMAL"
-    TableName="EMPLOYEES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="9"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.aalm.hr.model.entities.Employees.Salary_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="IdNo"
-    Precision="45"
-    ColumnName="id_no"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="EMPLOYEES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="45"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.aalm.hr.model.entities.Employees.IdNo_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="CurrCode"
-    IsNotNull="true"
-    Precision="5"
-    ColumnName="curr_code"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="EMPLOYEES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="5"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.aalm.hr.model.entities.Employees.CurrCode_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="JobId"
-    ColumnName="job_id"
-    SQLType="INTEGER"
-    Type="java.lang.Integer"
-    ColumnType="INT"
-    TableName="EMPLOYEES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="10"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.aalm.hr.model.entities.Employees.JobId_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="OrgCode"
-    IsNotNull="true"
-    ColumnName="org_code"
-    SQLType="INTEGER"
-    Type="java.lang.Integer"
-    ColumnType="INT"
-    TableName="EMPLOYEES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="10"/>
-    </DesignTime>
-  </Attribute>
-  <AccessorAttribute
-    Name="EmployeeJobHistory"
-    Association="com.aalm.hr.model.entities.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1Assoc"
-    AssociationEnd="com.aalm.hr.model.entities.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1Assoc.EmployeeJobHistory"
-    AssociationOtherEnd="com.aalm.hr.model.entities.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1Assoc.Employees"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <AccessorAttribute
-    Name="EmployeesContracts2"
-    Association="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc"
-    AssociationEnd="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc.EmployeesContracts2"
-    AssociationOtherEnd="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc.Employees"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <AccessorAttribute
-    Name="OrgUsers"
-    Association="com.aalm.hr.model.entities.FkOrgUsersEmployees1Assoc"
-    AssociationEnd="com.aalm.hr.model.entities.FkOrgUsersEmployees1Assoc.OrgUsers"
-    AssociationOtherEnd="com.aalm.hr.model.entities.FkOrgUsersEmployees1Assoc.Employees"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <Key
-    Name="Primary1"
-    PrimaryKey="true">
-    <DesignTime>
-      <Attr Name="_DBObjectName" Value="PRIMARY"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="com.aalm.hr.model.entities.Employees.EmpId"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="FkEmployeesCurrencies1">
-    <DesignTime>
-      <Attr Name="_referencedKey" Value="PRIMARY"/>
-      <Attr Name="_isForeign" Value="true"/>
-      <Attr Name="_DBObjectName" Value="fk_EMPLOYEES_CURRENCIES1"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="com.aalm.hr.model.entities.Employees.CurrCode"/>
-    </AttrArray>
-  </Key>
-  <ResourceBundle>
-    <XliffBundle
-      id="com.aalm.hr.model.AalmHrMBndl"/>
-  </ResourceBundle>
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="Employees"
+   Version="12.1.3.10.47"
+   InheritPersonalization="merge"
+   DBObjectType="table"
+   DBObjectName="EMPLOYEES"
+   AliasName="Employees"
+   BindingStyle="JDBC" >
+   <Attribute
+      Name="EmpId"
+      ColumnName="emp_id"
+      SQLType="INTEGER"
+      Type="java.lang.Integer"
+      ColumnType="INT"
+      TableName="EMPLOYEES"
+      PrimaryKey="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="10" />
+      </DesignTime>
+      <Properties >
+         <SchemaBasedProperties >
+            <LABEL
+               ResId="com.aalm.hr.model.entities.Employees.EmpId_LABEL" >
+            </LABEL>
+         </SchemaBasedProperties>
+      </Properties>
+   </Attribute>
+   <Attribute
+      Name="EmpName"
+      Precision="100"
+      ColumnName="emp_name"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="EMPLOYEES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+      <Properties >
+         <SchemaBasedProperties >
+            <LABEL
+               ResId="com.aalm.hr.model.entities.Employees.EmpName_LABEL" >
+            </LABEL>
+         </SchemaBasedProperties>
+      </Properties>
+   </Attribute>
+   <Attribute
+      Name="MaritalStatus"
+      Precision="2"
+      ColumnName="marital_status"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="EMPLOYEES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2" />
+      </DesignTime>
+      <Properties >
+         <SchemaBasedProperties >
+            <LABEL
+               ResId="com.aalm.hr.model.entities.Employees.MaritalStatus_LABEL" >
+            </LABEL>
+         </SchemaBasedProperties>
+      </Properties>
+   </Attribute>
+   <Attribute
+      Name="EmpCat"
+      Precision="2"
+      ColumnName="emp_cat"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="EMPLOYEES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2" />
+      </DesignTime>
+      <Properties >
+         <SchemaBasedProperties >
+            <LABEL
+               ResId="com.aalm.hr.model.entities.Employees.EmpCat_LABEL" >
+            </LABEL>
+         </SchemaBasedProperties>
+      </Properties>
+   </Attribute>
+   <Attribute
+      Name="ContractNo"
+      Precision="45"
+      ColumnName="contract_no"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="EMPLOYEES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="45" />
+      </DesignTime>
+      <Properties >
+         <SchemaBasedProperties >
+            <LABEL
+               ResId="com.aalm.hr.model.entities.Employees.ContractNo_LABEL" >
+            </LABEL>
+         </SchemaBasedProperties>
+      </Properties>
+   </Attribute>
+   <Attribute
+      Name="Salary"
+      ColumnName="salary"
+      SQLType="DECIMAL"
+      Type="java.math.BigDecimal"
+      ColumnType="DECIMAL"
+      TableName="EMPLOYEES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="9" />
+      </DesignTime>
+      <Properties >
+         <SchemaBasedProperties >
+            <LABEL
+               ResId="com.aalm.hr.model.entities.Employees.Salary_LABEL" >
+            </LABEL>
+         </SchemaBasedProperties>
+      </Properties>
+   </Attribute>
+   <Attribute
+      Name="IdNo"
+      Precision="45"
+      ColumnName="id_no"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="EMPLOYEES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="45" />
+      </DesignTime>
+      <Properties >
+         <SchemaBasedProperties >
+            <LABEL
+               ResId="com.aalm.hr.model.entities.Employees.IdNo_LABEL" >
+            </LABEL>
+         </SchemaBasedProperties>
+      </Properties>
+   </Attribute>
+   <Attribute
+      Name="CurrCode"
+      IsNotNull="true"
+      Precision="5"
+      ColumnName="curr_code"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="EMPLOYEES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="5" />
+      </DesignTime>
+      <Properties >
+         <SchemaBasedProperties >
+            <LABEL
+               ResId="com.aalm.hr.model.entities.Employees.CurrCode_LABEL" >
+            </LABEL>
+         </SchemaBasedProperties>
+      </Properties>
+   </Attribute>
+   <Attribute
+      Name="JobId"
+      ColumnName="job_id"
+      SQLType="INTEGER"
+      Type="java.lang.Integer"
+      ColumnType="INT"
+      TableName="EMPLOYEES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="10" />
+      </DesignTime>
+      <Properties >
+         <SchemaBasedProperties >
+            <LABEL
+               ResId="com.aalm.hr.model.entities.Employees.JobId_LABEL" >
+            </LABEL>
+         </SchemaBasedProperties>
+      </Properties>
+   </Attribute>
+   <Attribute
+      Name="OrgCode"
+      IsNotNull="true"
+      ColumnName="org_code"
+      SQLType="INTEGER"
+      Type="java.lang.Integer"
+      ColumnType="INT"
+      TableName="EMPLOYEES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="10" />
+      </DesignTime>
+   </Attribute>
+   <AccessorAttribute
+      Name="EmployeeJobHistory"
+      Association="com.aalm.hr.model.entities.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1Assoc"
+      AssociationEnd="com.aalm.hr.model.entities.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1Assoc.EmployeeJobHistory"
+      AssociationOtherEnd="com.aalm.hr.model.entities.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1Assoc.Employees"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="EmployeesContracts2"
+      Association="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc"
+      AssociationEnd="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc.EmployeesContracts2"
+      AssociationOtherEnd="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc.Employees"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="OrgUsers"
+      Association="com.aalm.hr.model.entities.FkOrgUsersEmployees1Assoc"
+      AssociationEnd="com.aalm.hr.model.entities.FkOrgUsersEmployees1Assoc.OrgUsers"
+      AssociationOtherEnd="com.aalm.hr.model.entities.FkOrgUsersEmployees1Assoc.Employees"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <Key
+      Name="Primary1"
+      PrimaryKey="true" >
+      <DesignTime>
+         <Attr Name="_DBObjectName" Value="PRIMARY"/>
+      </DesignTime>
+      <AttrArray Name="Attributes">
+         <Item Value="com.aalm.hr.model.entities.Employees.EmpId" />
+      </AttrArray>
+   </Key>
+   <Key
+      Name="FkEmployeesCurrencies1" >
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="PRIMARY"/>
+         <Attr Name="_isForeign" Value="true"/>
+         <Attr Name="_DBObjectName" Value="fk_EMPLOYEES_CURRENCIES1"/>
+      </DesignTime>
+      <AttrArray Name="Attributes">
+         <Item Value="com.aalm.hr.model.entities.Employees.CurrCode" />
+      </AttrArray>
+   </Key>
+   <ResourceBundle >
+      <XliffBundle
+         id="com.aalm.hr.model.AalmHrMBndl" >
+      </XliffBundle>
+   </ResourceBundle>
 </Entity>

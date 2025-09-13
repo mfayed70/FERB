@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VacationTypesLOV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="VacationTypes"
+    Entity="com.aalm.hr.model.entities.VacationTypes"/>
+  <ViewAttribute
+    Name="VacationCode"
+    PrecisionRule="true"
+    EntityAttrName="VacationCode"
+    EntityUsage="VacationTypes"
+    AliasName="vacation_code"/>
+  <ViewAttribute
+    Name="VacationName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VacationName"
+    EntityUsage="VacationTypes"
+    AliasName="vacation_name"/>
+  <ViewAttribute
+    Name="VacationNameAr"
+    PrecisionRule="true"
+    EntityAttrName="VacationNameAr"
+    EntityUsage="VacationTypes"
+    AliasName="vacation_name_ar"/>
+</ViewObject>

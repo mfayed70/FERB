@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="emp_submit_vacationPageDef"
+                Package="emp_submit_vacation">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="UserVacationsV" RangeSize="25" DataControl="AalmHrDataControl" id="UserVacationsVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="UserVacationsVIterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserVacationsVIterator" id="RegisterDt">
+      <AttrNames>
+        <Item Value="RegisterDt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserVacationsVIterator" id="FrmDt">
+      <AttrNames>
+        <Item Value="FrmDt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserVacationsVIterator" id="ToDt">
+      <AttrNames>
+        <Item Value="ToDt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserVacationsVIterator" id="EmpId">
+      <AttrNames>
+        <Item Value="EmpId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="UserVacationsVIterator" StaticList="false" Uses="LOV_VacationCode" id="VacationCode"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="UserVacationsVIterator" StaticList="false" Uses="LOV_Status" id="Status" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

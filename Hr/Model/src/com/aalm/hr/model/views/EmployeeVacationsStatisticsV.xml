@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeeVacationsStatisticsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.hr.model.views.EmployeeVacationsStatisticsV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT 
+    uv.emp_id,
+    vt.vacation_name,
+    vt.vacation_name_ar,
+    YEAR(DATE_ADD(uv.frm_dt, INTERVAL n.n MONTH)) AS year,
+    MONTHNAME(DATE_ADD(uv.frm_dt, INTERVAL n.n MONTH)) AS month_name,
+    SUM(
+        GREATEST(
+            0,
+            DATEDIFF(
+                LEAST(LAST_DAY(DATE_ADD(uv.frm_dt, INTERVAL n.n MONTH)), uv.to_dt),
+                GREATEST(DATE_ADD(uv.frm_dt, INTERVAL n.n MONTH), uv.frm_dt)
+            ) + 1
+        )
+    ) AS total_days
+FROM USER_VACATIONS uv
+JOIN VACATION_TYPES vt 
+    ON vt.vacation_code = uv.vacation_code
+JOIN (
+    -- inline numbers table for expanding months (up to 12-month vacations, extend if needed)
+    SELECT 0 AS n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 
+    UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 
+    UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10 UNION ALL SELECT 11
+) n 
+    ON DATE_ADD(uv.frm_dt, INTERVAL n.n MONTH) <= uv.to_dt
+WHERE uv.status = 'A'
+GROUP BY uv.emp_id, vt.vacation_name, vt.vacation_name_ar, year, month_name
+HAVING total_days > 0
+ORDER BY uv.emp_id, year, STR_TO_DATE(month_name, '%M'), vt.vacation_name]]></SQLQuery>
+  <ViewAttribute
+    Name="EmpId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="emp_id"
+    Expression="emp_id"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VacationName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="vacation_name"
+    Expression="vacation_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VacationNameAr"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="vacation_name_ar"
+    Expression="vacation_name_ar"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Year"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="year"
+    Expression="year"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Month"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="INT"
+    AliasName="month"
+    Expression="month"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotalDays"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="total_days"
+    Expression="total_days"
+    SQLType="DECIMAL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="29"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="EmpId"/>
+    <Item Value="Year"/>
+    <Item Value="Month"/>
+  </AttrArray>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.hr.model.AalmHrMBndl"/>
+  </ResourceBundle>
+</ViewObject>

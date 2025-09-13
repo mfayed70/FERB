@@ -33,11 +33,33 @@
     <view id="empProfile">
       <page>/WEB-INF/empProfile/empProfile.jsff</page>
     </view>
+    <task-flow-call id="emp-submit-vacation-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/emp-submit-vacation/emp-submit-vacation-TF.xml</document>
+        <id>emp-submit-vacation-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__8">
+        <name>pEmpId</name>
+        <value>#{pageFlowScope.pEmpId}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
     <control-flow-rule id="__2">
       <from-activity-id>ExecuteWithParams</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>ExecuteWithParams</from-outcome>
         <to-activity-id>empProfile</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>empProfile</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>toSubmitVacation</from-outcome>
+        <to-activity-id>emp-submit-vacation-TF</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

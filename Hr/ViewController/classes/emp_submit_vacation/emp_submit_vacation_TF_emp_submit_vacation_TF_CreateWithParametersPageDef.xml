@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="emp_submit_vacation_TF_emp_submit_vacation_TF_CreateWithParametersPageDef"
+                Package="emp_submit_vacation" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="UserVacationsV" RangeSize="25" DataControl="AalmHrDataControl" id="UserVacationsVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="UserVacationsVIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="EmpId" NDValue="#{pageFlowScope.pEMpId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

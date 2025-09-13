@@ -30,9 +30,9 @@
       <property
          name="y">229.14062</property>
       <property
-         name="x">523.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">523.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -44,4 +44,33 @@
       <property
          name="sdm:polyPoints">R50,232.34277,229.51562,482.0,229.15625,L50</property>
    </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View6"
+      to="TaskFlowCall7">
+      <property
+         name="fromOutcome">toSubmitVacation</property>
+      <property
+         name="sdm:polyPoints">R50,564.0,229.15625,750.2539,229.5625,L50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall7">
+      <property
+         name="taskFlowId">emp-submit-vacation-TF</property>
+      <property
+         name="activityId">emp-submit-vacation-TF</property>
+      <property
+         name="documentReference">/WEB-INF/emp-submit-vacation/emp-submit-vacation-TF.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>emp-submit-vacation-TF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">229.54688</property>
+      <property
+         name="x">791.2539</property>
+   </TaskFlowCall>
 </SDM>
