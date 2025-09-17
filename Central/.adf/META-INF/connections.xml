@@ -6,11 +6,11 @@
       <StringRefAddr addrType="subtype">
         <Contents>MYSQL</Contents>
       </StringRefAddr>
-      <StringRefAddr addrType="hostname">
-        <Contents>localhost</Contents>
-      </StringRefAddr>
       <StringRefAddr addrType="user">
         <Contents>elecon</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="hostname">
+        <Contents>localhost</Contents>
       </StringRefAddr>
       <SecureRefAddr addrType="password"/>
       <StringRefAddr addrType="dataSourceName">

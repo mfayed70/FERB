@@ -360,5 +360,6 @@ public class AalmCentralImpl extends ApplicationModuleImpl implements AalmCentra
     public ViewLinkImpl getfk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1VL1() {
         return (ViewLinkImpl) findViewLink("fk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1VL1");
     }
+
 }
 

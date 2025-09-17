@@ -1,1012 +1,1412 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
 <!---->
-
 <ViewObject
-   xmlns="http://xmlns.oracle.com/bc4j"
-   Name="ItemsListV"
-   Version="12.1.3.10.47"
-   InheritPersonalization="merge"
-   BindingStyle="JDBC"
-   CustomQuery="false"
-   SelectListFlags="1"
-   FromListFlags="1"
-   WhereFlags="1"
-   SelectAllAttributes="false"
-   AccessMode="RANGE_PAGING"
-   RangeSize="100"
-   PageIterMode="Partial">
-   <ViewAccessor
-      Name="ItemCategoriesV1"
-      ViewObjectName="com.aalm.center.model.views.ItemCategoriesV"
-      RowLevelBinds="true" >
-   </ViewAccessor>
-   <ViewAccessor
-      Name="UnitsV1"
-      ViewObjectName="com.aalm.center.model.views.UnitsV"
-      RowLevelBinds="true" >
-   </ViewAccessor>
-   <ViewAccessor
-      Name="YesNoLOV1"
-      ViewObjectName="com.aalm.center.model.lovs.YesNoLOV"
-      RowLevelBinds="true" >
-   </ViewAccessor>
-   <ViewAccessor
-      Name="YesNoLOV2"
-      ViewObjectName="com.aalm.center.model.lovs.YesNoLOV"
-      RowLevelBinds="true" >
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV1"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVA"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVA"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV2"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVB"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVB"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV3"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVC"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVC"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV4"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVD"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVD"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV5"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVE"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVE"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV6"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVF"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVF"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV7"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVG"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVG"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV8"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVH"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVH"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV9"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVI"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVI"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV10"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVJ"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVJ"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV11"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVK"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVK"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV12"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVL"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVL"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV13"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVM"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVM"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV14"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVN"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVN"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV15"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVO"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVO"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV16"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVP"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVP"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV17"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVQ"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVQ"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV18"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVR"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVR"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV19"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVS"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVS"/>
-   </ViewAccessor>
-   <ViewAccessor
-      Name="ItemVariablesValuesLOV20"
-      ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValuesLOV"
-      RowLevelBinds="true">
-      <ViewCriteriaUsage
-         Name="ItemVariablesValuesLOVT"
-         FullName="com.aalm.center.model.lovs.ItemVariablesValuesLOV.ItemVariablesValuesLOVT"/>
-   </ViewAccessor>
-   <ListBinding
-      Name="LOV_CatId"
-      ListVOName="ItemCategoriesV1"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0" >
-      <AttrArray Name="AttrNames">
-         <Item Value="CatId" />
-      </AttrArray>
-      <AttrArray Name="AttrExpressions">
-      </AttrArray>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="CatId" />
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="CatName" />
-      </AttrArray>
-      <DisplayCriteria >
-      </DisplayCriteria>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_UnitId"
-      ListVOName="UnitsV1"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0" >
-      <AttrArray Name="AttrNames">
-         <Item Value="UnitId" />
-      </AttrArray>
-      <AttrArray Name="AttrExpressions">
-      </AttrArray>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="UnitId" />
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="UnitName" />
-      </AttrArray>
-      <DisplayCriteria >
-      </DisplayCriteria>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar1"
-      ListVOName="ItemVariablesValuesLOV1"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar1"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar2"
-      ListVOName="ItemVariablesValuesLOV2"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar2"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar3"
-      ListVOName="ItemVariablesValuesLOV3"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar3"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar4"
-      ListVOName="ItemVariablesValuesLOV4"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar4"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar5"
-      ListVOName="ItemVariablesValuesLOV5"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar5"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar6"
-      ListVOName="ItemVariablesValuesLOV6"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar6"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar7"
-      ListVOName="ItemVariablesValuesLOV7"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar7"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar8"
-      ListVOName="ItemVariablesValuesLOV8"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar8"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar9"
-      ListVOName="ItemVariablesValuesLOV9"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar9"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar10"
-      ListVOName="ItemVariablesValuesLOV10"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar10"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar11"
-      ListVOName="ItemVariablesValuesLOV11"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar11"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar12"
-      ListVOName="ItemVariablesValuesLOV12"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar12"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar13"
-      ListVOName="ItemVariablesValuesLOV13"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar13"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar14"
-      ListVOName="ItemVariablesValuesLOV14"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar14"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar15"
-      ListVOName="ItemVariablesValuesLOV15"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar15"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar16"
-      ListVOName="ItemVariablesValuesLOV16"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar16"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar17"
-      ListVOName="ItemVariablesValuesLOV17"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar17"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar18"
-      ListVOName="ItemVariablesValuesLOV18"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar18"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar19"
-      ListVOName="ItemVariablesValuesLOV19"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar19"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
-      Name="LOV_StrVar20"
-      ListVOName="ItemVariablesValuesLOV20"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="StrVar20"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="VarValCode"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="VarValValue"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <EntityUsage
-      Name="ItemsList"
-      Entity="com.aalm.center.model.entities.ItemsList" >
-   </EntityUsage>
-   <ViewAttribute
-      Name="ItemCode"
-      IsNotNull="true"
-      PrecisionRule="true"
-      EntityAttrName="ItemCode"
-      EntityUsage="ItemsList"
-      AliasName="item_code" >
-      <Properties>
-         <SchemaBasedProperties>
-            <LABEL
-               ResId="com.aalm.center.model.views.ItemsListV.ItemCode_LABEL"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="ItemIndx"
-      PrecisionRule="true"
-      EntityAttrName="ItemIndx"
-      EntityUsage="ItemsList"
-      AliasName="item_indx"/>
-   <ViewAttribute
-      Name="ItemName"
-      PrecisionRule="true"
-      EntityAttrName="ItemName"
-      EntityUsage="ItemsList"
-      AliasName="item_name" >
-      <Properties>
-         <SchemaBasedProperties>
-            <LABEL
-               ResId="com.aalm.center.model.views.ItemsListV.ItemName_LABEL"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="CatId"
-      LOVName="LOV_CatId"
-      PrecisionRule="true"
-      EntityAttrName="CatId"
-      EntityUsage="ItemsList"
-      AliasName="cat_id" >
-      <Properties >
-         <SchemaBasedProperties >
-            <LABEL
-               ResId="com.aalm.center.model.views.ItemsListV.CatId_LABEL"/>
-            <CONTROLTYPE
-               Value="choice" >
-            </CONTROLTYPE>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="UnitId"
-      LOVName="LOV_UnitId"
-      IsNotNull="true"
-      PrecisionRule="true"
-      EntityAttrName="UnitId"
-      EntityUsage="ItemsList"
-      AliasName="unit_id" >
-      <Properties >
-         <SchemaBasedProperties >
-            <LABEL
-               ResId="com.aalm.center.model.views.ItemsListV.UnitId_LABEL"/>
-            <CONTROLTYPE
-               Value="choice" >
-            </CONTROLTYPE>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="RegisterDt"
-      PrecisionRule="true"
-      EntityAttrName="RegisterDt"
-      EntityUsage="ItemsList"
-      AliasName="register_dt" >
-      <Properties>
-         <SchemaBasedProperties>
-            <LABEL
-               ResId="com.aalm.center.model.views.ItemsListV.RegisterDt_LABEL"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="IsAssmbly"
-      PrecisionRule="true"
-      EntityAttrName="IsAssmbly"
-      EntityUsage="ItemsList"
-      AliasName="is_assmbly">
-      <Properties>
-         <SchemaBasedProperties>
-            <LABEL
-               ResId="com.aalm.center.model.views.ItemsListV.IsAssmbly_LABEL"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="Active"
-      PrecisionRule="true"
-      EntityAttrName="Active"
-      EntityUsage="ItemsList"
-      AliasName="active" />
-   <ViewAttribute
-      Name="OrderLimit"
-      PrecisionRule="true"
-      EntityAttrName="OrderLimit"
-      EntityUsage="ItemsList"
-      AliasName="order_limit"/>
-   <ViewAttribute
-      Name="OrgCode"
-      IsNotNull="true"
-      PrecisionRule="true"
-      EntityAttrName="OrgCode"
-      EntityUsage="ItemsList"
-      AliasName="org_code"/>
-   <ViewAttribute
-      Name="SalesProfitPerc"
-      PrecisionRule="true"
-      EntityAttrName="SalesProfitPerc"
-      EntityUsage="ItemsList"
-      AliasName="sales_profit_perc"/>
-   <ViewAttribute
-      Name="StrVar1"
-      PrecisionRule="true"
-      EntityAttrName="StrVar1"
-      EntityUsage="ItemsList"
-      AliasName="str_var_1"
-      LOVName="LOV_StrVar1">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar10"
-      PrecisionRule="true"
-      EntityAttrName="StrVar10"
-      EntityUsage="ItemsList"
-      AliasName="str_var_10"
-      LOVName="LOV_StrVar10">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar11"
-      PrecisionRule="true"
-      EntityAttrName="StrVar11"
-      EntityUsage="ItemsList"
-      AliasName="str_var_11"
-      LOVName="LOV_StrVar11">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar12"
-      PrecisionRule="true"
-      EntityAttrName="StrVar12"
-      EntityUsage="ItemsList"
-      AliasName="str_var_12"
-      LOVName="LOV_StrVar12">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar13"
-      PrecisionRule="true"
-      EntityAttrName="StrVar13"
-      EntityUsage="ItemsList"
-      AliasName="str_var_13"
-      LOVName="LOV_StrVar13">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar2"
-      PrecisionRule="true"
-      EntityAttrName="StrVar2"
-      EntityUsage="ItemsList"
-      AliasName="str_var_2"
-      LOVName="LOV_StrVar2">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar3"
-      PrecisionRule="true"
-      EntityAttrName="StrVar3"
-      EntityUsage="ItemsList"
-      AliasName="str_var_3"
-      LOVName="LOV_StrVar3">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar4"
-      PrecisionRule="true"
-      EntityAttrName="StrVar4"
-      EntityUsage="ItemsList"
-      AliasName="str_var_4"
-      LOVName="LOV_StrVar4">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar5"
-      PrecisionRule="true"
-      EntityAttrName="StrVar5"
-      EntityUsage="ItemsList"
-      AliasName="str_var_5"
-      LOVName="LOV_StrVar5">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar6"
-      PrecisionRule="true"
-      EntityAttrName="StrVar6"
-      EntityUsage="ItemsList"
-      AliasName="str_var_6"
-      LOVName="LOV_StrVar6">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar7"
-      PrecisionRule="true"
-      EntityAttrName="StrVar7"
-      EntityUsage="ItemsList"
-      AliasName="str_var_7"
-      LOVName="LOV_StrVar7">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar8"
-      PrecisionRule="true"
-      EntityAttrName="StrVar8"
-      EntityUsage="ItemsList"
-      AliasName="str_var_8"
-      LOVName="LOV_StrVar8">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar9"
-      PrecisionRule="true"
-      EntityAttrName="StrVar9"
-      EntityUsage="ItemsList"
-      AliasName="str_var_9"
-      LOVName="LOV_StrVar9">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar14"
-      PrecisionRule="true"
-      EntityAttrName="StrVar14"
-      EntityUsage="ItemsList"
-      AliasName="str_var_14"
-      LOVName="LOV_StrVar14">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar15"
-      PrecisionRule="true"
-      EntityAttrName="StrVar15"
-      EntityUsage="ItemsList"
-      AliasName="str_var_15"
-      LOVName="LOV_StrVar15">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar16"
-      PrecisionRule="true"
-      EntityAttrName="StrVar16"
-      EntityUsage="ItemsList"
-      AliasName="str_var_16"
-      LOVName="LOV_StrVar16">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar17"
-      PrecisionRule="true"
-      EntityAttrName="StrVar17"
-      EntityUsage="ItemsList"
-      AliasName="str_var_17"
-      LOVName="LOV_StrVar17">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar18"
-      PrecisionRule="true"
-      EntityAttrName="StrVar18"
-      EntityUsage="ItemsList"
-      AliasName="str_var_18"
-      LOVName="LOV_StrVar18">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar19"
-      PrecisionRule="true"
-      EntityAttrName="StrVar19"
-      EntityUsage="ItemsList"
-      AliasName="str_var_19"
-      LOVName="LOV_StrVar19">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewAttribute
-      Name="StrVar20"
-      PrecisionRule="true"
-      EntityAttrName="StrVar20"
-      EntityUsage="ItemsList"
-      AliasName="str_var_20"
-      LOVName="LOV_StrVar20">
-      <Properties>
-         <SchemaBasedProperties>
-            <CONTROLTYPE
-               Value="choice"/>
-         </SchemaBasedProperties>
-      </Properties>
-   </ViewAttribute>
-   <ViewLinkAccessor
-      Name="ItemsStructureV"
-      ViewLink="com.aalm.center.model.views.fk_ITEMS_STRUCTURE_ITEMS_LIST2VL"
-      Type="oracle.jbo.RowIterator"
-      IsUpdateable="false" >
+    xmlns="http://xmlns.oracle.com/bc4j"
+    Name="ItemsListV"
+    Version="12.1.3.10.47"
+    InheritPersonalization="merge"
+    BindingStyle="JDBC"
+    CustomQuery="true"
+    AccessMode="RANGE_PAGING"
+    RangeSize="100"
+    PageIterMode="Partial">
+    <DesignTime>
+        <Attr Name="_isExpertMode" Value="true"/>
+    </DesignTime>
+    <ViewAccessor
+        Name="ItemCategoriesV1"
+        ViewObjectName="com.aalm.center.model.views.ItemCategoriesV"
+        RowLevelBinds="true"></ViewAccessor>
+    <ViewAccessor
+        Name="UnitsV1"
+        ViewObjectName="com.aalm.center.model.views.UnitsV"
+        RowLevelBinds="true"></ViewAccessor>
+    <ViewAccessor
+        Name="YesNoLOV1"
+        ViewObjectName="com.aalm.center.model.lovs.YesNoLOV"
+        RowLevelBinds="true"></ViewAccessor>
+    <ViewAccessor
+        Name="YesNoLOV2"
+        ViewObjectName="com.aalm.center.model.lovs.YesNoLOV"
+        RowLevelBinds="true"></ViewAccessor>
+    <ViewAccessor
+        Name="LOV_A"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["A"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_B"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["B"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_C"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["C"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_D"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["D"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_E"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["E"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_F"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["F"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_G"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["G"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_H"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["H"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_I"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["I"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_J"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["J"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_K"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["K"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_L"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["L"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_M"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["M"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_N"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["N"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_O"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["O"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_P"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["P"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_Q"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["Q"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_R"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["R"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_S"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["S"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_T"
+        ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["T"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ListBinding
+        Name="LOV_CatId"
+        ListVOName="ItemCategoriesV1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="CatId"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"></AttrArray>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="CatId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="CatName"/>
+        </AttrArray>
+        <DisplayCriteria></DisplayCriteria>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_UnitId"
+        ListVOName="UnitsV1"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="UnitId"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"></AttrArray>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="UnitId"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="UnitName"/>
+        </AttrArray>
+        <DisplayCriteria></DisplayCriteria>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar1"
+        ListVOName="LOV_A"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar1"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar2"
+        ListVOName="LOV_B"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar2"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar3"
+        ListVOName="LOV_C"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar3"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar4"
+        ListVOName="LOV_D"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar4"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar5"
+        ListVOName="LOV_E"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar5"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar6"
+        ListVOName="LOV_F"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar6"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar7"
+        ListVOName="LOV_G"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar7"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar8"
+        ListVOName="LOV_H"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar8"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar9"
+        ListVOName="LOV_I"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar9"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar10"
+        ListVOName="LOV_J"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar10"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar11"
+        ListVOName="LOV_K"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar11"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar12"
+        ListVOName="LOV_L"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar12"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar13"
+        ListVOName="LOV_M"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar13"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar14"
+        ListVOName="LOV_N"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar14"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar15"
+        ListVOName="LOV_O"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar15"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar16"
+        ListVOName="LOV_P"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar16"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar17"
+        ListVOName="LOV_Q"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar17"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar18"
+        ListVOName="LOV_R"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar18"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar19"
+        ListVOName="LOV_S"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar19"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar20"
+        ListVOName="LOV_T"
+        ListRangeSize="-1"
+        NullValueFlag="none"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVar20"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <SQLQuery><![CDATA[SELECT ItemsList.item_code, 
+       ItemsList.item_indx, 
+       ItemsList.item_name, 
+       ItemsList.cat_id, 
+       ItemsList.unit_id, 
+       ItemsList.register_dt, 
+       ItemsList.is_assmbly, 
+       ItemsList.active, 
+       ItemsList.order_limit, 
+       ItemsList.org_code, 
+       ItemsList.sales_profit_perc, 
+       ItemsList.str_var_1, 
+       ItemsList.str_var_10, 
+       ItemsList.str_var_11, 
+       ItemsList.str_var_12, 
+       ItemsList.str_var_13, 
+       ItemsList.str_var_2, 
+       ItemsList.str_var_3, 
+       ItemsList.str_var_4, 
+       ItemsList.str_var_5, 
+       ItemsList.str_var_6, 
+       ItemsList.str_var_7, 
+       ItemsList.str_var_8, 
+       ItemsList.str_var_9, 
+       ItemsList.str_var_14, 
+       ItemsList.str_var_15, 
+       ItemsList.str_var_16, 
+       ItemsList.str_var_17, 
+       ItemsList.str_var_18, 
+       ItemsList.str_var_19, 
+       ItemsList.str_var_20,
+    'A' AS A,
+    'B' AS B,
+    'C' AS C,
+    'D' AS D,
+    'E' AS E,
+    'F' AS F,
+    'G' AS G,
+    'H' AS H,
+    'I' AS I,
+    'J' AS J,
+    'K' AS K,
+    'L' AS L,
+    'M' AS M,
+    'N' AS N,
+    'O' AS O,
+    'P' AS P,
+    'Q' AS Q,
+    'R' AS R,
+    'S' AS S,
+    'T' AS T
+FROM  ITEMS_LIST ItemsList
+WHERE 'A' = 'A'
+  AND 'B' = 'B'
+  AND 'C' = 'C'
+  AND 'D' = 'D'
+  AND 'E' = 'E'
+  AND 'F' = 'F'
+  AND 'G' = 'G'
+  AND 'H' = 'H'
+  AND 'I' = 'I'
+  AND 'J' = 'J'
+  AND 'K' = 'K'
+  AND 'L' = 'L'
+  AND 'M' = 'M'
+  AND 'N' = 'N'
+  AND 'O' = 'O'
+  AND 'P' = 'P'
+  AND 'Q' = 'Q'
+  AND 'R' = 'R'
+  AND 'S' = 'S'
+  AND 'T' = 'T']]></SQLQuery>
+    <EntityUsage
+        Name="ItemsList"
+        Entity="com.aalm.center.model.entities.ItemsList"></EntityUsage>
+    <ViewAttribute
+        Name="ItemCode"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="ItemCode"
+        EntityUsage="ItemsList"
+        AliasName="item_code">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="com.aalm.center.model.views.ItemsListV.ItemCode_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="ItemIndx"
+        PrecisionRule="true"
+        EntityAttrName="ItemIndx"
+        EntityUsage="ItemsList"
+        AliasName="item_indx"/>
+    <ViewAttribute
+        Name="ItemName"
+        PrecisionRule="true"
+        EntityAttrName="ItemName"
+        EntityUsage="ItemsList"
+        AliasName="item_name">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="com.aalm.center.model.views.ItemsListV.ItemName_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="CatId"
+        LOVName="LOV_CatId"
+        PrecisionRule="true"
+        EntityAttrName="CatId"
+        EntityUsage="ItemsList"
+        AliasName="cat_id">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="com.aalm.center.model.views.ItemsListV.CatId_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"></CONTROLTYPE>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="UnitId"
+        LOVName="LOV_UnitId"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="UnitId"
+        EntityUsage="ItemsList"
+        AliasName="unit_id">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="com.aalm.center.model.views.ItemsListV.UnitId_LABEL"/>
+                <CONTROLTYPE
+                    Value="choice"></CONTROLTYPE>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="RegisterDt"
+        PrecisionRule="true"
+        EntityAttrName="RegisterDt"
+        EntityUsage="ItemsList"
+        AliasName="register_dt">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="com.aalm.center.model.views.ItemsListV.RegisterDt_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="IsAssmbly"
+        PrecisionRule="true"
+        EntityAttrName="IsAssmbly"
+        EntityUsage="ItemsList"
+        AliasName="is_assmbly">
+        <Properties>
+            <SchemaBasedProperties>
+                <LABEL
+                    ResId="com.aalm.center.model.views.ItemsListV.IsAssmbly_LABEL"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="Active"
+        PrecisionRule="true"
+        EntityAttrName="Active"
+        EntityUsage="ItemsList"
+        AliasName="active"/>
+    <ViewAttribute
+        Name="OrderLimit"
+        PrecisionRule="true"
+        EntityAttrName="OrderLimit"
+        EntityUsage="ItemsList"
+        AliasName="order_limit"/>
+    <ViewAttribute
+        Name="OrgCode"
+        IsNotNull="true"
+        PrecisionRule="true"
+        EntityAttrName="OrgCode"
+        EntityUsage="ItemsList"
+        AliasName="org_code"/>
+    <ViewAttribute
+        Name="SalesProfitPerc"
+        PrecisionRule="true"
+        EntityAttrName="SalesProfitPerc"
+        EntityUsage="ItemsList"
+        AliasName="sales_profit_perc"/>
+    <ViewAttribute
+        Name="StrVar1"
+        PrecisionRule="true"
+        EntityAttrName="StrVar1"
+        EntityUsage="ItemsList"
+        AliasName="str_var_1"
+        LOVName="LOV_StrVar1">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar10"
+        PrecisionRule="true"
+        EntityAttrName="StrVar10"
+        EntityUsage="ItemsList"
+        AliasName="str_var_10"
+        LOVName="LOV_StrVar10">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar11"
+        PrecisionRule="true"
+        EntityAttrName="StrVar11"
+        EntityUsage="ItemsList"
+        AliasName="str_var_11"
+        LOVName="LOV_StrVar11">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar12"
+        PrecisionRule="true"
+        EntityAttrName="StrVar12"
+        EntityUsage="ItemsList"
+        AliasName="str_var_12"
+        LOVName="LOV_StrVar12">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar13"
+        PrecisionRule="true"
+        EntityAttrName="StrVar13"
+        EntityUsage="ItemsList"
+        AliasName="str_var_13"
+        LOVName="LOV_StrVar13">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar2"
+        PrecisionRule="true"
+        EntityAttrName="StrVar2"
+        EntityUsage="ItemsList"
+        AliasName="str_var_2"
+        LOVName="LOV_StrVar2">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar3"
+        PrecisionRule="true"
+        EntityAttrName="StrVar3"
+        EntityUsage="ItemsList"
+        AliasName="str_var_3"
+        LOVName="LOV_StrVar3">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar4"
+        PrecisionRule="true"
+        EntityAttrName="StrVar4"
+        EntityUsage="ItemsList"
+        AliasName="str_var_4"
+        LOVName="LOV_StrVar4">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar5"
+        PrecisionRule="true"
+        EntityAttrName="StrVar5"
+        EntityUsage="ItemsList"
+        AliasName="str_var_5"
+        LOVName="LOV_StrVar5">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar6"
+        PrecisionRule="true"
+        EntityAttrName="StrVar6"
+        EntityUsage="ItemsList"
+        AliasName="str_var_6"
+        LOVName="LOV_StrVar6">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar7"
+        PrecisionRule="true"
+        EntityAttrName="StrVar7"
+        EntityUsage="ItemsList"
+        AliasName="str_var_7"
+        LOVName="LOV_StrVar7">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar8"
+        PrecisionRule="true"
+        EntityAttrName="StrVar8"
+        EntityUsage="ItemsList"
+        AliasName="str_var_8"
+        LOVName="LOV_StrVar8">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar9"
+        PrecisionRule="true"
+        EntityAttrName="StrVar9"
+        EntityUsage="ItemsList"
+        AliasName="str_var_9"
+        LOVName="LOV_StrVar9">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar14"
+        PrecisionRule="true"
+        EntityAttrName="StrVar14"
+        EntityUsage="ItemsList"
+        AliasName="str_var_14"
+        LOVName="LOV_StrVar14">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar15"
+        PrecisionRule="true"
+        EntityAttrName="StrVar15"
+        EntityUsage="ItemsList"
+        AliasName="str_var_15"
+        LOVName="LOV_StrVar15">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar16"
+        PrecisionRule="true"
+        EntityAttrName="StrVar16"
+        EntityUsage="ItemsList"
+        AliasName="str_var_16"
+        LOVName="LOV_StrVar16">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar17"
+        PrecisionRule="true"
+        EntityAttrName="StrVar17"
+        EntityUsage="ItemsList"
+        AliasName="str_var_17"
+        LOVName="LOV_StrVar17">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar18"
+        PrecisionRule="true"
+        EntityAttrName="StrVar18"
+        EntityUsage="ItemsList"
+        AliasName="str_var_18"
+        LOVName="LOV_StrVar18">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar19"
+        PrecisionRule="true"
+        EntityAttrName="StrVar19"
+        EntityUsage="ItemsList"
+        AliasName="str_var_19"
+        LOVName="LOV_StrVar19">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="StrVar20"
+        PrecisionRule="true"
+        EntityAttrName="StrVar20"
+        EntityUsage="ItemsList"
+        AliasName="str_var_20"
+        LOVName="LOV_StrVar20">
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <!-- Transient Attributes A to T -->
+    <ViewAttribute
+        Name="A"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["A"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="B"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["B"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="C"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["C"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="D"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["D"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="E"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["E"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="F"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["F"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="G"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["G"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="H"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["H"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="I"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["I"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="J"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["J"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="K"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["K"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="L"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["L"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="M"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["M"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="N"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["N"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="O"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["O"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="P"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["P"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="Q"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["Q"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="R"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["R"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="S"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["S"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewAttribute
+        Name="T"
+        IsPersistent="false"
+        Type="java.lang.String"
+        ColumnType="VARCHAR"
+        Precision="2">
+        <TransientExpression><![CDATA["T"]]></TransientExpression>
+        <Properties>
+            <SchemaBasedProperties>
+                <AUTOSUBMIT
+                    Value="true"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+    <ViewLinkAccessor
+        Name="ItemsStructureV"
+        ViewLink="com.aalm.center.model.views.fk_ITEMS_STRUCTURE_ITEMS_LIST2VL"
+        Type="oracle.jbo.RowIterator"
+        IsUpdateable="false">
    </ViewLinkAccessor>
-   <ResourceBundle>
-      <XliffBundle
-         id="com.aalm.center.model.AalmCenteralMBndl"/>
-   </ResourceBundle>
+    <ResourceBundle>
+        <XliffBundle
+            id="com.aalm.center.model.AalmCenteralMBndl"/>
+    </ResourceBundle>
 </ViewObject>

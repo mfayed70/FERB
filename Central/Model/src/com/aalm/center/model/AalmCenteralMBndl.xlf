@@ -362,6 +362,14 @@
         <source>Fk Item Category Types Item Categories1vl</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.ItemsList1V_LABEL">
+        <source>Items List 1v</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.ItemVariablesValues1LOV_LABEL">
+        <source>Item Variables Values 1lov</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

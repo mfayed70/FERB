@@ -18,6 +18,14 @@
         ResId="com.aalm.center.model.lovs.ItemVariablesValuesLOV_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="pVarCode"
+    Kind="where"
+    Type="java.lang.String">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+    </AttrArray>
+  </Variable>
   <SQLQuery><![CDATA[SELECT ItemVariableValues.var_val_code, 
        ItemVariableValues.var_val_value, 
        ItemVariableValues.var_code, 
@@ -807,6 +815,9 @@ where ItemVariableValues.var_code = itemVariables.var_code]]></SQLQuery>
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="VarValCode"/>
+  </AttrArray>
   <ResourceBundle>
     <XliffBundle
       id="com.aalm.center.model.AalmCenteralMBndl"/>
