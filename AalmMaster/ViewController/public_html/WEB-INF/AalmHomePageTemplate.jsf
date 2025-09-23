@@ -17,7 +17,7 @@
             <af:gridCell width="100%" halign="stretch" valign="stretch" columnSpan="2" id="pt_gc1"
                          inlineStyle="background: rgb(234,255,250); background: linear-gradient(176deg, rgba(234,255,250,1) 0%, rgba(148,175,246,1) 100%);">
                 <!-- Header -->
-                <af:panelStretchLayout id="pt_psl1" startWidth="200px" endWidth="320px">
+                <af:panelStretchLayout id="pt_psl1" startWidth="200px" endWidth="280px">
                     <f:facet name="center">
                         <af:panelGroupLayout id="pt_pgl3" layout="horizontal" inlineStyle="padding:5px 0 0 0;"
                                              valign="top">
@@ -26,7 +26,7 @@
                             <af:spacer width="20" height="10" id="pt_s6"/>
                             <af:outputText value="#{AalmMasterBndl.FREE_OF_LICENSE_ENTRPRISE_RESOURCE_PLANNING}"
                                            id="pt_ot6" inlineStyle="color:navy;font-size:15px;"/>
-                            <af:spacer width="130" height="10" id="pt_s1"/>
+                            <af:spacer width="100" height="10" id="pt_s1"/>
                             <af:outputText value="#{AalmMasterBndl.WELCOME}" id="pt_ot2"
                                            inlineStyle="color:navy;font-size:25px;"/>
                             <af:spacer width="10" height="10" id="pt_s2"/>

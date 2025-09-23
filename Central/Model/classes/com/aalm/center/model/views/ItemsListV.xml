@@ -37,7 +37,7 @@
         <ParameterMap>
             <PIMap Variable="pVarCode">
                 <TransientExpression
-                    trustMode="untrusted"><![CDATA["A"]]></TransientExpression>
+                    trustMode="untrusted"><![CDATA[A]]></TransientExpression>
             </PIMap>
         </ParameterMap>
     </ViewAccessor>
@@ -48,7 +48,7 @@
         <ParameterMap>
             <PIMap Variable="pVarCode">
                 <TransientExpression
-                    trustMode="untrusted"><![CDATA["B"]]></TransientExpression>
+                    trustMode="untrusted"><![CDATA[B]]></TransientExpression>
             </PIMap>
         </ParameterMap>
     </ViewAccessor>
@@ -59,7 +59,7 @@
         <ParameterMap>
             <PIMap Variable="pVarCode">
                 <TransientExpression
-                    trustMode="untrusted"><![CDATA["C"]]></TransientExpression>
+                    trustMode="untrusted"><![CDATA[C]]></TransientExpression>
             </PIMap>
         </ParameterMap>
     </ViewAccessor>
@@ -1124,7 +1124,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["A"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1138,7 +1139,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["B"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1152,7 +1154,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["C"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1166,7 +1169,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["D"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1180,7 +1184,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["E"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1194,7 +1199,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["F"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1208,7 +1214,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["G"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1222,7 +1229,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["H"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1236,7 +1244,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["I"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1250,7 +1259,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["J"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1264,7 +1274,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["K"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1278,7 +1289,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["L"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1292,7 +1304,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["M"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1306,7 +1319,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["N"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1320,7 +1334,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["O"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1334,7 +1349,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["P"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1348,7 +1364,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["Q"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1362,7 +1379,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["R"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1376,7 +1394,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["S"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>
@@ -1390,7 +1409,8 @@ WHERE 'A' = 'A'
         IsPersistent="false"
         Type="java.lang.String"
         ColumnType="VARCHAR"
-        Precision="2">
+        Precision="2"
+        SQLType="VARCHAR">
         <TransientExpression><![CDATA["T"]]></TransientExpression>
         <Properties>
             <SchemaBasedProperties>

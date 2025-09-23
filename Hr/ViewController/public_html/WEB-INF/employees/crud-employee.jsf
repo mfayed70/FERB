@@ -23,10 +23,10 @@
                 <f:facet name="legend"/>
                 <af:panelFormLayout id="pfl1">
                     <af:panelLabelAndMessage label="#{bindings.EmpId.hints.label}" id="plam1">
-                        <af:outputText value="#{bindings.EmpId.inputValue}" shortDesc="#{bindings.EmpId.hints.tooltip}"
-                                       id="ot1">
+                        <af:inputText value="#{bindings.EmpId.inputValue}" shortDesc="#{bindings.EmpId.hints.tooltip}"
+                                      id="ot1" label="Label 1" simple="true">
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpId.format}"/>
-                        </af:outputText>
+                        </af:inputText>
                     </af:panelLabelAndMessage>
                     <af:inputText value="#{bindings.EmpName.inputValue}" label="#{bindings.EmpName.hints.label}"
                                   required="#{bindings.EmpName.hints.mandatory}"

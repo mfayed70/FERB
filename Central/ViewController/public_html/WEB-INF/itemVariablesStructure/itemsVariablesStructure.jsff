@@ -54,7 +54,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/ad
     </f:facet>
     <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="550">
       <f:facet name="first">
-        <af:panelSplitter id="ps2" splitterPosition="620">
+        <af:panelSplitter id="ps2" splitterPosition="550">
           <f:facet name="first">
             <af:panelHeader text="#{viewcontrollerBundle.ITEMS_VARIABLES}" id="ph2" inlineStyle="width:600px;">
               <f:facet name="context">
@@ -88,7 +88,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/ad
                 </af:column>
                 <af:column sortProperty="#{bindings.ItemVariablesV1.hints.ColNameInItems.name}" filterable="true"
                            sortable="true" headerText="#{bindings.ItemVariablesV1.hints.ColNameInItems.label}" id="c3"
-                           width="350">
+                           width="250">
                   <af:inputText value="#{row.bindings.ColNameInItems.inputValue}"
                                 label="#{bindings.ItemVariablesV1.hints.ColNameInItems.label}"
                                 required="#{bindings.ItemVariablesV1.hints.ColNameInItems.mandatory}"
@@ -115,7 +115,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/ad
             </af:panelHeader>
           </f:facet>
           <f:facet name="second">
-            <af:panelSplitter id="ps3" splitterPosition="640">
+            <af:panelSplitter id="ps3" splitterPosition="600">
               <f:facet name="first">
                 <af:panelHeader text="#{viewcontrollerBundle.ITEMS_VARIABLES_VALUES}" id="ph3">
                   <f:facet name="context">
@@ -182,8 +182,8 @@ xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/ad
                         <f:validator binding="#{row.bindings.VarValValue.validator}"/>
                       </af:inputText>
                     </af:column>
-                    <af:column id="c25" align="center" sortable="true" filterable="true"
-                               sortProperty="#{bindings.CartizianApplied.name}">
+                    <af:column id="c25" sortable="true" filterable="true"
+                               sortProperty="#{bindings.CartizianApplied.name}" width="50">
                       <af:selectBooleanCheckbox value="#{row.bindings.CartizianApplied.inputValue}"
                                                 label="#{row.bindings.CartizianApplied.label}"
                                                 shortDesc="#{bindings.ItemVariableValuesV.hints.CartizianApplied.tooltip}"

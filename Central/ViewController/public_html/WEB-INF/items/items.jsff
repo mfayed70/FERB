@@ -53,16 +53,27 @@
             </af:toolbar>
           </f:facet>
           <f:facet name="statusbar"/>
-          <af:table value="#{bindings.ItemsListV.collectionModel}" var="row" rows="#{bindings.ItemsListV.rangeSize}"
-                    emptyText="#{bindings.ItemsListV.viewable ? 'No data to display.' : 'Access Denied.'}"
-                    rowBandingInterval="0" selectedRowKeys="#{bindings.ItemsListV.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.ItemsListV.collectionModel.makeCurrent}" rowSelection="single"
-                    fetchSize="#{bindings.ItemsListV.rangeSize}"
-                    filterModel="#{bindings.ItemsListVQuery.queryDescriptor}"
-                    queryListener="#{bindings.ItemsListVQuery.processQuery}" filterVisible="true" varStatus="vs" id="t1"
-                    partialTriggers="b5" columnStretching="column:c2" inlineStyle="padding-bottom:10px;"
-                    scrollPolicy="loadMore" verticalGridVisible="false"
-                    binding="#{pageFlowScope.CentralBean.itemListTbl}" contentDelivery="lazy">
+    <af:table value="#{bindings.ItemsListV.collectionModel}" 
+          var="row" 
+          rows="25" 
+          fetchSize="25"
+          emptyText="#{bindings.ItemsListV.viewable ? 'No data to display.' : 'Access Denied.'}"
+          rowBandingInterval="0" 
+          selectedRowKeys="#{bindings.ItemsListV.collectionModel.selectedRow}"
+          selectionListener="#{bindings.ItemsListV.collectionModel.makeCurrent}" 
+          rowSelection="single"
+          filterModel="#{bindings.ItemsListVQuery.queryDescriptor}"
+          queryListener="#{bindings.ItemsListVQuery.processQuery}" 
+          filterVisible="true" 
+          varStatus="vs" 
+          id="t1"
+          partialTriggers="b5" 
+          columnStretching="column:c2" 
+          inlineStyle="padding-bottom:10px;"
+          scrollPolicy="page" 
+          verticalGridVisible="false"
+          binding="#{pageFlowScope.CentralBean.itemListTbl}" 
+          contentDelivery="lazy">
             <af:column id="c14" width="60" headerText="#{viewcontrollerBundle.SER_}">
               <af:outputText value="#{vs.index+1}" id="ot7"/>
             </af:column>

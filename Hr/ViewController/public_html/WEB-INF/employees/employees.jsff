@@ -10,9 +10,9 @@
     </f:facet>
     <f:facet name="toolbar">
       <af:button text="#{viewcontrollerBundle.NEW}" id="b1" styleClass="but" action="toCrud" useWindow="true"
-                 windowEmbedStyle="inlineDocument" windowHeight="350" windowWidth="600"
-                 returnListener="#{HrClass.refreshEmployeesRtrnLsnr}" icon="#{resource['images:NewF.png']}"
-                 hoverIcon="#{resource['images:NewO.png']}">
+                 windowEmbedStyle="inlineDocument" windowHeight="350" windowWidth="600" icon="#{resource['images:NewF.png']}"
+                 hoverIcon="#{resource['images:NewO.png']}"
+                 returnListener="#{pageFlowScope.HrBean.refreshEmployeesRtrnLsnr}">
         <af:setPropertyListener from="#{null}" to="#{pageFlowScope.pEmpId}" type="action"/>
       </af:button>
     </f:facet>
@@ -32,7 +32,7 @@
                    headerText="#{bindings.EmployeesV.hints.EmpId.label}" id="c1" width="90" filterable="false">
           <af:link shortDesc="#{bindings.EmployeesV.hints.EmpId.tooltip}" id="ot1" text="#{row.EmpId}" action="toCrud"
                    useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="350" windowWidth="600"
-                   returnListener="#{pageFlowScope.HrBean.refreshEmployeesRtrnLsnr}">
+                   returnListener="#{pageFlowScope.HrBean.refreshEmployeesRtrnLsnr}" partialTriggers="ot1">
             <af:setPropertyListener from="#{row.EmpId}" to="#{pageFlowScope.pEmpId}" type="action"/>
             <af:setPropertyListener from="#{row.ContractNo}" to="#{pageFlowScope.pContractId}" type="action"/>
           </af:link>

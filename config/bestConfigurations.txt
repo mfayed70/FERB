@@ -1,0 +1,84 @@
+# configurations should be done in MYSQL configuration file "/etc/my.cnf" to
+# achieve required performance.
+[mysqld]
+# InnoDB memory & parallelism
+innodb_buffer_pool_size = 12G
+innodb_buffer_pool_instances = 6
+
+# Redo logs
+innodb_log_file_size = 1G
+innodb_log_files_in_group = 2
+
+# I/O optimization
+innodb_io_capacity = 1000
+innodb_io_capacity_max = 2000
+innodb_flush_method = O_DIRECT
+
+# Threads (match with CPU cores)
+innodb_read_io_threads = 6
+innodb_write_io_threads = 6
+
+# Durability
+innodb_flush_log_at_trx_commit = 1
+
+# Slow query logging
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql-slow.log
+long_query_time = 2
+log_output = FILE
+
+wait_timeout=28800
+interactive_timeout=28800
+
+# The following commands to execute on the shell
+sudo touch /var/log/mysql-slow.log
+sudo chown mysql:mysql /var/log/mysql-slow.log
+---------------------------
+# configurations should be done for glassfish configuration file …/glassfish/domains/<domain-name>/config/domain.xml
+
+1- Removed duplicate -Xmx512m entries from <jvm-options> to avoid conflicting max heap settings.
+2- Added larger heap settings:
+        <jvm-options>-Xms1024m</jvm-options>   <!-- Initial heap size -->
+        <jvm-options>-Xmx2048m</jvm-options>   <!-- Maximum heap size -->
+3- Open the GlassFish Admin Console
+    Go to: http://<server>:4848
+    Log in with your GlassFish admin credentials.
+    Find Your JDBC Connection Pool
+    In the left navigation menu:
+    Expand Resources → JDBC → JDBC Connection Pools. Click the name of the pool you’re using (e.g. MyAppPool).
+    Adjust the Timeouts
+
+            Inside the pool settings screen:
+            Idle Timeout (seconds):
+
+            Default = 300.
+            Set to something less than MySQL’s wait_timeout (for example 1800 for 30 minutes).
+
+            Max Wait Time (milliseconds):
+            If needed, set to 60000 (1 minute) to prevent long waits.
+
+            Click Save after changing.
+4. Enable Connection Validation
+
+            Still in the same screen:
+            Scroll to Additional Properties or Advanced tab.
+            Find Connection Validation → set to true.
+            Validation Method:
+
+            Choose table from the dropdown.
+            Validation Table Name:
+            Enter a simple table that always exists, e.g. DUAL (for MySQL, you can create a 1-row table called DUAL or use any lightweight table like INFORMATION_SCHEMA.TABLES).
+            This ensures GlassFish tests the connection before handing it to your app.
+            Click Save.
+5. Add autoReconnect Property
+
+            Scroll to Additional Properties → click Add Property:
+            Name: autoReconnect
+            Value: true
+            Click OK or Save.
+6. (Optional) Set Validation Interval
+
+            If you see it listed:
+            Validation Interval:
+            Set to 30 or 60 (seconds) — how often the pool re-validates idle connections.
+            Click Save.
