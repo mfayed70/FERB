@@ -42,6 +42,15 @@
       Type="java.sql.Timestamp"
       ColumnType="DATETIME"
       TableName="USER_VACATIONS" >
+      <validation:CompareValidationBean
+         Name="FrmDtRule0"
+         OnAttribute="FrmDt"
+         OperandType="EXPR"
+         Inverse="false"
+         CompareType="GREATERTHANEQUALTO">
+         <validation:TransientExpression
+            trustMode="untrusted"><![CDATA[RegisterDt]]></validation:TransientExpression>
+      </validation:CompareValidationBean>
    </Attribute>
    <Attribute
       Name="ToDt"
@@ -50,12 +59,15 @@
       Type="java.sql.Timestamp"
       ColumnType="DATETIME"
       TableName="USER_VACATIONS" >
-      <validation:RegExpValidationBean
+      <validation:CompareValidationBean
          Name="ToDtRule0"
-         ResId="TO_DATE_MUST_BE_AFTER_FROM_DATE_"
          OnAttribute="ToDt"
-         Pattern="(toDt != null &amp;&amp; frmDt != null) ? (toDt > frmDt) : true"
-         Inverse="false"/>
+         OperandType="EXPR"
+         Inverse="false"
+         CompareType="GREATERTHANEQUALTO">
+         <validation:TransientExpression
+            trustMode="untrusted"><![CDATA[FrmDt]]></validation:TransientExpression>
+      </validation:CompareValidationBean>
    </Attribute>
    <Attribute
       Name="EmpId"

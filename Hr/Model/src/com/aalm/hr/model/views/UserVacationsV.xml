@@ -80,6 +80,14 @@
       AliasName="register_dt" >
       <TransientExpression
          trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+      <Properties>
+         <SchemaBasedProperties>
+            <FMT_FORMATTER
+               ResId="com.aalm.hr.model.views.UserVacationsV.RegisterDt_FMT_FORMATTER"/>
+            <FMT_FORMAT
+               ResId="com.aalm.hr.model.views.UserVacationsV.RegisterDt_FMT_FORMAT"/>
+         </SchemaBasedProperties>
+      </Properties>
    </ViewAttribute>
    <ViewAttribute
       Name="FrmDt"
@@ -87,6 +95,16 @@
       EntityAttrName="FrmDt"
       EntityUsage="UserVacations"
       AliasName="frm_dt" >
+      <Properties>
+         <SchemaBasedProperties>
+            <AUTOSUBMIT
+               Value="true"/>
+            <FMT_FORMATTER
+               ResId="com.aalm.hr.model.views.UserVacationsV.FrmDt_FMT_FORMATTER"/>
+            <FMT_FORMAT
+               ResId="com.aalm.hr.model.views.UserVacationsV.FrmDt_FMT_FORMAT"/>
+         </SchemaBasedProperties>
+      </Properties>
    </ViewAttribute>
    <ViewAttribute
       Name="ToDt"
@@ -94,6 +112,16 @@
       EntityAttrName="ToDt"
       EntityUsage="UserVacations"
       AliasName="to_dt" >
+      <Properties>
+         <SchemaBasedProperties>
+            <AUTOSUBMIT
+               Value="true"/>
+            <FMT_FORMAT
+               ResId="com.aalm.hr.model.views.UserVacationsV.ToDt_FMT_FORMAT"/>
+            <FMT_FORMATTER
+               ResId="com.aalm.hr.model.views.UserVacationsV.ToDt_FMT_FORMATTER"/>
+         </SchemaBasedProperties>
+      </Properties>
    </ViewAttribute>
    <ViewAttribute
       Name="EmpId"
@@ -124,7 +152,8 @@
       EntityAttrName="Status"
       EntityUsage="UserVacations"
       AliasName="status"
-      LOVName="LOV_Status">
+      LOVName="LOV_Status"
+      DefaultValue="S">
       <Properties>
          <SchemaBasedProperties>
             <CONTROLTYPE
@@ -132,4 +161,8 @@
          </SchemaBasedProperties>
       </Properties>
    </ViewAttribute>
+   <ResourceBundle>
+      <XliffBundle
+         id="com.aalm.hr.model.AalmHrMBndl"/>
+   </ResourceBundle>
 </ViewObject>

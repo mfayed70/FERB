@@ -34,35 +34,35 @@
         Name="LOV_A"
         ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
         RowLevelBinds="false">
-        <ParameterMap>
+               <ParameterMap>
             <PIMap Variable="pVarCode">
                 <TransientExpression
-                    trustMode="untrusted"><![CDATA[A]]></TransientExpression>
+                    trustMode="untrusted"><![CDATA["A"]]></TransientExpression>
             </PIMap>
         </ParameterMap>
-    </ViewAccessor>
+        </ViewAccessor>
     <ViewAccessor
         Name="LOV_B"
         ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
         RowLevelBinds="false">
-        <ParameterMap>
+               <ParameterMap>
             <PIMap Variable="pVarCode">
                 <TransientExpression
-                    trustMode="untrusted"><![CDATA[B]]></TransientExpression>
+                    trustMode="untrusted"><![CDATA["B"]]></TransientExpression>
             </PIMap>
         </ParameterMap>
-    </ViewAccessor>
+        </ViewAccessor>
     <ViewAccessor
         Name="LOV_C"
         ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"
         RowLevelBinds="false">
-        <ParameterMap>
+               <ParameterMap>
             <PIMap Variable="pVarCode">
                 <TransientExpression
-                    trustMode="untrusted"><![CDATA[C]]></TransientExpression>
+                    trustMode="untrusted"><![CDATA["C"]]></TransientExpression>
             </PIMap>
         </ParameterMap>
-    </ViewAccessor>
+        </ViewAccessor>
     <ViewAccessor
         Name="LOV_D"
         ViewObjectName="com.aalm.center.model.lovs.ItemVariablesValues1LOV"

@@ -9,7 +9,7 @@
   <bindings>
     <action IterBinding="UserVacationsVIterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams">
-      <NamedData NDName="EmpId" NDValue="#{pageFlowScope.pEMpId}" NDType="java.lang.String"/>
+      <NamedData NDName="EmpId" NDValue="#{pageFlowScope.pEmpId}" NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

@@ -134,6 +134,10 @@
         <source>Days</source>
         <target/>
       </trans-unit>
+      <trans-unit id="SubmitVacation">
+        <source>Submit Vacation</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

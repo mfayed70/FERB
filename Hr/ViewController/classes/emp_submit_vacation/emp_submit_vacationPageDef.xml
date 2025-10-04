@@ -7,6 +7,11 @@
     <iterator Binds="UserVacationsV" RangeSize="25" DataControl="AalmHrDataControl" id="UserVacationsVIterator"/>
   </executables>
   <bindings>
+    <attributeValues IterBinding="UserVacationsVIterator" id="EmpId">
+      <AttrNames>
+        <Item Value="EmpId"/>
+      </AttrNames>
+    </attributeValues>
     <attributeValues IterBinding="UserVacationsVIterator" id="Id">
       <AttrNames>
         <Item Value="Id"/>
@@ -25,11 +30,6 @@
     <attributeValues IterBinding="UserVacationsVIterator" id="ToDt">
       <AttrNames>
         <Item Value="ToDt"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="UserVacationsVIterator" id="EmpId">
-      <AttrNames>
-        <Item Value="EmpId"/>
       </AttrNames>
     </attributeValues>
     <list IterBinding="UserVacationsVIterator" StaticList="false" Uses="LOV_VacationCode" id="VacationCode"

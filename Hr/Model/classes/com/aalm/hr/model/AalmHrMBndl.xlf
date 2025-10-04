@@ -666,6 +666,30 @@
         <source>Above average- فوق متوسط</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.UserVacationsV.RegisterDt_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultDateFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.UserVacationsV.RegisterDt_FMT_FORMAT">
+        <source>dd/MM/yyyy hh:mm a</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.UserVacationsV.FrmDt_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultDateFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.UserVacationsV.FrmDt_FMT_FORMAT">
+        <source>dd/MM/yyyy hh:mm a</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.UserVacationsV.ToDt_FMT_FORMATTER">
+        <source>oracle.jbo.format.DefaultDateFormatter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.UserVacationsV.ToDt_FMT_FORMAT">
+        <source>dd/MM/yyyy hh:mm a</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

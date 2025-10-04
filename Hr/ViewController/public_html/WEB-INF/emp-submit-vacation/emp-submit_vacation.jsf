@@ -1,29 +1,41 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.hr.view.AalmHrBndl']}"/>
   <af:document id="d1">
+    <af:messages id="m1"/>
     <af:form id="f1">
       <af:panelHeader text="panelHeader 1" id="ph1">
         <f:facet name="context"/>
         <f:facet name="menuBar">
-          <af:button text="button 2" id="b2" action="toCancel" immediate="true"/>
+          <af:button text="#{viewcontrollerBundle.CANCEL}" id="b2" action="toCancel" immediate="true"
+                     icon="#{resource['images:cancelF.png']}" hoverIcon="#{resource['images:cancelO.png']}"/>
         </f:facet>
         <f:facet name="toolbar">
-          <af:button text="button 1" id="b1" action="toSave"/>
+          <af:button text="#{viewcontrollerBundle.SAVE}" id="b1" action="toSave"
+                     icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"/>
         </f:facet>
         <f:facet name="legend"/>
         <f:facet name="info"/>
-        <af:panelFormLayout id="pfl1" maxColumns="3">
+        <af:panelFormLayout id="pfl1">
+          <af:inputText value="#{bindings.EmpId.inputValue}" label="#{bindings.EmpId.hints.label}"
+                        required="#{bindings.EmpId.hints.mandatory}" columns="#{bindings.EmpId.hints.displayWidth}"
+                        maximumLength="#{bindings.EmpId.hints.precision}" shortDesc="#{bindings.EmpId.hints.tooltip}"
+                        id="it1" readOnly="true">
+            <f:validator binding="#{bindings.EmpId.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpId.format}"/>
+          </af:inputText>
           <af:inputText value="#{bindings.Id.inputValue}" label="#{bindings.Id.hints.label}"
                         required="#{bindings.Id.hints.mandatory}" columns="#{bindings.Id.hints.displayWidth}"
                         maximumLength="#{bindings.Id.hints.precision}" shortDesc="#{bindings.Id.hints.tooltip}"
-                        id="it1">
+                        id="it2" readOnly="true">
             <f:validator binding="#{bindings.Id.validator}"/>
             <af:convertNumber groupingUsed="false" pattern="#{bindings.Id.format}"/>
           </af:inputText>
           <af:inputDate value="#{bindings.RegisterDt.inputValue}" label="#{bindings.RegisterDt.hints.label}"
                         required="#{bindings.RegisterDt.hints.mandatory}"
                         columns="#{bindings.RegisterDt.hints.displayWidth}"
-                        shortDesc="#{bindings.RegisterDt.hints.tooltip}" id="id1">
+                        shortDesc="#{bindings.RegisterDt.hints.tooltip}" id="id1" readOnly="true">
             <f:validator binding="#{bindings.RegisterDt.validator}"/>
             <af:convertDateTime pattern="#{bindings.RegisterDt.format}"/>
           </af:inputDate>
@@ -39,13 +51,6 @@
             <f:validator binding="#{bindings.ToDt.validator}"/>
             <af:convertDateTime pattern="#{bindings.ToDt.format}"/>
           </af:inputDate>
-          <af:inputText value="#{bindings.EmpId.inputValue}" label="#{bindings.EmpId.hints.label}"
-                        required="#{bindings.EmpId.hints.mandatory}" columns="#{bindings.EmpId.hints.displayWidth}"
-                        maximumLength="#{bindings.EmpId.hints.precision}" shortDesc="#{bindings.EmpId.hints.tooltip}"
-                        id="it2">
-            <f:validator binding="#{bindings.EmpId.validator}"/>
-            <af:convertNumber groupingUsed="false" pattern="#{bindings.EmpId.format}"/>
-          </af:inputText>
           <af:selectOneChoice value="#{bindings.VacationCode.inputValue}" label="#{bindings.VacationCode.label}"
                               required="#{bindings.VacationCode.hints.mandatory}"
                               shortDesc="#{bindings.VacationCode.hints.tooltip}" id="soc1">
