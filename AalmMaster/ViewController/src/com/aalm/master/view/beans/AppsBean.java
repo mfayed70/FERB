@@ -3,6 +3,10 @@ package com.aalm.master.view.beans;
 import com.shopbook.common.ui.ADFUtils;
 import com.shopbook.common.ui.JSFUtil;
 
+import java.io.IOException;
+
+import javax.faces.event.ValueChangeEvent;
+
 import oracle.adf.controller.ControllerContext;
 
 import java.io.IOException;
@@ -286,11 +290,20 @@ public class AppsBean implements Serializable {
 
     public String homePageSwitcher() {
         // Add event code here...
+//        FacesContext ctx = FacesContext.getCurrentInstance();
         String viewId = FacesContext.getCurrentInstance().getViewRoot().getViewId();
         String pageName = viewId.substring(viewId.lastIndexOf("/") + 1);
-        System.out.println("Page Name: " + pageName);
+        String contextPath = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
+        System.out.println("Page Name: " + pageName+" path :"+contextPath);
         if (pageName.equals("userProfile")) {
-            return "toHome";
+            try {
+        FacesContext.getCurrentInstance().getExternalContext().redirect(contextPath + "/erp/home");
+            } catch (IOException ioe) {
+                // TODO: Add catch code
+                ioe.printStackTrace();
+            }
+            return null;
+//            return "toHome";
         } else return "toUserProfile";
     }
 
@@ -298,4 +311,10 @@ public class AppsBean implements Serializable {
         setDynamicTaskFlowId("/WEB-INF/empProfile/empProfile-TF.xml#empProfile-TF");
         return null;
     }
+
+    public String approval_cyclesTF() {
+        setDynamicTaskFlowId("/WEB-INF/ApprovalCycles/approval_cycles-TF.xml#approval_cycles-TF");
+        return null;
+    }
+
 }

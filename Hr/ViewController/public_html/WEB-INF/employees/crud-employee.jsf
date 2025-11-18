@@ -85,8 +85,7 @@
                     </af:selectOneChoice>
                     <af:selectOneChoice value="#{bindings.JobId.inputValue}" label="#{bindings.JobId.label}"
                                         required="#{bindings.JobId.hints.mandatory}"
-                                        shortDesc="#{bindings.JobId.hints.tooltip}" id="soc4"
-                                        disabled="#{pageFlowScope.pContractId != null}">
+                                        shortDesc="#{bindings.JobId.hints.tooltip}" id="soc4">
                         <f:selectItems value="#{bindings.JobId.items}" id="si4"/>
                         <f:validator binding="#{bindings.JobId.validator}"/>
                     </af:selectOneChoice>

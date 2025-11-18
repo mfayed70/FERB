@@ -28,6 +28,8 @@
     <page path="/WEB-INF/ErpAdmin/stndrd-role-perms-TF.xml#stndrd-role-perms-TF@Execute"
           usageId="com_aalm_master_view_stndrd_role_perms_TF_stndrd_role_perms_TF_ExecutePageDef"/>
     <page path="/userProfile.jsf" usageId="com_aalm_master_view_userProfilePageDef"/>
+    <page path="/WEB-INF/ApprovalCycles/approvalCycles.jsff" usageId="com_aalm_master_view_approvalCyclesPageDef"/>
+    <page path="/WEB-INF/login/setPassword.jsff" usageId="com_aalm_master_view_setPasswordPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_aalm_master_view_AalmHomePageTemplatePageDef"
@@ -51,6 +53,8 @@
     <page id="com_aalm_master_view_stndrd_role_perms_TF_stndrd_role_perms_TF_ExecutePageDef"
           path="ErpAdmin.stndrd_role_perms_TF_stndrd_role_perms_TF_ExecutePageDef"/>
     <page id="com_aalm_master_view_userProfilePageDef" path="com.aalm.master.view.pageDefs.userProfilePageDef"/>
+    <page id="com_aalm_master_view_approvalCyclesPageDef" path="ApprovalCycles.approvalCyclesPageDef"/>
+    <page id="com_aalm_master_view_setPasswordPageDef" path="login.setPasswordPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AalmMasterDataControl" Package="com.aalm.master.model"

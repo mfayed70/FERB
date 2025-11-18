@@ -214,6 +214,22 @@
         <source>Category Types</source>
         <target/>
       </trans-unit>
+      <trans-unit id="Table">
+        <source>Table</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Print">
+        <source>Print</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DEPARTMENTTREE">
+        <source>Department Tree</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DeptJobsTree">
+        <source>Dept Jobs Tree</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

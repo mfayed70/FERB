@@ -6,7 +6,13 @@
    xmlns="http://xmlns.oracle.com/bc4j"
    Name="AalmHr"
    Version="12.1.3.10.47"
-   InheritPersonalization="merge" >
+   InheritPersonalization="merge"
+   ClearCacheOnRollback="true"
+   ComponentClass="com.aalm.hr.model.AalmHrImpl"
+   ComponentInterface="com.aalm.hr.model.common.AalmHr">
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true"/>
+   </DesignTime>
    <Properties >
       <SchemaBasedProperties >
          <LABEL
@@ -93,6 +99,22 @@
    <ViewUsage
       Name="EmployeeVacationsStatisticsV"
       ViewObjectName="com.aalm.hr.model.views.EmployeeVacationsStatisticsV"/>
+   <ViewUsage
+      Name="JobsTreeV"
+      ViewObjectName="com.aalm.hr.model.views.JobsTreeV">
+      <ViewCriteriaUsage
+         Name="JobsTreeVCriteria"
+         FullName="com.aalm.hr.model.views.JobsTreeV.JobsTreeVCriteria"/>
+   </ViewUsage>
+   <ViewUsage
+      Name="JobsTreeChildV"
+      ViewObjectName="com.aalm.hr.model.views.JobsTreeV"/>
+   <ViewUsage
+      Name="ApprovalTransactionDetailsVO"
+      ViewObjectName="com.aalm.hr.model.views.ApprovalTransactionDetailsVO"/>
+   <ViewUsage
+      Name="EmployeeApprovalStatusV"
+      ViewObjectName="com.aalm.hr.model.views.EmployeeApprovalStatusV"/>
    <ViewLinkUsage
       Name="fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL1"
       ViewLinkObjectName="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL"
@@ -127,6 +149,84 @@
       SrcViewUsageName="com.aalm.hr.model.AalmHr.OrgUsersV"
       DstViewUsageName="com.aalm.hr.model.AalmHr.EmployeeVacationsStatisticsV"
       Reversed="false"/>
+   <ViewLinkUsage
+      Name="JobsTreeSelfJoinCVL1"
+      ViewLinkObjectName="com.aalm.hr.model.views.JobsTreeSelfJoinCVL"
+      SrcViewUsageName="com.aalm.hr.model.AalmHr.JobsTreeV"
+      DstViewUsageName="com.aalm.hr.model.AalmHr.JobsTreeChildV"
+      Reversed="false"/>
+   <ViewLinkUsage
+      Name="OrgUsersToApprovalTransactionsDetsCL1"
+      ViewLinkObjectName="com.aalm.hr.model.views.OrgUsersToApprovalTransactionsDetsCL"
+      SrcViewUsageName="com.aalm.hr.model.AalmHr.OrgUsersV"
+      DstViewUsageName="com.aalm.hr.model.AalmHr.ApprovalTransactionDetailsVO"
+      Reversed="false"/>
+   <ViewLinkUsage
+      Name="UserVacationToApprovalStatusCL1"
+      ViewLinkObjectName="com.aalm.hr.model.views.UserVacationToApprovalStatusCL"
+      SrcViewUsageName="com.aalm.hr.model.AalmHr.UserVacationsV"
+      DstViewUsageName="com.aalm.hr.model.AalmHr.EmployeeApprovalStatusV"
+      Reversed="false"/>
+   <ClientInterface
+      Name="__clientInterface">
+      <Method
+         Name="sp_handle_approval_action"
+         MethodName="sp_handle_approval_action">
+         <Return
+            Name="_return_type_"
+            Type="void"/>
+         <Parameter
+            Name="p_trans_id"
+            Type="int"/>
+         <Parameter
+            Name="p_detail_id"
+            Type="int"/>
+         <Parameter
+            Name="p_action"
+            Type="java.lang.String"/>
+         <Parameter
+            Name="p_comments"
+            Type="java.lang.String"/>
+      </Method>
+      <Method
+         Name="sp_create_approval_transaction"
+         MethodName="sp_create_approval_transaction">
+         <Return
+            Name="_return_type_"
+            Type="void"/>
+         <Parameter
+            Name="p_cycle_type_id"
+            Type="int"/>
+         <Parameter
+            Name="p_transaction_ref_id"
+            Type="int"/>
+         <Parameter
+            Name="p_requested_by"
+            Type="int"/>
+         <Parameter
+            Name="p_org_code"
+            Type="int"/>
+      </Method>
+      <Method
+         Name="sp_handle_approval_action"
+         MethodName="sp_handle_approval_action">
+         <Return
+            Name="_return_type_"
+            Type="void"/>
+         <Parameter
+            Name="p_trans_id"
+            Type="int"/>
+         <Parameter
+            Name="p_detail_id"
+            Type="int"/>
+         <Parameter
+            Name="p_action"
+            Type="java.lang.String"/>
+         <Parameter
+            Name="p_comments"
+            Type="java.lang.String"/>
+      </Method>
+   </ClientInterface>
    <ResourceBundle >
       <XliffBundle
          id="com.aalm.hr.model.AalmHrMBndl" >

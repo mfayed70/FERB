@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ApprovalCycleStepsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="OrgsLOV1"
+    ViewObjectName="com.aalm.master.model.lovs.OrgsLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ApprovalRolesLOV1"
+    ViewObjectName="com.aalm.master.model.lovs.ApprovalRolesLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_OrgCode"
+    ListVOName="OrgsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OrgCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="EnOrgName"/>
+      <Item Value="ArOrgName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RoleId"
+    ListVOName="ApprovalRolesLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RoleId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RoleId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="RoleName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ApprovalCycleSteps"
+    Entity="com.aalm.master.model.entities.ApprovalCycleSteps"/>
+  <ViewAttribute
+    Name="StepId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StepId"
+    EntityUsage="ApprovalCycleSteps"
+    AliasName="STEP_ID">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[return (int) (new Date().getTime()/1000);]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CycleTypeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CycleTypeId"
+    EntityUsage="ApprovalCycleSteps"
+    AliasName="CYCLE_TYPE_ID"/>
+  <ViewAttribute
+    Name="StepNo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StepNo"
+    EntityUsage="ApprovalCycleSteps"
+    AliasName="STEP_NO"/>
+  <ViewAttribute
+    Name="RoleId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RoleId"
+    EntityUsage="ApprovalCycleSteps"
+    AliasName="ROLE_ID"
+    LOVName="LOV_RoleId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgCode"
+    PrecisionRule="true"
+    EntityAttrName="OrgCode"
+    EntityUsage="ApprovalCycleSteps"
+    AliasName="ORG_CODE"
+    LOVName="LOV_OrgCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ApprovalOrder"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ApprovalOrder"
+    EntityUsage="ApprovalCycleSteps"
+    AliasName="APPROVAL_ORDER"/>
+  <ViewAttribute
+    Name="IsFinalStep"
+    PrecisionRule="true"
+    EntityAttrName="IsFinalStep"
+    EntityUsage="ApprovalCycleSteps"
+    AliasName="IS_FINAL_STEP"
+    DefaultValue="true"/>
+</ViewObject>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ApprovalCycleTypesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="VacationTypesLOV1"
+    ViewObjectName="com.aalm.master.model.lovs.VacationTypesLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_TransactionTypeCode"
+    ListVOName="VacationTypesLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TransactionTypeCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TransactionTypeName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="VacationCode"/>
+      <Item Value="VacationName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="VacationName"/>
+      <Item Value="VacationNameAr"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ApprovalCycleTypes"
+    Entity="com.aalm.master.model.entities.ApprovalCycleTypes"/>
+  <ViewAttribute
+    Name="CycleTypeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CycleTypeId"
+    EntityUsage="ApprovalCycleTypes"
+    AliasName="CYCLE_TYPE_ID">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[return (int) (new Date().getTime()/1000);]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ModuleName"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ModuleName"
+    EntityUsage="ApprovalCycleTypes"
+    AliasName="MODULE_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TransactionTypeCode"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TransactionTypeCode"
+    EntityUsage="ApprovalCycleTypes"
+    AliasName="TRANSACTION_TYPE_CODE"
+    LOVName="LOV_TransactionTypeCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TransactionTypeName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TransactionTypeName"
+    EntityUsage="ApprovalCycleTypes"
+    AliasName="TRANSACTION_TYPE_NAME"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="ApprovalCycleTypes"
+    AliasName="DESCRIPTION"/>
+  <ViewAttribute
+    Name="lovSwitches"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
+  <ViewLinkAccessor
+    Name="ApprovalCycleStepsV1"
+    ViewLink="com.aalm.master.model.views.FkCycleTypeLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

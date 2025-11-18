@@ -230,6 +230,62 @@
         <source>Your Tasks</source>
         <target/>
       </trans-unit>
+      <trans-unit id="ApprovalCyclesSetup">
+        <source>Approval Cycles Setup</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="APPROVAL_ROLES">
+        <source>Approval Roles</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ApprovalCycles">
+        <source>Approval Cycles</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW_CYCLE">
+        <source>New Cycle</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW_CYCLE_STEP">
+        <source>New Cycle Step</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SWITCH_TO_YOUR_TASKS">
+        <source>Switch to your tasks</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SWITCH_TO_YOUR_PROFILE">
+        <source>Switch to your profile</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SetYourPassword">
+        <source>Set Your Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="confirmPassword">
+        <source>confirm Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Password">
+        <source>Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Submit">
+        <source>Submit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SetPassword">
+        <source>reset Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="youradministratorshouldnullyfyyourpasswordfirst">
+        <source>your administrator should nullyfy your password first</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Pleasesetyourpasswordandconfirmit.">
+        <source>Please set your password and confirm it.</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

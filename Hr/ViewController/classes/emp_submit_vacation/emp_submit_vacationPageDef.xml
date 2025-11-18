@@ -36,5 +36,20 @@
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="UserVacationsVIterator" StaticList="false" Uses="LOV_Status" id="Status" DTSupportsMRU="false"
           SelectItemValueMode="ListObject"/>
+    <methodAction id="sp_create_approval_transaction" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="sp_create_approval_transaction" IsViewObjectMethod="false" DataControl="AalmHrDataControl"
+                  InstanceName="data.AalmHrDataControl.dataProvider"
+                  ReturnName="data.AalmHrDataControl.methodResults.sp_create_approval_transaction_AalmHrDataControl_dataProvider_sp_create_approval_transaction_result">
+      <NamedData NDName="p_cycle_type_id" NDType="int" NDValue="#{bindings.CycleTypeId.inputValue}"/>
+      <NamedData NDName="p_transaction_ref_id" NDType="int" NDValue="#{bindings.Id.inputValue}"/>
+      <NamedData NDName="p_requested_by" NDType="int" NDValue="#{bindings.EmpId.inputValue}"/>
+      <NamedData NDName="p_org_code" NDType="int" NDValue="#{pageFlowScope.pOrgCode}"/>
+    </methodAction>
+    <attributeValues IterBinding="UserVacationsVIterator" id="CycleTypeId">
+      <AttrNames>
+        <Item Value="CycleTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AalmHrDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

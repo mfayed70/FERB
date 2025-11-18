@@ -12,10 +12,12 @@
                      icon="#{resource['images:cancelF.png']}" hoverIcon="#{resource['images:cancelO.png']}"/>
         </f:facet>
         <f:facet name="toolbar">
-          <af:button text="#{viewcontrollerBundle.SAVE}" id="b1" action="toSave"
+          <af:button text="#{viewcontrollerBundle.SAVE}" id="b1" action="#{pageFlowScope.HrBean.saveVacationActn}"
                      icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"/>
         </f:facet>
-        <f:facet name="legend"/>
+        <f:facet name="legend">
+          <af:outputText value="#{pageFlowScope.pOrgCode}" id="ot1"/>
+        </f:facet>
         <f:facet name="info"/>
         <af:panelFormLayout id="pfl1">
           <af:inputText value="#{bindings.EmpId.inputValue}" label="#{bindings.EmpId.hints.label}"

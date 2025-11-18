@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ApprovalTransactionDetails"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="APPROVAL_TRANSACTION_DETAILS"
+  AliasName="ApprovalTransactionDetails"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="DetailId"
+    IsNotNull="true"
+    ColumnName="DETAIL_ID"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="APPROVAL_TRANSACTION_DETAILS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ApprovalTransId"
+    IsNotNull="true"
+    ColumnName="APPROVAL_TRANS_ID"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="APPROVAL_TRANSACTION_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StepId"
+    IsNotNull="true"
+    ColumnName="STEP_ID"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="APPROVAL_TRANSACTION_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ApproverId"
+    IsNotNull="true"
+    ColumnName="APPROVER_ID"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="APPROVAL_TRANSACTION_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ActionStatus"
+    Precision="20"
+    ColumnName="ACTION_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="APPROVAL_TRANSACTION_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ActionDate"
+    ColumnName="ACTION_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="APPROVAL_TRANSACTION_DETAILS"/>
+  <Attribute
+    Name="Comments"
+    Precision="500"
+    ColumnName="COMMENTS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="APPROVAL_TRANSACTION_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ApprovalOrder"
+    IsNotNull="true"
+    ColumnName="APPROVAL_ORDER"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="APPROVAL_TRANSACTION_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsActive"
+    ColumnName="IS_ACTIVE"
+    SQLType="BIT"
+    Type="java.lang.Boolean"
+    ColumnType="BIT"
+    TableName="APPROVAL_TRANSACTION_DETAILS"/>
+  <Attribute
+    Name="RoleId"
+    IsNotNull="true"
+    ColumnName="ROLE_ID"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="APPROVAL_TRANSACTION_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+  </Key>
+  <Key
+    Name="ApprovalTransactionDetailsIbfk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="APPROVAL_TRANSACTION_DETAILS_ibfk_1"/>
+    </DesignTime>
+  </Key>
+  <Key
+    Name="FkApprover">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_APPROVER"/>
+    </DesignTime>
+  </Key>
+  <Key
+    Name="FkStep">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_STEP"/>
+    </DesignTime>
+  </Key>
+  <Key
+    Name="FkTrans">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TRANS"/>
+    </DesignTime>
+  </Key>
+</Entity>

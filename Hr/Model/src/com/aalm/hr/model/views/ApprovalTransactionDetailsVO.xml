@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ApprovalTransactionDetailsVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="ApprovalActionStatusLOV1"
+    ViewObjectName="com.aalm.hr.model.lov.ApprovalActionStatusLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ActionStatus"
+    ListVOName="ApprovalActionStatusLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ActionStatus"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT ApprovalTransactionDetails.DETAIL_ID, 
+       ApprovalTransactionDetails.APPROVAL_TRANS_ID, 
+       ApprovalTransactionDetails.STEP_ID, 
+       ApprovalTransactionDetails.APPROVER_ID, 
+       ApprovalTransactionDetails.ACTION_STATUS, 
+       ApprovalTransactionDetails.ACTION_DATE, 
+       ApprovalTransactionDetails.COMMENTS, 
+       ApprovalTransactionDetails.APPROVAL_ORDER, 
+       ApprovalTransactionDetails.IS_ACTIVE, 
+       ApprovalTransactionDetails.ROLE_ID,
+       -- Display columns from related tables (read-only)
+    a.transaction_ref_id,
+    a.module_name,
+    a.request_date,
+    a.status AS transaction_status,
+    a.requested_by,
+
+    -- From APPROVAL_CYCLE_TYPES
+    act.transaction_type_name,
+    
+    -- Requester info
+    e_req.emp_name AS requester_name,
+    j_req.job_name_en AS requester_job,
+
+    -- Approver info
+    e_app.emp_name AS approver_name,
+    j_app.job_name_en AS approver_job,
+    e_app.org_code AS approver_org_code,
+
+    -- Role info
+    r.role_name
+       
+FROM  APPROVAL_TRANSACTION_DETAILS ApprovalTransactionDetails
+    JOIN APPROVAL_TRANSACTIONS a ON ApprovalTransactionDetails.approval_trans_id = a.approval_trans_id
+     JOIN APPROVAL_CYCLE_TYPES act ON a.cycle_type_id = act.cycle_type_id
+    JOIN EMPLOYEES e_req ON a.requested_by = e_req.emp_id
+    JOIN JOBS j_req ON e_req.job_id = j_req.job_id
+    JOIN EMPLOYEES e_app ON ApprovalTransactionDetails.approver_id = e_app.emp_id
+    JOIN JOBS j_app ON e_app.job_id = j_app.job_id
+    JOIN APPROVAL_ROLES r ON ApprovalTransactionDetails.role_id = r.role_id
+WHERE ApprovalTransactionDetails.is_active = 1
+  AND  ApprovalTransactionDetails.action_status = 'PENDING'
+ORDER BY
+    a.request_date DESC,
+    ApprovalTransactionDetails.approval_order ASC]]></SQLQuery>
+  <EntityUsage
+    Name="ApprovalTransactionDetails"
+    Entity="com.aalm.hr.model.entities.ApprovalTransactionDetails"/>
+  <ViewAttribute
+    Name="DetailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DetailId"
+    EntityUsage="ApprovalTransactionDetails"
+    AliasName="DETAIL_ID"/>
+  <ViewAttribute
+    Name="ApprovalTransId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ApprovalTransId"
+    EntityUsage="ApprovalTransactionDetails"
+    AliasName="APPROVAL_TRANS_ID"/>
+  <ViewAttribute
+    Name="StepId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StepId"
+    EntityUsage="ApprovalTransactionDetails"
+    AliasName="STEP_ID"/>
+  <ViewAttribute
+    Name="ApproverId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ApproverId"
+    EntityUsage="ApprovalTransactionDetails"
+    AliasName="APPROVER_ID"/>
+  <ViewAttribute
+    Name="ActionStatus"
+    PrecisionRule="true"
+    EntityAttrName="ActionStatus"
+    EntityUsage="ApprovalTransactionDetails"
+    AliasName="ACTION_STATUS"
+    LOVName="LOV_ActionStatus">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ActionDate"
+    PrecisionRule="true"
+    EntityAttrName="ActionDate"
+    EntityUsage="ApprovalTransactionDetails"
+    AliasName="ACTION_DATE"/>
+  <ViewAttribute
+    Name="Comments"
+    PrecisionRule="true"
+    EntityAttrName="Comments"
+    EntityUsage="ApprovalTransactionDetails"
+    AliasName="COMMENTS"/>
+  <ViewAttribute
+    Name="ApprovalOrder"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ApprovalOrder"
+    EntityUsage="ApprovalTransactionDetails"
+    AliasName="APPROVAL_ORDER"/>
+  <ViewAttribute
+    Name="IsActive"
+    PrecisionRule="true"
+    EntityAttrName="IsActive"
+    EntityUsage="ApprovalTransactionDetails"
+    AliasName="IS_ACTIVE"/>
+  <ViewAttribute
+    Name="RoleId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RoleId"
+    EntityUsage="ApprovalTransactionDetails"
+    AliasName="ROLE_ID"/>
+  <ViewAttribute
+    Name="TransactionRefId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="transaction_ref_id"
+    Expression="transaction_ref_id"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ModuleName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="module_name"
+    Expression="module_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RequestDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    AliasName="request_date"
+    Expression="request_date"
+    SQLType="TIMESTAMP"/>
+  <ViewAttribute
+    Name="TransactionStatus"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="transaction_status"
+    Expression="transaction_status"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RequestedBy"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="requested_by"
+    Expression="requested_by"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TransactionTypeName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="transaction_type_name"
+    Expression="transaction_type_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RequesterName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="requester_name"
+    Expression="requester_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RequesterJob"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="requester_job"
+    Expression="requester_job"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ApproverName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="approver_name"
+    Expression="approver_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ApproverJob"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="approver_job"
+    Expression="approver_job"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ApproverOrgCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="approver_org_code"
+    Expression="approver_org_code"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RoleName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="role_name"
+    Expression="role_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+</ViewObject>

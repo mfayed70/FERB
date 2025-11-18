@@ -7,7 +7,7 @@
       <property
          name="activityId">login</property>
       <property
-         name="page">/login/login.jsff</property>
+         name="page">/WEB-INF/login/login.jsff</property>
       <property
          name="start">true</property>
       <property
@@ -17,16 +17,16 @@
       <property
          name="y">190.07812</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">141.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <View
       id="View3">
       <property
          name="activityId">forgot-pswrd</property>
       <property
-         name="page">/login/forgot-pswrd.jsff</property>
+         name="page">/WEB-INF/login/forgot-pswrd.jsff</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>forgot-pswrd&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
@@ -34,9 +34,9 @@
       <property
          name="y">190.07812</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">379.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -46,7 +46,7 @@
       <property
          name="fromOutcome">toForgotPswrd</property>
       <property
-         name="sdm:polyPoints">R50,182.0,190.09375,338.0,190.09375,L50</property>
+         name="sdm:polyPoints">R46,182.0,186.59375,338.0,186.59375,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -57,5 +57,42 @@
          name="fromOutcome">backToLogin</property>
       <property
          name="sdm:polyPoints">L54,338.0,193.59375,182.0,193.59375,R54</property>
+   </ControlFlowCase>
+   <View
+      id="View6">
+      <property
+         name="activityId">setPassword</property>
+      <property
+         name="page">/WEB-INF/login/setPassword.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>setPassword&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">347.07812</property>
+      <property
+         name="x">330.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="View2"
+      to="View6">
+      <property
+         name="fromOutcome">setPassword</property>
+      <property
+         name="sdm:polyPoints">B44,137.5,247.75108,286.8358,350.59375,L54</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="View6"
+      to="View2">
+      <property
+         name="fromOutcome">backToLogin</property>
+      <property
+         name="sdm:polyPoints">L46,289.0,343.59375,144.5,244.09375,B56</property>
    </ControlFlowCase>
 </SDM>

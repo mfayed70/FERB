@@ -183,7 +183,6 @@
    </Attribute>
    <Attribute
       Name="OrgCode"
-      IsNotNull="true"
       ColumnName="org_code"
       SQLType="INTEGER"
       Type="java.lang.Integer"

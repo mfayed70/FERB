@@ -17,7 +17,8 @@
        Employees.salary, 
        Employees.id_no, 
        Employees.curr_code, 
-       Employees.org_code"
+       Employees.org_code, 
+       Employees.job_id"
   FromList="EMPLOYEES Employees">
   <Variable
     Name="pEmpId"
@@ -34,6 +35,10 @@
   <ViewAccessor
     Name="EmpCategoryLOV1"
     ViewObjectName="com.aalm.hr.model.lov.EmpCategoryLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="JobsLOV1"
+    ViewObjectName="com.aalm.hr.model.lov.JobsLOV"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_CurrCode"
@@ -87,6 +92,29 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_JobId"
+    ListVOName="JobsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="JobId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OrgCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="JobId"/>
+      <Item Value="OrgCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="JobName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -169,13 +197,23 @@
   </ViewAttribute>
   <ViewAttribute
     Name="OrgCode"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="OrgCode"
     EntityUsage="Employees"
-    AliasName="org_code">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[adf.context.sessionScope.orgCode]]></TransientExpression>
+    AliasName="org_code"/>
+  <ViewAttribute
+    Name="JobId"
+    PrecisionRule="true"
+    EntityAttrName="JobId"
+    EntityUsage="Employees"
+    AliasName="job_id"
+    LOVName="LOV_JobId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewCriteria
     Name="EmployeesCRUDVCriteria"

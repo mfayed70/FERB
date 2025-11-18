@@ -9,6 +9,8 @@
               activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
       <parameters>
         <parameter id="pEmpId" value="#{pageFlowScope.pEmpId}"/>
+        <parameter id="refreshRegion" value="#{sessionScope.refreshRegion}"/>
+        <parameter id="refreshLocale" value="#{sessionScope.refreshLocale}"/>
       </parameters>
     </taskFlow>
   </executables>

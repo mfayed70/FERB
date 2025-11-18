@@ -101,6 +101,31 @@
   <ViewUsage
     Name="AttendanceStatistics"
     ViewObjectName="com.aalm.master.model.views.AttendanceStatistics"/>
+  <ViewUsage
+    Name="ErpModulesV"
+    ViewObjectName="com.aalm.master.model.views.ErpModulesV"/>
+  <ViewUsage
+    Name="ApprovalCycleTypesV"
+    ViewObjectName="com.aalm.master.model.views.ApprovalCycleTypesV"/>
+  <ViewUsage
+    Name="ApprovalCycleStepsV"
+    ViewObjectName="com.aalm.master.model.views.ApprovalCycleStepsV"/>
+  <ViewUsage
+    Name="ApprovalRolesV"
+    ViewObjectName="com.aalm.master.model.views.ApprovalRolesV"/>
+  <ViewUsage
+    Name="MaxJobLevel"
+    ViewObjectName="com.aalm.master.model.lovs.MaxJobLevel"/>
+  <ViewUsage
+    Name="MaxOrgLevel"
+    ViewObjectName="com.aalm.master.model.lovs.MaxOrgLevel"/>
+  <ViewUsage
+    Name="OrgUsersSetPasswordV"
+    ViewObjectName="com.aalm.master.model.views.OrgUsersV">
+    <ViewCriteriaUsage
+      Name="OrgUsersSetPasswordVCriteria"
+      FullName="com.aalm.master.model.views.OrgUsersV.OrgUsersSetPasswordVCriteria"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkUserRolesMasterOrgUsers1VL1"
     ViewLinkObjectName="com.aalm.master.model.views.FkUserRolesMasterOrgUsers1VL"
@@ -172,6 +197,18 @@
     ViewLinkObjectName="com.aalm.master.model.views.AttendanceToAttendanceStatisticsVL"
     SrcViewUsageName="com.aalm.master.model.AalmMaster.OrgUsersV"
     DstViewUsageName="com.aalm.master.model.AalmMaster.AttendanceStatistics"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkApprovalCycleTypesErpModules1Link1"
+    ViewLinkObjectName="com.aalm.master.model.views.FkApprovalCycleTypesErpModules1Link"
+    SrcViewUsageName="com.aalm.master.model.AalmMaster.ErpModulesV"
+    DstViewUsageName="com.aalm.master.model.AalmMaster.ApprovalCycleTypesV"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkCycleTypeLink1"
+    ViewLinkObjectName="com.aalm.master.model.views.FkCycleTypeLink"
+    SrcViewUsageName="com.aalm.master.model.AalmMaster.ApprovalCycleTypesV"
+    DstViewUsageName="com.aalm.master.model.AalmMaster.ApprovalCycleStepsV"
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">

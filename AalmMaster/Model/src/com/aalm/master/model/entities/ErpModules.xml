@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ErpModules"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ERP_MODULES"
+  AliasName="ErpModules"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="ErpModule"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="erp_module"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ERP_MODULES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="ApprovalCycleTypes"
+    Association="com.aalm.master.model.entities.FkApprovalCycleTypesErpModules1Assoc"
+    AssociationEnd="com.aalm.master.model.entities.FkApprovalCycleTypesErpModules1Assoc.ApprovalCycleTypes"
+    AssociationOtherEnd="com.aalm.master.model.entities.FkApprovalCycleTypesErpModules1Assoc.ErpModules"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.ErpModules.ErpModule"/>
+    </AttrArray>
+  </Key>
+</Entity>

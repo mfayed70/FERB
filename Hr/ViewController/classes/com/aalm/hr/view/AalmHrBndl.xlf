@@ -138,6 +138,46 @@
         <source>Submit Vacation</source>
         <target/>
       </trans-unit>
+      <trans-unit id="VacationApprovalCycles">
+        <source>Vacation Approval Cycles</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YourAttendance">
+        <source>Your Attendance</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YourVacations">
+        <source>Your Vacations</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Table">
+        <source>Table</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Tree">
+        <source>Tree</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Print">
+        <source>Print</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YourApprovals">
+        <source>Your Approvals</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Approved">
+        <source>Approved</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Rejected">
+        <source>Rejected</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Pending">
+        <source>Pending</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -10,12 +10,18 @@
     <af:panelGroupLayout id="pgl5" layout="horizontal"
                          inlineStyle="width:800px; background-color:white;padding:0 30px 0 30px;margin-bottom:-10px;" halign="center">
       <af:panelFormLayout id="pfl1" labelAlignment="top"
-                          inlineStyle="width:290px; padding:50px 20px 20px; border-style:solid; border-width:thin; border-color:#e7e7e7;margin:20px 0 0 0;border-radius:30px 30px 30px 30px / 30px 30px 30px 30px ;">
+                          inlineStyle="width:400px; padding:50px 20px 20px; border-style:solid; border-width:thin; border-color:#e7e7e7;margin:20px 0 0 0;border-radius:30px 30px 30px 30px / 30px 30px 30px 30px ;">
         <af:inputText label="#{viewcontrollerBundle.USERNAME}" id="it1" contentStyle="width:220px;font-size:20px;"
-                      value="#{backingBeanScope.LoginBean.userName}"/>
-        <af:panelGroupLayout id="pgl2" layout="horizontal" inlineStyle="margin:0 0 10px;width:230px;" halign="end">
+                      value="#{backingBeanScope.LoginBean.userName}" autoSubmit="true"/>
+        <af:panelGroupLayout id="pgl2" layout="horizontal" inlineStyle="width:600px;padding:10px 0 10px 0;"
+                             valign="top">
           <af:link text="#{viewcontrollerBundle.FORGOT_PASSWORD}" id="l1" inlineStyle="color:Maroon;font-size:20px;"
-                   action="toForgotPswrd"/>
+                   action="toForgotPswrd" rendered="false"/>
+          <af:link text="#{viewcontrollerBundle.SetPassword}" id="l2" inlineStyle="color:Maroon;font-size:20px;"
+                   action="#{backingBeanScope.LoginBean.setPswrdActn}"/>
+          <f:facet name="separator"/>
+          <af:outputText value="#{viewcontrollerBundle.youradministratorshouldnullyfyyourpasswordfirst}" id="ot5"
+                         inlineStyle="font-size:14px;" rendered="false"/>
         </af:panelGroupLayout>
         <af:inputText id="it2" label="#{viewcontrollerBundle.PASSWORD}" contentStyle="width:220px;font-size:20px;"
                       value="#{backingBeanScope.LoginBean.password}" secret="true"/>

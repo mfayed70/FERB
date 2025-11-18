@@ -42,6 +42,10 @@
         <name>pEmpId</name>
         <value>#{pageFlowScope.pEmpId}</value>
       </input-parameter>
+      <input-parameter id="__9">
+        <name>pOrgCode</name>
+        <value>#{pageFlowScope.pOrgCode}</value>
+      </input-parameter>
       <run-as-dialog>
         <display-type>
           <inline-popup/>

@@ -69,7 +69,6 @@
             Action="createWithParams">
       <NamedData NDName="EmpId" NDValue="#{pageFlowScope.pEmpId}" NDType="java.lang.String"/>
     </action>
-    <action id="Rollback" DataControl="AalmHrDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
     <list IterBinding="EmployeesContractsVIterator" StaticList="false" Uses="LOV_IdType" id="IdType"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="SystemParametersIterator" id="FileServerPath">
@@ -119,5 +118,11 @@
     </action>
     <list IterBinding="EmployeesContractsVIterator" StaticList="false" Uses="LOV_Certificate" id="Certificate"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="EmployeesContractsVIterator" id="OrgCode">
+      <AttrNames>
+        <Item Value="OrgCode"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" DataControl="AalmHrDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>

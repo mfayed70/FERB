@@ -142,6 +142,102 @@
         <source>Employees Lov</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.JobsLOV_LABEL">
+        <source>Jobs Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.VacationTypesLOV_LABEL">
+        <source>Vacations Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.VacationsLOV_LABEL">
+        <source>Vacation Types LOV</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.ErpModulesLOV_LABEL">
+        <source>Erp Modules Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.OrgsLOV_LABEL">
+        <source>Orgs Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.ApprovalRolesLOV_LABEL">
+        <source>Approval Roles Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.YesNoLOV.SL_0_0">
+        <source>Y</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.YesNoLOV.SL_0_1">
+        <source>Yes</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.YesNoLOV.SL_1_0">
+        <source>N</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.YesNoLOV.SL_1_1">
+        <source>No</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.MultiPolicyLOV.SL_0_0">
+        <source>SINGLE</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.MultiPolicyLOV.SL_1_0">
+        <source>ALL</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.MultiPolicyLOV.SL_2_0">
+        <source>ANY</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.MultiPolicyLOV.SL_3_0">
+        <source>N_OF_M</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.MultiPolicyLOV_LABEL">
+        <source>Multi Policy Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.ResolveEntityLOV.SL_0_0">
+        <source>JOB</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.ResolveEntityLOV.SL_1_0">
+        <source>ORG</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.ResolveEntityLOV_LABEL">
+        <source>Resolve Entity Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.ResolveScopeLOV.SL_0_0">
+        <source>SAME_ORG</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.ResolveScopeLOV.SL_1_0">
+        <source>ANCESTOR_ORG</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.ResolveScopeLOV.SL_2_0">
+        <source>GLOBAL</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.ResolveScopeLOV_LABEL">
+        <source>Resolve Scope Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.MaxJobLevel_LABEL">
+        <source>Max Job Level</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.MaxOrgLevel_LABEL">
+        <source>Max Org Level</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

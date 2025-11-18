@@ -17,7 +17,8 @@
        Employees.salary, 
        Employees.id_no, 
        Employees.job_id, 
-       Employees.curr_code"
+       Employees.curr_code, 
+       Employees.org_code"
   FromList="EMPLOYEES Employees">
   <ViewAccessor
     Name="Currencies1"
@@ -235,6 +236,13 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="OrgCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OrgCode"
+    EntityUsage="Employees"
+    AliasName="org_code"/>
   <ViewLinkAccessor
     Name="EmployeeJobHistoryV"
     ViewLink="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL"

@@ -1,0 +1,38 @@
+-- INSERT INTO ORGANIZATIONS (org_code, org_name_en, org_name_ar, parent_code) VALUES
+-- (1, 'Elecon Electromechanical Contractors', 'شركة اليكون للمقاولات الكهروميكانيكية', NULL);
+INSERT INTO ORGANIZATIONS VALUES
+(2, 'Human Resources Department', 'إدارة الموارد البشرية', 1),
+(3, 'Warehouse Department', 'إدارة المخازن', 1),
+(4, 'Accounting Department', 'إدارة المحاسبة', 1),
+(5, 'Business Development Department', 'إدارة تطوير الأعمال', 1),
+(6, 'Procurement Department', 'إدارة المشتريات', 1),
+(7, 'Tendering Department', 'إدارة المناقصات', 1),
+(8, 'Technical Office Department', 'إدارة المكتب الفني', 1),
+(9, 'Project Management Department', 'إدارة المشاريع', 1);
+INSERT INTO ORGANIZATIONS VALUES
+(10, 'Legal Department', 'إدارة الشؤون القانونية', 2),
+(11, 'Recruitment Department', 'إدارة التوظيف', 2);
+INSERT INTO ORGANIZATIONS VALUES
+(12, 'Payroll Department', 'إدارة الرواتب', 4),
+(13, 'Public Relations Department', 'إدارة العلاقات العامة', 4),
+(14, 'Secretariat Department', 'إدارة السكرتارية', 4),
+(15, 'Audit Department', 'إدارة المراجعة', 4);
+INSERT INTO ORGANIZATIONS VALUES
+(16, 'Local Materials Department', 'إدارة المواد المحلية', 6),
+(17, 'Engineering Equipment Department', 'إدارة المعدات الهندسية', 6);
+INSERT INTO ORGANIZATIONS VALUES
+(18, 'Electrical Department', 'إدارة الكهرباء', 7),
+(19, 'Mechanical Department', 'إدارة الميكانيكا', 7),
+(20, 'Structural Department', 'إدارة الإنشاءات', 7);
+INSERT INTO ORGANIZATIONS VALUES
+(21, 'Technical Department', 'الإدارة الفنية', 8);
+INSERT INTO ORGANIZATIONS VALUES
+(22, 'Managing Technical Department', 'إدارة الفنية الإدارية', 21),
+(23, 'Asst. Managing Technical Department', 'إدارة فنية مساعدة', 21),
+(24, 'Site Mechanical Department', 'إدارة المواقع الميكانيكية', 21),
+(25, 'Site Electrical Department', 'إدارة المواقع الكهربائية', 21);
+INSERT INTO ORGANIZATIONS VALUES
+(26, 'Driver Fleet Department', 'إدارة أسطول السائقين', 9),
+(27, 'Occupational Health and Safety Department', 'إدارة السلامة والصحة المهنية', 9),
+(28, 'Document Control Department', 'إدارة مراقبة الوثائق', 9),
+(29, 'Planning Department', 'إدارة التخطيط', 9);

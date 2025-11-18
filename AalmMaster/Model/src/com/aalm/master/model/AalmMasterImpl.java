@@ -316,5 +316,78 @@ public class AalmMasterImpl extends ApplicationModuleImpl implements AalmMaster 
     public ViewLinkImpl getAttendanceToAttendanceStatisticsVL1() {
         return (ViewLinkImpl) findViewLink("AttendanceToAttendanceStatisticsVL1");
     }
+
+
+    /**
+     * Container's getter for ErpModulesV1.
+     * @return ErpModulesV1
+     */
+    public ViewObjectImpl getErpModulesV() {
+        return (ViewObjectImpl) findViewObject("ErpModulesV");
+    }
+
+    /**
+     * Container's getter for ApprovalCycleTypesV1.
+     * @return ApprovalCycleTypesV1
+     */
+    public ViewObjectImpl getApprovalCycleTypesV() {
+        return (ViewObjectImpl) findViewObject("ApprovalCycleTypesV");
+    }
+
+    /**
+     * Container's getter for FkApprovalCycleTypesErpModules1Link1.
+     * @return FkApprovalCycleTypesErpModules1Link1
+     */
+    public ViewLinkImpl getFkApprovalCycleTypesErpModules1Link1() {
+        return (ViewLinkImpl) findViewLink("FkApprovalCycleTypesErpModules1Link1");
+    }
+
+    /**
+     * Container's getter for ApprovalCycleStepsV1.
+     * @return ApprovalCycleStepsV1
+     */
+    public ViewObjectImpl getApprovalCycleStepsV() {
+        return (ViewObjectImpl) findViewObject("ApprovalCycleStepsV");
+    }
+
+    /**
+     * Container's getter for FkCycleTypeLink1.
+     * @return FkCycleTypeLink1
+     */
+    public ViewLinkImpl getFkCycleTypeLink1() {
+        return (ViewLinkImpl) findViewLink("FkCycleTypeLink1");
+    }
+
+    /**
+     * Container's getter for ApprovalRolesV1.
+     * @return ApprovalRolesV1
+     */
+    public ViewObjectImpl getApprovalRolesV() {
+        return (ViewObjectImpl) findViewObject("ApprovalRolesV");
+    }
+
+    /**
+     * Container's getter for MaxJobLevel1.
+     * @return MaxJobLevel1
+     */
+    public ViewObjectImpl getMaxJobLevel() {
+        return (ViewObjectImpl) findViewObject("MaxJobLevel");
+    }
+
+    /**
+     * Container's getter for MaxOrgLevel1.
+     * @return MaxOrgLevel1
+     */
+    public ViewObjectImpl getMaxOrgLevel() {
+        return (ViewObjectImpl) findViewObject("MaxOrgLevel");
+    }
+
+    /**
+     * Container's getter for OrgUsersV1.
+     * @return OrgUsersV1
+     */
+    public ViewObjectImpl getOrgUsersSetPasswordV() {
+        return (ViewObjectImpl) findViewObject("OrgUsersSetPasswordV");
+    }
 }
 

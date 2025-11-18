@@ -6,6 +6,7 @@
     <iterator Binds="JobsV" RangeSize="25" DataControl="AalmHrDataControl" id="JobsVIterator"/>
     <searchRegion Binds="JobsVIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="JobsVQuery"/>
+    <iterator Binds="JobsTreeV" RangeSize="25" DataControl="AalmHrDataControl" id="JobsTreeVIterator"/>
   </executables>
   <bindings>
     <action IterBinding="JobsVIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
@@ -18,7 +19,19 @@
           <Item Value="JobNameEn"/>
           <Item Value="JobNameAr"/>
           <Item Value="OrgCode"/>
+          <Item Value="ParentJobId"/>
         </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="JobsTreeVIterator" id="JobsTreeV">
+      <nodeDefinition DefName="com.aalm.hr.model.views.JobsTreeV" Name="JobsTreeV0">
+        <AttrNames>
+          <Item Value="JobNameEn"/>
+          <Item Value="JobNameAr"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="JobIdJobsTreeV"/>
+        </Accessors>
       </nodeDefinition>
     </tree>
   </bindings>

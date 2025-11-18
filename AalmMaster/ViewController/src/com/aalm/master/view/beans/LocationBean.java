@@ -21,4 +21,5 @@ public class LocationBean {
     public void updateLocation(ActionEvent actionEvent) {
         System.out.println("Updated location: lat=" + latitude + ", lng=" + longitude);
     }
+
 }

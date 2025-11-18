@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="approvalCyclesPageDef"
+                Package="ApprovalCycles">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ApprovalRolesV" RangeSize="25" DataControl="AalmMasterDataControl" id="ApprovalRolesVIterator"/>
+    <iterator Binds="ApprovalCycleTypesV" RangeSize="25" DataControl="AalmMasterDataControl"
+              id="ApprovalCycleTypesVIterator"/>
+    <searchRegion Binds="ApprovalCycleTypesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ApprovalCycleTypesVQuery"/>
+    <iterator Binds="ErpModulesV" RangeSize="25" DataControl="AalmMasterDataControl" id="ErpModulesVIterator"/>
+    <iterator Binds="ApprovalCycleStepsV" RangeSize="25" DataControl="AalmMasterDataControl"
+              id="ApprovalCycleStepsVIterator"/>
+    <searchRegion Binds="ApprovalCycleStepsVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ApprovalCycleStepsVQuery"/>
+    <searchRegion Binds="ApprovalRolesVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ApprovalRolesVQuery"/>
+    <iterator Binds="MaxOrgLevel" RangeSize="10" DataControl="AalmMasterDataControl" id="MaxOrgLevelIterator"/>
+    <iterator Binds="MaxJobLevel" RangeSize="-1" DataControl="AalmMasterDataControl" id="MaxJobLevelIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ApprovalRolesVIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmMasterDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmMasterDataControl"/>
+    <tree IterBinding="ApprovalCycleTypesVIterator" id="ApprovalCycleTypesV">
+      <nodeDefinition DefName="com.aalm.master.model.views.ApprovalCycleTypesV" Name="ApprovalCycleTypesV0">
+        <AttrNames>
+          <Item Value="CycleTypeId"/>
+          <Item Value="ModuleName"/>
+          <Item Value="TransactionTypeCode"/>
+          <Item Value="TransactionTypeName"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ApprovalCycleTypesVIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ApprovalCycleTypesVIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <list IterBinding="ErpModulesVIterator" StaticList="false" Uses="LOV_ErpModule" id="ErpModule"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListOperMode="navigation"/>
+    <attributeValues IterBinding="ErpModulesVIterator" id="ErpModule1">
+      <AttrNames>
+        <Item Value="ErpModule"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ApprovalCycleStepsVIterator" id="ApprovalCycleStepsV">
+      <nodeDefinition DefName="com.aalm.master.model.views.ApprovalCycleStepsV" Name="ApprovalCycleStepsV0">
+        <AttrNames>
+          <Item Value="StepId"/>
+          <Item Value="CycleTypeId"/>
+          <Item Value="StepNo"/>
+          <Item Value="OrgCode"/>
+          <Item Value="RoleId"/>
+          <Item Value="ApprovalOrder"/>
+          <Item Value="IsFinalStep" Binds="IsFinalStep"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ApprovalCycleStepsVIterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ApprovalCycleStepsVIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <button IterBinding="ApprovalCycleStepsVIterator" id="IsFinalStep" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="IsFinalStep"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="1"/>
+        <Item Value="0"/>
+      </ValueList>
+    </button>
+    <tree IterBinding="ApprovalRolesVIterator" id="ApprovalRolesV">
+      <nodeDefinition DefName="com.aalm.master.model.views.ApprovalRolesV" Name="ApprovalRolesV0">
+        <AttrNames>
+          <Item Value="RoleId"/>
+          <Item Value="RoleName"/>
+          <Item Value="JobId"/>
+          <Item Value="AllowDelegation" Binds="AllowDelegation"/>
+          <Item Value="MultiPolicy"/>
+          <Item Value="ResolveEntity"/>
+          <Item Value="ResolveScope"/>
+          <Item Value="ResolveLevel" Binds="ResolveLevel"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="ApprovalRolesVIterator" id="AllowDelegation" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="AllowDelegation"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="1"/>
+        <Item Value="0"/>
+      </ValueList>
+    </button>
+    <list IterBinding="ApprovalRolesVIterator" id="ResolveLevel" DTSupportsMRU="false" SelectItemValueMode="ListObject"
+          StaticList="true" ListIter="MaxJobLevelIterator">
+      <AttrNames>
+        <Item Value="ResolveLevel"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="JobMaxDepth"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="JobMaxDepth"/>
+      </ListDisplayAttrNames>
+      <ValueList>
+        <Item Value="0"/>
+        <Item Value="1"/>
+        <Item Value="2"/>
+        <Item Value="3"/>
+        <Item Value="4"/>
+        <Item Value="5"/>
+        <Item Value="6"/>
+        <Item Value="7"/>
+        <Item Value="8"/>
+        <Item Value="9"/>
+      </ValueList>
+    </list>
+    <attributeValues IterBinding="MaxOrgLevelIterator" id="OrganizationMaxDepth">
+      <AttrNames>
+        <Item Value="OrganizationMaxDepth"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MaxJobLevelIterator" id="JobMaxDepth">
+      <AttrNames>
+        <Item Value="JobMaxDepth"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

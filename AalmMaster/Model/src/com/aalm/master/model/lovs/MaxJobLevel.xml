@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MaxJobLevel"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.master.model.lovs.MaxJobLevel_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT MAX(levels) AS job_max_depth
+FROM (
+    SELECT j1.job_id,
+        CASE 
+            WHEN j10.job_id IS NOT NULL THEN 10
+            WHEN j9.job_id IS NOT NULL THEN 9
+            WHEN j8.job_id IS NOT NULL THEN 8
+            WHEN j7.job_id IS NOT NULL THEN 7
+            WHEN j6.job_id IS NOT NULL THEN 6
+            WHEN j5.job_id IS NOT NULL THEN 5
+            WHEN j4.job_id IS NOT NULL THEN 4
+            WHEN j3.job_id IS NOT NULL THEN 3
+            WHEN j2.job_id IS NOT NULL THEN 2
+            WHEN j1.parent_job_id IS NULL THEN 1
+            ELSE 2
+        END AS levels
+    FROM JOBS j1
+        LEFT JOIN JOBS j2  ON j1.parent_job_id = j2.job_id
+        LEFT JOIN JOBS j3  ON j2.parent_job_id = j3.job_id
+        LEFT JOIN JOBS j4  ON j3.parent_job_id = j4.job_id
+        LEFT JOIN JOBS j5  ON j4.parent_job_id = j5.job_id
+        LEFT JOIN JOBS j6  ON j5.parent_job_id = j6.job_id
+        LEFT JOIN JOBS j7  ON j6.parent_job_id = j7.job_id
+        LEFT JOIN JOBS j8  ON j7.parent_job_id = j8.job_id
+        LEFT JOIN JOBS j9  ON j8.parent_job_id = j9.job_id
+        LEFT JOIN JOBS j10 ON j9.parent_job_id = j10.job_id
+) t]]></SQLQuery>
+  <ViewAttribute
+    Name="JobMaxDepth"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="job_max_depth"
+    Expression="job_max_depth"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="JobMaxDepth"/>
+  </AttrArray>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.master.model.AalmMasterMBndl"/>
+  </ResourceBundle>
+</ViewObject>

@@ -8,12 +8,10 @@
                     contentStyle="color:Maroon; font-size:xx-large;"/>
     </f:facet>
     <f:facet name="menuBar">
-      <af:button text="#{viewcontrollerBundle.CANCEL}" id="b2" action="toCancel"
-                 actionListener="#{bindings.Rollback.execute}" immediate="true"/>
+      <af:button text="#{viewcontrollerBundle.CANCEL}" id="b2" action="toCancel" immediate="true"/>
     </f:facet>
     <f:facet name="toolbar">
-      <af:button text="#{viewcontrollerBundle.SAVE}" id="b1" action="toSave"
-                 actionListener="#{pageFlowScope.HrBean.saveEmpContract}"/>
+      <af:button text="#{viewcontrollerBundle.SAVE}" id="b1" action="#{pageFlowScope.HrBean.saveEmpContract}"/>
     </f:facet>
     <f:facet name="legend">
       <af:spacer width="10" height="30" id="s1"/>

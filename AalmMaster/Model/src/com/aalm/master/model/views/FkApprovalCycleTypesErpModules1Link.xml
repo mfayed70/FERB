@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkApprovalCycleTypesErpModules1Link"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.aalm.master.model.entities.FkApprovalCycleTypesErpModules1Assoc">
+  <ViewLinkDefEnd
+    Name="ErpModulesV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.master.model.views.ErpModulesV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ErpModulesV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.views.ErpModulesV.ErpModule"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ApprovalCycleTypesV"
+    Cardinality="-1"
+    Owner="com.aalm.master.model.views.ApprovalCycleTypesV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ApprovalCycleTypesV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.views.ApprovalCycleTypesV.ModuleName"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.master.view.AalmMasterBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.ApprovalCyclesSetup}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar">
+      <af:button actionListener="#{bindings.Commit.execute}" text="#{viewcontrollerBundle.SAVE}"
+                 id="b3" styleClass="but" icon="#{resource['images:SaveF.png']}"
+                 hoverIcon="#{resource['images:SaveO.png']}"/>
+    </f:facet>
+    <f:facet name="toolbar">
+      <af:button actionListener="#{bindings.Rollback.execute}" text="#{viewcontrollerBundle.CANCEL}"
+                 immediate="true" id="b4" styleClass="but" icon="#{resource['images:cancelF.png']}"
+                 hoverIcon="#{resource['images:cancelO.png']}">
+        <af:resetActionListener/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelTabbed position="above" id="pt1">
+      <af:showDetailItem id="tab1" text="#{viewcontrollerBundle.APPROVAL_ROLES}">
+        <af:panelHeader text=" " id="ph2">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar">
+            <af:button actionListener="#{bindings.CreateInsert.execute}" text="#{viewcontrollerBundle.NEW}" id="b1" icon="#{resource['images:NewF.png']}"
+                       hoverIcon="#{resource['images:NewO.png']}" styleClass="but"/>
+          </f:facet>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:panelCollection id="pc1">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <af:table value="#{bindings.ApprovalRolesV.collectionModel}" var="row"
+                      rows="#{bindings.ApprovalRolesV.rangeSize}"
+                      emptyText="#{bindings.ApprovalRolesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.ApprovalRolesV.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.ApprovalRolesV.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.ApprovalRolesV.rangeSize}"
+                      filterModel="#{bindings.ApprovalRolesVQuery.queryDescriptor}"
+                      queryListener="#{bindings.ApprovalRolesVQuery.processQuery}" filterVisible="true" varStatus="vs"
+                      id="t1" partialTriggers=":::b1" width="1147">
+              <af:column sortProperty="#{bindings.ApprovalRolesV.hints.RoleId.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.ApprovalRolesV.hints.RoleId.label}" id="c1">
+                <af:inputText value="#{row.bindings.RoleId.inputValue}"
+                              label="#{bindings.ApprovalRolesV.hints.RoleId.label}"
+                              required="#{bindings.ApprovalRolesV.hints.RoleId.mandatory}"
+                              columns="#{bindings.ApprovalRolesV.hints.RoleId.displayWidth}"
+                              maximumLength="#{bindings.ApprovalRolesV.hints.RoleId.precision}"
+                              shortDesc="#{bindings.ApprovalRolesV.hints.RoleId.tooltip}" id="it1">
+                  <f:validator binding="#{row.bindings.RoleId.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.ApprovalRolesV.hints.RoleId.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.ApprovalRolesV.hints.RoleName.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.ApprovalRolesV.hints.RoleName.label}" id="c2" width="200">
+                <af:inputText value="#{row.bindings.RoleName.inputValue}"
+                              label="#{bindings.ApprovalRolesV.hints.RoleName.label}"
+                              required="#{bindings.ApprovalRolesV.hints.RoleName.mandatory}"
+                              columns="#{bindings.ApprovalRolesV.hints.RoleName.displayWidth}"
+                              maximumLength="#{bindings.ApprovalRolesV.hints.RoleName.precision}"
+                              shortDesc="#{bindings.ApprovalRolesV.hints.RoleName.tooltip}" id="it2">
+                  <f:validator binding="#{row.bindings.RoleName.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.ApprovalRolesV.hints.JobId.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.ApprovalRolesV.hints.JobId.label}" id="c3" width="300">
+                <af:selectOneChoice value="#{row.bindings.JobId.inputValue}" label="#{row.bindings.JobId.label}"
+                                    required="#{bindings.ApprovalRolesV.hints.JobId.mandatory}"
+                                    shortDesc="#{bindings.ApprovalRolesV.hints.JobId.tooltip}" id="soc1">
+                  <f:selectItems value="#{row.bindings.JobId.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.JobId.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ApprovalRolesV.hints.AllowDelegation.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.ApprovalRolesV.hints.AllowDelegation.label}" id="c4"
+                         align="center" width="70">
+                <af:selectBooleanCheckbox value="#{row.bindings.AllowDelegation.inputValue}"
+                                          label="#{row.bindings.AllowDelegation.label}"
+                                          shortDesc="#{bindings.ApprovalRolesV.hints.AllowDelegation.tooltip}"
+                                          id="sbc2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.ApprovalRolesV.hints.MultiPolicy.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.ApprovalRolesV.hints.MultiPolicy.label}" id="c19">
+                <af:selectOneChoice value="#{row.bindings.MultiPolicy.inputValue}"
+                                    label="#{row.bindings.MultiPolicy.label}"
+                                    required="#{bindings.ApprovalRolesV.hints.MultiPolicy.mandatory}"
+                                    shortDesc="#{bindings.ApprovalRolesV.hints.MultiPolicy.tooltip}" id="soc5">
+                  <f:selectItems value="#{row.bindings.MultiPolicy.items}" id="si6"/>
+                  <f:validator binding="#{row.bindings.MultiPolicy.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ApprovalRolesV.hints.ResolveEntity.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.ApprovalRolesV.hints.ResolveEntity.label}" id="c20">
+                <af:selectOneChoice value="#{row.bindings.ResolveEntity.inputValue}"
+                                    label="#{row.bindings.ResolveEntity.label}"
+                                    required="#{bindings.ApprovalRolesV.hints.ResolveEntity.mandatory}"
+                                    shortDesc="#{bindings.ApprovalRolesV.hints.ResolveEntity.tooltip}" id="soc6"
+                                    autoSubmit="true">
+                  <f:selectItems value="#{row.bindings.ResolveEntity.items}" id="si7"/>
+                  <f:validator binding="#{row.bindings.ResolveEntity.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ApprovalRolesV.hints.ResolveScope.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.ApprovalRolesV.hints.ResolveScope.label}" id="c21">
+                <af:selectOneChoice value="#{row.bindings.ResolveScope.inputValue}"
+                                    label="#{row.bindings.ResolveScope.label}"
+                                    required="#{bindings.ApprovalRolesV.hints.ResolveScope.mandatory}"
+                                    shortDesc="#{bindings.ApprovalRolesV.hints.ResolveScope.tooltip}" id="soc7">
+                  <f:selectItems value="#{row.bindings.ResolveScope.items}" id="si8"/>
+                  <f:validator binding="#{row.bindings.ResolveScope.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.ApprovalRolesV.hints.ResolveLevel.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.ApprovalRolesV.hints.ResolveLevel.label}" id="c22"
+                         width="100">
+                <af:inputNumberSpinbox id="ins1" value="#{row.bindings.ResolveLevel.inputValue}" minimum="0"
+                                       maximum="#{row.bindings.ResolveEntity.inputValue == 0 ? bindings.JobMaxDepth.inputValue : bindings.OrganizationMaxDepth.inputValue}" stepSize="1"
+                                       columns="5"
+                                       partialTriggers="soc6"/>
+              </af:column>
+            </af:table>
+            <f:facet name="statusbar"/>
+          </af:panelCollection>
+        </af:panelHeader>
+      </af:showDetailItem>
+      <af:showDetailItem id="tab2" text="#{viewcontrollerBundle.ApprovalCycles}">
+        <af:panelGroupLayout id="pgl1" layout="vertical">
+          <af:panelHeader text="#{viewcontrollerBundle.ApprovalCyclesSetup}" id="ph3">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar">
+              <af:button actionListener="#{bindings.CreateInsert1.execute}" text="#{viewcontrollerBundle.NEW_CYCLE}"
+                         disabled="#{!bindings.CreateInsert1.enabled}" id="b2" styleClass="but"
+                         hoverIcon="#{resource['images:NewO.png']}" icon="#{resource['images:NewF.png']}"/>
+            </f:facet>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:selectOneRadio value="#{bindings.ErpModule.inputValue}" label="#{bindings.ErpModule.label}"
+                               required="#{bindings.ErpModule.hints.mandatory}"
+                               shortDesc="#{bindings.ErpModule.hints.tooltip}" id="sor1"
+                               inlineStyle="padding:10px 20px 10px 50px;" layout="horizontal" autoSubmit="true"
+                               contentStyle="padding:0 20px 0 0;">
+              <f:selectItems value="#{bindings.ErpModule.items}" id="si2"/>
+              <f:validator binding="#{bindings.ErpModule.validator}"/>
+            </af:selectOneRadio>
+            <af:panelCollection id="pc2">
+              <f:facet name="menus"/>
+              <f:facet name="toolbar"/>
+              <af:table value="#{bindings.ApprovalCycleTypesV.collectionModel}" var="row"
+                        rows="#{bindings.ApprovalCycleTypesV.rangeSize}"
+                        emptyText="#{bindings.ApprovalCycleTypesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.ApprovalCycleTypesV.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.ApprovalCycleTypesV.collectionModel.makeCurrent}"
+                        rowSelection="single" fetchSize="#{bindings.ApprovalCycleTypesV.rangeSize}"
+                        filterModel="#{bindings.ApprovalCycleTypesVQuery.queryDescriptor}"
+                        queryListener="#{bindings.ApprovalCycleTypesVQuery.processQuery}" filterVisible="true"
+                        varStatus="vs" id="t2" width="1139" partialTriggers=":::b2 l2 :::si2">
+                <af:column sortProperty="#{bindings.ApprovalCycleTypesV.hints.CycleTypeId.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.ApprovalCycleTypesV.hints.CycleTypeId.label}" id="c5">
+                  <af:outputText value="#{row.CycleTypeId}"
+                                 shortDesc="#{bindings.ApprovalCycleTypesV.hints.CycleTypeId.tooltip}" id="ot1">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.ApprovalCycleTypesV.hints.CycleTypeId.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.ApprovalCycleTypesV.hints.ModuleName.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.ApprovalCycleTypesV.hints.ModuleName.label}" id="c6"
+                           width="150">
+                  <af:outputText value="#{row.ModuleName}"
+                                 shortDesc="#{bindings.ApprovalCycleTypesV.hints.ModuleName.tooltip}" id="ot2"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.ApprovalCycleTypesV.hints.TransactionTypeCode.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.ApprovalCycleTypesV.hints.TransactionTypeCode.label}" id="c7">
+                  <af:selectOneChoice value="#{row.bindings.TransactionTypeCode.inputValue}"
+                                      label="#{row.bindings.TransactionTypeCode.label}"
+                                      required="#{bindings.ApprovalCycleTypesV.hints.TransactionTypeCode.mandatory}"
+                                      shortDesc="#{bindings.ApprovalCycleTypesV.hints.TransactionTypeCode.tooltip}"
+                                      id="soc2" autoSubmit="true">
+                    <f:selectItems value="#{row.bindings.TransactionTypeCode.items}" id="si3"/>
+                    <f:validator binding="#{row.bindings.TransactionTypeCode.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.ApprovalCycleTypesV.hints.TransactionTypeName.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.ApprovalCycleTypesV.hints.TransactionTypeName.label}" id="c8"
+                           width="300">
+                  <af:inputText value="#{row.bindings.TransactionTypeName.inputValue}"
+                                label="#{bindings.ApprovalCycleTypesV.hints.TransactionTypeName.label}"
+                                required="#{bindings.ApprovalCycleTypesV.hints.TransactionTypeName.mandatory}"
+                                columns="#{bindings.ApprovalCycleTypesV.hints.TransactionTypeName.displayWidth}"
+                                maximumLength="#{bindings.ApprovalCycleTypesV.hints.TransactionTypeName.precision}"
+                                shortDesc="#{bindings.ApprovalCycleTypesV.hints.TransactionTypeName.tooltip}" id="it3">
+                    <f:validator binding="#{row.bindings.TransactionTypeName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.ApprovalCycleTypesV.hints.Description.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.ApprovalCycleTypesV.hints.Description.label}" id="c9"
+                           width="300">
+                  <af:inputText value="#{row.bindings.Description.inputValue}"
+                                label="#{bindings.ApprovalCycleTypesV.hints.Description.label}"
+                                required="#{bindings.ApprovalCycleTypesV.hints.Description.mandatory}"
+                                columns="#{bindings.ApprovalCycleTypesV.hints.Description.displayWidth}"
+                                maximumLength="#{bindings.ApprovalCycleTypesV.hints.Description.precision}"
+                                shortDesc="#{bindings.ApprovalCycleTypesV.hints.Description.tooltip}" id="it4">
+                    <f:validator binding="#{row.bindings.Description.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column id="c10" width="50" align="center">
+                  <af:link actionListener="#{bindings.Delete1.execute}" disabled="#{!bindings.Delete1.enabled}" id="l2"
+                           icon="#{resource['images:delete24.png']}"/>
+                </af:column>
+              </af:table>
+              <f:facet name="statusbar"/>
+            </af:panelCollection>
+            <af:panelHeader text=" " id="ph4">
+              <f:facet name="context"/>
+              <f:facet name="menuBar"/>
+              <f:facet name="toolbar">
+                <af:button actionListener="#{bindings.CreateInsert2.execute}"
+                           text="#{viewcontrollerBundle.NEW_CYCLE_STEP}" disabled="#{!bindings.CreateInsert2.enabled}"
+                           id="b5" icon="#{resource['images:NewF.png']}" hoverIcon="#{resource['images:NewO.png']}"
+                           styleClass="but"/>
+              </f:facet>
+              <f:facet name="legend"/>
+              <f:facet name="info"/>
+              <af:panelCollection id="pc3">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <af:table value="#{bindings.ApprovalCycleStepsV.collectionModel}" var="row"
+                          rows="#{bindings.ApprovalCycleStepsV.rangeSize}"
+                          emptyText="#{bindings.ApprovalCycleStepsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.ApprovalCycleStepsV.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.ApprovalCycleStepsV.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.ApprovalCycleStepsV.rangeSize}"
+                          filterModel="#{bindings.ApprovalCycleStepsVQuery.queryDescriptor}"
+                          queryListener="#{bindings.ApprovalCycleStepsVQuery.processQuery}" filterVisible="true"
+                          varStatus="vs" id="t3" width="1141" partialTriggers=":::b5 l3"
+                          inlineStyle="min-height:150px;">
+                  <af:column sortProperty="#{bindings.ApprovalCycleStepsV.hints.StepId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.ApprovalCycleStepsV.hints.StepId.label}" id="c11">
+                    <af:inputText value="#{row.bindings.StepId.inputValue}"
+                                  label="#{bindings.ApprovalCycleStepsV.hints.StepId.label}"
+                                  required="#{bindings.ApprovalCycleStepsV.hints.StepId.mandatory}"
+                                  columns="#{bindings.ApprovalCycleStepsV.hints.StepId.displayWidth}"
+                                  maximumLength="#{bindings.ApprovalCycleStepsV.hints.StepId.precision}"
+                                  shortDesc="#{bindings.ApprovalCycleStepsV.hints.StepId.tooltip}" id="it5"
+                                  readOnly="true">
+                      <f:validator binding="#{row.bindings.StepId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ApprovalCycleStepsV.hints.StepId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.ApprovalCycleStepsV.hints.CycleTypeId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.ApprovalCycleStepsV.hints.CycleTypeId.label}"
+                             id="c12">
+                    <af:inputText value="#{row.bindings.CycleTypeId.inputValue}"
+                                  label="#{bindings.ApprovalCycleStepsV.hints.CycleTypeId.label}"
+                                  required="#{bindings.ApprovalCycleStepsV.hints.CycleTypeId.mandatory}"
+                                  columns="#{bindings.ApprovalCycleStepsV.hints.CycleTypeId.displayWidth}"
+                                  maximumLength="#{bindings.ApprovalCycleStepsV.hints.CycleTypeId.precision}"
+                                  shortDesc="#{bindings.ApprovalCycleStepsV.hints.CycleTypeId.tooltip}" id="it6"
+                                  readOnly="true">
+                      <f:validator binding="#{row.bindings.CycleTypeId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ApprovalCycleStepsV.hints.CycleTypeId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.ApprovalCycleStepsV.hints.StepNo.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.ApprovalCycleStepsV.hints.StepNo.label}" id="c13">
+                    <af:inputText value="#{row.bindings.StepNo.inputValue}"
+                                  label="#{bindings.ApprovalCycleStepsV.hints.StepNo.label}"
+                                  required="#{bindings.ApprovalCycleStepsV.hints.StepNo.mandatory}"
+                                  columns="#{bindings.ApprovalCycleStepsV.hints.StepNo.displayWidth}"
+                                  maximumLength="#{bindings.ApprovalCycleStepsV.hints.StepNo.precision}"
+                                  shortDesc="#{bindings.ApprovalCycleStepsV.hints.StepNo.tooltip}" id="it7">
+                      <f:validator binding="#{row.bindings.StepNo.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ApprovalCycleStepsV.hints.StepNo.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.ApprovalCycleStepsV.hints.OrgCode.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.ApprovalCycleStepsV.hints.OrgCode.label}" id="c14"
+                             width="200">
+                    <af:selectOneChoice value="#{row.bindings.OrgCode.inputValue}" label="#{row.bindings.OrgCode.label}"
+                                        required="#{bindings.ApprovalCycleStepsV.hints.OrgCode.mandatory}"
+                                        shortDesc="#{bindings.ApprovalCycleStepsV.hints.OrgCode.tooltip}" id="soc3">
+                      <f:selectItems value="#{row.bindings.OrgCode.items}" id="si4"/>
+                      <f:validator binding="#{row.bindings.OrgCode.validator}"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.ApprovalCycleStepsV.hints.RoleId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.ApprovalCycleStepsV.hints.RoleId.label}" id="c15"
+                             width="200">
+                    <af:selectOneChoice value="#{row.bindings.RoleId.inputValue}" label="#{row.bindings.RoleId.label}"
+                                        required="#{bindings.ApprovalCycleStepsV.hints.RoleId.mandatory}"
+                                        shortDesc="#{bindings.ApprovalCycleStepsV.hints.RoleId.tooltip}" id="soc4">
+                      <f:selectItems value="#{row.bindings.RoleId.items}" id="si5"/>
+                      <f:validator binding="#{row.bindings.RoleId.validator}"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.ApprovalCycleStepsV.hints.ApprovalOrder.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.ApprovalCycleStepsV.hints.ApprovalOrder.label}"
+                             id="c16">
+                    <af:inputText value="#{row.bindings.ApprovalOrder.inputValue}"
+                                  label="#{bindings.ApprovalCycleStepsV.hints.ApprovalOrder.label}"
+                                  required="#{bindings.ApprovalCycleStepsV.hints.ApprovalOrder.mandatory}"
+                                  columns="#{bindings.ApprovalCycleStepsV.hints.ApprovalOrder.displayWidth}"
+                                  maximumLength="#{bindings.ApprovalCycleStepsV.hints.ApprovalOrder.precision}"
+                                  shortDesc="#{bindings.ApprovalCycleStepsV.hints.ApprovalOrder.tooltip}" id="it8">
+                      <f:validator binding="#{row.bindings.ApprovalOrder.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ApprovalCycleStepsV.hints.ApprovalOrder.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.ApprovalCycleStepsV.hints.IsFinalStep.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.ApprovalCycleStepsV.hints.IsFinalStep.label}"
+                             id="c17" align="center">
+                    <af:selectBooleanCheckbox value="#{row.bindings.IsFinalStep.inputValue}"
+                                              label="#{row.bindings.IsFinalStep.label}"
+                                              shortDesc="#{bindings.ApprovalCycleStepsV.hints.IsFinalStep.tooltip}"
+                                              id="sbc1"/>
+                  </af:column>
+                  <af:column id="c18" width="50" align="center">
+                    <af:link actionListener="#{bindings.Delete2.execute}" disabled="#{!bindings.Delete2.enabled}"
+                             id="l3" icon="#{resource['images:delete24.png']}"/>
+                  </af:column>
+                </af:table>
+                <f:facet name="statusbar"/>
+              </af:panelCollection>
+            </af:panelHeader>
+          </af:panelHeader>
+        </af:panelGroupLayout>
+      </af:showDetailItem>
+    </af:panelTabbed>
+  </af:panelHeader>
+</ui:composition>

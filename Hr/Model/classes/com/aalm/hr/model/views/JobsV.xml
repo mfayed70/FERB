@@ -13,6 +13,29 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="JobsLOV1"
+    ViewObjectName="com.aalm.hr.model.lov.JobsLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ParentJobId"
+    ListVOName="JobsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ParentJobId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="JobId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="JobName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Jobs"
     Entity="com.aalm.hr.model.entities.Jobs"/>
@@ -46,5 +69,19 @@
       trustMode="untrusted"><![CDATA[adf.context.sessionScope.orgCode]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ParentJobId"
+    PrecisionRule="true"
+    EntityAttrName="ParentJobId"
+    EntityUsage="Jobs"
+    AliasName="parent_job_id"
+    LOVName="LOV_ParentJobId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
 </ViewObject>

@@ -370,6 +370,26 @@
         <source>Item Variables Values 1lov</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.OrganizationTreeV_LABEL">
+        <source>Organization Tree V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.OrganiztionTreeSelfJoinCVL_LABEL">
+        <source>Organiztion Tree Self Join Cvl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.JobsTreeV_LABEL">
+        <source>Jobs Tree V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.OrgsToJobsCL_LABEL">
+        <source>Orgs To Jobs Cl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.JobsTreeSelfJoinCL_LABEL">
+        <source>Jobs Tree Self Join Cl</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

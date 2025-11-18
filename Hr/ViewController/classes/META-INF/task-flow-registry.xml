@@ -35,6 +35,7 @@
       <input-parameter name="pEmpId"/>
    </task-flow-descriptor>
    <task-flow-descriptor path="WEB-INF/emp-submit-vacation/emp-submit-vacation-TF.xml" id="emp-submit-vacation-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pOrgCode"/>
       <input-parameter name="pEmpId"/>
    </task-flow-descriptor>
 </task-flow-registry>

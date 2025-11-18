@@ -97,6 +97,26 @@
   <ViewUsage
     Name="ItemCategoryTypesV"
     ViewObjectName="com.aalm.center.model.views.ItemCategoryTypesV"/>
+  <ViewUsage
+    Name="OrganizationTreeV"
+    ViewObjectName="com.aalm.center.model.views.OrganizationTreeV">
+    <ViewCriteriaUsage
+      Name="OrganizationTreeVCriteria"
+      FullName="com.aalm.center.model.views.OrganizationTreeV.OrganizationTreeVCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="OrganizationTreeChildV"
+    ViewObjectName="com.aalm.center.model.views.OrganizationTreeV"/>
+  <ViewUsage
+    Name="JobsTreeV"
+    ViewObjectName="com.aalm.center.model.views.JobsTreeV">
+    <ViewCriteriaUsage
+      Name="JobsTreeVCriteria"
+      FullName="com.aalm.center.model.views.JobsTreeV.JobsTreeVCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="JobsTreeChildV"
+    ViewObjectName="com.aalm.center.model.views.JobsTreeV"/>
   <ViewLinkUsage
     Name="fk_CURRENCY_TRANSFORM_CURRENCIES1VL1"
     ViewLinkObjectName="com.aalm.center.model.views.fk_CURRENCY_TRANSFORM_CURRENCIES1VL"
@@ -132,6 +152,24 @@
     ViewLinkObjectName="com.aalm.center.model.views.fk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1VL"
     SrcViewUsageName="com.aalm.center.model.AalmCentral.ItemCategoriesV"
     DstViewUsageName="com.aalm.center.model.AalmCentral.ItemCategoryTypesV"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="OrganiztionTreeSelfJoinCVL1"
+    ViewLinkObjectName="com.aalm.center.model.views.OrganiztionTreeSelfJoinCVL"
+    SrcViewUsageName="com.aalm.center.model.AalmCentral.OrganizationTreeV"
+    DstViewUsageName="com.aalm.center.model.AalmCentral.OrganizationTreeChildV"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="OrgsToJobsCL1"
+    ViewLinkObjectName="com.aalm.center.model.views.OrgsToJobsCL"
+    SrcViewUsageName="com.aalm.center.model.AalmCentral.OrganizationTreeChildV"
+    DstViewUsageName="com.aalm.center.model.AalmCentral.JobsTreeV"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="JobsTreeSelfJoinCL1"
+    ViewLinkObjectName="com.aalm.center.model.views.JobsTreeSelfJoinCL"
+    SrcViewUsageName="com.aalm.center.model.AalmCentral.JobsTreeV"
+    DstViewUsageName="com.aalm.center.model.AalmCentral.JobsTreeChildV"
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">

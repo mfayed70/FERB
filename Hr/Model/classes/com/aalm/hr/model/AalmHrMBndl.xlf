@@ -690,6 +690,54 @@
         <source>dd/MM/yyyy hh:mm a</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.JobsTreeV_LABEL">
+        <source>Jobs Tree V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.JobsTreeSelfJoinCVL_LABEL">
+        <source>Jobs Tree Self Join Cvl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.OrgUsersToApprovalTransactionsDetsCL_LABEL">
+        <source>Org Users To Approval Transactions Dets Cl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV.SL_0_0">
+        <source>PENDING</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV.SL_0_1">
+        <source>Pending-منتظر</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV.SL_1_0">
+        <source>APPROVED</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV.SL_1_1">
+        <source>Approved-تصدق</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV.SL_2_0">
+        <source>REJECTED</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV.SL_2_1">
+        <source>Rejected-مرفوض</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV_LABEL">
+        <source>Approval Action Status Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeeApprovalStatusV_LABEL">
+        <source>Employee Approval Status V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.UserVacationToApprovalStatusCL_LABEL">
+        <source>User Vacation To Approval Status Cl</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

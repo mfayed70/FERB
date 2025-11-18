@@ -70,7 +70,7 @@
           partialTriggers="b5" 
           columnStretching="column:c2" 
           inlineStyle="padding-bottom:10px;"
-          scrollPolicy="page" 
+          scrollPolicy="loadMore" 
           verticalGridVisible="false"
           binding="#{pageFlowScope.CentralBean.itemListTbl}" 
           contentDelivery="lazy">

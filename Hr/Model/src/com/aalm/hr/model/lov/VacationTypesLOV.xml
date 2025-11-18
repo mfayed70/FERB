@@ -6,13 +6,25 @@
   Name="VacationTypesLOV"
   Version="12.1.3.10.47"
   InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
   BindingStyle="JDBC"
-  CustomQuery="false"
-  SelectAllAttributes="false"
+  CustomQuery="true"
   PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT 
+    VacationTypes.vacation_code, 
+    VacationTypes.vacation_name, 
+    VacationTypes.vacation_name_ar, 
+    APPROVAL_CYCLE_TYPES.CYCLE_TYPE_ID CYCLE_TYPE_ID, 
+    APPROVAL_CYCLE_TYPES.MODULE_NAME MODULE_NAME 
+FROM 
+    VACATION_TYPES VacationTypes, 
+    APPROVAL_CYCLE_TYPES
+WHERE
+    VacationTypes.vacation_code = APPROVAL_CYCLE_TYPES.TRANSACTION_TYPE_CODE
+AND 
+    APPROVAL_CYCLE_TYPES.MODULE_NAME = 'HR']]></SQLQuery>
   <EntityUsage
     Name="VacationTypes"
     Entity="com.aalm.hr.model.entities.VacationTypes"/>
@@ -35,4 +47,33 @@
     EntityAttrName="VacationNameAr"
     EntityUsage="VacationTypes"
     AliasName="vacation_name_ar"/>
+  <ViewAttribute
+    Name="CycleTypeId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="CYCLE_TYPE_ID"
+    Expression="CYCLE_TYPE_ID"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ModuleName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="MODULE_NAME"
+    Expression="MODULE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
 </ViewObject>

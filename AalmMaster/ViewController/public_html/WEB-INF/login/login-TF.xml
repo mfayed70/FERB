@@ -17,16 +17,30 @@
     <view id="forgot-pswrd">
       <page>/WEB-INF/login/forgot-pswrd.jsff</page>
     </view>
+    <view id="setPassword">
+      <page>/WEB-INF/login/setPassword.jsff</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>login</from-activity-id>
       <control-flow-case id="__2">
         <from-outcome>toForgotPswrd</from-outcome>
         <to-activity-id>forgot-pswrd</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>setPassword</from-outcome>
+        <to-activity-id>setPassword</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__4">
       <from-activity-id>forgot-pswrd</from-activity-id>
       <control-flow-case id="__5">
+        <from-outcome>backToLogin</from-outcome>
+        <to-activity-id>login</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>setPassword</from-activity-id>
+      <control-flow-case id="__8">
         <from-outcome>backToLogin</from-outcome>
         <to-activity-id>login</to-activity-id>
       </control-flow-case>

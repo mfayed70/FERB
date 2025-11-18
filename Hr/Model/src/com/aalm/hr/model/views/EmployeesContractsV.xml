@@ -67,8 +67,12 @@
       <Item Value="JobId"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OrgCode"/>
+    </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="JobId"/>
+      <Item Value="OrgCode"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="JobName"/>
@@ -292,10 +296,10 @@
     LOVName="LOV_JobId">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="com.aalm.hr.model.views.EmployeesContractsV.JobId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -384,6 +388,15 @@
     EntityAttrName="ResponsibleForNo"
     EntityUsage="EmployeesContracts"
     AliasName="responsible_for_no"/>
+  <ViewAttribute
+    Name="OrgCode"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER"/>
   <ViewCriteria
     Name="EmployeesContractsVCriteria"
     ViewObjectName="com.aalm.hr.model.views.EmployeesContractsV"

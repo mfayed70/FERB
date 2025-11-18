@@ -13,6 +13,11 @@
       <value>#{pageFlowScope.pEmpId}</value>
       <class>java.lang.Integer</class>
     </input-parameter-definition>
+    <input-parameter-definition id="__8">
+      <name>pOrgCode</name>
+      <value>#{pageFlowScope.pOrgCode}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
     <managed-bean id="__6">
       <managed-bean-name>HrBean</managed-bean-name>
       <managed-bean-class>com.aalm.hr.view.beans.HrBean</managed-bean-class>

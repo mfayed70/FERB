@@ -15,15 +15,20 @@
     <iterator Binds="UserVacationsV" RangeSize="25" DataControl="AalmHrDataControl" id="UserVacationsVIterator"/>
     <searchRegion Binds="UserVacationsVIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="UserVacationsVQuery"/>
+    <iterator Binds="ApprovalTransactionDetailsVO" RangeSize="25" DataControl="AalmHrDataControl"
+              id="ApprovalTransactionDetailsVOIterator"/>
+    <searchRegion Binds="ApprovalTransactionDetailsVOIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ApprovalTransactionDetailsVOQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="OrgUsersVIterator" id="OrgUsersV">
       <nodeDefinition DefName="com.aalm.hr.model.views.OrgUsersV" Name="OrgUsersV0">
         <AttrNames>
-          <Item Value="UserId"/>
+          <Item Value="EmpId"/>
           <Item Value="FirstName"/>
           <Item Value="LastName"/>
-          <Item Value="EmpId"/>
+          <Item Value="OrgCode"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -60,7 +65,6 @@
         <Item Value="CurrMonth"/>
       </AttrNames>
     </attributeValues>
-    <action id="Commit" DataControl="AalmHrDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <tree IterBinding="AttendanceStatisticsVIterator" id="AttendanceStatisticsV" ChangeEventPolicy="ppr">
       <nodeDefinition DefName="com.aalm.hr.model.views.AttendanceStatisticsV" Name="AttendanceStatisticsV">
         <AttrNames>
@@ -110,12 +114,89 @@
           <Item Value="Status"/>
           <Item Value="EmpId"/>
         </AttrNames>
+        <Accessors>
+          <Item Value="EmployeeApprovalStatusV"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="com.aalm.hr.model.views.EmployeeApprovalStatusV" Name="UserVacationsV1">
+        <AttrNames>
+          <Item Value="RoleName"/>
+          <Item Value="ActionStatus"/>
+        </AttrNames>
       </nodeDefinition>
     </tree>
     <action id="Rollback" DataControl="AalmHrDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
     <attributeValues IterBinding="OrgUsersVIterator" id="EmpId">
       <AttrNames>
         <Item Value="EmpId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ApprovalTransactionDetailsVOIterator" id="ApprovalTransactionDetailsVO">
+      <nodeDefinition DefName="com.aalm.hr.model.views.ApprovalTransactionDetailsVO"
+                      Name="ApprovalTransactionDetailsVO0">
+        <AttrNames>
+          <Item Value="RequesterName"/>
+          <Item Value="RequesterJob"/>
+          <Item Value="TransactionTypeName"/>
+          <Item Value="RequestDate"/>
+          <Item Value="ModuleName"/>
+          <Item Value="DetailId"/>
+          <Item Value="ActionStatus"/>
+          <Item Value="Comments"/>
+          <Item Value="ApprovalTransId"/>
+          <Item Value="StepId"/>
+          <Item Value="ApproverId"/>
+          <Item Value="ActionDate"/>
+          <Item Value="ApprovalOrder"/>
+          <Item Value="IsActive"/>
+          <Item Value="RoleId"/>
+          <Item Value="TransactionRefId"/>
+          <Item Value="TransactionStatus"/>
+          <Item Value="RequestedBy"/>
+          <Item Value="ApproverName"/>
+          <Item Value="ApproverJob"/>
+          <Item Value="RoleName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="sp_handle_approval_action" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="sp_handle_approval_action" IsViewObjectMethod="false" DataControl="AalmHrDataControl"
+                  InstanceName="data.AalmHrDataControl.dataProvider"
+                  ReturnName="data.AalmHrDataControl.methodResults.sp_handle_approval_action_AalmHrDataControl_dataProvider_sp_handle_approval_action_result">
+      <NamedData NDName="p_trans_id" NDValue="#{bindings.ApprovalTransId.inputValue}" NDType="int"/>
+      <NamedData NDName="p_detail_id" NDType="int" NDValue="#{bindings.DetailId.inputValue}"/>
+      <NamedData NDName="p_action" NDType="java.lang.String" NDValue="#{bindings.ActionStatus.inputValue}"/>
+      <NamedData NDName="p_comments" NDType="java.lang.String" NDValue="#{bindings.Comments.inputValue}"/>
+    </methodAction>
+    <action id="Commit" DataControl="AalmHrDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ApprovalTransactionDetailsVOIterator" id="ApprovalTransId">
+      <AttrNames>
+        <Item Value="ApprovalTransId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApprovalTransactionDetailsVOIterator" id="DetailId">
+      <AttrNames>
+        <Item Value="DetailId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApprovalTransactionDetailsVOIterator" id="ApproverId">
+      <AttrNames>
+        <Item Value="ApproverId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApprovalTransactionDetailsVOIterator" id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ApprovalTransactionDetailsVOIterator" id="ActionStatus">
+      <AttrNames>
+        <Item Value="ActionStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OrgUsersVIterator" id="OrgCode">
+      <AttrNames>
+        <Item Value="OrgCode"/>
       </AttrNames>
     </attributeValues>
   </bindings>

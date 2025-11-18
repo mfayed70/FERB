@@ -5,7 +5,6 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="EmployeesCRUDV" RangeSize="25" DataControl="AalmHrDataControl" id="EmployeesCRUDVIterator"/>
-    <iterator Binds="EmployeesV" RangeSize="25" DataControl="AalmHrDataControl" id="EmployeesVIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="EmployeesCRUDVIterator" id="EmpId">
@@ -39,8 +38,8 @@
     </attributeValues>
     <list IterBinding="EmployeesCRUDVIterator" StaticList="false" Uses="LOV_CurrCode" id="CurrCode"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <list IterBinding="EmployeesVIterator" StaticList="false" Uses="LOV_JobId" id="JobId" DTSupportsMRU="true"
-          SelectItemValueMode="ListObject"/>
     <action id="Commit" DataControl="AalmHrDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="EmployeesCRUDVIterator" StaticList="false" Uses="LOV_JobId" id="JobId" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

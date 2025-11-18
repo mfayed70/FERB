@@ -104,10 +104,8 @@ FROM
       <ViewCriteriaItem
         Name="OrgCode"
         ViewAttribute="OrgCode"
-        Operator="="
+        Operator="ISNOTBLANK"
         Conjunction="AND"
-        Value=":pOrgCode"
-        IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>

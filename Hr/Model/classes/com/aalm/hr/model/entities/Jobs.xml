@@ -77,6 +77,17 @@
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="ParentJobId"
+    ColumnName="parent_job_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="JOBS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="Primary1"
     PrimaryKey="true">
@@ -87,4 +98,8 @@
       <Item Value="com.aalm.hr.model.entities.Jobs.JobId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.hr.model.AalmHrMBndl"/>
+  </ResourceBundle>
 </Entity>

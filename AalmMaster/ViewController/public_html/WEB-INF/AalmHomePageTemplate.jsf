@@ -36,7 +36,8 @@
                                 <af:link id="pt_ot3" inlineStyle="color:navy; font-size:25px; border-color:White;"
                                          text="#{sessionScope.userName}"
                                          action="#{pageFlowScope.AppsBean.homePageSwitcher}"
-                                         icon="#{resource['images:userAvatar.png']}" iconPosition="trailing"/>
+                                         icon="#{resource['images:userAvatar.png']}" iconPosition="trailing"
+                                         shortDesc="#{view.viewId eq '/home' ? AalmMasterBndl.SWITCH_TO_YOUR_PROFILE : AalmMasterBndl.SWITCH_TO_YOUR_TASKS}"/>
                             </af:panelGroupLayout>
                         </af:panelGroupLayout>
                     </f:facet>

@@ -7,18 +7,32 @@
    Name="OrgUsersV"
    Version="12.1.3.10.47"
    InheritPersonalization="merge"
-   SelectListFlags="1"
-   FromListFlags="1"
-   WhereFlags="1"
    BindingStyle="JDBC"
-   CustomQuery="false"
-   SelectAllAttributes="false"
+   CustomQuery="true"
    PageIterMode="Partial">
+   <DesignTime>
+      <Attr Name="_isExpertMode" Value="true"/>
+   </DesignTime>
    <Variable
       Name="pOrgUserId"
       Kind="viewcriteria"
       Type="java.lang.Integer" >
    </Variable>
+   <SQLQuery><![CDATA[SELECT 
+    OrgUsers.user_id, 
+    OrgUsers.first_name, 
+    OrgUsers.last_name, 
+    OrgUsers.email, 
+    OrgUsers.mobile, 
+    OrgUsers.address, 
+    OrgUsers.pswrd, 
+    OrgUsers.otp, 
+    OrgUsers.frm_dt, 
+    OrgUsers.to_dt, 
+    emp_id, 
+    EMPLOYEES.org_code org_code 
+FROM 
+    ORG_USERS OrgUsers JOIN EMPLOYEES USING (emp_id)]]></SQLQuery>
    <EntityUsage
       Name="OrgUsers"
       Entity="com.aalm.hr.model.entities.OrgUsers" >
@@ -108,6 +122,20 @@
       EntityUsage="OrgUsers"
       AliasName="emp_id" >
    </ViewAttribute>
+   <ViewAttribute
+      Name="OrgCode"
+      IsUpdateable="false"
+      IsPersistent="false"
+      PrecisionRule="true"
+      Type="java.lang.Integer"
+      ColumnType="INT"
+      AliasName="org_code"
+      Expression="org_code"
+      SQLType="INTEGER">
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="11"/>
+      </DesignTime>
+   </ViewAttribute>
    <ViewCriteria
       Name="OrgUsersVCriteria"
       ViewObjectName="com.aalm.hr.model.views.OrgUsersV"
@@ -156,6 +184,11 @@
    <ViewLinkAccessor
       Name="EmployeeVacationsStatisticsV"
       ViewLink="com.aalm.hr.model.views.OrgUserToEmpVacationStatisticsVL"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false"/>
+   <ViewLinkAccessor
+      Name="ApprovalTransactionDetailsVO"
+      ViewLink="com.aalm.hr.model.views.OrgUsersToApprovalTransactionsDetsCL"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false"/>
 </ViewObject>

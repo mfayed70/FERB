@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ApprovalRolesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="JobsLOV1"
+    ViewObjectName="com.aalm.master.model.lovs.JobsLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="MultiPolicyLOV1"
+    ViewObjectName="com.aalm.master.model.lovs.MultiPolicyLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ResolveEntityLOV1"
+    ViewObjectName="com.aalm.master.model.lovs.ResolveEntityLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ResolveScopeLOV1"
+    ViewObjectName="com.aalm.master.model.lovs.ResolveScopeLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_JobId"
+    ListVOName="JobsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="JobId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="JobId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="JobNameEn"/>
+      <Item Value="JobNameAr"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MultiPolicy"
+    ListVOName="MultiPolicyLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MultiPolicy"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ResolveEntity"
+    ListVOName="ResolveEntityLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ResolveEntity"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ResolveScope"
+    ListVOName="ResolveScopeLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ResolveScope"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ApprovalRoles"
+    Entity="com.aalm.master.model.entities.ApprovalRoles"/>
+  <ViewAttribute
+    Name="RoleId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RoleId"
+    EntityUsage="ApprovalRoles"
+    AliasName="ROLE_ID"/>
+  <ViewAttribute
+    Name="RoleName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RoleName"
+    EntityUsage="ApprovalRoles"
+    AliasName="ROLE_NAME"/>
+  <ViewAttribute
+    Name="JobId"
+    PrecisionRule="true"
+    EntityAttrName="JobId"
+    EntityUsage="ApprovalRoles"
+    AliasName="JOB_ID"
+    LOVName="LOV_JobId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AllowDelegation"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AllowDelegation"
+    EntityUsage="ApprovalRoles"
+    AliasName="ALLOW_DELEGATION">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[0]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FallbackRoleId"
+    PrecisionRule="true"
+    EntityAttrName="FallbackRoleId"
+    EntityUsage="ApprovalRoles"
+    AliasName="FALLBACK_ROLE_ID"/>
+  <ViewAttribute
+    Name="MultiN"
+    PrecisionRule="true"
+    EntityAttrName="MultiN"
+    EntityUsage="ApprovalRoles"
+    AliasName="MULTI_N"/>
+  <ViewAttribute
+    Name="MultiPolicy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MultiPolicy"
+    EntityUsage="ApprovalRoles"
+    AliasName="MULTI_POLICY"
+    LOVName="LOV_MultiPolicy"
+    DefaultValue="SINGLE">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ResolveEntity"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ResolveEntity"
+    EntityUsage="ApprovalRoles"
+    AliasName="RESOLVE_ENTITY"
+    LOVName="LOV_ResolveEntity"
+    DefaultValue="JOB">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ResolveLevel"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ResolveLevel"
+    EntityUsage="ApprovalRoles"
+    AliasName="RESOLVE_LEVEL"/>
+  <ViewAttribute
+    Name="ResolveScope"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ResolveScope"
+    EntityUsage="ApprovalRoles"
+    AliasName="RESOLVE_SCOPE"
+    LOVName="LOV_ResolveScope"
+    DefaultValue="SAME_ORG">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+</ViewObject>

@@ -361,5 +361,60 @@ public class AalmCentralImpl extends ApplicationModuleImpl implements AalmCentra
         return (ViewLinkImpl) findViewLink("fk_ITEM_CATEGORY_TYPES_ITEM_CATEGORIES1VL1");
     }
 
+    /**
+     * Container's getter for OrganizationTreeV1.
+     * @return OrganizationTreeV1
+     */
+    public ViewObjectImpl getOrganizationTreeV() {
+        return (ViewObjectImpl) findViewObject("OrganizationTreeV");
+    }
+
+    /**
+     * Container's getter for OrganizationTreeV1.
+     * @return OrganizationTreeV1
+     */
+    public ViewObjectImpl getOrganizationTreeChildV() {
+        return (ViewObjectImpl) findViewObject("OrganizationTreeChildV");
+    }
+
+    /**
+     * Container's getter for OrganiztionTreeSelfJoinCVL1.
+     * @return OrganiztionTreeSelfJoinCVL1
+     */
+    public ViewLinkImpl getOrganiztionTreeSelfJoinCVL1() {
+        return (ViewLinkImpl) findViewLink("OrganiztionTreeSelfJoinCVL1");
+    }
+
+    /**
+     * Container's getter for JobsTreeV1.
+     * @return JobsTreeV1
+     */
+    public ViewObjectImpl getJobsTreeV() {
+        return (ViewObjectImpl) findViewObject("JobsTreeV");
+    }
+
+    /**
+     * Container's getter for OrgsToJobsCL1.
+     * @return OrgsToJobsCL1
+     */
+    public ViewLinkImpl getOrgsToJobsCL1() {
+        return (ViewLinkImpl) findViewLink("OrgsToJobsCL1");
+    }
+
+    /**
+     * Container's getter for JobsTreeV1.
+     * @return JobsTreeV1
+     */
+    public ViewObjectImpl getJobsTreeChildV() {
+        return (ViewObjectImpl) findViewObject("JobsTreeChildV");
+    }
+
+    /**
+     * Container's getter for JobsTreeSelfJoinCL1.
+     * @return JobsTreeSelfJoinCL1
+     */
+    public ViewLinkImpl getJobsTreeSelfJoinCL1() {
+        return (ViewLinkImpl) findViewLink("JobsTreeSelfJoinCL1");
+    }
 }
 

@@ -45,10 +45,10 @@ public class LoginBean {
     private final String LOGIN_URL = "/AalM/erp/login";
     private Timestamp currentTime;
     private RichPopup attendanceConfirmationPopup;
-
+    private String pswrd, confrmPswrd;
     public String login() {
         // Add event code here...
-        
+                
         try {
             // attempt login
             SecurityUtils.getSubject().login(new UsernamePasswordToken(userName, password));
@@ -159,6 +159,51 @@ public class LoginBean {
         }
     }
 
+    public String setPswrdActn() {
+        // Add event code here...
+        JSFUtil.storeOnSession("userEmail", this.userName);
+        ADFUtils.findOperation("ExecuteWithParams").execute();
+        System.out.println("yes it exist" +
+                           ADFUtils.findIterator("OrgUsersSetPasswordVIterator").getEstimatedRowCount() + " user :" +
+                           JSFUtil.getFromSession("userEmail"));
+        String rtrn = null;
+        if (this.userName.contains("@")) {
+            rtrn = "toForgotPswrd";
+        } else {
+            if (ADFUtils.findIterator("OrgUsersSetPasswordVIterator").getEstimatedRowCount() == 1) {
+                rtrn = "setPassword";
+            } else {
+                JSFUtil.addFacesErrorMessage("Administrator should nullify your password");
+                rtrn = null;
+            }
+        }
+        return rtrn;
+    }
+
+    public String setNewPswrdActn() {
+        // Add event code here...
+        String actn = null;
+        if (this.pswrd.equals(this.confrmPswrd)){
+            ADFUtils.setBoundAttributeValue("Pswrd", this.pswrd);
+            ADFUtils.findOperation("Commit").execute();
+
+            JSFUtil.addFacesErrorMessage("Password set successfully");
+            actn = "backToLogin";
+        } else {
+            JSFUtil.addFacesErrorMessage("Password mismatch");
+            actn = null;
+        }
+        return actn;
+    }
+
+
+    public void nullifyPswrdActnLsnr(ActionEvent actionEvent) {
+        // Add event code here...
+        ADFUtils.setBoundAttributeValue("Pswrd", null);
+        ADFUtils.findOperation("Commit").execute();
+        JSFUtil.addFacesInformationMessage("User password set null successfully");
+    }
+    
     public Date getCurrentDate() {
         return new Date();
     }
@@ -240,5 +285,21 @@ public class LoginBean {
 
     public RichPopup getAttendanceConfirmationPopup() {
         return attendanceConfirmationPopup;
+    }
+
+    public void setPswrd(String pswrd) {
+        this.pswrd = pswrd;
+    }
+
+    public String getPswrd() {
+        return pswrd;
+    }
+
+    public void setConfrmPswrd(String confrmPswrd) {
+        this.confrmPswrd = confrmPswrd;
+    }
+
+    public String getConfrmPswrd() {
+        return confrmPswrd;
     }
 }

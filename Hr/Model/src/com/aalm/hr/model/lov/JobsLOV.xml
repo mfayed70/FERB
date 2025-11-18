@@ -19,7 +19,7 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery><![CDATA[SELECT 
-    JOBS.job_id job_id, 
+    JOBS.job_id job_id,org_code,
     concat(JOBS.job_name_en,'-',JOBS.job_name_ar) job_name
 FROM 
     JOBS]]></SQLQuery>
@@ -32,6 +32,20 @@ FROM
     ColumnType="INTEGER"
     AliasName="job_id"
     Expression="job_id"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="org_code"
+    Expression="org_code"
     SQLType="INTEGER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="11"/>

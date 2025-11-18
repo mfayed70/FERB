@@ -23,6 +23,8 @@ import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.adfdt.model.objects.IteratorBinding;
 
+import oracle.binding.OperationBinding;
+
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 
@@ -56,7 +58,7 @@ public class HrBean {
 
     }
 
-    public void saveEmpContract(ActionEvent actionEvent) {
+    public String saveEmpContract() {
         // Add event code here...
 //        if (this.idPhotoPath!=null) {
 //            File ifFile = new File(this.idPhotoPath);
@@ -69,15 +71,21 @@ public class HrBean {
         ADFUtils.findOperation("setCurrentRowWithKeyValue").execute();
         DCIteratorBinding ro = ADFUtils.findIterator("EmployeesVIterator");
         Row rws = ro.getCurrentRow();
+        
         ro.getCurrentRow().setAttribute("IdNo",ADFUtils.getBoundAttributeValue("IdNo"));
-        ro.getCurrentRow().setAttribute("EmpName",ADFUtils.getBoundAttributeValue("FirstName")+" "+
-          ADFUtils.getBoundAttributeValue("MiddleName")+" "+ADFUtils.getBoundAttributeValue("LastName"));
+        ro.getCurrentRow().setAttribute("EmpName",
+                                        ADFUtils.getBoundAttributeValue("FirstName")+" "+
+                                        ADFUtils.getBoundAttributeValue("MiddleName")+" "+
+                                        ADFUtils.getBoundAttributeValue("LastName"));
         ro.getCurrentRow().setAttribute("ContractNo",ADFUtils.getBoundAttributeValue("ContractId"));
         ro.getCurrentRow().setAttribute("Salary",ADFUtils.getBoundAttributeValue("Salary"));
         ro.getCurrentRow().setAttribute("JobId",ADFUtils.getBoundAttributeValue("JobId1"));
         ro.getCurrentRow().setAttribute("CurrCode",ADFUtils.getBoundAttributeValue("CurrCode"));
+        ro.getCurrentRow().setAttribute("OrgCode", ADFUtils.getBoundAttributeValue("OrgCode"));
+//        System.out.println("org : "+ADFUtils.getBoundAttributeValue("OrgCode"));
         ADFUtils.findOperation("Commit").execute();
         ADFUtils.findOperation("Rollback").execute();
+        return "toSave";
     }      
     
     public void contractsReturnLsnr(ReturnEvent returnEvent) {
@@ -178,6 +186,22 @@ public class HrBean {
                     System.out.println("Failed to delete the file.");
                 }
     }
+
+    public void applyApprovalActionLsnr(ActionEvent actionEvent) {
+        // Add event code here...
+        if(!ADFUtils.getBoundAttributeValue("ActionStatus").equals("PENDING")) {
+    ADFUtils.findOperation("sp_handle_approval_action").execute();
+//       ADFUtils.findIterator("ApprovalTransactionDetailsVOIterator").getViewObject().executeQuery();
+        ADFUtils.findOperation("Rollback").execute();
+        }
+    }
+    
+    public String saveVacationActn() {
+        // Add event code here...
+        ADFUtils.findOperation("Commit").execute();
+        ADFUtils.findOperation("sp_create_approval_transaction").execute();
+        return "toSave";
+    }    
     
     public String getUploadedFilePath() {
             return IdfileUploadBean.getUploadedFilePath();
@@ -326,7 +350,7 @@ public class HrBean {
                     logger.info("Dialog dismissed: " + e.getOutcome());
             }
         }
-    
+
     public void setCurrentTime(Timestamp currentTime) {
         this.currentTime = currentTime;
     }
@@ -334,6 +358,5 @@ public class HrBean {
     public Timestamp getCurrentTime() {
         return new Timestamp(new Date().getTime());
     }
-
 
 }

@@ -7,6 +7,8 @@
     <iterator id="UserInOrgVIterator" Binds="UserInOrgV" DataControl="AalmMasterDataControl"
               RangeSize="25"/>
     <iterator id="UserAttendanceVIterator" Binds="UserAttendanceV" DataControl="AalmMasterDataControl" RangeSize="25"/>
+    <iterator Binds="OrgUsersSetPasswordV" RangeSize="10" DataControl="AalmMasterDataControl"
+              id="OrgUsersSetPasswordVIterator"/>
   </executables>
   <bindings>
     <methodAction id="createTodayAttendanceIfMissing" RequiresUpdateModel="true" Action="invokeMethod"
@@ -15,5 +17,11 @@
                   ReturnName="data.AalmMasterDataControl.methodResults.createTodayAttendanceIfMissing_AalmMasterDataControl_dataProvider_createTodayAttendanceIfMissing_result">
       <NamedData NDName="userId" NDType="int" NDValue="#{sessionScope.userId}"/>
     </methodAction>
+    <action IterBinding="OrgUsersSetPasswordVIterator" id="ExecuteWithParams"
+            InstanceName="AalmMasterDataControl.OrgUsersSetPasswordV" DataControl="AalmMasterDataControl"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="pEmail" NDType="java.lang.String" NDValue="#{backingBeanScope.LoginBean.userName}"/>
+      <NamedData NDName="pOtp" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

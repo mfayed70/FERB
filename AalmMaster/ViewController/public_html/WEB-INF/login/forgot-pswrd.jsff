@@ -4,7 +4,7 @@
   <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.master.view.AalmMasterBndl']}"/>
   <af:panelGroupLayout id="pgl3" layout="vertical" halign="center">
     <af:panelGroupLayout id="pgl4" layout="horizontal" inlineStyle="width:330px;margin:20px 0 0 0;padding:0 0 0 0px;" halign="center">
-      <af:outputText value="#{viewcontrollerBundle.FORGOT_PASSSWORD}" id="ot1" inlineStyle="font-size:x-large;"/>
+      <af:outputText value="#{viewcontrollerBundle.SetPassword}" id="ot1" inlineStyle="font-size:x-large;"/>
     </af:panelGroupLayout>
     <af:panelGroupLayout id="pgl1" layout="horizontal"
                          inlineStyle="width:800px; background-color:white;padding:0 30px 0 30px;margin-bottom:-10px;">

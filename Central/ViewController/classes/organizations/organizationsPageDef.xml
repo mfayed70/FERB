@@ -5,6 +5,8 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="OrganizationsV" RangeSize="25" DataControl="AalmCentralDataControl" id="OrganizationsVIterator"/>
+    <iterator Binds="OrganizationTreeV" RangeSize="25" DataControl="AalmCentralDataControl"
+              id="OrganizationTreeVIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="OrganizationsVIterator" id="OrganizationsV">
@@ -25,5 +27,17 @@
       <NamedData NDName="PrntOrgCode" NDValue="#{row.OrgCode}" NDType="java.lang.String"/>
     </action>
     <action IterBinding="OrganizationsVIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="OrganizationTreeVIterator" id="OrganizationTreeV">
+      <nodeDefinition DefName="com.aalm.center.model.views.OrganizationTreeV" Name="OrganizationTreeV0">
+        <AttrNames>
+          <Item Value="OrgCode"/>
+          <Item Value="EnOrgName"/>
+          <Item Value="ArOrgName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="OrgCodeOrganizationTreeV"/>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

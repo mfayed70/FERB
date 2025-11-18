@@ -124,5 +124,10 @@
     <action IterBinding="SystUsrRolesMasterVIterator" id="CreateInsertUsrRolesMstr"
             InstanceName="AalmMasterDataControl.SystUsrRolesMasterV" DataControl="AalmMasterDataControl"
             RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="SystemUsersVIterator" id="Pswrd">
+      <AttrNames>
+        <Item Value="Pswrd"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
