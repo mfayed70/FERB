@@ -26,6 +26,42 @@
         <source>Supplier deliver Item Categories</source>
         <target/>
       </trans-unit>
+      <trans-unit id="PurchaseTransactionsTypes">
+        <source>Purchase Transactions Types</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MaterialRequests">
+        <source>Material Requests</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BasicData">
+        <source>Basic Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Beneficiary">
+        <source>Beneficiary</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MaterialCategories">
+        <source>Material Categories</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MATERIAL_REQUEST_ITEMS">
+        <source>Material Request Items</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MaterialRequestsList">
+        <source>Material Requests List</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SearchSelectItem">
+        <source>Search &amp; Select Item</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Exit">
+        <source>Exit</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

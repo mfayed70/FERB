@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PurMatReqMastProjectsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="ProjectsLOV1"
+    ViewObjectName="com.aalm.prcrmnt.model.lov.ProjectsLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ProjId"
+    ListVOName="ProjectsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProjId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="VersionNo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProjId"/>
+      <Item Value="VersionNo"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProjCode"/>
+      <Item Value="ProjName"/>
+      <Item Value="VersionNo"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="PurMatReqMastProjects"
+    Entity="com.aalm.prcrmnt.model.entities.PurMatReqMastProjects"/>
+  <ViewAttribute
+    Name="ProjId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProjId"
+    EntityUsage="PurMatReqMastProjects"
+    AliasName="proj_id"
+    LOVName="LOV_ProjId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VersionNo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VersionNo"
+    EntityUsage="PurMatReqMastProjects"
+    AliasName="version_no"/>
+  <ViewAttribute
+    Name="PurMatRqstId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PurMatRqstId"
+    EntityUsage="PurMatReqMastProjects"
+    AliasName="pur_mat_rqst_id"/>
+</ViewObject>

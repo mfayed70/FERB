@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.prcrmnt.view.AalmPrcrmntBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.MaterialRequests}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="500">
+      <f:facet name="first">
+        <af:panelSplitter id="ps1" splitterPosition="800" disabled="true">
+          <f:facet name="first">
+            <af:panelHeader text="#{viewcontrollerBundle.BasicData}" id="ph3">
+              <f:facet name="context"/>
+              <f:facet name="menuBar"/>
+              <f:facet name="toolbar"/>
+              <f:facet name="legend"/>
+              <af:panelFormLayout id="pfl1" labelAlignment="top" maxColumns="3" rows="7" styleClass="AFStretchWidth">
+                <af:selectOneChoice value="#{bindings.PrTransTypeCode.inputValue}"
+                                    label="#{bindings.PrTransTypeCode.label}"
+                                    required="#{bindings.PrTransTypeCode.hints.mandatory}"
+                                    shortDesc="#{bindings.PrTransTypeCode.hints.tooltip}" id="soc1">
+                  <f:selectItems value="#{bindings.PrTransTypeCode.items}" id="si1"/>
+                  <f:validator binding="#{bindings.PrTransTypeCode.validator}"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.PurMatRqstId.inputValue}" label="#{bindings.PurMatRqstId.hints.label}"
+                              required="#{bindings.PurMatRqstId.hints.mandatory}"
+                              columns="#{bindings.PurMatRqstId.hints.displayWidth}"
+                              maximumLength="#{bindings.PurMatRqstId.hints.precision}"
+                              shortDesc="#{bindings.PurMatRqstId.hints.tooltip}" id="it1">
+                  <f:validator binding="#{bindings.PurMatRqstId.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.PurMatRqstId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PurMatRqstName.inputValue}"
+                              label="#{bindings.PurMatRqstName.hints.label}"
+                              required="#{bindings.PurMatRqstName.hints.mandatory}"
+                              columns="#{bindings.PurMatRqstName.hints.displayWidth}"
+                              maximumLength="#{bindings.PurMatRqstName.hints.precision}"
+                              shortDesc="#{bindings.PurMatRqstName.hints.tooltip}" id="it2">
+                  <f:validator binding="#{bindings.PurMatRqstName.validator}"/>
+                </af:inputText>
+                <af:inputDate value="#{bindings.RegisteredDt.inputValue}" label="#{bindings.RegisteredDt.hints.label}"
+                              required="#{bindings.RegisteredDt.hints.mandatory}"
+                              columns="#{bindings.RegisteredDt.hints.displayWidth}"
+                              shortDesc="#{bindings.RegisteredDt.hints.tooltip}" id="id1">
+                  <f:validator binding="#{bindings.RegisteredDt.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.RegisteredDt.format}"/>
+                </af:inputDate>
+                <af:inputText value="#{bindings.OrgCode.inputValue}" label="#{bindings.OrgCode.hints.label}"
+                              required="#{bindings.OrgCode.hints.mandatory}"
+                              columns="#{bindings.OrgCode.hints.displayWidth}"
+                              maximumLength="#{bindings.OrgCode.hints.precision}"
+                              shortDesc="#{bindings.OrgCode.hints.tooltip}" id="it3">
+                  <f:validator binding="#{bindings.OrgCode.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.OrgCode.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.UserId.inputValue}" label="#{bindings.UserId.hints.label}"
+                              required="#{bindings.UserId.hints.mandatory}"
+                              columns="#{bindings.UserId.hints.displayWidth}"
+                              maximumLength="#{bindings.UserId.hints.precision}"
+                              shortDesc="#{bindings.UserId.hints.tooltip}" id="it4">
+                  <f:validator binding="#{bindings.UserId.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.UserId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Notes.inputValue}" label="#{bindings.Notes.hints.label}"
+                              required="#{bindings.Notes.hints.mandatory}"
+                              columns="#{bindings.Notes.hints.displayWidth}"
+                              maximumLength="#{bindings.Notes.hints.precision}"
+                              shortDesc="#{bindings.Notes.hints.tooltip}" id="it5" contentStyle="width:600px;" rows="3"
+                              editable="onAccess">
+                  <f:validator binding="#{bindings.Notes.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.MrStatus.inputValue}" label="#{bindings.MrStatus.label}"
+                                    required="#{bindings.MrStatus.hints.mandatory}"
+                                    shortDesc="#{bindings.MrStatus.hints.tooltip}" id="soc5" autoSubmit="true">
+                  <f:selectItems value="#{bindings.MrStatus.items}" id="si5"/>
+                  <f:validator binding="#{bindings.MrStatus.validator}"/>
+                </af:selectOneChoice>
+              </af:panelFormLayout>
+              <f:facet name="info"/>
+            </af:panelHeader>
+          </f:facet>
+          <f:facet name="second">
+            <af:panelGroupLayout id="pgl1" layout="vertical">
+              <af:panelHeader text="#{viewcontrollerBundle.Beneficiary}" id="ph2">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="legend"/>
+                <af:panelFormLayout id="pfl2" labelAlignment="top" maxColumns="3" rows="4">
+                  <af:selectOneChoice value="#{bindings.TargetType.inputValue}" label="#{bindings.TargetType.label}"
+                                      required="#{bindings.TargetType.hints.mandatory}"
+                                      shortDesc="#{bindings.TargetType.hints.tooltip}" id="soc2"
+                                      contentStyle="width:300px;">
+                    <f:selectItems value="#{bindings.TargetType.items}" id="si2"/>
+                    <f:validator binding="#{bindings.TargetType.validator}"/>
+                  </af:selectOneChoice>
+                  <af:selectOneChoice value="#{bindings.TargetOrgCode.inputValue}"
+                                      label="#{bindings.TargetOrgCode.label}"
+                                      required="#{bindings.TargetOrgCode.hints.mandatory}"
+                                      shortDesc="#{bindings.TargetOrgCode.hints.tooltip}" id="soc3"
+                                      contentStyle="width:300px;">
+                    <f:selectItems value="#{bindings.TargetOrgCode.items}" id="si3"/>
+                    <f:validator binding="#{bindings.TargetOrgCode.validator}"/>
+                  </af:selectOneChoice>
+                  <af:inputDate value="#{bindings.ExpectedDeliveryDt.inputValue}"
+                                label="#{bindings.ExpectedDeliveryDt.hints.label}"
+                                required="#{bindings.ExpectedDeliveryDt.hints.mandatory}"
+                                columns="#{bindings.ExpectedDeliveryDt.hints.displayWidth}"
+                                shortDesc="#{bindings.ExpectedDeliveryDt.hints.tooltip}" id="id2">
+                    <f:validator binding="#{bindings.ExpectedDeliveryDt.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.ExpectedDeliveryDt.format}"/>
+                  </af:inputDate>
+                  <af:selectOneChoice value="#{bindings.DeliveryTo.inputValue}" label="#{bindings.DeliveryTo.label}"
+                                      required="#{bindings.DeliveryTo.hints.mandatory}"
+                                      shortDesc="#{bindings.DeliveryTo.hints.tooltip}" id="soc4"
+                                      contentStyle="width:300px;">
+                    <f:selectItems value="#{bindings.DeliveryTo.items}" id="si4"/>
+                    <f:validator binding="#{bindings.DeliveryTo.validator}"/>
+                  </af:selectOneChoice>
+                </af:panelFormLayout>
+                <f:facet name="info"/>
+              </af:panelHeader>
+              <af:panelHeader text="#{viewcontrollerBundle.MaterialCategories}" id="ph4">
+                <f:facet name="context"/>
+                <f:facet name="menuBar">
+                  <af:panelGroupLayout id="pgl2" layout="horizontal">
+                    <af:button id="b3" icon="#{resource['images:cancelF.png']}"
+                               hoverIcon="#{resource['images:cancelO.png']}"
+                               actionListener="#{bindings.Rollback.execute}" styleClass="but"
+                               text="#{viewcontrollerBundle.CANCEL}" immediate="true"/>
+                    <af:button text="#{viewcontrollerBundle.NEW}" id="b1" styleClass="but"
+                               actionListener="#{bindings.CreateInsertCategory.execute}"/>
+                    <af:button id="b2" icon="#{resource['images:SaveF.png']}"
+                               hoverIcon="#{resource['images:SaveO.png']}" actionListener="#{bindings.Commit.execute}"
+                               styleClass="but" text="#{viewcontrollerBundle.SAVE}"/>
+                    <f:facet name="separator">
+                      <af:spacer width="10" height="10" id="s1"/>
+                    </f:facet>
+                  </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="toolbar"/>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelCollection id="pc1">
+                  <f:facet name="menus"/>
+                  <f:facet name="toolbar"/>
+                  <af:table value="#{bindings.PurMatReqMastCatsV.collectionModel}" var="row"
+                            rows="#{bindings.PurMatReqMastCatsV.rangeSize}"
+                            emptyText="#{bindings.PurMatReqMastCatsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.PurMatReqMastCatsV.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.PurMatReqMastCatsV.collectionModel.makeCurrent}"
+                            rowSelection="single" fetchSize="#{bindings.PurMatReqMastCatsV.rangeSize}"
+                            filterModel="#{bindings.PurMatReqMastCatsVQuery.queryDescriptor}"
+                            queryListener="#{bindings.PurMatReqMastCatsVQuery.processQuery}" filterVisible="true"
+                            varStatus="vs" id="t1" partialTriggers="l1 ::b1 ::b2 ::b3">
+                    <af:column sortProperty="#{bindings.PurMatReqMastCatsV.hints.PurMatRqstId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurMatReqMastCatsV.hints.PurMatRqstId.label}"
+                               id="c1">
+                      <af:inputText value="#{row.bindings.PurMatRqstId.inputValue}"
+                                    label="#{bindings.PurMatReqMastCatsV.hints.PurMatRqstId.label}"
+                                    required="#{bindings.PurMatReqMastCatsV.hints.PurMatRqstId.mandatory}"
+                                    columns="#{bindings.PurMatReqMastCatsV.hints.PurMatRqstId.displayWidth}"
+                                    maximumLength="#{bindings.PurMatReqMastCatsV.hints.PurMatRqstId.precision}"
+                                    shortDesc="#{bindings.PurMatReqMastCatsV.hints.PurMatRqstId.tooltip}" id="it6">
+                        <f:validator binding="#{row.bindings.PurMatRqstId.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.PurMatReqMastCatsV.hints.PurMatRqstId.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.PurMatReqMastCatsV.hints.CatId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.PurMatReqMastCatsV.hints.CatId.label}" id="c2"
+                               width="500">
+                      <af:selectOneChoice value="#{row.bindings.CatId.inputValue}" label="#{row.bindings.CatId.label}"
+                                          required="#{bindings.PurMatReqMastCatsV.hints.CatId.mandatory}"
+                                          shortDesc="#{bindings.PurMatReqMastCatsV.hints.CatId.tooltip}" id="soc6"
+                                          autoSubmit="true">
+                        <f:selectItems value="#{row.bindings.CatId.items}" id="si6"/>
+                        <f:validator binding="#{row.bindings.CatId.validator}"/>
+                      </af:selectOneChoice>
+                    </af:column>
+                    <af:column id="c3" align="center" width="50">
+                      <af:link id="l1" icon="#{resource['images:delete24.png']}"
+                               actionListener="#{bindings.DeleteCategory.execute}"/>
+                    </af:column>
+                  </af:table>
+                  <f:facet name="statusbar"/>
+                </af:panelCollection>
+              </af:panelHeader>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelSplitter>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelHeader text="#{viewcontrollerBundle.MATERIAL_REQUEST_ITEMS}" id="ph5">
+          <f:facet name="context"/>
+          <f:facet name="menuBar">
+            <af:panelGroupLayout id="pgl3" layout="horizontal">
+              <af:button id="b4" icon="#{resource['images:cancelF.png']}" hoverIcon="#{resource['images:cancelO.png']}"
+                         actionListener="#{bindings.Rollback.execute}" styleClass="but"
+                         text="#{viewcontrollerBundle.CANCEL}" immediate="true"/>
+              <af:button text="#{viewcontrollerBundle.NEW}" id="b5" styleClass="but"
+                         actionListener="#{bindings.CreateInsertItems.execute}"/>
+              <af:button id="b6" icon="#{resource['images:SaveF.png']}" hoverIcon="#{resource['images:SaveO.png']}"
+                         actionListener="#{bindings.Commit.execute}" styleClass="but"
+                         text="#{viewcontrollerBundle.SAVE}"/>
+              <f:facet name="separator">
+                <af:spacer width="10" height="10" id="s2"/>
+              </f:facet>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:link text="ItemsLOV" id="l2" action="toItemsLOV" useWindow="true" windowEmbedStyle="inlineDocument"
+                   windowHeight="900" windowWidth="1200"/>
+          <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <af:table value="#{bindings.PurMaterialRequestDetsV.collectionModel}" var="row"
+                      rows="#{bindings.PurMaterialRequestDetsV.rangeSize}"
+                      emptyText="#{bindings.PurMaterialRequestDetsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.PurMaterialRequestDetsV.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.PurMaterialRequestDetsV.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.PurMaterialRequestDetsV.rangeSize}"
+                      filterModel="#{bindings.PurMaterialRequestDetsVQuery.queryDescriptor}"
+                      queryListener="#{bindings.PurMaterialRequestDetsVQuery.processQuery}" filterVisible="true"
+                      varStatus="vs" id="t2" partialTriggers=":::b5">
+              <af:column sortProperty="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstDetId.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstDetId.label}"
+                         id="c4">
+                <af:inputText value="#{row.bindings.PurMatRqstDetId.inputValue}"
+                              label="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstDetId.label}"
+                              required="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstDetId.mandatory}"
+                              columns="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstDetId.displayWidth}"
+                              maximumLength="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstDetId.precision}"
+                              shortDesc="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstDetId.tooltip}" id="it7">
+                  <f:validator binding="#{row.bindings.PurMatRqstDetId.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstDetId.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.PurMaterialRequestDetsV.hints.Qty.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.PurMaterialRequestDetsV.hints.Qty.label}" id="c5">
+                <af:inputText value="#{row.bindings.Qty.inputValue}"
+                              label="#{bindings.PurMaterialRequestDetsV.hints.Qty.label}"
+                              required="#{bindings.PurMaterialRequestDetsV.hints.Qty.mandatory}"
+                              columns="#{bindings.PurMaterialRequestDetsV.hints.Qty.displayWidth}"
+                              maximumLength="#{bindings.PurMaterialRequestDetsV.hints.Qty.precision}"
+                              shortDesc="#{bindings.PurMaterialRequestDetsV.hints.Qty.tooltip}" id="it8">
+                  <f:validator binding="#{row.bindings.Qty.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.PurMaterialRequestDetsV.hints.Qty.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstId.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstId.label}"
+                         id="c6">
+                <af:inputText value="#{row.bindings.PurMatRqstId.inputValue}"
+                              label="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstId.label}"
+                              required="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstId.mandatory}"
+                              columns="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstId.displayWidth}"
+                              maximumLength="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstId.precision}"
+                              shortDesc="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstId.tooltip}" id="it9">
+                  <f:validator binding="#{row.bindings.PurMatRqstId.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.PurMaterialRequestDetsV.hints.PurMatRqstId.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.PurMaterialRequestDetsV.hints.ItemCode.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.PurMaterialRequestDetsV.hints.ItemCode.label}" id="c7"
+                         width="500">
+                <af:panelGroupLayout id="pgl4" halign="center" layout="vertical"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.PurMaterialRequestDetsV.hints.UnitId.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.PurMaterialRequestDetsV.hints.UnitId.label}" id="c8">
+                <af:inputText value="#{row.bindings.UnitId.inputValue}"
+                              label="#{bindings.PurMaterialRequestDetsV.hints.UnitId.label}"
+                              required="#{bindings.PurMaterialRequestDetsV.hints.UnitId.mandatory}"
+                              columns="#{bindings.PurMaterialRequestDetsV.hints.UnitId.displayWidth}"
+                              maximumLength="#{bindings.PurMaterialRequestDetsV.hints.UnitId.precision}"
+                              shortDesc="#{bindings.PurMaterialRequestDetsV.hints.UnitId.tooltip}" id="it10">
+                  <f:validator binding="#{row.bindings.UnitId.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.PurMaterialRequestDetsV.hints.UnitId.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.PurMaterialRequestDetsV.hints.Itemcatid.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.PurMaterialRequestDetsV.hints.Itemcatid.label}" id="c9">
+                <af:inputText value="#{row.bindings.Itemcatid.inputValue}"
+                              label="#{bindings.PurMaterialRequestDetsV.hints.Itemcatid.label}"
+                              required="#{bindings.PurMaterialRequestDetsV.hints.Itemcatid.mandatory}"
+                              columns="#{bindings.PurMaterialRequestDetsV.hints.Itemcatid.displayWidth}"
+                              maximumLength="#{bindings.PurMaterialRequestDetsV.hints.Itemcatid.precision}"
+                              shortDesc="#{bindings.PurMaterialRequestDetsV.hints.Itemcatid.tooltip}" id="it11">
+                  <f:validator binding="#{row.bindings.Itemcatid.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.PurMaterialRequestDetsV.hints.Itemcatid.format}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+            <f:facet name="statusbar"/>
+          </af:panelCollection>
+        </af:panelHeader>
+      </f:facet>
+    </af:panelSplitter>
+  </af:panelHeader>
+</ui:composition>

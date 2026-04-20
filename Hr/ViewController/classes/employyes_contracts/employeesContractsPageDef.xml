@@ -4,7 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="EmployeesContractsV" RangeSize="25" DataControl="AalmHrDataControl"
+    <iterator Binds="EmployeesContractsV" RangeSize="-1" DataControl="AalmHrDataControl"
               id="EmployeesContractsVIterator"/>
     <iterator Binds="SystemParameters" RangeSize="10" DataControl="AalmHrDataControl" id="SystemParametersIterator"/>
     <iterator Binds="EmployeesV" RangeSize="10" DataControl="AalmHrDataControl" id="EmployeesVIterator"
@@ -48,8 +48,6 @@
         <Item Value="IdNo"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="EmployeesContractsVIterator" StaticList="false" Uses="LOV_JobId" id="JobId"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="EmployeesContractsVIterator" id="LastName">
       <AttrNames>
         <Item Value="LastName"/>
@@ -124,5 +122,21 @@
       </AttrNames>
     </attributeValues>
     <action id="Rollback" DataControl="AalmHrDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <button IterBinding="EmployeesContractsVIterator" id="Resignation" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Resignation"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="EmployeesContractsVIterator" id="ContractEndDt">
+      <AttrNames>
+        <Item Value="ContractEndDt"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="EmployeesContractsVIterator" StaticList="false" Uses="LOV_JobId" id="JobId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

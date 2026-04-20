@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PurMaterialRequestDetsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="bindCatId"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <SQLQuery><![CDATA[SELECT PurMaterialRequestDets.pur_mat_rqst_det_id, 
+       PurMaterialRequestDets.qty, 
+       PurMaterialRequestDets.pur_mat_rqst_id, 
+       PurMaterialRequestDets.item_code, 
+       PurMaterialRequestDets.unit_id, 
+       PurMaterialRequestDets.notes, 
+       PurMaterialRequestDets.det_status,
+       i.cat_id AS ItemCatId
+FROM  PUR_MATERIAL_REQUEST_DETS PurMaterialRequestDets 
+JOIN ITEMS_LIST i
+  ON i.item_code = PurMaterialRequestDets.item_code]]></SQLQuery>
+  <EntityUsage
+    Name="PurMaterialRequestDets"
+    Entity="com.aalm.prcrmnt.model.entities.PurMaterialRequestDets"/>
+  <ViewAttribute
+    Name="PurMatRqstDetId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PurMatRqstDetId"
+    EntityUsage="PurMaterialRequestDets"
+    AliasName="pur_mat_rqst_det_id"/>
+  <ViewAttribute
+    Name="Qty"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Qty"
+    EntityUsage="PurMaterialRequestDets"
+    AliasName="qty"/>
+  <ViewAttribute
+    Name="PurMatRqstId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PurMatRqstId"
+    EntityUsage="PurMaterialRequestDets"
+    AliasName="pur_mat_rqst_id"/>
+  <ViewAttribute
+    Name="ItemCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ItemCode"
+    EntityUsage="PurMaterialRequestDets"
+    AliasName="item_code"/>
+  <ViewAttribute
+    Name="UnitId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UnitId"
+    EntityUsage="PurMaterialRequestDets"
+    AliasName="unit_id"/>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="PurMaterialRequestDets"
+    AliasName="notes"/>
+  <ViewAttribute
+    Name="DetStatus"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DetStatus"
+    EntityUsage="PurMaterialRequestDets"
+    AliasName="det_status"/>
+  <ViewAttribute
+    Name="Itemcatid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="ItemCatId"
+    Expression="ItemCatId"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="FilterByCategoryVC"
+    ViewObjectName="com.aalm.prcrmnt.model.views.PurMaterialRequestDetsV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="PurMaterialRequestDetsVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Itemcatid"
+        ViewAttribute="Itemcatid"
+        Operator="="
+        Conjunction="AND"
+        Value=":bindCatId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+</ViewObject>

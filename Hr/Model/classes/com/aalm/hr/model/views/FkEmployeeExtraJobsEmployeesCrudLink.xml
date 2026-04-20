@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkEmployeeExtraJobsEmployeesCrudLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.aalm.hr.model.entities.FkEmployeeExtraJobsEmployees1Assoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.hr.model.views.FkEmployeeExtraJobsEmployeesCrudLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="EmployeesCRUDV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.hr.model.views.EmployeesCRUDV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EmployeesCRUDV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.views.EmployeesCRUDV.EmpId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="EmployeeExtraJobsV"
+    Cardinality="-1"
+    Owner="com.aalm.hr.model.views.EmployeeExtraJobsV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EmployeeExtraJobsV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.views.EmployeeExtraJobsV.EmpId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.hr.model.AalmHrMBndl"/>
+  </ResourceBundle>
+</ViewLink>

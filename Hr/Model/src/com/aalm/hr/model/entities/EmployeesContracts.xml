@@ -295,6 +295,13 @@
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Resignation"
+    ColumnName="resignation"
+    SQLType="BIT"
+    Type="java.lang.Boolean"
+    ColumnType="BIT"
+    TableName="EMPLOYEES_CONTRACTS"/>
   <AccessorAttribute
     Name="Employees"
     Association="com.aalm.hr.model.entities.FkEmployeesContractsEmployees1Assoc"

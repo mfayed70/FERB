@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="fk_PurMatReqMas_Projects_VL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.aalm.prcrmnt.model.entities.fk_PurMatReqMas_Projects_Assoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.prcrmnt.model.views.fk_PurMatReqMas_Projects_VL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="PurMaterialRequestMastV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.prcrmnt.model.views.PurMaterialRequestMastV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="PurMaterialRequestMastV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.views.PurMaterialRequestMastV.PurMatRqstId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="PurMatReqMastProjectsV"
+    Cardinality="-1"
+    Owner="com.aalm.prcrmnt.model.views.PurMatReqMastProjectsV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="PurMatReqMastProjectsV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.views.PurMatReqMastProjectsV.PurMatRqstId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.prcrmnt.model.AalmPrcrmntMBndl"/>
+  </ResourceBundle>
+</ViewLink>

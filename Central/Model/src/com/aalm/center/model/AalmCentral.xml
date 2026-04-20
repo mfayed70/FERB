@@ -117,6 +117,13 @@
   <ViewUsage
     Name="JobsTreeChildV"
     ViewObjectName="com.aalm.center.model.views.JobsTreeV"/>
+  <ViewUsage
+    Name="OrganizationsCrudV"
+    ViewObjectName="com.aalm.center.model.views.OrganizationsV">
+    <ViewCriteriaUsage
+      Name="EditOrganizationsVCriteria"
+      FullName="com.aalm.center.model.views.OrganizationsV.EditOrganizationsVCriteria"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="fk_CURRENCY_TRANSFORM_CURRENCIES1VL1"
     ViewLinkObjectName="com.aalm.center.model.views.fk_CURRENCY_TRANSFORM_CURRENCIES1VL"

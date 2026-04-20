@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PurMatReqMastCatsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="ItemCategoriesLOV1"
+    ViewObjectName="com.aalm.prcrmnt.model.lov.ItemCategoriesLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CatId"
+    ListVOName="ItemCategoriesLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CatId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CatId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CatName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="PurMatReqMastCats"
+    Entity="com.aalm.prcrmnt.model.entities.PurMatReqMastCats"/>
+  <ViewAttribute
+    Name="PurMatRqstId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PurMatRqstId"
+    EntityUsage="PurMatReqMastCats"
+    AliasName="pur_mat_rqst_id"/>
+  <ViewAttribute
+    Name="CatId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CatId"
+    EntityUsage="PurMatReqMastCats"
+    AliasName="cat_id"
+    LOVName="LOV_CatId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+</ViewObject>

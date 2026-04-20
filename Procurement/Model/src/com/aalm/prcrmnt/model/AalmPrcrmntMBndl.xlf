@@ -98,6 +98,202 @@
         <source>Item Categories Lov</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.views.PurTransTypesV_LABEL">
+        <source>Pur Trans Types V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TransTypeLOV.SL_0_0">
+        <source>1</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TransTypeLOV.SL_0_1">
+        <source>Material Request - طلب مواد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TransTypeLOV.SL_1_0">
+        <source>2</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TransTypeLOV.SL_1_1">
+        <source>RFQ - طلب عرض أسعار</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TransTypeLOV.SL_2_0">
+        <source>3</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TransTypeLOV.SL_2_1">
+        <source>PO - أمر توريد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TransTypeLOV_LABEL">
+        <source>Trans Type Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CODE">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.entities.PurTransTypes.PrTransTypeCode_LABEL">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ENGLISH_NAME">
+        <source>English Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.entities.PurTransTypes.PrTransNameE_LABEL">
+        <source>English Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ARABIC_NAME">
+        <source>Arabic Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.entities.PurTransTypes.PrTransNameA_LABEL">
+        <source>Arabic Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.entities.PurTransTypes.PrTransType_LABEL">
+        <source>Type</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.OrgsLOV_LABEL">
+        <source>Orgs Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TargetTypesLOV.SL_0_0">
+        <source>O</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TargetTypesLOV.SL_0_1">
+        <source>Org Department - إدرارة في الشركة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TargetTypesLOV.SL_1_0">
+        <source>P</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TargetTypesLOV.SL_1_1">
+        <source>Project - مشروع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TargetTypesLOV.SL_2_0">
+        <source>ST</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TargetTypesLOV.SL_2_1">
+        <source>Store - مخزن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TargetTypesLOV.SL_3_0">
+        <source>SI</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TargetTypesLOV.SL_3_1">
+        <source>Site - موقع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.TargetTypesLOV_LABEL">
+        <source>Target Types Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_0_0">
+        <source>D</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_0_1">
+        <source>Draft</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_1_0">
+        <source>S</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_1_1">
+        <source>Submitted</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_2_0">
+        <source>A</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_2_1">
+        <source>Approved</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_3_0">
+        <source>P</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_3_1">
+        <source>Partial RFQED</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_4_0">
+        <source>F</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_4_1">
+        <source>Full RFQED</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_5_0">
+        <source>C</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_5_1">
+        <source>Closed-Procured</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_6_0">
+        <source>CA</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV.SL_6_1">
+        <source>Cancelled</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.MrStatusLOV_LABEL">
+        <source>Mr Status Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.views.fk_PUR_MAT_REQ_MAST_CATS_VL_LABEL">
+        <source>Fk PUR MAT REQ MAST CATS VL</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.views.fk_PurMatReqMas_Projects_VL_LABEL">
+        <source>Fk fk PurMatReqMas Projects VL</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.ItemsCategorisLOV_LABEL">
+        <source>Items Categoris Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.ProjectsLOV_LABEL">
+        <source>Projects Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.ItemsLOV_LABEL">
+        <source>Items Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV_LABEL">
+        <source>Item Variables Values 1 Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.ItemsUnitsLOV_LABEL">
+        <source>Items Units Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.lov.ItemsListLOV_LABEL">
+        <source>Items List Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.prcrmnt.model.views.ItemsVariablesForCaptionsV_LABEL">
+        <source>Items Variables For Captions V</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

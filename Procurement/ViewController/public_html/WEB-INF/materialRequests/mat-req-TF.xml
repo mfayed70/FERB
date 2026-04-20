@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="mat-req-TF">
+    <default-activity>mat-reqs-list</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__6">
+      <managed-bean-name>PrcrmntClass</managed-bean-name>
+      <managed-bean-class>com.aalm.prcrmnt.view.beans.PrcrmntClass</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="mat-reqs">
+      <page>/WEB-INF/materialRequests/mat-reqs.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="mat-reqs-list">
+      <page>/WEB-INF/materialRequests/mat-reqs-list.jsff</page>
+    </view>
+    <task-flow-call id="select_item_lov-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/selectItemLov/select_item_lov-TF.xml</document>
+        <id>select_item_lov-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__7">
+        <name>pCatId</name>
+        <value>#{pageFlowScope.pVarCode}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>mat-reqs</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>mat-reqs-list</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>new</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>review</from-outcome>
+        <to-activity-id>mat-reqs</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>mat-reqs</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>toItemsLOV</from-outcome>
+        <to-activity-id>select_item_lov-TF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

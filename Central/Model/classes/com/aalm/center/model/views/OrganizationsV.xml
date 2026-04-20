@@ -25,6 +25,10 @@
       Name="OrganizationsVCriteria"
       FullName="com.aalm.center.model.views.OrganizationsV.OrganizationsVCriteria"/>
   </ViewAccessor>
+  <ViewAccessor
+    Name="OrgTypeLOV1"
+    ViewObjectName="com.aalm.center.model.lovs.OrgTypeLOV"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_PrntOrgCode"
     ListVOName="OrganizationsV1"
@@ -40,6 +44,25 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="EnOrgName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OrgType"
+    ListVOName="OrgTypeLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OrgType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -104,6 +127,20 @@
           Value="choice"/>
         <LABEL
           ResId="com.aalm.center.model.views.OrganizationsV.PrntOrgCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgType"
+    PrecisionRule="true"
+    EntityAttrName="OrgType"
+    EntityUsage="Organizations"
+    AliasName="org_type"
+    LOVName="LOV_OrgType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -183,8 +220,44 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="EditOrganizationsVCriteria"
+    ViewObjectName="com.aalm.center.model.views.OrganizationsV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="OrganizationsVCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="OrgCode"
+        ViewAttribute="OrgCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":pOrgCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="com.aalm.center.model.ModelBundle"/>
+    <XliffBundle
+      id="com.aalm.center.model.AalmCenteralMBndl"/>
   </ResourceBundle>
 </ViewObject>

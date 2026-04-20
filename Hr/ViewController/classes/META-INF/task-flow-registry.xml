@@ -1,5 +1,6 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/jobs/newExtrajob-TF.xml" id="newExtrajob-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
    <task-flow-descriptor path="WEB-INF/employees/crud-employee-TF.xml" id="crud-employee-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
       <input-parameter name="pContractId"/>
       <input-parameter name="pEmpId"/>
@@ -21,6 +22,7 @@
       <input-parameter name="refreshLocale"/>
       <input-parameter name="refreshRegion"/>
    </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/employees/employee_extra_jobs-TF.xml" id="employee_extra_jobs-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
    <task-flow-descriptor path="WEB-INF/employyes_contracts/employeesContracts-TFxml.xml" id="employeesContracts-TFxml" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
       <input-parameter name="refreshLocale"/>
       <input-parameter name="refreshRegion"/>

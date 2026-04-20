@@ -88,6 +88,13 @@
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="EmployeesContracts"
+    Association="com.aalm.hr.model.entities.FkEmployeesContractsJobs1Assoc"
+    AssociationEnd="com.aalm.hr.model.entities.FkEmployeesContractsJobs1Assoc.EmployeesContracts"
+    AssociationOtherEnd="com.aalm.hr.model.entities.FkEmployeesContractsJobs1Assoc.Jobs"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="Primary1"
     PrimaryKey="true">

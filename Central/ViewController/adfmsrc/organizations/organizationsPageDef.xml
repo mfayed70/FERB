@@ -7,15 +7,18 @@
     <iterator Binds="OrganizationsV" RangeSize="25" DataControl="AalmCentralDataControl" id="OrganizationsVIterator"/>
     <iterator Binds="OrganizationTreeV" RangeSize="25" DataControl="AalmCentralDataControl"
               id="OrganizationTreeVIterator"/>
+    <searchRegion Binds="OrganizationsVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="OrganizationsVQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="OrganizationsVIterator" id="OrganizationsV">
       <nodeDefinition DefName="com.aalm.center.model.views.OrganizationsV" Name="OrganizationsV0">
         <AttrNames>
-          <Item Value="OrgCode"/>
           <Item Value="EnOrgName"/>
           <Item Value="ArOrgName"/>
           <Item Value="PrntOrgCode"/>
+          <Item Value="OrgCode"/>
+          <Item Value="OrgType"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

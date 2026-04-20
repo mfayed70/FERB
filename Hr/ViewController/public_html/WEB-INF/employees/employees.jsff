@@ -86,12 +86,17 @@
         </af:column>
         <af:column id="c8" headerText="#{bindings.EmployeesV.hints.JobId.label}" width="200"
                    sortProperty="#{bindings.EmployeesV.hints.JobId.name}" sortable="true" filterable="true">
-          <af:selectOneChoice value="#{row.bindings.JobId.inputValue}" label="#{row.bindings.JobId.label}"
-                              required="#{bindings.EmployeesV.hints.JobId.mandatory}"
-                              shortDesc="#{bindings.EmployeesV.hints.JobId.tooltip}" id="soc3" readOnly="true">
-            <f:selectItems value="#{row.bindings.JobId.items}" id="si3"/>
-            <f:validator binding="#{row.bindings.JobId.validator}"/>
-          </af:selectOneChoice>
+          <af:panelGroupLayout id="pgl1" layout="horizontal">
+            <af:selectOneChoice value="#{row.bindings.JobId.inputValue}" label="#{row.bindings.JobId.label}"
+                                required="#{bindings.EmployeesV.hints.JobId.mandatory}"
+                                shortDesc="#{bindings.EmployeesV.hints.JobId.tooltip}" id="soc3" readOnly="true">
+              <f:selectItems value="#{row.bindings.JobId.items}" id="si3"/>
+              <f:validator binding="#{row.bindings.JobId.validator}"/>
+            </af:selectOneChoice>
+            <f:facet name="separator">
+              <af:spacer width="10" height="10" id="s2"/>
+            </f:facet>
+          </af:panelGroupLayout>
         </af:column>
         <af:column id="c14" width="120" align="center" sortable="true" filterable="true">
           <af:link text="#{viewcontrollerBundle.contracts}" id="l1" action="toContracts" useWindow="true"
@@ -110,59 +115,176 @@
       </af:button>
     </f:facet>
     <af:spacer width="10" height="20" id="s1"/>
-    <af:panelHeader text="#{viewcontrollerBundle.EMPLOYEE_JOB_HISTORY}" id="ph2">
-      <f:facet name="context"/>
-      <f:facet name="menuBar"/>
-      <f:facet name="toolbar"/>
-      <f:facet name="legend"/>
-      <af:table value="#{bindings.EmployeeJobHistoryV.collectionModel}" var="row"
-                rows="#{bindings.EmployeeJobHistoryV.rangeSize}"
-                emptyText="#{bindings.EmployeeJobHistoryV.viewable ? 'No data to display.' : 'Access Denied.'}"
-                rowBandingInterval="0" fetchSize="#{bindings.EmployeeJobHistoryV.rangeSize}"
-                filterModel="#{bindings.EmployeeJobHistoryVQuery.queryDescriptor}"
-                queryListener="#{bindings.EmployeeJobHistoryVQuery.processQuery}" filterVisible="true" varStatus="vs"
-                id="t2">
-        <af:column sortProperty="#{bindings.EmployeeJobHistoryV.hints.Seq.name}" filterable="true" sortable="true"
-                   headerText="#{bindings.EmployeeJobHistoryV.hints.Seq.label}" id="c10">
-          <af:outputText value="#{row.Seq}" shortDesc="#{bindings.EmployeeJobHistoryV.hints.Seq.tooltip}" id="ot6">
-            <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeJobHistoryV.hints.Seq.format}"/>
-          </af:outputText>
-        </af:column>
-        <af:column sortProperty="#{bindings.EmployeeJobHistoryV.hints.JobId.name}" filterable="true" sortable="true"
-                   headerText="#{bindings.EmployeeJobHistoryV.hints.JobId.label}" id="c11" width="300">
-          <af:selectOneChoice value="#{row.bindings.JobId.inputValue}" label="#{row.bindings.JobId.label}"
-                              required="#{bindings.EmployeeJobHistoryV.hints.JobId.mandatory}"
-                              shortDesc="#{bindings.EmployeeJobHistoryV.hints.JobId.tooltip}" readOnly="true" id="soc5">
-            <f:selectItems value="#{row.bindings.JobId.items}" id="si5"/>
-            <f:validator binding="#{row.bindings.JobId.validator}"/>
-          </af:selectOneChoice>
-        </af:column>
-        <af:column sortProperty="#{bindings.EmployeeJobHistoryV.hints.FrmDt.name}" filterable="true" sortable="true"
-                   headerText="#{bindings.EmployeeJobHistoryV.hints.FrmDt.label}" id="c12" width="150">
-          <f:facet name="filter">
-            <af:inputDate value="#{bindings.EmployeeJobHistoryVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.FrmDt.value}"
-                          id="id1">
-              <af:convertDateTime pattern="#{bindings.EmployeeJobHistoryV.hints.FrmDt.format}"/>
-            </af:inputDate>
+    <af:panelTabbed position="above" id="pt1">
+      <af:showDetailItem id="tab2" text="#{viewcontrollerBundle.EmployeeExtraJobs}">
+        <af:panelHeader text="  " id="ph3">
+          <f:facet name="context"/>
+          <f:facet name="menuBar">
+            <af:link actionListener="#{bindings.Commit.execute}" id="l3"
+                     icon="#{resource['images:SaveF.png']}"/>
           </f:facet>
-          <af:outputText value="#{row.FrmDt}" shortDesc="#{bindings.EmployeeJobHistoryV.hints.FrmDt.tooltip}" id="ot7">
-            <af:convertDateTime pattern="#{bindings.EmployeeJobHistoryV.hints.FrmDt.format}"/>
-          </af:outputText>
-        </af:column>
-        <af:column sortProperty="#{bindings.EmployeeJobHistoryV.hints.ToDt.name}" filterable="true" sortable="true"
-                   headerText="#{bindings.EmployeeJobHistoryV.hints.ToDt.label}" id="c13" width="150">
-          <f:facet name="filter">
-            <af:inputDate value="#{bindings.EmployeeJobHistoryVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.ToDt.value}"
-                          id="id2">
-              <af:convertDateTime pattern="#{bindings.EmployeeJobHistoryV.hints.ToDt.format}"/>
-            </af:inputDate>
+          <f:facet name="toolbar">
+            <af:button actionListener="#{bindings.CreateInsert.execute}" text="#{viewcontrollerBundle.NEW}" id="b4" icon="#{resource['images:NewF.png']}"
+                       hoverIcon="#{resource['images:NewO.png']}" styleClass="but"/>
           </f:facet>
-          <af:outputText value="#{row.ToDt}" shortDesc="#{bindings.EmployeeJobHistoryV.hints.ToDt.tooltip}" id="ot8">
-            <af:convertDateTime pattern="#{bindings.EmployeeJobHistoryV.hints.ToDt.format}"/>
-          </af:outputText>
-        </af:column>
-      </af:table>
-      <f:facet name="info"/>
-    </af:panelHeader>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:table value="#{bindings.EmployeeExtraJobsV.collectionModel}" var="row"
+                    rows="#{bindings.EmployeeExtraJobsV.rangeSize}"
+                    emptyText="#{bindings.EmployeeExtraJobsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.EmployeeExtraJobsV.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.EmployeeExtraJobsV.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.EmployeeExtraJobsV.rangeSize}"
+                    filterModel="#{bindings.EmployeeExtraJobsVQuery.queryDescriptor}"
+                    queryListener="#{bindings.EmployeeExtraJobsVQuery.processQuery}" filterVisible="true" varStatus="vs"
+                    id="t3" partialTriggers="::b4">
+            <af:column sortProperty="#{bindings.EmployeeExtraJobsV.hints.ExtraJobId.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.EmployeeExtraJobsV.hints.ExtraJobId.label}" id="c15">
+              <af:inputText value="#{row.bindings.ExtraJobId.inputValue}"
+                            label="#{bindings.EmployeeExtraJobsV.hints.ExtraJobId.label}"
+                            required="#{bindings.EmployeeExtraJobsV.hints.ExtraJobId.mandatory}"
+                            columns="#{bindings.EmployeeExtraJobsV.hints.ExtraJobId.displayWidth}"
+                            maximumLength="#{bindings.EmployeeExtraJobsV.hints.ExtraJobId.precision}"
+                            shortDesc="#{bindings.EmployeeExtraJobsV.hints.ExtraJobId.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.ExtraJobId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.EmployeeExtraJobsV.hints.ExtraJobId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.EmployeeExtraJobsV.hints.EmpId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.EmployeeExtraJobsV.hints.EmpId.label}" id="c16">
+              <af:inputText value="#{row.bindings.EmpId.inputValue}"
+                            label="#{bindings.EmployeeExtraJobsV.hints.EmpId.label}"
+                            required="#{bindings.EmployeeExtraJobsV.hints.EmpId.mandatory}"
+                            columns="#{bindings.EmployeeExtraJobsV.hints.EmpId.displayWidth}"
+                            maximumLength="#{bindings.EmployeeExtraJobsV.hints.EmpId.precision}"
+                            shortDesc="#{bindings.EmployeeExtraJobsV.hints.EmpId.tooltip}" id="it2">
+                <f:validator binding="#{row.bindings.EmpId.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeExtraJobsV.hints.EmpId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column id="c20" width="300">
+              <af:selectOneChoice value="#{bindings.ExtraJob.inputValue}" label="#{bindings.ExtraJob.label}"
+                                  required="#{bindings.ExtraJob.hints.mandatory}"
+                                  shortDesc="#{bindings.ExtraJob.hints.tooltip}" id="soc6" partialTriggers="sbc1">
+                <f:selectItems value="#{bindings.ExtraJob.items}" id="si6"/>
+                <f:validator binding="#{bindings.ExtraJob.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.EmployeeExtraJobsV.hints.OrgCode.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.EmployeeExtraJobsV.hints.OrgCode.label}" id="c17">
+              <af:inputText value="#{row.bindings.OrgCode.inputValue}"
+                            label="#{bindings.EmployeeExtraJobsV.hints.OrgCode.label}"
+                            required="#{bindings.EmployeeExtraJobsV.hints.OrgCode.mandatory}"
+                            columns="#{bindings.EmployeeExtraJobsV.hints.OrgCode.displayWidth}"
+                            maximumLength="#{bindings.EmployeeExtraJobsV.hints.OrgCode.precision}"
+                            shortDesc="#{bindings.EmployeeExtraJobsV.hints.OrgCode.tooltip}" id="it3">
+                <f:validator binding="#{row.bindings.OrgCode.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeExtraJobsV.hints.OrgCode.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.EmployeeExtraJobsV.hints.StartDate.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.EmployeeExtraJobsV.hints.StartDate.label}" id="c18">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.EmployeeExtraJobsVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.StartDate.value}"
+                              id="id3">
+                  <af:convertDateTime pattern="#{bindings.EmployeeExtraJobsV.hints.StartDate.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.StartDate.inputValue}"
+                            label="#{bindings.EmployeeExtraJobsV.hints.StartDate.label}"
+                            required="#{bindings.EmployeeExtraJobsV.hints.StartDate.mandatory}"
+                            columns="#{bindings.EmployeeExtraJobsV.hints.StartDate.displayWidth}"
+                            shortDesc="#{bindings.EmployeeExtraJobsV.hints.StartDate.tooltip}" id="id4">
+                <f:validator binding="#{row.bindings.StartDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.EmployeeExtraJobsV.hints.StartDate.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column sortProperty="#{bindings.EmployeeExtraJobsV.hints.EndDate.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.EmployeeExtraJobsV.hints.EndDate.label}" id="c19">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.EmployeeExtraJobsVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EndDate.value}"
+                              id="id5">
+                  <af:convertDateTime pattern="#{bindings.EmployeeExtraJobsV.hints.EndDate.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:inputDate value="#{row.bindings.EndDate.inputValue}"
+                            label="#{bindings.EmployeeExtraJobsV.hints.EndDate.label}"
+                            required="#{bindings.EmployeeExtraJobsV.hints.EndDate.mandatory}"
+                            columns="#{bindings.EmployeeExtraJobsV.hints.EndDate.displayWidth}"
+                            shortDesc="#{bindings.EmployeeExtraJobsV.hints.EndDate.tooltip}" id="id6">
+                <f:validator binding="#{row.bindings.EndDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.EmployeeExtraJobsV.hints.EndDate.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column id="c21" align="center">
+              <af:selectBooleanCheckbox value="#{row.bindings.IsActive.inputValue}"
+                                        label="#{row.bindings.IsActive.label}"
+                                        shortDesc="#{bindings.EmployeeExtraJobsV.hints.IsActive.tooltip}" id="sbc1"
+                                        autoSubmit="true"/>
+            </af:column>
+          </af:table>
+        </af:panelHeader>
+      </af:showDetailItem>
+      <af:showDetailItem id="tab1" text="#{viewcontrollerBundle.EMPLOYEE_JOB_HISTORY}">
+        <af:panelHeader text=" " id="ph2">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <af:table value="#{bindings.EmployeeJobHistoryV.collectionModel}" var="row"
+                    rows="#{bindings.EmployeeJobHistoryV.rangeSize}"
+                    emptyText="#{bindings.EmployeeJobHistoryV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" fetchSize="#{bindings.EmployeeJobHistoryV.rangeSize}"
+                    filterModel="#{bindings.EmployeeJobHistoryVQuery.queryDescriptor}"
+                    queryListener="#{bindings.EmployeeJobHistoryVQuery.processQuery}" filterVisible="true"
+                    varStatus="vs" id="t2">
+            <af:column sortProperty="#{bindings.EmployeeJobHistoryV.hints.Seq.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.EmployeeJobHistoryV.hints.Seq.label}" id="c10">
+              <af:outputText value="#{row.Seq}" shortDesc="#{bindings.EmployeeJobHistoryV.hints.Seq.tooltip}" id="ot6">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeJobHistoryV.hints.Seq.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.EmployeeJobHistoryV.hints.JobId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.EmployeeJobHistoryV.hints.JobId.label}" id="c11" width="300">
+              <af:selectOneChoice value="#{row.bindings.JobId.inputValue}" label="#{row.bindings.JobId.label}"
+                                  required="#{bindings.EmployeeJobHistoryV.hints.JobId.mandatory}"
+                                  shortDesc="#{bindings.EmployeeJobHistoryV.hints.JobId.tooltip}" readOnly="true"
+                                  id="soc5">
+                <f:selectItems value="#{row.bindings.JobId.items}" id="si5"/>
+                <f:validator binding="#{row.bindings.JobId.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.EmployeeJobHistoryV.hints.FrmDt.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.EmployeeJobHistoryV.hints.FrmDt.label}" id="c12" width="150">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.EmployeeJobHistoryVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.FrmDt.value}"
+                              id="id1">
+                  <af:convertDateTime pattern="#{bindings.EmployeeJobHistoryV.hints.FrmDt.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:outputText value="#{row.FrmDt}" shortDesc="#{bindings.EmployeeJobHistoryV.hints.FrmDt.tooltip}"
+                             id="ot7">
+                <af:convertDateTime pattern="#{bindings.EmployeeJobHistoryV.hints.FrmDt.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.EmployeeJobHistoryV.hints.ToDt.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.EmployeeJobHistoryV.hints.ToDt.label}" id="c13" width="150">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.EmployeeJobHistoryVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.ToDt.value}"
+                              id="id2">
+                  <af:convertDateTime pattern="#{bindings.EmployeeJobHistoryV.hints.ToDt.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:outputText value="#{row.ToDt}" shortDesc="#{bindings.EmployeeJobHistoryV.hints.ToDt.tooltip}"
+                             id="ot8">
+                <af:convertDateTime pattern="#{bindings.EmployeeJobHistoryV.hints.ToDt.format}"/>
+              </af:outputText>
+            </af:column>
+          </af:table>
+          <f:facet name="info"/>
+        </af:panelHeader>
+      </af:showDetailItem>
+    </af:panelTabbed>
   </af:panelHeader>
 </ui:composition>

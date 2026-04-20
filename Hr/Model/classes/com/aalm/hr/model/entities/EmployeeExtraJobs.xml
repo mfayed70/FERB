@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeeExtraJobs"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="EMPLOYEE_EXTRA_JOBS"
+  AliasName="EmployeeExtraJobs"
+  BindingStyle="JDBC"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <Attribute
+    Name="ExtraJobId"
+    ColumnName="extra_job_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEE_EXTRA_JOBS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EmpId"
+    IsNotNull="true"
+    ColumnName="emp_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEE_EXTRA_JOBS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="JobId"
+    IsNotNull="true"
+    ColumnName="job_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEE_EXTRA_JOBS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrgCode"
+    IsNotNull="true"
+    ColumnName="org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEE_EXTRA_JOBS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StartDate"
+    ColumnName="start_date"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="EMPLOYEE_EXTRA_JOBS"/>
+  <Attribute
+    Name="EndDate"
+    ColumnName="end_date"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="EMPLOYEE_EXTRA_JOBS"/>
+  <Attribute
+    Name="IsActive"
+    ColumnName="is_active"
+    SQLType="VARCHAR"
+    Type="java.lang.Boolean"
+    ColumnType="TINYINT"
+    TableName="EMPLOYEE_EXTRA_JOBS">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[false]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </Attribute>
+  <AccessorAttribute
+    Name="Employees"
+    Association="com.aalm.hr.model.entities.FkEmployeeExtraJobsEmployees1Assoc"
+    AssociationEnd="com.aalm.hr.model.entities.FkEmployeeExtraJobsEmployees1Assoc.Employees"
+    AssociationOtherEnd="com.aalm.hr.model.entities.FkEmployeeExtraJobsEmployees1Assoc.EmployeeExtraJobs1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="AltKey"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="EMPLOYEE_EXTRA_JOBS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeeExtraJobs.EmpId"/>
+      <Item Value="com.aalm.hr.model.entities.EmployeeExtraJobs.JobId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeeExtraJobs.ExtraJobId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkEmployeeExtraJobsEmployees1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_EMPLOYEE_EXTRA_JOBS_EMPLOYEES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeeExtraJobs.EmpId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkEmployeeExtraJobsJobs1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_EMPLOYEE_EXTRA_JOBS_JOBS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeeExtraJobs.JobId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkEmployeeExtraJobsOrganizations1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_EMPLOYEE_EXTRA_JOBS_ORGANIZATIONS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.hr.model.entities.EmployeeExtraJobs.OrgCode"/>
+    </AttrArray>
+  </Key>
+  <validation:UniqueKeyValidationBean
+    Name="EmployeeExtraJobsRule0"
+    ResId="THIS_JOB_HAS_ALREADY_ASSIGNED_TO_EMPLOYEE"
+    KeyName="AltKey">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="EmpId"/>
+      <validation:Item
+        Value="JobId"/>
+    </validation:OnAttributes>
+  </validation:UniqueKeyValidationBean>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.hr.model.AalmHrMBndl"/>
+  </ResourceBundle>
+</Entity>

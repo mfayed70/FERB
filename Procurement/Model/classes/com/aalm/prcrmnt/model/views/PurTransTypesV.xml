@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PurTransTypesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.prcrmnt.model.views.PurTransTypesV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="TransTypeLOV1"
+    ViewObjectName="com.aalm.prcrmnt.model.lov.TransTypeLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_PrTransType"
+    ListVOName="TransTypeLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PrTransType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="PurTransTypes"
+    Entity="com.aalm.prcrmnt.model.entities.PurTransTypes"/>
+  <ViewAttribute
+    Name="Active"
+    PrecisionRule="true"
+    EntityAttrName="Active"
+    EntityUsage="PurTransTypes"
+    AliasName="active"/>
+  <ViewAttribute
+    Name="PrTransNameA"
+    PrecisionRule="true"
+    EntityAttrName="PrTransNameA"
+    EntityUsage="PurTransTypes"
+    AliasName="pr_trans_name_a"/>
+  <ViewAttribute
+    Name="PrTransNameE"
+    PrecisionRule="true"
+    EntityAttrName="PrTransNameE"
+    EntityUsage="PurTransTypes"
+    AliasName="pr_trans_name_e"/>
+  <ViewAttribute
+    Name="PrTransType"
+    PrecisionRule="true"
+    EntityAttrName="PrTransType"
+    EntityUsage="PurTransTypes"
+    AliasName="pr_trans_type"
+    LOVName="LOV_PrTransType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrTransTypeCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PrTransTypeCode"
+    EntityUsage="PurTransTypes"
+    AliasName="pr_trans_type_code"/>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.prcrmnt.model.AalmPrcrmntMBndl"/>
+  </ResourceBundle>
+</ViewObject>

@@ -15,11 +15,37 @@
     <view id="organizations">
       <page>/WEB-INF/organizations/organizations.jsff</page>
     </view>
+    <task-flow-call id="edit-new-Org_TF">
+      <task-flow-reference>
+        <document>/WEB-INF/organizations/edit-new-Org_TF.xml</document>
+        <id>edit-new-Org_TF</id>
+      </task-flow-reference>
+      <input-parameter id="__5">
+        <name>pOrgCode</name>
+        <value>#{pageFlowScope.pOrgCode}</value>
+      </input-parameter>
+      <input-parameter id="__6">
+        <name>pAction</name>
+        <value>#{pageFlowScope.pAction}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>Execute</from-activity-id>
       <control-flow-case id="__2">
         <from-outcome>Execute</from-outcome>
         <to-activity-id>organizations</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>organizations</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>toCrud</from-outcome>
+        <to-activity-id>edit-new-Org_TF</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

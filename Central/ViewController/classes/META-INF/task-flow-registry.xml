@@ -28,6 +28,10 @@
       <input-parameter name="refreshLocale"/>
       <input-parameter name="refreshRegion"/>
    </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/organizations/edit-new-Org_TF.xml" id="edit-new-Org_TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pOrgCode"/>
+      <input-parameter name="pAction"/>
+   </task-flow-descriptor>
    <task-flow-descriptor path="WEB-INF/itemCategories/itemCategories-TF.xml" id="itemCategories-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
       <input-parameter name="refreshLocale"/>
       <input-parameter name="refreshRegion"/>

@@ -390,6 +390,74 @@
         <source>Jobs Tree Self Join Cl</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_0_0">
+        <source>C</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_0_1">
+        <source>Corporation - المجموعة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_1_0">
+        <source>O</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_1_1">
+        <source>Org Department - إدارة في الشركة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_2_0">
+        <source>P</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_2_1">
+        <source>Project - مشروع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_3_0">
+        <source>ST</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_3_1">
+        <source>Store - مخزن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_4_0">
+        <source>SI</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_4_1">
+        <source>Site - موقع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV_LABEL">
+        <source>Org Type Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_5_0">
+        <source>Y</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_5_1">
+        <source>Yard - موقع مفتوح</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_6_0">
+        <source>F</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_6_1">
+        <source>Factory - المصنع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_7_0">
+        <source>OF</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.lovs.OrgTypeLOV.SL_7_1">
+        <source>Office - مكتب</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

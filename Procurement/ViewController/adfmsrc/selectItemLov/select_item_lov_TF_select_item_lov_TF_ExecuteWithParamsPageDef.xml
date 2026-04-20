@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="select_item_lov_TF_select_item_lov_TF_ExecuteWithParamsPageDef" Package="selectItemLov"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ItemsLOV" RangeSize="25" DataControl="AalmPrcrmntDataControl" id="ItemsLOVIterator"
+              Refresh="never"/>
+    <iterator Binds="ItemsListLOV" RangeSize="10" DataControl="AalmPrcrmntDataControl" id="ItemsListLOVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ItemsListLOVIterator" id="ExecuteWithParams" RequiresUpdateModel="true" Action="executeWithParams"
+            InstanceName="AalmPrcrmntDataControl.ItemsListLOV" DataControl="AalmPrcrmntDataControl">
+      <NamedData NDName="bindCatId1" NDValue="#{pageFlowScope.pCatId}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -30,7 +30,7 @@
   <ViewAccessor
     Name="JobsLOV1"
     ViewObjectName="com.aalm.hr.model.lov.JobsLOV"
-    RowLevelBinds="true"/>
+    RowLevelBinds="false"/>
   <ViewAccessor
     Name="IdTypeLOV1"
     ViewObjectName="com.aalm.hr.model.lov.IdTypeLOV"
@@ -397,6 +397,19 @@
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
     SQLType="INTEGER"/>
+  <ViewAttribute
+    Name="Resignation"
+    PrecisionRule="true"
+    EntityAttrName="Resignation"
+    EntityUsage="EmployeesContracts"
+    AliasName="resignation">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="EmployeesContractsVCriteria"
     ViewObjectName="com.aalm.hr.model.views.EmployeesContractsV"

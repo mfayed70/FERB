@@ -17,6 +17,10 @@
     Name="JobsLOV1"
     ViewObjectName="com.aalm.hr.model.lov.JobsLOV"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OrgDeptsLOV1"
+    ViewObjectName="com.aalm.hr.model.lov.OrgDeptsLOV"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ParentJobId"
     ListVOName="JobsLOV1"
@@ -33,6 +37,26 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="JobName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OrgCode"
+    ListVOName="OrgDeptsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
+    <AttrArray Name="AttrNames">
+      <Item Value="OrgCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="EnOrgName"/>
+      <Item Value="ArOrgName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -64,11 +88,18 @@
     PrecisionRule="true"
     EntityAttrName="OrgCode"
     EntityUsage="Jobs"
-    AliasName="org_code">
+    AliasName="org_code"
+    LOVName="LOV_OrgCode">
     <TransientExpression
       trustMode="untrusted"><![CDATA[adf.context.sessionScope.orgCode]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="ParentJobId"

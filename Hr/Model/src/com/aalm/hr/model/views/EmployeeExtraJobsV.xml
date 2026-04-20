@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeeExtraJobsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="EmpExtraJobsLOV1"
+    ViewObjectName="com.aalm.hr.model.lov.EmpExtraJobsLOV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="EmpExtraJobsLOVCriteria"
+      FullName="com.aalm.hr.model.lov.EmpExtraJobsLOV.EmpExtraJobsLOVCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="pJobId">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[origJobId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_ExtraJob"
+    ListVOName="EmpExtraJobsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ExtraJob"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OrgCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="JobId"/>
+      <Item Value="OrgCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="JobNameEn"/>
+      <Item Value="JobNameAr"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="EmployeeExtraJobs"
+    Entity="com.aalm.hr.model.entities.EmployeeExtraJobs"/>
+  <ViewAttribute
+    Name="ExtraJobId"
+    PrecisionRule="true"
+    EntityAttrName="ExtraJobId"
+    EntityUsage="EmployeeExtraJobs"
+    AliasName="extra_job_id"/>
+  <ViewAttribute
+    Name="EmpId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmpId"
+    EntityUsage="EmployeeExtraJobs"
+    AliasName="emp_id">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ExtraJob"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="JobId"
+    EntityUsage="EmployeeExtraJobs"
+    AliasName="job_id"
+    LOVName="LOV_ExtraJob">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OrgCode"
+    EntityUsage="EmployeeExtraJobs"
+    AliasName="org_code">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StartDate"
+    PrecisionRule="true"
+    EntityAttrName="StartDate"
+    EntityUsage="EmployeeExtraJobs"
+    AliasName="start_date">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EndDate"
+    PrecisionRule="true"
+    EntityAttrName="EndDate"
+    EntityUsage="EmployeeExtraJobs"
+    AliasName="end_date"/>
+  <ViewAttribute
+    Name="IsActive"
+    PrecisionRule="true"
+    EntityAttrName="IsActive"
+    EntityUsage="EmployeeExtraJobs"
+    AliasName="is_active"/>
+  <ViewAttribute
+    Name="origJobId"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression><![CDATA[EmployeesV.JobId]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="EmployeesV"
+    ViewLink="com.aalm.hr.model.views.FkEmployeeExtraJobsEmployees1Link"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+</ViewObject>

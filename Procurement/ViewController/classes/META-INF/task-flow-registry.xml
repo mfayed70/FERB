@@ -4,6 +4,11 @@
       <input-parameter name="refreshLocale"/>
       <input-parameter name="refreshRegion"/>
    </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/selectItemLov/select_item_lov-TF.xml" id="select_item_lov-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pCatId"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/transTypes/trans-types-TF.xml" id="trans-types-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/materialRequests/mat-req-TF.xml" id="mat-req-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
    <task-flow-descriptor path="WEB-INF/suppliers/crud-supplier-TF.xml" id="new-supplier-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
       <input-parameter name="pSuppId"/>
    </task-flow-descriptor>

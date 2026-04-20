@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PurMatReqMastProjects"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PUR_MAT_REQ_MAST_PROJECTS"
+  AliasName="PurMatReqMastProjects"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="ProjId"
+    IsNotNull="true"
+    ColumnName="proj_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUR_MAT_REQ_MAST_PROJECTS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VersionNo"
+    IsNotNull="true"
+    ColumnName="version_no"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUR_MAT_REQ_MAST_PROJECTS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PurMatRqstId"
+    IsNotNull="true"
+    ColumnName="pur_mat_rqst_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUR_MAT_REQ_MAST_PROJECTS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="PurMaterialRequestMast"
+    Association="com.aalm.prcrmnt.model.entities.fk_PurMatReqMas_Projects_Assoc"
+    AssociationEnd="com.aalm.prcrmnt.model.entities.fk_PurMatReqMas_Projects_Assoc.PurMaterialRequestMast"
+    AssociationOtherEnd="com.aalm.prcrmnt.model.entities.fk_PurMatReqMas_Projects_Assoc.PurMatReqMastProjects"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PurmatreqmastprojectsPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PURMATREQMASTPROJECTS_PRIMARY_"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMatReqMastProjects.ProjId"/>
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMatReqMastProjects.VersionNo"/>
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMatReqMastProjects.PurMatRqstId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPurMaterialReqMastProjectsProjectsMast1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PUR_MATERIAL_REQ_MAST_PROJECTS_PROJECTS_MAST1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMatReqMastProjects.ProjId"/>
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMatReqMastProjects.VersionNo"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPurMaterialReqMastProjectsPurMaterialRequestMast1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PUR_MATERIAL_REQ_MAST_PROJECTS_PUR_MATERIAL_REQUEST_MAST1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMatReqMastProjects.PurMatRqstId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_PurMatReqMastProjects">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Pur_Mat_Req_Mast_Projects"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMatReqMastProjects.PurMatRqstId"/>
+    </AttrArray>
+  </Key>
+</Entity>

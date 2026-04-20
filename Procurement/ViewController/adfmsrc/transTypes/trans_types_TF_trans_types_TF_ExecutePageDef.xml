@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="trans_types_TF_trans_types_TF_ExecutePageDef" Package="transTypes" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="PurTransTypesV" RangeSize="25" DataControl="AalmPrcrmntDataControl" id="PurTransTypesVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="PurTransTypesVIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

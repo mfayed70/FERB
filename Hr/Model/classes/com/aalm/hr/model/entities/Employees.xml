@@ -216,6 +216,13 @@
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </AccessorAttribute>
+   <AccessorAttribute
+      Name="EmployeeExtraJobs1"
+      Association="com.aalm.hr.model.entities.FkEmployeeExtraJobsEmployees1Assoc"
+      AssociationEnd="com.aalm.hr.model.entities.FkEmployeeExtraJobsEmployees1Assoc.EmployeeExtraJobs1"
+      AssociationOtherEnd="com.aalm.hr.model.entities.FkEmployeeExtraJobsEmployees1Assoc.Employees"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false"/>
    <Key
       Name="Primary1"
       PrimaryKey="true" >

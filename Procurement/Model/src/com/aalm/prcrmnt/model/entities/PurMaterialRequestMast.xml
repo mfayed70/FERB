@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PurMaterialRequestMast"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PUR_MATERIAL_REQUEST_MAST"
+  AliasName="PurMaterialRequestMast"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="PurMatRqstId"
+    IsNotNull="true"
+    ColumnName="pur_mat_rqst_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUR_MATERIAL_REQUEST_MAST"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PurMatRqstName"
+    Precision="45"
+    ColumnName="pur_mat_rqst_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PUR_MATERIAL_REQUEST_MAST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RegisteredDt"
+    ColumnName="registered_dt"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="PUR_MATERIAL_REQUEST_MAST"/>
+  <Attribute
+    Name="OrgCode"
+    IsNotNull="true"
+    ColumnName="org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUR_MATERIAL_REQUEST_MAST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserId"
+    IsNotNull="true"
+    ColumnName="user_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUR_MATERIAL_REQUEST_MAST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TargetType"
+    Precision="2"
+    ColumnName="target_type"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PUR_MATERIAL_REQUEST_MAST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TargetOrgCode"
+    ColumnName="target_org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUR_MATERIAL_REQUEST_MAST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Notes"
+    Precision="200"
+    ColumnName="notes"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PUR_MATERIAL_REQUEST_MAST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ExpectedDeliveryDt"
+    ColumnName="expected_delivery_dt"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="PUR_MATERIAL_REQUEST_MAST"/>
+  <Attribute
+    Name="DeliveryTo"
+    IsNotNull="true"
+    ColumnName="delivery_to"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUR_MATERIAL_REQUEST_MAST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PrTransTypeCode"
+    IsNotNull="true"
+    ColumnName="pr_trans_type_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUR_MATERIAL_REQUEST_MAST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MrStatus"
+    IsNotNull="true"
+    Precision="2"
+    ColumnName="mr_status"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PUR_MATERIAL_REQUEST_MAST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="PurMatReqMastCats"
+    Association="com.aalm.prcrmnt.model.entities.fk_PUR_MAT_REQ_MAST_CATS_Assoc"
+    AssociationEnd="com.aalm.prcrmnt.model.entities.fk_PUR_MAT_REQ_MAST_CATS_Assoc.PurMatReqMastCats"
+    AssociationOtherEnd="com.aalm.prcrmnt.model.entities.fk_PUR_MAT_REQ_MAST_CATS_Assoc.PurMaterialRequestMast"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PurMatReqMastProjects"
+    Association="com.aalm.prcrmnt.model.entities.fk_PurMatReqMas_Projects_Assoc"
+    AssociationEnd="com.aalm.prcrmnt.model.entities.fk_PurMatReqMas_Projects_Assoc.PurMatReqMastProjects"
+    AssociationOtherEnd="com.aalm.prcrmnt.model.entities.fk_PurMatReqMas_Projects_Assoc.PurMaterialRequestMast"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PurMaterialRequestDets2"
+    Association="com.aalm.prcrmnt.model.entities.FkPurMaterialRequestDetsPurMaterialRequestMast1Assoc"
+    AssociationEnd="com.aalm.prcrmnt.model.entities.FkPurMaterialRequestDetsPurMaterialRequestMast1Assoc.PurMaterialRequestDets2"
+    AssociationOtherEnd="com.aalm.prcrmnt.model.entities.FkPurMaterialRequestDetsPurMaterialRequestMast1Assoc.PurMaterialRequestMast"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMaterialRequestMast.PurMatRqstId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPurMaterialRequestMastOrgUsers1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PUR_MATERIAL_REQUEST_MAST_ORG_USERS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMaterialRequestMast.UserId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPurMaterialRequestMastOrganizations1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PUR_MATERIAL_REQUEST_MAST_ORGANIZATIONS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMaterialRequestMast.OrgCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPurMaterialRequestMastOrganizations2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PUR_MATERIAL_REQUEST_MAST_ORGANIZATIONS2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMaterialRequestMast.TargetOrgCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPurMaterialRequestMastOrganizations3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PUR_MATERIAL_REQUEST_MAST_ORGANIZATIONS3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMaterialRequestMast.DeliveryTo"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPurMaterialRequestMastPurcTransTypes1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PUR_MATERIAL_REQUEST_MAST_PURC_TRANS_TYPES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMaterialRequestMast.PrTransTypeCode"/>
+    </AttrArray>
+  </Key>
+</Entity>

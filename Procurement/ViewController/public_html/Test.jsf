@@ -7,8 +7,12 @@
                 <af:showDetailItem id="tab1" text="Suppliers">
                     <af:region value="#{bindings.suppliersTF1.regionModel}" id="r1"/>
                 </af:showDetailItem>
-                <af:showDetailItem id="tab2" text="Tab Label 2"/>
-                <af:showDetailItem id="tab3" text="Tab Label 3"/>
+                <af:showDetailItem id="tab2" text="Tab Label 2">
+                    <af:region value="#{bindings.transtypesTF1.regionModel}" id="r2"/>
+                </af:showDetailItem>
+                <af:showDetailItem id="tab3" text="Tab Label 3">
+                    <af:region value="#{bindings.matreqTF1.regionModel}" id="r3"/>
+                </af:showDetailItem>
             </af:panelTabbed>
         </af:form>
     </af:document>

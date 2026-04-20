@@ -1,0 +1,371 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.prcrmnt.view.AalmPrcrmntBndl']}"/>
+    <af:document title="selectItemLov.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{viewcontrollerBundle.SearchSelectItem}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar">
+                    <af:button text="#{viewcontrollerBundle.Exit}" id="b1" action="toSave"/>
+                </f:facet>
+                <f:facet name="toolbar"/>
+                <f:facet name="legend"/>
+                <af:panelGroupLayout id="pgl1" layout="vertical">
+                    <af:panelGroupLayout layout="vertical" id="pgl2">
+                        <af:panelHeader text="ItemsLOV" id="ph2">
+                            <af:panelGroupLayout layout="vertical" id="pgl3">
+                                <af:panelHeader text="ItemsListLOV" id="ph3">
+                                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                                              value="#{bindings.ItemsListLOVCriteriaQuery.queryDescriptor}"
+                                              model="#{bindings.ItemsListLOVCriteriaQuery.queryModel}"
+                                              queryListener="#{bindings.ItemsListLOVCriteriaQuery.processQuery}"
+                                              queryOperationListener="#{bindings.ItemsListLOVCriteriaQuery.processQueryOperation}"
+                                              resultComponentId="::resId1" rows="5" maxColumns="5"
+                                              runQueryAutomatically="allSavedSearches" displayMode="compact"
+                                              saveQueryMode="hidden" labelAlignment="top"/>
+                                </af:panelHeader>
+                                <af:table value="#{bindings.ItemsListLOV.collectionModel}" var="row"
+                                          rows="#{bindings.ItemsListLOV.rangeSize}"
+                                          emptyText="#{bindings.ItemsListLOV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.ItemsListLOV.collectionModel.selectedRow}"
+                                          rowSelection="multiple" fetchSize="#{bindings.ItemsListLOV.rangeSize}"
+                                          filterModel="#{bindings.ItemsListLOVCriteriaQuery.queryDescriptor}"
+                                          queryListener="#{bindings.ItemsListLOVCriteriaQuery.processQuery}"
+                                          filterVisible="true" varStatus="vs" id="resId1">
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.ItemCode.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.ItemCode.label}" id="resId1c1">
+                                        <af:outputText value="#{row.ItemCode}"
+                                                       shortDesc="#{bindings.ItemsListLOV.hints.ItemCode.tooltip}"
+                                                       id="ot1"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.ItemIndx.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.ItemIndx.label}" id="resId1c2">
+                                        <af:outputText value="#{row.ItemIndx}"
+                                                       shortDesc="#{bindings.ItemsListLOV.hints.ItemIndx.tooltip}"
+                                                       id="ot2"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.ItemName.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.ItemName.label}" id="resId1c3">
+                                        <af:outputText value="#{row.ItemName}"
+                                                       shortDesc="#{bindings.ItemsListLOV.hints.ItemName.tooltip}"
+                                                       id="ot3"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.CatId.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.CatId.label}" id="resId1c4">
+                                        <af:selectOneChoice value="#{row.bindings.CatId.inputValue}"
+                                                            label="#{row.bindings.CatId.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.CatId.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.CatId.tooltip}"
+                                                            readOnly="true" id="soc1">
+                                            <f:selectItems value="#{row.bindings.CatId.items}" id="si1"/>
+                                            <f:validator binding="#{row.bindings.CatId.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.UnitId.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.UnitId.label}" id="resId1c5">
+                                        <af:selectOneChoice value="#{row.bindings.UnitId.inputValue}"
+                                                            label="#{row.bindings.UnitId.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.UnitId.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.UnitId.tooltip}"
+                                                            readOnly="true" id="soc2">
+                                            <f:selectItems value="#{row.bindings.UnitId.items}" id="si2"/>
+                                            <f:validator binding="#{row.bindings.UnitId.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.RegisterDt.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.RegisterDt.label}"
+                                               id="resId1c6">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.ItemsListLOVCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.RegisterDt.value}"
+                                                          id="id1">
+                                                <af:convertDateTime pattern="#{bindings.ItemsListLOV.hints.RegisterDt.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:outputText value="#{row.RegisterDt}"
+                                                       shortDesc="#{bindings.ItemsListLOV.hints.RegisterDt.tooltip}"
+                                                       id="ot4">
+                                            <af:convertDateTime pattern="#{bindings.ItemsListLOV.hints.RegisterDt.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.OrderLimit.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.OrderLimit.label}"
+                                               id="resId1c7">
+                                        <af:outputText value="#{row.OrderLimit}"
+                                                       shortDesc="#{bindings.ItemsListLOV.hints.OrderLimit.tooltip}"
+                                                       id="ot5">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.ItemsListLOV.hints.OrderLimit.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.SalesProfitPerc.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.SalesProfitPerc.label}"
+                                               id="resId1c8">
+                                        <af:outputText value="#{row.SalesProfitPerc}"
+                                                       shortDesc="#{bindings.ItemsListLOV.hints.SalesProfitPerc.tooltip}"
+                                                       id="ot6">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.ItemsListLOV.hints.SalesProfitPerc.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarA.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarA.label}" id="resId1c9">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarA.inputValue}"
+                                                            label="#{row.bindings.StrVarA.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarA.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarA.tooltip}"
+                                                            readOnly="true" id="soc3">
+                                            <f:selectItems value="#{row.bindings.StrVarA.items}" id="si3"/>
+                                            <f:validator binding="#{row.bindings.StrVarA.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarB.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarB.label}" id="resId1c10">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarB.inputValue}"
+                                                            label="#{row.bindings.StrVarB.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarB.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarB.tooltip}"
+                                                            readOnly="true" id="soc4">
+                                            <f:selectItems value="#{row.bindings.StrVarB.items}" id="si4"/>
+                                            <f:validator binding="#{row.bindings.StrVarB.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarC.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarC.label}" id="resId1c11">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarC.inputValue}"
+                                                            label="#{row.bindings.StrVarC.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarC.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarC.tooltip}"
+                                                            readOnly="true" id="soc5">
+                                            <f:selectItems value="#{row.bindings.StrVarC.items}" id="si5"/>
+                                            <f:validator binding="#{row.bindings.StrVarC.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarD.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarD.label}" id="resId1c12">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarD.inputValue}"
+                                                            label="#{row.bindings.StrVarD.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarD.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarD.tooltip}"
+                                                            readOnly="true" id="soc6">
+                                            <f:selectItems value="#{row.bindings.StrVarD.items}" id="si6"/>
+                                            <f:validator binding="#{row.bindings.StrVarD.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarE.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarE.label}" id="resId1c13">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarE.inputValue}"
+                                                            label="#{row.bindings.StrVarE.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarE.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarE.tooltip}"
+                                                            readOnly="true" id="soc7">
+                                            <f:selectItems value="#{row.bindings.StrVarE.items}" id="si7"/>
+                                            <f:validator binding="#{row.bindings.StrVarE.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarF.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarF.label}" id="resId1c14">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarF.inputValue}"
+                                                            label="#{row.bindings.StrVarF.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarF.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarF.tooltip}"
+                                                            readOnly="true" id="soc8">
+                                            <f:selectItems value="#{row.bindings.StrVarF.items}" id="si8"/>
+                                            <f:validator binding="#{row.bindings.StrVarF.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarG.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarG.label}" id="resId1c15">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarG.inputValue}"
+                                                            label="#{row.bindings.StrVarG.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarG.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarG.tooltip}"
+                                                            readOnly="true" id="soc9">
+                                            <f:selectItems value="#{row.bindings.StrVarG.items}" id="si9"/>
+                                            <f:validator binding="#{row.bindings.StrVarG.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarH.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarH.label}" id="resId1c16">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarH.inputValue}"
+                                                            label="#{row.bindings.StrVarH.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarH.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarH.tooltip}"
+                                                            readOnly="true" id="soc10">
+                                            <f:selectItems value="#{row.bindings.StrVarH.items}" id="si10"/>
+                                            <f:validator binding="#{row.bindings.StrVarH.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarI.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarI.label}" id="resId1c17">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarI.inputValue}"
+                                                            label="#{row.bindings.StrVarI.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarI.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarI.tooltip}"
+                                                            readOnly="true" id="soc11">
+                                            <f:selectItems value="#{row.bindings.StrVarI.items}" id="si11"/>
+                                            <f:validator binding="#{row.bindings.StrVarI.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarJ.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarJ.label}" id="resId1c18">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarJ.inputValue}"
+                                                            label="#{row.bindings.StrVarJ.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarJ.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarJ.tooltip}"
+                                                            readOnly="true" id="soc12">
+                                            <f:selectItems value="#{row.bindings.StrVarJ.items}" id="si12"/>
+                                            <f:validator binding="#{row.bindings.StrVarJ.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarK.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarK.label}" id="resId1c19">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarK.inputValue}"
+                                                            label="#{row.bindings.StrVarK.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarK.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarK.tooltip}"
+                                                            readOnly="true" id="soc13">
+                                            <f:selectItems value="#{row.bindings.StrVarK.items}" id="si13"/>
+                                            <f:validator binding="#{row.bindings.StrVarK.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarL.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarL.label}" id="resId1c20">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarL.inputValue}"
+                                                            label="#{row.bindings.StrVarL.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarL.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarL.tooltip}"
+                                                            readOnly="true" id="soc14">
+                                            <f:selectItems value="#{row.bindings.StrVarL.items}" id="si14"/>
+                                            <f:validator binding="#{row.bindings.StrVarL.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarM.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarM.label}" id="resId1c21">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarM.inputValue}"
+                                                            label="#{row.bindings.StrVarM.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarM.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarM.tooltip}"
+                                                            readOnly="true" id="soc15">
+                                            <f:selectItems value="#{row.bindings.StrVarM.items}" id="si15"/>
+                                            <f:validator binding="#{row.bindings.StrVarM.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarN.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarN.label}" id="resId1c22">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarN.inputValue}"
+                                                            label="#{row.bindings.StrVarN.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarN.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarN.tooltip}"
+                                                            readOnly="true" id="soc16">
+                                            <f:selectItems value="#{row.bindings.StrVarN.items}" id="si16"/>
+                                            <f:validator binding="#{row.bindings.StrVarN.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarO.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarO.label}" id="resId1c23">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarO.inputValue}"
+                                                            label="#{row.bindings.StrVarO.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarO.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarO.tooltip}"
+                                                            readOnly="true" id="soc17">
+                                            <f:selectItems value="#{row.bindings.StrVarO.items}" id="si17"/>
+                                            <f:validator binding="#{row.bindings.StrVarO.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarP.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarP.label}" id="resId1c24">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarP.inputValue}"
+                                                            label="#{row.bindings.StrVarP.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarP.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarP.tooltip}"
+                                                            readOnly="true" id="soc18">
+                                            <f:selectItems value="#{row.bindings.StrVarP.items}" id="si18"/>
+                                            <f:validator binding="#{row.bindings.StrVarP.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarQ.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarQ.label}" id="resId1c25">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarQ.inputValue}"
+                                                            label="#{row.bindings.StrVarQ.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarQ.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarQ.tooltip}"
+                                                            readOnly="true" id="soc19">
+                                            <f:selectItems value="#{row.bindings.StrVarQ.items}" id="si19"/>
+                                            <f:validator binding="#{row.bindings.StrVarQ.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarR.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarR.label}" id="resId1c26">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarR.inputValue}"
+                                                            label="#{row.bindings.StrVarR.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarR.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarR.tooltip}"
+                                                            readOnly="true" id="soc20">
+                                            <f:selectItems value="#{row.bindings.StrVarR.items}" id="si20"/>
+                                            <f:validator binding="#{row.bindings.StrVarR.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarS.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarS.label}" id="resId1c27">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarS.inputValue}"
+                                                            label="#{row.bindings.StrVarS.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarS.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarS.tooltip}"
+                                                            readOnly="true" id="soc21">
+                                            <f:selectItems value="#{row.bindings.StrVarS.items}" id="si21"/>
+                                            <f:validator binding="#{row.bindings.StrVarS.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemsListLOV.hints.StrVarT.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.ItemsListLOV.hints.StrVarT.label}" id="resId1c28">
+                                        <af:selectOneChoice value="#{row.bindings.StrVarT.inputValue}"
+                                                            label="#{row.bindings.StrVarT.label}"
+                                                            required="#{bindings.ItemsListLOV.hints.StrVarT.mandatory}"
+                                                            shortDesc="#{bindings.ItemsListLOV.hints.StrVarT.tooltip}"
+                                                            readOnly="true" id="soc22">
+                                            <f:selectItems value="#{row.bindings.StrVarT.items}" id="si22"/>
+                                            <f:validator binding="#{row.bindings.StrVarT.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                </af:table>
+                            </af:panelGroupLayout>
+                        </af:panelHeader>
+                    </af:panelGroupLayout>
+                </af:panelGroupLayout>
+                <f:facet name="info"/>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

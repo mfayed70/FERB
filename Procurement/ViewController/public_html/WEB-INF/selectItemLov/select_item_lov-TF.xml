@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="select_item_lov-TF">
+    <default-activity>ExecuteWithParams</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>pCatId</name>
+      <value>#{pageFlowScope.pCatId}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <return-value-definition id="__6">
+      <name>rItemCode</name>
+      <value>#{pageFlowScope.rItemCode}</value>
+      <class>java.lang.String</class>
+    </return-value-definition>
+    <return-value-definition id="__7">
+      <name>rItemName</name>
+      <value>#{pageFlowScope.rItemName}</value>
+      <class>java.lang.String</class>
+    </return-value-definition>
+    <managed-bean id="__11">
+      <managed-bean-name>PrcrmntClass</managed-bean-name>
+      <managed-bean-class>com.aalm.prcrmnt.view.beans.PrcrmntClass</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="selectItemLov">
+      <page>/WEB-INF/selectItemLov/selectItemLov.jsf</page>
+    </view>
+    <task-flow-return id="Commit">
+      <outcome>
+        <name>Commit</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="initiateCaptions"></method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>selectItemLov</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>selectItemLov</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

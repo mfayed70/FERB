@@ -738,6 +738,22 @@
         <source>User Vacation To Approval Status Cl</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.FkEmployeeExtraJobsEmployeesCrudLink_LABEL">
+        <source>Fk Employee Extra Jobs Employees Crud Link</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmpExtraJobsLOVEx_LABEL">
+        <source>Emp Extra Jobs Lov Ex</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="THIS_JOB_HAS_ALREADY_ASSIGNED_TO_EMPLOYEE">
+        <source>This job has already assigned to Employee</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.EmpExtraJobsLOV_LABEL">
+        <source>Emp Extra Jobs Lov</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -1,0 +1,1734 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemsListLOV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.prcrmnt.model.lov.ItemsListLOV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="bindCatId1"
+    Kind="where"
+    Type="java.lang.Integer"
+    DefaultValue="1">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+    </AttrArray>
+  </Variable>
+  <ViewAccessor
+    Name="ItemCategoriesLOV1"
+    ViewObjectName="com.aalm.prcrmnt.model.lov.ItemCategoriesLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ItemsUnitsLOV1"
+    ViewObjectName="com.aalm.prcrmnt.model.lov.ItemsUnitsLOV"
+    RowLevelBinds="true"/>
+     <ViewAccessor
+        Name="LOV_A"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+               <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["A"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+        </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_B"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+               <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["B"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+        </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_C"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+               <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["C"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+        </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_D"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["D"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_E"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["E"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_F"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["F"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_G"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["G"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_H"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["H"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_I"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["I"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_J"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["J"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_K"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["K"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_L"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["L"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_M"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["M"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_N"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["N"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_O"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["O"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_P"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["P"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_Q"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["Q"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_R"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["R"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_S"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["S"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+    <ViewAccessor
+        Name="LOV_T"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemVariablesValues1LOV"
+        RowLevelBinds="false">
+        <ParameterMap>
+            <PIMap Variable="pVarCode">
+                <TransientExpression
+                    trustMode="untrusted"><![CDATA["T"]]></TransientExpression>
+            </PIMap>
+        </ParameterMap>
+    </ViewAccessor>
+
+  <ListBinding
+    Name="LOV_CatId"
+    ListVOName="ItemCategoriesLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CatId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CatId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CatName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_UnitId"
+    ListVOName="ItemsUnitsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="UnitId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnitName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+    <ListBinding
+        Name="LOV_StrVar1"
+        ListVOName="LOV_A"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarA"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarB"
+        ListVOName="LOV_B"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarB"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarC"
+        ListVOName="LOV_C"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarC"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarD"
+        ListVOName="LOV_D"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarD"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarE"
+        ListVOName="LOV_E"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarE"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarF"
+        ListVOName="LOV_F"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarF"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarG"
+        ListVOName="LOV_G"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarG"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarH"
+        ListVOName="LOV_H"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarH"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarI"
+        ListVOName="LOV_I"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarI"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarJ"
+        ListVOName="LOV_J"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarJ"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarK"
+        ListVOName="LOV_K"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarK"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarL"
+        ListVOName="LOV_L"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarL"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarM"
+        ListVOName="LOV_M"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarM"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarN"
+        ListVOName="LOV_N"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarN"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarO"
+        ListVOName="LOV_O"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarO"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarP"
+        ListVOName="LOV_P"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarP"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarQ"
+        ListVOName="LOV_Q"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarQ"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarR"
+        ListVOName="LOV_R"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarR"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarS"
+        ListVOName="LOV_S"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarS"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <ListBinding
+        Name="LOV_StrVarT"
+        ListVOName="LOV_T"
+        ListRangeSize="-1"
+        NullValueFlag="start"
+        NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+        MRUCount="0">
+        <AttrArray Name="AttrNames">
+            <Item Value="StrVarT"/>
+        </AttrArray>
+        <AttrArray Name="AttrExpressions"/>
+        <AttrArray Name="ListAttrNames">
+            <Item Value="VarValCode"/>
+        </AttrArray>
+        <AttrArray Name="ListDisplayAttrNames">
+            <Item Value="VarValValue"/>
+        </AttrArray>
+        <DisplayCriteria/>
+    </ListBinding>
+    <SQLQuery><![CDATA[SELECT 
+    ITEMS_LIST.item_code item_code, 
+    ITEMS_LIST.item_indx item_indx, 
+    ITEMS_LIST.item_name item_name, 
+    ITEMS_LIST.cat_id cat_id, 
+    ITEMS_LIST.unit_id unit_id, 
+    ITEMS_LIST.register_dt register_dt, 
+    ITEMS_LIST.is_assmbly is_assmbly, 
+    ITEMS_LIST.active active, 
+    ITEMS_LIST.org_code org_code, 
+    ITEMS_LIST.order_limit order_limit, 
+    ITEMS_LIST.sales_profit_perc sales_profit_perc, 
+    ITEMS_LIST.str_var_1 str_var_1, 
+    ITEMS_LIST.str_var_2 str_var_2, 
+    ITEMS_LIST.str_var_3 str_var_3, 
+    ITEMS_LIST.str_var_4 str_var_4, 
+    ITEMS_LIST.str_var_5 str_var_5, 
+    ITEMS_LIST.str_var_6 str_var_6, 
+    ITEMS_LIST.str_var_7 str_var_7, 
+    ITEMS_LIST.str_var_8 str_var_8, 
+    ITEMS_LIST.str_var_9 str_var_9, 
+    ITEMS_LIST.str_var_10 str_var_10, 
+    ITEMS_LIST.str_var_11 str_var_11, 
+    ITEMS_LIST.str_var_12 str_var_12, 
+    ITEMS_LIST.str_var_13 str_var_13, 
+    ITEMS_LIST.str_var_14 str_var_14, 
+    ITEMS_LIST.str_var_15 str_var_15, 
+    ITEMS_LIST.str_var_16 str_var_16, 
+    ITEMS_LIST.str_var_17 str_var_17, 
+    ITEMS_LIST.str_var_18 str_var_18, 
+    ITEMS_LIST.str_var_19 str_var_19, 
+    ITEMS_LIST.str_var_20 str_var_20,
+    'A' AS A,
+    'B' AS B,
+    'C' AS C,
+    'D' AS D,
+    'E' AS E,
+    'F' AS F,
+    'G' AS G,
+    'H' AS H,
+    'I' AS I,
+    'J' AS J,
+    'K' AS K,
+    'L' AS L,
+    'M' AS M,
+    'N' AS N,
+    'O' AS O,
+    'P' AS P,
+    'Q' AS Q,
+    'R' AS R,
+    'S' AS S,
+    'T' AS T 
+FROM 
+    ITEMS_LIST
+WHERE 'A' = 'A'
+  AND 'B' = 'B'
+  AND 'C' = 'C'
+  AND 'D' = 'D'
+  AND 'E' = 'E'
+  AND 'F' = 'F'
+  AND 'G' = 'G'
+  AND 'H' = 'H'
+  AND 'I' = 'I'
+  AND 'J' = 'J'
+  AND 'K' = 'K'
+  AND 'L' = 'L'
+  AND 'M' = 'M'
+  AND 'N' = 'N'
+  AND 'O' = 'O'
+  AND 'P' = 'P'
+  AND 'Q' = 'Q'
+  AND 'R' = 'R'
+  AND 'S' = 'S'
+  AND 'T' = 'T'
+AND IFNULL(?, cat_id)]]></SQLQuery>
+  <ViewAttribute
+    Name="ItemCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="item_code"
+    Expression="item_code"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemIndx"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="item_indx"
+    Expression="item_indx"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="300"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="item_name"
+    Expression="item_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <DISPLAYWIDTH
+                    Value="50"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+    Name="CatId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="cat_id"
+    Expression="cat_id"
+    SQLType="INTEGER"
+    LOVName="LOV_CatId">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UnitId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="unit_id"
+    Expression="unit_id"
+    SQLType="INTEGER"
+    LOVName="LOV_UnitId">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RegisterDt"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    AliasName="register_dt"
+    Expression="register_dt"
+    SQLType="TIMESTAMP"/>
+  <ViewAttribute
+    Name="IsAssmbly"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="is_assmbly"
+    Expression="is_assmbly"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Active"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="active"
+    Expression="active"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="org_code"
+    Expression="org_code"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderLimit"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="order_limit"
+    Expression="order_limit"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SalesProfitPerc"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="sales_profit_perc"
+    Expression="sales_profit_perc"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarA"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_1"
+    Expression="str_var_1"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVar1">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarB"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_2"
+    Expression="str_var_2"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarB">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarC"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_3"
+    Expression="str_var_3"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarD"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_4"
+    Expression="str_var_4"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarE"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_5"
+    Expression="str_var_5"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarF"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_6"
+    Expression="str_var_6"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarF">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarG"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_7"
+    Expression="str_var_7"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarG">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarH"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_8"
+    Expression="str_var_8"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarH">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarI"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_9"
+    Expression="str_var_9"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarI">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarJ"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_10"
+    Expression="str_var_10"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarJ">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarK"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_11"
+    Expression="str_var_11"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarK">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarL"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_12"
+    Expression="str_var_12"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarM"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_13"
+    Expression="str_var_13"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarN"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_14"
+    Expression="str_var_14"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarN">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarO"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_15"
+    Expression="str_var_15"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarP"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_16"
+    Expression="str_var_16"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarQ"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_17"
+    Expression="str_var_17"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarQ">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarR"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_18"
+    Expression="str_var_18"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarS"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_19"
+    Expression="str_var_19"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+      Name="StrVarT"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="str_var_20"
+    Expression="str_var_20"
+    SQLType="VARCHAR"
+      LOVName="LOV_StrVarT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+        <Properties>
+            <SchemaBasedProperties>
+                <CONTROLTYPE
+                    Value="choice"/>
+            </SchemaBasedProperties>
+        </Properties>
+    </ViewAttribute>
+  <ViewAttribute
+    Name="A"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="A"
+    Expression="A"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="B"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="B"
+    Expression="B"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="C"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="C"
+    Expression="C"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="D"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="D"
+    Expression="D"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="E"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="E"
+    Expression="E"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="F"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="F"
+    Expression="F"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="G"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="G"
+    Expression="G"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="H"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="H"
+    Expression="H"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="I"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="I"
+    Expression="I"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="J"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="J"
+    Expression="J"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="K"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="K"
+    Expression="K"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="L"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="L"
+    Expression="L"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="M"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="M"
+    Expression="M"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="N"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="N"
+    Expression="N"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="O"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="O"
+    Expression="O"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="P"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="P"
+    Expression="P"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Q"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="Q"
+    Expression="Q"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="R"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="R"
+    Expression="R"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="S"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="S"
+    Expression="S"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="T"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="T"
+    Expression="T"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+    <ViewCriteria
+        Name="ItemsListLOVCriteria"
+        ViewObjectName="com.aalm.prcrmnt.model.lov.ItemsListLOV"
+        Conjunction="AND">
+        <Properties>
+            <CustomProperties>
+                <Property
+                    Name="displayOperators"
+                    Value="InAdvancedMode"/>
+                <Property
+                    Name="autoExecute"
+                    Value="false"/>
+                <Property
+                    Name="allowConjunctionOverride"
+                    Value="true"/>
+                <Property
+                    Name="showInList"
+                    Value="true"/>
+                <Property
+                    Name="mode"
+                    Value="Basic"/>
+            </CustomProperties>
+        </Properties>
+        <ViewCriteriaRow
+            Name="ItemsListLOVCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+                Name="ItemCode"
+                ViewAttribute="ItemCode"
+                Operator="CONTAINS"
+                Conjunction="AND"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="ItemName"
+                ViewAttribute="ItemName"
+                Operator="CONTAINS"
+                Conjunction="AND"
+                Required="Optional"/>
+        </ViewCriteriaRow>
+        <ViewCriteriaRow
+            Name="ItemsListLOVCriteria_row_1"
+            Conjunction="AND"
+            UpperColumns="1">
+            <ViewCriteriaItem
+                Name="StrVarA"
+                ViewAttribute="StrVarA"
+                Operator="="
+                Conjunction="AND"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="StrVarB"
+                ViewAttribute="StrVarB"
+                Operator="CONTAINS"
+                Conjunction="AND"
+                Required="Optional"/>
+            <ViewCriteriaItem
+                Name="StrVarC"
+                ViewAttribute="StrVarC"
+                Operator="CONTAINS"
+                Conjunction="AND"
+                Required="Optional"/>
+        </ViewCriteriaRow>
+    </ViewCriteria>
+    <AttrArray Name="KeyAttributes">
+    <Item Value="ItemCode"/>
+  </AttrArray>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.prcrmnt.model.AalmPrcrmntMBndl"/>
+  </ResourceBundle>
+</ViewObject>

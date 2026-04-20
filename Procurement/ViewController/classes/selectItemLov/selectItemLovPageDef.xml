@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="selectItemLovPageDef"
+                Package="selectItemLov">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ItemsListLOV" RangeSize="25" DataControl="AalmPrcrmntDataControl" id="ItemsListLOVIterator"/>
+    <searchRegion Criteria="ItemsListLOVCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ItemsListLOVIterator" id="ItemsListLOVCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ItemsListLOVIterator" id="ItemsListLOV">
+      <nodeDefinition DefName="com.aalm.prcrmnt.model.lov.ItemsListLOV" Name="ItemsListLOV0">
+        <AttrNames>
+          <Item Value="ItemCode"/>
+          <Item Value="ItemIndx"/>
+          <Item Value="ItemName"/>
+          <Item Value="CatId"/>
+          <Item Value="UnitId"/>
+          <Item Value="RegisterDt"/>
+          <Item Value="OrderLimit"/>
+          <Item Value="SalesProfitPerc"/>
+          <Item Value="StrVarA"/>
+          <Item Value="StrVarB"/>
+          <Item Value="StrVarC"/>
+          <Item Value="StrVarD"/>
+          <Item Value="StrVarE"/>
+          <Item Value="StrVarF"/>
+          <Item Value="StrVarG"/>
+          <Item Value="StrVarH"/>
+          <Item Value="StrVarI"/>
+          <Item Value="StrVarJ"/>
+          <Item Value="StrVarK"/>
+          <Item Value="StrVarL"/>
+          <Item Value="StrVarM"/>
+          <Item Value="StrVarN"/>
+          <Item Value="StrVarO"/>
+          <Item Value="StrVarP"/>
+          <Item Value="StrVarQ"/>
+          <Item Value="StrVarR"/>
+          <Item Value="StrVarS"/>
+          <Item Value="StrVarT"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

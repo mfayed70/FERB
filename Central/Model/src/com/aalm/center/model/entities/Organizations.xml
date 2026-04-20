@@ -81,6 +81,18 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="OrgType"
+    Precision="2"
+    ColumnName="org_type"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ORGANIZATIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="Organizations"
     Association="com.aalm.center.model.entities.FkOrganizationsOrganizations1Assoc"

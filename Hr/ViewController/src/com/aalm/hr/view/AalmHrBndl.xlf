@@ -178,6 +178,10 @@
         <source>Pending</source>
         <target/>
       </trans-unit>
+      <trans-unit id="EmployeeExtraJobs">
+        <source>Employee Extra Jobs</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

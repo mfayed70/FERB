@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="mat_reqs_listPageDef"
+                Package="materialRequests">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PurMaterialRequestMastV" RangeSize="25" DataControl="AalmPrcrmntDataControl"
+              id="PurMaterialRequestMastVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="PurMaterialRequestMastVIterator" id="PurMatRqstId">
+      <AttrNames>
+        <Item Value="PurMatRqstId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

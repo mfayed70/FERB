@@ -10,6 +10,10 @@
         <parameter id="refreshRegion" value="#{pageFlowScope.refreshRegion}"/>
       </parameters>
     </taskFlow>
+    <taskFlow id="transtypesTF1" taskFlowId="/WEB-INF/transTypes/trans-types-TF.xml#trans-types-TF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="matreqTF1" taskFlowId="/WEB-INF/materialRequests/mat-req-TF.xml#mat-req-TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>

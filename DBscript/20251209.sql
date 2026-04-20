@@ -1,0 +1,402 @@
+-- MySQL Workbench Synchronization
+-- Generated: 2025-12-09 09:19
+-- Model: New Model
+-- Version: 1.0
+-- Project: FERB
+-- Author: Mohamed Fayed
+
+
+-----------------------------------------------------------------------
+-- MySQL Workbench Synchronization
+-- Generated: 2025-12-11 05:21
+-- Model: New Model
+-- Version: 1.0
+-- Project: FERB
+-- Author: Mohamed Fayed
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='PIPES_AS_CONCAT';
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_RFQ_SUPP_TERM_VALUES` (
+  `numeric_value` DECIMAL(12,2) NULL DEFAULT NULL,
+  `text_value` VARCHAR(200) NULL DEFAULT NULL,
+  `notes` VARCHAR(200) NULL DEFAULT NULL,
+  `register_dt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `rfq_mast_id` INT(11) NOT NULL,
+  `supp_id` INT(11) NOT NULL,
+  `term_detail_id` INT(11) NOT NULL,
+  INDEX `fk_PUR_RFQ_SUPP_TERM_VALUES_PUR_RFQ_SUPPLIERS_MAST1_idx` (`rfq_mast_id` ASC, `supp_id` ASC)  ,
+  INDEX `fk_PUR_RFQ_SUPP_TERM_VALUES_PUR_TERM_CATEGORY_DETAILS1_idx` (`term_detail_id` ASC)  ,
+  CONSTRAINT `fk_PUR_RFQ_SUPP_TERM_VALUES_PUR_RFQ_SUPPLIERS_MAST1`
+    FOREIGN KEY (`rfq_mast_id` , `supp_id`)
+    REFERENCES `Elecon`.`PUR_RFQ_SUPPLIERS_MAST` (`rfq_mast_id` , `supp_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_RFQ_SUPP_TERM_VALUES_PUR_TERM_CATEGORY_DETAILS1`
+    FOREIGN KEY (`term_detail_id`)
+    REFERENCES `Elecon`.`PUR_TERM_CATEGORY_DETAILS` (`term_detail_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_TERM_CATEGORIES` (
+  `term_cat_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `term_cat_name` VARCHAR(100) NOT NULL,
+  `category_weight` DECIMAL(5,2) NULL DEFAULT '0.00',
+  `active` VARCHAR(2) NULL DEFAULT 'Y',
+  PRIMARY KEY (`term_cat_id`),
+  UNIQUE INDEX `uk_term_cat_name` (`term_cat_name` ASC)  )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_TERM_CATEGORY_DETAILS` (
+  `term_detail_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `term_cat_id` INT(11) NOT NULL,
+  `term_detail_name` VARCHAR(200) NOT NULL,
+  `term_uom` VARCHAR(20) NULL DEFAULT NULL,
+  `weight` DECIMAL(5,2) NULL DEFAULT '0.00',
+  `comparison_type` ENUM('LOWER_BETTER', 'HIGHER_BETTER', 'MATCH') NOT NULL,
+  `min_value` DECIMAL(12,2) NULL DEFAULT NULL,
+  `max_value` DECIMAL(12,2) NULL DEFAULT NULL,
+  `active` VARCHAR(2) NULL DEFAULT 'Y',
+  PRIMARY KEY (`term_detail_id`),
+  UNIQUE INDEX `uk_detail_name_per_category` (`term_cat_id` ASC, `term_detail_name` ASC)  ,
+  CONSTRAINT `fk_term_details_category`
+    FOREIGN KEY (`term_cat_id`)
+    REFERENCES `Elecon`.`PUR_TERM_CATEGORIES` (`term_cat_id`)
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_MATERIAL_REQUEST_MAST` (
+  `pur_mat_rqst_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `pur_mat_rqst_name` VARCHAR(45) NULL DEFAULT NULL,
+  `registered_dt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `org_code` INT(11) NOT NULL,
+  `user_id` INT(11) NOT NULL,
+  `target_type` VARCHAR(2) NULL DEFAULT NULL,
+  `target_org_code` INT(11) NULL DEFAULT NULL,
+  `notes` VARCHAR(200) NULL DEFAULT NULL,
+  `expected_delivery_dt` DATETIME NULL DEFAULT NULL,
+  `delivery_to` INT(11) NOT NULL,
+  `pr_trans_type_code` INT(11) NOT NULL,
+  PRIMARY KEY (`pur_mat_rqst_id`),
+  INDEX `fk_PUR_MATERIAL_REQUEST_MAST_ORGANIZATIONS1_idx` (`org_code` ASC)  ,
+  INDEX `fk_PUR_MATERIAL_REQUEST_MAST_ORG_USERS1_idx` (`user_id` ASC)  ,
+  INDEX `fk_PUR_MATERIAL_REQUEST_MAST_ORGANIZATIONS2_idx` (`target_org_code` ASC)  ,
+  INDEX `fk_PUR_MATERIAL_REQUEST_MAST_ORGANIZATIONS3_idx` (`delivery_to` ASC)  ,
+  INDEX `fk_PUR_MATERIAL_REQUEST_MAST_PURC_TRANS_TYPES1_idx` (`pr_trans_type_code` ASC)  ,
+  CONSTRAINT `fk_PUR_MATERIAL_REQUEST_MAST_ORGANIZATIONS1`
+    FOREIGN KEY (`org_code`)
+    REFERENCES `Elecon`.`ORGANIZATIONS` (`org_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_MATERIAL_REQUEST_MAST_ORG_USERS1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `Elecon`.`ORG_USERS` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_MATERIAL_REQUEST_MAST_ORGANIZATIONS2`
+    FOREIGN KEY (`target_org_code`)
+    REFERENCES `Elecon`.`ORGANIZATIONS` (`org_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_MATERIAL_REQUEST_MAST_ORGANIZATIONS3`
+    FOREIGN KEY (`delivery_to`)
+    REFERENCES `Elecon`.`ORGANIZATIONS` (`org_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_MATERIAL_REQUEST_MAST_PURC_TRANS_TYPES1`
+    FOREIGN KEY (`pr_trans_type_code`)
+    REFERENCES `Elecon`.`PUR_TRANS_TYPES` (`pr_trans_type_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_MATERIAL_REQUEST_DETS` (
+  `pur_mat_rqst_det_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `qty` DECIMAL(7,2) NOT NULL DEFAULT 0,
+  `pur_mat_rqst_id` INT(11) NOT NULL,
+  `item_code` VARCHAR(100) NOT NULL,
+  `unit_id` INT(11) NOT NULL,
+  `notes` VARCHAR(200) NULL DEFAULT NULL,
+  PRIMARY KEY (`pur_mat_rqst_det_id`),
+  INDEX `fk_PUR_MATERIAL_REQUEST_DETS_PUR_MATERIAL_REQUEST_MAST1_idx` (`pur_mat_rqst_id` ASC)  ,
+  INDEX `fk_PUR_MATERIAL_REQUEST_DETS_ITEMS_LIST1_idx` (`item_code` ASC)  ,
+  INDEX `fk_PUR_MATERIAL_REQUEST_DETS_UNITS1_idx` (`unit_id` ASC)  ,
+  CONSTRAINT `fk_PUR_MATERIAL_REQUEST_DETS_PUR_MATERIAL_REQUEST_MAST1`
+    FOREIGN KEY (`pur_mat_rqst_id`)
+    REFERENCES `Elecon`.`PUR_MATERIAL_REQUEST_MAST` (`pur_mat_rqst_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_MATERIAL_REQUEST_DETS_ITEMS_LIST1`
+    FOREIGN KEY (`item_code`)
+    REFERENCES `Elecon`.`ITEMS_LIST` (`item_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_MATERIAL_REQUEST_DETS_UNITS1`
+    FOREIGN KEY (`unit_id`)
+    REFERENCES `Elecon`.`UNITS` (`unit_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_RFQ_MAST` (
+  `rfq_mast_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `rfq_mast_name` VARCHAR(100) NULL DEFAULT NULL,
+  `register_dt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_id` INT(11) NOT NULL,
+  `org_code` INT(11) NOT NULL,
+  `pr_trans_type_code` INT(11) NOT NULL,
+  PRIMARY KEY (`rfq_mast_id`),
+  INDEX `fk_PUR_RFQ_MAST_ORG_USERS1_idx` (`user_id` ASC)  ,
+  INDEX `fk_PUR_RFQ_MAST_ORGANIZATIONS1_idx` (`org_code` ASC)  ,
+  INDEX `fk_PUR_RFQ_MAST_PURC_TRANS_TYPES1_idx` (`pr_trans_type_code` ASC)  ,
+  CONSTRAINT `fk_PUR_RFQ_MAST_ORG_USERS1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `Elecon`.`ORG_USERS` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_RFQ_MAST_ORGANIZATIONS1`
+    FOREIGN KEY (`org_code`)
+    REFERENCES `Elecon`.`ORGANIZATIONS` (`org_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_RFQ_MAST_PURC_TRANS_TYPES1`
+    FOREIGN KEY (`pr_trans_type_code`)
+    REFERENCES `Elecon`.`PUR_TRANS_TYPES` (`pr_trans_type_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_RFQ_SUPPLIERS_MAST` (
+  `rfq_mast_id` INT(11) NOT NULL,
+  `supp_id` INT(11) NOT NULL,
+  `register_dt` DATETIME NULL DEFAULT NULL,
+  `notes` VARCHAR(200) NULL DEFAULT NULL,
+  `supp_replied` VARCHAR(2) NULL DEFAULT 'N',
+  PRIMARY KEY (`rfq_mast_id`, `supp_id`),
+  INDEX `fk_PUR_RFQ_SUPPLIERS_PUR_RFQ_MAST1_idx` (`rfq_mast_id` ASC)  ,
+  CONSTRAINT `fk_PUR_RFQ_SUPPLIERS_SUPPLIERS1`
+    FOREIGN KEY (`supp_id`)
+    REFERENCES `Elecon`.`SUPPLIERS` (`supp_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_RFQ_SUPPLIERS_PUR_RFQ_MAST1`
+    FOREIGN KEY (`rfq_mast_id`)
+    REFERENCES `Elecon`.`PUR_RFQ_MAST` (`rfq_mast_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_RFQ_MATERIAL_REQUESTS` (
+  `rfq_mast_id` INT(11) NOT NULL,
+  `pur_mat_rqst_id` INT(11) NOT NULL,
+  `registered_dt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`rfq_mast_id`, `pur_mat_rqst_id`),
+  INDEX `fk_PUR_RFQ_MATERIAL_REQUESTS_PUR_MATERIAL_REQUEST_MAST1_idx` (`pur_mat_rqst_id` ASC)  ,
+  CONSTRAINT `fk_PUR_RFQ_MATERIAL_REQUESTS_PUR_RFQ_MAST1`
+    FOREIGN KEY (`rfq_mast_id`)
+    REFERENCES `Elecon`.`PUR_RFQ_MAST` (`rfq_mast_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_RFQ_MATERIAL_REQUESTS_PUR_MATERIAL_REQUEST_MAST1`
+    FOREIGN KEY (`pur_mat_rqst_id`)
+    REFERENCES `Elecon`.`PUR_MATERIAL_REQUEST_MAST` (`pur_mat_rqst_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_RFQ_MATERIAL_REQUEST_DET` (
+  `rfq_mt_rqst_det_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `pur_mat_rqst_det_id` INT(11) NULL DEFAULT NULL,
+  `qty` DECIMAL(7,2) NOT NULL DEFAULT 0,
+  `unit_id` INT(11) NOT NULL,
+  `item_code` VARCHAR(100) NOT NULL,
+  `rfq_mast_id` INT(11) NOT NULL,
+  `pur_mat_rqst_id` INT(11) NOT NULL,
+  PRIMARY KEY (`rfq_mt_rqst_det_id`),
+  INDEX `fk_PUR_RFQ_MATERIAL_REQUEST_DET_PUR_MATERIAL_REQUEST_DETS1_idx` (`pur_mat_rqst_det_id` ASC)  ,
+  INDEX `fk_PUR_RFQ_MATERIAL_REQUEST_DET_UNITS1_idx` (`unit_id` ASC)  ,
+  INDEX `fk_PUR_RFQ_MATERIAL_REQUEST_DET_ITEMS_LIST1_idx` (`item_code` ASC)  ,
+  INDEX `fk_PUR_RFQ_MATERIAL_REQUEST_DET_PUR_RFQ_MATERIAL_REQUESTS1_idx` (`rfq_mast_id` ASC, `pur_mat_rqst_id` ASC)  ,
+  INDEX `item_code_unit_id_idx` (`qty` ASC, `unit_id` ASC)  ,
+  CONSTRAINT `fk_PUR_RFQ_MATERIAL_REQUEST_DET_PUR_MATERIAL_REQUEST_DETS1`
+    FOREIGN KEY (`pur_mat_rqst_det_id`)
+    REFERENCES `Elecon`.`PUR_MATERIAL_REQUEST_DETS` (`pur_mat_rqst_det_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_RFQ_MATERIAL_REQUEST_DET_UNITS1`
+    FOREIGN KEY (`unit_id`)
+    REFERENCES `Elecon`.`UNITS` (`unit_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_RFQ_MATERIAL_REQUEST_DET_ITEMS_LIST1`
+    FOREIGN KEY (`item_code`)
+    REFERENCES `Elecon`.`ITEMS_LIST` (`item_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_RFQ_MATERIAL_REQUEST_DET_PUR_RFQ_MATERIAL_REQUESTS1`
+    FOREIGN KEY (`rfq_mast_id` , `pur_mat_rqst_id`)
+    REFERENCES `Elecon`.`PUR_RFQ_MATERIAL_REQUESTS` (`rfq_mast_id` , `pur_mat_rqst_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_RFQ_SUPPLIERS_DETS` (
+  `rfq_supp_reply_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `rfq_mast_id` INT(11) NOT NULL,
+  `supp_id` INT(11) NOT NULL,
+  `rfq_mt_rqst_det_id` INT(11) NOT NULL,
+  `price` DECIMAL(7,2) NOT NULL DEFAULT 1,
+  `notes` VARCHAR(200) NULL DEFAULT NULL,
+  `curr_code` VARCHAR(5) NOT NULL,
+  PRIMARY KEY (`rfq_supp_reply_id`),
+  INDEX `fk_PUR_RFQ_SUPPLIERS_REPLIES_PUR_RFQ_SUPPLIERS1_idx` (`rfq_mast_id` ASC, `supp_id` ASC)  ,
+  INDEX `fk_PUR_RFQ_SUPPLIERS_REPLIES_PUR_RFQ_MATERIAL_REQUEST_DET1_idx` (`rfq_mt_rqst_det_id` ASC)  ,
+  INDEX `fk_PUR_RFQ_SUPPLIERS_REPLIES_CURRENCIES1_idx` (`curr_code` ASC)  ,
+  CONSTRAINT `fk_PUR_RFQ_SUPPLIERS_REPLIES_PUR_RFQ_SUPPLIERS1`
+    FOREIGN KEY (`rfq_mast_id` , `supp_id`)
+    REFERENCES `Elecon`.`PUR_RFQ_SUPPLIERS_MAST` (`rfq_mast_id` , `supp_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_RFQ_SUPPLIERS_REPLIES_PUR_RFQ_MATERIAL_REQUEST_DET1`
+    FOREIGN KEY (`rfq_mt_rqst_det_id`)
+    REFERENCES `Elecon`.`PUR_RFQ_MATERIAL_REQUEST_DET` (`rfq_mt_rqst_det_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_RFQ_SUPPLIERS_REPLIES_CURRENCIES1`
+    FOREIGN KEY (`curr_code`)
+    REFERENCES `Elecon`.`CURRENCIES` (`curr_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_RFQ_MAST_TERMS` (
+  `rfq_mast_term_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `rfq_mast_id` INT(11) NOT NULL,
+  `term_cat_id` INT(11) NOT NULL,
+  INDEX `fk_PUR_RFQ_MAST_TERMS_PUR_RFQ_MAST1_idx` (`rfq_mast_id` ASC)  ,
+  PRIMARY KEY (`rfq_mast_term_id`, `rfq_mast_id`),
+  INDEX `fk_PUR_RFQ_MAST_TERMS_PUR_TERM_CATEGORIES1_idx` (`term_cat_id` ASC)  ,
+  CONSTRAINT `fk_PUR_RFQ_MAST_TERMS_PUR_RFQ_MAST1`
+    FOREIGN KEY (`rfq_mast_id`)
+    REFERENCES `Elecon`.`PUR_RFQ_MAST` (`rfq_mast_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_RFQ_MAST_TERMS_PUR_TERM_CATEGORIES1`
+    FOREIGN KEY (`term_cat_id`)
+    REFERENCES `Elecon`.`PUR_TERM_CATEGORIES` (`term_cat_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_RFQ_SUPP_REPLY_TERMS` (
+  `rfq_mast_id` INT(11) NOT NULL,
+  `supp_id` INT(11) NOT NULL,
+  `rfq_supp_rply_term_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `rfq_supp_rply_term_name` VARCHAR(200) NOT NULL,
+  `validity_dt` DATETIME NULL DEFAULT NULL,
+  `rfq_mast_term_id` INT(11) NOT NULL,
+  `rfq_mast_id1` INT(11) NOT NULL,
+  INDEX `fk_PUR_RFQ_SUPPLIERS_TERMS_PUR_RFQ_SUPPLIERS1_idx` (`rfq_mast_id` ASC, `supp_id` ASC)  ,
+  PRIMARY KEY (`rfq_supp_rply_term_id`, `rfq_mast_id`, `supp_id`),
+  INDEX `fk_PUR_RFQ_SUPP_REPLY_TERMS_PUR_RFQ_MAST_TERMS1_idx` (`rfq_mast_term_id` ASC, `rfq_mast_id1` ASC)  ,
+  CONSTRAINT `fk_PUR_RFQ_SUPPLIERS_TERMS_PUR_RFQ_SUPPLIERS1`
+    FOREIGN KEY (`rfq_mast_id` , `supp_id`)
+    REFERENCES `Elecon`.`PUR_RFQ_SUPPLIERS_MAST` (`rfq_mast_id` , `supp_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_RFQ_SUPP_REPLY_TERMS_PUR_RFQ_MAST_TERMS1`
+    FOREIGN KEY (`rfq_mast_term_id` , `rfq_mast_id1`)
+    REFERENCES `Elecon`.`PUR_RFQ_MAST_TERMS` (`rfq_mast_term_id` , `rfq_mast_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_MAT_REQ_MAST_PROJECTS` (
+  `proj_id` INT(11) NOT NULL,
+  `version_no` INT(11) NOT NULL,
+  `pur_mat_rqst_id` INT(11) NOT NULL,
+  INDEX `fk_PUR_MATERIAL_REQ_MAST_PROJECTS_PROJECTS_MAST1_idx` (`proj_id` ASC, `version_no` ASC)  ,
+  INDEX `fk_PUR_MATERIAL_REQ_MAST_PROJECTS_PUR_MATERIAL_REQUEST_MAST_idx` (`pur_mat_rqst_id` ASC)  ,
+  CONSTRAINT `fk_PUR_MATERIAL_REQ_MAST_PROJECTS_PROJECTS_MAST1`
+    FOREIGN KEY (`proj_id` , `version_no`)
+    REFERENCES `Elecon`.`PROJECTS_MAST` (`proj_id` , `version_no`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_MATERIAL_REQ_MAST_PROJECTS_PUR_MATERIAL_REQUEST_MAST1`
+    FOREIGN KEY (`pur_mat_rqst_id`)
+    REFERENCES `Elecon`.`PUR_MATERIAL_REQUEST_MAST` (`pur_mat_rqst_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_MAT_REQ_MAST_CATS` (
+  `pur_mat_rqst_id` INT(11) NOT NULL,
+  `cat_id` INT(11) NOT NULL,
+  INDEX `fk_PUR_MAT_REQ_MAST_CATS_PUR_MATERIAL_REQUEST_MAST1_idx` (`pur_mat_rqst_id` ASC)  ,
+  INDEX `fk_PUR_MAT_REQ_MAST_CATS_ITEM_CATEGORIES1_idx` (`cat_id` ASC)  ,
+  CONSTRAINT `fk_PUR_MAT_REQ_MAST_CATS_PUR_MATERIAL_REQUEST_MAST1`
+    FOREIGN KEY (`pur_mat_rqst_id`)
+    REFERENCES `Elecon`.`PUR_MATERIAL_REQUEST_MAST` (`pur_mat_rqst_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PUR_MAT_REQ_MAST_CATS_ITEM_CATEGORIES1`
+    FOREIGN KEY (`cat_id`)
+    REFERENCES `Elecon`.`ITEM_CATEGORIES` (`cat_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `Elecon`.`PUR_TRANS_TYPES` (
+  `pr_trans_type_code` INT(11) NOT NULL,
+  `pr_trans_name_e` VARCHAR(200) NULL DEFAULT NULL,
+  `pr_trans_name_a` VARCHAR(200) NULL DEFAULT NULL,
+  `pr_trans_type` VARCHAR(2) NULL DEFAULT NULL,
+  `active` VARCHAR(2) NULL DEFAULT NULL,
+  PRIMARY KEY (`pr_trans_type_code`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-----------------------------------------------------------------------
+
+--ALTER TABLE `Elecon`.`PUR_RFQ_SUPPLIERS_MAST`
+--DROP INDEX `fk_PUR_RFQ_SUPPLIERS_SUPPLIERS1` ;
+--;
+
+ALTER TABLE `Elecon`.`PUR_RFQ_SUPPLIERS_DETS`
+CHANGE COLUMN `price` `price` DECIMAL(7,2) NOT NULL DEFAULT 1 ;
+
+ALTER TABLE `Elecon`.`ORGANIZATIONS`
+ADD COLUMN `org_type` VARCHAR(2) NULL DEFAULT NULL AFTER `prnt_org_code`;
+
+ALTER TABLE `Elecon`.`PUR_MATERIAL_REQUEST_MAST`
+ADD COLUMN `mr_status` VARCHAR(2) NOT NULL DEFAULT 'D' COMMENT 'either Draft/Submitted/Approved/PrtialRFQ/FullRFQ/Closed/Cancelled' AFTER `pr_trans_type_code`;
+
+ALTER TABLE `Elecon`.`PUR_MATERIAL_REQUEST_DETS`
+ADD COLUMN `det_status` VARCHAR(2) NOT NULL DEFAULT 'O' COMMENT 'either Ope/RFQED/Cancelled' AFTER `notes`;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+

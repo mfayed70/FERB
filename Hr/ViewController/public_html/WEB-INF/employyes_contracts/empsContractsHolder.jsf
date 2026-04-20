@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        locale="#{sessionScope.refreshLocale}">
     <af:document id="d1">
         <af:form id="f1" usesUpload="true">
             <af:region value="#{bindings.employeesContractsTFxml1.regionModel}" id="r1"/>

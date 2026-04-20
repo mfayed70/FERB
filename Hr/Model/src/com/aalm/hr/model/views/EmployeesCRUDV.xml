@@ -251,4 +251,9 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewLinkAccessor
+    Name="EmployeeExtraJobsV"
+    ViewLink="com.aalm.hr.model.views.FkEmployeeExtraJobsEmployeesCrudLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

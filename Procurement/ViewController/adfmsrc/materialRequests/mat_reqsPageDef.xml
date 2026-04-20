@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="mat_reqsPageDef"
+                Package="materialRequests">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PurMaterialRequestMastV" RangeSize="25" DataControl="AalmPrcrmntDataControl"
+              id="PurMaterialRequestMastVIterator"/>
+    <iterator Binds="PurMatReqMastCatsV" RangeSize="25" DataControl="AalmPrcrmntDataControl"
+              id="PurMatReqMastCatsVIterator"/>
+    <searchRegion Binds="PurMatReqMastCatsVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PurMatReqMastCatsVQuery"/>
+    <iterator Binds="PurMaterialRequestDetsV" RangeSize="25" DataControl="AalmPrcrmntDataControl"
+              id="PurMaterialRequestDetsVIterator"/>
+    <searchRegion Binds="PurMaterialRequestDetsVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PurMaterialRequestDetsVQuery"/>
+  </executables>
+  <bindings>
+    <list IterBinding="PurMaterialRequestMastVIterator" StaticList="false" Uses="LOV_PrTransTypeCode"
+          id="PrTransTypeCode" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="PurMaterialRequestMastVIterator" id="PurMatRqstId">
+      <AttrNames>
+        <Item Value="PurMatRqstId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurMaterialRequestMastVIterator" id="PurMatRqstName">
+      <AttrNames>
+        <Item Value="PurMatRqstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurMaterialRequestMastVIterator" id="RegisteredDt">
+      <AttrNames>
+        <Item Value="RegisteredDt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurMaterialRequestMastVIterator" id="OrgCode">
+      <AttrNames>
+        <Item Value="OrgCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurMaterialRequestMastVIterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="PurMaterialRequestMastVIterator" StaticList="false" Uses="LOV_TargetType" id="TargetType"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="PurMaterialRequestMastVIterator" StaticList="false" Uses="LOV_TargetOrgCode" id="TargetOrgCode"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="PurMaterialRequestMastVIterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PurMaterialRequestMastVIterator" id="ExpectedDeliveryDt">
+      <AttrNames>
+        <Item Value="ExpectedDeliveryDt"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="PurMaterialRequestMastVIterator" StaticList="false" Uses="LOV_DeliveryTo" id="DeliveryTo"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="PurMaterialRequestMastVIterator" StaticList="false" Uses="LOV_MrStatus" id="MrStatus"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="PurMatReqMastCatsVIterator" id="PurMatReqMastCatsV">
+      <nodeDefinition DefName="com.aalm.prcrmnt.model.views.PurMatReqMastCatsV" Name="PurMatReqMastCatsV0">
+        <AttrNames>
+          <Item Value="PurMatRqstId"/>
+          <Item Value="CatId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="PurMatReqMastCatsVIterator" id="DeleteCategory"
+            InstanceName="AalmPrcrmntDataControl.PurMatReqMastCatsV" DataControl="AalmPrcrmntDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="AalmPrcrmntDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AalmPrcrmntDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="PurMatReqMastCatsVIterator" id="CreateInsertCategory"
+            InstanceName="AalmPrcrmntDataControl.PurMatReqMastCatsV" DataControl="AalmPrcrmntDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="PurMaterialRequestDetsVIterator" id="CreateInsertItems"
+            InstanceName="AalmPrcrmntDataControl.PurMaterialRequestDetsV" DataControl="AalmPrcrmntDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="PurMaterialRequestDetsVIterator" id="PurMaterialRequestDetsV">
+      <nodeDefinition DefName="com.aalm.prcrmnt.model.views.PurMaterialRequestDetsV" Name="PurMaterialRequestDetsV0">
+        <AttrNames>
+          <Item Value="PurMatRqstDetId"/>
+          <Item Value="Qty"/>
+          <Item Value="PurMatRqstId"/>
+          <Item Value="ItemCode"/>
+          <Item Value="UnitId"/>
+          <Item Value="Itemcatid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

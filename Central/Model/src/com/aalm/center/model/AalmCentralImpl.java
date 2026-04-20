@@ -416,5 +416,13 @@ public class AalmCentralImpl extends ApplicationModuleImpl implements AalmCentra
     public ViewLinkImpl getJobsTreeSelfJoinCL1() {
         return (ViewLinkImpl) findViewLink("JobsTreeSelfJoinCL1");
     }
+
+    /**
+     * Container's getter for OrganizationsV1.
+     * @return OrganizationsV1
+     */
+    public ViewObjectImpl getOrganizationsCrudV() {
+        return (ViewObjectImpl) findViewObject("OrganizationsCrudV");
+    }
 }
 

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TransTypeLOV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.prcrmnt.model.lov.TransTypeLOV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT 
+    PUR_TRANS_TYPES.pr_trans_type_code pr_trans_type_code, 
+    PUR_TRANS_TYPES.pr_trans_name_e pr_trans_name_e, 
+    PUR_TRANS_TYPES.pr_trans_name_a pr_trans_name_a, 
+    PUR_TRANS_TYPES.pr_trans_type pr_trans_type, 
+    PUR_TRANS_TYPES.active active 
+FROM 
+    PUR_TRANS_TYPES
+WHERE PUR_TRANS_TYPES.pr_trans_type = 'MR']]></SQLQuery>
+  <ViewAttribute
+    Name="PrTransTypeCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="pr_trans_type_code"
+    Expression="pr_trans_type_code"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrTransNameE"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="pr_trans_name_e"
+    Expression="pr_trans_name_e"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrTransNameA"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="pr_trans_name_a"
+    Expression="pr_trans_name_a"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrTransType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="pr_trans_type"
+    Expression="pr_trans_type"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Active"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="active"
+    Expression="active"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="PrTransTypeCode"/>
+  </AttrArray>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.prcrmnt.model.AalmPrcrmntMBndl"/>
+  </ResourceBundle>
+</ViewObject>

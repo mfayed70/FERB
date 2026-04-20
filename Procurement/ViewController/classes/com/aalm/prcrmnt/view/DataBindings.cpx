@@ -16,6 +16,16 @@
     <page path="/WEB-INF/suppliers/crud-supplier-TF.xml#new-supplier-TF@CreateInsert"
           usageId="com_aalm_prcrmnt_view_new_supplier_TF_new_supplier_TF_CreateInsertPageDef"/>
     <page path="/WEB-INF/suppliers/crud-supplier.jsf" usageId="com_aalm_prcrmnt_view_crud_supplierPageDef"/>
+    <page path="/WEB-INF/transTypes/trans-types-TF.xml#trans-types-TF@Execute"
+          usageId="com_aalm_prcrmnt_view_trans_types_TF_trans_types_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/transTypes/trans-typesV.jsff" usageId="com_aalm_prcrmnt_view_trans_typesVPageDef"/>
+    <page path="/WEB-INF/materialRequests/mat-reqs.jsff" usageId="com_aalm_prcrmnt_view_mat_reqsPageDef"/>
+    <page path="/WEB-INF/materialRequests/mat-req-TF.xml#mat-req-TF@CreateInsert"
+          usageId="com_aalm_prcrmnt_view_mat_req_TF_mat_req_TF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/materialRequests/mat-reqs-list.jsff" usageId="com_aalm_prcrmnt_view_mat_reqs_listPageDef"/>
+    <page path="/WEB-INF/selectItemLov/select_item_lov-TF.xml#select_item_lov-TF@ExecuteWithParams"
+          usageId="com_aalm_prcrmnt_view_select_item_lov_TF_select_item_lov_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/selectItemLov/selectItemLov.jsf" usageId="com_aalm_prcrmnt_view_selectItemLovPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_aalm_prcrmnt_view_suppliers_TF_suppliers_TF_ExecutePageDef"
@@ -27,6 +37,16 @@
     <page id="com_aalm_prcrmnt_view_new_supplier_TF_new_supplier_TF_CreateInsertPageDef"
           path="suppliers.new_supplier_TF_new_supplier_TF_CreateInsertPageDef"/>
     <page id="com_aalm_prcrmnt_view_crud_supplierPageDef" path="suppliers.crud_supplierPageDef"/>
+    <page id="com_aalm_prcrmnt_view_trans_types_TF_trans_types_TF_ExecutePageDef"
+          path="transTypes.trans_types_TF_trans_types_TF_ExecutePageDef"/>
+    <page id="com_aalm_prcrmnt_view_trans_typesVPageDef" path="transTypes.trans_typesVPageDef"/>
+    <page id="com_aalm_prcrmnt_view_mat_reqsPageDef" path="materialRequests.mat_reqsPageDef"/>
+    <page id="com_aalm_prcrmnt_view_mat_req_TF_mat_req_TF_CreateInsertPageDef"
+          path="materialRequests.mat_req_TF_mat_req_TF_CreateInsertPageDef"/>
+    <page id="com_aalm_prcrmnt_view_mat_reqs_listPageDef" path="materialRequests.mat_reqs_listPageDef"/>
+    <page id="com_aalm_prcrmnt_view_select_item_lov_TF_select_item_lov_TF_ExecuteWithParamsPageDef"
+          path="selectItemLov.select_item_lov_TF_select_item_lov_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_prcrmnt_view_selectItemLovPageDef" path="selectItemLov.selectItemLovPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AalmPrcrmntDataControl" Package="com.aalm.prcrmnt.model"

@@ -45,7 +45,7 @@
       <property
          name="activityId">itemsList</property>
       <property
-         name="page">/WEB-INF/itemsList.jsf</property>
+         name="page">/WEB-INF/selectFromItemsList/itemsList.jsf</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>itemsList&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property

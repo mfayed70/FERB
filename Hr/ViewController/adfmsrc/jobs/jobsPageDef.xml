@@ -15,10 +15,10 @@
     <tree IterBinding="JobsVIterator" id="JobsV">
       <nodeDefinition DefName="com.aalm.hr.model.views.JobsV" Name="JobsV0">
         <AttrNames>
+          <Item Value="OrgCode"/>
           <Item Value="JobId"/>
           <Item Value="JobNameEn"/>
           <Item Value="JobNameAr"/>
-          <Item Value="OrgCode"/>
           <Item Value="ParentJobId"/>
         </AttrNames>
       </nodeDefinition>
@@ -26,6 +26,7 @@
     <tree IterBinding="JobsTreeVIterator" id="JobsTreeV">
       <nodeDefinition DefName="com.aalm.hr.model.views.JobsTreeV" Name="JobsTreeV0">
         <AttrNames>
+          <Item Value="JobId"/>
           <Item Value="JobNameEn"/>
           <Item Value="JobNameAr"/>
         </AttrNames>
@@ -34,5 +35,6 @@
         </Accessors>
       </nodeDefinition>
     </tree>
+    <action IterBinding="JobsVIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

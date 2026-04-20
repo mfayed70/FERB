@@ -45,6 +45,11 @@
           usageId="com_aalm_center_view_items_variables_structure_TF_items_variables_structure_TF_initiateCaptionsPageDef"/>
     <page path="/WEB-INF/items/items-TF.xml#items-TF@initiateCaptions"
           usageId="com_aalm_center_view_items_TF_items_TF_initiateCaptionsPageDef"/>
+    <page path="/WEB-INF/organizations/edit-new-Org_TF.xml#edit-new-Org_TF@ExecuteWithParams"
+          usageId="com_aalm_center_view_edit_new_Org_TF_edit_new_Org_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/organizations/edit-new-Org_TF.xml#edit-new-Org_TF@CreateWithParameters"
+          usageId="com_aalm_center_view_edit_new_Org_TF_edit_new_Org_TF_CreateWithParametersPageDef"/>
+    <page path="/WEB-INF/organizations/OrgCrud.jsf" usageId="com_aalm_center_view_OrgCrudPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_aalm_center_view_currencies_TF_currencies_TF_ExecutePageDef"
@@ -80,6 +85,11 @@
           path="itemVariablesStructure.items_variables_structure_TF_items_variables_structure_TF_initiateCaptionsPageDef"/>
     <page id="com_aalm_center_view_items_TF_items_TF_initiateCaptionsPageDef"
           path="items.items_TF_items_TF_initiateCaptionsPageDef"/>
+    <page id="com_aalm_center_view_edit_new_Org_TF_edit_new_Org_TF_ExecuteWithParamsPageDef"
+          path="organizations.edit_new_Org_TF_edit_new_Org_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_center_view_edit_new_Org_TF_edit_new_Org_TF_CreateWithParametersPageDef"
+          path="organizations.edit_new_Org_TF_edit_new_Org_TF_CreateWithParametersPageDef"/>
+    <page id="com_aalm_center_view_OrgCrudPageDef" path="organizations.OrgCrudPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AalmCentralDataControl" Package="com.aalm.center.model"

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PurMatReqMastCats"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PUR_MAT_REQ_MAST_CATS"
+  AliasName="PurMatReqMastCats"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="PurMatRqstId"
+    IsNotNull="true"
+    ColumnName="pur_mat_rqst_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUR_MAT_REQ_MAST_CATS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CatId"
+    IsNotNull="true"
+    ColumnName="cat_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUR_MAT_REQ_MAST_CATS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="PurMaterialRequestMast"
+    Association="com.aalm.prcrmnt.model.entities.fk_PUR_MAT_REQ_MAST_CATS_Assoc"
+    AssociationEnd="com.aalm.prcrmnt.model.entities.fk_PUR_MAT_REQ_MAST_CATS_Assoc.PurMaterialRequestMast"
+    AssociationOtherEnd="com.aalm.prcrmnt.model.entities.fk_PUR_MAT_REQ_MAST_CATS_Assoc.PurMatReqMastCats"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PurmatreqmastcatsPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PURMATREQMASTCATS_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMatReqMastCats.CatId"/>
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMatReqMastCats.PurMatRqstId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPurMatReqMastCatsItemCategories1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PUR_MAT_REQ_MAST_CATS_ITEM_CATEGORIES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMatReqMastCats.CatId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPurMatReqMastCatsPurMaterialRequestMast1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_PUR_MAT_REQ_MAST_CATS_PUR_MATERIAL_REQUEST_MAST1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMatReqMastCats.PurMatRqstId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_PurMatReqMastCats">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Pur_Mat_Req_Mast_Cats"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.prcrmnt.model.entities.PurMatReqMastCats.PurMatRqstId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -329,5 +329,37 @@ public class AalmHrImpl extends ApplicationModuleImpl implements AalmHr {
     public ViewLinkImpl getUserVacationToApprovalStatusCL1() {
         return (ViewLinkImpl) findViewLink("UserVacationToApprovalStatusCL1");
     }
+
+    /**
+     * Container's getter for EmployeeExtraJobsV1.
+     * @return EmployeeExtraJobsV1
+     */
+    public ViewObjectImpl getEmployeeExtraJobsV() {
+        return (ViewObjectImpl) findViewObject("EmployeeExtraJobsV");
+    }
+
+    /**
+     * Container's getter for FkEmployeeExtraJobsEmployees1Link1.
+     * @return FkEmployeeExtraJobsEmployees1Link1
+     */
+    public ViewLinkImpl getFkEmployeeExtraJobsEmployees1Link1() {
+        return (ViewLinkImpl) findViewLink("FkEmployeeExtraJobsEmployees1Link1");
+    }
+
+    /**
+     * Container's getter for EmployeeExtraJobsV1.
+     * @return EmployeeExtraJobsV1
+     */
+    public ViewObjectImpl getEmployeeCrudExtraJobsV() {
+        return (ViewObjectImpl) findViewObject("EmployeeCrudExtraJobsV");
+    }
+
+    /**
+     * Container's getter for FkEmployeeExtraJobsEmployeesCrudLink1.
+     * @return FkEmployeeExtraJobsEmployeesCrudLink1
+     */
+    public ViewLinkImpl getFkEmployeeExtraJobsEmployeesCrudLink1() {
+        return (ViewLinkImpl) findViewLink("FkEmployeeExtraJobsEmployeesCrudLink1");
+    }
 }
 

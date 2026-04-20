@@ -26,10 +26,53 @@
   <ViewUsage
     Name="SupplierDeliverItemCatsV"
     ViewObjectName="com.aalm.prcrmnt.model.views.SupplierDeliverItemCatsV"/>
+  <ViewUsage
+    Name="PurTransTypesV"
+    ViewObjectName="com.aalm.prcrmnt.model.views.PurTransTypesV"/>
+  <ViewUsage
+    Name="PurMaterialRequestMastV"
+    ViewObjectName="com.aalm.prcrmnt.model.views.PurMaterialRequestMastV"/>
+  <ViewUsage
+    Name="PurMatReqMastCatsV"
+    ViewObjectName="com.aalm.prcrmnt.model.views.PurMatReqMastCatsV"/>
+  <ViewUsage
+    Name="PurMatReqMastProjectsV"
+    ViewObjectName="com.aalm.prcrmnt.model.views.PurMatReqMastProjectsV"/>
+  <ViewUsage
+    Name="PurMaterialRequestDetsV"
+    ViewObjectName="com.aalm.prcrmnt.model.views.PurMaterialRequestDetsV"/>
+  <ViewUsage
+    Name="ItemsListLOV"
+    ViewObjectName="com.aalm.prcrmnt.model.lov.ItemsListLOV"/>
+  <ViewUsage
+    Name="ItemsVariablesForCaptionsV"
+    ViewObjectName="com.aalm.prcrmnt.model.views.ItemsVariablesForCaptionsV"/>
   <ViewLinkUsage
     Name="fk_SUPPLIER_DELIVER_ITEM_CATS_SUPPLIERS1VL1"
     ViewLinkObjectName="com.aalm.prcrmnt.model.views.fk_SUPPLIER_DELIVER_ITEM_CATS_SUPPLIERS1VL"
     SrcViewUsageName="com.aalm.prcrmnt.model.AalmPrcrmnt.SuppliersV"
     DstViewUsageName="com.aalm.prcrmnt.model.AalmPrcrmnt.SupplierDeliverItemCatsV"
     Reversed="false"/>
+  <ViewLinkUsage
+    Name="fk_PMRMC_PUR_MATERIAL_REQUEST_MAST1VL1"
+    ViewLinkObjectName="com.aalm.prcrmnt.model.views.fk_PUR_MAT_REQ_MAST_CATS_VL"
+    SrcViewUsageName="com.aalm.prcrmnt.model.AalmPrcrmnt.PurMaterialRequestMastV"
+    DstViewUsageName="com.aalm.prcrmnt.model.AalmPrcrmnt.PurMatReqMastCatsV"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="fk_PMRMP_PMRM_VL1"
+    ViewLinkObjectName="com.aalm.prcrmnt.model.views.fk_PurMatReqMas_Projects_VL"
+    SrcViewUsageName="com.aalm.prcrmnt.model.AalmPrcrmnt.PurMaterialRequestMastV"
+    DstViewUsageName="com.aalm.prcrmnt.model.AalmPrcrmnt.PurMatReqMastProjectsV"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkPurMaterialRequestDetsPurMaterialRequestMast1Link1"
+    ViewLinkObjectName="com.aalm.prcrmnt.model.views.FkPurMaterialRequestDetsPurMaterialRequestMast1Link"
+    SrcViewUsageName="com.aalm.prcrmnt.model.AalmPrcrmnt.PurMaterialRequestMastV"
+    DstViewUsageName="com.aalm.prcrmnt.model.AalmPrcrmnt.PurMaterialRequestDetsV"
+    Reversed="false"/>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.prcrmnt.model.AalmPrcrmntMBndl"/>
+  </ResourceBundle>
 </AppModule>

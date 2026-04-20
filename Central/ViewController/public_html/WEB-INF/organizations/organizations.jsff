@@ -19,7 +19,7 @@
     <f:facet name="legend"/>
     <af:panelTabbed position="above" id="pt1">
       <af:showDetailItem id="tab1" text="#{viewcontrollerBundle.Table}">
-        <af:panelCollection id="pc1">
+        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
           <f:facet name="menus"/>
           <f:facet name="toolbar"/>
           <f:facet name="statusbar"/>
@@ -29,39 +29,46 @@
                     rowBandingInterval="0" selectedRowKeys="#{bindings.OrganizationsV.collectionModel.selectedRow}"
                     selectionListener="#{bindings.OrganizationsV.collectionModel.makeCurrent}" rowSelection="single"
                     fetchSize="#{bindings.OrganizationsV.rangeSize}" id="t1" partialTriggers="b3 l1"
-                    verticalGridVisible="false">
-            <af:column headerText="#{bindings.OrganizationsV.hints.OrgCode.label}" id="c1" width="130" align="center">
+                    verticalGridVisible="false" filterModel="#{bindings.OrganizationsVQuery.queryDescriptor}"
+                    queryListener="#{bindings.OrganizationsVQuery.processQuery}" filterVisible="true" varStatus="vs">
+            <af:column headerText="#{bindings.OrganizationsV.hints.OrgCode.label}" id="c1" width="130" align="center"
+                       sortable="true" filterable="true">
               <af:panelGroupLayout id="pgl2" layout="horizontal">
                 <af:link actionListener="#{bindings.Delete.execute}" disabled="#{!bindings.Delete.enabled}" id="l1"
-                         icon="#{resource['images:delete24.png']}" visible="#{row.PrntOrgCode==0}"/>
-                <af:inputText value="#{row.OrgCode}" shortDesc="#{bindings.OrganizationsV.hints.OrgCode.tooltip}"
-                              id="ot1" contentStyle="width:100px;">
-                  <af:convertNumber groupingUsed="false" pattern="#{bindings.OrganizationsV.hints.OrgCode.format}"/>
-                </af:inputText>
+                         icon="#{resource['images:delete24.png']}" visible="#{row.PrntOrgCode==0}" rendered="false"/>
+                <af:link shortDesc="#{bindings.OrganizationsV.hints.OrgCode.tooltip}" id="ot1" text="#{row.OrgCode}"
+                         action="toCrud" useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="300"
+                         windowWidth="700">
+                  <af:setPropertyListener from="#{'edit'}" to="#{pageFlowScope.pAction}" type="action"/>
+                  <af:setPropertyListener from="#{row.OrgCode}" to="#{pageFlowScope.pOrgCode}" type="action"/>
+                </af:link>
               </af:panelGroupLayout>
             </af:column>
-            <af:column headerText="#{bindings.OrganizationsV.hints.EnOrgName.label}" id="c2" width="198">
+            <af:column headerText="#{bindings.OrganizationsV.hints.EnOrgName.label}" id="c2" width="198"
+                       sortProperty="#{bindings.OrganizationsV.hints.EnOrgName.name}" filterable="true" sortable="true">
               <af:inputText value="#{row.bindings.EnOrgName.inputValue}"
                             label="#{bindings.OrganizationsV.hints.EnOrgName.label}"
                             required="#{bindings.OrganizationsV.hints.EnOrgName.mandatory}"
                             columns="#{bindings.OrganizationsV.hints.EnOrgName.displayWidth}"
                             maximumLength="#{bindings.OrganizationsV.hints.EnOrgName.precision}"
-                            shortDesc="#{bindings.OrganizationsV.hints.EnOrgName.tooltip}" id="it1">
+                            shortDesc="#{bindings.OrganizationsV.hints.EnOrgName.tooltip}" id="it1" readOnly="true">
                 <f:validator binding="#{row.bindings.EnOrgName.validator}"/>
               </af:inputText>
             </af:column>
             <af:column headerText="#{bindings.OrganizationsV.hints.ArOrgName.label}" id="c3" width="250"
-                       rendered="false">
+                       sortProperty="#{bindings.OrganizationsV.hints.ArOrgName.name}" filterable="true" sortable="true">
               <af:inputText value="#{row.bindings.ArOrgName.inputValue}"
                             label="#{bindings.OrganizationsV.hints.ArOrgName.label}"
                             required="#{bindings.OrganizationsV.hints.ArOrgName.mandatory}"
                             columns="#{bindings.OrganizationsV.hints.ArOrgName.displayWidth}"
                             maximumLength="#{bindings.OrganizationsV.hints.ArOrgName.precision}"
-                            shortDesc="#{bindings.OrganizationsV.hints.ArOrgName.tooltip}" id="it2">
+                            shortDesc="#{bindings.OrganizationsV.hints.ArOrgName.tooltip}" id="it2" readOnly="true">
                 <f:validator binding="#{row.bindings.ArOrgName.validator}"/>
               </af:inputText>
             </af:column>
-            <af:column headerText="#{bindings.OrganizationsV.hints.PrntOrgCode.label}" id="c4" width="250">
+            <af:column headerText="#{bindings.OrganizationsV.hints.PrntOrgCode.label}" id="c4" width="250"
+                       sortProperty="#{bindings.OrganizationsV.hints.PrntOrgCode.name}" filterable="true"
+                       sortable="true">
               <af:selectOneChoice value="#{row.bindings.PrntOrgCode.inputValue}"
                                   label="#{row.bindings.PrntOrgCode.label}"
                                   required="#{bindings.OrganizationsV.hints.PrntOrgCode.mandatory}"
@@ -71,10 +78,24 @@
                 <f:validator binding="#{row.bindings.PrntOrgCode.validator}"/>
               </af:selectOneChoice>
             </af:column>
-            <af:column id="c5" width="170" align="center">
+            <af:column id="c6" width="300" headerText="#{bindings.OrganizationsV.hints.OrgType.label}">
+              <af:selectOneChoice value="#{row.bindings.OrgType.inputValue}" label="#{row.bindings.OrgType.label}"
+                                  required="#{bindings.OrganizationsV.hints.OrgType.mandatory}"
+                                  shortDesc="#{bindings.OrganizationsV.hints.OrgType.tooltip}" id="soc2"
+                                  readOnly="true">
+                <f:selectItems value="#{row.bindings.OrgType.items}" id="si2"/>
+                <f:validator binding="#{row.bindings.OrgType.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c5" width="170" align="center" sortable="true" filterable="true">
               <af:button actionListener="#{bindings.CreateWithParams.execute}" text="#{viewcontrollerBundle.ADD_CHILD}"
                          disabled="#{!bindings.CreateWithParams.enabled}" id="b3" styleClass="but"
-                         icon="#{resource['images:CreateF.png']}" hoverIcon="#{resource['images:CreateO.png']}"/>
+                         icon="#{resource['images:CreateF.png']}" hoverIcon="#{resource['images:CreateO.png']}"
+                         action="toCrud" useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="300"
+                         windowWidth="700">
+                <af:setPropertyListener from="#{'new'}" to="#{pageFlowScope.pAction}" type="action"/>
+                <af:setPropertyListener from="#{row.OrgCode}" to="#{pageFlowScope.pOrgCode}" type="action"/>
+              </af:button>
             </af:column>
           </af:table>
         </af:panelCollection>

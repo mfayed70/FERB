@@ -253,6 +253,11 @@
     ViewLink="com.aalm.hr.model.views.FkOrgUsersEmployees1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="EmployeeExtraJobsV1"
+    ViewLink="com.aalm.hr.model.views.FkEmployeeExtraJobsEmployees1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <XliffBundle
       id="com.aalm.hr.model.AalmHrMBndl"/>
