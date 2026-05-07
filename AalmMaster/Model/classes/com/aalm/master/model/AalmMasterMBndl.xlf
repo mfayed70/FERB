@@ -238,6 +238,18 @@
         <source>Max Org Level</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.master.model.views.PunchAreaV_LABEL">
+        <source>Punch Area V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.ProjectsLOV_LABEL">
+        <source>Projects Lov</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.master.model.lovs.PunchTypeLOV_LABEL">
+        <source>Punch Type Lov</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

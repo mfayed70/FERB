@@ -18,7 +18,8 @@
        Employees.id_no, 
        Employees.job_id, 
        Employees.curr_code, 
-       Employees.org_code"
+       Employees.org_code, 
+       Employees.insuranse_no"
   FromList="EMPLOYEES Employees">
   <ViewAccessor
     Name="Currencies1"
@@ -50,7 +51,6 @@
       <Item Value="CurrCode"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="CurrName"/>
       <Item Value="CurrSymbol"/>
     </AttrArray>
     <DisplayCriteria/>
@@ -243,6 +243,12 @@
     EntityAttrName="OrgCode"
     EntityUsage="Employees"
     AliasName="org_code"/>
+  <ViewAttribute
+    Name="InsuranseNo"
+    PrecisionRule="true"
+    EntityAttrName="InsuranseNo"
+    EntityUsage="Employees"
+    AliasName="insuranse_no"/>
   <ViewLinkAccessor
     Name="EmployeeJobHistoryV"
     ViewLink="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL"

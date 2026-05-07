@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="punchAreaPageDef"
+                Package="punchArea">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PunchAreaV" RangeSize="25" DataControl="AalmMasterDataControl" id="PunchAreaVIterator"/>
+    <searchRegion Binds="PunchAreaVIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="PunchAreaVQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="PunchAreaVIterator" id="PunchAreaV">
+      <nodeDefinition DefName="com.aalm.master.model.views.PunchAreaV" Name="PunchAreaV0">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="AreaName"/>
+          <Item Value="Type"/>
+          <Item Value="OrgCode"/>
+          <Item Value="ProjId"/>
+          <Item Value="VersionNo"/>
+          <Item Value="CenterLat"/>
+          <Item Value="CenterLon"/>
+          <Item Value="RadiusM"/>
+          <Item Value="IsActive"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreatedAt"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

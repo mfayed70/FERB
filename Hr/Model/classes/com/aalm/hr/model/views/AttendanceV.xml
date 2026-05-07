@@ -62,21 +62,34 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT Attendance.attendance_date , 
-       year(curdate()) as curr_year,
-       MONTHNAME(CURDATE()) as curr_month,
-       CURDATE() AS curr_date,
-       Attendance.attendance_id, 
-       Attendance.check_in_time, 
-       Attendance.check_out_time, 
-       Attendance.created_at, 
-       Attendance.remarks, 
-       Attendance.status,      
-       Attendance.updated_at, 
-       Attendance.user_id, 
-       Attendance.work_hours
-FROM  ATTENDANCE Attendance
-WHERE MONTHNAME(Attendance.attendance_date) = MONTHNAME(CURDATE())]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT 
+    Attendance.attendance_date, 
+    YEAR(CURDATE()) AS curr_year, 
+    MONTHNAME(CURDATE()) AS curr_month, 
+    CURDATE() AS curr_date, 
+    Attendance.attendance_id, 
+    Attendance.check_in_time, 
+    Attendance.check_out_time, 
+    Attendance.created_at, 
+    Attendance.remarks, 
+    Attendance.status, 
+    Attendance.updated_at, 
+    Attendance.user_id, 
+    Attendance.work_hours, 
+    Attendance.check_in_lat check_in_lat, 
+    Attendance.check_in_lon check_in_lon, 
+    Attendance.check_in_accuracy check_in_accuracy, 
+    Attendance.check_out_lat check_out_lat, 
+    Attendance.check_out_lon check_out_lon, 
+    Attendance.check_out_accuracy check_out_accuracy, 
+    Attendance.area_id area_id, 
+    Attendance.area_name area_name, 
+    Attendance.distance_m distance_m, 
+    Attendance.device_type device_type 
+FROM 
+    ATTENDANCE Attendance 
+WHERE 
+    MONTHNAME(Attendance.attendance_date) = MONTHNAME(CURDATE())]]></SQLQuery>
   <EntityUsage
     Name="Attendance"
     Entity="com.aalm.hr.model.entities.Attendance"/>
@@ -203,6 +216,66 @@ WHERE MONTHNAME(Attendance.attendance_date) = MONTHNAME(CURDATE())]]></SQLQuery>
     EntityAttrName="WorkHours"
     EntityUsage="Attendance"
     AliasName="work_hours"/>
+  <ViewAttribute
+    Name="CheckInAccuracy"
+    PrecisionRule="true"
+    EntityAttrName="CheckInAccuracy"
+    EntityUsage="Attendance"
+    AliasName="check_in_accuracy"/>
+  <ViewAttribute
+    Name="CheckInLat"
+    PrecisionRule="true"
+    EntityAttrName="CheckInLat"
+    EntityUsage="Attendance"
+    AliasName="check_in_lat"/>
+  <ViewAttribute
+    Name="CheckInLon"
+    PrecisionRule="true"
+    EntityAttrName="CheckInLon"
+    EntityUsage="Attendance"
+    AliasName="check_in_lon"/>
+<ViewAttribute
+    Name="CheckOutAccuracy"
+    PrecisionRule="true"
+    EntityAttrName="CheckOutAccuracy"
+    EntityUsage="Attendance"
+    AliasName="check_out_accuracy"/>
+  <ViewAttribute
+    Name="CheckOutLat"
+    PrecisionRule="true"
+    EntityAttrName="CheckOutLat"
+    EntityUsage="Attendance"
+    AliasName="check_out_lat"/>
+  <ViewAttribute
+    Name="CheckOutLon"
+    PrecisionRule="true"
+    EntityAttrName="CheckOutLon"
+    EntityUsage="Attendance"
+    AliasName="check_out_lon"/>
+<ViewAttribute
+    Name="DeviceType"
+    PrecisionRule="true"
+    EntityAttrName="DeviceType"
+    EntityUsage="Attendance"
+    AliasName="device_type"/>
+  <ViewAttribute
+    Name="DistanceM"
+    PrecisionRule="true"
+    EntityAttrName="DistanceM"
+    EntityUsage="Attendance"
+    AliasName="distance_m"/>
+  <ViewAttribute
+    Name="AreaId"
+    PrecisionRule="true"
+    EntityAttrName="AreaId"
+    EntityUsage="Attendance"
+    AliasName="area_id"/>
+  <ViewAttribute
+    Name="AreaName"
+    PrecisionRule="true"
+    EntityAttrName="AreaName"
+    EntityUsage="Attendance"
+    AliasName="area_name"/>
   <ResourceBundle>
     <XliffBundle
       id="com.aalm.hr.model.AalmHrMBndl"/>

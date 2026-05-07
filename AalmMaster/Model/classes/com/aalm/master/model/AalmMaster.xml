@@ -126,6 +126,16 @@
       Name="OrgUsersSetPasswordVCriteria"
       FullName="com.aalm.master.model.views.OrgUsersV.OrgUsersSetPasswordVCriteria"/>
   </ViewUsage>
+  <ViewUsage
+    Name="PunchAreaV"
+    ViewObjectName="com.aalm.master.model.views.PunchAreaV"/>
+  <ViewUsage
+    Name="PunchAreaCrudV"
+    ViewObjectName="com.aalm.master.model.views.PunchAreaV">
+    <ViewCriteriaUsage
+      Name="PunchAreaVCriteria"
+      FullName="com.aalm.master.model.views.PunchAreaV.PunchAreaVCriteria"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkUserRolesMasterOrgUsers1VL1"
     ViewLinkObjectName="com.aalm.master.model.views.FkUserRolesMasterOrgUsers1VL"

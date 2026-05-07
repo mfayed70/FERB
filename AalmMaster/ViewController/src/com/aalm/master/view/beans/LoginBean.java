@@ -46,7 +46,8 @@ public class LoginBean {
     private Timestamp currentTime;
     private RichPopup attendanceConfirmationPopup;
     private String pswrd, confrmPswrd;
-    public String login() {
+
+    public void login(ActionEvent actionEvent) {
         // Add event code here...
                 
         try {
@@ -59,6 +60,16 @@ public class LoginBean {
             // get external context in order to redirect
             ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
             JSFUtil.storeOnSession("userEmail", this.userName);
+            String deviceType = externalContext.getRequestParameterMap().get("deviceType");
+            System.out.println("deviceType=" + deviceType);
+            Map<String, Object> sessionMap =
+                externalContext.getSessionMap();
+
+            if (deviceType != null) {
+                sessionMap.put("deviceType", deviceType);
+            } else {
+                sessionMap.put("deviceType", "desktop");
+            }            
             RowSetIterator rs = ADFUtils.findIterator("OrgUsersVIterator").getViewObject().createRowSetIterator(null);
             while (rs.hasNext()) {
                 Row myRow = rs.next();
@@ -127,8 +138,22 @@ public class LoginBean {
 //            
             
             logger.fine("No URL retrieved, redirecting to HOME_URL: " + HOME_URL);
-            externalContext.redirect(HOME_URL);
-//            JSFUtil.storeOnSession("attendancePanel", false);
+//            externalContext.redirect(HOME_URL);
+            JSFUtil.setExpressionValue("#{pageFlowScope.successfulLogin}", true);
+//            Map<String, String> requestMap = externalContext.getRequestParameterMap();
+//
+//            String lat = requestMap.get("geoLat");
+//            String lon = requestMap.get("geoLon");
+//            String acc = requestMap.get("geoAcc");
+//
+//            System.out.println("Login geo: lat=" + lat + " lon=" + lon + " acc=" + acc);
+//
+//            if (lat != null) {
+//                Map<String, Object> sessionMap = externalContext.getSessionMap();
+//                sessionMap.put("latitude", lat);
+//                sessionMap.put("longitude", lon);
+//                sessionMap.put("accuracy", acc);
+//            }
         } catch (AuthenticationException e) {
             logger.config("Failed login validation for user " + userName);
             FacesMessage msg =
@@ -137,7 +162,7 @@ public class LoginBean {
         } catch (Exception e) {
             logger.warning("Unexpected error during login", e);
         }
-        return null;
+//        return null;
     }
 
     public void logOut(ActionEvent actionEvent) {

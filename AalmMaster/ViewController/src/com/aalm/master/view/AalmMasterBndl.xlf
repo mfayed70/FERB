@@ -286,6 +286,22 @@
         <source>Please set your password and confirm it.</source>
         <target/>
       </trans-unit>
+      <trans-unit id="PunchinAreaLocations">
+        <source>Punch-in Area Locations</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NewEditPunchinAreaLocation">
+        <source>New / Edit Punch-in Area Location</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="cancel">
+        <source>cancel</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CurrentLocation">
+        <source>Current Location</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

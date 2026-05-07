@@ -389,5 +389,21 @@ public class AalmMasterImpl extends ApplicationModuleImpl implements AalmMaster 
     public ViewObjectImpl getOrgUsersSetPasswordV() {
         return (ViewObjectImpl) findViewObject("OrgUsersSetPasswordV");
     }
+
+    /**
+     * Container's getter for PunchAreaV1.
+     * @return PunchAreaV1
+     */
+    public ViewObjectImpl getPunchAreaV() {
+        return (ViewObjectImpl) findViewObject("PunchAreaV");
+    }
+
+    /**
+     * Container's getter for PunchAreaV1.
+     * @return PunchAreaV1
+     */
+    public ViewObjectImpl getPunchAreaCrudV() {
+        return (ViewObjectImpl) findViewObject("PunchAreaCrudV");
+    }
 }
 

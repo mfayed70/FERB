@@ -1,0 +1,385 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.master.view.AalmMasterBndl']}"/>
+    <af:document id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{viewcontrollerBundle.NewEditPunchinAreaLocation}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar">
+                    <af:button text="#{viewcontrollerBundle.SAVE}" id="b2" icon="#{resource['images:SaveF.png']}"
+                               hoverIcon="#{resource['images:SaveO.png']}" action="toSave"/>
+                </f:facet>
+                <f:facet name="toolbar">
+                    <af:button text="#{viewcontrollerBundle.cancel}" id="b1" icon="#{resource['images:cancelF.png']}"
+                               hoverIcon="#{resource['images:cancelO.png']}" action="toCancel" immediate="true"/>
+                </f:facet>
+                <f:facet name="legend"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.Id.inputValue}" label="#{bindings.Id.hints.label}"
+                                  required="#{bindings.Id.hints.mandatory}" columns="#{bindings.Id.hints.displayWidth}"
+                                  maximumLength="#{bindings.Id.hints.precision}"
+                                  shortDesc="#{bindings.Id.hints.tooltip}" id="it5" readOnly="true">
+                        <f:validator binding="#{bindings.Id.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.Id.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.AreaName.inputValue}" label="#{bindings.AreaName.hints.label}"
+                                  required="#{bindings.AreaName.hints.mandatory}"
+                                  columns="#{bindings.AreaName.hints.displayWidth}"
+                                  maximumLength="#{bindings.AreaName.hints.precision}"
+                                  shortDesc="#{bindings.AreaName.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.AreaName.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.Type.inputValue}" label="#{bindings.Type.label}"
+                                        required="#{bindings.Type.hints.mandatory}"
+                                        shortDesc="#{bindings.Type.hints.tooltip}" id="soc3" autoSubmit="true">
+                        <f:selectItems value="#{bindings.Type.items}" id="si1"/>
+                        <f:validator binding="#{bindings.Type.validator}"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.OrgCode.inputValue}" label="#{bindings.OrgCode.label}"
+                                        required="#{bindings.OrgCode.hints.mandatory}"
+                                        shortDesc="#{bindings.OrgCode.hints.tooltip}" id="soc1"
+                                        visible="#{bindings.Type.inputValue=='C'}" partialTriggers="soc3">
+                        <f:selectItems value="#{bindings.OrgCode.items}" id="si2"/>
+                        <f:validator binding="#{bindings.OrgCode.validator}"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.ProjId.inputValue}" label="#{bindings.ProjId.label}"
+                                        required="#{bindings.ProjId.hints.mandatory}"
+                                        shortDesc="#{bindings.ProjId.hints.tooltip}" id="soc2" partialTriggers="soc3"
+                                        visible="#{bindings.Type.inputValue=='P'}">
+                        <f:selectItems value="#{bindings.ProjId.items}" id="si3"/>
+                        <f:validator binding="#{bindings.ProjId.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.VersionNo.inputValue}" label="#{bindings.VersionNo.hints.label}"
+                                  required="#{bindings.VersionNo.hints.mandatory}"
+                                  columns="#{bindings.VersionNo.hints.displayWidth}"
+                                  maximumLength="#{bindings.VersionNo.hints.precision}"
+                                  shortDesc="#{bindings.VersionNo.hints.tooltip}" id="it2" visible="false">
+                        <f:validator binding="#{bindings.VersionNo.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.VersionNo.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CenterLat.inputValue}" label="#{bindings.CenterLat.hints.label}"
+                                  required="#{bindings.CenterLat.hints.mandatory}"
+                                  columns="#{bindings.CenterLat.hints.displayWidth}"
+                                  maximumLength="#{bindings.CenterLat.hints.precision}"
+                                  shortDesc="#{bindings.CenterLat.hints.tooltip}" id="it7" autoSubmit="true">
+                        <f:validator binding="#{bindings.CenterLat.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CenterLat.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CenterLon.inputValue}" label="#{bindings.CenterLon.hints.label}"
+                                  required="#{bindings.CenterLon.hints.mandatory}"
+                                  columns="#{bindings.CenterLon.hints.displayWidth}"
+                                  maximumLength="#{bindings.CenterLon.hints.precision}"
+                                  shortDesc="#{bindings.CenterLon.hints.tooltip}" id="it6" autoSubmit="true">
+                        <f:validator binding="#{bindings.CenterLon.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CenterLon.format}"/>
+                    </af:inputText>
+                    <!-- Location collection status -->
+                    <af:outputText id="otLocStatus" label="Location Status"
+                                   value="#{pageFlowScope.PunchAreaBean.locationStatus}"
+                                   partialTriggers="collectedLat collectedLon collectedAcc"/>
+                    <!-- Hidden inputs carry GPS values to server -->
+                    <f:verbatim>                               <input type="hidden" id="collectedLat"
+                                                                      name="collectedLat" value=""/>                               <input type="hidden"
+                                                                                                                                          id="collectedLon"
+                                                                                                                                          name="collectedLon"
+                                                                                                                                          value=""/>                               <input type="hidden"
+                                                                                                                                                                                          id="collectedAcc"
+                                                                                                                                                                                          name="collectedAcc"
+                                                                                                                                                                                          value=""/>                             </f:verbatim>
+                    <af:inputText value="#{bindings.RadiusM.inputValue}" label="#{bindings.RadiusM.hints.label}"
+                                  required="#{bindings.RadiusM.hints.mandatory}"
+                                  columns="#{bindings.RadiusM.hints.displayWidth}"
+                                  maximumLength="#{bindings.RadiusM.hints.precision}"
+                                  shortDesc="#{bindings.RadiusM.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.RadiusM.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.RadiusM.format}"/>
+                    </af:inputText>
+                    <af:selectBooleanCheckbox value="#{bindings.IsActive.inputValue}" label="#{bindings.IsActive.label}"
+                                              shortDesc="#{bindings.IsActive.hints.tooltip}" id="sbc1"/>
+                    <af:outputText id="otMapLabel" value="Location Preview:" inlineStyle="font-size:14px;font-weight:bold;
+                                            padding:8px;display:block;"/>
+                    <af:inlineFrame id="mapFrame" shortDesc="Selected location on map" width="500" height="400" inlineStyle="border:1px solid #cccccc;
+                                             display:block;margin:8px;" partialTriggers="it7 it6"/>
+                </af:panelFormLayout>
+                <f:facet name="info">
+                    <af:button text="#{viewcontrollerBundle.CurrentLocation}" id="b3"
+                               icon="#{resource['images:3-dots.png']}" immediate="true">
+                        <af:clientListener method="onCollectLocation" type="action"/>
+                    </af:button>
+                </f:facet>
+            </af:panelHeader>
+            <!--<af:resource type="javascript">
+              var watchId = null;
+              var bestAccuracy = null;
+              var bestLat = null;
+              var bestLon = null;
+              var goodAccuracy = 50;
+              var geoCollected = false;
+              var fallbackTimer = null;
+
+              function onCollectLocation(evt) {
+                  evt.cancel();
+
+                  if (geoCollected) {
+                      geoCollected = false;
+                  }
+
+                  bestAccuracy = null;
+                  bestLat = null;
+                  bestLon = null;
+
+                  var statusEl = document.querySelector('span[id$="b3"]');
+
+                  if (!navigator.geolocation) {
+                      alert('Geolocation not supported.');
+                      return;
+                  }
+
+                  alert('Acquiring location, please wait...');
+
+                  watchId = navigator.geolocation.watchPosition(function (position) {
+                      var accuracy = position.coords.accuracy;
+                      var lat = position.coords.latitude;
+                      var lon = position.coords.longitude;
+
+                      var isBetter = false;
+                      if (bestAccuracy === null) {
+                          isBetter = true;
+                      }
+                      else {
+                          var diff = bestAccuracy - accuracy;
+                          if (diff === Math.abs(diff)) {
+                              isBetter = true;
+                          }
+                      }
+
+                      if (isBetter) {
+                          bestAccuracy = accuracy;
+                          bestLat = lat;
+                          bestLon = lon;
+                      }
+
+                      var diffFromGood = goodAccuracy - accuracy;
+                      if (diffFromGood === Math.abs(diffFromGood)) {
+                          clearTimeout(fallbackTimer);
+                          if (watchId != null) {
+                              navigator.geolocation.clearWatch(watchId);
+                              watchId = null;
+                          }
+                          geoCollected = true;
+                          populateFields(bestLat.toFixed(6), bestLon.toFixed(6), Math.round(bestAccuracy).toString());
+                          return;
+                      }
+                  },
+                  function (error) {
+                      if (watchId != null) {
+                          navigator.geolocation.clearWatch(watchId);
+                          watchId = null;
+                      }
+                      clearTimeout(fallbackTimer);
+                      alert('Location error: ' + error.message);
+                  },
+
+                  {
+                      enableHighAccuracy : true, timeout : 10000, maximumAge : 0
+                  });
+
+                  fallbackTimer = window.setTimeout(function () {
+                      if (watchId != null) {
+                          navigator.geolocation.clearWatch(watchId);
+                          watchId = null;
+                      }
+                      if (bestLat !== null) {
+                          geoCollected = true;
+                          populateFields(bestLat.toFixed(6), bestLon.toFixed(6), Math.round(bestAccuracy).toString());
+                      }
+                      else {
+                          alert('Could not determine location. Please try again.');
+                      }
+                  },
+10000);
+              }
+
+              function populateFields(lat, lon, acc) {
+
+                  var latInput = document.querySelector('input[id$="it7::content"]');
+                  var lonInput = document.querySelector('input[id$="it6::content"]');
+                  var hidLat = document.getElementById('collectedLat');
+                  var hidLon = document.getElementById('collectedLon');
+                  var hidAcc = document.getElementById('collectedAcc');
+
+                  if (latInput)
+                      latInput.value = lat;
+                  if (lonInput)
+                      lonInput.value = lon;
+                  if (hidLat)
+                      hidLat.value = lat;
+                  if (hidLon)
+                      hidLon.value = lon;
+                  if (hidAcc)
+                      hidAcc.value = acc;
+
+                  notifyAdf(latInput);
+                  notifyAdf(lonInput);
+
+                  // Click hidden refresh button to trigger map PPR
+                  var refreshBtn = document.querySelector('button[id$="btnRefreshMap"]');
+                  if (!refreshBtn) {
+                      refreshBtn = document.querySelector('input[id$="btnRefreshMap"]');
+                  }
+                  if (refreshBtn) {
+                      refreshBtn.click();
+                  }
+
+                  alert('Location collected. Accuracy: ' + acc + ' meters.');
+              }
+            </af:resource>-->
+<af:resource type="javascript">
+//<![CDATA[
+
+    var mapRendered = false;
+    var retryInterval = null;
+
+    window.addEventListener("load", function () {
+
+        startRetryLoop();
+
+        var formEl = document.getElementById("f1");
+        if (formEl && window.MutationObserver) {
+            var observer = new MutationObserver(function () {
+                renderMapIfReady();
+            });
+            observer.observe(formEl, { childList: true, subtree: true });
+        }
+    });
+
+    function startRetryLoop() {
+        var attempts = 0;
+        var maxAttempts = 17;
+
+        retryInterval = window.setInterval(function () {
+            attempts++;
+
+            var success = renderMapIfReady();
+
+            if (success || attempts >= maxAttempts) {
+                window.clearInterval(retryInterval);
+                retryInterval = null;
+            }
+        }, 300);
+    }
+
+    function renderMapIfReady() {
+
+        var latInput    = document.querySelector('input[id$="it7::content"]');
+        var lonInput    = document.querySelector('input[id$="it6::content"]');
+        var radiusInput = document.querySelector('input[id$="it3::content"]');
+
+        if (!latInput || !lonInput || !radiusInput)
+            return false;
+
+        var lat    = parseFloat(latInput.value);
+        var lon    = parseFloat(lonInput.value);
+        var radius = parseFloat(radiusInput.value);
+
+        if (isNaN(lat) || isNaN(lon) || lat === 0 || lon === 0)
+            return false;
+
+        if (isNaN(radius) || radius === 0 || radius !== Math.abs(radius))
+            radius = 200;
+
+        updateMap(lat.toFixed(6), lon.toFixed(6), radius);
+        return true;
+    }
+
+    function onCollectLocation(evt) {
+        evt.cancel();
+
+        if (!navigator.geolocation) {
+            alert("Geolocation not supported.");
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(
+            function (pos) {
+                var lat = pos.coords.latitude.toFixed(6);
+                var lon = pos.coords.longitude.toFixed(6);
+
+                var latInput    = document.querySelector('input[id$="it7::content"]');
+                var lonInput    = document.querySelector('input[id$="it6::content"]');
+                var radiusInput = document.querySelector('input[id$="it3::content"]');
+
+                if (latInput) latInput.value = lat;
+                if (lonInput) lonInput.value = lon;
+
+                notifyAdf(latInput);
+                notifyAdf(lonInput);
+
+                var radius = radiusInput ? parseFloat(radiusInput.value) : 200;
+                if (isNaN(radius) || radius === 0 || radius !== Math.abs(radius))
+                    radius = 200;
+
+                updateMap(lat, lon, radius);
+            },
+            function (error) {
+                alert("Location error: " + error.message);
+            },
+            { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        );
+    }
+
+    function getZoomForRadius(radiusMetres, lat) {
+
+        if (!radiusMetres || radiusMetres === 0 || radiusMetres !== Math.abs(radiusMetres))
+            return 15;
+
+        var earthCircumference = 40075016;
+        var tileSize           = 256;
+        var mapWidthPx         = Math.min(window.innerWidth, 500);
+        var latRad             = parseFloat(lat) * Math.PI / 180;
+        var mpp                = (radiusMetres * 2) / mapWidthPx;
+        var zoom               = Math.log(
+                                     (earthCircumference * Math.cos(latRad)) /
+                                     (tileSize * mpp)
+                                 ) / Math.log(2);
+
+        zoom = Math.floor(zoom);
+
+        // Clamp between 1 and 20 without using < or >
+        zoom = Math.max(1, Math.min(20, zoom));
+
+        return zoom;
+    }
+
+    function updateMap(lat, lon, radius) {
+
+        var mapFrame = document.querySelector('iframe[id$="mapFrame"]');
+        if (!mapFrame)
+            return;
+
+        var zoom   = getZoomForRadius(radius, lat);
+        var newSrc = "https://maps.google.com/maps?q=" + lat + "," + lon
+                   + "&z=" + zoom + "&output=embed";
+
+        if (mapFrame.getAttribute("src") !== newSrc) {
+            mapFrame.setAttribute("src", newSrc);
+            mapRendered = true;
+        }
+    }
+
+    function notifyAdf(input) {
+        if (!input)
+            return;
+        var ev = document.createEvent("HTMLEvents");
+        ev.initEvent("change", true, true);
+        input.dispatchEvent(ev);
+    }
+
+//]]>
+</af:resource>
+        </af:form>
+    </af:document>
+</f:view>

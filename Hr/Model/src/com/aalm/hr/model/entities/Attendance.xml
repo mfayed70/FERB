@@ -109,6 +109,118 @@
     Type="java.sql.Timestamp"
     ColumnType="DATETIME"
     TableName="ATTENDANCE"/>
+  <Attribute
+    Name="AreaId"
+    ColumnName="area_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AreaName"
+    Precision="100"
+    ColumnName="area_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CheckInAccuracy"
+    ColumnName="check_in_accuracy"
+    SQLType="DOUBLE"
+    Type="java.math.BigDecimal"
+    ColumnType="DOUBLE"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CheckInLat"
+    ColumnName="check_in_lat"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CheckInLon"
+    ColumnName="check_in_lon"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CheckOutAccuracy"
+    ColumnName="check_out_accuracy"
+    SQLType="DOUBLE"
+    Type="java.math.BigDecimal"
+    ColumnType="DOUBLE"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CheckOutLat"
+    ColumnName="check_out_lat"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CheckOutLon"
+    ColumnName="check_out_lon"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DeviceType"
+    Precision="20"
+    ColumnName="device_type"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DistanceM"
+    ColumnName="distance_m"
+    SQLType="DOUBLE"
+    Type="java.math.BigDecimal"
+    ColumnType="DOUBLE"
+    TableName="ATTENDANCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="OrgUsers"
     Association="com.aalm.hr.model.entities.FkAttendanceUserAssoc"

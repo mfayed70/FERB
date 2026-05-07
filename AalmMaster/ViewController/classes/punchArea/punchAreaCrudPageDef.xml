@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="punchAreaCrudPageDef"
+                Package="punchArea">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PunchAreaCrudV" RangeSize="25" DataControl="AalmMasterDataControl" id="PunchAreaCrudVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="PunchAreaCrudVIterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PunchAreaCrudVIterator" id="AreaName">
+      <AttrNames>
+        <Item Value="AreaName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="PunchAreaCrudVIterator" StaticList="false" Uses="LOV_Type" id="Type" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="PunchAreaCrudVIterator" StaticList="false" Uses="LOV_OrgCode" id="OrgCode"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="PunchAreaCrudVIterator" StaticList="false" Uses="LOV_ProjId" id="ProjId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="PunchAreaCrudVIterator" id="VersionNo">
+      <AttrNames>
+        <Item Value="VersionNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PunchAreaCrudVIterator" id="CenterLat">
+      <AttrNames>
+        <Item Value="CenterLat"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PunchAreaCrudVIterator" id="CenterLon">
+      <AttrNames>
+        <Item Value="CenterLon"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PunchAreaCrudVIterator" id="RadiusM">
+      <AttrNames>
+        <Item Value="RadiusM"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="PunchAreaCrudVIterator" id="IsActive" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="IsActive"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>

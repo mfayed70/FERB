@@ -1,15 +1,22 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/punchArea/punch_area_CRUD-TF.xml" id="punch_area_CRUD-TF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pId"/>
+   </task-flow-descriptor>
    <task-flow-descriptor path="WEB-INF/ApprovalCycles/approval_cycles-TF.xml" id="approval_cycles-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
    <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
    <task-flow-descriptor path="WEB-INF/login/login-TF.xml" id="login-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="successfulLogin"/>
       <input-parameter name="refreshLocale"/>
       <input-parameter name="refreshRegion"/>
+      <input-parameter name="longitude"/>
+      <input-parameter name="latitude"/>
    </task-flow-descriptor>
    <task-flow-descriptor path="WEB-INF/ErpAdmin/stndrd-role-perms-TF.xml" id="stndrd-role-perms-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
       <input-parameter name="refreshLocale"/>
       <input-parameter name="refreshRegion"/>
    </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/punchArea/punch_area-TF.xml" id="punch_area-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
    <task-flow-descriptor path="WEB-INF/ErpAdmin/users-TF.xml" id="users-TF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
       <input-parameter name="refreshLocale"/>
       <input-parameter name="refreshRegion"/>

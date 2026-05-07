@@ -27,6 +27,7 @@
           <Item Value="MaritalStatus"/>
           <Item Value="EmpCat"/>
           <Item Value="ContractNo"/>
+          <Item Value="InsuranseNo"/>
           <Item Value="IdNo"/>
           <Item Value="Salary"/>
           <Item Value="CurrCode"/>

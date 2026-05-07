@@ -18,10 +18,26 @@
         ResId="com.aalm.master.model.lovs.OrgsLOV_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="bndLocale"
+    Kind="where"
+    Type="java.lang.String">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+    </AttrArray>
+    <TransientExpression
+      trustMode="untrusted"
+      Name="expression"><![CDATA[adf.context.sessionScope.refreshLocale]]></TransientExpression>
+  </Variable>
   <SQLQuery><![CDATA[SELECT 
     ORGANIZATIONS.org_code org_code, 
     ORGANIZATIONS.en_org_name en_org_name, 
     ORGANIZATIONS.ar_org_name ar_org_name, 
+     CASE ?
+   WHEN 'en' THEN en_org_name
+   WHEN 'ar' THEN ar_org_name
+   ELSE en_org_name
+END AS org_name,
     ORGANIZATIONS.prnt_org_code prnt_org_code 
 FROM 
     ORGANIZATIONS]]></SQLQuery>
@@ -64,6 +80,21 @@ FROM
     ColumnType="VARCHAR"
     AliasName="ar_org_name"
     Expression="ar_org_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="org_name"
+    Expression="org_name"
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>

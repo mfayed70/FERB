@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PunchArea"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PUNCH_AREA"
+  AliasName="PunchArea"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="Id"
+    IsNotNull="false"
+    ColumnName="id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUNCH_AREA"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AreaName"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="area_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PUNCH_AREA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CenterLat"
+    IsNotNull="true"
+    ColumnName="center_lat"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="PUNCH_AREA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CenterLon"
+    IsNotNull="true"
+    ColumnName="center_lon"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="PUNCH_AREA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RadiusM"
+    IsNotNull="true"
+    ColumnName="radius_m"
+    SQLType="DOUBLE"
+    Type="java.math.BigDecimal"
+    ColumnType="DOUBLE"
+    TableName="PUNCH_AREA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsActive"
+    Precision="1"
+    ColumnName="is_active"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="PUNCH_AREA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Type"
+    Precision="2"
+    ColumnName="type"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PUNCH_AREA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrgCode"
+    ColumnName="org_code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUNCH_AREA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ProjId"
+    ColumnName="proj_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUNCH_AREA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VersionNo"
+    ColumnName="version_no"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="PUNCH_AREA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="50"
+    ColumnName="created_by"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="PUNCH_AREA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedAt"
+    IsNotNull="true"
+    ColumnName="created_at"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="PUNCH_AREA"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.PunchArea.Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPunchAreaOrg">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_punch_area_org"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.PunchArea.OrgCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkPunchAreaProj">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_punch_area_proj"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.master.model.entities.PunchArea.ProjId"/>
+      <Item Value="com.aalm.master.model.entities.PunchArea.VersionNo"/>
+    </AttrArray>
+  </Key>
+</Entity>

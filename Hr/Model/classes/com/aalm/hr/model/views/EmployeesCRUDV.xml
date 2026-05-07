@@ -18,7 +18,8 @@
        Employees.id_no, 
        Employees.curr_code, 
        Employees.org_code, 
-       Employees.job_id"
+       Employees.job_id, 
+       Employees.insuranse_no"
   FromList="EMPLOYEES Employees">
   <Variable
     Name="pEmpId"
@@ -215,6 +216,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="InsuranseNo"
+    PrecisionRule="true"
+    EntityAttrName="InsuranseNo"
+    EntityUsage="Employees"
+    AliasName="insuranse_no"/>
   <ViewCriteria
     Name="EmployeesCRUDVCriteria"
     ViewObjectName="com.aalm.hr.model.views.EmployeesCRUDV"

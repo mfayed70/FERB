@@ -6,6 +6,21 @@
       <id>page-gragment-template</id>
     </template-reference>
     <default-activity>login</default-activity>
+    <input-parameter-definition id="__10">
+      <name>successfulLogin</name>
+      <value>#{pageFlowScope.successfulLogin}</value>
+      <class>java.lang.Boolean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__15">
+      <name>latitude</name>
+      <value>#{pageFlowScope.latitude}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__16">
+      <name>longitude</name>
+      <value>#{pageFlowScope.longitude}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
     <managed-bean id="__3">
       <managed-bean-name>LoginBean</managed-bean-name>
       <managed-bean-class>com.aalm.master.view.beans.LoginBean</managed-bean-class>
@@ -20,6 +35,16 @@
     <view id="setPassword">
       <page>/WEB-INF/login/setPassword.jsff</page>
     </view>
+    <parent-action id="parentAction1">
+      <parent-outcome>toUserProfile</parent-outcome>
+    </parent-action>
+    <router id="router1">
+      <case id="__11">
+        <expression>#{pageFlowScope.successfulLogin==true}</expression>
+        <outcome>good</outcome>
+      </case>
+      <default-outcome>bad</default-outcome>
+    </router>
     <control-flow-rule id="__1">
       <from-activity-id>login</from-activity-id>
       <control-flow-case id="__2">
@@ -29,6 +54,10 @@
       <control-flow-case id="__6">
         <from-outcome>setPassword</from-outcome>
         <to-activity-id>setPassword</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>toUserProfile</from-outcome>
+        <to-activity-id>router1</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__4">
@@ -43,6 +72,17 @@
       <control-flow-case id="__8">
         <from-outcome>backToLogin</from-outcome>
         <to-activity-id>login</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>bad</from-outcome>
+        <to-activity-id>login</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>good</from-outcome>
+        <to-activity-id>parentAction1</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

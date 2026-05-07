@@ -37,6 +37,16 @@ public class AttendanceImpl extends EntityImpl {
         WorkHours,
         CreatedAt,
         UpdatedAt,
+        AreaId,
+        AreaName,
+        CheckInAccuracy,
+        CheckInLat,
+        CheckInLon,
+        CheckOutAccuracy,
+        CheckOutLat,
+        CheckOutLon,
+        DeviceType,
+        DistanceM,
         OrgUsers;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -60,6 +70,7 @@ public class AttendanceImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int ATTENDANCEID = AttributesEnum.AttendanceId.index();
     public static final int USERID = AttributesEnum.UserId.index();
     public static final int ATTENDANCEDATE = AttributesEnum.AttendanceDate.index();
@@ -70,6 +81,16 @@ public class AttendanceImpl extends EntityImpl {
     public static final int WORKHOURS = AttributesEnum.WorkHours.index();
     public static final int CREATEDAT = AttributesEnum.CreatedAt.index();
     public static final int UPDATEDAT = AttributesEnum.UpdatedAt.index();
+    public static final int AREAID = AttributesEnum.AreaId.index();
+    public static final int AREANAME = AttributesEnum.AreaName.index();
+    public static final int CHECKINACCURACY = AttributesEnum.CheckInAccuracy.index();
+    public static final int CHECKINLAT = AttributesEnum.CheckInLat.index();
+    public static final int CHECKINLON = AttributesEnum.CheckInLon.index();
+    public static final int CHECKOUTACCURACY = AttributesEnum.CheckOutAccuracy.index();
+    public static final int CHECKOUTLAT = AttributesEnum.CheckOutLat.index();
+    public static final int CHECKOUTLON = AttributesEnum.CheckOutLon.index();
+    public static final int DEVICETYPE = AttributesEnum.DeviceType.index();
+    public static final int DISTANCEM = AttributesEnum.DistanceM.index();
     public static final int ORGUSERS = AttributesEnum.OrgUsers.index();
 
     /**
@@ -77,6 +98,14 @@ public class AttendanceImpl extends EntityImpl {
      */
     public AttendanceImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.aalm.hr.model.entities.Attendance");
+    }
+
     @Override
     protected void prepareForDML(int operation, TransactionEvent e) {
         super.prepareForDML(operation, e);
@@ -293,6 +322,166 @@ public class AttendanceImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for AreaId, using the alias name AreaId.
+     * @return the value of AreaId
+     */
+    public Integer getAreaId() {
+        return (Integer) getAttributeInternal(AREAID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for AreaId.
+     * @param value value to set the AreaId
+     */
+    public void setAreaId(Integer value) {
+        setAttributeInternal(AREAID, value);
+    }
+
+    /**
+     * Gets the attribute value for AreaName, using the alias name AreaName.
+     * @return the value of AreaName
+     */
+    public String getAreaName() {
+        return (String) getAttributeInternal(AREANAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for AreaName.
+     * @param value value to set the AreaName
+     */
+    public void setAreaName(String value) {
+        setAttributeInternal(AREANAME, value);
+    }
+
+    /**
+     * Gets the attribute value for CheckInAccuracy, using the alias name CheckInAccuracy.
+     * @return the value of CheckInAccuracy
+     */
+    public BigDecimal getCheckInAccuracy() {
+        return (BigDecimal) getAttributeInternal(CHECKINACCURACY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CheckInAccuracy.
+     * @param value value to set the CheckInAccuracy
+     */
+    public void setCheckInAccuracy(BigDecimal value) {
+        setAttributeInternal(CHECKINACCURACY, value);
+    }
+
+    /**
+     * Gets the attribute value for CheckInLat, using the alias name CheckInLat.
+     * @return the value of CheckInLat
+     */
+    public BigDecimal getCheckInLat() {
+        return (BigDecimal) getAttributeInternal(CHECKINLAT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CheckInLat.
+     * @param value value to set the CheckInLat
+     */
+    public void setCheckInLat(BigDecimal value) {
+        setAttributeInternal(CHECKINLAT, value);
+    }
+
+    /**
+     * Gets the attribute value for CheckInLon, using the alias name CheckInLon.
+     * @return the value of CheckInLon
+     */
+    public BigDecimal getCheckInLon() {
+        return (BigDecimal) getAttributeInternal(CHECKINLON);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CheckInLon.
+     * @param value value to set the CheckInLon
+     */
+    public void setCheckInLon(BigDecimal value) {
+        setAttributeInternal(CHECKINLON, value);
+    }
+
+    /**
+     * Gets the attribute value for CheckOutAccuracy, using the alias name CheckOutAccuracy.
+     * @return the value of CheckOutAccuracy
+     */
+    public BigDecimal getCheckOutAccuracy() {
+        return (BigDecimal) getAttributeInternal(CHECKOUTACCURACY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CheckOutAccuracy.
+     * @param value value to set the CheckOutAccuracy
+     */
+    public void setCheckOutAccuracy(BigDecimal value) {
+        setAttributeInternal(CHECKOUTACCURACY, value);
+    }
+
+    /**
+     * Gets the attribute value for CheckOutLat, using the alias name CheckOutLat.
+     * @return the value of CheckOutLat
+     */
+    public BigDecimal getCheckOutLat() {
+        return (BigDecimal) getAttributeInternal(CHECKOUTLAT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CheckOutLat.
+     * @param value value to set the CheckOutLat
+     */
+    public void setCheckOutLat(BigDecimal value) {
+        setAttributeInternal(CHECKOUTLAT, value);
+    }
+
+    /**
+     * Gets the attribute value for CheckOutLon, using the alias name CheckOutLon.
+     * @return the value of CheckOutLon
+     */
+    public BigDecimal getCheckOutLon() {
+        return (BigDecimal) getAttributeInternal(CHECKOUTLON);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CheckOutLon.
+     * @param value value to set the CheckOutLon
+     */
+    public void setCheckOutLon(BigDecimal value) {
+        setAttributeInternal(CHECKOUTLON, value);
+    }
+
+    /**
+     * Gets the attribute value for DeviceType, using the alias name DeviceType.
+     * @return the value of DeviceType
+     */
+    public String getDeviceType() {
+        return (String) getAttributeInternal(DEVICETYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DeviceType.
+     * @param value value to set the DeviceType
+     */
+    public void setDeviceType(String value) {
+        setAttributeInternal(DEVICETYPE, value);
+    }
+
+    /**
+     * Gets the attribute value for DistanceM, using the alias name DistanceM.
+     * @return the value of DistanceM
+     */
+    public BigDecimal getDistanceM() {
+        return (BigDecimal) getAttributeInternal(DISTANCEM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DistanceM.
+     * @param value value to set the DistanceM
+     */
+    public void setDistanceM(BigDecimal value) {
+        setAttributeInternal(DISTANCEM, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.server.EntityImpl.
      */
     public EntityImpl getOrgUsers() {
@@ -315,11 +504,6 @@ public class AttendanceImpl extends EntityImpl {
         return new Key(new Object[] { attendanceId });
     }
 
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.aalm.hr.model.entities.Attendance");
-    }
+
 }
 

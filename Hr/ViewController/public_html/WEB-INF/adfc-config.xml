@@ -5,4 +5,9 @@
     <managed-bean-class>com.aalm.hr.view.beans.HrBean</managed-bean-class>
     <managed-bean-scope>pageFlow</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>GeoBean</managed-bean-name>
+    <managed-bean-class>com.aalm.hr.view.beans.GeoBean</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

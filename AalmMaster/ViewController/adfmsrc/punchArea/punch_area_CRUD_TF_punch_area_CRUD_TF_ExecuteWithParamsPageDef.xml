@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="punch_area_CRUD_TF_punch_area_CRUD_TF_ExecuteWithParamsPageDef" Package="punchArea"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="PunchAreaCrudV" RangeSize="25" DataControl="AalmMasterDataControl" id="PunchAreaCrudVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="PunchAreaCrudVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pId" NDValue="#{pageFlowScope.pId}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -66,16 +66,81 @@
           <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="342" disabled="true"
                             inlineStyle="margin-right:5px;padding-left:100px;">
             <f:facet name="first">
-              <dvt:pieChart id="pieChart1" var="row" value="#{bindings.AttendanceStatisticsV.collectionModel}"
-                            threeDEffect="on" footnoteHalign="center" inlineStyle="width:500px;font-size:30px;"
-                            sliceLabelPosition="inside" titleHalign="center" emptyText="Employee Attendance Chart"
-                            title="Employee Attendance Chart" hideAndShowBehavior="withRescale"
-                            sliceLabelStyle="font-size:10px;"
-                            subtitle="#{bindings.CurrentYear.inputValue}#{' '}#{bindings.CurrMonth.inputValue}">
-                <dvt:chartLegend id="cl1" position="bottom"/>
-                <dvt:pieDataItem id="di1" value="#{row.TotalDays}" label="#{row.Status}" explode="0.1"
-                                 sliceLabel="#{row.TotalDays}#{' Days'}"/>
-              </dvt:pieChart>
+              <af:panelSplitter id="ps4" splitterPosition="500" disabled="true">
+                <f:facet name="first">
+                  <dvt:pieChart id="pieChart1" var="row" value="#{bindings.AttendanceStatisticsV.collectionModel}"
+                                threeDEffect="on" footnoteHalign="center" inlineStyle="width:500px;font-size:30px;"
+                                sliceLabelPosition="inside" titleHalign="center" emptyText="Employee Attendance Chart"
+                                title="Employee Attendance Chart" hideAndShowBehavior="withRescale"
+                                sliceLabelStyle="font-size:10px;"
+                                subtitle="#{bindings.CurrentYear.inputValue}#{' '}#{bindings.CurrMonth.inputValue}">
+                    <dvt:chartLegend id="cl1" position="bottom"/>
+                    <dvt:pieDataItem id="di1" value="#{row.TotalDays}" label="#{row.Status}" explode="0.1"
+                                     sliceLabel="#{row.TotalDays}#{' Days'}"/>
+                  </dvt:pieChart>
+                </f:facet>
+                <f:facet name="second">
+                  <af:panelGroupLayout id="pgl11" layout="vertical" styleClass="AFStretchWidth"> 
+    <af:panelBox id="pb1"
+                 text="Your Current Location"
+                 showDisclosure="false">
+                      <!--Location display area-->
+                      <af:panelGroupLayout id="locationPanel" layout="horizontal">
+
+        <af:outputText id="otStatus"
+                       value="#{sessionScope.Locale.locationStatus}"/>
+
+        <af:outputText id="otLat"
+                       label="Latitude"
+                       value="#{sessionScope.Locale.latitude}"/>
+<af:outputText id="otLon"
+                       label="Longitude"
+                       value="#{sessionScope.Locale.longitude}"/>
+
+        <af:outputText id="otAcc"
+                       label="Accuracy"
+                       value="#{sessionScope.Locale.formattedAccuracy}"/>
+                      </af:panelGroupLayout>
+
+       <!--Hidden inputs carry geo values to server on each poll--> 
+      <af:inputText id="itLat"
+                    simple="true"
+                    inlineStyle="display:none;" value="#{sessionScope.Locale.latitude}"/>
+
+      <af:inputText id="itLon"
+                    simple="true"
+                    inlineStyle="display:none;" value="#{sessionScope.Locale.longitude}"/>
+
+      <f:verbatim>
+        <input type="hidden"
+               id="accHidden"
+               name="accHidden"
+               value=""/>
+      </f:verbatim>
+
+    </af:panelBox>
+
+    <af:separator id="s11"/>
+                    <af:outputText value="#{sessionScope.deviceType}" id="ot1"/>
+                    <af:panelGroupLayout id="pgl12" layout="vertical" styleClass="AFStretchWidth">
+                      <af:outputText value="Your Location on Map:" id="otMapLabel" inlineStyle="font-size:14px;font-weight:bold;
+                                padding:8px;display:block;"/>
+                      <af:outputText id="osmUrl" value="#{sessionScope.Locale.openStreetMapUrl}"
+                                     inlineStyle="display:none;"/>
+                      <af:inlineFrame id="mapFrame"
+                clientComponent="true"
+                shortDesc="Current Location Map"
+                width="600"
+                height="400"
+                inlineStyle="width:600px;height:400px;border:1px solid #CCCCCC;"/>
+
+                      <!--<af:poll id="poll1" interval="#{sessionScope.Locale.accuracy eq null ? 5000 : -1}" timeout="15000"
+                               partialTriggers="poll1" pollListener="#{sessionScope.Locale.onPoll}"/>-->
+                      <!-- Poll inside jsff — same scope as all components above -->
+                    </af:panelGroupLayout>
+                  </af:panelGroupLayout>
+                </f:facet>
+              </af:panelSplitter>
             </f:facet>
             <f:facet name="second">
               <af:panelGroupLayout id="pgl3" layout="vertical" halign="center">
@@ -138,7 +203,8 @@
                                hoverIcon="#{resource['images:punci-in-F.png']}"
                                visible="#{row.AttendanceDate == row.CurrDate &amp;&amp; row.CheckInTime == null &amp;&amp; view.viewId=='/userProfile'}"
                                actionListener="#{pageFlowScope.HrBean.punchinBtnActnLsnr}" styleClass="but"
-                               inlineStyle="background-color:#42c6ff;">
+                               inlineStyle="background-color:#42c6ff;"
+                               disabled="#{sessionScope.deviceType ne 'mobile'}">
                       <af:setPropertyListener from="#{'Punch-in'}" to="#{sessionScope.attendance}" type="action"/>
                     </af:button>
                   </af:column>
@@ -386,13 +452,13 @@
                                    sortable="true" headerText="#{bindings.UserVacationsV.hints.EmpId.label}" id="c18"
                                    rendered="false">
                           <af:outputText value="#{row.EmpId}" shortDesc="#{bindings.UserVacationsV.hints.EmpId.tooltip}"
-                                         id="ot1">
+                                         id="ot37">
                             <af:convertNumber groupingUsed="false"
                                               pattern="#{bindings.UserVacationsV.hints.EmpId.format}"/>
                           </af:outputText>
                         </af:column>
                         <af:column id="c40" width="400">
-                          <af:panelFormLayout id="pfl1" maxColumns="3" rows="1" fieldWidth="100%" labelWidth="0%">
+                          <af:panelFormLayout id="pfl2" maxColumns="3" rows="1" fieldWidth="100%" labelWidth="0%">
                             <f:facet name="footer"/>
                             <af:iterator id="i3" value="#{row.EmployeeApprovalStatusV}" var="eas">
                               <af:panelGroupLayout id="pgl5" layout="horizontal">
@@ -494,7 +560,7 @@
                          sortable="true" headerText="#{bindings.ApprovalTransactionDetailsVO.hints.DetailId.label}"
                          id="c19" rendered="false">
                 <af:outputText value="#{row.DetailId}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.DetailId.tooltip}" id="ot5">
+                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.DetailId.tooltip}" id="ot39">
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.ApprovalTransactionDetailsVO.hints.DetailId.format}"/>
                 </af:outputText>
@@ -531,7 +597,7 @@
                          rendered="false">
                 <af:outputText value="#{row.ApprovalTransId}"
                                shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalTransId.tooltip}"
-                               id="ot6">
+                               id="ot38">
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalTransId.format}"/>
                 </af:outputText>
@@ -540,7 +606,7 @@
                          sortable="true" headerText="#{bindings.ApprovalTransactionDetailsVO.hints.StepId.label}"
                          id="c21" rendered="false">
                 <af:outputText value="#{row.StepId}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.StepId.tooltip}" id="ot7">
+                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.StepId.tooltip}" id="ot40">
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.ApprovalTransactionDetailsVO.hints.StepId.format}"/>
                 </af:outputText>
@@ -622,7 +688,7 @@
                          rendered="false">
                 <af:outputText value="#{row.ApproverName}"
                                shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverName.tooltip}"
-                               id="ot22"/>
+                               id="ot41"/>
               </af:column>
               <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverJob.name}"
                          filterable="true" sortable="true"
@@ -663,4 +729,197 @@
                                               visible="#{sessionScope.attendance=='Punch-out'}"/>
                             </af:dialog>
                         </af:popup>
+    <af:resource type="javascript">
+
+var watchId = null;
+
+var geoStarted = false;
+var geoCollected = false;
+
+var bestAccuracy = 999999;
+var bestLat = null;
+var bestLon = null;
+
+var GOOD_ACCURACY = 500;
+
+var geo = {};
+
+function initGeoElements() {
+
+    geo.status =
+        document.querySelector('span[id$="otStatus"]');
+
+    geo.lat =
+        document.querySelector('input[id$="itLat::content"]');
+
+    geo.lon =
+        document.querySelector('input[id$="itLon::content"]');
+
+    geo.acc =
+        document.getElementById('accHidden');
+
+    geo.map =
+        document.querySelector('iframe[id$="mapFrame::f"]');
+}
+
+function updateStatus(message) {
+
+    if (geo.status) {
+        geo.status.innerHTML = message;
+    }
+}
+
+function stopGeolocation() {
+
+    if (watchId != null) {
+        navigator.geolocation.clearWatch(watchId);
+        watchId = null;
+    }
+}
+
+function updateMap(lat, lon) {
+
+    if (!geo.map) {
+        return;
+    }
+
+    var delta = 0.01;
+
+    var bbox =
+        (parseFloat(lon) - delta) + "," +
+        (parseFloat(lat) - delta) + "," +
+        (parseFloat(lon) + delta) + "," +
+        (parseFloat(lat) + delta);
+
+    var mapUrl =
+        "https://www.openstreetmap.org/export/embed.html?bbox=" +
+        bbox +
+        "&amp;layer=mapnik&amp;marker="
+        lat + "," + lon;
+
+    geo.map.src = mapUrl;
+}
+
+function storeLocation(lat, lon, acc) {
+
+    if (geo.lat) {
+        geo.lat.value = lat;
+    }
+
+    if (geo.lon) {
+        geo.lon.value = lon;
+    }
+
+    if (geo.acc) {
+        geo.acc.value = acc;
+    }
+
+    geoCollected = true;
+
+    updateMap(lat, lon);
+
+    updateStatus(
+        "Location acquired (Accuracy: " +
+        acc +
+        " meters)"
+    );
+
+    stopGeolocation();
+}
+
+function startGeolocation() {
+
+    if (geoStarted) {
+        return;
+    }
+
+    geoStarted = true;
+
+    initGeoElements();
+
+    if (!navigator.geolocation) {
+
+        updateStatus(
+            "Geolocation is not supported by this browser."
+        );
+
+        return;
+    }
+
+    updateStatus("Acquiring current location...");
+
+    watchId = navigator.geolocation.watchPosition(
+
+        function(position) {
+
+            var accuracy =
+                Math.round(position.coords.accuracy);
+
+            var lat =
+                position.coords.latitude;
+
+            var lon =
+                position.coords.longitude;
+
+            if (accuracy &lt; bestAccuracy) {
+
+                bestAccuracy = accuracy;
+                bestLat = lat;
+                bestLon = lon;
+            }
+
+            if (accuracy &lt;= GOOD_ACCURACY) {
+
+                storeLocation(
+                    bestLat.toFixed(6),
+                    bestLon.toFixed(6),
+                    bestAccuracy
+                );
+            }
+        },
+
+        function(error) {
+
+            stopGeolocation();
+
+            updateStatus(
+                "Location error: " +
+                error.message
+            );
+        },
+
+        {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+        }
+    );
+
+    window.setTimeout(function() {
+
+        if (!geoCollected &amp;&amp;bestLat != null) {
+
+            storeLocation(
+                bestLat.toFixed(6),
+                bestLon.toFixed(6),
+                bestAccuracy
+            );
+
+            updateStatus(
+                "Approximate location acquired " +
+                "(Accuracy: " +
+                bestAccuracy +
+                " meters)"
+            );
+        }
+
+        stopGeolocation();
+
+    }, 10000);
+}
+
+AdfPage.PAGE.addLoadEvent(startGeolocation);
+
+</af:resource>
+
 </ui:composition>

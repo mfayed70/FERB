@@ -41,5 +41,10 @@
     <action id="Commit" DataControl="AalmHrDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <list IterBinding="EmployeesCRUDVIterator" StaticList="false" Uses="LOV_JobId" id="JobId" DTSupportsMRU="true"
           SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="EmployeesCRUDVIterator" id="InsuranseNo">
+      <AttrNames>
+        <Item Value="InsuranseNo"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

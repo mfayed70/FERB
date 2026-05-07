@@ -192,6 +192,18 @@
          <Attr Name="_DisplaySize" Value="10" />
       </DesignTime>
    </Attribute>
+   <Attribute
+      Name="InsuranseNo"
+      Precision="45"
+      ColumnName="insuranse_no"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR"
+      TableName="EMPLOYEES">
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="45"/>
+      </DesignTime>
+   </Attribute>
    <AccessorAttribute
       Name="EmployeeJobHistory"
       Association="com.aalm.hr.model.entities.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1Assoc"

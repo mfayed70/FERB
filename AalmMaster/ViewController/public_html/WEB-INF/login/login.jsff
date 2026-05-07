@@ -27,9 +27,12 @@
                       value="#{backingBeanScope.LoginBean.password}" secret="true"/>
         <f:facet name="footer"/>
         <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center" inlineStyle="margin:20px 0 0 0;">
-          <af:button text="#{viewcontrollerBundle.LOGIN}" id="b1"
+          <af:button text="#{viewcontrollerBundle.LOGIN}" id="cbLogin"
                      inlineStyle="width:220px; text-align:center;font-size:25px;"
-                     action="#{backingBeanScope.LoginBean.login}" styleClass="Loginbut" selected="true"/>
+                     action="toUserProfile" styleClass="Loginbut" selected="true"
+                     actionListener="#{backingBeanScope.LoginBean.login}">
+            <af:clientListener method="onLoginClick" type="action"/>
+          </af:button>
         </af:panelGroupLayout>
       </af:panelFormLayout>
       <af:panelGroupLayout id="pgl6" layout="vertical">
@@ -44,5 +47,222 @@
       </af:panelGroupLayout>
     </af:panelGroupLayout>
   </af:panelGroupLayout>
-  <!--oracle-jdev-comment:preferred-managed-bean-name:LoginBean-->
+  <!--<af:resource type="javascript">
+
+  var watchId = null;
+  var bestAccuracy = null;
+  var bestLat = null;
+  var bestLon = null;
+  var goodAccuracy = 500;
+  var submitted = false;
+  var fallbackTimer = null;
+
+  function isIOS() {
+    var ua = navigator.userAgent;
+    var iosStr = 'iPhone';
+    var iPadStr = 'iPad';
+    var result = false;
+    if (ua.indexOf(iosStr) !== -1) {
+      result = true;
+    }
+    if (ua.indexOf(iPadStr) !== -1) {
+      result = true;
+    }
+    return result;
+  }
+
+  function onLoginClick(evt) {
+
+    evt.cancel();
+
+    if (submitted) {
+      return;
+    }
+
+    if (!navigator.geolocation) {
+      submitted = true;
+      submitLoginForm('N/A', 'N/A', 'N/A');
+      return;
+    }
+
+    bestAccuracy = null;
+    bestLat = null;
+    bestLon = null;
+
+    watchId = navigator.geolocation.watchPosition(
+
+      function(position) {
+        var accuracy = position.coords.accuracy;
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+
+        var diffFromGood = goodAccuracy - accuracy;
+        if (diffFromGood === Math.abs(diffFromGood)) {
+          clearTimeout(fallbackTimer);
+          bestAccuracy = accuracy;
+          bestLat = lat;
+          bestLon = lon;
+          if (!submitted) {
+            submitted = true;
+            if (watchId != null) {
+              navigator.geolocation.clearWatch(watchId);
+              watchId = null;
+            }
+            submitLoginForm(
+              bestLat.toFixed(6),
+              bestLon.toFixed(6),
+              Math.round(bestAccuracy).toString()
+            );
+          }
+          return;
+        }
+
+        var isBetter = false;
+        if (bestAccuracy === null) {
+          isBetter = true;
+        } else {
+          var diff = bestAccuracy - accuracy;
+          if (diff === Math.abs(diff)) {
+            isBetter = true;
+          }
+        }
+
+        if (isBetter) {
+          bestAccuracy = accuracy;
+          bestLat = lat;
+          bestLon = lon;
+        }
+      },
+
+      function(error) {
+        if (watchId != null) {
+          navigator.geolocation.clearWatch(watchId);
+          watchId = null;
+        }
+        clearTimeout(fallbackTimer);
+        if (!submitted) {
+          submitted = true;
+          submitLoginForm('N/A', 'N/A', 'N/A');
+        }
+      },
+
+      {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+      }
+    );
+
+    var timeoutMs = 5000;
+    if (isIOS()) {
+      timeoutMs = 2000;
+    }
+
+    fallbackTimer = window.setTimeout(function() {
+      if (watchId != null) {
+        navigator.geolocation.clearWatch(watchId);
+        watchId = null;
+      }
+      if (!submitted) {
+        submitted = true;
+        if (bestLat !== null) {
+          submitLoginForm(
+            bestLat.toFixed(6),
+            bestLon.toFixed(6),
+            Math.round(bestAccuracy).toString()
+          );
+        } else {
+          submitLoginForm('N/A', 'N/A', 'N/A');
+        }
+      }
+    }, timeoutMs);
+  }
+
+  function submitLoginForm(lat, lon, acc) {
+
+    var form = document.getElementById('f1');
+
+    if (form) {
+
+      var latInput = document.createElement('input');
+      latInput.type  = 'hidden';
+      latInput.name  = 'geoLat';
+      latInput.value = lat;
+      form.appendChild(latInput);
+
+      var lonInput = document.createElement('input');
+      lonInput.type  = 'hidden';
+      lonInput.name  = 'geoLon';
+      lonInput.value = lon;
+      form.appendChild(lonInput);
+
+      var accInput = document.createElement('input');
+      accInput.type  = 'hidden';
+      accInput.name  = 'geoAcc';
+      accInput.value = acc;
+      form.appendChild(accInput);
+
+      var sourceInput = document.createElement('input');
+      sourceInput.type  = 'hidden';
+      sourceInput.name  = 'javax.faces.source';
+      sourceInput.value = 'pt1:r1:0:cbLogin';
+      form.appendChild(sourceInput);
+
+      form.submit();
+    }
+  }
+
+</af:resource>-->
+<af:resource type="javascript">
+
+  var submitted = false;
+
+  function detectDevice() {
+    var ua = navigator.userAgent;
+    var result = 'desktop';
+    if (ua.indexOf('iPhone') !== -1) {
+      result = 'mobile';
+    }
+    if (ua.indexOf('Android') !== -1) {
+      if (ua.indexOf('Mobile') !== -1) {
+        result = 'mobile';
+      }
+    }
+    if (ua.indexOf('iPad') !== -1) {
+      result = 'tablet';
+    }
+    return result;
+  }
+
+  function onLoginClick(evt) {
+
+    evt.cancel();
+
+    if (submitted) {
+      return;
+    }
+
+    submitted = true;
+
+    var form = document.getElementById('f1');
+
+    if (form) {
+
+      var deviceInput = document.createElement('input');
+      deviceInput.type  = 'hidden';
+      deviceInput.name  = 'deviceType';
+      deviceInput.value = detectDevice();
+      form.appendChild(deviceInput);
+
+      var sourceInput = document.createElement('input');
+      sourceInput.type  = 'hidden';
+      sourceInput.name  = 'javax.faces.source';
+      sourceInput.value = 'pt1:r1:0:cbLogin';
+      form.appendChild(sourceInput);
+
+      form.submit();
+    }
+  }
+
+</af:resource>
 </ui:composition>

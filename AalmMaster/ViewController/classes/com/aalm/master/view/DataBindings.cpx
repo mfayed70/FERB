@@ -30,6 +30,14 @@
     <page path="/userProfile.jsf" usageId="com_aalm_master_view_userProfilePageDef"/>
     <page path="/WEB-INF/ApprovalCycles/approvalCycles.jsff" usageId="com_aalm_master_view_approvalCyclesPageDef"/>
     <page path="/WEB-INF/login/setPassword.jsff" usageId="com_aalm_master_view_setPasswordPageDef"/>
+    <page path="/WEB-INF/punchArea/punch_area-TF.xml#punch_area-TF@Execute"
+          usageId="com_aalm_master_view_punch_area_TF_punch_area_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/punchArea/punchArea.jsff" usageId="com_aalm_master_view_punchAreaPageDef"/>
+    <page path="/WEB-INF/punchArea/punch_area_CRUD-TF.xml#punch_area_CRUD-TF@CreateInsert"
+          usageId="com_aalm_master_view_punch_area_CRUD_TF_punch_area_CRUD_TF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/punchArea/punch_area_CRUD-TF.xml#punch_area_CRUD-TF@ExecuteWithParams"
+          usageId="com_aalm_master_view_punch_area_CRUD_TF_punch_area_CRUD_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/punchArea/punchAreaCrud.jsf" usageId="com_aalm_master_view_punchAreaCrudPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_aalm_master_view_AalmHomePageTemplatePageDef"
@@ -55,6 +63,14 @@
     <page id="com_aalm_master_view_userProfilePageDef" path="com.aalm.master.view.pageDefs.userProfilePageDef"/>
     <page id="com_aalm_master_view_approvalCyclesPageDef" path="ApprovalCycles.approvalCyclesPageDef"/>
     <page id="com_aalm_master_view_setPasswordPageDef" path="login.setPasswordPageDef"/>
+    <page id="com_aalm_master_view_punch_area_TF_punch_area_TF_ExecutePageDef"
+          path="punchArea.punch_area_TF_punch_area_TF_ExecutePageDef"/>
+    <page id="com_aalm_master_view_punchAreaPageDef" path="punchArea.punchAreaPageDef"/>
+    <page id="com_aalm_master_view_punch_area_CRUD_TF_punch_area_CRUD_TF_CreateInsertPageDef"
+          path="punchArea.punch_area_CRUD_TF_punch_area_CRUD_TF_CreateInsertPageDef"/>
+    <page id="com_aalm_master_view_punch_area_CRUD_TF_punch_area_CRUD_TF_ExecuteWithParamsPageDef"
+          path="punchArea.punch_area_CRUD_TF_punch_area_CRUD_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_master_view_punchAreaCrudPageDef" path="punchArea.punchAreaCrudPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AalmMasterDataControl" Package="com.aalm.master.model"

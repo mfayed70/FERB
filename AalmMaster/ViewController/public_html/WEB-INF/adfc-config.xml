@@ -37,6 +37,13 @@
       <to-activity-id>userProfile</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
+  <control-flow-rule id="__12">
+    <from-activity-id>login</from-activity-id>
+    <control-flow-case id="__13">
+      <from-outcome>toUserProfile</from-outcome>
+      <to-activity-id>userProfile</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
   <managed-bean id="__1">
     <managed-bean-name>Locale</managed-bean-name>
     <managed-bean-class>com.aalm.master.view.beans.Locale</managed-bean-class>
@@ -51,10 +58,5 @@
     <managed-bean-name>AppsBean</managed-bean-name>
     <managed-bean-class>com.aalm.master.view.beans.AppsBean</managed-bean-class>
     <managed-bean-scope>pageFlow</managed-bean-scope>
-  </managed-bean>
-  <managed-bean id="__7">
-    <managed-bean-name>locationBean</managed-bean-name>
-    <managed-bean-class>com.aalm.master.view.beans.LocationBean</managed-bean-class>
-    <managed-bean-scope>view</managed-bean-scope>
   </managed-bean>
 </adfc-config>

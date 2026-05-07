@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="punch_area_CRUD_TF_punch_area_CRUD_TF_CreateInsertPageDef" Package="punchArea"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="PunchAreaCrudV" RangeSize="25" DataControl="AalmMasterDataControl" id="PunchAreaCrudVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="PunchAreaCrudVIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

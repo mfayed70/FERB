@@ -11,6 +11,10 @@ import java.sql.Timestamp;
 
 import java.util.Date;
 
+import java.util.Map;
+
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
@@ -358,5 +362,70 @@ public class HrBean {
     public Timestamp getCurrentTime() {
         return new Timestamp(new Date().getTime());
     }
+//    private String getLatitude() {
+//        FacesContext facesContext = FacesContext.getCurrentInstance();
+//        ExternalContext externalContext = facesContext.getExternalContext();
+//        Map<String, Object> sessionMap = externalContext.getSessionMap();
+//        return (String) sessionMap.get("latitude");
+//    }
+public String getLatitude() {
+    FacesContext facesContext = FacesContext.getCurrentInstance();
+    ExternalContext externalContext = facesContext.getExternalContext();
+    Map<String, Object> sessionMap = externalContext.getSessionMap();
 
+    // Print session ID for comparison
+    Object session = externalContext.getSession(false);
+    if (session instanceof javax.servlet.http.HttpSession) {
+        javax.servlet.http.HttpSession httpSession =
+            (javax.servlet.http.HttpSession) session;
+        System.out.println("=== Destination page session ID: "
+                           + httpSession.getId());
+    }
+
+    String lat = (String) sessionMap.get("latitude");
+    System.out.println("=== latitude from session: " + lat);
+    return lat;
+}
+    private String getLongitude() {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = facesContext.getExternalContext();
+        Map<String, Object> sessionMap = externalContext.getSessionMap();
+        return (String) sessionMap.get("longitude");
+    }
+    
+    // Primary — Google Maps
+    public String getGoogleMapUrl() {
+        String latitude  = getLatitude();
+        String longitude = getLongitude();
+
+        if (latitude == null || longitude == null
+            || latitude.equals("N/A") || longitude.equals("N/A")) {
+            return "https://maps.google.com/maps?q=0,0&z=2&output=embed";
+        }
+
+                return "https://maps.google.com/maps?q="
+                       + latitude + "," + longitude
+                       + "&z=15&output=embed";
+    }
+
+    // Fallback — OpenStreetMap
+    public String getOpenStreetMapUrl() {
+        String latitude  = getLatitude();
+        String longitude = getLongitude();
+
+        if (latitude == null || longitude == null
+            || latitude.equals("N/A") || longitude.equals("N/A")) {
+            return "https://www.openstreetmap.org/export/embed.html"
+                   + "?bbox=-180,-90,180,90&layer=mapnik";
+        }
+
+        double lat = Double.parseDouble(latitude);
+        double lon = Double.parseDouble(longitude);
+
+        return "https://www.openstreetmap.org/export/embed.html?bbox="
+               + (lon - 0.01) + "," + (lat - 0.01) + ","
+               + (lon + 0.01) + "," + (lat + 0.01)
+               + "&layer=mapnik&marker="
+               + lat + "," + lon;
+    }
 }

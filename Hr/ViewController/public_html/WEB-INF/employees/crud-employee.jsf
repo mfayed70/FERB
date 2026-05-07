@@ -89,6 +89,13 @@
                         <f:selectItems value="#{bindings.JobId.items}" id="si4"/>
                         <f:validator binding="#{bindings.JobId.validator}"/>
                     </af:selectOneChoice>
+                    <af:inputText value="#{bindings.InsuranseNo.inputValue}" label="#{bindings.InsuranseNo.hints.label}"
+                                  required="#{bindings.InsuranseNo.hints.mandatory}"
+                                  columns="#{bindings.InsuranseNo.hints.displayWidth}"
+                                  maximumLength="#{bindings.InsuranseNo.hints.precision}"
+                                  shortDesc="#{bindings.InsuranseNo.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.InsuranseNo.validator}"/>
+                    </af:inputText>
                 </af:panelFormLayout>
                 <f:facet name="info"/>
             </af:panelHeader>

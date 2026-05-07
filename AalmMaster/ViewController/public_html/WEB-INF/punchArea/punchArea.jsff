@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.master.view.AalmMasterBndl']}"/>
+  <af:panelHeader text="#{viewcontrollerBundle.PunchinAreaLocations}" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:button text="#{viewcontrollerBundle.NEW}" id="b1" icon="#{resource['images:ContractF.png']}"
+                 hoverIcon="#{resource['images:ContractO.png']}" action="toCrud" windowEmbedStyle="inlineDocument"
+                 windowHeight="500" windowWidth="600" useWindow="true">
+        <af:setPropertyListener from="#{null}" to="#{pageFlowScope.pId}" type="action"/>
+      </af:button>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelGroupLayout id="pgl1" layout="vertical">
+      <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <af:table value="#{bindings.PunchAreaV.collectionModel}" var="row" rows="#{bindings.PunchAreaV.rangeSize}"
+                  emptyText="#{bindings.PunchAreaV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.PunchAreaV.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.PunchAreaV.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.PunchAreaV.rangeSize}" filterModel="#{bindings.PunchAreaVQuery.queryDescriptor}"
+                  queryListener="#{bindings.PunchAreaVQuery.processQuery}" filterVisible="true" varStatus="vs" id="t1"
+                  partialTriggers=":::b1">
+          <af:column sortProperty="#{bindings.PunchAreaV.hints.Id.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.PunchAreaV.hints.Id.label}" id="c1">
+            <af:link shortDesc="#{bindings.PunchAreaV.hints.Id.tooltip}" id="ot1" text="#{row.Id}"
+                     windowEmbedStyle="inlineDocument" windowHeight="500" action="toCrud" windowWidth="600"
+                     useWindow="true">
+              <af:setPropertyListener from="#{row.Id}" to="#{pageFlowScope.pId}" type="action"/>
+            </af:link>
+          </af:column>
+          <af:column sortProperty="#{bindings.PunchAreaV.hints.AreaName.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.PunchAreaV.hints.AreaName.label}" id="c2" width="200">
+            <af:outputText value="#{row.AreaName}" shortDesc="#{bindings.PunchAreaV.hints.AreaName.tooltip}" id="ot2"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.PunchAreaV.hints.Type.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.PunchAreaV.hints.Type.label}" id="c3">
+            <af:selectOneChoice value="#{row.bindings.Type.inputValue}" label="#{row.bindings.Type.label}"
+                                required="#{bindings.PunchAreaV.hints.Type.mandatory}"
+                                shortDesc="#{bindings.PunchAreaV.hints.Type.tooltip}" readOnly="true" id="soc1">
+              <f:selectItems value="#{row.bindings.Type.items}" id="si1"/>
+              <f:validator binding="#{row.bindings.Type.validator}"/>
+            </af:selectOneChoice>
+          </af:column>
+          <af:column sortProperty="#{bindings.PunchAreaV.hints.ProjId.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.PunchAreaV.hints.ProjId.label}" id="c5" width="200">
+            <af:panelGroupLayout id="pgl2" layout="vertical">
+              <af:selectOneChoice value="#{row.bindings.ProjId.inputValue}" label="#{row.bindings.ProjId.label}"
+                                  required="#{bindings.PunchAreaV.hints.ProjId.mandatory}"
+                                  shortDesc="#{bindings.PunchAreaV.hints.ProjId.tooltip}" readOnly="true" id="soc3"
+                                  visible="#{row.Type=='P'}" partialTriggers="soc1">
+                <f:selectItems value="#{row.bindings.ProjId.items}" id="si3"/>
+                <f:validator binding="#{row.bindings.ProjId.validator}"/>
+              </af:selectOneChoice>
+              <af:outputText value="#{row.VersionNo}" shortDesc="#{bindings.PunchAreaV.hints.VersionNo.tooltip}"
+                             id="ot3" rendered="false">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.PunchAreaV.hints.VersionNo.format}"/>
+              </af:outputText>
+              <af:selectOneChoice value="#{row.bindings.OrgCode.inputValue}" label="#{row.bindings.OrgCode.label}"
+                                  required="#{bindings.PunchAreaV.hints.OrgCode.mandatory}"
+                                  shortDesc="#{bindings.PunchAreaV.hints.OrgCode.tooltip}" readOnly="true" id="soc2"
+                                  visible="#{row.Type=='C'}" partialTriggers="soc1">
+                <f:selectItems value="#{row.bindings.OrgCode.items}" id="si2"/>
+                <f:validator binding="#{row.bindings.OrgCode.validator}"/>
+              </af:selectOneChoice>
+            </af:panelGroupLayout>
+          </af:column>
+          <af:column sortProperty="#{bindings.PunchAreaV.hints.CenterLat.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.PunchAreaV.hints.CenterLat.label}" id="c7">
+            <af:outputText value="#{row.CenterLat}" shortDesc="#{bindings.PunchAreaV.hints.CenterLat.tooltip}" id="ot4">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.PunchAreaV.hints.CenterLat.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.PunchAreaV.hints.CenterLon.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.PunchAreaV.hints.CenterLon.label}" id="c8">
+            <af:outputText value="#{row.CenterLon}" shortDesc="#{bindings.PunchAreaV.hints.CenterLon.tooltip}" id="ot5">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.PunchAreaV.hints.CenterLon.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.PunchAreaV.hints.RadiusM.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.PunchAreaV.hints.RadiusM.label}" id="c9">
+            <af:outputText value="#{row.RadiusM}" shortDesc="#{bindings.PunchAreaV.hints.RadiusM.tooltip}" id="ot6">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.PunchAreaV.hints.RadiusM.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.PunchAreaV.hints.IsActive.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.PunchAreaV.hints.IsActive.label}" id="c10">
+            <af:outputText value="#{row.IsActive}" shortDesc="#{bindings.PunchAreaV.hints.IsActive.tooltip}" id="ot7"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.PunchAreaV.hints.CreatedBy.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.PunchAreaV.hints.CreatedBy.label}" id="c11">
+            <af:outputText value="#{row.CreatedBy}" shortDesc="#{bindings.PunchAreaV.hints.CreatedBy.tooltip}"
+                           id="ot8"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.PunchAreaV.hints.CreatedAt.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.PunchAreaV.hints.CreatedAt.label}" id="c12">
+            <f:facet name="filter">
+              <af:inputDate value="#{bindings.PunchAreaVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.CreatedAt.value}"
+                            id="id1">
+                <af:convertDateTime pattern="#{bindings.PunchAreaV.hints.CreatedAt.format}"/>
+              </af:inputDate>
+            </f:facet>
+            <af:outputText value="#{row.CreatedAt}" shortDesc="#{bindings.PunchAreaV.hints.CreatedAt.tooltip}" id="ot9">
+              <af:convertDateTime pattern="#{bindings.PunchAreaV.hints.CreatedAt.format}"/>
+            </af:outputText>
+          </af:column>
+        </af:table>
+        <f:facet name="statusbar"/>
+      </af:panelCollection>
+    </af:panelGroupLayout>
+  </af:panelHeader>
+</ui:composition>

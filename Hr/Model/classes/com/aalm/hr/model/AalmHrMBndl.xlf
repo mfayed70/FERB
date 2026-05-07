@@ -754,6 +754,10 @@
         <source>Emp Extra Jobs Lov</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.hr.model.lov.ProjectsLOV_LABEL">
+        <source>Projects Lov</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

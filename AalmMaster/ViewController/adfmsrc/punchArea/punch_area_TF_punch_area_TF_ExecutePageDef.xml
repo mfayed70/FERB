@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="punch_area_TF_punch_area_TF_ExecutePageDef" Package="punchArea" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="PunchAreaV" RangeSize="25" DataControl="AalmMasterDataControl" id="PunchAreaVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="PunchAreaVIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

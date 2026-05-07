@@ -317,4 +317,8 @@ public class AppsBean implements Serializable {
         return null;
     }
 
+    public String punch_areaTF() {
+        setDynamicTaskFlowId("/WEB-INF/punchArea/punch_area-TF.xml#punch_area-TF");
+        return null;
+    }
 }

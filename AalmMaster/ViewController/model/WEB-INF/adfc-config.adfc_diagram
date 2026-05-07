@@ -111,4 +111,14 @@
       <property
          name="sdm:polyPoints">B56,322.0,352.63492,321.5,421.125,T56</property>
    </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="View3"
+      to="View8">
+      <property
+         name="fromOutcome">toUserProfile</property>
+      <property
+         name="sdm:polyPoints">B50,173.5,355.5625,277.0,475.125,L50</property>
+   </ControlFlowCase>
 </SDM>
