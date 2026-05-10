@@ -82,7 +82,7 @@
                 <f:facet name="second">
                   <af:panelGroupLayout id="pgl11" layout="vertical" styleClass="AFStretchWidth"> 
     <af:panelBox id="pb1"
-                 text="#{viewcontrollerBundle.YourCurrentLocation}"
+                 text="Your Current Location"
                  showDisclosure="false">
                       <!--Location display area-->
                       <af:panelGroupLayout id="locationPanel" layout="horizontal">
@@ -123,7 +123,7 @@
     <af:separator id="s11"/>
                     <af:outputText value="#{sessionScope.deviceType}" id="ot1"/>
                     <af:panelGroupLayout id="pgl12" layout="vertical" styleClass="AFStretchWidth">
-                      <af:outputText value="#{viewcontrollerBundle.YourLocationonMap}" id="otMapLabel" inlineStyle="font-size:14px;font-weight:bold;
+                      <af:outputText value="Your Location on Map:" id="otMapLabel" inlineStyle="font-size:14px;font-weight:bold;
                                 padding:8px;display:block;"/>
                       <af:outputText id="osmUrl" value="#{sessionScope.Locale.openStreetMapUrl}"
                                      inlineStyle="display:none;"/>
