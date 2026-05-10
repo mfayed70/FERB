@@ -182,6 +182,14 @@
         <source>Employee Extra Jobs</source>
         <target/>
       </trans-unit>
+      <trans-unit id="YourCurrentLocation">
+        <source>Your Current Location</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YourLocationonMap">
+        <source>Your Location on Map:</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>
