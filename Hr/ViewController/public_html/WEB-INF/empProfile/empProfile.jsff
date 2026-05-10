@@ -88,18 +88,22 @@
                       <af:panelGroupLayout id="locationPanel" layout="horizontal">
 
         <af:outputText id="otStatus"
-                       value="#{sessionScope.Locale.locationStatus}"/>
+                       value="#{sessionScope.Locale.locationStatus}"
+                       partialTriggers="poll1"/>
 
         <af:outputText id="otLat"
                        label="Latitude"
-                       value="#{sessionScope.Locale.latitude}"/>
+                       value="#{sessionScope.Locale.latitude}"
+                       partialTriggers="poll1"/>
 <af:outputText id="otLon"
                        label="Longitude"
-                       value="#{sessionScope.Locale.longitude}"/>
+                       value="#{sessionScope.Locale.longitude}"
+                       partialTriggers="poll1"/>
 
         <af:outputText id="otAcc"
                        label="Accuracy"
-                       value="#{sessionScope.Locale.formattedAccuracy}"/>
+                       value="#{sessionScope.Locale.formattedAccuracy}"
+                       partialTriggers="poll1"/>
                       </af:panelGroupLayout>
 
        <!--Hidden inputs carry geo values to server on each poll--> 
@@ -124,18 +128,15 @@
                     <af:outputText value="#{sessionScope.deviceType}" id="ot1"/>
                     <af:panelGroupLayout id="pgl12" layout="vertical" styleClass="AFStretchWidth">
                       <af:outputText value="Your Location on Map:" id="otMapLabel" inlineStyle="font-size:14px;font-weight:bold;
-                                padding:8px;display:block;"/>
+                                padding:8px;display:block;" partialTriggers="poll1"/>
                       <af:outputText id="osmUrl" value="#{sessionScope.Locale.openStreetMapUrl}"
-                                     inlineStyle="display:none;"/>
+                                     inlineStyle="display:none;" partialTriggers="poll1"/>
                       <af:inlineFrame id="mapFrame"
-                clientComponent="true"
-                shortDesc="Current Location Map"
-                width="600"
-                height="400"
-                inlineStyle="width:600px;height:400px;border:1px solid #CCCCCC;"/>
-
-                      <!--<af:poll id="poll1" interval="#{sessionScope.Locale.accuracy eq null ? 5000 : -1}" timeout="15000"
-                               partialTriggers="poll1" pollListener="#{sessionScope.Locale.onPoll}"/>-->
+                                      source="#{sessionScope.Locale.accuracy > 0 ? sessionScope.Locale.googleMapUrl : null}"
+                                      shortDesc="Your current location on map" width="600" height="400" clientComponent="true" partialTriggers="otLat otLon otAcc"
+                                      inlineStyle="width:600px;height:400px;" sizing="preferred"/>
+                      <af:poll id="poll1" interval="#{sessionScope.Locale.accuracy eq null ? 5000 : -1}" timeout="15000"
+                               partialTriggers="poll1" pollListener="#{sessionScope.Locale.onPoll}"/>
                       <!-- Poll inside jsff — same scope as all components above -->
                     </af:panelGroupLayout>
                   </af:panelGroupLayout>
@@ -730,196 +731,130 @@
                             </af:dialog>
                         </af:popup>
     <af:resource type="javascript">
+  var watchId = null;
+  var bestAccuracy = null;
+  var bestLat = null;
+  var bestLon = null;
+  var goodAccuracy = 500;
+  var geoCollected = false;
+  var pollStopped = false;
 
-var watchId = null;
+  function startGeolocation() {
 
-var geoStarted = false;
-var geoCollected = false;
-
-var bestAccuracy = 999999;
-var bestLat = null;
-var bestLon = null;
-
-var GOOD_ACCURACY = 500;
-
-var geo = {};
-
-function initGeoElements() {
-
-    geo.status =
-        document.querySelector('span[id$="otStatus"]');
-
-    geo.lat =
-        document.querySelector('input[id$="itLat::content"]');
-
-    geo.lon =
-        document.querySelector('input[id$="itLon::content"]');
-
-    geo.acc =
-        document.getElementById('accHidden');
-
-    geo.map =
-        document.querySelector('iframe[id$="mapFrame::f"]');
-}
-
-function updateStatus(message) {
-
-    if (geo.status) {
-        geo.status.innerHTML = message;
+    if (geoCollected) {
+      return;
     }
-}
-
-function stopGeolocation() {
-
-    if (watchId != null) {
-        navigator.geolocation.clearWatch(watchId);
-        watchId = null;
-    }
-}
-
-function updateMap(lat, lon) {
-
-    if (!geo.map) {
-        return;
-    }
-
-    var delta = 0.01;
-
-    var bbox =
-        (parseFloat(lon) - delta) + "," +
-        (parseFloat(lat) - delta) + "," +
-        (parseFloat(lon) + delta) + "," +
-        (parseFloat(lat) + delta);
-
-    var mapUrl =
-        "https://www.openstreetmap.org/export/embed.html?bbox=" +
-        bbox +
-        "&amp;layer=mapnik&amp;marker="
-        lat + "," + lon;
-
-    geo.map.src = mapUrl;
-}
-
-function storeLocation(lat, lon, acc) {
-
-    if (geo.lat) {
-        geo.lat.value = lat;
-    }
-
-    if (geo.lon) {
-        geo.lon.value = lon;
-    }
-
-    if (geo.acc) {
-        geo.acc.value = acc;
-    }
-
-    geoCollected = true;
-
-    updateMap(lat, lon);
-
-    updateStatus(
-        "Location acquired (Accuracy: " +
-        acc +
-        " meters)"
-    );
-
-    stopGeolocation();
-}
-
-function startGeolocation() {
-
-    if (geoStarted) {
-        return;
-    }
-
-    geoStarted = true;
-
-    initGeoElements();
 
     if (!navigator.geolocation) {
-
-        updateStatus(
-            "Geolocation is not supported by this browser."
-        );
-
-        return;
+      var statusEl = document.querySelector('span[id$="otStatus"]');
+      if (statusEl) {
+        statusEl.innerHTML = 'Geolocation not supported.';
+      }
+      stopPoll();
+      return;
     }
 
-    updateStatus("Acquiring current location...");
+    var statusEl = document.querySelector('span[id$="otStatus"]');
+    if (statusEl) {
+      statusEl.innerHTML = 'Acquiring location...';
+    }
 
     watchId = navigator.geolocation.watchPosition(
 
-        function(position) {
+      function(position) {
+        var accuracy = position.coords.accuracy;
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
 
-            var accuracy =
-                Math.round(position.coords.accuracy);
-
-            var lat =
-                position.coords.latitude;
-
-            var lon =
-                position.coords.longitude;
-
-            if (accuracy &lt; bestAccuracy) {
-
-                bestAccuracy = accuracy;
-                bestLat = lat;
-                bestLon = lon;
-            }
-
-            if (accuracy &lt;= GOOD_ACCURACY) {
-
-                storeLocation(
-                    bestLat.toFixed(6),
-                    bestLon.toFixed(6),
-                    bestAccuracy
-                );
-            }
-        },
-
-        function(error) {
-
-            stopGeolocation();
-
-            updateStatus(
-                "Location error: " +
-                error.message
-            );
-        },
-
-        {
-            enableHighAccuracy: true,
-            timeout: 10000,
-            maximumAge: 0
+        var diffFromGood = goodAccuracy - accuracy;
+        if (diffFromGood === Math.abs(diffFromGood)) {
+          bestAccuracy = accuracy;
+          bestLat = lat;
+          bestLon = lon;
+          storeInHiddenFields(
+            bestLat.toFixed(6),
+            bestLon.toFixed(6),
+            Math.round(bestAccuracy).toString()
+          );
+          geoCollected = true;
+          if (watchId != null) {
+            navigator.geolocation.clearWatch(watchId);
+            watchId = null;
+          }
+          return;
         }
+
+        var isBetter = false;
+        if (bestAccuracy === null) {
+          isBetter = true;
+        } else {
+          var diff = bestAccuracy - accuracy;
+          if (diff === Math.abs(diff)) {
+            isBetter = true;
+          }
+        }
+
+        if (isBetter) {
+          bestAccuracy = accuracy;
+          bestLat = lat;
+          bestLon = lon;
+        }
+      },
+
+      function(error) {
+        if (watchId != null) {
+          navigator.geolocation.clearWatch(watchId);
+          watchId = null;
+        }
+        var statusEl = document.querySelector(
+                           'span[id$="otStatus"]');
+        if (statusEl) {
+          statusEl.innerHTML = 'Location error: ' + error.message;
+        }
+        stopPoll();
+      },
+
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0
+      }
     );
 
     window.setTimeout(function() {
-
-        if (!geoCollected &amp;&amp;bestLat != null) {
-
-            storeLocation(
-                bestLat.toFixed(6),
-                bestLon.toFixed(6),
-                bestAccuracy
-            );
-
-            updateStatus(
-                "Approximate location acquired " +
-                "(Accuracy: " +
-                bestAccuracy +
-                " meters)"
-            );
+      if (!geoCollected) {
+        if (watchId != null) {
+          navigator.geolocation.clearWatch(watchId);
+          watchId = null;
         }
-
-        stopGeolocation();
-
+        if (bestLat !== null) {
+          storeInHiddenFields(
+            bestLat.toFixed(6),
+            bestLon.toFixed(6),
+            Math.round(bestAccuracy).toString()
+          );
+          geoCollected = true;
+        }
+        stopPoll();
+      }
     }, 10000);
-}
+  }
 
-AdfPage.PAGE.addLoadEvent(startGeolocation);
+  function storeInHiddenFields(lat, lon, acc) {
+    var latInput = document.querySelector(
+                       'input[id$="itLat::content"]');
+    var lonInput = document.querySelector(
+                       'input[id$="itLon::content"]');
+    var accInput = document.getElementById('accHidden');
+
+    if (latInput) latInput.value = lat;
+    if (lonInput) lonInput.value = lon;
+    if (accInput) accInput.value = acc;
+
+    stopPoll();
+  }
+
+  window.setTimeout(startGeolocation, 1000);
 
 </af:resource>
-
 </ui:composition>

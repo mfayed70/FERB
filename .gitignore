@@ -1,14 +1,45 @@
+# ===== Oracle ADF / JDeveloper =====
 
-# Editor swap files
-*.swp
-*.swo
-*.swx
-*.*.kate-swp
+# JDeveloper cache & metadata
+*.jdb
+*.data
+*.cdi
 
-# Editor swap files
+# Compiled classes
+/classes/
+/build/
+/dist/
+/out/
+/target/
+
+# Generated jars
+#*.jar
+
+# Temp/cache
+/tmp/
+/temp/
+/cache/
+
+# ADF skin cache
+#/public_html/WEB-INF/temp/
+/adfmsrc/
+/adfmsrc_old/
+
+# OS/editor files
 *.swp
-*.swo
-*.swx
-*.*.kate-swp*.ear
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Deployment artifacts
+*.ear
 *.war
 
+# Maven/Gradle
+/.mvn/
+/.gradle/
+
+# Node (if any frontend tools)
+/node_modules/
