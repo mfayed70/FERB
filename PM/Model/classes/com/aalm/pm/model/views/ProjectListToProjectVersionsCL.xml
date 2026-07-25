@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProjectListToProjectVersionsCL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.aalm.pm.model.views.ProjectListToProjectVersionsCL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="ProjectsListV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.aalm.pm.model.views.ProjectsListV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ProjectsListV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.pm.model.views.ProjectsListV.ProjCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ProjectVersionsV"
+    Cardinality="-1"
+    Owner="com.aalm.pm.model.views.ProjectVersionsV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ProjectVersionsV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.aalm.pm.model.views.ProjectVersionsV.ProjCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.pm.model.AalmPmMBndl"/>
+  </ResourceBundle>
+</ViewLink>

@@ -43,6 +43,7 @@
           <Item Value="JobId"/>
           <Item Value="FrmDt"/>
           <Item Value="ToDt"/>
+          <Item Value="ProjId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -106,5 +107,10 @@
         <Item Value="false"/>
       </ValueList>
     </button>
+    <attributeValues IterBinding="EmployeesVIterator" id="EmpId">
+      <AttrNames>
+        <Item Value="EmpId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

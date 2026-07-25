@@ -10,8 +10,8 @@
   <bindings>
     <action IterBinding="ProjectMastVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
             Action="executeWithParams" InstanceName="AalmPmDataControl.ProjectMastV" DataControl="AalmPmDataControl">
-      <NamedData NDName="pProjId" NDValue="#{pageFlowScope.pProjId}" NDType="java.lang.Integer"/>
-      <NamedData NDName="pVerNo" NDValue="#{pageFlowScope.pVersionNo}" NDType="java.lang.Integer"/>
+      <NamedData NDName="pVerNo" NDValue="#{pageFlowScope.pVerNo}" NDType="java.lang.Integer"/>
+      <NamedData NDName="pProjCode" NDValue="#{pageFlowScope.pProjCode}" NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

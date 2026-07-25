@@ -428,4 +428,25 @@ public String getLatitude() {
                + "&layer=mapnik&marker="
                + lat + "," + lon;
     }
+
+    public void saveTransferEmp(ActionEvent actionEvent) {
+        // Add event code here...
+        System.out.println("Full Time : " + JSFUtil.resolveExpressionAsBoolean("#{bindings.FullTime.inputValue}") +
+                           "time : " + new Timestamp(System.currentTimeMillis()));
+        ViewObject vo = ADFUtils.findIterator("EmployeeJobHistoryVIterator").getViewObject();
+
+        if (JSFUtil.resolveExpressionAsBoolean("#{bindings.FullTime.inputValue}")) {
+            vo.setWhereClause("to_dt is null and job_id <>" + ADFUtils.getBoundAttributeValue("JobId") + "");
+            vo.executeQuery();
+            Row[] rw = vo.getAllRowsInRange();
+            for (Row r : rw) {
+                System.out.println("index : " + r.getAttribute("FrmDt"));
+                r.setAttribute("ToDt", new Timestamp(System.currentTimeMillis()));
+            }
+        }
+        ADFUtils.setBoundAttributeValue("EmpJobId", ADFUtils.getBoundAttributeValue("JobId"));
+        ADFUtils.findOperation("Commit").execute();
+        vo.setWhereClause(null);
+        vo.executeQuery();
+    }
 }

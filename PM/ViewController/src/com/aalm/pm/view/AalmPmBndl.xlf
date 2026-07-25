@@ -78,6 +78,22 @@
         <source>create new version from it</source>
         <target/>
       </trans-unit>
+      <trans-unit id="ProjectMasterData">
+        <source>Project Master Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ProjectStaff">
+        <source>Project Staff</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NewEditProject">
+        <source>New / Edit Project</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="OldVersions">
+        <source>Old Versions</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -138,8 +138,8 @@ public class LoginBean {
 //            
             
             logger.fine("No URL retrieved, redirecting to HOME_URL: " + HOME_URL);
-//            externalContext.redirect(HOME_URL);
-            JSFUtil.setExpressionValue("#{pageFlowScope.successfulLogin}", true);
+            externalContext.redirect(HOME_URL);
+//            JSFUtil.setExpressionValue("#{pageFlowScope.successfulLogin}", true);
 //            Map<String, String> requestMap = externalContext.getRequestParameterMap();
 //
 //            String lat = requestMap.get("geoLat");
@@ -268,7 +268,7 @@ public class LoginBean {
     public void attendanceDialogLsnr(DialogEvent e) {
         // Add event code here...
             switch (e.getOutcome()) {
-                       case yes:   // for type="yesNo"
+                  case yes:   // for type="yesNo"
             System.out.println("User pressed YES - "+JSFUtil.getFromSession("attendance"));
         System.out.println("curr time : "+this.getCurrentTime());
     if(JSFUtil.getFromSession("attendance").equals("Punch-in")) {

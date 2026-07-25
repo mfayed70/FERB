@@ -11,7 +11,7 @@
   PageIterMode="Full"
   FetchMode="FETCH_ALL"
   RangeSize="-1"
-  MaxFetchSize="120">
+  MaxFetchSize="200">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
@@ -39,7 +39,7 @@
    WHEN 'en' THEN CONCAT(o.en_org_name,'/',j.job_name_en)
    WHEN 'ar' THEN CONCAT(o.ar_org_name,'/',j.job_name_ar)
    ELSE CONCAT(o.en_org_name,'/',j.job_name_en)
-END AS job_name
+END AS job_name, o.org_type
 FROM 
     JOBS j
 JOIN ORGANIZATIONS o
@@ -85,6 +85,21 @@ JOIN ORGANIZATIONS o
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="201"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="org_type"
+    Expression="org_type"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
     </DesignTime>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">

@@ -758,6 +758,22 @@
         <source>Projects Lov</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ProjId_LABEL">
+        <source>Project</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TransferEmployeeV_LABEL">
+        <source>Transfer Employee V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TransferEmployeeV.ToLocation_LABEL">
+        <source>To Department</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.TransferEmployeeV.PermenantExtra_LABEL">
+        <source>Full Time</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

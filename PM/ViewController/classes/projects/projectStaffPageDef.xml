@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="projectStaffPageDef"
+                Package="projects">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProjectStaffTreeV" RangeSize="25" DataControl="AalmPmDataControl" id="ProjectStaffTreeVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ProjectStaffTreeVIterator" id="ProjectStaffTreeV">
+      <nodeDefinition DefName="com.aalm.pm.model.views.ProjectStaffV" Name="ProjectStaffTreeV0">
+        <AttrNames>
+          <Item Value="JobId"/>
+          <Item Value="JobName"/>
+          <Item Value="EmpName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="ParentJobIdProjectStaffV"/>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -69,6 +69,28 @@
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="EMPLOYEE_JOB_HISTORY"/>
+  <Attribute
+    Name="ProjId"
+    ColumnName="proj_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEE_JOB_HISTORY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VersionNo"
+    ColumnName="version_no"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="EMPLOYEE_JOB_HISTORY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="Employees"
     Association="com.aalm.hr.model.entities.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1Assoc"

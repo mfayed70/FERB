@@ -22,9 +22,11 @@
       <Attr Name="_finderName" Value="ProjectMastV"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.aalm.pm.model.views.ProjectMastV.ProjId"/>
+      <Item Value="com.aalm.pm.model.views.ProjectMastV.VersionNo"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
@@ -37,6 +39,7 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.aalm.pm.model.views.ProjectSectionsV.ProjId"/>
+      <Item Value="com.aalm.pm.model.views.ProjectSectionsV.VersionNo"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

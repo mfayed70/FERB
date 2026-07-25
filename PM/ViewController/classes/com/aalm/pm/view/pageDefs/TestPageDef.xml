@@ -4,14 +4,15 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="customersTF1" taskFlowId="/WEB-INF/clients/clients-TF.xml#clients-TF" activation="deferred"
+    <taskFlow id="projectsTF1" taskFlowId="/WEB-INF/projects/projects-TF.xml#projects-TF" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="clientsTF1" taskFlowId="/WEB-INF/clients/clients-TF.xml#clients-TF" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding">
       <parameters>
         <parameter id="refreshRegion" value="#{sessionScope.refreshRegion}"/>
+        <parameter id="refreshLocale" value="#{sessionScope.refreshLocale}"/>
       </parameters>
     </taskFlow>
-    <taskFlow id="projectsTF1" taskFlowId="/WEB-INF/projects/projects-TF.xml#projects-TF" activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>

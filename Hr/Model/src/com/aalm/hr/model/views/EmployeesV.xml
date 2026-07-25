@@ -19,7 +19,8 @@
        Employees.job_id, 
        Employees.curr_code, 
        Employees.org_code, 
-       Employees.insuranse_no"
+       Employees.insuranse_no, 
+       (select max(Frm_dt) from EMPLOYEE_JOB_HISTORY where frm_dt is not null group by emp_id having emp_id = Employees.emp_id) AS VIEW_ATTR"
   FromList="EMPLOYEES Employees">
   <ViewAccessor
     Name="Currencies1"
@@ -249,6 +250,15 @@
     EntityAttrName="InsuranseNo"
     EntityUsage="Employees"
     AliasName="insuranse_no"/>
+  <ViewAttribute
+    Name="MaxTrnsfrDt"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    AliasName="VIEW_ATTR"
+    SQLType="TIMESTAMP"
+    Expression="(select max(Frm_dt) from EMPLOYEE_JOB_HISTORY where frm_dt is not null group by emp_id having emp_id = Employees.emp_id)"/>
   <ViewLinkAccessor
     Name="EmployeeJobHistoryV"
     ViewLink="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL"

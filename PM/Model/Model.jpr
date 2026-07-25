@@ -226,6 +226,10 @@
             <value n="id" v="ADF Common Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <url n="id" path="../../../../../../mfayed/.jdeveloper/system12.1.3.0.41.170120.1047/o.jdeveloper/Mysql-connector-java-5.1.49-bin.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <list n="libraryReferences">
          <hash>
@@ -258,6 +262,10 @@
          </hash>
          <hash>
             <value n="id" v="ADF Common Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" path="../../../../../../mfayed/.jdeveloper/system12.1.3.0.41.170120.1047/o.jdeveloper/Mysql-connector-java-5.1.49-bin.library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

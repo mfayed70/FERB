@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="transferEmployeePageDef"
+                Package="employeeTransfer">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeeJobHistoryV" RangeSize="25" DataControl="AalmHrDataControl"
+              id="EmployeeJobHistoryVIterator"/>
+    <iterator Binds="EmployeesV" RangeSize="10" DataControl="AalmHrDataControl" id="EmployeesVIterator"/>
+  </executables>
+  <bindings>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmHrDataControl"/>
+    <attributeValues IterBinding="EmployeeJobHistoryVIterator" id="Seq">
+      <AttrNames>
+        <Item Value="Seq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeeJobHistoryVIterator" id="EmpId">
+      <AttrNames>
+        <Item Value="EmpId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="EmployeeJobHistoryVIterator" StaticList="false" Uses="LOV_JobId" id="JobId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="EmployeeJobHistoryVIterator" id="FrmDt">
+      <AttrNames>
+        <Item Value="FrmDt"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="EmployeeJobHistoryVIterator" StaticList="false" Uses="LOV_ProjId" id="ProjId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <button IterBinding="EmployeeJobHistoryVIterator" id="FullTime" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="FullTime"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="EmployeeJobHistoryVIterator" id="OrgType">
+      <AttrNames>
+        <Item Value="OrgType"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AalmHrDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="EmployeesVIterator" id="EmpJobId">
+      <AttrNames>
+        <Item Value="JobId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeeJobHistoryVIterator" id="MaxFrmDt">
+      <AttrNames>
+        <Item Value="MaxFrmDt"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

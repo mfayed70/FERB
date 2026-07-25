@@ -17,6 +17,21 @@
           usageId="com_aalm_pm_view_projects_pricing_TF_projects_pricing_TF_ExecuteWithParamsPageDef"/>
     <page path="/WEB-INF/projects-pricing/projects-pricing_TF.xml#projects-pricing_TF@CreateInsert"
           usageId="com_aalm_pm_view_projects_pricing_TF_projects_pricing_TF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/clients/clients-TF.xml#clients-TF@Execute"
+          usageId="com_aalm_pm_view_clients_TF_clients_TF_ExecutePageDef"/>
+    <page path="/WEB-INF/clients/clients-CRUD-TF.xml#clients-CRUD-TF@CreateInsert"
+          usageId="com_aalm_pm_view_clients_CRUD_TF_clients_CRUD_TF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/projects/project_staff-TF.xml#project_staff-TF@ExecuteWithParams"
+          usageId="com_aalm_pm_view_project_staff_TF_project_staff_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/projects/projectStaff.jsff" usageId="com_aalm_pm_view_projectStaffPageDef"/>
+    <page path="/WEB-INF/projects/projectsList.jsff" usageId="com_aalm_pm_view_projectsListPageDef"/>
+    <page path="/WEB-INF/projects/project_crud-TF.xml#project_crud-TF@CreateInsert"
+          usageId="com_aalm_pm_view_project_crud_TF_project_crud_TF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/projects/project_crud-TF.xml#project_crud-TF@ExecuteWithParams"
+          usageId="com_aalm_pm_view_project_crud_TF_project_crud_TF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/projects/projectCRUD.jsf" usageId="com_aalm_pm_view_projectCRUDPageDef"/>
+    <page path="/WEB-INF/projects/projects-TF.xml#projects-TF@Execute"
+          usageId="com_aalm_pm_view_projects_TF_projects_TF_ExecutePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_aalm_pm_view_customersPageDef" path="customers.clientsPageDef"/>
@@ -29,6 +44,21 @@
           path="projects_pricing.projects_pricing_TF_projects_pricing_TF_ExecuteWithParamsPageDef"/>
     <page id="com_aalm_pm_view_projects_pricing_TF_projects_pricing_TF_CreateInsertPageDef"
           path="projects_pricing.projects_pricing_TF_projects_pricing_TF_CreateInsertPageDef"/>
+    <page id="com_aalm_pm_view_clients_TF_clients_TF_ExecutePageDef"
+          path="clients.clients_TF_clients_TF_ExecutePageDef"/>
+    <page id="com_aalm_pm_view_clients_CRUD_TF_clients_CRUD_TF_CreateInsertPageDef"
+          path="clients.clients_CRUD_TF_clients_CRUD_TF_CreateInsertPageDef"/>
+    <page id="com_aalm_pm_view_project_staff_TF_project_staff_TF_ExecuteWithParamsPageDef"
+          path="projects.project_staff_TF_project_staff_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_pm_view_projectStaffPageDef" path="projects.projectStaffPageDef"/>
+    <page id="com_aalm_pm_view_projectsListPageDef" path="projects.projectsListPageDef"/>
+    <page id="com_aalm_pm_view_project_crud_TF_project_crud_TF_CreateInsertPageDef"
+          path="projects.project_crud_TF_project_crud_TF_CreateInsertPageDef"/>
+    <page id="com_aalm_pm_view_project_crud_TF_project_crud_TF_ExecuteWithParamsPageDef"
+          path="projects.project_crud_TF_project_crud_TF_ExecuteWithParamsPageDef"/>
+    <page id="com_aalm_pm_view_projectCRUDPageDef" path="projects.projectCRUDPageDef"/>
+    <page id="com_aalm_pm_view_projects_TF_projects_TF_ExecutePageDef"
+          path="projects.projects_TF_projects_TF_ExecutePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AalmPmDataControl" Package="com.aalm.pm.model"

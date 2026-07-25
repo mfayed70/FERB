@@ -71,15 +71,13 @@
     Entity="com.aalm.center.model.entities.Organizations"/>
   <ViewAttribute
     Name="OrgCode"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="OrgCode"
     EntityUsage="Organizations"
-    AliasName="org_code">
+    AliasName="org_code"
+    IsNotNull="true">
     <Properties>
       <SchemaBasedProperties>
-        <AUTOSUBMIT
-          Value="true"/>
         <LABEL
           ResId="com.aalm.center.model.views.OrganizationsV.OrgCode_LABEL"/>
       </SchemaBasedProperties>
@@ -91,14 +89,7 @@
     PrecisionRule="true"
     EntityAttrName="EnOrgName"
     EntityUsage="Organizations"
-    AliasName="en_org_name">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.aalm.center.model.views.OrganizationsV.EnOrgName_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="en_org_name"/>
   <ViewAttribute
     Name="ArOrgName"
     IsNotNull="true"
@@ -141,6 +132,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="com.aalm.center.model.views.OrganizationsV.OrgType_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

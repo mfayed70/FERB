@@ -7,7 +7,7 @@
       <property
          name="activityId">projects</property>
       <property
-         name="page">/WEB-INF/projects/projects.jsff</property>
+         name="page">/WEB-INF/projects/projectsList.jsff</property>
       <property
          name="start">true</property>
       <property
@@ -17,9 +17,9 @@
       <property
          name="y">384.375</property>
       <property
-         name="x">348.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">348.0</property>
    </View>
    <TaskFlowCall
       id="TaskFlowCall3">
@@ -47,5 +47,59 @@
          name="fromOutcome">open_project</property>
       <property
          name="sdm:polyPoints">R50,389.0,384.39062,633.8828,383.5625,L50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall9">
+      <property
+         name="taskFlowId">project_crud-TF</property>
+      <property
+         name="activityId">project_crud-TF</property>
+      <property
+         name="documentReference">/WEB-INF/projects/project_crud-TF.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>project_crud-TF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">173.51562</property>
+      <property
+         name="x">600.61426</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View2"
+      to="TaskFlowCall9">
+      <property
+         name="fromOutcome">toCrud</property>
+      <property
+         name="sdm:polyPoints">T50,348.0,330.39062,559.61426,173.53125,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall7">
+      <property
+         name="activityId">Execute</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Execute&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">387.57812</property>
+      <property
+         name="x">40.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="MethodCall7"
+      to="View2">
+      <property
+         name="fromOutcome">Execute</property>
+      <property
+         name="sdm:polyPoints">R50,81.5,387.59375,307.0,384.39062,L50</property>
    </ControlFlowCase>
 </SDM>

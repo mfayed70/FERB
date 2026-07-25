@@ -156,3 +156,4 @@ ALTER TABLE `Elecon`.`ATTENDANCE`
 CHANGE COLUMN `status` `status` ENUM('Present', 'Absent', 'Half day', 'Weekend', 'Late', 'Left Early', 'Overtime') NULL DEFAULT NULL COMMENT 'Explicit status if marked manually or by system' ;
 
 UPDATE `Elecon`.`SYSTEM_FNCTNS` SET `en_fncn_name` = 'Employee Profile', `ar_fncn_name` = 'ملف تعريف الموظف', `tf_link` = '/WEB-INF/empProfile/empProfile-TF.xml#empProfile-TF' WHERE (`fncn_id` = 'HCM05');
+

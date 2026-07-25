@@ -6,14 +6,17 @@
       <id>page-gragment-template</id>
     </template-reference>
     <default-activity>router1</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
     <input-parameter-definition id="__8">
-      <name>pProjId</name>
-      <value>#{pageFlowScope.pProjId}</value>
-      <class>java.lang.Integer</class>
+      <name>pProjCode</name>
+      <value>#{pageFlowScope.pProjCode}</value>
+      <class>java.lang.String</class>
     </input-parameter-definition>
     <input-parameter-definition id="__18">
-      <name>pVersionNo</name>
-      <value>#{pageFlowScope.pVersionNo}</value>
+      <name>pVerNo</name>
+      <value>#{pageFlowScope.pVerNo}</value>
       <class>java.lang.Integer</class>
     </input-parameter-definition>
     <managed-bean id="__2">
@@ -65,6 +68,7 @@
     <task-flow-return id="exit">
       <outcome>
         <name>exit</name>
+        <commit/>
       </outcome>
     </task-flow-return>
     <method-call id="ExecuteWithParams">
@@ -81,7 +85,7 @@
     </method-call>
     <router id="router1">
       <case id="__17">
-        <expression>#{pageFlowScope.pProjId==null}</expression>
+        <expression>#{pageFlowScope.pProjCode==null}</expression>
         <outcome>new</outcome>
       </case>
       <default-outcome>edit</default-outcome>

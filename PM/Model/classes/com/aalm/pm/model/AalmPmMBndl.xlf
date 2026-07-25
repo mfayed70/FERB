@@ -407,10 +407,6 @@
         <source>Project Date</source>
         <target/>
       </trans-unit>
-      <trans-unit id="com.aalm.pm.model.views.ProjectMastV.ProjDt_LABEL">
-        <source>Project Date</source>
-        <target/>
-      </trans-unit>
       <trans-unit id="PROJECT_NAME">
         <source>Project Name</source>
         <target/>
@@ -447,7 +443,7 @@
         <source>Proj Versions Lov</source>
         <target/>
       </trans-unit>
-      <trans-unit id="com.aalm.pm.model.views.ProjectsListV_LABEL">
+      <trans-unit id="com.aalm.pm.model.views.ProjectsListVV_LABEL">
         <source>Projects List V</source>
         <target/>
       </trans-unit>
@@ -489,6 +485,50 @@
       </trans-unit>
       <trans-unit id="com.aalm.pm.model.views.ProjectSectionsV.TotCostAftrOvrhead_LABEL">
         <source>T.Cost Aftr Overhead %</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.views.ProjectStaffV_LABEL">
+        <source>Project Staff V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.views.ProjectStaffTreeSelfJoinCVL_LABEL">
+        <source>Project Staff Tree Self Join Cvl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.views.ProjectVersionsV_LABEL">
+        <source>Project Versions V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.views.ProjectListToProjectVersionsCL_LABEL">
+        <source>Project List To Project Versions Cl</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.views.ProjectsListV_LABEL">
+        <source>Projects List V</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.views.ProjectsListV.CustId_LABEL">
+        <source>Client</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.views.ProjectsListV.ProjCode_LABEL">
+        <source>Code</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.views.ProjectsListV.ProjDt_LABEL">
+        <source>Start Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.views.ProjectsListV.ProjName_LABEL">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.views.ProjectsListV.VerCount_LABEL">
+        <source>Last ver./ Old vers.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.pm.model.views.ProjectMastV.ProjDt_LABEL">
+        <source>Start Date</source>
         <target/>
       </trans-unit>
     </body>

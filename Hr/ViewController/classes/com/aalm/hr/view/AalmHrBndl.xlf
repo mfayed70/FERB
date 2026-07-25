@@ -182,6 +182,10 @@
         <source>Employee Extra Jobs</source>
         <target/>
       </trans-unit>
+      <trans-unit id="TransferEmployee">
+        <source>Transfer Employee</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

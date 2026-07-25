@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="default">
+    <af:panelHeader text="#{pageFlowScope.pProjectName}" id="ph1">
+      <f:facet name="context"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="legend"/>
+      <af:tree value="#{bindings.ProjectStaffTreeV.treeModel}" var="node"
+               selectionListener="#{bindings.ProjectStaffTreeV.treeModel.makeCurrent}" rowSelection="single" id="t1">
+        <f:facet name="nodeStamp">
+          <af:outputText value="#{node}" id="ot1" inlineStyle="min-width:200px;font-size:22px;"/>
+        </f:facet>
+      </af:tree>
+      <f:facet name="info"/>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</ui:composition>

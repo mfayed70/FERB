@@ -17,19 +17,6 @@
       <property
          name="x">119.0</property>
    </Router>
-   <MethodCall
-      id="MethodCall3">
-      <property
-         name="activityId">CreateInsert</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>CreateInsert&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">125.546875</property>
-      <property
-         name="x">350.27734</property>
-   </MethodCall>
    <View
       id="View4">
       <property
@@ -49,11 +36,11 @@
       islink="true"
       id="ControlFlowCase5"
       from="Router2"
-      to="MethodCall3">
+      to="MethodCall12">
       <property
          name="fromOutcome">new</property>
       <property
-         name="sdm:polyPoints">R46,160.0,223.5625,309.27734,125.5625,L50</property>
+         name="sdm:polyPoints">R46,160.0,223.5625,309.87735,131.36249,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -118,11 +105,24 @@
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase11"
-      from="MethodCall3"
+      from="MethodCall12"
       to="View4">
       <property
          name="fromOutcome">CreateInsert</property>
       <property
-         name="sdm:polyPoints">B50,350.27734,179.5625,350.0,240.07812,T50</property>
+         name="sdm:polyPoints">B50,350.87735,185.36249,350.0,240.07812,T50</property>
    </ControlFlowCase>
+   <MethodCall
+      id="MethodCall12">
+      <property
+         name="activityId">CreateInsert</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CreateInsert&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">131.34686</property>
+      <property
+         name="x">350.87735</property>
+   </MethodCall>
 </SDM>

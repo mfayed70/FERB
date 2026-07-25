@@ -27,5 +27,8 @@
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="OrganizationsCrudVIterator" StaticList="false" Uses="LOV_OrgType" id="OrgType"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Commit" DataControl="AalmCentralDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AalmCentralDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>

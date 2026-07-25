@@ -3,7 +3,7 @@
   <task-flow-definition id="clients-CRUD-TF">
     <default-activity>router1</default-activity>
     <transaction>
-      <requires-transaction/>
+      <new-transaction/>
     </transaction>
     <data-control-scope>
       <shared/>
@@ -20,12 +20,6 @@
       </case>
       <default-outcome>new</default-outcome>
     </router>
-    <method-call id="CreateInsert">
-      <method>#{bindings.CreateInsert.execute}</method>
-      <outcome>
-        <fixed-outcome>CreateInsert</fixed-outcome>
-      </outcome>
-    </method-call>
     <view id="clients-crud">
       <page>/WEB-INF/clients/clients-crud.jsf</page>
     </view>
@@ -41,6 +35,12 @@
         <rollback/>
       </outcome>
     </task-flow-return>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>router1</from-activity-id>
       <control-flow-case id="__2">

@@ -5,10 +5,11 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="ProjectsListV" RangeSize="25" DataControl="AalmPmDataControl" id="ProjectsListVIterator"/>
+    <iterator Binds="ProjectStaffTreeV" RangeSize="25" DataControl="AalmPmDataControl" id="ProjectStaffTreeVIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="ProjectsListVIterator" id="ProjectsListV">
-      <nodeDefinition DefName="com.aalm.pm.model.views.ProjectsListV" Name="ProjectsListV0">
+      <nodeDefinition DefName="com.aalm.pm.model.views.ProjectsListVV" Name="ProjectsListV0">
         <AttrNames>
           <Item Value="ProjId"/>
           <Item Value="ProjCode"/>
@@ -17,6 +18,7 @@
           <Item Value="CustId"/>
           <Item Value="VersionNo"/>
           <Item Value="VerCount"/>
+          <Item Value="DetCount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -26,5 +28,17 @@
             DataControl="AalmPmDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AalmPmDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmPmDataControl"/>
+    <attributeValues IterBinding="ProjectsListVIterator" id="CustId">
+      <AttrNames>
+        <Item Value="CustId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ProjectStaffTreeVIterator" id="ProjectStaffTreeV">
+      <nodeDefinition DefName="com.aalm.pm.model.views.ProjectStaffV" Name="ProjectStaffTreeV0">
+        <AttrNames>
+          <Item Value="JobName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

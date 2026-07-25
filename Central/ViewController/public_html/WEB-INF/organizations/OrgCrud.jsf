@@ -10,11 +10,13 @@
                 <f:facet name="context"/>
                 <f:facet name="menuBar">
                     <af:button text="#{viewcontrollerBundle.SAVE}" id="b2" icon="#{resource['images:SaveF.png']}"
-                               hoverIcon="#{resource['images:SaveO.png']}" action="toSave"/>
+                               hoverIcon="#{resource['images:SaveO.png']}" action="toSave"
+                               actionListener="#{bindings.Commit.execute}"/>
                 </f:facet>
                 <f:facet name="toolbar">
                     <af:button text="#{viewcontrollerBundle.CANCEL}" id="b1" icon="#{resource['images:cancelF.png']}"
-                               hoverIcon="#{resource['images:cancelO.png']}" action="toCancel"/>
+                               hoverIcon="#{resource['images:cancelO.png']}" action="toCancel"
+                               actionListener="#{bindings.Rollback.execute}" immediate="true"/>
                 </f:facet>
                 <f:facet name="legend">
                     <af:spacer width="10" height="20" id="s1"/>

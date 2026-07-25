@@ -9,7 +9,7 @@
                     <af:region value="#{bindings.projectsTF1.regionModel}" id="r2"/>
                 </af:showDetailItem>
                 <af:showDetailItem id="tab1" text="Clients">
-                    <af:region value="#{bindings.customersTF1.regionModel}" id="r1"/>
+                    <af:region value="#{bindings.clientsTF1.regionModel}" id="r1"/>
                 </af:showDetailItem>
                 <af:showDetailItem text="showDetailItem 1" id="sdi2"/>
             </af:panelTabbed>

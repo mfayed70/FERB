@@ -6,16 +6,26 @@
   Name="EmployeeJobHistoryV"
   Version="12.1.3.10.47"
   InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
   BindingStyle="JDBC"
   CustomQuery="false"
-  SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  SelectList="EmployeeJobHistory.seq, 
+       EmployeeJobHistory.emp_id, 
+       EmployeeJobHistory.job_id, 
+       EmployeeJobHistory.frm_dt, 
+       EmployeeJobHistory.to_dt, 
+       EmployeeJobHistory.proj_id, 
+       EmployeeJobHistory.version_no"
+  FromList="EMPLOYEE_JOB_HISTORY EmployeeJobHistory"
+  OrderBy="EmployeeJobHistory.frm_dt"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <ViewAccessor
     Name="JobsLOV1"
     ViewObjectName="com.aalm.hr.model.lov.JobsLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProjectsLOV1"
+    ViewObjectName="com.aalm.hr.model.lov.ProjectsLOV"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_JobId"
@@ -27,11 +37,38 @@
       <Item Value="JobId"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OrgType"/>
+    </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="JobId"/>
+      <Item Value="OrgType"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="JobName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ProjId"
+    ListVOName="ProjectsLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProjId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="VersionNo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProjId"/>
+      <Item Value="VersionNo"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProjName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -44,7 +81,10 @@
     PrecisionRule="true"
     EntityAttrName="Seq"
     EntityUsage="EmployeeJobHistory"
-    AliasName="seq"/>
+    AliasName="seq">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[return (int) (new Date().getTime()/1000);]]></TransientExpression>
+  </ViewAttribute>
   <ViewAttribute
     Name="EmpId"
     IsNotNull="true"
@@ -62,10 +102,12 @@
     LOVName="LOV_JobId">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="com.aalm.hr.model.views.EmployeeJobHistoryV.JobId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -104,6 +146,81 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ProjId"
+    PrecisionRule="true"
+    EntityAttrName="ProjId"
+    EntityUsage="EmployeeJobHistory"
+    AliasName="proj_id"
+    LOVName="LOV_ProjId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.views.EmployeeJobHistoryV.ProjId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VersionNo"
+    PrecisionRule="true"
+    EntityAttrName="VersionNo"
+    EntityUsage="EmployeeJobHistory"
+    AliasName="version_no"/>
+  <ViewAttribute
+    Name="FullTime"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="BIT"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgType"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MaxFrmDt"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    AliasName="VIEW_ATTR"
+    SQLType="TIMESTAMP">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[EmployeesV.MaxTrnsfrDt]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="EmployeesV"
+    ViewLink="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <XliffBundle
       id="com.aalm.hr.model.AalmHrMBndl"/>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="projectCRUDPageDef"
+                Package="projects">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProjectMastV" RangeSize="25" DataControl="AalmPmDataControl" id="ProjectMastVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ProjectMastVIterator" id="ProjId">
+      <AttrNames>
+        <Item Value="ProjId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProjectMastVIterator" id="ProjCode">
+      <AttrNames>
+        <Item Value="ProjCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProjectMastVIterator" id="ProjDt">
+      <AttrNames>
+        <Item Value="ProjDt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProjectMastVIterator" id="ProjName">
+      <AttrNames>
+        <Item Value="ProjName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProjectMastVIterator" id="Selected">
+      <AttrNames>
+        <Item Value="Selected"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ProjectMastVIterator" StaticList="false" Uses="LOV_CustId" id="CustId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ProjectMastVIterator" id="VersionNo">
+      <AttrNames>
+        <Item Value="VersionNo"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

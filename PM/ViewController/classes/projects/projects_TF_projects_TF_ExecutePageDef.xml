@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="projects_TF_projects_TF_ExecutePageDef" Package="projects" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ProjectsListV" RangeSize="25" DataControl="AalmPmDataControl" id="ProjectsListVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ProjectsListVIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

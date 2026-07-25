@@ -15,11 +15,14 @@ import javax.faces.event.ValueChangeEvent;
 
 import javax.swing.tree.TreeModel;
 
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.data.RichTreeTable;
 
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.nav.RichButton;
 import oracle.adf.view.rich.context.AdfFacesContext;
+
+import oracle.adfdt.model.objects.IteratorBinding;
 
 import oracle.binding.OperationBinding;
 
@@ -330,6 +333,21 @@ System.out.println("childCount: "+nodeBinding.getRow().getAttribute("ChildCount"
 
     }
 
+    public void rtrnFromNewProjectLsnr(ReturnEvent returnEvent) {
+        // Add event code here...
+        ViewObject vo = ADFUtils.findIterator("ProjectsListVIterator").getViewObject();
+        vo.clearCache();
+        vo.executeQuery();   
+    }
+    
+    public String delProjectActn() {
+        // Add event code here...
+        ViewObject vo = ADFUtils.findIterator("ProjectsListVIterator").getViewObject();
+        vo.clearCache();
+        vo.executeQuery(); 
+    return null;
+    }
+    
     public void setQty(RichInputText qty) {
         this.qty = qty;
     }
@@ -392,5 +410,19 @@ System.out.println("childCount: "+nodeBinding.getRow().getAttribute("ChildCount"
         return trnsTotCost;
     }
 
+    public String setProjectCurrRow() {
+        // Add event code here...
+        Row row = ADFUtils.findIterator("ProjectsListVIterator").getCurrentRow();
+//        Integer projCode = (Integer) row.getAttribute("ProjCode");
+        System.out.println("proj_Id : "+ row.getAttribute("ProjCode")+"==="+row.getAttribute("VerCount"));
+        JSFUtil.setExpressionValue("#{pageFlowScope.pProjCode}", row.getAttribute("ProjCode"));
+        JSFUtil.setExpressionValue("#{pageFlowScope.pVerNo}", row.getAttribute("VerCount"));                                                                                
+//
+//        OperationBinding oper1 = ADFUtils.findOperation("setCurrentRowWithKeyValue");
+//        oper1.getParamsMap().put("rowKey", row.getAttribute("ProjCode"));
+//                oper1.execute();
+        return "open_project";
+        
+    }
 }
 

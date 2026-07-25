@@ -458,6 +458,18 @@
         <source>Office - مكتب</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.OrganizationsV.OrgType_LABEL">
+        <source>Location</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.OrganizationsV.PrntOrgCode_LABEL">
+        <source>Parent Organization</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="com.aalm.center.model.views.OrganizationsV.OrgCode_LABEL">
+        <source>Organization Code</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

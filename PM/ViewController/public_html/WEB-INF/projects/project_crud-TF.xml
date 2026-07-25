@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="project_crud-TF">
+    <default-activity>router1</default-activity>
+    <transaction>
+      <new-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__12">
+      <name>pProjCode</name>
+      <value>#{pageFlowScope.pProjCode}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__13">
+      <name>pVerNo</name>
+      <value>#{pageFlowScope.pVerNo}</value>
+      <class>java.lang.Integer</class>
+    </input-parameter-definition>
+    <router id="router1">
+      <case id="__4">
+        <expression>#{pageFlowScope.pProjCode!=null}</expression>
+        <outcome>edit</outcome>
+      </case>
+      <default-outcome>new</default-outcome>
+    </router>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="projectCRUD">
+      <page>/WEB-INF/projects/projectCRUD.jsf</page>
+    </view>
+    <task-flow-return id="commit">
+      <outcome>
+        <name>commit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="rollback">
+      <outcome>
+        <name>rollback</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>new</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>projectCRUD</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>projectCRUD</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>projectCRUD</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

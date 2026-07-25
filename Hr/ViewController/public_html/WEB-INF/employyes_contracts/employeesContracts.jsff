@@ -61,7 +61,7 @@
               <af:selectBooleanCheckbox value="#{bindings.Resignation.inputValue}" label="#{bindings.Resignation.label}"
                                         shortDesc="#{bindings.Resignation.hints.tooltip}" id="sbc1" autoSubmit="true"/>
               <af:inputDate value="#{bindings.ContractEndDt.inputValue}" label="#{bindings.ContractEndDt.hints.label}"
-                            required="#{bindings.Resignation.inputValue}"
+                            required="#{bindings.ContractEndDt.hints.mandatory}"
                             columns="#{bindings.ContractEndDt.hints.displayWidth}"
                             shortDesc="#{bindings.ContractEndDt.hints.tooltip}" id="id3" partialTriggers="sbc1">
                 <f:validator binding="#{bindings.ContractEndDt.validator}"/>

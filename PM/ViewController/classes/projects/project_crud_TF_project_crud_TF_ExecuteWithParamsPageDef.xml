@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="project_crud_TF_project_crud_TF_ExecuteWithParamsPageDef" Package="projects" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ProjectMastV" RangeSize="25" DataControl="AalmPmDataControl" id="ProjectMastVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ProjectMastVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams" InstanceName="AalmPmDataControl.ProjectMastV" DataControl="AalmPmDataControl">
+      <NamedData NDName="pVerNo" NDValue="#{pageFlowScope.pVerNo}" NDType="java.lang.Integer"/>
+      <NamedData NDName="pProjCode" NDValue="#{pageFlowScope.pProjCode}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

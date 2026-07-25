@@ -40,91 +40,155 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT ProjectsMast.cust_id, 
-       ProjectsMast.overhead_perc, 
+  <SQLQuery><![CDATA[SELECT distinct ProjectsMast.cust_id, 
+       max(ProjectsMast.overhead_perc) overhead_perc, 
        ProjectsMast.proj_code, 
-       ProjectsMast.proj_dt, 
-       ProjectsMast.proj_id, 
+       max(ProjectsMast.proj_dt) proj_dt, 
+       max(ProjectsMast.proj_id), 
        ProjectsMast.proj_name, 
-       ProjectsMast.selected, 
-       ProjectsMast.version_no, (select count(section_id) from PROJECT_SECTIONS 
-                                    where PROJECT_SECTIONS.proj_id = ProjectsMast.proj_id
-                                    and   PROJECT_SECTIONS.version_no = ProjectsMast.version_no) ver_count
-FROM  PROJECTS_MAST ProjectsMast]]></SQLQuery>
-  <EntityUsage
-    Name="ProjectsMast"
-    Entity="com.aalm.pm.model.entities.ProjectsMast"/>
+       ProjectsMast.selected , max(version_no)ver_count,
+      /* (select max(version_no) from PROJECTS_MAST p1 
+                                    where p1.proj_id = ProjectsMast.proj_id)
+				    -- and   p1.version_no = ProjectsMast.version_no 
+                                    ver_count,*/
+       (select count(section_id) from PROJECT_SECTIONS 
+       WHERE PROJECT_SECTIONS.proj_id=ProjectsMast.proj_id) det_count
+FROM  PROJECTS_MAST ProjectsMast
+group by cust_id,proj_code,proj_name,selected,det_count
+
+/* select distinct max(proj_id),proj_code, proj_name, selected,
+cust_id, max(version_no), max(overhead_perc), max(proj_dt) 
+, --  (select max(version_no) from PROJECTS_MAST p1 
+--                  where p1.proj_id = PROJECTS_MAST.proj_id) ver_count,
+       (select count(section_id) from PROJECT_SECTIONS 
+				WHERE PROJECT_SECTIONS.proj_id=PROJECTS_MAST.proj_id) det_count
+from PROJECTS_MAST
+group by proj_code, proj_name, cust_id, det_count, selected;*/]]></SQLQuery>
   <ViewAttribute
     Name="CustId"
-    IsNotNull="true"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="CustId"
-    EntityUsage="ProjectsMast"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
     AliasName="cust_id"
+    Expression="cust_id"
+    SQLType="INTEGER"
     LOVName="LOV_CustId">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="com.aalm.pm.model.views.ProjectsListV.CustId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="OverheadPerc"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="OverheadPerc"
-    EntityUsage="ProjectsMast"
-    AliasName="overhead_perc"/>
-  <ViewAttribute
-    Name="ProjCode"
-    IsUnique="true"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="ProjCode"
-    EntityUsage="ProjectsMast"
-    AliasName="proj_code"/>
-  <ViewAttribute
-    Name="ProjDt"
-    PrecisionRule="true"
-    EntityAttrName="ProjDt"
-    EntityUsage="ProjectsMast"
-    AliasName="proj_dt">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="overhead_perc"
+    Expression="overhead_perc"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
   </ViewAttribute>
   <ViewAttribute
-    Name="ProjId"
+    Name="ProjCode"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="ProjId"
-    EntityUsage="ProjectsMast"
-    AliasName="proj_id">
+    Precision="45"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="proj_code"
+    Expression="proj_code"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="3"/>
+        <LABEL
+          ResId="com.aalm.pm.model.views.ProjectsListV.ProjCode_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ProjName"
+    Name="ProjDt"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="ProjName"
-    EntityUsage="ProjectsMast"
-    AliasName="proj_name"/>
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    AliasName="proj_dt"
+    Expression="proj_dt"
+    SQLType="TIMESTAMP">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.pm.model.views.ProjectsListV.ProjDt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProjId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="proj_id"
+    Expression="proj_id"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProjName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="proj_name"
+    Expression="proj_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.pm.model.views.ProjectsListV.ProjName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Selected"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Selected"
-    EntityUsage="ProjectsMast"
-    AliasName="selected"/>
-  <ViewAttribute
-    Name="VersionNo"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="VersionNo"
-    EntityUsage="ProjectsMast"
-    AliasName="version_no"
-    DefaultValue="0"/>
+    Precision="2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="selected"
+    Expression="selected"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
     Name="VerCount"
     IsUpdateable="false"
@@ -136,9 +200,38 @@ FROM  PROJECTS_MAST ProjectsMast]]></SQLQuery>
     Expression="ver_count"
     SQLType="NUMERIC">
     <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.pm.model.views.ProjectsListV.VerCount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DetCount"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="det_count"
+    Expression="det_count"
+    SQLType="NUMERIC">
+    <DesignTime>
       <Attr Name="_DisplaySize" Value="21"/>
     </DesignTime>
   </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="ProjId"/>
+    <Item Value="VerCount"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="ProjectVersionsV"
+    ViewLink="com.aalm.pm.model.views.ProjectListToProjectVersionsCL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <XliffBundle
       id="com.aalm.pm.model.AalmPmMBndl"/>

@@ -26,13 +26,13 @@
         <af:setPropertyListener from="#{false}" to="#{sessionScope.showItemsTree}" type="action"/>
       </af:button>
     </f:facet>
-    <af:panelSplitter id="ps1" orientation="vertical">
+    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="220">
       <f:facet name="first">
-        <af:panelFormLayout id="pfl1" maxColumns="3" rows="3">
+        <af:panelFormLayout id="pfl1" maxColumns="3" rows="3" labelAlignment="top" inlineStyle="padding-left:20px;">
           <af:inputText value="#{bindings.ProjId.inputValue}" label="#{bindings.ProjId.hints.label}"
                         required="true" columns="#{bindings.ProjId.hints.displayWidth}"
                         maximumLength="#{bindings.ProjId.hints.precision}" shortDesc="#{bindings.ProjId.hints.tooltip}"
-                        id="it26" contentStyle="width:50px;">
+                        id="it26" contentStyle="width:50px;" readOnly="true">
             <f:validator binding="#{bindings.ProjId.validator}"/>
             <af:convertNumber groupingUsed="false" pattern="#{bindings.ProjId.format}"/>
           </af:inputText>
@@ -40,27 +40,29 @@
                         required="#{bindings.ProjCode.hints.mandatory}"
                         columns="#{bindings.ProjCode.hints.displayWidth}"
                         maximumLength="#{bindings.ProjCode.hints.precision}"
-                        shortDesc="#{bindings.ProjCode.hints.tooltip}" id="it1">
+                        shortDesc="#{bindings.ProjCode.hints.tooltip}" id="it1" contentStyle="width:100px;"
+                        readOnly="true">
             <f:validator binding="#{bindings.ProjCode.validator}"/>
           </af:inputText>
-          <af:inputText value="#{bindings.ProjName.inputValue}" label="#{bindings.ProjName.hints.label}"
-                        required="#{bindings.ProjName.hints.mandatory}"
-                        columns="#{bindings.ProjName.hints.displayWidth}"
-                        maximumLength="#{bindings.ProjName.hints.precision}"
-                        shortDesc="#{bindings.ProjName.hints.tooltip}" id="it2" rows="3"
-                        contentStyle="width:300px;height:50px;">
-            <f:validator binding="#{bindings.ProjName.validator}"/>
-          </af:inputText>
+          <af:selectOneChoice value="#{bindings.CustId.inputValue}" label="#{bindings.CustId.label}"
+                              required="#{bindings.CustId.hints.mandatory}" shortDesc="#{bindings.CustId.hints.tooltip}"
+                              id="soc1" contentStyle="width:300px;" readOnly="true">
+            <f:selectItems value="#{bindings.CustId.items}" id="si1"/>
+            <f:validator binding="#{bindings.CustId.validator}"/>
+          </af:selectOneChoice>
           <af:group id="Group">
-            <af:selectOneChoice value="#{bindings.CustId.inputValue}" label="#{bindings.CustId.label}"
-                                required="#{bindings.CustId.hints.mandatory}"
-                                shortDesc="#{bindings.CustId.hints.tooltip}" id="soc1" contentStyle="width:300px;">
-              <f:selectItems value="#{bindings.CustId.items}" id="si1"/>
-              <f:validator binding="#{bindings.CustId.validator}"/>
-            </af:selectOneChoice>
+            <af:inputText value="#{bindings.ProjName.inputValue}" label="#{bindings.ProjName.hints.label}"
+                          required="#{bindings.ProjName.hints.mandatory}"
+                          columns="#{bindings.ProjName.hints.displayWidth}"
+                          maximumLength="#{bindings.ProjName.hints.precision}"
+                          shortDesc="#{bindings.ProjName.hints.tooltip}" id="it2" rows="3"
+                          contentStyle="width:300px;height:50px;" readOnly="true">
+              <f:validator binding="#{bindings.ProjName.validator}"/>
+            </af:inputText>
             <af:inputDate value="#{bindings.ProjDt.inputValue}" label="#{bindings.ProjDt.hints.label}"
                           required="#{bindings.ProjDt.hints.mandatory}" columns="#{bindings.ProjDt.hints.displayWidth}"
-                          shortDesc="#{bindings.ProjDt.hints.tooltip}" id="id1" contentStyle="width:200px">
+                          shortDesc="#{bindings.ProjDt.hints.tooltip}" id="id1" contentStyle="width:100px"
+                          readOnly="true">
               <f:validator binding="#{bindings.ProjDt.validator}"/>
               <af:convertDateTime pattern="#{bindings.ProjDt.format}"/>
             </af:inputDate>

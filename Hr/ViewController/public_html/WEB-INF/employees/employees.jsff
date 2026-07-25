@@ -26,7 +26,7 @@
                 rowBandingInterval="0" selectedRowKeys="#{bindings.EmployeesV.collectionModel.selectedRow}"
                 selectionListener="#{bindings.EmployeesV.collectionModel.makeCurrent}" rowSelection="single"
                 fetchSize="#{bindings.EmployeesV.rangeSize}" id="t1"
-                partialTriggers="::b1 ot1 l1" filterModel="#{bindings.EmployeesVQuery.queryDescriptor}"
+                partialTriggers="ot1 l1 :::b5" filterModel="#{bindings.EmployeesVQuery.queryDescriptor}"
                 queryListener="#{bindings.EmployeesVQuery.processQuery}" filterVisible="true" varStatus="vs">
         <af:column sortProperty="#{bindings.EmployeesV.hints.EmpId.name}" sortable="true"
                    headerText="#{bindings.EmployeesV.hints.EmpId.label}" id="c1" width="50" filterable="false">
@@ -236,7 +236,14 @@
         <af:panelHeader text=" " id="ph2">
           <f:facet name="context"/>
           <f:facet name="menuBar"/>
-          <f:facet name="toolbar"/>
+          <f:facet name="toolbar">
+            <af:button text="#{viewcontrollerBundle.TransferEmployee}" id="b5" action="toTransferEmp" useWindow="true"
+                       windowEmbedStyle="inlineDocument" windowHeight="600" windowWidth="800">
+              <af:setPropertyListener from="#{bindings.EmpId.inputValue}" to="#{pageFlowScope.pEmpId}" type="action"/>
+              <af:setPropertyListener from="#{bindings.EmpName.inputValue}" to="#{pageFlowScope.pEmpName}"
+                                      type="action"/>
+            </af:button>
+          </f:facet>
           <f:facet name="legend"/>
           <af:table value="#{bindings.EmployeeJobHistoryV.collectionModel}" var="row"
                     rows="#{bindings.EmployeeJobHistoryV.rangeSize}"
@@ -244,7 +251,7 @@
                     rowBandingInterval="0" fetchSize="#{bindings.EmployeeJobHistoryV.rangeSize}"
                     filterModel="#{bindings.EmployeeJobHistoryVQuery.queryDescriptor}"
                     queryListener="#{bindings.EmployeeJobHistoryVQuery.processQuery}" filterVisible="true"
-                    varStatus="vs" id="t2">
+                    varStatus="vs" id="t2" partialTriggers="::b5">
             <af:column sortProperty="#{bindings.EmployeeJobHistoryV.hints.Seq.name}" filterable="true" sortable="true"
                        headerText="#{bindings.EmployeeJobHistoryV.hints.Seq.label}" id="c10">
               <af:outputText value="#{row.Seq}" shortDesc="#{bindings.EmployeeJobHistoryV.hints.Seq.tooltip}" id="ot6">
@@ -259,6 +266,15 @@
                                   id="soc5">
                 <f:selectItems value="#{row.bindings.JobId.items}" id="si5"/>
                 <f:validator binding="#{row.bindings.JobId.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column id="c22" width="200">
+              <af:selectOneChoice value="#{row.bindings.ProjId.inputValue}" label="#{row.bindings.ProjId.label}"
+                                  required="#{bindings.EmployeeJobHistoryV.hints.ProjId.mandatory}"
+                                  shortDesc="#{bindings.EmployeeJobHistoryV.hints.ProjId.tooltip}" id="soc7"
+                                  readOnly="true">
+                <f:selectItems value="#{row.bindings.ProjId.items}" id="si7"/>
+                <f:validator binding="#{row.bindings.ProjId.validator}"/>
               </af:selectOneChoice>
             </af:column>
             <af:column sortProperty="#{bindings.EmployeeJobHistoryV.hints.FrmDt.name}" filterable="true" sortable="true"

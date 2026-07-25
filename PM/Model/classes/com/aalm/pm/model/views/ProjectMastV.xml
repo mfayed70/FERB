@@ -20,13 +20,13 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="pProjId"
-    Kind="viewcriteria"
-    Type="java.lang.Integer"/>
-  <Variable
     Name="pVerNo"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
+  <Variable
+    Name="pProjCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="ClientsV1"
     ViewObjectName="com.aalm.pm.model.views.ClientsV"
@@ -35,8 +35,9 @@
     Name="LOV_CustId"
     ListVOName="ClientsV1"
     ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="CustId"/>
     </AttrArray>
@@ -62,10 +63,10 @@
     LOVName="LOV_CustId">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="com.aalm.pm.model.views.ProjectMastV.CustId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -281,11 +282,11 @@ else {return 00.00}]]></TransientExpression>
       Name="ProjectMastVCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="ProjId"
-        ViewAttribute="ProjId"
+        Name="ProjCode"
+        ViewAttribute="ProjCode"
         Operator="="
         Conjunction="AND"
-        Value=":pProjId"
+        Value=":pProjCode"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

@@ -65,6 +65,41 @@
         <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
       </outcome>
     </method-call>
+    <task-flow-call id="employye_transafer-TF">
+      <task-flow-reference>
+        <document>/WEB-INF/employeeTransfer/employye_transafer-TF.xml</document>
+        <id>employye_transafer-TF</id>
+      </task-flow-reference>
+      <input-parameter id="__13">
+        <name>fromOrgType</name>
+        <value>#{pageFlowScope.fromOrgType}</value>
+      </input-parameter>
+      <input-parameter id="__14">
+        <name>fromJobId</name>
+        <value>#{pageFlowScope.fromJobId}</value>
+      </input-parameter>
+      <input-parameter id="__15">
+        <name>toJobId</name>
+        <value>#{pageFlowScope.toJobId}</value>
+      </input-parameter>
+      <input-parameter id="__16">
+        <name>toProjId</name>
+        <value>#{pageFlowScope.toProjId}</value>
+      </input-parameter>
+      <input-parameter id="__17">
+        <name>pEmpName</name>
+        <value>#{pageFlowScope.pEmpName}</value>
+      </input-parameter>
+      <input-parameter id="__18">
+        <name>pEmpId</name>
+        <value>#{pageFlowScope.pEmpId}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>Execute</from-activity-id>
       <control-flow-case id="__2">
@@ -81,6 +116,10 @@
       <control-flow-case id="__7">
         <from-outcome>toContracts</from-outcome>
         <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome>toTransferEmp</from-outcome>
+        <to-activity-id>employye_transafer-TF</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__9">

@@ -361,5 +361,13 @@ public class AalmHrImpl extends ApplicationModuleImpl implements AalmHr {
     public ViewLinkImpl getFkEmployeeExtraJobsEmployeesCrudLink1() {
         return (ViewLinkImpl) findViewLink("FkEmployeeExtraJobsEmployeesCrudLink1");
     }
+
+    /**
+     * Container's getter for TransferEmployeeV1.
+     * @return TransferEmployeeV1
+     */
+    public ViewObjectImpl getTransferEmployeeV() {
+        return (ViewObjectImpl) findViewObject("TransferEmployeeV");
+    }
 }
 

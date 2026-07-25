@@ -17,9 +17,9 @@
       <property
          name="y">303.57812</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">323.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <TaskFlowCall
       id="TaskFlowCall5">
@@ -48,7 +48,7 @@
       <property
          name="fromOutcome">open</property>
       <property
-         name="sdm:polyPoints">R54,365.1297,307.09375,635.7666,303.57812,L50</property>
+         name="sdm:polyPoints">R54,365.02643,307.09375,635.7666,303.57812,L50</property>
    </ControlFlowCase>
    <TaskFlowCall
       id="TaskFlowCall7">
@@ -65,9 +65,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">511.53125</property>
+         name="y">476.54688</property>
       <property
-         name="x">694.79004</property>
+         name="x">684.79004</property>
    </TaskFlowCall>
    <TaskFlowReturn
       id="TaskFlowReturn7">
@@ -80,9 +80,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">134.20312</property>
+         name="y">133.23438</property>
       <property
-         name="x">641.0</property>
+         name="x">673.0</property>
    </TaskFlowReturn>
    <ControlFlowCase
       islink="true"
@@ -92,7 +92,7 @@
       <property
          name="fromOutcome">backToProjects</property>
       <property
-         name="sdm:polyPoints">R46,364.0,300.09375,600.0,134.20312,L50</property>
+         name="sdm:polyPoints">R46,364.0,300.09375,632.0,133.25,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall9">
@@ -131,9 +131,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">284.03125</property>
+         name="y">305.0625</property>
       <property
-         name="x">-148.0</property>
+         name="x">-140.0</property>
    </Router>
    <ControlFlowCase
       islink="true"
@@ -143,7 +143,7 @@
       <property
          name="fromOutcome">edit</property>
       <property
-         name="sdm:polyPoints">R46,-107.0,280.54688,62.342773,217.53125,L50</property>
+         name="sdm:polyPoints">R46,-99.0,301.57812,62.342773,217.53125,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -153,7 +153,7 @@
       <property
          name="fromOutcome">new</property>
       <property
-         name="sdm:polyPoints">R54,-107.0,287.54688,49.277344,417.59375,L50</property>
+         name="sdm:polyPoints">R54,-99.0,308.57812,49.277344,417.59375,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

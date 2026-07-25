@@ -9,12 +9,6 @@
     <view id="clients">
       <page>/WEB-INF/clients/clients.jsff</page>
     </view>
-    <method-call id="Execute">
-      <method>#{bindings.Execute.execute}</method>
-      <outcome>
-        <fixed-outcome>Execute</fixed-outcome>
-      </outcome>
-    </method-call>
     <task-flow-call id="clients-CRUD-TF">
       <task-flow-reference>
         <document>/WEB-INF/clients/clients-CRUD-TF.xml</document>
@@ -30,18 +24,24 @@
         </display-type>
       </run-as-dialog>
     </task-flow-call>
-    <control-flow-rule id="__1">
-      <from-activity-id>Execute</from-activity-id>
-      <control-flow-case id="__2">
-        <from-outcome>Execute</from-outcome>
-        <to-activity-id>clients</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__3">
       <from-activity-id>clients</from-activity-id>
       <control-flow-case id="__4">
         <from-outcome>toCrud</from-outcome>
         <to-activity-id>clients-CRUD-TF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__1">
+      <from-activity-id>Execute</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>clients</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>
