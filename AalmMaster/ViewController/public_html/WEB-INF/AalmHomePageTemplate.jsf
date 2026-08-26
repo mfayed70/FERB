@@ -72,7 +72,7 @@
                                          immediate="true"/>
                             </af:panelGroupLayout>
                             <f:facet name="separator">
-                                <af:spacer width="20" height="10" id="pt_s5"/>
+                                <af:spacer width="10" height="10" id="pt_s5"/>
                             </f:facet>
                         </af:panelGroupLayout>
                     </f:facet>

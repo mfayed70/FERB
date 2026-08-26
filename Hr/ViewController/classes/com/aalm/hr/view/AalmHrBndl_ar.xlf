@@ -82,6 +82,46 @@
         <source>الإعدادات</source>
         <target/>
       </trans-unit>
+                  <trans-unit id="ATTENDANCE_DAY">
+                <source>يوم الحضور</source>
+                <target/>
+                </trans-unit>
+            <trans-unit id="Attend_STATUS">
+                <source>Attend</source>
+                <target>حاضر</target>
+            </trans-unit>
+            <trans-unit id="Absent_STATUS">
+                <source>Absent</source>
+                <target>غائب</target>
+            </trans-unit>
+            <trans-unit id="WaitingPunchOut_STATUS">
+                <source>Waiting Punch-out</source>
+                <target>في انتظار الانصراف</target>
+            </trans-unit>
+            <trans-unit id="ArriveLate_STATUS">
+                <source>Arrive Late</source>
+                <target>حضور متأخر</target>
+            </trans-unit>
+            <trans-unit id="LeftEarly_STATUS">
+                <source>Left Early</source>
+                <target>انصراف مبكر</target>
+            </trans-unit>
+            <trans-unit id="Weekend_STATUS">
+                <source>Weekend</source>
+                <target>عطلة أسبوعية</target>
+            </trans-unit>
+            <trans-unit id="MedicalLeave_STATUS">
+                <source>Medical Leave</source>
+                <target>إجازة مرضية</target>
+            </trans-unit>
+            <trans-unit id="EmergencyLeave_STATUS">
+                <source>Emergency Leave</source>
+                <target>إجازة طارئة</target>
+            </trans-unit>
+            <trans-unit id="PersonalLeave_STATUS">
+                <source>Personal Leave</source>
+                <target>إجازة شخصية</target>
+            </trans-unit>
     </body>
   </file>
 </xliff>

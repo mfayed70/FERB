@@ -61,7 +61,7 @@ public class LoginBean {
             ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
             JSFUtil.storeOnSession("userEmail", this.userName);
             String deviceType = externalContext.getRequestParameterMap().get("deviceType");
-            System.out.println("deviceType=" + deviceType);
+            System.out.println("deviceType=" + deviceType+" +++"+JSFUtil.getFromSession("userEmail"));
             Map<String, Object> sessionMap =
                 externalContext.getSessionMap();
 
@@ -77,11 +77,14 @@ public class LoginBean {
                                             myRow.getAttribute("LastName"));
                 JSFUtil.storeOnSession("userId", myRow.getAttribute("UserId"));
                 JSFUtil.storeOnSession("userMobile", myRow.getAttribute("Mobile"));
-//                JSFUtil.storeOnSession("orgCode", myRow.getAttribute("OrgCode"));
                 JSFUtil.storeOnSession("show_fncn", false);
             }
+            System.out.println("1- : "+rs.getRowCount()+"--"+JSFUtil.getFromSession("userName"));
             ADFUtils.findIterator("OrgUsersVIterator").executeQuery();
-         RowSetIterator userConOrgsrs =  ADFUtils.findIterator("UserInOrgVIterator").getViewObject().createRowSet(null);
+         RowSetIterator userConOrgsrs =  ADFUtils.findIterator("UserInOrgVIterator").getViewObject().createRowSetIterator(null);
+
+            System.out.println("orgUsr count : "+ADFUtils.findIterator("UserInOrgVIterator").getEstimatedRowCount());
+
              int x = (int) ADFUtils.findIterator("UserInOrgVIterator").getEstimatedRowCount();
 //             int[] orgCodes;
 //            orgCodes = new int[x];
@@ -93,7 +96,8 @@ public class LoginBean {
                 orgCodes = (Integer)myRow.getAttribute("OrgCode");
             }
             JSFUtil.storeOnSession("orgCode", orgCodes);
-            System.out.println("org :"+JSFUtil.getFromSession("orgCode")+"--- "+x+" +++"+JSFUtil.getFromSession("orgCode").getClass());
+            System.out.println("org :"+JSFUtil.getFromSession("orgCode")+
+                               "--- "+x);
             if (savedRequest != null) {
                 if(request.getRequestURL().toString().contains("zamzam")){
                     JSFUtil.storeOnSession("orgIni", "z");

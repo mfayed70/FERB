@@ -6,12 +6,14 @@ import java.math.BigDecimal;
 
 import java.math.RoundingMode;
 
+import java.sql.CallableStatement;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 
 import java.util.Calendar;
 
+import oracle.jbo.JboException;
 import oracle.jbo.Key;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
@@ -110,57 +112,91 @@ public class AttendanceImpl extends EntityImpl {
     protected void prepareForDML(int operation, TransactionEvent e) {
         super.prepareForDML(operation, e);
 
-        Timestamp checkIn = (Timestamp) getAttributeInternal(CHECKINTIME);
-        Timestamp checkOut = (Timestamp) getAttributeInternal(CHECKOUTTIME);
-        Date attDate = (Date) getAttributeInternal(ATTENDANCEDATE);
-
-        Enum status = new Enum("Absent"); // default
-
-        if (attDate != null) {
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(attDate);
-
-            int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK); // Sunday=1, Saturday=7
-            if (dayOfWeek == Calendar.FRIDAY || dayOfWeek == Calendar.SATURDAY) {
-                status = new Enum("Weekend");
-            } else {
-                if (checkIn == null && checkOut == null) {
-                    status = new Enum("Absent");
-                } else if (checkIn != null && checkOut == null) {
-                    status = new Enum("Half Day");
-                } else if (checkIn == null && checkOut != null) {
-                    status = new Enum("Half Day");
-                } else {
-                    status = new Enum("Present");
-
-                    // Work hours
-                    long minutes = (checkOut.getTime() - checkIn.getTime()) / (1000 * 60);
-                    BigDecimal hours = BigDecimal.valueOf(minutes / 60.0)
-                            .setScale(2, RoundingMode.HALF_UP);
-                    setWorkHours(hours);
-
-                    // Office hours
-                    Time officeStart = Time.valueOf("09:00:00");
-                    Time officeEnd = Time.valueOf("17:00:00");
-                    Time overtimeThreshold = Time.valueOf("19:00:00");
-
-                    if (checkIn.after(officeStart)) {
-                        status = new Enum("Late");
-                    }
-
-                    if (checkOut.before(officeEnd)) {
-                        status = new Enum("Left Early");
-                    }
-
-                    if ((hours.intValue() > 8) && checkOut.after(overtimeThreshold)) {
-                        status = new Enum("Overtime");
-                    }
-                }
-            }
-        }
-
-        setStatus(status);
+//        Integer userId = (Integer) getAttributeInternal(USERID);
+//
+//        if (userId != null) {
+//
+//            CallableStatement stmt = null;
+//
+//            try {
+//                stmt = getDBTransaction().createCallableStatement(
+//                    "{CALL create_today_attendance(?)}",
+//                    0
+//                );
+//
+//                stmt.setInt(1, userId);
+//
+//                stmt.execute();
+//
+//            } catch (Exception ex) {
+//                throw new JboException(ex);
+//
+//            } finally {
+//                try {
+//                    if (stmt != null) {
+//                        stmt.close();
+//                    }
+//                } catch (Exception ignored) {
+//                }
+//            }
+//        }
     }
+
+//    @Override
+//    protected void prepareForDML(int operation, TransactionEvent e) {
+//        super.prepareForDML(operation, e);
+//
+//        Timestamp checkIn = (Timestamp) getAttributeInternal(CHECKINTIME);
+//        Timestamp checkOut = (Timestamp) getAttributeInternal(CHECKOUTTIME);
+//        Date attDate = (Date) getAttributeInternal(ATTENDANCEDATE);
+//
+//        Enum status = new Enum("Absent"); // default
+//
+//        if (attDate != null) {
+//            Calendar cal = Calendar.getInstance();
+//            cal.setTime(attDate);
+//
+//            int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK); // Sunday=1, Saturday=7
+//            if (dayOfWeek == Calendar.FRIDAY || dayOfWeek == Calendar.SATURDAY) {
+//                status = new Enum("Weekend");
+//            } else {
+//                if (checkIn == null && checkOut == null) {
+//                    status = new Enum("Absent");
+//                } else if (checkIn != null && checkOut == null) {
+//                    status = new Enum("Half Day");
+//                } else if (checkIn == null && checkOut != null) {
+//                    status = new Enum("Half Day");
+//                } else {
+//                    status = new Enum("Present");
+//
+//                    // Work hours
+//                    long minutes = (checkOut.getTime() - checkIn.getTime()) / (1000 * 60);
+//                    BigDecimal hours = BigDecimal.valueOf(minutes / 60.0)
+//                            .setScale(2, RoundingMode.HALF_UP);
+//                    setWorkHours(hours);
+//
+//                    // Office hours
+//                    Time officeStart = Time.valueOf("09:00:00");
+//                    Time officeEnd = Time.valueOf("17:00:00");
+//                    Time overtimeThreshold = Time.valueOf("19:00:00");
+//
+//                    if (checkIn.after(officeStart)) {
+//                        status = new Enum("Late");
+//                    }
+//
+//                    if (checkOut.before(officeEnd)) {
+//                        status = new Enum("Left Early");
+//                    }
+//
+//                    if ((hours.intValue() > 8) && checkOut.after(overtimeThreshold)) {
+//                        status = new Enum("Overtime");
+//                    }
+//                }
+//            }
+//        }
+//
+//        setStatus(status);
+//    }
     /**
      * Gets the attribute value for AttendanceId, using the alias name AttendanceId.
      * @return the value of AttendanceId

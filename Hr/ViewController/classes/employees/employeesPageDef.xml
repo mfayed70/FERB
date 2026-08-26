@@ -10,12 +10,12 @@
               id="EmployeeJobHistoryVIterator"/>
     <searchRegion Binds="EmployeeJobHistoryVIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="EmployeeJobHistoryVQuery"/>
-    <searchRegion Binds="EmployeesVIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  id="EmployeesVQuery"/>
     <iterator Binds="EmployeeExtraJobsV" RangeSize="25" DataControl="AalmHrDataControl"
               id="EmployeeExtraJobsVIterator"/>
     <searchRegion Binds="EmployeeExtraJobsVIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="EmployeeExtraJobsVQuery"/>
+    <searchRegion Binds="EmployeesVIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="EmployeesVQuery"/>
   </executables>
   <bindings>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmHrDataControl"/>
@@ -28,11 +28,11 @@
           <Item Value="EmpCat"/>
           <Item Value="ContractNo"/>
           <Item Value="InsuranseNo"/>
-          <Item Value="IdNo"/>
           <Item Value="Salary"/>
-          <Item Value="CurrCode"/>
           <Item Value="JobId"/>
+          <Item Value="CurrCode"/>
           <Item Value="EmpId"/>
+          <Item Value="IdNo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -60,11 +60,6 @@
     <attributeValues IterBinding="EmployeesVIterator" id="CurrCode">
       <AttrNames>
         <Item Value="CurrCode"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="EmployeesVIterator" id="Salary">
-      <AttrNames>
-        <Item Value="Salary"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="EmployeesVIterator" id="IdNo">

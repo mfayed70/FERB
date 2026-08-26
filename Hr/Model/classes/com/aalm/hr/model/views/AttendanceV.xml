@@ -89,7 +89,8 @@
 FROM 
     ATTENDANCE Attendance 
 WHERE 
-    MONTHNAME(Attendance.attendance_date) = MONTHNAME(CURDATE())]]></SQLQuery>
+    MONTHNAME(Attendance.attendance_date) = MONTHNAME(CURDATE())
+Order by 1 desc]]></SQLQuery>
   <EntityUsage
     Name="Attendance"
     Entity="com.aalm.hr.model.entities.Attendance"/>

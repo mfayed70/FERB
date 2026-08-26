@@ -247,6 +247,16 @@
             Name="p_comments"
             Type="java.lang.String"/>
       </Method>
+      <Method
+         Name="createTodayAttendanceIfMissing"
+         MethodName="createTodayAttendanceIfMissing">
+         <Return
+            Name="_return_type_"
+            Type="void"/>
+         <Parameter
+            Name="userId"
+            Type="int"/>
+      </Method>
    </ClientInterface>
    <ResourceBundle >
       <XliffBundle

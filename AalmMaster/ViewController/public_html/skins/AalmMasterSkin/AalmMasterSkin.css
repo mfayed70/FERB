@@ -160,3 +160,43 @@ af|column::data-cell:disabled{
   font-size: 20px;
   height:40px;
 }
+
+.statusAttend {
+    background-color: #4CAF50;
+}
+
+.statusWaiting {
+    background-color: #FFC107;
+}
+
+.statusLate {
+    background-color: #FF9800;
+}
+
+.statusLeftEarly {
+    background-color: #F44336;
+}
+
+.statusAbsent {
+    background-color: #D32F2F;
+}
+
+.statusWeekend {
+    background-color: #607D8B;
+}
+
+.statusMedicalLeave {
+    background-color: #2196F3;
+}
+
+.statusEmergencyLeave {
+    background-color: #9C27B0;
+}
+
+.statusPersonalLeave {
+    background-color: #795548;
+}
+
+.statusDefault {
+    background-color: #a5c6ff;
+}

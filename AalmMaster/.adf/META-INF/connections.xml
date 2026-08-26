@@ -12,15 +12,12 @@
       <StringRefAddr addrType="hostname">
         <Contents>localhost</Contents>
       </StringRefAddr>
-      <StringRefAddr addrType="port">
-        <Contents>3306</Contents>
-      </StringRefAddr>
       <SecureRefAddr addrType="password"/>
-      <StringRefAddr addrType="dataSourceName">
-        <Contents>Elecon</Contents>
-      </StringRefAddr>
       <StringRefAddr addrType="driver">
         <Contents>com.mysql.jdbc.Driver</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="dataSourceName">
+        <Contents>Elecon</Contents>
       </StringRefAddr>
     </RefAddresses>
   </Reference>

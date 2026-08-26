@@ -199,5 +199,11 @@
         <Item Value="OrgCode"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="createTodayAttendanceIfMissing" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createTodayAttendanceIfMissing" IsViewObjectMethod="false" DataControl="AalmHrDataControl"
+                  InstanceName="data.AalmHrDataControl.dataProvider"
+                  ReturnName="data.AalmHrDataControl.methodResults.createTodayAttendanceIfMissing_AalmHrDataControl_dataProvider_createTodayAttendanceIfMissing_result">
+      <NamedData NDName="userId" NDValue="#{sessionScope.userId}" NDType="int"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

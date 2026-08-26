@@ -10,5 +10,7 @@ public interface AalmHr extends ApplicationModule {
 
     void sp_create_approval_transaction(int p_cycle_type_id, int p_transaction_ref_id, int p_requested_by,
                                         int p_org_code);
+
+    void createTodayAttendanceIfMissing(int userId);
 }
 

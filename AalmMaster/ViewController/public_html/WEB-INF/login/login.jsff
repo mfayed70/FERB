@@ -17,14 +17,14 @@
                              valign="top">
           <af:link text="#{viewcontrollerBundle.FORGOT_PASSWORD}" id="l1" inlineStyle="color:Maroon;font-size:20px;"
                    action="toForgotPswrd" rendered="false"/>
-          <af:link text="#{viewcontrollerBundle.SetPassword}" id="l2" inlineStyle="color:Maroon;font-size:20px;"
-                   action="#{backingBeanScope.LoginBean.setPswrdActn}"/>
           <f:facet name="separator"/>
           <af:outputText value="#{viewcontrollerBundle.youradministratorshouldnullyfyyourpasswordfirst}" id="ot5"
                          inlineStyle="font-size:14px;" rendered="false"/>
         </af:panelGroupLayout>
         <af:inputText id="it2" label="#{viewcontrollerBundle.PASSWORD}" contentStyle="width:220px;font-size:20px;"
                       value="#{backingBeanScope.LoginBean.password}" secret="true"/>
+        <af:link text="#{viewcontrollerBundle.SetPassword}" id="l2" inlineStyle="color:Maroon;font-size:20px;"
+                 action="#{backingBeanScope.LoginBean.setPswrdActn}"/>
         <f:facet name="footer"/>
         <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center" inlineStyle="margin:20px 0 0 0;">
           <af:button text="#{viewcontrollerBundle.LOGIN}" id="cbLogin"

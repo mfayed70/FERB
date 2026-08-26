@@ -18,20 +18,16 @@
         ResId="com.aalm.master.model.lovs.EmployeesLOV_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <Variable
-    Name="pOrgCode"
-    Kind="viewcriteria"
-    Type="java.lang.Integer">
-    <TransientExpression
-      trustMode="untrusted"
-      Name="expression"><![CDATA[adf.context.sessionScope.orgCode]]></TransientExpression>
-  </Variable>
-  <SQLQuery><![CDATA[SELECT 
-    EMPLOYEES.emp_id emp_id, 
-    EMPLOYEES.emp_name emp_name, 
-    EMPLOYEES.org_code org_code 
-FROM 
-    EMPLOYEES]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT e.emp_id, ec.first_name, ec.last_name, ec.contract_apply_dt
+,e.org_code, e.emp_name
+FROM EMPLOYEES e
+JOIN EMPLOYEES_CONTRACTS ec
+    ON e.emp_id = ec.emp_id
+WHERE ec.contract_apply_dt = (
+    SELECT MAX(ec2.contract_apply_dt)
+    FROM EMPLOYEES_CONTRACTS ec2
+    WHERE ec2.emp_id = e.emp_id
+)]]></SQLQuery>
   <ViewAttribute
     Name="EmpId"
     IsUpdateable="false"
@@ -41,6 +37,60 @@ FROM
     ColumnType="INTEGER"
     AliasName="emp_id"
     Expression="emp_id"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FirstName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="first_name"
+    Expression="first_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="last_name"
+    Expression="last_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ContractApplyDt"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    AliasName="contract_apply_dt"
+    Expression="contract_apply_dt"
+    SQLType="TIMESTAMP"/>
+  <ViewAttribute
+    Name="OrgCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="org_code"
+    Expression="org_code"
     SQLType="INTEGER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="11"/>
@@ -61,54 +111,6 @@ FROM
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </ViewAttribute>
-  <ViewAttribute
-    Name="OrgCode"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.lang.Integer"
-    ColumnType="INT"
-    AliasName="org_code"
-    Expression="org_code"
-    SQLType="INTEGER">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="11"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewCriteria
-    Name="EmployeesLOVCriteria"
-    ViewObjectName="com.aalm.master.model.lovs.EmployeesLOV"
-    Conjunction="AND">
-    <Properties>
-      <CustomProperties>
-        <Property
-          Name="displayOperators"
-          Value="InAdvancedMode"/>
-        <Property
-          Name="autoExecute"
-          Value="false"/>
-        <Property
-          Name="allowConjunctionOverride"
-          Value="true"/>
-        <Property
-          Name="showInList"
-          Value="true"/>
-        <Property
-          Name="mode"
-          Value="Basic"/>
-      </CustomProperties>
-    </Properties>
-    <ViewCriteriaRow
-      Name="EmployeesLOVCriteria_row_0"
-      UpperColumns="1">
-      <ViewCriteriaItem
-        Name="OrgCode"
-        ViewAttribute="OrgCode"
-        Operator="ISNOTBLANK"
-        Conjunction="AND"
-        Required="Optional"/>
-    </ViewCriteriaRow>
-  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="EmpId"/>
   </AttrArray>

@@ -32,7 +32,6 @@
   </Attribute>
   <Attribute
     Name="FirstName"
-    IsNotNull="true"
     Precision="100"
     ColumnName="first_name"
     SQLType="VARCHAR"
@@ -51,7 +50,6 @@
   </Attribute>
   <Attribute
     Name="LastName"
-    IsNotNull="true"
     Precision="100"
     ColumnName="last_name"
     SQLType="VARCHAR"

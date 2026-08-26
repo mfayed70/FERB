@@ -2,859 +2,896 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
                 xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
-  <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.hr.view.AalmHrBndl']}"/>
-  <af:panelHeader text="#{pageFlowScope.pViewForUser ? viewcontrollerBundle.YourProfile : viewcontrollerBundle.EmployeeProfile}" id="ph1">
-    <f:facet name="context">
-      <af:panelDrawer id="pd1"/>
-    </f:facet>
-    <f:facet name="menuBar"/>
-    <f:facet name="toolbar"/>
-    <f:facet name="legend"/>
-    <af:table value="#{bindings.OrgUsersV.collectionModel}" var="row" rows="#{bindings.OrgUsersV.rangeSize}"
-              emptyText="#{bindings.OrgUsersV.viewable ? 'No data to display.' : 'Access Denied.'}"
-              rowBandingInterval="0" selectedRowKeys="#{bindings.OrgUsersV.collectionModel.selectedRow}"
-              selectionListener="#{bindings.OrgUsersV.collectionModel.makeCurrent}" rowSelection="single"
-              fetchSize="#{bindings.OrgUsersV.rangeSize}" filterModel="#{bindings.OrgUsersVQuery.queryDescriptor}"
-              queryListener="#{bindings.OrgUsersVQuery.processQuery}" filterVisible="true" varStatus="vs" id="t1"
-              rendered="#{!pageFlowScope.pViewForUser}" verticalGridVisible="false">
-      <af:column sortProperty="#{bindings.OrgUsersV.hints.EmpId.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.OrgUsersV.hints.EmpId.label}" id="c4" width="150">
-        <af:inputText value="#{row.bindings.EmpId.inputValue}" shortDesc="#{bindings.OrgUsersV.hints.EmpId.tooltip}"
-                      id="ot4" label="#{bindings.OrgUsersV.hints.EmpId.label}" simple="true"
-                      required="#{bindings.OrgUsersV.hints.EmpId.mandatory}"
-                      columns="#{bindings.OrgUsersV.hints.EmpId.displayWidth}"
-                      maximumLength="#{bindings.OrgUsersV.hints.EmpId.precision}">
-          <f:validator binding="#{row.bindings.EmpId.validator}"/>
-          <af:convertNumber groupingUsed="false" pattern="#{bindings.OrgUsersV.hints.EmpId.format}"/>
-        </af:inputText>
-      </af:column>
-      <af:column sortProperty="#{bindings.OrgUsersV.hints.FirstName.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.OrgUsersV.hints.FirstName.label}" id="c2" width="201">
-        <af:inputText value="#{row.bindings.FirstName.inputValue}"
-                      shortDesc="#{bindings.OrgUsersV.hints.FirstName.tooltip}" id="ot2"
-                      label="#{bindings.OrgUsersV.hints.FirstName.label}" simple="true"
-                      required="#{bindings.OrgUsersV.hints.FirstName.mandatory}"
-                      columns="#{bindings.OrgUsersV.hints.FirstName.displayWidth}"
-                      maximumLength="#{bindings.OrgUsersV.hints.FirstName.precision}">
-          <f:validator binding="#{row.bindings.FirstName.validator}"/>
-        </af:inputText>
-      </af:column>
-      <af:column sortProperty="#{bindings.OrgUsersV.hints.LastName.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.OrgUsersV.hints.LastName.label}" id="c3" width="199">
-        <af:inputText value="#{row.bindings.LastName.inputValue}"
-                      shortDesc="#{bindings.OrgUsersV.hints.LastName.tooltip}" id="ot3"
-                      label="#{bindings.OrgUsersV.hints.LastName.label}" simple="true"
-                      required="#{bindings.OrgUsersV.hints.LastName.mandatory}"
-                      columns="#{bindings.OrgUsersV.hints.LastName.displayWidth}"
-                      maximumLength="#{bindings.OrgUsersV.hints.LastName.precision}">
-          <f:validator binding="#{row.bindings.LastName.validator}"/>
-        </af:inputText>
-      </af:column>
-      <af:column sortProperty="#{bindings.OrgUsersV.hints.OrgCode.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.OrgUsersV.hints.OrgCode.label}" id="c41">
-        <af:outputText value="#{row.OrgCode}" shortDesc="#{bindings.OrgUsersV.hints.OrgCode.tooltip}" id="ot33">
-          <af:convertNumber groupingUsed="false" pattern="#{bindings.OrgUsersV.hints.OrgCode.format}"/>
-        </af:outputText>
-      </af:column>
-    </af:table>
-    <f:facet name="info"/>
-    <af:spacer width="10" height="10" id="s1"/>
-    <af:panelGroupLayout id="pgl4" layout="vertical">
-      <af:panelTabbed id="pt1">
-        <af:showDetailItem id="tab1" text="#{viewcontrollerBundle.YourAttendance}"
-                           badge="#{viewcontrollerBundle.YourAttendance}">
-          <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="342" disabled="true"
-                            inlineStyle="margin-right:5px;padding-left:100px;">
-            <f:facet name="first">
-              <af:panelSplitter id="ps4" splitterPosition="500" disabled="true">
-                <f:facet name="first">
-                  <dvt:pieChart id="pieChart1" var="row" value="#{bindings.AttendanceStatisticsV.collectionModel}"
-                                threeDEffect="on" footnoteHalign="center" inlineStyle="width:500px;font-size:30px;"
-                                sliceLabelPosition="inside" titleHalign="center" emptyText="Employee Attendance Chart"
-                                title="Employee Attendance Chart" hideAndShowBehavior="withRescale"
-                                sliceLabelStyle="font-size:10px;"
-                                subtitle="#{bindings.CurrentYear.inputValue}#{' '}#{bindings.CurrMonth.inputValue}">
-                    <dvt:chartLegend id="cl1" position="bottom"/>
-                    <dvt:pieDataItem id="di1" value="#{row.TotalDays}" label="#{row.Status}" explode="0.1"
-                                     sliceLabel="#{row.TotalDays}#{' Days'}"/>
-                  </dvt:pieChart>
-                </f:facet>
-                <f:facet name="second">
-                  <af:panelGroupLayout id="pgl11" layout="vertical" styleClass="AFStretchWidth"> 
-    <af:panelBox id="pb1"
-                 text="Your Current Location"
-                 showDisclosure="false">
-                      <!--Location display area-->
-                      <af:panelGroupLayout id="locationPanel" layout="horizontal">
-
-        <af:outputText id="otStatus"
-                       value="#{sessionScope.Locale.locationStatus}"
-                       partialTriggers="poll1"/>
-
-        <af:outputText id="otLat"
-                       label="Latitude"
-                       value="#{sessionScope.Locale.latitude}"
-                       partialTriggers="poll1"/>
-<af:outputText id="otLon"
-                       label="Longitude"
-                       value="#{sessionScope.Locale.longitude}"
-                       partialTriggers="poll1"/>
-
-        <af:outputText id="otAcc"
-                       label="Accuracy"
-                       value="#{sessionScope.Locale.formattedAccuracy}"
-                       partialTriggers="poll1"/>
-                      </af:panelGroupLayout>
-
-       <!--Hidden inputs carry geo values to server on each poll--> 
-      <af:inputText id="itLat"
-                    simple="true"
-                    inlineStyle="display:none;" value="#{sessionScope.Locale.latitude}"/>
-
-      <af:inputText id="itLon"
-                    simple="true"
-                    inlineStyle="display:none;" value="#{sessionScope.Locale.longitude}"/>
-
-      <f:verbatim>
-        <input type="hidden"
-               id="accHidden"
-               name="accHidden"
-               value=""/>
-      </f:verbatim>
-
-    </af:panelBox>
-
-    <af:separator id="s11"/>
-                    <af:outputText value="#{sessionScope.deviceType}" id="ot1"/>
-                    <af:panelGroupLayout id="pgl12" layout="vertical" styleClass="AFStretchWidth">
-                      <af:outputText value="Your Location on Map:" id="otMapLabel" inlineStyle="font-size:14px;font-weight:bold;
-                                padding:8px;display:block;" partialTriggers="poll1"/>
-                      <af:outputText id="osmUrl" value="#{sessionScope.Locale.openStreetMapUrl}"
-                                     inlineStyle="display:none;" partialTriggers="poll1"/>
-                      <af:inlineFrame id="mapFrame"
-                                      source="#{sessionScope.Locale.accuracy > 0 ? sessionScope.Locale.googleMapUrl : null}"
-                                      shortDesc="Your current location on map" width="600" height="400" clientComponent="true" partialTriggers="otLat otLon otAcc"
-                                      inlineStyle="width:600px;height:400px;" sizing="preferred"/>
-                      <af:poll id="poll1" interval="#{sessionScope.Locale.accuracy eq null ? 5000 : -1}" timeout="15000"
-                               partialTriggers="poll1" pollListener="#{sessionScope.Locale.onPoll}"/>
-                      <!-- Poll inside jsff — same scope as all components above -->
-                    </af:panelGroupLayout>
-                  </af:panelGroupLayout>
-                </f:facet>
-              </af:panelSplitter>
-            </f:facet>
-            <f:facet name="second">
-              <af:panelGroupLayout id="pgl3" layout="vertical" halign="center">
-                <af:table value="#{bindings.AttendanceV.collectionModel}" var="row"
-                          rows="#{bindings.AttendanceV.rangeSize}"
-                          emptyText="#{bindings.AttendanceV.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0" selectedRowKeys="#{bindings.AttendanceV.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.AttendanceV.collectionModel.makeCurrent}" rowSelection="single"
-                          fetchSize="#{bindings.AttendanceV.rangeSize}" id="t2" verticalGridVisible="false">
-                  <af:column headerText="#{viewcontrollerBundle.SER_}" id="c1" width="30">
-                    <af:inputText value="#{row.index+1}" label="#{bindings.AttendanceV.hints.AttendanceDate.label}"
-                                  required="#{bindings.AttendanceV.hints.AttendanceDate.mandatory}"
-                                  columns="#{bindings.AttendanceV.hints.AttendanceDate.displayWidth}"
-                                  maximumLength="#{bindings.AttendanceV.hints.AttendanceDate.precision}"
-                                  shortDesc="#{bindings.AttendanceV.hints.AttendanceDate.tooltip}" id="it1"
-                                  readOnly="true"/>
-                  </af:column>
-                  <af:column headerText="#{bindings.AttendanceV.hints.AttendanceDate.label}" id="c5">
-                    <af:inputDate value="#{row.bindings.AttendanceDate.inputValue}"
-                                  label="#{bindings.AttendanceV.hints.AttendanceDate.label}"
-                                  required="#{bindings.AttendanceV.hints.AttendanceDate.mandatory}"
-                                  columns="#{bindings.AttendanceV.hints.AttendanceDate.displayWidth}"
-                                  shortDesc="#{bindings.AttendanceV.hints.AttendanceDate.tooltip}" id="id1"
-                                  readOnly="true">
-                      <f:validator binding="#{row.bindings.AttendanceDate.validator}"/>
-                      <af:convertDateTime pattern="#{bindings.AttendanceV.hints.AttendanceDate.format}" type="date"
-                                          dateStyle="medium"/>
-                    </af:inputDate>
-                  </af:column>
-                  <af:column headerText="#{viewcontrollerBundle.ATTENDANCE_DAY}" id="c6" align="center">
-                    <af:inputDate value="#{row.bindings.AttendanceDate.inputValue}"
-                                  label="#{bindings.AttendanceV.hints.AttendanceDate.label}"
-                                  required="#{bindings.AttendanceV.hints.AttendanceDate.mandatory}"
-                                  columns="#{bindings.AttendanceV.hints.AttendanceDate.displayWidth}"
-                                  shortDesc="#{bindings.AttendanceV.hints.AttendanceDate.tooltip}" id="id2"
-                                  readOnly="true">
-                      <f:validator binding="#{row.bindings.AttendanceDate.validator}"/>
-                      <af:convertDateTime pattern="EEEE"/>
-                    </af:inputDate>
-                  </af:column>
-                  <af:column headerText="#{bindings.AttendanceV.hints.CheckInTime.label}" id="c7" align="center"
-                             width="120">
-                    <af:panelGroupLayout id="pgl1" layout="horizontal" visible="#{row.CheckInTime != null}">
-                      <af:image id="i1" source="#{resource['images:punci-in-O.png']}"/>
-                      <af:inputDate value="#{row.bindings.CheckInTime.inputValue}"
-                                    label="#{bindings.AttendanceV.hints.CheckInTime.label}"
-                                    required="#{bindings.AttendanceV.hints.CheckInTime.mandatory}"
-                                    columns="#{bindings.AttendanceV.hints.CheckInTime.displayWidth}"
-                                    shortDesc="#{bindings.AttendanceV.hints.CheckInTime.tooltip}" id="id3"
-                                    readOnly="true">
-                        <af:convertDateTime pattern="#{bindings.AttendanceV.hints.CheckInTime.format}" type="time"
-                                            timeStyle="short"/>
-                      </af:inputDate>
-                      <f:facet name="separator">
-                        <af:spacer width="5" height="10" id="s2"/>
-                      </f:facet>
-                    </af:panelGroupLayout>
-                    <af:button text="#{viewcontrollerBundle.Punchin}" id="b1"
-                               icon="#{resource['images:punci-in-O.png']}"
-                               hoverIcon="#{resource['images:punci-in-F.png']}"
-                               visible="#{row.AttendanceDate == row.CurrDate &amp;&amp; row.CheckInTime == null &amp;&amp; view.viewId=='/userProfile'}"
-                               actionListener="#{pageFlowScope.HrBean.punchinBtnActnLsnr}" styleClass="but"
-                               inlineStyle="background-color:#42c6ff;"
-                               disabled="#{sessionScope.deviceType ne 'mobile'}">
-                      <af:setPropertyListener from="#{'Punch-in'}" to="#{sessionScope.attendance}" type="action"/>
-                    </af:button>
-                  </af:column>
-                  <af:column headerText="#{bindings.AttendanceV.hints.CheckOutTime.label}" id="c8" align="center"
-                             width="120">
-                    <af:panelGroupLayout id="pgl2" layout="horizontal" visible="#{row.CheckOutTime != null}">
-                      <af:image id="i2" source="#{resource['images:punch-out-O.png']}"/>
-                      <af:inputDate value="#{row.bindings.CheckOutTime.inputValue}"
-                                    label="#{bindings.AttendanceV.hints.CheckOutTime.label}"
-                                    required="#{bindings.AttendanceV.hints.CheckOutTime.mandatory}"
-                                    columns="#{bindings.AttendanceV.hints.CheckOutTime.displayWidth}"
-                                    shortDesc="#{bindings.AttendanceV.hints.CheckOutTime.tooltip}" id="id4"
-                                    readOnly="true">
-                        <af:convertDateTime pattern="#{bindings.AttendanceV.hints.CheckOutTime.format}" type="time"
-                                            timeStyle="short"/>
-                      </af:inputDate>
-                      <f:facet name="separator">
-                        <af:spacer width="5" height="10" id="s3"/>
-                      </f:facet>
-                    </af:panelGroupLayout>
-                    <af:button text="#{viewcontrollerBundle.Punchout}" id="b2"
-                               icon="#{resource['images:punch-out-O.png']}"
-                               hoverIcon="#{resource['images:punch-out-F.png']}"
-                               visible="#{row.AttendanceDate == row.CurrDate &amp;&amp; row.CheckOutTime == null &amp;&amp; row.CheckInTime != null &amp;&amp; view.viewId=='/userProfile'}"
-                               actionListener="#{pageFlowScope.HrBean.punchoutBtnActnLsnr}" styleClass="but"
-                               inlineStyle="background-color:#42c6ff;">
-                      <af:setPropertyListener from="#{'Punch-out'}" to="#{sessionScope.attendance}" type="action"/>
-                    </af:button>
-                  </af:column>
-                  <af:column headerText="#{bindings.AttendanceV.hints.Status.label}" id="c10">
-                    <af:inputText value="#{row.bindings.Status.inputValue}"
-                                  label="#{bindings.AttendanceV.hints.Status.label}"
-                                  required="#{bindings.AttendanceV.hints.Status.mandatory}"
-                                  columns="#{bindings.AttendanceV.hints.Status.displayWidth}"
-                                  maximumLength="#{bindings.AttendanceV.hints.Status.precision}"
-                                  shortDesc="#{bindings.AttendanceV.hints.Status.tooltip}" id="it3" readOnly="true">
-                      <f:validator binding="#{row.bindings.Status.validator}"/>
-                    </af:inputText>
-                  </af:column>
-                  <af:column headerText="#{bindings.AttendanceV.hints.WorkHours.label}" id="c11">
-                    <af:inputText value="#{row.bindings.WorkHours.inputValue}"
-                                  label="#{bindings.AttendanceV.hints.WorkHours.label}"
-                                  required="#{bindings.AttendanceV.hints.WorkHours.mandatory}"
-                                  columns="#{bindings.AttendanceV.hints.WorkHours.displayWidth}"
-                                  maximumLength="#{bindings.AttendanceV.hints.WorkHours.precision}"
-                                  shortDesc="#{bindings.AttendanceV.hints.WorkHours.tooltip}" id="it4" readOnly="true">
-                      <f:validator binding="#{row.bindings.WorkHours.validator}"/>
-                      <af:convertNumber groupingUsed="false" pattern="#{bindings.AttendanceV.hints.WorkHours.format}"/>
-                    </af:inputText>
-                  </af:column>
-                  <af:column headerText="#{bindings.AttendanceV.hints.Remarks.label}" id="c9">
-                    <af:inputText value="#{row.bindings.Remarks.inputValue}"
-                                  label="#{bindings.AttendanceV.hints.Remarks.label}"
-                                  required="#{bindings.AttendanceV.hints.Remarks.mandatory}"
-                                  columns="#{bindings.AttendanceV.hints.Remarks.displayWidth}"
-                                  maximumLength="#{bindings.AttendanceV.hints.Remarks.precision}"
-                                  shortDesc="#{bindings.AttendanceV.hints.Remarks.tooltip}" id="it2" readOnly="true">
-                      <f:validator binding="#{row.bindings.Remarks.validator}"/>
-                    </af:inputText>
-                  </af:column>
-                </af:table>
-              </af:panelGroupLayout>
-            </f:facet>
-          </af:panelSplitter>
-        </af:showDetailItem>
-        <af:showDetailItem id="tab2" text="#{viewcontrollerBundle.YourVacations}"
-                           badge="#{viewcontrollerBundle.YourVacations}">
-          <af:panelHeader text=" " id="ph2">
-            <f:facet name="context"/>
-            <f:facet name="menuBar"/>
-            <f:facet name="toolbar">
-              <af:button text="#{viewcontrollerBundle.SubmitVacation}" id="b3" action="toSubmitVacation"
-                         useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="400" windowWidth="700"
-                         icon="#{resource['images:NewF.png']}" rendered="#{pageFlowScope.pViewForUser}">
-                <af:setPropertyListener from="#{bindings.OrgCode.inputValue}" to="#{pageFlowScope.pOrgCode}"
-                                        type="action"/>
-              </af:button>
-            </f:facet>
-            <f:facet name="legend"/>
-            <f:facet name="info"/>
-            <af:panelSplitter id="ps3" orientation="vertical" splitterPosition="335"
-                              inlineStyle="margin-right:5px;padding-left:100px;">
-              <f:facet name="first">
-                <dvt:barChart id="barChart1" var="row" value="#{bindings.EmployeeVacationsStatisticsV.collectionModel}"
-                              title="#{viewcontrollerBundle.EMPLOYEE_VACATIONS_CHART}"
-                              emptyText="#{viewcontrollerBundle.EMPLOYEE_VACATIONS_CHART}"
-                              subtitle="#{bindings.Year.inputValue} #{bindings.Month.inputValue}"
-                              inlineStyle="width:500px;font-size:30px;">
-                  <dvt:chartLegend id="cl2"/>
-                  <dvt:chartY2Axis id="cya1"/>
-                  <f:facet name="dataStamp">
-                    <dvt:chartDataItem id="di2" value="#{row.TotalDays}" group="#{row.Year} #{row.Month}"
-                                       series="#{row.VacationName} #{row.VacationNameAr}" labelPosition="insideBarEdge"
-                                       label="#{row.VacationName}"/>
-                  </f:facet>
-                </dvt:barChart>
-              </f:facet>
-              <f:facet name="second">
-                <af:panelGroupLayout id="pgl6" layout="vertical">
-                  <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="50" disabled="true">
-                    <f:facet name="first">
-                      <af:panelGroupLayout id="pgl7" layout="horizontal">
-                        <af:panelGroupLayout id="pgl8" layout="horizontal">
-                          <af:outputText value=" "
-                                         inlineStyle="background-color:#008000; width:10px; height:10px; display:inline-block; border:1px solid #008000;"
-                                         id="ot27"/>
-                          <af:outputText value="#{viewcontrollerBundle.Approved}" id="ot28"/>
-                          <f:facet name="separator">
-                            <af:spacer width="10" height="10" id="s6"/>
-                          </f:facet>
-                        </af:panelGroupLayout>
-                        <f:facet name="separator">
-                          <af:spacer width="20" height="10" id="s5"/>
-                        </f:facet>
-                        <af:panelGroupLayout id="pgl9" layout="horizontal">
-                          <af:outputText value=" "
-                                         inlineStyle="background-color:#FF0000; width:10px; height:10px; display:inline-block; border:1px solid #FF0000;"
-                                         id="ot29"/>
-                          <af:outputText value="#{viewcontrollerBundle.Rejected}" id="ot30"/>
-                          <f:facet name="separator">
-                            <af:spacer width="10" height="10" id="s7"/>
-                          </f:facet>
-                        </af:panelGroupLayout>
-                        <af:panelGroupLayout id="pgl10" layout="horizontal">
-                          <af:outputText value=" "
-                                         inlineStyle="background-color:#ffa500; width:10px; height:10px; display:inline-block; border:1px solid #ffa500;"
-                                         id="ot31"/>
-                          <af:outputText value="#{viewcontrollerBundle.Pending}" id="ot32"/>
-                          <f:facet name="separator">
-                            <af:spacer width="10" height="10" id="s8"/>
-                          </f:facet>
-                        </af:panelGroupLayout>
-                      </af:panelGroupLayout>
-                    </f:facet>
-                    <f:facet name="second">
-                      <af:table value="#{bindings.UserVacationsV.collectionModel}" var="row"
-                                rows="#{bindings.UserVacationsV.rangeSize}"
-                                emptyText="#{bindings.UserVacationsV.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                rowBandingInterval="0"
-                                selectedRowKeys="#{bindings.UserVacationsV.collectionModel.selectedRow}"
-                                selectionListener="#{bindings.UserVacationsV.collectionModel.makeCurrent}"
-                                rowSelection="single" fetchSize="#{bindings.UserVacationsV.rangeSize}"
-                                filterModel="#{bindings.UserVacationsVQuery.queryDescriptor}"
-                                queryListener="#{bindings.UserVacationsVQuery.processQuery}" filterVisible="true"
-                                varStatus="vs" id="t3" autoHeightRows="0" partialTriggers="::b3">
-                        <af:column sortProperty="#{bindings.UserVacationsV.hints.Id.name}" filterable="true"
-                                   sortable="true" headerText="#{bindings.UserVacationsV.hints.Id.label}" id="c12"
-                                   rendered="false">
-                          <af:inputText value="#{row.bindings.Id.inputValue}"
-                                        label="#{bindings.UserVacationsV.hints.Id.label}"
-                                        required="#{bindings.UserVacationsV.hints.Id.mandatory}"
-                                        columns="#{bindings.UserVacationsV.hints.Id.displayWidth}"
-                                        maximumLength="#{bindings.UserVacationsV.hints.Id.precision}"
-                                        shortDesc="#{bindings.UserVacationsV.hints.Id.tooltip}" id="it5">
-                            <f:validator binding="#{row.bindings.Id.validator}"/>
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.UserVacationsV.hints.Id.format}"/>
-                          </af:inputText>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.UserVacationsV.hints.VacationCode.name}" filterable="true"
-                                   sortable="true" headerText="#{bindings.UserVacationsV.hints.VacationCode.label}"
-                                   id="c13" width="200">
-                          <af:selectOneChoice value="#{row.bindings.VacationCode.inputValue}"
-                                              label="#{row.bindings.VacationCode.label}"
-                                              required="#{bindings.UserVacationsV.hints.VacationCode.mandatory}"
-                                              shortDesc="#{bindings.UserVacationsV.hints.VacationCode.tooltip}"
-                                              readOnly="true" id="soc1" autoSubmit="true">
-                            <f:selectItems value="#{row.bindings.VacationCode.items}" id="si1"/>
-                            <f:validator binding="#{row.bindings.VacationCode.validator}"/>
-                          </af:selectOneChoice>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.UserVacationsV.hints.RegisterDt.name}" filterable="true"
-                                   sortable="true" headerText="#{bindings.UserVacationsV.hints.RegisterDt.label}"
-                                   id="c14" width="120">
-                          <f:facet name="filter">
-                            <af:inputDate value="#{bindings.UserVacationsVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.RegisterDt.value}"
-                                          id="id5">
-                              <af:convertDateTime pattern="#{bindings.UserVacationsV.hints.RegisterDt.format}"/>
-                            </af:inputDate>
-                          </f:facet>
-                          <af:inputDate value="#{row.bindings.RegisterDt.inputValue}"
-                                        label="#{bindings.UserVacationsV.hints.RegisterDt.label}"
-                                        required="#{bindings.UserVacationsV.hints.RegisterDt.mandatory}"
-                                        columns="#{bindings.UserVacationsV.hints.RegisterDt.displayWidth}"
-                                        shortDesc="#{bindings.UserVacationsV.hints.RegisterDt.tooltip}" id="id6"
-                                        readOnly="true">
-                            <f:validator binding="#{row.bindings.RegisterDt.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.UserVacationsV.hints.RegisterDt.format}"
-                                                type="both"/>
-                          </af:inputDate>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.UserVacationsV.hints.FrmDt.name}" filterable="true"
-                                   sortable="true" headerText="#{bindings.UserVacationsV.hints.FrmDt.label}" id="c15"
-                                   width="100">
-                          <f:facet name="filter">
-                            <af:inputDate value="#{bindings.UserVacationsVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.FrmDt.value}"
-                                          id="id7">
-                              <af:convertDateTime pattern="#{bindings.UserVacationsV.hints.FrmDt.format}"/>
-                            </af:inputDate>
-                          </f:facet>
-                          <af:inputDate value="#{row.bindings.FrmDt.inputValue}"
-                                        label="#{bindings.UserVacationsV.hints.FrmDt.label}"
-                                        required="#{bindings.UserVacationsV.hints.FrmDt.mandatory}"
-                                        columns="#{bindings.UserVacationsV.hints.FrmDt.displayWidth}"
-                                        shortDesc="#{bindings.UserVacationsV.hints.FrmDt.tooltip}" id="id8"
-                                        readOnly="true">
-                            <f:validator binding="#{row.bindings.FrmDt.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.UserVacationsV.hints.FrmDt.format}"
-                                                type="#{row.VacationCode == 3 || row.VacationCode == 4 ? 'time' : 'date'}"/>
-                          </af:inputDate>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.UserVacationsV.hints.ToDt.name}" filterable="true"
-                                   sortable="true" headerText="#{bindings.UserVacationsV.hints.ToDt.label}" id="c16"
-                                   width="100">
-                          <f:facet name="filter">
-                            <af:inputDate value="#{bindings.UserVacationsVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.ToDt.value}"
-                                          id="id9">
-                              <af:convertDateTime pattern="#{bindings.UserVacationsV.hints.ToDt.format}"/>
-                            </af:inputDate>
-                          </f:facet>
-                          <af:inputDate value="#{row.bindings.ToDt.inputValue}"
-                                        label="#{bindings.UserVacationsV.hints.ToDt.label}"
-                                        required="#{bindings.UserVacationsV.hints.ToDt.mandatory}"
-                                        columns="#{bindings.UserVacationsV.hints.ToDt.displayWidth}"
-                                        shortDesc="#{bindings.UserVacationsV.hints.ToDt.tooltip}" id="id10"
-                                        readOnly="true">
-                            <f:validator binding="#{row.bindings.ToDt.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.UserVacationsV.hints.ToDt.format}"
-                                                type="#{row.VacationCode == 3 || row.VacationCode == 4 ? 'time' : 'date'}"/>
-                          </af:inputDate>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.UserVacationsV.hints.Status.name}" filterable="true"
-                                   sortable="true" headerText="#{bindings.UserVacationsV.hints.Status.label}" id="c17"
-                                   width="100">
-                          <af:selectOneChoice value="#{row.bindings.Status.inputValue}"
-                                              label="#{row.bindings.Status.label}"
-                                              required="#{bindings.UserVacationsV.hints.Status.mandatory}"
-                                              shortDesc="#{bindings.UserVacationsV.hints.Status.tooltip}"
-                                              readOnly="true" id="soc2">
-                            <f:selectItems value="#{row.bindings.Status.items}" id="si2"/>
-                            <f:validator binding="#{row.bindings.Status.validator}"/>
-                          </af:selectOneChoice>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.UserVacationsV.hints.EmpId.name}" filterable="true"
-                                   sortable="true" headerText="#{bindings.UserVacationsV.hints.EmpId.label}" id="c18"
-                                   rendered="false">
-                          <af:outputText value="#{row.EmpId}" shortDesc="#{bindings.UserVacationsV.hints.EmpId.tooltip}"
-                                         id="ot37">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.UserVacationsV.hints.EmpId.format}"/>
-                          </af:outputText>
-                        </af:column>
-                        <af:column id="c40" width="400">
-                          <af:panelFormLayout id="pfl2" maxColumns="3" rows="1" fieldWidth="100%" labelWidth="0%">
-                            <f:facet name="footer"/>
-                            <af:iterator id="i3" value="#{row.EmployeeApprovalStatusV}" var="eas">
-                              <af:panelGroupLayout id="pgl5" layout="horizontal">
-                                <af:outputText value="#{eas.RoleName}" id="ot34"
-                                               inlineStyle="#{eas.ActionStatus=='APPROVED' ? 'color:Green' : eas.ActionStatus=='REJECTED' ? 'color:Red' : 'color:Orange'}"/>
-                                <f:facet name="separator">
-                                  <af:separator id="s4"
-                                                inlineStyle="width:2px; height:10px; color:Black; background-color:Black;"/>
-                                </f:facet>
-                              </af:panelGroupLayout>
-                            </af:iterator>
-                          </af:panelFormLayout>
-                        </af:column>
-                      </af:table>
-                    </f:facet>
-                  </af:panelSplitter>
-                </af:panelGroupLayout>
-              </f:facet>
-            </af:panelSplitter>
-          </af:panelHeader>
-        </af:showDetailItem>
-        <af:showDetailItem text="#{viewcontrollerBundle.YourApprovals}" id="sdi1"
-                           rendered="#{bindings.ApprovalTransactionDetailsVO.estimatedRowCount > 0}">
-          <af:outputText value="#{bindings.ApprovalTransactionDetailsVO.estimatedRowCount}" id="ot25" rendered="false"/>
-          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-            <f:facet name="menus"/>
-            <f:facet name="toolbar">
-              <af:toolbar id="t5">
-                <af:button text="#{viewcontrollerBundle.SAVE}" id="b4" styleClass="but"
-                           actionListener="#{pageFlowScope.HrBean.applyApprovalActionLsnr}" icon="#{resource['images:SaveF.png']}"
-                           hoverIcon="#{resource['images:SaveO.png']}" partialSubmit="false"/>
-              </af:toolbar>
-            </f:facet>
-            <af:table value="#{bindings.ApprovalTransactionDetailsVO.collectionModel}" var="row"
-                      rows="#{bindings.ApprovalTransactionDetailsVO.rangeSize}"
-                      emptyText="#{bindings.ApprovalTransactionDetailsVO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                      rowBandingInterval="0"
-                      selectedRowKeys="#{bindings.ApprovalTransactionDetailsVO.collectionModel.selectedRow}"
-                      selectionListener="#{bindings.ApprovalTransactionDetailsVO.collectionModel.makeCurrent}"
-                      rowSelection="single" fetchSize="#{bindings.ApprovalTransactionDetailsVO.rangeSize}"
-                      filterModel="#{bindings.ApprovalTransactionDetailsVOQuery.queryDescriptor}"
-                      queryListener="#{bindings.ApprovalTransactionDetailsVOQuery.processQuery}" filterVisible="true"
-                      varStatus="vs" id="t4" columnStretching="column:c25" styleClass="AFStretchWidth"
-                      partialTriggers="::b4">
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.RequesterName.name}"
-                         filterable="true" sortable="true"
-                         headerText="#{bindings.ApprovalTransactionDetailsVO.hints.RequesterName.label}" id="c34">
-                <af:outputText value="#{row.RequesterName}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.RequesterName.tooltip}"
-                               id="ot20"/>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.RequesterJob.name}"
-                         filterable="true" sortable="true"
-                         headerText="#{bindings.ApprovalTransactionDetailsVO.hints.RequesterJob.label}" id="c35">
-                <af:outputText value="#{row.RequesterJob}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.RequesterJob.tooltip}"
-                               id="ot21"/>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalOrder.name}"
-                         filterable="true" sortable="true"
-                         headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalOrder.label}" id="c26">
-                <af:outputText value="#{row.ApprovalOrder}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalOrder.tooltip}"
-                               id="ot12">
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalOrder.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionTypeName.name}"
-                         filterable="true" sortable="true"
-                         headerText="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionTypeName.label}" id="c39"
-                         width="300">
-                <af:outputText value="#{row.TransactionTypeName}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionTypeName.tooltip}"
-                               id="ot26"/>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.RequestDate.name}"
-                         filterable="true" sortable="true"
-                         headerText="#{bindings.ApprovalTransactionDetailsVO.hints.RequestDate.label}" id="c31"
-                         width="100">
-                <af:outputText value="#{row.RequestDate}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.RequestDate.tooltip}" id="ot17">
-                  <af:convertDateTime pattern="#{bindings.ApprovalTransactionDetailsVO.hints.RequestDate.format}"/>
-                </af:outputText>
-                <f:facet name="filter">
-                  <af:inputDate value="#{bindings.ApprovalTransactionDetailsVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.RequestDate.value}"
-                                id="id11">
-                    <af:convertDateTime pattern="#{bindings.ApprovalTransactionDetailsVO.hints.RequestDate.format}"/>
-                  </af:inputDate>
-                </f:facet>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ModuleName.name}" filterable="true"
-                         sortable="true" headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ModuleName.label}"
-                         id="c30">
-                <af:outputText value="#{row.ModuleName}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ModuleName.tooltip}" id="ot16"/>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.DetailId.name}" filterable="true"
-                         sortable="true" headerText="#{bindings.ApprovalTransactionDetailsVO.hints.DetailId.label}"
-                         id="c19" rendered="false">
-                <af:outputText value="#{row.DetailId}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.DetailId.tooltip}" id="ot39">
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.ApprovalTransactionDetailsVO.hints.DetailId.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ActionStatus.name}"
-                         filterable="true" sortable="true"
-                         headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ActionStatus.label}" id="c23"
-                         width="400">
-                <af:selectOneRadio value="#{row.bindings.ActionStatus.inputValue}"
-                                   label="#{row.bindings.ActionStatus.label}"
-                                   required="#{bindings.ApprovalTransactionDetailsVO.hints.ActionStatus.mandatory}"
-                                   shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ActionStatus.tooltip}"
-                                   id="sor1" layout="horizontal">
-                  <f:selectItems value="#{row.bindings.ActionStatus.items}" id="si3"/>
-                  <f:validator binding="#{row.bindings.ActionStatus.validator}"/>
-                </af:selectOneRadio>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.name}" filterable="true"
-                         sortable="true" headerText="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.label}"
-                         id="c25" width="300">
-                <af:inputText value="#{row.bindings.Comments.inputValue}"
-                              label="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.label}"
-                              required="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.mandatory}"
-                              columns="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.displayWidth}"
-                              maximumLength="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.precision}"
-                              shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.tooltip}" id="it6"
-                              rows="2">
-                  <f:validator binding="#{row.bindings.Comments.validator}"/>
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['com.aalm.hr.view.AalmHrBndl']}"/>
+    <af:panelHeader text="#{pageFlowScope.pViewForUser ? viewcontrollerBundle.YourProfile : viewcontrollerBundle.EmployeeProfile}"
+                    id="ph1">
+        <f:facet name="context">
+            <af:panelDrawer id="pd1"/>
+        </f:facet>
+        <f:facet name="menuBar"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="legend"/>
+        <af:table value="#{bindings.OrgUsersV.collectionModel}" var="row" rows="#{bindings.OrgUsersV.rangeSize}"
+                  emptyText="#{bindings.OrgUsersV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.OrgUsersV.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.OrgUsersV.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.OrgUsersV.rangeSize}" filterModel="#{bindings.OrgUsersVQuery.queryDescriptor}"
+                  queryListener="#{bindings.OrgUsersVQuery.processQuery}" filterVisible="true" varStatus="vs" id="t1"
+                  rendered="#{!pageFlowScope.pViewForUser}" verticalGridVisible="false">
+            <af:column sortProperty="#{bindings.OrgUsersV.hints.EmpId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.OrgUsersV.hints.EmpId.label}" id="c4" width="150">
+                <af:inputText value="#{row.bindings.EmpId.inputValue}"
+                              shortDesc="#{bindings.OrgUsersV.hints.EmpId.tooltip}" id="ot4"
+                              label="#{bindings.OrgUsersV.hints.EmpId.label}" simple="true"
+                              required="#{bindings.OrgUsersV.hints.EmpId.mandatory}"
+                              columns="#{bindings.OrgUsersV.hints.EmpId.displayWidth}"
+                              maximumLength="#{bindings.OrgUsersV.hints.EmpId.precision}">
+                    <f:validator binding="#{row.bindings.EmpId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OrgUsersV.hints.EmpId.format}"/>
                 </af:inputText>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalTransId.name}"
-                         filterable="true" sortable="true"
-                         headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalTransId.label}" id="c20"
-                         rendered="false">
-                <af:outputText value="#{row.ApprovalTransId}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalTransId.tooltip}"
-                               id="ot38">
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalTransId.format}"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.OrgUsersV.hints.FirstName.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.OrgUsersV.hints.FirstName.label}" id="c2" width="201">
+                <af:inputText value="#{row.bindings.FirstName.inputValue}"
+                              shortDesc="#{bindings.OrgUsersV.hints.FirstName.tooltip}" id="ot2"
+                              label="#{bindings.OrgUsersV.hints.FirstName.label}" simple="true"
+                              required="#{bindings.OrgUsersV.hints.FirstName.mandatory}"
+                              columns="#{bindings.OrgUsersV.hints.FirstName.displayWidth}"
+                              maximumLength="#{bindings.OrgUsersV.hints.FirstName.precision}">
+                    <f:validator binding="#{row.bindings.FirstName.validator}"/>
+                </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.OrgUsersV.hints.LastName.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.OrgUsersV.hints.LastName.label}" id="c3" width="199">
+                <af:inputText value="#{row.bindings.LastName.inputValue}"
+                              shortDesc="#{bindings.OrgUsersV.hints.LastName.tooltip}" id="ot3"
+                              label="#{bindings.OrgUsersV.hints.LastName.label}" simple="true"
+                              required="#{bindings.OrgUsersV.hints.LastName.mandatory}"
+                              columns="#{bindings.OrgUsersV.hints.LastName.displayWidth}"
+                              maximumLength="#{bindings.OrgUsersV.hints.LastName.precision}">
+                    <f:validator binding="#{row.bindings.LastName.validator}"/>
+                </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.OrgUsersV.hints.OrgCode.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.OrgUsersV.hints.OrgCode.label}" id="c41">
+                <af:outputText value="#{row.OrgCode}" shortDesc="#{bindings.OrgUsersV.hints.OrgCode.tooltip}" id="ot33">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.OrgUsersV.hints.OrgCode.format}"/>
                 </af:outputText>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.StepId.name}" filterable="true"
-                         sortable="true" headerText="#{bindings.ApprovalTransactionDetailsVO.hints.StepId.label}"
-                         id="c21" rendered="false">
-                <af:outputText value="#{row.StepId}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.StepId.tooltip}" id="ot40">
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.ApprovalTransactionDetailsVO.hints.StepId.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverId.name}" filterable="true"
-                         sortable="true" headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverId.label}"
-                         id="c22" rendered="false">
-                <af:outputText value="#{row.ApproverId}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverId.tooltip}" id="ot8">
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverId.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.name}" filterable="true"
-                         sortable="true" headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.label}"
-                         id="c24" rendered="false">
-                <af:inputDate value="#{row.bindings.ActionDate.inputValue}"
-                              label="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.label}"
-                              required="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.mandatory}"
-                              columns="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.displayWidth}"
-                              shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.tooltip}" id="id12">
-                  <f:validator binding="#{row.bindings.ActionDate.validator}"/>
-                  <af:convertDateTime pattern="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.format}"/>
-                </af:inputDate>
-                <f:facet name="filter">
-                  <af:inputDate value="#{bindings.ApprovalTransactionDetailsVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.ActionDate.value}"
-                                id="id13">
-                    <af:convertDateTime pattern="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.format}"/>
-                  </af:inputDate>
-                </f:facet>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.IsActive.name}" filterable="true"
-                         sortable="true" headerText="#{bindings.ApprovalTransactionDetailsVO.hints.IsActive.label}"
-                         id="c27" rendered="false">
-                <af:outputText value="#{row.IsActive}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.IsActive.tooltip}" id="ot13"/>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.RoleId.name}" filterable="true"
-                         sortable="true" headerText="#{bindings.ApprovalTransactionDetailsVO.hints.RoleId.label}"
-                         id="c28" rendered="false">
-                <af:outputText value="#{row.RoleId}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.RoleId.tooltip}" id="ot14">
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.ApprovalTransactionDetailsVO.hints.RoleId.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionRefId.name}"
-                         filterable="true" sortable="true"
-                         headerText="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionRefId.label}" id="c29"
-                         rendered="false">
-                <af:outputText value="#{row.TransactionRefId}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionRefId.tooltip}"
-                               id="ot15">
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionRefId.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionStatus.name}"
-                         filterable="true" sortable="true"
-                         headerText="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionStatus.label}" id="c32"
-                         rendered="false">
-                <af:outputText value="#{row.TransactionStatus}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionStatus.tooltip}"
-                               id="ot18"/>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.RequestedBy.name}"
-                         filterable="true" sortable="true"
-                         headerText="#{bindings.ApprovalTransactionDetailsVO.hints.RequestedBy.label}" id="c33"
-                         rendered="false">
-                <af:outputText value="#{row.RequestedBy}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.RequestedBy.tooltip}" id="ot19">
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.ApprovalTransactionDetailsVO.hints.RequestedBy.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverName.name}"
-                         filterable="true" sortable="true"
-                         headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverName.label}" id="c36"
-                         rendered="false">
-                <af:outputText value="#{row.ApproverName}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverName.tooltip}"
-                               id="ot41"/>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverJob.name}"
-                         filterable="true" sortable="true"
-                         headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverJob.label}" id="c37"
-                         rendered="false">
-                <af:outputText value="#{row.ApproverJob}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverJob.tooltip}"
-                               id="ot23"/>
-              </af:column>
-              <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.RoleName.name}" filterable="true"
-                         sortable="true" headerText="#{bindings.ApprovalTransactionDetailsVO.hints.RoleName.label}"
-                         id="c38" rendered="false">
-                <af:outputText value="#{row.RoleName}"
-                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.RoleName.tooltip}" id="ot24"/>
-              </af:column>
-            </af:table>
-            <f:facet name="statusbar"/>
-          </af:panelCollection>
-        </af:showDetailItem>
-      </af:panelTabbed>
-    </af:panelGroupLayout>
-  </af:panelHeader>
-  <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
-            binding="#{pageFlowScope.HrBean.attendanceConfirmationPopup}">
-                            <af:dialog id="d2" type="yesNo" contentWidth="400" contentHeight="50"
-                                       title="#{viewcontrollerBundle.Confirmation}"
-                                       inlineStyle="border-radius:30px 30px 30px 30px;width:520px;padding:10px 10px 10px 10px;"
-                                       dialogListener="#{pageFlowScope.HrBean.attendanceDialogLsnr}">
-                                <f:facet name="buttonBar"/>
-                                <af:inputText value="#{viewcontrollerBundle.ARE_YOU_SURE_YOU_WANT_TO_}" id="ot9"
-                                              label="Label 4" simple="true" readOnly="true"
-                                              contentStyle="font-size:26px;" inlineStyle="padding-left:30px;"/>
-                                <af:inputText value="#{' '}#{viewcontrollerBundle.Punchin}" id="ot10" label="Label 5"
-                                              simple="true" contentStyle="font-size:26px;" readOnly="true"
-                                              visible="#{sessionScope.attendance=='Punch-in'}"/>
-                                <af:inputText value="#{' '}#{viewcontrollerBundle.Punchout}" id="ot11" label="Label 6"
-                                              simple="true" contentStyle="font-size:26px;" readOnly="true"
-                                              visible="#{sessionScope.attendance=='Punch-out'}"/>
-                            </af:dialog>
-                        </af:popup>
+            </af:column>
+        </af:table>
+        <f:facet name="info"/>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:panelGroupLayout id="pgl4" layout="vertical">
+            <af:panelTabbed id="pt1">
+                <af:showDetailItem id="tab1" text="#{viewcontrollerBundle.YourAttendance}"
+                                   badge="#{viewcontrollerBundle.YourAttendance}">
+                    <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="342" disabled="true"
+                                      inlineStyle="margin-right:5px;padding-left:100px;">
+                        <f:facet name="first">
+                            <af:panelSplitter id="ps4" splitterPosition="500" disabled="true">
+                                <f:facet name="first">
+                                    <dvt:pieChart id="pieChart1" var="row"
+                                                  value="#{bindings.AttendanceStatisticsV.collectionModel}"
+                                                  threeDEffect="on" footnoteHalign="center"
+                                                  inlineStyle="width:500px;font-size:30px;" sliceLabelPosition="inside"
+                                                  titleHalign="center" emptyText="Employee Attendance Chart"
+                                                  title="Employee Attendance Chart" hideAndShowBehavior="withRescale"
+                                                  sliceLabelStyle="font-size:10px;"
+                                                  subtitle="#{bindings.CurrentYear.inputValue}#{' '}#{bindings.CurrMonth.inputValue}">
+                                        <dvt:chartLegend id="cl1" position="bottom"/>
+                                        <dvt:pieDataItem id="di1" value="#{row.TotalDays}" label="#{row.Status}"
+                                                         explode="0.1" sliceLabel="#{row.TotalDays}#{' Days'}"/>
+                                    </dvt:pieChart>
+                                </f:facet>
+                                <f:facet name="second">
+                                    <af:panelGroupLayout id="pgl11" layout="vertical" styleClass="AFStretchWidth">
+                                        <af:panelBox id="pb1" text="Your Current Location" showDisclosure="false">
+                                            <!--Location display area-->
+                                            <af:panelGroupLayout id="locationPanel" layout="horizontal">
+                                                <af:outputText id="otStatus"
+                                                               value="#{sessionScope.Locale.locationStatus}"
+                                                               partialTriggers="poll1"/>
+                                                <af:outputText id="otLat" label="Latitude"
+                                                               value="#{sessionScope.Locale.latitude}"
+                                                               partialTriggers="poll1"/>
+                                                <af:outputText id="otLon" label="Longitude"
+                                                               value="#{sessionScope.Locale.longitude}"
+                                                               partialTriggers="poll1"/>
+                                                <af:outputText id="otAcc" label="Accuracy"
+                                                               value="#{sessionScope.Locale.formattedAccuracy}"
+                                                               partialTriggers="poll1"/>
+                                            </af:panelGroupLayout>
+                                            <!--Hidden inputs carry geo values to server on each poll-->
+                                            <af:inputText id="itLat" simple="true" inlineStyle="display:none;"
+                                                          value="#{sessionScope.Locale.latitude}"/>
+                                            <af:inputText id="itLon" simple="true" inlineStyle="display:none;"
+                                                          value="#{sessionScope.Locale.longitude}"/>
+                                            <f:verbatim>         <input type="hidden" id="accHidden" name="accHidden"
+                                                                        value=""/>       </f:verbatim>
+                                        </af:panelBox>
+                                        <af:separator id="s11"/>
+                                        <af:outputText value="#{sessionScope.deviceType}" id="ot1"/>
+                                        <af:panelGroupLayout id="pgl12" layout="vertical" styleClass="AFStretchWidth">
+                                            <af:outputText value="Your Location on Map:" id="otMapLabel" inlineStyle="font-size:14px;font-weight:bold;
+                                padding:8px;display:block;" partialTriggers="poll1"/>
+                                            <af:outputText id="osmUrl" value="#{sessionScope.Locale.openStreetMapUrl}"
+                                                           inlineStyle="display:none;" partialTriggers="poll1"/>
+                                            <af:inlineFrame id="mapFrame"
+                                                            source="#{sessionScope.Locale.accuracy > 0 ? sessionScope.Locale.googleMapUrl : null}"
+                                                            shortDesc="Your current location on map" width="600"
+                                                            height="400" clientComponent="true"
+                                                            partialTriggers="otLat otLon otAcc"
+                                                            inlineStyle="width:600px;height:400px;" sizing="preferred"/>
+                                            <af:poll id="poll1"
+                                                     interval="#{sessionScope.Locale.accuracy eq null ? 5000 : -1}"
+                                                     timeout="15000" partialTriggers="poll1"
+                                                     pollListener="#{sessionScope.Locale.onPoll}"/>
+                                            <!-- Poll inside jsff — same scope as all components above -->
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:panelSplitter>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelGroupLayout id="pgl3" layout="vertical" halign="center">
+                                <af:table value="#{bindings.AttendanceV.collectionModel}" var="row"
+                                          rows="#{bindings.AttendanceV.rangeSize}"
+                                          emptyText="#{bindings.AttendanceV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.AttendanceV.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.AttendanceV.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.AttendanceV.rangeSize}" id="t2"
+                                          verticalGridVisible="false" autoHeightRows="0">
+                                    <af:column headerText="#{viewcontrollerBundle.SER_}" id="c1" width="30"
+                                               align="center">
+                                        <af:inputText value="#{row.index+1}"
+                                                      label="#{bindings.AttendanceV.hints.AttendanceDate.label}"
+                                                      required="#{bindings.AttendanceV.hints.AttendanceDate.mandatory}"
+                                                      columns="#{bindings.AttendanceV.hints.AttendanceDate.displayWidth}"
+                                                      maximumLength="#{bindings.AttendanceV.hints.AttendanceDate.precision}"
+                                                      shortDesc="#{bindings.AttendanceV.hints.AttendanceDate.tooltip}"
+                                                      id="it1" readOnly="true"/>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AttendanceV.hints.AttendanceDate.label}" id="c5">
+                                        <af:inputDate value="#{row.bindings.AttendanceDate.inputValue}"
+                                                      label="#{bindings.AttendanceV.hints.AttendanceDate.label}"
+                                                      required="#{bindings.AttendanceV.hints.AttendanceDate.mandatory}"
+                                                      columns="#{bindings.AttendanceV.hints.AttendanceDate.displayWidth}"
+                                                      shortDesc="#{bindings.AttendanceV.hints.AttendanceDate.tooltip}"
+                                                      id="id1" readOnly="true">
+                                            <f:validator binding="#{row.bindings.AttendanceDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.AttendanceV.hints.AttendanceDate.format}"
+                                                                type="date" dateStyle="medium"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column headerText="#{viewcontrollerBundle.ATTENDANCE_DAY}" id="c6"
+                                               align="center" width="150">
+                                        <af:inputDate value="#{row.bindings.AttendanceDate.inputValue}"
+                                                      label="#{bindings.AttendanceV.hints.AttendanceDate.label}"
+                                                      required="#{bindings.AttendanceV.hints.AttendanceDate.mandatory}"
+                                                      columns="#{bindings.AttendanceV.hints.AttendanceDate.displayWidth}"
+                                                      shortDesc="#{bindings.AttendanceV.hints.AttendanceDate.tooltip}"
+                                                      id="id2" readOnly="true">
+                                            <f:validator binding="#{row.bindings.AttendanceDate.validator}"/>
+                                            <af:convertDateTime pattern="EEEE"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AttendanceV.hints.CheckInTime.label}" id="c7"
+                                               align="center" width="150">
+                                        <af:panelGroupLayout id="pgl1" layout="horizontal"
+                                                             visible="#{row.CheckInTime != null}">
+                                            <af:image id="i1" source="#{resource['images:punci-in-O.png']}"/>
+                                            <af:inputDate value="#{row.bindings.CheckInTime.inputValue}"
+                                                          label="#{bindings.AttendanceV.hints.CheckInTime.label}"
+                                                          required="#{bindings.AttendanceV.hints.CheckInTime.mandatory}"
+                                                          columns="#{bindings.AttendanceV.hints.CheckInTime.displayWidth}"
+                                                          shortDesc="#{bindings.AttendanceV.hints.CheckInTime.tooltip}"
+                                                          id="id3" readOnly="true">
+                                                <af:convertDateTime pattern="#{bindings.AttendanceV.hints.CheckInTime.format}"
+                                                                    type="time" timeStyle="short"/>
+                                            </af:inputDate>
+                                            <f:facet name="separator">
+                                                <af:spacer width="5" height="10" id="s2"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                        <af:button text="#{viewcontrollerBundle.Punchin}" id="b1"
+                                                   icon="#{resource['images:punci-in-O.png']}"
+                                                   hoverIcon="#{resource['images:punci-in-F.png']}"
+                                                   visible="#{row.AttendanceDate == row.CurrDate &amp;&amp; row.CheckInTime == null &amp;&amp; view.viewId=='/userProfile'}"
+                                                   actionListener="#{pageFlowScope.HrBean.punchinBtnActnLsnr}"
+                                                   styleClass="but" inlineStyle="background-color:#42c6ff;">
+                                            <!--                               disabled="#{sessionScope.deviceType ne 'mobile'}">
+-->
+                                            <af:setPropertyListener from="#{'Punch-in'}" to="#{sessionScope.attendance}"
+                                                                    type="action"/>
+                                        </af:button>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AttendanceV.hints.CheckOutTime.label}" id="c8"
+                                               align="center" width="150">
+                                        <af:panelGroupLayout id="pgl2" layout="horizontal"
+                                                             visible="#{row.CheckOutTime != null}">
+                                            <af:image id="i2" source="#{resource['images:punch-out-O.png']}"/>
+                                            <af:inputDate value="#{row.bindings.CheckOutTime.inputValue}"
+                                                          label="#{bindings.AttendanceV.hints.CheckOutTime.label}"
+                                                          required="#{bindings.AttendanceV.hints.CheckOutTime.mandatory}"
+                                                          columns="#{bindings.AttendanceV.hints.CheckOutTime.displayWidth}"
+                                                          shortDesc="#{bindings.AttendanceV.hints.CheckOutTime.tooltip}"
+                                                          id="id4" readOnly="true">
+                                                <af:convertDateTime pattern="#{bindings.AttendanceV.hints.CheckOutTime.format}"
+                                                                    type="time" timeStyle="short"/>
+                                            </af:inputDate>
+                                            <f:facet name="separator">
+                                                <af:spacer width="5" height="10" id="s3"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                        <af:button text="#{viewcontrollerBundle.Punchout}" id="b2"
+                                                   icon="#{resource['images:punch-out-O.png']}"
+                                                   hoverIcon="#{resource['images:punch-out-F.png']}"
+                                                   visible="#{row.AttendanceDate == row.CurrDate &amp;&amp; row.CheckOutTime == null &amp;&amp; row.CheckInTime != null &amp;&amp; view.viewId=='/userProfile'}"
+                                                   actionListener="#{pageFlowScope.HrBean.punchoutBtnActnLsnr}"
+                                                   styleClass="but" inlineStyle="background-color:#42c6ff;">
+                                            <af:setPropertyListener from="#{'Punch-out'}"
+                                                                    to="#{sessionScope.attendance}" type="action"/>
+                                        </af:button>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AttendanceV.hints.Status.label}" id="c10"
+                                               width="150" align="center"
+                                               inlineStyle="border-radius:5px 5px 5px 5px / 5px 5px 5px 5px ; margin:5px 0 5px 0;"
+                                               styleClass="#{row.bindings.Status.inputValue == 'Attend' ? 'statusAttend' : row.bindings.Status.inputValue == 'Waiting Punch-out' ? 'statusWaiting' : row.bindings.Status.inputValue == 'Arrive Late'  ? 'statusLate'  : row.bindings.Status.inputValue == 'Left Early'  ? 'statusLeftEarly' : row.bindings.Status.inputValue == 'Absent' ? 'statusAbsent'  : row.bindings.Status.inputValue == 'Weekend' ? 'statusWeekend'  : row.bindings.Status.inputValue == 'Medical Leave'  ? 'statusMedicalLeave'  : row.bindings.Status.inputValue == 'Emergency Leave'  ? 'statusEmergencyLeave'  : row.bindings.Status.inputValue == 'Personal Leave' ? 'statusPersonalLeave' : 'statusDefault'}">
+                                        <af:inputText label="#{bindings.AttendanceV.hints.Status.label}"
+                                                      required="#{bindings.AttendanceV.hints.Status.mandatory}"
+                                                      columns="#{bindings.AttendanceV.hints.Status.displayWidth}"
+                                                      maximumLength="#{bindings.AttendanceV.hints.Status.precision}"
+                                                      shortDesc="#{bindings.AttendanceV.hints.Status.tooltip}" id="it3"
+                                                      readOnly="true" contentStyle="color:White;font-weight:bolder;"
+                                                      value="#{sessionScope.lang == 'ar' ? (row.bindings.Status.inputValue == 'Attend'    ? viewcontrollerBundle['Attend_STATUS']    : row.bindings.Status.inputValue == 'Absent'    ? viewcontrollerBundle['Absent_STATUS']    : row.bindings.Status.inputValue == 'Waiting Punch-out'    ? viewcontrollerBundle['WaitingPunchOut_STATUS']    : row.bindings.Status.inputValue == 'Arrive Late'    ? viewcontrollerBundle['ArriveLate_STATUS']    : row.bindings.Status.inputValue == 'Left Early'    ? viewcontrollerBundle['LeftEarly_STATUS']    : row.bindings.Status.inputValue == 'Weekend'    ? viewcontrollerBundle['Weekend_STATUS']    : row.bindings.Status.inputValue == 'Medical Leave'    ? viewcontrollerBundle['MedicalLeave_STATUS']    : row.bindings.Status.inputValue == 'Emergency Leave'    ? viewcontrollerBundle['EmergencyLeave_STATUS']    : row.bindings.Status.inputValue == 'Personal Leave'    ? viewcontrollerBundle['PersonalLeave_STATUS']    : row.bindings.Status.inputValue) : row.bindings.Status.inputValue}">
+                                            <f:validator binding="#{row.bindings.Status.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AttendanceV.hints.WorkHours.label}" id="c11"
+                                               align="center" width="100">
+                                        <af:inputText value="#{row.bindings.WorkHours.inputValue}"
+                                                      label="#{bindings.AttendanceV.hints.WorkHours.label}"
+                                                      required="#{bindings.AttendanceV.hints.WorkHours.mandatory}"
+                                                      columns="#{bindings.AttendanceV.hints.WorkHours.displayWidth}"
+                                                      maximumLength="#{bindings.AttendanceV.hints.WorkHours.precision}"
+                                                      shortDesc="#{bindings.AttendanceV.hints.WorkHours.tooltip}"
+                                                      id="it4" readOnly="true">
+                                            <f:validator binding="#{row.bindings.WorkHours.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.AttendanceV.hints.WorkHours.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AttendanceV.hints.Remarks.label}" id="c9"
+                                               align="center" width="150">
+                                        <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                                                      label="#{bindings.AttendanceV.hints.Remarks.label}"
+                                                      required="#{bindings.AttendanceV.hints.Remarks.mandatory}"
+                                                      columns="#{bindings.AttendanceV.hints.Remarks.displayWidth}"
+                                                      maximumLength="#{bindings.AttendanceV.hints.Remarks.precision}"
+                                                      shortDesc="#{bindings.AttendanceV.hints.Remarks.tooltip}" id="it2"
+                                                      readOnly="true">
+                                            <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelSplitter>
+                </af:showDetailItem>
+                <af:showDetailItem id="tab2" text="#{viewcontrollerBundle.YourVacations}"
+                                   badge="#{viewcontrollerBundle.YourVacations}">
+                    <af:panelHeader text=" " id="ph2">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar">
+                            <af:button text="#{viewcontrollerBundle.SubmitVacation}" id="b3" action="toSubmitVacation"
+                                       useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="400"
+                                       windowWidth="700" icon="#{resource['images:NewF.png']}"
+                                       rendered="#{pageFlowScope.pViewForUser}">
+                                <af:setPropertyListener from="#{bindings.OrgCode.inputValue}"
+                                                        to="#{pageFlowScope.pOrgCode}" type="action"/>
+                            </af:button>
+                        </f:facet>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:panelSplitter id="ps3" orientation="vertical" splitterPosition="335"
+                                          inlineStyle="margin-right:5px;padding-left:100px;">
+                            <f:facet name="first">
+                                <dvt:barChart id="barChart1" var="row"
+                                              value="#{bindings.EmployeeVacationsStatisticsV.collectionModel}"
+                                              title="#{viewcontrollerBundle.EMPLOYEE_VACATIONS_CHART}"
+                                              emptyText="#{viewcontrollerBundle.EMPLOYEE_VACATIONS_CHART}"
+                                              subtitle="#{bindings.Year.inputValue} #{bindings.Month.inputValue}"
+                                              inlineStyle="width:500px;font-size:30px;">
+                                    <dvt:chartLegend id="cl2"/>
+                                    <dvt:chartY2Axis id="cya1"/>
+                                    <f:facet name="dataStamp">
+                                        <dvt:chartDataItem id="di2" value="#{row.TotalDays}"
+                                                           group="#{row.Year} #{row.Month}"
+                                                           series="#{row.VacationName} #{row.VacationNameAr}"
+                                                           labelPosition="insideBarEdge" label="#{row.VacationName}"/>
+                                    </f:facet>
+                                </dvt:barChart>
+                            </f:facet>
+                            <f:facet name="second">
+                                <af:panelGroupLayout id="pgl6" layout="vertical">
+                                    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="50"
+                                                      disabled="true">
+                                        <f:facet name="first">
+                                            <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                                <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                                    <af:outputText value=" "
+                                                                   inlineStyle="background-color:#008000; width:10px; height:10px; display:inline-block; border:1px solid #008000;"
+                                                                   id="ot27"/>
+                                                    <af:outputText value="#{viewcontrollerBundle.Approved}" id="ot28"/>
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="10" height="10" id="s6"/>
+                                                    </f:facet>
+                                                </af:panelGroupLayout>
+                                                <f:facet name="separator">
+                                                    <af:spacer width="20" height="10" id="s5"/>
+                                                </f:facet>
+                                                <af:panelGroupLayout id="pgl9" layout="horizontal">
+                                                    <af:outputText value=" "
+                                                                   inlineStyle="background-color:#FF0000; width:10px; height:10px; display:inline-block; border:1px solid #FF0000;"
+                                                                   id="ot29"/>
+                                                    <af:outputText value="#{viewcontrollerBundle.Rejected}" id="ot30"/>
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="10" height="10" id="s7"/>
+                                                    </f:facet>
+                                                </af:panelGroupLayout>
+                                                <af:panelGroupLayout id="pgl10" layout="horizontal">
+                                                    <af:outputText value=" "
+                                                                   inlineStyle="background-color:#ffa500; width:10px; height:10px; display:inline-block; border:1px solid #ffa500;"
+                                                                   id="ot31"/>
+                                                    <af:outputText value="#{viewcontrollerBundle.Pending}" id="ot32"/>
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="10" height="10" id="s8"/>
+                                                    </f:facet>
+                                                </af:panelGroupLayout>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                        <f:facet name="second">
+                                            <af:table value="#{bindings.UserVacationsV.collectionModel}" var="row"
+                                                      rows="#{bindings.UserVacationsV.rangeSize}"
+                                                      emptyText="#{bindings.UserVacationsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.UserVacationsV.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.UserVacationsV.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.UserVacationsV.rangeSize}"
+                                                      filterModel="#{bindings.UserVacationsVQuery.queryDescriptor}"
+                                                      queryListener="#{bindings.UserVacationsVQuery.processQuery}"
+                                                      filterVisible="true" varStatus="vs" id="t3" autoHeightRows="0"
+                                                      partialTriggers="::b3">
+                                                <af:column sortProperty="#{bindings.UserVacationsV.hints.Id.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.UserVacationsV.hints.Id.label}"
+                                                           id="c12" rendered="false">
+                                                    <af:inputText value="#{row.bindings.Id.inputValue}"
+                                                                  label="#{bindings.UserVacationsV.hints.Id.label}"
+                                                                  required="#{bindings.UserVacationsV.hints.Id.mandatory}"
+                                                                  columns="#{bindings.UserVacationsV.hints.Id.displayWidth}"
+                                                                  maximumLength="#{bindings.UserVacationsV.hints.Id.precision}"
+                                                                  shortDesc="#{bindings.UserVacationsV.hints.Id.tooltip}"
+                                                                  id="it5">
+                                                        <f:validator binding="#{row.bindings.Id.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.UserVacationsV.hints.Id.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.UserVacationsV.hints.VacationCode.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.UserVacationsV.hints.VacationCode.label}"
+                                                           id="c13" width="200">
+                                                    <af:selectOneChoice value="#{row.bindings.VacationCode.inputValue}"
+                                                                        label="#{row.bindings.VacationCode.label}"
+                                                                        required="#{bindings.UserVacationsV.hints.VacationCode.mandatory}"
+                                                                        shortDesc="#{bindings.UserVacationsV.hints.VacationCode.tooltip}"
+                                                                        readOnly="true" id="soc1" autoSubmit="true">
+                                                        <f:selectItems value="#{row.bindings.VacationCode.items}"
+                                                                       id="si1"/>
+                                                        <f:validator binding="#{row.bindings.VacationCode.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.UserVacationsV.hints.RegisterDt.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.UserVacationsV.hints.RegisterDt.label}"
+                                                           id="c14" width="120">
+                                                    <f:facet name="filter">
+                                                        <af:inputDate value="#{bindings.UserVacationsVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.RegisterDt.value}"
+                                                                      id="id5">
+                                                            <af:convertDateTime pattern="#{bindings.UserVacationsV.hints.RegisterDt.format}"/>
+                                                        </af:inputDate>
+                                                    </f:facet>
+                                                    <af:inputDate value="#{row.bindings.RegisterDt.inputValue}"
+                                                                  label="#{bindings.UserVacationsV.hints.RegisterDt.label}"
+                                                                  required="#{bindings.UserVacationsV.hints.RegisterDt.mandatory}"
+                                                                  columns="#{bindings.UserVacationsV.hints.RegisterDt.displayWidth}"
+                                                                  shortDesc="#{bindings.UserVacationsV.hints.RegisterDt.tooltip}"
+                                                                  id="id6" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.RegisterDt.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.UserVacationsV.hints.RegisterDt.format}"
+                                                                            type="both"/>
+                                                    </af:inputDate>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.UserVacationsV.hints.FrmDt.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.UserVacationsV.hints.FrmDt.label}"
+                                                           id="c15" width="100">
+                                                    <f:facet name="filter">
+                                                        <af:inputDate value="#{bindings.UserVacationsVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.FrmDt.value}"
+                                                                      id="id7">
+                                                            <af:convertDateTime pattern="#{bindings.UserVacationsV.hints.FrmDt.format}"/>
+                                                        </af:inputDate>
+                                                    </f:facet>
+                                                    <af:inputDate value="#{row.bindings.FrmDt.inputValue}"
+                                                                  label="#{bindings.UserVacationsV.hints.FrmDt.label}"
+                                                                  required="#{bindings.UserVacationsV.hints.FrmDt.mandatory}"
+                                                                  columns="#{bindings.UserVacationsV.hints.FrmDt.displayWidth}"
+                                                                  shortDesc="#{bindings.UserVacationsV.hints.FrmDt.tooltip}"
+                                                                  id="id8" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.FrmDt.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.UserVacationsV.hints.FrmDt.format}"
+                                                                            type="#{row.VacationCode == 3 || row.VacationCode == 4 ? 'time' : 'date'}"/>
+                                                    </af:inputDate>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.UserVacationsV.hints.ToDt.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.UserVacationsV.hints.ToDt.label}"
+                                                           id="c16" width="100">
+                                                    <f:facet name="filter">
+                                                        <af:inputDate value="#{bindings.UserVacationsVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.ToDt.value}"
+                                                                      id="id9">
+                                                            <af:convertDateTime pattern="#{bindings.UserVacationsV.hints.ToDt.format}"/>
+                                                        </af:inputDate>
+                                                    </f:facet>
+                                                    <af:inputDate value="#{row.bindings.ToDt.inputValue}"
+                                                                  label="#{bindings.UserVacationsV.hints.ToDt.label}"
+                                                                  required="#{bindings.UserVacationsV.hints.ToDt.mandatory}"
+                                                                  columns="#{bindings.UserVacationsV.hints.ToDt.displayWidth}"
+                                                                  shortDesc="#{bindings.UserVacationsV.hints.ToDt.tooltip}"
+                                                                  id="id10" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.ToDt.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.UserVacationsV.hints.ToDt.format}"
+                                                                            type="#{row.VacationCode == 3 || row.VacationCode == 4 ? 'time' : 'date'}"/>
+                                                    </af:inputDate>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.UserVacationsV.hints.Status.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.UserVacationsV.hints.Status.label}"
+                                                           id="c17" width="100">
+                                                    <af:selectOneChoice value="#{row.bindings.Status.inputValue}"
+                                                                        label="#{row.bindings.Status.label}"
+                                                                        required="#{bindings.UserVacationsV.hints.Status.mandatory}"
+                                                                        shortDesc="#{bindings.UserVacationsV.hints.Status.tooltip}"
+                                                                        readOnly="true" id="soc2">
+                                                        <f:selectItems value="#{row.bindings.Status.items}" id="si2"/>
+                                                        <f:validator binding="#{row.bindings.Status.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.UserVacationsV.hints.EmpId.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.UserVacationsV.hints.EmpId.label}"
+                                                           id="c18" rendered="false">
+                                                    <af:outputText value="#{row.EmpId}"
+                                                                   shortDesc="#{bindings.UserVacationsV.hints.EmpId.tooltip}"
+                                                                   id="ot37">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.UserVacationsV.hints.EmpId.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column id="c40" width="400">
+                                                    <af:panelFormLayout id="pfl2" maxColumns="3" rows="1"
+                                                                        fieldWidth="100%" labelWidth="0%">
+                                                        <f:facet name="footer"/>
+                                                        <af:iterator id="i3" value="#{row.EmployeeApprovalStatusV}"
+                                                                     var="eas">
+                                                            <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                                                <af:outputText value="#{eas.RoleName}" id="ot34"
+                                                                               inlineStyle="#{eas.ActionStatus=='APPROVED' ? 'color:Green' : eas.ActionStatus=='REJECTED' ? 'color:Red' : 'color:Orange'}"/>
+                                                                <f:facet name="separator">
+                                                                    <af:separator id="s4"
+                                                                                  inlineStyle="width:2px; height:10px; color:Black; background-color:Black;"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:iterator>
+                                                    </af:panelFormLayout>
+                                                </af:column>
+                                            </af:table>
+                                        </f:facet>
+                                    </af:panelSplitter>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelSplitter>
+                    </af:panelHeader>
+                </af:showDetailItem>
+                <af:showDetailItem text="#{viewcontrollerBundle.YourApprovals}" id="sdi1"
+                                   rendered="#{bindings.ApprovalTransactionDetailsVO.estimatedRowCount > 0}">
+                    <af:outputText value="#{bindings.ApprovalTransactionDetailsVO.estimatedRowCount}" id="ot25"
+                                   rendered="false"/>
+                    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t5">
+                                <af:button text="#{viewcontrollerBundle.SAVE}" id="b4" styleClass="but"
+                                           actionListener="#{pageFlowScope.HrBean.applyApprovalActionLsnr}"
+                                           icon="#{resource['images:SaveF.png']}"
+                                           hoverIcon="#{resource['images:SaveO.png']}" partialSubmit="false"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <af:table value="#{bindings.ApprovalTransactionDetailsVO.collectionModel}" var="row"
+                                  rows="#{bindings.ApprovalTransactionDetailsVO.rangeSize}"
+                                  emptyText="#{bindings.ApprovalTransactionDetailsVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ApprovalTransactionDetailsVO.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ApprovalTransactionDetailsVO.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ApprovalTransactionDetailsVO.rangeSize}"
+                                  filterModel="#{bindings.ApprovalTransactionDetailsVOQuery.queryDescriptor}"
+                                  queryListener="#{bindings.ApprovalTransactionDetailsVOQuery.processQuery}"
+                                  filterVisible="true" varStatus="vs" id="t4" columnStretching="column:c25"
+                                  styleClass="AFStretchWidth" partialTriggers="::b4">
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.RequesterName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.RequesterName.label}"
+                                       id="c34">
+                                <af:outputText value="#{row.RequesterName}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.RequesterName.tooltip}"
+                                               id="ot20"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.RequesterJob.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.RequesterJob.label}"
+                                       id="c35">
+                                <af:outputText value="#{row.RequesterJob}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.RequesterJob.tooltip}"
+                                               id="ot21"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalOrder.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalOrder.label}"
+                                       id="c26">
+                                <af:outputText value="#{row.ApprovalOrder}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalOrder.tooltip}"
+                                               id="ot12">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalOrder.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionTypeName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionTypeName.label}"
+                                       id="c39" width="300">
+                                <af:outputText value="#{row.TransactionTypeName}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionTypeName.tooltip}"
+                                               id="ot26"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.RequestDate.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.RequestDate.label}"
+                                       id="c31" width="100">
+                                <af:outputText value="#{row.RequestDate}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.RequestDate.tooltip}"
+                                               id="ot17">
+                                    <af:convertDateTime pattern="#{bindings.ApprovalTransactionDetailsVO.hints.RequestDate.format}"/>
+                                </af:outputText>
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ApprovalTransactionDetailsVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.RequestDate.value}"
+                                                  id="id11">
+                                        <af:convertDateTime pattern="#{bindings.ApprovalTransactionDetailsVO.hints.RequestDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ModuleName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ModuleName.label}"
+                                       id="c30">
+                                <af:outputText value="#{row.ModuleName}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ModuleName.tooltip}"
+                                               id="ot16"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.DetailId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.DetailId.label}"
+                                       id="c19" rendered="false">
+                                <af:outputText value="#{row.DetailId}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.DetailId.tooltip}"
+                                               id="ot39">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ApprovalTransactionDetailsVO.hints.DetailId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ActionStatus.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ActionStatus.label}"
+                                       id="c23" width="400">
+                                <af:selectOneRadio value="#{row.bindings.ActionStatus.inputValue}"
+                                                   label="#{row.bindings.ActionStatus.label}"
+                                                   required="#{bindings.ApprovalTransactionDetailsVO.hints.ActionStatus.mandatory}"
+                                                   shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ActionStatus.tooltip}"
+                                                   id="sor1" layout="horizontal">
+                                    <f:selectItems value="#{row.bindings.ActionStatus.items}" id="si3"/>
+                                    <f:validator binding="#{row.bindings.ActionStatus.validator}"/>
+                                </af:selectOneRadio>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.label}"
+                                       id="c25" width="300">
+                                <af:inputText value="#{row.bindings.Comments.inputValue}"
+                                              label="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.label}"
+                                              required="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.mandatory}"
+                                              columns="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.displayWidth}"
+                                              maximumLength="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.precision}"
+                                              shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.Comments.tooltip}"
+                                              id="it6" rows="2">
+                                    <f:validator binding="#{row.bindings.Comments.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalTransId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalTransId.label}"
+                                       id="c20" rendered="false">
+                                <af:outputText value="#{row.ApprovalTransId}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalTransId.tooltip}"
+                                               id="ot38">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ApprovalTransactionDetailsVO.hints.ApprovalTransId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.StepId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.StepId.label}" id="c21"
+                                       rendered="false">
+                                <af:outputText value="#{row.StepId}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.StepId.tooltip}"
+                                               id="ot40">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ApprovalTransactionDetailsVO.hints.StepId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverId.label}"
+                                       id="c22" rendered="false">
+                                <af:outputText value="#{row.ApproverId}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverId.tooltip}"
+                                               id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.label}"
+                                       id="c24" rendered="false">
+                                <af:inputDate value="#{row.bindings.ActionDate.inputValue}"
+                                              label="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.label}"
+                                              required="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.mandatory}"
+                                              columns="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.displayWidth}"
+                                              shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.tooltip}"
+                                              id="id12">
+                                    <f:validator binding="#{row.bindings.ActionDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.format}"/>
+                                </af:inputDate>
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ApprovalTransactionDetailsVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.ActionDate.value}"
+                                                  id="id13">
+                                        <af:convertDateTime pattern="#{bindings.ApprovalTransactionDetailsVO.hints.ActionDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.IsActive.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.IsActive.label}"
+                                       id="c27" rendered="false">
+                                <af:outputText value="#{row.IsActive}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.IsActive.tooltip}"
+                                               id="ot13"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.RoleId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.RoleId.label}" id="c28"
+                                       rendered="false">
+                                <af:outputText value="#{row.RoleId}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.RoleId.tooltip}"
+                                               id="ot14">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ApprovalTransactionDetailsVO.hints.RoleId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionRefId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionRefId.label}"
+                                       id="c29" rendered="false">
+                                <af:outputText value="#{row.TransactionRefId}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionRefId.tooltip}"
+                                               id="ot15">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionRefId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionStatus.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionStatus.label}"
+                                       id="c32" rendered="false">
+                                <af:outputText value="#{row.TransactionStatus}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.TransactionStatus.tooltip}"
+                                               id="ot18"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.RequestedBy.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.RequestedBy.label}"
+                                       id="c33" rendered="false">
+                                <af:outputText value="#{row.RequestedBy}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.RequestedBy.tooltip}"
+                                               id="ot19">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ApprovalTransactionDetailsVO.hints.RequestedBy.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverName.label}"
+                                       id="c36" rendered="false">
+                                <af:outputText value="#{row.ApproverName}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverName.tooltip}"
+                                               id="ot41"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverJob.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverJob.label}"
+                                       id="c37" rendered="false">
+                                <af:outputText value="#{row.ApproverJob}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.ApproverJob.tooltip}"
+                                               id="ot23"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ApprovalTransactionDetailsVO.hints.RoleName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ApprovalTransactionDetailsVO.hints.RoleName.label}"
+                                       id="c38" rendered="false">
+                                <af:outputText value="#{row.RoleName}"
+                                               shortDesc="#{bindings.ApprovalTransactionDetailsVO.hints.RoleName.tooltip}"
+                                               id="ot24"/>
+                            </af:column>
+                        </af:table>
+                        <f:facet name="statusbar"/>
+                    </af:panelCollection>
+                </af:showDetailItem>
+            </af:panelTabbed>
+        </af:panelGroupLayout>
+    </af:panelHeader>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+              binding="#{pageFlowScope.HrBean.attendanceConfirmationPopup}">
+        <af:dialog id="d2" type="yesNo" contentWidth="400" contentHeight="50"
+                   title="#{viewcontrollerBundle.Confirmation}"
+                   inlineStyle="border-radius:30px 30px 30px 30px;width:520px;padding:10px 10px 10px 10px;"
+                   dialogListener="#{pageFlowScope.HrBean.attendanceDialogLsnr}">
+            <f:facet name="buttonBar"/>
+            <af:inputText value="#{viewcontrollerBundle.ARE_YOU_SURE_YOU_WANT_TO_}" id="ot9" label="Label 4"
+                          simple="true" readOnly="true" contentStyle="font-size:26px;"
+                          inlineStyle="padding-left:30px;"/>
+            <af:inputText value="#{' '}#{viewcontrollerBundle.Punchin}" id="ot10" label="Label 5" simple="true"
+                          contentStyle="font-size:26px;" readOnly="true"
+                          visible="#{sessionScope.attendance=='Punch-in'}"/>
+            <af:inputText value="#{' '}#{viewcontrollerBundle.Punchout}" id="ot11" label="Label 6" simple="true"
+                          contentStyle="font-size:26px;" readOnly="true"
+                          visible="#{sessionScope.attendance=='Punch-out'}"/>
+        </af:dialog>
+    </af:popup>
     <af:resource type="javascript">
-  var watchId = null;
-  var bestAccuracy = null;
-  var bestLat = null;
-  var bestLon = null;
-  var goodAccuracy = 500;
-  var geoCollected = false;
-  var pollStopped = false;
+      var watchId = null;
+      var bestAccuracy = null;
+      var bestLat = null;
+      var bestLon = null;
+      var goodAccuracy = 500;
+      var geoCollected = false;
+      var pollStopped = false;
 
-  function startGeolocation() {
+      function startGeolocation() {
 
-    if (geoCollected) {
-      return;
-    }
-
-    if (!navigator.geolocation) {
-      var statusEl = document.querySelector('span[id$="otStatus"]');
-      if (statusEl) {
-        statusEl.innerHTML = 'Geolocation not supported.';
-      }
-      stopPoll();
-      return;
-    }
-
-    var statusEl = document.querySelector('span[id$="otStatus"]');
-    if (statusEl) {
-      statusEl.innerHTML = 'Acquiring location...';
-    }
-
-    watchId = navigator.geolocation.watchPosition(
-
-      function(position) {
-        var accuracy = position.coords.accuracy;
-        var lat = position.coords.latitude;
-        var lon = position.coords.longitude;
-
-        var diffFromGood = goodAccuracy - accuracy;
-        if (diffFromGood === Math.abs(diffFromGood)) {
-          bestAccuracy = accuracy;
-          bestLat = lat;
-          bestLon = lon;
-          storeInHiddenFields(
-            bestLat.toFixed(6),
-            bestLon.toFixed(6),
-            Math.round(bestAccuracy).toString()
-          );
-          geoCollected = true;
-          if (watchId != null) {
-            navigator.geolocation.clearWatch(watchId);
-            watchId = null;
+          if (geoCollected) {
+              return;
           }
-          return;
-        }
 
-        var isBetter = false;
-        if (bestAccuracy === null) {
-          isBetter = true;
-        } else {
-          var diff = bestAccuracy - accuracy;
-          if (diff === Math.abs(diff)) {
-            isBetter = true;
+          if (!navigator.geolocation) {
+              var statusEl = document.querySelector('span[id$="otStatus"]');
+              if (statusEl) {
+                  statusEl.innerHTML = 'Geolocation not supported.';
+              }
+              stopPoll();
+              return;
           }
-        }
 
-        if (isBetter) {
-          bestAccuracy = accuracy;
-          bestLat = lat;
-          bestLon = lon;
-        }
-      },
+          var statusEl = document.querySelector('span[id$="otStatus"]');
+          if (statusEl) {
+              statusEl.innerHTML = 'Acquiring location...';
+          }
 
-      function(error) {
-        if (watchId != null) {
-          navigator.geolocation.clearWatch(watchId);
-          watchId = null;
-        }
-        var statusEl = document.querySelector(
-                           'span[id$="otStatus"]');
-        if (statusEl) {
-          statusEl.innerHTML = 'Location error: ' + error.message;
-        }
-        stopPoll();
-      },
+          watchId = navigator.geolocation.watchPosition(function (position) {
+              var accuracy = position.coords.accuracy;
+              var lat = position.coords.latitude;
+              var lon = position.coords.longitude;
 
-      {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0
+              var diffFromGood = goodAccuracy - accuracy;
+              if (diffFromGood === Math.abs(diffFromGood)) {
+                  bestAccuracy = accuracy;
+                  bestLat = lat;
+                  bestLon = lon;
+                  storeInHiddenFields(bestLat.toFixed(6), bestLon.toFixed(6), Math.round(bestAccuracy).toString());
+                  geoCollected = true;
+                  if (watchId != null) {
+                      navigator.geolocation.clearWatch(watchId);
+                      watchId = null;
+                  }
+                  return;
+              }
+
+              var isBetter = false;
+              if (bestAccuracy === null) {
+                  isBetter = true;
+              }
+              else {
+                  var diff = bestAccuracy - accuracy;
+                  if (diff === Math.abs(diff)) {
+                      isBetter = true;
+                  }
+              }
+
+              if (isBetter) {
+                  bestAccuracy = accuracy;
+                  bestLat = lat;
+                  bestLon = lon;
+              }
+          },
+          function (error) {
+              if (watchId != null) {
+                  navigator.geolocation.clearWatch(watchId);
+                  watchId = null;
+              }
+              var statusEl = document.querySelector('span[id$="otStatus"]');
+              if (statusEl) {
+                  statusEl.innerHTML = 'Location error: ' + error.message;
+              }
+              stopPoll();
+          },
+
+          {
+              enableHighAccuracy : true, timeout : 10000, maximumAge : 0
+          });
+
+          window.setTimeout(function () {
+              if (!geoCollected) {
+                  if (watchId != null) {
+                      navigator.geolocation.clearWatch(watchId);
+                      watchId = null;
+                  }
+                  if (bestLat !== null) {
+                      storeInHiddenFields(bestLat.toFixed(6), bestLon.toFixed(6), Math.round(bestAccuracy).toString());
+                      geoCollected = true;
+                  }
+                  stopPoll();
+              }
+          },
+10000);
       }
-    );
 
-    window.setTimeout(function() {
-      if (!geoCollected) {
-        if (watchId != null) {
-          navigator.geolocation.clearWatch(watchId);
-          watchId = null;
-        }
-        if (bestLat !== null) {
-          storeInHiddenFields(
-            bestLat.toFixed(6),
-            bestLon.toFixed(6),
-            Math.round(bestAccuracy).toString()
-          );
-          geoCollected = true;
-        }
-        stopPoll();
+      function storeInHiddenFields(lat, lon, acc) {
+          var latInput = document.querySelector('input[id$="itLat::content"]');
+          var lonInput = document.querySelector('input[id$="itLon::content"]');
+          var accInput = document.getElementById('accHidden');
+
+          if (latInput)
+              latInput.value = lat;
+          if (lonInput)
+              lonInput.value = lon;
+          if (accInput)
+              accInput.value = acc;
+
+          stopPoll();
       }
-    }, 10000);
-  }
 
-  function storeInHiddenFields(lat, lon, acc) {
-    var latInput = document.querySelector(
-                       'input[id$="itLat::content"]');
-    var lonInput = document.querySelector(
-                       'input[id$="itLon::content"]');
-    var accInput = document.getElementById('accHidden');
-
-    if (latInput) latInput.value = lat;
-    if (lonInput) lonInput.value = lon;
-    if (accInput) accInput.value = acc;
-
-    stopPoll();
-  }
-
-  window.setTimeout(startGeolocation, 1000);
-
-</af:resource>
+      window.setTimeout(startGeolocation, 1000);
+    </af:resource>
 </ui:composition>

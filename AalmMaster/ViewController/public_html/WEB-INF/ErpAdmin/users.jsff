@@ -8,9 +8,9 @@
     <f:facet name="context"/>
     <f:facet name="menuBar">
       <af:panelGroupLayout id="pgl2" layout="horizontal">
-        <af:button actionListener="#{bindings.Rollback.execute}" immediate="true" id="b2"
+        <af:button actionListener="#{bindings.Rollback.execute}" id="b2"
                    styleClass="but" text="#{viewcontrollerBundle.CANCEL}" icon="#{resource['images:cancelF.png']}"
-                   hoverIcon="#{resource['images:cancelO.png']}">
+                   hoverIcon="#{resource['images:cancelO.png']}" immediate="true">
           <af:resetActionListener/>
         </af:button>
         <af:button actionListener="#{bindings.Commit.execute}" id="b1" styleClass="but"
@@ -27,7 +27,7 @@
       <af:spacer width="10" height="20" id="s2"/>
     </f:facet>
     <f:facet name="info"/>
-    <af:panelSplitter id="ps1" splitterPosition="920">
+    <af:panelSplitter id="ps1" splitterPosition="1020">
       <f:facet name="first">
         <af:panelHeader text="#{viewcontrollerBundle.BASIC_DATA}" id="pb1" styleClass="AFStretchWidth">
           <f:facet name="toolbar">
@@ -35,130 +35,188 @@
                        styleClass="but" icon="#{resource['images:NewF.png']}"
                        hoverIcon="#{resource['images:NewO.png']}"/>
           </f:facet>
-          <af:table value="#{bindings.SystemUsersV.collectionModel}" var="row" rows="#{bindings.SystemUsersV.rangeSize}"
-                    emptyText="#{bindings.SystemUsersV.viewable ? 'No data to display.' : 'Access Denied.'}"
-                    rowBandingInterval="0" selectedRowKeys="#{bindings.SystemUsersV.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.SystemUsersV.collectionModel.makeCurrent}" rowSelection="single"
-                    fetchSize="#{bindings.SystemUsersV.rangeSize}" id="t1"
-                    inlineStyle="background-color:white;border-color:white;" verticalGridVisible="false"
-                    partialTriggers="::b2 ::b1 ::b3 l1 ::b4">
-            <af:column headerText="#{bindings.SystemUsersV.hints.UserId.label}" id="c1" minimumWidth="5" width="90"
-                       align="right">
-              <af:panelGroupLayout id="pgl1" layout="horizontal">
-                <af:link id="l1" icon="#{resource['images:delete24.png']}"
-                         visible="#{row.bindings.UserId.inputValue!=1 &amp;&amp; row.bindings.UserId.inputValue!=0}"
-                         actionListener="#{bindings.DeleteUser.execute}" immediate="true"/>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.SystemUsersV.collectionModel}" var="row"
+                      rows="#{bindings.SystemUsersV.rangeSize}"
+                      emptyText="#{bindings.SystemUsersV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.SystemUsersV.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.SystemUsersV.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.SystemUsersV.rangeSize}" id="t1"
+                      inlineStyle="background-color:white;border-color:white;" verticalGridVisible="false"
+                      partialTriggers=":::b2 :::b1 :::b3 :::b4 l1"
+                      filterModel="#{bindings.SystemUsersVQuery.queryDescriptor}"
+                      queryListener="#{bindings.SystemUsersVQuery.processQuery}" filterVisible="true" varStatus="vs">
+              <af:column headerText="#{bindings.SystemUsersV.hints.UserId.label}" id="c1" minimumWidth="5" width="90"
+                         align="right" sortProperty="#{bindings.SystemUsersV.hints.UserId.name}" filterable="true"
+                         sortable="true">
+                <af:panelGroupLayout id="pgl5" layout="horizontal">
+                  <af:link id="l1" icon="#{resource['images:delete24.png']}"
+                           visible="#{row.bindings.UserId.inputValue!=1 &amp;&amp; row.bindings.UserId.inputValue!=0}"
+                           actionListener="#{bindings.DeleteUser.execute}" immediate="true"/>
+                  <af:inputText value="#{row.bindings.UserId.inputValue}"
+                                label="#{bindings.SystemUsersV.hints.UserId.label}"
+                                required="#{bindings.SystemUsersV.hints.UserId.mandatory}"
+                                columns="#{bindings.SystemUsersV.hints.UserId.displayWidth}"
+                                maximumLength="#{bindings.SystemUsersV.hints.UserId.precision}"
+                                shortDesc="#{bindings.SystemUsersV.hints.UserId.tooltip}" id="it1"
+                                contentStyle="font-size:20px;width:50px;" inlineStyle="text-align:left;"
+                                disabled="true">
+                    <f:validator binding="#{row.bindings.UserId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.SystemUsersV.hints.UserId.format}"/>
+                  </af:inputText>
+                  <f:facet name="separator">
+                    <af:spacer width="10" height="10" id="s1"/>
+                  </f:facet>
+                </af:panelGroupLayout>
                 <af:inputText value="#{row.bindings.UserId.inputValue}"
                               label="#{bindings.SystemUsersV.hints.UserId.label}"
                               required="#{bindings.SystemUsersV.hints.UserId.mandatory}"
                               columns="#{bindings.SystemUsersV.hints.UserId.displayWidth}"
                               maximumLength="#{bindings.SystemUsersV.hints.UserId.precision}"
-                              shortDesc="#{bindings.SystemUsersV.hints.UserId.tooltip}" id="it1"
-                              contentStyle="font-size:20px;width:50px;" inlineStyle="text-align:left;" disabled="true">
+                              shortDesc="#{bindings.SystemUsersV.hints.UserId.tooltip}" id="it7" rendered="false">
                   <f:validator binding="#{row.bindings.UserId.validator}"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.SystemUsersV.hints.UserId.format}"/>
                 </af:inputText>
-                <f:facet name="separator">
-                  <af:spacer width="10" height="10" id="s1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.SystemUsersV.hints.EmpId.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.SystemUsersV.hints.EmpId.label}" id="c7" width="250">
+                <af:selectOneChoice value="#{row.bindings.EmpId.inputValue}" label="#{row.bindings.EmpId.label}"
+                                    required="#{bindings.SystemUsersV.hints.EmpId.mandatory}"
+                                    shortDesc="#{bindings.SystemUsersV.hints.EmpId.tooltip}" id="soc1"
+                                    autoSubmit="true" disabled="#{row.bindings.Pswrd.inputValue!=null}">
+                  <f:selectItems value="#{row.bindings.EmpId.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.EmpId.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column headerText="#{bindings.SystemUsersV.hints.FirstName.label}" id="c2" width="90"
+                         sortProperty="#{bindings.SystemUsersV.hints.FirstName.name}" filterable="true" sortable="true">
+                <af:inputText value="#{row.bindings.FirstName.inputValue}"
+                              label="#{bindings.SystemUsersV.hints.FirstName.label}"
+                              columns="#{bindings.SystemUsersV.hints.FirstName.displayWidth}"
+                              maximumLength="#{bindings.SystemUsersV.hints.FirstName.precision}"
+                              shortDesc="#{bindings.SystemUsersV.hints.FirstName.tooltip}" id="it2"
+                              contentStyle="font-size:20px;"
+                              required="#{bindings.SystemUsersV.hints.FirstName.mandatory}"
+                              readOnly="#{!empty bindings.EmpId.inputValue || bindings.EmpId.inputValue ne null}"
+                              partialTriggers="soc1" visible="#{bindings.EmpId.inputValue ne null}">
+                  <f:validator binding="#{row.bindings.FirstName.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{row.bindings.FirstName1.inputValue}"
+                              label="#{bindings.SystemUsersV.hints.FirstName1.label}"
+                              columns="#{bindings.SystemUsersV.hints.FirstName1.displayWidth}"
+                              maximumLength="#{bindings.SystemUsersV.hints.FirstName1.precision}"
+                              shortDesc="#{bindings.SystemUsersV.hints.FirstName1.tooltip}" id="it8"
+                              contentStyle="font-size:20px;"
+                              required="#{bindings.SystemUsersV.hints.FirstName1.mandatory}"
+                              visible="#{bindings.EmpId.inputValue eq null}" partialTriggers="soc1">
+                  <f:validator binding="#{row.bindings.FirstName1.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.SystemUsersV.hints.LastName.label}" id="c3" width="90"
+                         sortProperty="#{bindings.SystemUsersV.hints.LastName.name}" filterable="true" sortable="true">
+                <af:inputText value="#{row.bindings.LastName.inputValue}"
+                              label="#{bindings.SystemUsersV.hints.LastName.label}"
+                              columns="#{bindings.SystemUsersV.hints.LastName.displayWidth}"
+                              maximumLength="#{bindings.SystemUsersV.hints.LastName.precision}"
+                              shortDesc="#{bindings.SystemUsersV.hints.LastName.tooltip}" id="it3"
+                              contentStyle="font-size:20px;"
+                              required="#{bindings.SystemUsersV.hints.LastName.mandatory}"
+                              readOnly="#{!empty bindings.EmpId.inputValue || bindings.EmpId.inputValue ne null}"
+                              partialTriggers="soc1" visible="#{bindings.EmpId.inputValue ne null}">
+                  <f:validator binding="#{row.bindings.LastName.validator}"/>
+                </af:inputText>
+                              <af:inputText value="#{row.bindings.LastName1.inputValue}"
+                              label="#{bindings.SystemUsersV.hints.LastName1.label}"
+                              columns="#{bindings.SystemUsersV.hints.LastName1.displayWidth}"
+                              maximumLength="#{bindings.SystemUsersV.hints.LastName1.precision}"
+                              shortDesc="#{bindings.SystemUsersV.hints.LastName1.tooltip}" id="it9"
+                              contentStyle="font-size:20px;"
+                              required="#{bindings.SystemUsersV.hints.LastName1.mandatory}"
+                              readOnly="#{!empty bindings.EmpId.inputValue || bindings.EmpId.inputValue ne null}"
+                              partialTriggers="soc1" visible="#{bindings.EmpId.inputValue eq null}">
+                  <f:validator binding="#{row.bindings.LastName1.validator}"/>
+                </af:inputText>  
+              </af:column>
+              <af:column headerText="#{bindings.SystemUsersV.hints.Email.label}" id="c4" width="170"
+                         sortProperty="#{bindings.SystemUsersV.hints.Email.name}" filterable="true" sortable="true">
+                <af:inputText value="#{row.bindings.Email.inputValue}"
+                              label="#{bindings.SystemUsersV.hints.Email.label}"
+                              columns="#{bindings.SystemUsersV.hints.Email.displayWidth}"
+                              maximumLength="#{bindings.SystemUsersV.hints.Email.precision}"
+                              shortDesc="#{bindings.SystemUsersV.hints.Email.tooltip}" id="it4"
+                              contentStyle="font-size:20px;" disabled="#{row.bindings.Pswrd.inputValue!=null}"
+                              required="#{bindings.SystemUsersV.hints.Email.mandatory}">
+                  <f:validator binding="#{row.bindings.Email.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.SystemUsersV.hints.Mobile.label}" id="c5" width="70" rendered="false"
+                         sortProperty="#{bindings.SystemUsersV.hints.Mobile.name}" filterable="true" sortable="true">
+                <af:inputText value="#{row.bindings.Mobile.inputValue}"
+                              label="#{bindings.SystemUsersV.hints.Mobile.label}"
+                              required="#{bindings.SystemUsersV.hints.Mobile.mandatory}"
+                              columns="#{bindings.SystemUsersV.hints.Mobile.displayWidth}"
+                              maximumLength="#{bindings.SystemUsersV.hints.Mobile.precision}"
+                              shortDesc="#{bindings.SystemUsersV.hints.Mobile.tooltip}" id="it5"
+                              contentStyle="font-size:20px;">
+                  <f:validator binding="#{row.bindings.Mobile.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.SystemUsersV.hints.Address.label}" id="c6" width="200" rendered="false"
+                         sortProperty="#{bindings.SystemUsersV.hints.Address.name}" filterable="true" sortable="true">
+                <af:inputText value="#{row.bindings.Address.inputValue}"
+                              label="#{bindings.SystemUsersV.hints.Address.label}"
+                              required="#{bindings.SystemUsersV.hints.Address.mandatory}"
+                              columns="#{bindings.SystemUsersV.hints.Address.displayWidth}"
+                              maximumLength="#{bindings.SystemUsersV.hints.Address.precision}"
+                              shortDesc="#{bindings.SystemUsersV.hints.Address.tooltip}" id="it6"
+                              contentStyle="font-size:20px;">
+                  <f:validator binding="#{row.bindings.Address.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.SystemUsersV.hints.FrmDt.label}" id="c9" width="75"
+                         sortProperty="#{bindings.SystemUsersV.hints.FrmDt.name}" filterable="true" sortable="true">
+                <af:inputDate value="#{row.bindings.FrmDt.inputValue}"
+                              required="#{bindings.SystemUsersV.hints.FrmDt.mandatory}"
+                              columns="#{bindings.SystemUsersV.hints.FrmDt.displayWidth}"
+                              shortDesc="#{bindings.SystemUsersV.hints.FrmDt.tooltip}" id="id1"
+                              contentStyle="font-size:20px;width:60px;">
+                  <f:validator binding="#{row.bindings.FrmDt.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.SystemUsersV.hints.FrmDt.format}"/>
+                </af:inputDate>
+                <f:facet name="filter">
+                  <af:inputDate value="#{bindings.SystemUsersVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.FrmDt.value}"
+                                id="id3">
+                    <af:convertDateTime pattern="#{bindings.SystemUsersV.hints.FrmDt.format}"/>
+                  </af:inputDate>
                 </f:facet>
-              </af:panelGroupLayout>
-              <af:inputText value="#{row.bindings.UserId.inputValue}"
-                            label="#{bindings.SystemUsersV.hints.UserId.label}"
-                            required="#{bindings.SystemUsersV.hints.UserId.mandatory}"
-                            columns="#{bindings.SystemUsersV.hints.UserId.displayWidth}"
-                            maximumLength="#{bindings.SystemUsersV.hints.UserId.precision}"
-                            shortDesc="#{bindings.SystemUsersV.hints.UserId.tooltip}" id="it7">
-                <f:validator binding="#{row.bindings.UserId.validator}"/>
-                <af:convertNumber groupingUsed="false" pattern="#{bindings.SystemUsersV.hints.UserId.format}"/>
-              </af:inputText>
-            </af:column>
-            <af:column headerText="#{bindings.SystemUsersV.hints.FirstName.label}" id="c2" width="120">
-              <af:inputText value="#{row.bindings.FirstName.inputValue}"
-                            label="#{bindings.SystemUsersV.hints.FirstName.label}"
-                            columns="#{bindings.SystemUsersV.hints.FirstName.displayWidth}"
-                            maximumLength="#{bindings.SystemUsersV.hints.FirstName.precision}"
-                            shortDesc="#{bindings.SystemUsersV.hints.FirstName.tooltip}" id="it2"
-                            contentStyle="font-size:20px;"
-                            required="#{bindings.SystemUsersV.hints.FirstName.mandatory}">
-                <f:validator binding="#{row.bindings.FirstName.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column headerText="#{bindings.SystemUsersV.hints.LastName.label}" id="c3" width="120">
-              <af:inputText value="#{row.bindings.LastName.inputValue}"
-                            label="#{bindings.SystemUsersV.hints.LastName.label}"
-                            columns="#{bindings.SystemUsersV.hints.LastName.displayWidth}"
-                            maximumLength="#{bindings.SystemUsersV.hints.LastName.precision}"
-                            shortDesc="#{bindings.SystemUsersV.hints.LastName.tooltip}" id="it3"
-                            contentStyle="font-size:20px;" required="#{bindings.SystemUsersV.hints.LastName.mandatory}">
-                <f:validator binding="#{row.bindings.LastName.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column headerText="#{bindings.SystemUsersV.hints.Email.label}" id="c4" width="170">
-              <af:inputText value="#{row.bindings.Email.inputValue}" label="#{bindings.SystemUsersV.hints.Email.label}"
-                            columns="#{bindings.SystemUsersV.hints.Email.displayWidth}"
-                            maximumLength="#{bindings.SystemUsersV.hints.Email.precision}"
-                            shortDesc="#{bindings.SystemUsersV.hints.Email.tooltip}" id="it4"
-                            contentStyle="font-size:20px;" disabled="#{row.bindings.Pswrd.inputValue!=null}"
-                            required="#{bindings.SystemUsersV.hints.Email.mandatory}">
-                <f:validator binding="#{row.bindings.Email.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column headerText="#{bindings.SystemUsersV.hints.Mobile.label}" id="c5" width="70" rendered="false">
-              <af:inputText value="#{row.bindings.Mobile.inputValue}"
-                            label="#{bindings.SystemUsersV.hints.Mobile.label}"
-                            required="#{bindings.SystemUsersV.hints.Mobile.mandatory}"
-                            columns="#{bindings.SystemUsersV.hints.Mobile.displayWidth}"
-                            maximumLength="#{bindings.SystemUsersV.hints.Mobile.precision}"
-                            shortDesc="#{bindings.SystemUsersV.hints.Mobile.tooltip}" id="it5"
-                            contentStyle="font-size:20px;">
-                <f:validator binding="#{row.bindings.Mobile.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column headerText="#{bindings.SystemUsersV.hints.Address.label}" id="c6" width="200" rendered="false">
-              <af:inputText value="#{row.bindings.Address.inputValue}"
-                            label="#{bindings.SystemUsersV.hints.Address.label}"
-                            required="#{bindings.SystemUsersV.hints.Address.mandatory}"
-                            columns="#{bindings.SystemUsersV.hints.Address.displayWidth}"
-                            maximumLength="#{bindings.SystemUsersV.hints.Address.precision}"
-                            shortDesc="#{bindings.SystemUsersV.hints.Address.tooltip}" id="it6"
-                            contentStyle="font-size:20px;">
-                <f:validator binding="#{row.bindings.Address.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column headerText="#{bindings.SystemUsersV.hints.FrmDt.label}" id="c9" width="75">
-              <af:inputDate value="#{row.bindings.FrmDt.inputValue}"
-                            required="#{bindings.SystemUsersV.hints.FrmDt.mandatory}"
-                            columns="#{bindings.SystemUsersV.hints.FrmDt.displayWidth}"
-                            shortDesc="#{bindings.SystemUsersV.hints.FrmDt.tooltip}" id="id1"
-                            contentStyle="font-size:20px;width:60px;">
-                <f:validator binding="#{row.bindings.FrmDt.validator}"/>
-                <af:convertDateTime pattern="#{bindings.SystemUsersV.hints.FrmDt.format}"/>
-              </af:inputDate>
-            </af:column>
-            <af:column headerText="#{bindings.SystemUsersV.hints.ToDt.label}" id="c8" width="85">
-              <af:inputDate value="#{row.bindings.ToDt.inputValue}"
-                            required="#{bindings.SystemUsersV.hints.ToDt.mandatory}"
-                            columns="#{bindings.SystemUsersV.hints.ToDt.displayWidth}"
-                            shortDesc="#{bindings.SystemUsersV.hints.ToDt.tooltip}" id="id2"
-                            contentStyle="font-size:20px;width:60px;">
-                <f:validator binding="#{row.bindings.ToDt.validator}"/>
-                <af:convertDateTime pattern="#{bindings.SystemUsersV.hints.ToDt.format}"/>
-              </af:inputDate>
-            </af:column>
-            <af:column headerText="#{bindings.SystemUsersV.hints.EmpId.label}" id="c7">
-              <af:selectOneChoice value="#{row.bindings.EmpId.inputValue}" label="#{row.bindings.EmpId.label}"
-                                  required="#{bindings.SystemUsersV.hints.EmpId.mandatory}"
-                                  shortDesc="#{bindings.SystemUsersV.hints.EmpId.tooltip}" id="soc1">
-                <f:selectItems value="#{row.bindings.EmpId.items}" id="si1"/>
-                <f:validator binding="#{row.bindings.EmpId.validator}"/>
-              </af:selectOneChoice>
-            </af:column>
-            <af:column id="c12">
-              <af:button text="#{viewcontrollerBundle.SetPassword}" id="b7"
-                         visible="#{!fn:contains(row.bindings.Email.inputValue, '@')}" styleClass="but"
-                         actionListener="#{backingBeanScope.LoginBean.nullifyPswrdActnLsnr}"/>
-            </af:column>
-          </af:table>
+              </af:column>
+              <af:column headerText="#{bindings.SystemUsersV.hints.ToDt.label}" id="c8" width="85"
+                         sortProperty="#{bindings.SystemUsersV.hints.ToDt.name}" filterable="true" sortable="true">
+                <af:inputDate value="#{row.bindings.ToDt.inputValue}"
+                              required="#{bindings.SystemUsersV.hints.ToDt.mandatory}"
+                              columns="#{bindings.SystemUsersV.hints.ToDt.displayWidth}"
+                              shortDesc="#{bindings.SystemUsersV.hints.ToDt.tooltip}" id="id2"
+                              contentStyle="font-size:20px;width:60px;">
+                  <f:validator binding="#{row.bindings.ToDt.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.SystemUsersV.hints.ToDt.format}"/>
+                </af:inputDate>
+                <f:facet name="filter">
+                  <af:inputDate value="#{bindings.SystemUsersVQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.ToDt.value}"
+                                id="id4">
+                    <af:convertDateTime pattern="#{bindings.SystemUsersV.hints.ToDt.format}"/>
+                  </af:inputDate>
+                </f:facet>
+              </af:column>
+              <af:column id="c12" sortable="true" filterable="true" width="120">
+                <af:button text="#{viewcontrollerBundle.SetPassword}" id="b7"
+                           visible="#{!fn:contains(row.bindings.Email.inputValue, '@')}" styleClass="but"
+                           actionListener="#{backingBeanScope.LoginBean.nullifyPswrdActnLsnr}"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
           <f:facet name="context"/>
           <f:facet name="menuBar"/>
           <f:facet name="legend"/>
@@ -166,7 +224,7 @@
         </af:panelHeader>
       </f:facet>
       <f:facet name="second">
-        <af:panelGroupLayout id="ps2" inlineStyle="padding-left:30px;" layout="horizontal">
+        <af:panelGroupLayout id="ps2" layout="horizontal">
           <af:panelHeader text="#{viewcontrollerBundle.ROLES_GRANTED}" id="pb2" inlineStyle="width:400px;">
             <f:facet name="toolbar">
               <af:button text="#{viewcontrollerBundle.NEW}" id="b5"
@@ -178,13 +236,15 @@
                       emptyText="#{bindings.UserRolesMasterV.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="0" selectedRowKeys="#{bindings.UserRolesMasterV.collectionModel.selectedRow}"
                       selectionListener="#{bindings.UserRolesMasterV.collectionModel.makeCurrent}" rowSelection="single"
-                      fetchSize="#{bindings.UserRolesMasterV.rangeSize}" id="t2" partialTriggers="l2"
-                      inlineStyle="background-color:white;border-color:white;">
+                      fetchSize="#{bindings.UserRolesMasterV.rangeSize}" id="t2"
+                      partialTriggers="::b2 ::b1 ::b3 ::b4 l2"
+                      inlineStyle="background-color:white;border-color:white;padding-top:60px;">
               <af:column headerText="#{bindings.UserRolesMasterV.hints.RoleGroupId.label}" id="c10" width="300">
                 <af:panelGroupLayout id="pgl3" layout="horizontal">
                   <af:link id="l2" icon="#{resource['images:delete24.png']}"
                            actionListener="#{bindings.DeleteRole.execute}"
-                           visible="#{row.bindings.RoleGroupId.inputValue!=0 &amp;&amp; row.bindings.RoleGroupId.inputValue!=1}"/>
+                           visible="#{row.bindings.RoleGroupId.inputValue!=0 &amp;&amp; row.bindings.RoleGroupId.inputValue!=1}"
+                           immediate="true"/>
                   <af:selectOneChoice value="#{row.bindings.RoleGroupId.inputValue}"
                                       label="#{row.bindings.RoleGroupId.label}"
                                       required="#{bindings.UserRolesMasterV.hints.RoleGroupId.mandatory}"

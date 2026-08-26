@@ -302,6 +302,10 @@
         <source>Current Location</source>
         <target/>
       </trans-unit>
+      <trans-unit id="Userswhoperformtasksonsystemtheiremailwouldberealemailaccountforrestofuserswhowillonlypunchinouttheiremailscouldbeanycharactersexcept.">
+        <source>Users who perform tasks on system, their email would be real email account, for rest of users who will only punch-in &amp; out, their emails could be any characters except @.</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

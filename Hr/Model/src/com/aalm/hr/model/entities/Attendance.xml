@@ -27,6 +27,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="19"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.entities.Attendance.AttendanceId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="UserId"
@@ -49,21 +55,42 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="ATTENDANCE"/>
+    TableName="ATTENDANCE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.entities.Attendance.AttendanceDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CheckInTime"
     ColumnName="check_in_time"
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="DATETIME"
-    TableName="ATTENDANCE"/>
+    TableName="ATTENDANCE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.entities.Attendance.CheckInTime_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CheckOutTime"
     ColumnName="check_out_time"
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="DATETIME"
-    TableName="ATTENDANCE"/>
+    TableName="ATTENDANCE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.entities.Attendance.CheckOutTime_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Status"
     Domain="com.aalm.hr.model.entities.temp.Enum"
@@ -71,7 +98,14 @@
     SQLType="STRUCT"
     Type="com.aalm.hr.model.entities.temp.common.Enum"
     ColumnType="ENUM"
-    TableName="ATTENDANCE"/>
+    TableName="ATTENDANCE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.entities.Attendance.Status_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Remarks"
     Precision="255"
@@ -83,6 +117,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="255"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.entities.Attendance.Remarks_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="WorkHours"
@@ -94,6 +134,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.aalm.hr.model.entities.Attendance.WorkHours_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CreatedAt"
@@ -254,4 +300,8 @@
     </DesignTime>
     <AttrArray Name="Attributes"/>
   </Key>
+  <ResourceBundle>
+    <XliffBundle
+      id="com.aalm.hr.model.AalmHrMBndl"/>
+  </ResourceBundle>
 </Entity>

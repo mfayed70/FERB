@@ -27,6 +27,33 @@ public class AalmHrImpl extends ApplicationModuleImpl implements AalmHr {
     }
 
     /**
+     * Custom method for calculating today logged user attendance status
+     */
+        public void createTodayAttendanceIfMissing(int userId) {
+        DBTransactionImpl dbti = (DBTransactionImpl) getDBTransaction();
+        CallableStatement stmnt = dbti.createCallableStatement(("call create_today_attendance(?);"),0);
+        try {
+            System.out.println("user is :"+userId);
+            stmnt.setInt(1, userId);
+            stmnt.execute();
+        
+          System.out.println("check done.++++++++");
+            executeCommand("Commit");
+        }catch (SQLException sqlerr) {
+                 System.out.println(" Today Attendance is not done--------");
+            throw new JboException(sqlerr);
+        } finally {
+            try {
+                if (stmnt != null) {
+                    stmnt.close();
+                }
+            } catch (SQLException closeerr) {
+                throw new JboException(closeerr);
+            }
+        }
+    }
+
+    /**
      * Custom method for handling approval transaction action
      */
         public void sp_create_approval_transaction(

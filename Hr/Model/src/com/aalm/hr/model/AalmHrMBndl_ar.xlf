@@ -1,515 +1,820 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
-  <file source-language="en" original="com.aalm.hr.model.AalmHrMBndl_ar" datatype="x-oracle-adf">
-    <body>
-      <trans-unit id="com.aalm.hr.model.entities.Employees.EmpId_LABEL">
-        <source>الرقم التعريفي</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.Employees.EmpName_LABEL">
-        <source>الإســـم</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.Employees.MaritalStatus_LABEL">
-        <source>الحالة الشخصية</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.Employees.EmpCat_LABEL">
-        <source>الفئــة</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.Employees.ContractNo_LABEL">
-        <source>رقم العقـــد</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.Employees.Salary_LABEL">
-        <source>المرتــب</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.Employees.IdNo_LABEL">
-        <source>الرقم القومي</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.Employees.CurrCode_LABEL">
-        <source>العملة</source>
-        <target/>
-      </trans-unit>
-          <trans-unit id="com.aalm.hr.model.entities.Jobs.JobNameEn_LABEL">
-        <source>الإسم لاتيني</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.Jobs.JobNameAr_LABEL">
-        <source>الإسم عربي</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.Jobs.JobId_LABEL">
-        <source>الرقم التعريفي</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.JobsLOV_LABEL">
-        <source>Jobs Lov</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="JOB">
-        <source>الوظيفة</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.Employees.JobId_LABEL">
-        <source>الوظـــيقة</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL_LABEL">
-        <source>Fk Employee Job History Employees1vl</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.JobId_LABEL">
-        <source>الوظـــيقة</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="FROM_DATE">
-        <source>من تاريخ</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_LABEL">
-        <source>من تاريخ</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_FMT_FORMATTER">
-        <source>oracle.jbo.format.DefaultDateFormatter</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_FMT_FORMAT">
-        <source>dd/MM/yyyy HH:mm a</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="TO_DATE">
-        <source>إلي تاريخ</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_LABEL">
-        <source>إلي تاريخ</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_FMT_FORMATTER">
-        <source>oracle.jbo.format.DefaultDateFormatter</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_FMT_FORMAT">
-        <source>dd/MM/yyyy HH:mm a</source>
-        <target/>
-      </trans-unit>      
+    <file source-language="en" original="com.aalm.hr.model.AalmHrMBndl_ar" datatype="x-oracle-adf">
+        <body>
+            <trans-unit id="com.aalm.hr.model.entities.Employees.EmpId_LABEL">
+                <source>الرقم التعريفي</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Employees.EmpName_LABEL">
+                <source>الإســـم</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Employees.MaritalStatus_LABEL">
+                <source>الحالة الشخصية</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Employees.EmpCat_LABEL">
+                <source>الفئــة</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Employees.ContractNo_LABEL">
+                <source>رقم العقـــد</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Employees.Salary_LABEL">
+                <source>المرتــب</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Employees.IdNo_LABEL">
+                <source>الرقم القومي</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Employees.CurrCode_LABEL">
+                <source>العملة</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Jobs.JobNameEn_LABEL">
+                <source>الإسم لاتيني</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Jobs.JobNameAr_LABEL">
+                <source>الإسم عربي</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Jobs.JobId_LABEL">
+                <source>الرقم التعريفي</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.JobsLOV_LABEL">
+                <source>Jobs Lov</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="JOB">
+                <source>الوظيفة</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Employees.JobId_LABEL">
+                <source>الوظـــيقة</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL_LABEL">
+                <source>Fk Employee Job History Employees1vl</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.JobId_LABEL">
+                <source>الوظـــيقة</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="FROM_DATE">
+                <source>من تاريخ</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_LABEL">
+                <source>من تاريخ</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_FMT_FORMATTER">
+                <source>oracle.jbo.format.DefaultDateFormatter</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_FMT_FORMAT">
+                <source>dd/MM/yyyy HH:mm a</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="TO_DATE">
+                <source>إلي تاريخ</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_LABEL">
+                <source>إلي تاريخ</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_FMT_FORMATTER">
+                <source>oracle.jbo.format.DefaultDateFormatter</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_FMT_FORMAT">
+                <source>dd/MM/yyyy HH:mm a</source>
+                <target/>
+            </trans-unit>
             <trans-unit id="com.aalm.hr.model.entities.EmployeeJobHistory.Seq_LABEL">
-        <source>م.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="FROM_DATE">
-        <source>from Date</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_LABEL">
-        <source>from Date</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_FMT_FORMATTER">
-        <source>oracle.jbo.format.DefaultDateFormatter</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_FMT_FORMAT">
-        <source>dd/MM/yyyy HH:mm a</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="TO_DATE">
-        <source>to Date</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_LABEL">
-        <source>to Date</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_FMT_FORMATTER">
-        <source>oracle.jbo.format.DefaultDateFormatter</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_FMT_FORMAT">
-        <source>dd/MM/yyyy HH:mm a</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="SER_">
-        <source>م.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.EmployeeJobHistory.Seq_LABEL">
-        <source>Ser.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV_LABEL">
-        <source>Employees Contracts V</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV_LABEL">
-        <source>Id Type Lov</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_0_0">
-        <source>A</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_0_1">
-        <source>AAAAA</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_1_0">
-        <source>B</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_1_1">
-        <source>BBBBB</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_2_0">
-        <source>C</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_2_1">
-        <source>CCCCC</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_3_0">
-        <source>D</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_3_1">
-        <source>DDDDD</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.TestLOV_LABEL">
-        <source>Test Lov</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.TestVO_LABEL">
-        <source>Test Vo</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="LAST_EDUCATIONAL_CERTIFICATE">
-        <source>أخر مؤهل دراسي</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.Certificate_LABEL">
-        <source>Last Educational Certificate</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="DATE_OF_LAST_EDUCATIONAL_CERTIFICATE">
-        <source>تاريخ أخر مؤهل دراسي</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.CertificateDt_LABEL">
-        <source>Date of Last Educational Certificate</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="CONTRACT_APPLYING_START_DATE">
-        <source>ساري من تاريخ</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.ContractApplyDt_LABEL">
-        <source>ساري من تاريخ</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="DESCRIPTION">
-        <source>الوصف</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.ContractDesc_LABEL">
-        <source>الوصف</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="CONTRACT_ID">
-        <source>رقم العقد</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.ContractId_LABEL">
-        <source>رقم العقد</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.CurrCode_LABEL">
-        <source>Currency</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="EMPLOYEE_ID">
-        <source>Employee ID</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.EmpId_LABEL">
-        <source>Employee ID</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="FIRST_NAME">
-        <source>الإسم الأول</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.FirstName_LABEL">
-        <source>First Name</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.IdNo_LABEL">
-        <source>Identification No.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="IDENTIFICATION_TYPE">
-        <source>نوع الهوية</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.IdType_LABEL">
-        <source>نوع الهوية</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.JobId_LABEL">
-        <source>الوظيفة</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="LAST_NAME">
-        <source>الإسم الأخير</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.LastName_LABEL">
-        <source>Last Name</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="MIDDLE_NAME">
-        <source>Middle Name</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.MiddleName_LABEL">
-        <source>الإسم الأوسط</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.SystemParameters_LABEL">
-        <source>محددات النظام</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV.SL_0_0">
-        <source>I</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV.SL_0_1">
-        <source>National No.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV.SL_1_0">
-        <source>P</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV.SL_1_1">
-        <source>Passport No.</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.BenefitTypesV_LABEL">
-        <source>Benefit Types V</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.BonusTypesV_LABEL">
-        <source>Bonus Types V</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.DeductionTypesV_LABEL">
-        <source>Deduction Types V</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV_LABEL">
-        <source>Punishment Types V</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.VacationTypesV_LABEL">
-        <source>Vacation Types V</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.EffectLOV.SL_0_0">
-        <source>FV</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.EffectLOV.SL_0_1">
-        <source>Fixed-ثابت</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.EffectLOV.SL_1_0">
-        <source>V</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.EffectLOV.SL_1_1">
-        <source>Variable-متغير</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.EffectLOV_LABEL">
-        <source>Effect Lov</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV.SL_0_0">
-        <source>Y</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV.SL_0_1">
-        <source>Yes-نعم</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV.SL_1_0">
-        <source>N</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV.SL_1_1">
-        <source>No-لا</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV_LABEL">
-        <source>From Salary Lov</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="CODE">
-        <source>كود</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacationCode_LABEL">
-        <source>كود</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacationName_LABEL">
-        <source>Name</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacationDesc_LABEL">
-        <source>Description</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="DEDUCT_FROM_SALARY">
-        <source>يخصم من المرتب</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.VacationTypesV.DeductFromSalary_LABEL">
-        <source>Deduct From Salary</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="DEDUCT_FROM_BALANCE">
-        <source>خصم من الرصيد</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacDedEffect_LABEL">
-        <source>خصم من الرصيد</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="DEDUCTION_VALUE">
-        <source>قيمة الخصم</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacDedVal_LABEL">
-        <source>قيمة الخصم</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusCode_LABEL">
-        <source>كود</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusName_LABEL">
-        <source>الإسم</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusDesc_LABEL">
-        <source>الوصف</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="BONUS_EFFECT">
-        <source>تأثير العلاوة</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusEffect_LABEL">
-        <source>Bonus Effect</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="BONUS_VALUE">
-        <source>قيمة الإستحقاق</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusVal_LABEL">
-        <source>قيمة العلاوة</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunishCode_LABEL">
-        <source>كود</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunishName_LABEL">
-        <source>الإسم</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunishDesc_LABEL">
-        <source>Description</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="PUNISHMENT_EFFECT">
-        <source>تأثير الجزاء</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunDedEffect_LABEL">
-        <source>تأثير الجزاء</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.DeductFromSalary_LABEL">
-        <source>يخصم من المرتب</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunDedVal_LABEL">
-        <source>قيمة الخصم</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionCode_LABEL">
-        <source>كود</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionName_LABEL">
-        <source>Name</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionDesc_LABEL">
-        <source>الوصف</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="DEDUCTION_EFFECT">
-        <source>تأثير الخصم</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionEffect_LABEL">
-        <source>تأثير الخصم</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionVal_LABEL">
-        <source>قيمة الخصم</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitCode_LABEL">
-        <source>كود</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitName_LABEL">
-        <source>الإسم</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitDesc_LABEL">
-        <source>الوصف</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="BENEFIT_EFFECT">
-        <source>تأثير الإستحقاق</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitEffect_LABEL">
-        <source>تأثير الإستحقاق</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="BENEFIT_VALUE">
-        <source>قيمة الإستحقاق</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitVal_LABEL">
-        <source>قيمة العلاوة</source>
-        <target/>
-      </trans-unit>
-    </body>
-  </file>
+                <source>م.</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="FROM_DATE">
+                <source>from Date</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_LABEL">
+                <source>from Date</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_FMT_FORMATTER">
+                <source>oracle.jbo.format.DefaultDateFormatter</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.FrmDt_FMT_FORMAT">
+                <source>dd/MM/yyyy HH:mm a</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="TO_DATE">
+                <source>to Date</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_LABEL">
+                <source>to Date</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_FMT_FORMATTER">
+                <source>oracle.jbo.format.DefaultDateFormatter</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ToDt_FMT_FORMAT">
+                <source>dd/MM/yyyy HH:mm a</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="SER_">
+                <source>م.</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.EmployeeJobHistory.Seq_LABEL">
+                <source>Ser.</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV_LABEL">
+                <source>Employees Contracts V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV_LABEL">
+                <source>Id Type Lov</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_0_0">
+                <source>A</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_0_1">
+                <source>AAAAA</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_1_0">
+                <source>B</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_1_1">
+                <source>BBBBB</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_2_0">
+                <source>C</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_2_1">
+                <source>CCCCC</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_3_0">
+                <source>D</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TestLOV.SL_3_1">
+                <source>DDDDD</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TestLOV_LABEL">
+                <source>Test Lov</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TestVO_LABEL">
+                <source>Test Vo</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="LAST_EDUCATIONAL_CERTIFICATE">
+                <source>أخر مؤهل دراسي</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.Certificate_LABEL">
+                <source>Last Educational Certificate</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="DATE_OF_LAST_EDUCATIONAL_CERTIFICATE">
+                <source>تاريخ أخر مؤهل دراسي</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.CertificateDt_LABEL">
+                <source>Date of Last Educational Certificate</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="CONTRACT_APPLYING_START_DATE">
+                <source>ساري من تاريخ</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.ContractApplyDt_LABEL">
+                <source>ساري من تاريخ</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="DESCRIPTION">
+                <source>الوصف</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.ContractDesc_LABEL">
+                <source>الوصف</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="CONTRACT_ID">
+                <source>رقم العقد</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.ContractId_LABEL">
+                <source>رقم العقد</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.CurrCode_LABEL">
+                <source>Currency</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="EMPLOYEE_ID">
+                <source>Employee ID</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.EmpId_LABEL">
+                <source>Employee ID</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="FIRST_NAME">
+                <source>الإسم الأول</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.FirstName_LABEL">
+                <source>First Name</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.IdNo_LABEL">
+                <source>Identification No.</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="IDENTIFICATION_TYPE">
+                <source>نوع الهوية</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.IdType_LABEL">
+                <source>نوع الهوية</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.JobId_LABEL">
+                <source>الوظيفة</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="LAST_NAME">
+                <source>الإسم الأخير</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.LastName_LABEL">
+                <source>Last Name</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="MIDDLE_NAME">
+                <source>Middle Name</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeesContractsV.MiddleName_LABEL">
+                <source>الإسم الأوسط</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.SystemParameters_LABEL">
+                <source>محددات النظام</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV.SL_0_0">
+                <source>I</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV.SL_0_1">
+                <source>National No.</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV.SL_1_0">
+                <source>P</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.IdTypeLOV.SL_1_1">
+                <source>Passport No.</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.BenefitTypesV_LABEL">
+                <source>Benefit Types V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.BonusTypesV_LABEL">
+                <source>Bonus Types V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.DeductionTypesV_LABEL">
+                <source>Deduction Types V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV_LABEL">
+                <source>Punishment Types V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.VacationTypesV_LABEL">
+                <source>Vacation Types V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EffectLOV.SL_0_0">
+                <source>FV</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EffectLOV.SL_0_1">
+                <source>Fixed-ثابت</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EffectLOV.SL_1_0">
+                <source>V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EffectLOV.SL_1_1">
+                <source>Variable-متغير</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EffectLOV_LABEL">
+                <source>Effect Lov</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV.SL_0_0">
+                <source>Y</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV.SL_0_1">
+                <source>Yes-نعم</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV.SL_1_0">
+                <source>N</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV.SL_1_1">
+                <source>No-لا</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.FromSalaryLOV_LABEL">
+                <source>From Salary Lov</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="CODE">
+                <source>كود</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacationCode_LABEL">
+                <source>كود</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacationName_LABEL">
+                <source>Name</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacationDesc_LABEL">
+                <source>Description</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="DEDUCT_FROM_SALARY">
+                <source>يخصم من المرتب</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.VacationTypesV.DeductFromSalary_LABEL">
+                <source>Deduct From Salary</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="DEDUCT_FROM_BALANCE">
+                <source>خصم من الرصيد</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacDedEffect_LABEL">
+                <source>خصم من الرصيد</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="DEDUCTION_VALUE">
+                <source>قيمة الخصم</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.VacationTypesV.VacDedVal_LABEL">
+                <source>قيمة الخصم</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusCode_LABEL">
+                <source>كود</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusName_LABEL">
+                <source>الإسم</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusDesc_LABEL">
+                <source>الوصف</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="BONUS_EFFECT">
+                <source>تأثير العلاوة</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusEffect_LABEL">
+                <source>Bonus Effect</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="BONUS_VALUE">
+                <source>قيمة الإستحقاق</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.BonusTypesV.BonusVal_LABEL">
+                <source>قيمة العلاوة</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunishCode_LABEL">
+                <source>كود</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunishName_LABEL">
+                <source>الإسم</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunishDesc_LABEL">
+                <source>Description</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="PUNISHMENT_EFFECT">
+                <source>تأثير الجزاء</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunDedEffect_LABEL">
+                <source>تأثير الجزاء</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.DeductFromSalary_LABEL">
+                <source>يخصم من المرتب</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.PunishmentTypesV.PunDedVal_LABEL">
+                <source>قيمة الخصم</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionCode_LABEL">
+                <source>كود</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionName_LABEL">
+                <source>Name</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionDesc_LABEL">
+                <source>الوصف</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="DEDUCTION_EFFECT">
+                <source>تأثير الخصم</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionEffect_LABEL">
+                <source>تأثير الخصم</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.DeductionTypes.DeductionVal_LABEL">
+                <source>قيمة الخصم</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitCode_LABEL">
+                <source>كود</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitName_LABEL">
+                <source>الإسم</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitDesc_LABEL">
+                <source>الوصف</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="BENEFIT_EFFECT">
+                <source>تأثير الإستحقاق</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitEffect_LABEL">
+                <source>تأثير الإستحقاق</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="BENEFIT_VALUE">
+                <source>قيمة الإستحقاق</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.BenefitTypes.BenefitVal_LABEL">
+                <source>قيمة العلاوة</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.OrgUsersV_LABEL">
+                <source>Org Users V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.AttendanceV_LABEL">
+                <source>Attendance V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.FkAttendanceUserVL_LABEL">
+                <source>Fk Attendance User Vl</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.CurrMonthLOV_LABEL">
+                <source>Curr Month Lov</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.CurrYearLOV.SL_0_0">
+                <source>2025</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.CurrYearLOV.SL_1_0">
+                <source>2026</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.CurrYearLOV_LABEL">
+                <source>Curr Year Lov</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.AttendanceStatisticsV_LABEL">
+                <source>Attendance Statistics V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.OrgUsersToAttendanceStatisticsVL_LABEL">
+                <source>Org Users To Attendance Statistics Vl</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.WeekDaysLOV_LABEL">
+                <source>Week Days Lov</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_0_0">
+                <source>A</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_0_1">
+                <source>Doctorate- دكتوراه</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_1_0">
+                <source>B</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_1_1">
+                <source>Master- ماجستير</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_2_0">
+                <source>C</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_2_1">
+                <source>Bachelor-بكالوريوس</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_3_0">
+                <source>D</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_3_1">
+                <source>Tech.Diploma-دبلوم فني</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates_LABEL">
+                <source>Employee Certificates</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.OrgUsersToUserVacationsVL_LABEL">
+                <source>Org Users To User Vacations Vl</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeVacationsStatisticsV_LABEL">
+                <source>Employee Vacations Statistics V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.OrgUserToEmpVacationStatisticsVL_LABEL">
+                <source>Org User To Emp Vacation Statistics Vl</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_0_0">
+                <source>A</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_0_1">
+                <source>Approved</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_1_0">
+                <source>R</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_1_1">
+                <source>Rejected</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_2_0">
+                <source>S</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_2_1">
+                <source>Submitted</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_3_0">
+                <source>I</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV.SL_3_1">
+                <source>in-Progress</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.VacationStatusLOV_LABEL">
+                <source>Vacation Status Lov</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="TO_DATE_MUST_BE_AFTER_FROM_DATE_">
+                <source>To Date must be after From Date.</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_4_0">
+                <source>E</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_4_1">
+                <source>No Cer.- بدون مؤهل</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_5_0">
+                <source>F</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_5_1">
+                <source>Primary- الإبتدائية</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_6_0">
+                <source>G</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_6_1">
+                <source>Preparatory- الإعدادية</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_7_0">
+                <source>H</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmployeeCertificates.SL_7_1">
+                <source>Above average- فوق متوسط</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.UserVacationsV.RegisterDt_FMT_FORMATTER">
+                <source>oracle.jbo.format.DefaultDateFormatter</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.UserVacationsV.RegisterDt_FMT_FORMAT">
+                <source>dd/MM/yyyy hh:mm a</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.UserVacationsV.FrmDt_FMT_FORMATTER">
+                <source>oracle.jbo.format.DefaultDateFormatter</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.UserVacationsV.FrmDt_FMT_FORMAT">
+                <source>dd/MM/yyyy hh:mm a</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.UserVacationsV.ToDt_FMT_FORMATTER">
+                <source>oracle.jbo.format.DefaultDateFormatter</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.UserVacationsV.ToDt_FMT_FORMAT">
+                <source>dd/MM/yyyy hh:mm a</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.JobsTreeV_LABEL">
+                <source>Jobs Tree V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.JobsTreeSelfJoinCVL_LABEL">
+                <source>Jobs Tree Self Join Cvl</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.OrgUsersToApprovalTransactionsDetsCL_LABEL">
+                <source>Org Users To Approval Transactions Dets Cl</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV.SL_0_0">
+                <source>PENDING</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV.SL_0_1">
+                <source>Pending-منتظر</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV.SL_1_0">
+                <source>APPROVED</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV.SL_1_1">
+                <source>Approved-تصدق</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV.SL_2_0">
+                <source>REJECTED</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV.SL_2_1">
+                <source>Rejected-مرفوض</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.ApprovalActionStatusLOV_LABEL">
+                <source>Approval Action Status Lov</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeApprovalStatusV_LABEL">
+                <source>Employee Approval Status V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.UserVacationToApprovalStatusCL_LABEL">
+                <source>User Vacation To Approval Status Cl</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.FkEmployeeExtraJobsEmployeesCrudLink_LABEL">
+                <source>Fk Employee Extra Jobs Employees Crud Link</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmpExtraJobsLOVEx_LABEL">
+                <source>Emp Extra Jobs Lov Ex</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="THIS_JOB_HAS_ALREADY_ASSIGNED_TO_EMPLOYEE">
+                <source>This job has already assigned to Employee</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.EmpExtraJobsLOV_LABEL">
+                <source>Emp Extra Jobs Lov</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.lov.ProjectsLOV_LABEL">
+                <source>Projects Lov</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.EmployeeJobHistoryV.ProjId_LABEL">
+                <source>Project</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TransferEmployeeV_LABEL">
+                <source>Transfer Employee V</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TransferEmployeeV.ToLocation_LABEL">
+                <source>To Department</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.views.TransferEmployeeV.PermenantExtra_LABEL">
+                <source>Full Time</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="_">
+                <source>#</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Attendance.AttendanceId_LABEL">
+                <source>#</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="ATTENDANCE_DAY">
+                <source>يوم الحضور</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Attendance.AttendanceDate_LABEL">
+                <source>تاريخ الحضور</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Attendance.CheckInTime_LABEL">
+                <source>وقت الحضور</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Attendance.CheckOutTime_LABEL">
+                <source>وقت الانصراف</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Attendance.Status_LABEL">
+                <source>الحالة</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Attendance.Remarks_LABEL">
+                <source>ملاحظات</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="com.aalm.hr.model.entities.Attendance.WorkHours_LABEL">
+                <source>ساعات العمل</source>
+                <target/>
+            </trans-unit>
+            
+        </body>
+    </file>
 </xliff>

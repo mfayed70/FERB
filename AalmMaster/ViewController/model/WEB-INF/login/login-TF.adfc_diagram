@@ -17,9 +17,9 @@
       <property
          name="y">190.07812</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">141.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <View
       id="View3">
@@ -34,9 +34,9 @@
       <property
          name="y">190.07812</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">379.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -71,9 +71,9 @@
       <property
          name="y">347.07812</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">330.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -116,7 +116,7 @@
       <property
          name="fromOutcome">toUserProfile</property>
       <property
-         name="sdm:polyPoints">T44,137.5,134.34624,194.5,29.046875,B44</property>
+         name="sdm:polyPoints">T56,144.5,136.09375,201.5,30.807158,B56</property>
    </ControlFlowCase>
    <Router
       id="Router11">
@@ -139,7 +139,7 @@
       <property
          name="fromOutcome">bad</property>
       <property
-         name="sdm:polyPoints">B56,201.5,30.807158,144.5,136.09375,T56</property>
+         name="sdm:polyPoints">B44,194.5,29.046875,137.5,134.34624,T44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

@@ -32,11 +32,7 @@
   <ViewAccessor
     Name="EmployeesLOV1"
     ViewObjectName="com.aalm.master.model.lovs.EmployeesLOV"
-    RowLevelBinds="true">
-    <ViewCriteriaUsage
-      Name="EmployeesLOVCriteria"
-      FullName="com.aalm.master.model.lovs.EmployeesLOV.EmployeesLOVCriteria"/>
-  </ViewAccessor>
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_EmpId"
     ListVOName="EmployeesLOV1"
@@ -48,8 +44,14 @@
       <Item Value="EmpId"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="FirstName"/>
+      <Item Value="LastName"/>
+    </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="EmpId"/>
+      <Item Value="FirstName"/>
+      <Item Value="LastName"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="EmpId"/>
@@ -111,7 +113,14 @@
     PrecisionRule="true"
     EntityAttrName="Email"
     EntityUsage="OrgUsers"
-    AliasName="email"/>
+    AliasName="email">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Mobile"
     PrecisionRule="true"
@@ -179,6 +188,18 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="FirstName1"
+    PrecisionRule="true"
+    EntityAttrName="FirstName"
+    EntityUsage="OrgUsers"
+    AliasName="First_Name1"/>
+  <ViewAttribute
+    Name="LastName1"
+    PrecisionRule="true"
+    EntityAttrName="LastName"
+    EntityUsage="OrgUsers"
+    AliasName="Last_Name1"/>
   <ViewCriteria
     Name="OrgUsersVCriteria"
     ViewObjectName="com.aalm.master.model.views.OrgUsersV"
@@ -290,7 +311,6 @@
         ViewAttribute="Pswrd"
         Operator="ISBLANK"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>

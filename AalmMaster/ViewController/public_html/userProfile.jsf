@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        locale="#{Locale.locale}">
     <af:document title="#{sessionScope.orgIni=='e' ? 'Elecon ERP' : 'Zamzam ERP'}" id="d1"
                  smallIconSource="#{sessionScope.orgIni=='e' ? resource['images:eleconLogo.png'] : resource['images:zamzamlogo.png']}">
         <af:form id="f1">

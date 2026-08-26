@@ -14,52 +14,11 @@
     <iterator id="SysUserRoleSysVIterator" Binds="SysUserRoleSysV" DataControl="AalmMasterDataControl" RangeSize="25"/>
     <iterator id="SysUserRoleSysFncnsVIterator" Binds="SysUserRoleSysFncnsV" DataControl="AalmMasterDataControl"
               RangeSize="25"/>
+    <searchRegion Binds="SystemUsersVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SystemUsersVQuery"/>
   </executables>
   <bindings>
-    <tree id="SystemUsersV" IterBinding="SystemUsersVIterator">
-      <nodeDefinition DefName="com.aalm.master.model.views.OrgUsersV" Name="OrgUsersV0">
-        <AttrNames>
-          <Item Value="UserId"/>
-          <Item Value="FirstName"/>
-          <Item Value="LastName"/>
-          <Item Value="Email"/>
-          <Item Value="Mobile"/>
-          <Item Value="Address"/>
-          <Item Value="FrmDt"/>
-          <Item Value="ToDt"/>
-          <Item Value="EmpId"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <action IterBinding="SystemUsersVIterator" id="CreateInsertUser" InstanceName="AalmMasterDataControl.SystemUsersV"
-            DataControl="AalmMasterDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
-    <action IterBinding="SystemUsersVIterator" id="DeleteUser" InstanceName="AalmMasterDataControl.SystemUsersV"
-            DataControl="AalmMasterDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AalmMasterDataControl"/>
-    <tree id="UserRolesMasterV" IterBinding="SystUsrRolesMasterVIterator">
-      <nodeDefinition DefName="com.aalm.master.model.views.UserRolesMasterV" Name="UserRolesMasterV0">
-        <AttrNames>
-          <Item Value="RoleGroupId"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <action IterBinding="SystUsrRolesMasterVIterator" id="DeleteRole"
-            InstanceName="AalmMasterDataControl.SystUsrRolesMasterV" DataControl="AalmMasterDataControl"
-            RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <tree id="SysUsrControlOrgsV" IterBinding="SysUsrControlOrgsVIterator">
-      <nodeDefinition DefName="com.aalm.master.model.views.UserControlOrgsV" Name="UserControlOrgsV0">
-        <AttrNames>
-          <Item Value="OrgCode"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <action IterBinding="SysUsrControlOrgsVIterator" id="CreateInsertUsrCntrlOrgs"
-            InstanceName="AalmMasterDataControl.SysUsrControlOrgsV" DataControl="AalmMasterDataControl"
-            RequiresUpdateModel="true" Action="createWithParams">
-      <NamedData NDName="OrgCode" NDValue="#{sessionScope.orgCode}" NDType="java.lang.String"/>
-    </action>
-    <action IterBinding="SysUsrControlOrgsVIterator" id="DeleteSysUsrControlOrg" InstanceName="AalmMasterDataControl.SysUsrControlOrgsV"
-            DataControl="AalmMasterDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <attributeValues IterBinding="SystemParametersVIterator" id="SmtpHost">
       <AttrNames>
         <Item Value="SmtpHost"/>
@@ -85,48 +44,55 @@
         <Item Value="VerifyEmailUrl"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="SystemUsersVIterator" id="Email">
-      <AttrNames>
-        <Item Value="Email"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="SystemUsersVIterator" id="FirstName">
-      <AttrNames>
-        <Item Value="FirstName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="SystemUsersVIterator" id="LastName">
-      <AttrNames>
-        <Item Value="LastName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="SystemUsersVIterator" id="Otp">
-      <AttrNames>
-        <Item Value="Otp"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="SysUsrControlOrgsVIterator" id="EnOrgName">
       <AttrNames>
         <Item Value="EnOrgName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="SystUsrRolesMasterVIterator" id="UserId">
-      <AttrNames>
-        <Item Value="UserId"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="SystUsrRolesMasterVIterator" id="RoleGroupId">
-      <AttrNames>
-        <Item Value="RoleGroupId"/>
       </AttrNames>
     </attributeValues>
     <action id="Commit" DataControl="AalmMasterDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <action IterBinding="SystUsrRolesMasterVIterator" id="CreateInsertUsrRolesMstr"
             InstanceName="AalmMasterDataControl.SystUsrRolesMasterV" DataControl="AalmMasterDataControl"
             RequiresUpdateModel="true" Action="createInsertRow"/>
-    <attributeValues IterBinding="SystemUsersVIterator" id="Pswrd">
+    <tree IterBinding="SystemUsersVIterator" id="SystemUsersV">
+      <nodeDefinition DefName="com.aalm.master.model.views.OrgUsersV" Name="SystemUsersV0">
+        <AttrNames>
+          <Item Value="UserId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Email"/>
+          <Item Value="Mobile"/>
+          <Item Value="Address"/>
+          <Item Value="Pswrd"/>
+          <Item Value="Otp"/>
+          <Item Value="FrmDt"/>
+          <Item Value="ToDt"/>
+          <Item Value="EmpId"/>
+          <Item Value="FirstName1"/>
+          <Item Value="LastName1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SystUsrRolesMasterVIterator" id="UserRolesMasterV">
+      <nodeDefinition DefName="com.aalm.master.model.views.UserRolesMasterV" Name="SystUsrRolesMasterV0">
+        <AttrNames>
+          <Item Value="UserId"/>
+          <Item Value="RoleGroupId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SystemUsersVIterator" id="CreateInsertUser" InstanceName="AalmMasterDataControl.SystemUsersV"
+            DataControl="AalmMasterDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SysUsrControlOrgsVIterator" id="CreateInsertUsrCntrlOrgs"
+            InstanceName="AalmMasterDataControl.SysUsrControlOrgsV" DataControl="AalmMasterDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SystUsrRolesMasterVIterator" id="DeleteRole"
+            InstanceName="AalmMasterDataControl.SystUsrRolesMasterV" DataControl="AalmMasterDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="SystemUsersVIterator" id="DeleteUser" InstanceName="AalmMasterDataControl.SystemUsersV"
+            DataControl="AalmMasterDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SystemUsersVIterator" id="EmpId">
       <AttrNames>
-        <Item Value="Pswrd"/>
+        <Item Value="EmpId"/>
       </AttrNames>
     </attributeValues>
   </bindings>

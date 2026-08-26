@@ -322,10 +322,12 @@ public class HrBean {
                     System.out.println("curr time : "+this.getCurrentTime());
             ADFUtils.setBoundAttributeValue("CheckInTime", this.getCurrentTime());
             ADFUtils.findOperation("Commit").execute();
+            ADFUtils.findOperation("createTodayAttendanceIfMissing").execute();
             ADFUtils.findIterator("AttendanceVIterator").executeQuery();
                 } else {
                     ADFUtils.setBoundAttributeValue("CheckOutTime", this.getCurrentTime());
                     ADFUtils.findOperation("Commit").execute();
+                    ADFUtils.findOperation("createTodayAttendanceIfMissing").execute();
                     ADFUtils.findIterator("AttendanceVIterator").executeQuery();
                            break;
                 }   case no:    // for type="yesNo"
