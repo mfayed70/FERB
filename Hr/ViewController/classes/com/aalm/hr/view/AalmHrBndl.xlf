@@ -231,6 +231,10 @@
                 <source>Personal Leave</source>
                 <target>إجازة شخصية</target>
             </trans-unit>
+      <trans-unit id="VacationApprovalCycleHeader">
+        <source>Vacation Approval Cycle Header</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

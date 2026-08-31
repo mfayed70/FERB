@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
@@ -18,9 +19,13 @@ import javax.faces.event.ActionEvent;
 
 import javax.servlet.http.HttpServletRequest;
 
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.logging.ADFLogger;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.input.RichInputText;
+import oracle.adf.view.rich.component.rich.nav.RichButton;
+import oracle.adf.view.rich.component.rich.nav.RichLink;
 import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.binding.OperationBinding;
@@ -28,6 +33,8 @@ import oracle.binding.OperationBinding;
 import oracle.jbo.Row;
 
 import oracle.jbo.RowSetIterator;
+
+import oracle.jbo.ViewObject;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -46,6 +53,9 @@ public class LoginBean {
     private Timestamp currentTime;
     private RichPopup attendanceConfirmationPopup;
     private String pswrd, confrmPswrd;
+    private RichInputText paswrdIt;
+    private RichButton loginBtn;
+
 
     public void login(ActionEvent actionEvent) {
         // Add event code here...
@@ -77,9 +87,12 @@ public class LoginBean {
                                             myRow.getAttribute("LastName"));
                 JSFUtil.storeOnSession("userId", myRow.getAttribute("UserId"));
                 JSFUtil.storeOnSession("userMobile", myRow.getAttribute("Mobile"));
+                JSFUtil.storeOnSession("empId", myRow.getAttribute("EmpId"));
                 JSFUtil.storeOnSession("show_fncn", false);
             }
-            System.out.println("1- : "+rs.getRowCount()+"--"+JSFUtil.getFromSession("userName"));
+            System.out.println("Org users count : "+rs.getRowCount()+"-- user name : "
+                               +JSFUtil.getFromSession("userName")+"--emp id : "
+                               +JSFUtil.getFromSession("empId"));
             ADFUtils.findIterator("OrgUsersVIterator").executeQuery();
          RowSetIterator userConOrgsrs =  ADFUtils.findIterator("UserInOrgVIterator").getViewObject().createRowSetIterator(null);
 
@@ -96,7 +109,7 @@ public class LoginBean {
                 orgCodes = (Integer)myRow.getAttribute("OrgCode");
             }
             JSFUtil.storeOnSession("orgCode", orgCodes);
-            System.out.println("org :"+JSFUtil.getFromSession("orgCode")+
+            System.out.println("org code :"+JSFUtil.getFromSession("orgCode")+
                                "--- "+x);
             if (savedRequest != null) {
                 if(request.getRequestURL().toString().contains("zamzam")){
@@ -330,5 +343,43 @@ public class LoginBean {
 
     public String getConfrmPswrd() {
         return confrmPswrd;
+    }
+
+    public void usernameValidator(FacesContext facesContext, UIComponent uIComponent, Object object) {
+        // Add event code here...
+        String username = object.toString();
+    DCIteratorBinding iter = ADFUtils.findIterator("OrgUsersSetPasswordVIterator");
+    ViewObject vo = iter.getViewObject();
+    
+    vo.setNamedWhereClauseParam("pEmail", username);
+    vo.executeQuery();
+        OperationBinding oper = ADFUtils.findOperation("ExecuteWithParams");
+        oper.getParamsMap().put("pEmail", username);
+        oper.execute();
+        System.out.println("blank pswrd user count is : "+
+                ADFUtils.findIterator("OrgUsersSetPasswordVIterator").getEstimatedRowCount()
+                           +"--"+username);
+        if (ADFUtils.findIterator("OrgUsersSetPasswordVIterator").getEstimatedRowCount()==1) {
+            this.paswrdIt.setVisible(false);
+            this.loginBtn.setVisible(false);
+        }
+
+    }
+
+    public void setPaswrdIt(RichInputText paswrdIt) {
+        this.paswrdIt = paswrdIt;
+    }
+
+    public RichInputText getPaswrdIt() {
+        return paswrdIt;
+    }
+
+
+    public void setLoginBtn(RichButton loginBtn) {
+        this.loginBtn = loginBtn;
+    }
+
+    public RichButton getLoginBtn() {
+        return loginBtn;
     }
 }

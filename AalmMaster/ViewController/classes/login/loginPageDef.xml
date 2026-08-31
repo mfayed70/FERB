@@ -8,7 +8,7 @@
               RangeSize="25"/>
     <iterator id="UserAttendanceVIterator" Binds="UserAttendanceV" DataControl="AalmMasterDataControl" RangeSize="25"/>
     <iterator Binds="OrgUsersSetPasswordV" RangeSize="10" DataControl="AalmMasterDataControl"
-              id="OrgUsersSetPasswordVIterator"/>
+              id="OrgUsersSetPasswordVIterator" Refresh="always"/>
   </executables>
   <bindings>
     <methodAction id="createTodayAttendanceIfMissing" RequiresUpdateModel="true" Action="invokeMethod"

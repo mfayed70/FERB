@@ -87,6 +87,8 @@
           <Item Value="DeductFromSalary"/>
           <Item Value="VacDedEffect"/>
           <Item Value="FromColumn"/>
+          <Item Value="VacDedVal"/>
+          <Item Value="VacationCode"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

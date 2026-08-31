@@ -94,8 +94,8 @@
                 <source>Absent</source>
                 <target>غائب</target>
             </trans-unit>
-            <trans-unit id="WaitingPunchOut_STATUS">
-                <source>Waiting Punch-out</source>
+            <trans-unit id="MissingPunchOut_STATUS">
+                <source>Missing Punch-out</source>
                 <target>في انتظار الانصراف</target>
             </trans-unit>
             <trans-unit id="ArriveLate_STATUS">

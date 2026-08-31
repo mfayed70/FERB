@@ -124,6 +124,9 @@
    <ViewUsage
       Name="TransferEmployeeV"
       ViewObjectName="com.aalm.hr.model.views.TransferEmployeeV"/>
+   <ViewUsage
+      Name="PunchAreaV"
+      ViewObjectName="com.aalm.hr.model.views.PunchAreaV"/>
    <ViewLinkUsage
       Name="fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL1"
       ViewLinkObjectName="com.aalm.hr.model.views.fk_EMPLOYEE_JOB_HISTORY_EMPLOYEES1VL"

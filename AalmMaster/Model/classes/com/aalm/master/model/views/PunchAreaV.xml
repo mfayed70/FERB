@@ -20,7 +20,11 @@
   <ViewAccessor
     Name="OrgsLOV1"
     ViewObjectName="com.aalm.master.model.lovs.OrgsLOV"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="PunchAreaOrgsLOVCriteria"
+      FullName="com.aalm.master.model.lovs.OrgsLOV.PunchAreaOrgsLOVCriteria"/>
+  </ViewAccessor>
   <ViewAccessor
     Name="PunchTypeLOV1"
     ViewObjectName="com.aalm.master.model.lovs.PunchTypeLOV"

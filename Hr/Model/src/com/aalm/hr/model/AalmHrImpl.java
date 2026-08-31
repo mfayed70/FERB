@@ -396,5 +396,13 @@ public class AalmHrImpl extends ApplicationModuleImpl implements AalmHr {
     public ViewObjectImpl getTransferEmployeeV() {
         return (ViewObjectImpl) findViewObject("TransferEmployeeV");
     }
+
+    /**
+     * Container's getter for PunchAreaV1.
+     * @return PunchAreaV1
+     */
+    public ViewObjectImpl getPunchAreaV() {
+        return (ViewObjectImpl) findViewObject("PunchAreaV");
+    }
 }
 

@@ -12,7 +12,8 @@
       <af:panelFormLayout id="pfl1" labelAlignment="top"
                           inlineStyle="width:400px; padding:50px 20px 20px; border-style:solid; border-width:thin; border-color:#e7e7e7;margin:20px 0 0 0;border-radius:30px 30px 30px 30px / 30px 30px 30px 30px ;">
         <af:inputText label="#{viewcontrollerBundle.USERNAME}" id="it1" contentStyle="width:220px;font-size:20px;"
-                      value="#{backingBeanScope.LoginBean.userName}" autoSubmit="true"/>
+                      value="#{backingBeanScope.LoginBean.userName}" autoSubmit="true"
+                      validator="#{backingBeanScope.LoginBean.usernameValidator}"/>
         <af:panelGroupLayout id="pgl2" layout="horizontal" inlineStyle="width:600px;padding:10px 0 10px 0;"
                              valign="top">
           <af:link text="#{viewcontrollerBundle.FORGOT_PASSWORD}" id="l1" inlineStyle="color:Maroon;font-size:20px;"
@@ -22,7 +23,8 @@
                          inlineStyle="font-size:14px;" rendered="false"/>
         </af:panelGroupLayout>
         <af:inputText id="it2" label="#{viewcontrollerBundle.PASSWORD}" contentStyle="width:220px;font-size:20px;"
-                      value="#{backingBeanScope.LoginBean.password}" secret="true"/>
+                      value="#{backingBeanScope.LoginBean.password}" secret="true"
+                      binding="#{backingBeanScope.LoginBean.paswrdIt}" partialTriggers="it1"/>
         <af:link text="#{viewcontrollerBundle.SetPassword}" id="l2" inlineStyle="color:Maroon;font-size:20px;"
                  action="#{backingBeanScope.LoginBean.setPswrdActn}"/>
         <f:facet name="footer"/>
@@ -30,7 +32,8 @@
           <af:button text="#{viewcontrollerBundle.LOGIN}" id="cbLogin"
                      inlineStyle="width:220px; text-align:center;font-size:25px;"
                      action="toUserProfile" styleClass="Loginbut" selected="true"
-                     actionListener="#{backingBeanScope.LoginBean.login}">
+                     actionListener="#{backingBeanScope.LoginBean.login}"
+                     binding="#{backingBeanScope.LoginBean.loginBtn}" partialTriggers="it1">
             <af:clientListener method="onLoginClick" type="action"/>
           </af:button>
         </af:panelGroupLayout>

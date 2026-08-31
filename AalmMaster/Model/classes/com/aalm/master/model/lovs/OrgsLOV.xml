@@ -114,6 +114,41 @@ FROM
       <Attr Name="_DisplaySize" Value="11"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewCriteria
+    Name="PunchAreaOrgsLOVCriteria"
+    ViewObjectName="com.aalm.master.model.lovs.OrgsLOV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="OrgsLOVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PrntOrgCode"
+        ViewAttribute="PrntOrgCode"
+        Operator="ISBLANK"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="OrgCode"/>
   </AttrArray>

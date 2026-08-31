@@ -810,6 +810,10 @@
         <source>Work Hours</source>
         <target/>
       </trans-unit>
+      <trans-unit id="com.aalm.hr.model.views.PunchAreaV_LABEL">
+        <source>Punch Area V</source>
+        <target/>
+      </trans-unit>
     </body>
   </file>
 </xliff>

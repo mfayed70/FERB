@@ -141,7 +141,7 @@
                                           selectedRowKeys="#{bindings.AttendanceV.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.AttendanceV.collectionModel.makeCurrent}"
                                           rowSelection="single" fetchSize="#{bindings.AttendanceV.rangeSize}" id="t2"
-                                          verticalGridVisible="false" autoHeightRows="0">
+                                          verticalGridVisible="false" autoHeightRows="0" partialTriggers="::poll1">
                                     <af:column headerText="#{viewcontrollerBundle.SER_}" id="c1" width="30"
                                                align="center">
                                         <af:inputText value="#{row.index+1}"
@@ -194,17 +194,20 @@
                                                 <af:spacer width="5" height="10" id="s2"/>
                                             </f:facet>
                                         </af:panelGroupLayout>
-                                        <af:button text="#{viewcontrollerBundle.Punchin}" id="b1"
-                                                   icon="#{resource['images:punci-in-O.png']}"
-                                                   hoverIcon="#{resource['images:punci-in-F.png']}"
-                                                   visible="#{row.AttendanceDate == row.CurrDate &amp;&amp; row.CheckInTime == null &amp;&amp; view.viewId=='/userProfile'}"
-                                                   actionListener="#{pageFlowScope.HrBean.punchinBtnActnLsnr}"
-                                                   styleClass="but" inlineStyle="background-color:#42c6ff;">
-                                            <!--                               disabled="#{sessionScope.deviceType ne 'mobile'}">
+                                        <af:panelGroupLayout id="pgl13">
+                                            <af:button text="#{viewcontrollerBundle.Punchin}" id="b1"
+                                                       icon="#{resource['images:punci-in-O.png']}"
+                                                       hoverIcon="#{resource['images:punci-in-F.png']}"
+                                                       visible="#{row.AttendanceDate == row.CurrDate &amp;&amp; row.CheckInTime == null &amp;&amp; view.viewId=='/userProfile'}"
+                                                       actionListener="#{pageFlowScope.HrBean.punchinBtnActnLsnr}"
+                                                       styleClass="but" inlineStyle="background-color:#42c6ff;"
+                                                       disabled="#{sessionScope.deviceType ne 'mobile' &amp;&amp; not sessionScope.Locale.locationValid}">
+                                                <!--                               disabled="#{sessionScope.deviceType ne 'mobile'}">
 -->
-                                            <af:setPropertyListener from="#{'Punch-in'}" to="#{sessionScope.attendance}"
-                                                                    type="action"/>
-                                        </af:button>
+                                                <af:setPropertyListener from="#{'Punch-in'}"
+                                                                        to="#{sessionScope.attendance}" type="action"/>
+                                            </af:button>
+                                        </af:panelGroupLayout>
                                     </af:column>
                                     <af:column headerText="#{bindings.AttendanceV.hints.CheckOutTime.label}" id="c8"
                                                align="center" width="150">
@@ -229,7 +232,8 @@
                                                    hoverIcon="#{resource['images:punch-out-F.png']}"
                                                    visible="#{row.AttendanceDate == row.CurrDate &amp;&amp; row.CheckOutTime == null &amp;&amp; row.CheckInTime != null &amp;&amp; view.viewId=='/userProfile'}"
                                                    actionListener="#{pageFlowScope.HrBean.punchoutBtnActnLsnr}"
-                                                   styleClass="but" inlineStyle="background-color:#42c6ff;">
+                                                   styleClass="but" inlineStyle="background-color:#42c6ff;"
+                                                   disabled="#{sessionScope.deviceType ne 'mobile' &amp;&amp; not sessionScope.Locale.locationValid}">
                                             <af:setPropertyListener from="#{'Punch-out'}"
                                                                     to="#{sessionScope.attendance}" type="action"/>
                                         </af:button>
@@ -244,7 +248,24 @@
                                                       maximumLength="#{bindings.AttendanceV.hints.Status.precision}"
                                                       shortDesc="#{bindings.AttendanceV.hints.Status.tooltip}" id="it3"
                                                       readOnly="true" contentStyle="color:White;font-weight:bolder;"
-                                                      value="#{sessionScope.lang == 'ar' ? (row.bindings.Status.inputValue == 'Attend'    ? viewcontrollerBundle['Attend_STATUS']    : row.bindings.Status.inputValue == 'Absent'    ? viewcontrollerBundle['Absent_STATUS']    : row.bindings.Status.inputValue == 'Waiting Punch-out'    ? viewcontrollerBundle['WaitingPunchOut_STATUS']    : row.bindings.Status.inputValue == 'Arrive Late'    ? viewcontrollerBundle['ArriveLate_STATUS']    : row.bindings.Status.inputValue == 'Left Early'    ? viewcontrollerBundle['LeftEarly_STATUS']    : row.bindings.Status.inputValue == 'Weekend'    ? viewcontrollerBundle['Weekend_STATUS']    : row.bindings.Status.inputValue == 'Medical Leave'    ? viewcontrollerBundle['MedicalLeave_STATUS']    : row.bindings.Status.inputValue == 'Emergency Leave'    ? viewcontrollerBundle['EmergencyLeave_STATUS']    : row.bindings.Status.inputValue == 'Personal Leave'    ? viewcontrollerBundle['PersonalLeave_STATUS']    : row.bindings.Status.inputValue) : row.bindings.Status.inputValue}">
+                                                      value="#{sessionScope.lang == 'ar' ? 
+    (row.bindings.Status.inputValue == 'Attend' 
+        ? viewcontrollerBundle['Attend_STATUS'] 
+    : row.bindings.Status.inputValue == 'Absent' 
+        ? viewcontrollerBundle['Absent_STATUS'] 
+    : row.bindings.Status.inputValue == 'Missing Punch-out' 
+        ? viewcontrollerBundle['MissingPunchOut_STATUS'] 
+    : row.bindings.Status.inputValue == 'Weekend' 
+        ? viewcontrollerBundle['Weekend_STATUS'] 
+    : row.bindings.Status.inputValue == 'Medical Leave' 
+        ? viewcontrollerBundle['MedicalLeave_STATUS'] 
+    : row.bindings.Status.inputValue == 'Emergency Leave' 
+        ? viewcontrollerBundle['EmergencyLeave_STATUS'] 
+    : row.bindings.Status.inputValue == 'Personal Leave' 
+        ? viewcontrollerBundle['PersonalLeave_STATUS'] 
+    : row.bindings.Status.inputValue
+    ) 
+: row.bindings.Status.inputValue}">
                                             <f:validator binding="#{row.bindings.Status.validator}"/>
                                         </af:inputText>
                                     </af:column>

@@ -27,7 +27,13 @@ import javax.faces.model.SelectItem;
 
 import oracle.adf.model.binding.DCIteratorBinding;
 
+import oracle.jbo.Row;
+import oracle.jbo.RowSetIterator;
+
 import org.apache.myfaces.trinidad.event.PollEvent;
+import javax.faces.component.UIComponent;
+
+import oracle.adf.view.rich.context.AdfFacesContext;
 
 public class Locale implements Serializable{
     private String locale;
@@ -38,6 +44,10 @@ public class Locale implements Serializable{
     private String locationStatus = "Detecting location...";
     private boolean locationReceived = false;
     private int pollInterval = 3600000;
+    private boolean locationValid = false;
+    private Double distanceFromPunchArea;
+    private String punchAreaName;
+    private Double allowedRadius;
     
     public void onPoll(PollEvent pollEvent) {
 
@@ -58,7 +68,32 @@ public class Locale implements Serializable{
                          + " lon=" + this.longitude
                          + " acc=" + accValue+ " - Interval"+this.pollInterval);
 
-        if (accValue != null) {
+        if (accValue != null && !accValue.isEmpty()) {
+
+            this.accuracy = accValue;
+            locationReceived = true;
+            pollInterval = 3600000;
+
+            Map<String, Object> sessionMap =
+                externalContext.getSessionMap();
+
+            sessionMap.put("latitude", this.latitude);
+            sessionMap.put("longitude", this.longitude);
+            sessionMap.put("accuracy", this.accuracy);
+
+            validatePunchLocation();
+
+            System.out.println(
+                "Location validation result: "
+                + locationValid
+                + " | Area: "
+                + punchAreaName
+                + " | Distance: "
+                + distanceFromPunchArea
+            );
+        }
+
+  /*      if (accValue != null) {
             if (!accValue.isEmpty()) {
                 this.accuracy = accValue;
                 locationReceived = true;
@@ -78,9 +113,168 @@ public class Locale implements Serializable{
                                  + " lon=" + this.longitude
                                  + " acc=" + accValue+ " - Interval"+this.pollInterval);
             }
-        }
+        } */
     }
 
+    private double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
+
+        /*
+         * Earth radius in meters.
+         */
+        final double EARTH_RADIUS = 6371000.0;
+
+        /*
+         * Convert the differences to radians.
+         */
+        double latDistance =
+            Math.toRadians(lat2 - lat1);
+
+        double lonDistance =
+            Math.toRadians(lon2 - lon1);
+
+        /*
+         * Haversine formula.
+         */
+        double a =
+            Math.sin(latDistance / 2)
+            * Math.sin(latDistance / 2)
+            + Math.cos(Math.toRadians(lat1))
+            * Math.cos(Math.toRadians(lat2))
+            * Math.sin(lonDistance / 2)
+            * Math.sin(lonDistance / 2);
+
+        double c =
+            2 * Math.atan2(
+                Math.sqrt(a),
+                Math.sqrt(1 - a)
+            );
+
+        /*
+         * Return distance in meters.
+         */
+        return EARTH_RADIUS * c;
+    }
+    
+    private void validatePunchLocation() {
+
+        locationValid = false;
+        distanceFromPunchArea = null;
+        punchAreaName = null;
+        allowedRadius = null;
+
+        RowSetIterator rs = null;
+        System.out.println("org code is : "+JSFUtil.getFromSession("orgCode"));
+        try {
+            /*
+             * Execute PunchArea VO using:
+             * pOrgCode = sessionScope.orgCode
+             */
+            ADFUtils.findOperation("PunchAreaExecuteWithParams").execute();
+
+            /*
+             * Get the iterator after executing the query.
+             */
+            DCIteratorBinding iter =
+                ADFUtils.findIterator("PunchAreaVIterator");
+
+            rs = iter.getViewObject().createRowSetIterator(null);
+
+            /*
+             * Current employee location.
+             */
+            double currentLat = Double.parseDouble(latitude);
+            double currentLon = Double.parseDouble(longitude);
+
+            boolean insideAnyArea = false;
+
+            while (rs.hasNext()) {
+                System.out.println("inside loop: "+rs.getFetchedRowCount());
+                Row row = rs.next();
+
+                double centerLat =
+                    ((Number) row.getAttribute("CenterLat")).doubleValue();
+
+                double centerLon =
+                    ((Number) row.getAttribute("CenterLon")).doubleValue();
+
+                double radius =
+                    ((Number) row.getAttribute("RadiusM")).doubleValue();
+
+                String areaName =
+                    (String) row.getAttribute("AreaName");
+
+                /*
+                 * Calculate the distance between the employee
+                 * and the current registered punch area.
+                 */
+                double distance =
+                    calculateDistance(
+                        currentLat,
+                        currentLon,
+                        centerLat,
+                        centerLon
+                    );
+
+                System.out.println(
+                    "Checking Punch Area: " + areaName +
+                    " | Distance = " + Math.round(distance) + " meters" +
+                    " | Allowed Radius = " + Math.round(radius) + " meters"
+                );
+
+                /*
+                 * Employee is inside this punch area.
+                 */
+                if (distance <= radius) {
+
+                    insideAnyArea = true;
+
+                    locationValid = true;
+                    distanceFromPunchArea = distance;
+                    allowedRadius = radius;
+                    punchAreaName = areaName;
+
+                    /*
+                     * No need to check the remaining areas.
+                     */
+                    break;
+                }
+            }
+
+            if (insideAnyArea) {
+
+                locationStatus =
+                    "You are inside the allowed work location: "
+                    + punchAreaName
+                    + ". Distance: "
+                    + Math.round(distanceFromPunchArea)
+                    + " meters.";
+
+            } else {
+
+                locationValid = false;
+
+                locationStatus =
+                    "You are outside all allowed work locations.";
+            }
+
+        } catch (Exception e) {
+
+            locationValid = false;
+
+            locationStatus =
+                "Unable to validate your location.";
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (rs != null) {
+                rs.closeRowSetIterator();
+            }
+        }
+    }
+    
+    
     
     public void pollLsnr(PollEvent pollEvent) {
         // Add event code here...
@@ -242,5 +436,22 @@ public class Locale implements Serializable{
 
     public int getPollInterval() {
         return pollInterval;
+    }
+
+
+    public boolean isLocationValid() {
+        return locationValid;
+    }
+
+    public Double getDistanceFromPunchArea() {
+        return distanceFromPunchArea;
+    }
+
+    public String getPunchAreaName() {
+        return punchAreaName;
+    }
+
+    public Double getAllowedRadius() {
+        return allowedRadius;
     }
 }

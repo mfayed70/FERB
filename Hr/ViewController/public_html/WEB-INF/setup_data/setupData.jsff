@@ -628,7 +628,6 @@
           </af:table>
         </af:panelHeader>
       </af:showDetailItem>
-      <af:showDetailItem text="#{viewcontrollerBundle.VacationApprovalCycles}" id="sdi2"/>
     </af:panelTabbed>
   </af:panelHeader>
 </ui:composition>

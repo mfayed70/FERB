@@ -68,13 +68,18 @@
        YEAR(a.attendance_date) AS current_year,
        a.status,
        COUNT(*) AS total_days
-FROM   ATTENDANCE a
-WHERE MONTHNAME(a.attendance_date) = MONTHNAME(CURDATE())
-GROUP  BY a.user_id,
-          MONTHNAME(a.attendance_date),
-          YEAR(a.attendance_date),
-          a.status
-ORDER  BY a.user_id, current_year, current_month, a.status]]></SQLQuery>
+FROM ATTENDANCE a
+WHERE a.attendance_date >= DATE_FORMAT(CURDATE(), '%Y-%m-01')
+  AND a.attendance_date < DATE_ADD(
+                              DATE_FORMAT(CURDATE(), '%Y-%m-01'),
+                              INTERVAL 1 MONTH
+                          )
+  AND a.status <> 'Weekend'
+GROUP BY a.user_id,
+         MONTHNAME(a.attendance_date),
+         YEAR(a.attendance_date),
+         a.status
+ORDER BY a.status]]></SQLQuery>
   <ViewAttribute
     Name="UserId"
     IsUpdateable="false"
